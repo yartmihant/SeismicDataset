@@ -1,0 +1,215 @@
+"""Experimental shared-interface splines; outputs are not yet meshing-ready."""
+
+from __future__ import annotations
+
+from collections import defaultdict, deque
+from dataclasses import asdict, dataclass
+import json
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+from typing import DefaultDict, Dict, List, Set, Tuple
+
+import numpy as np
+from numpy.typing import NDArray
+from PIL import Image, ImageDraw, ImageFont
+# SciPy supplies no typing metadata in this workspace; inputs/outputs are typed here.
+from scipy.interpolate import BSpline  # type: ignore[import-untyped]
+
+
+ROOT = DATA_12
+Vertex = Tuple[int, int]
+Edge = Tuple[Vertex, Vertex]
+FloatArray = NDArray[np.float64]
+IntArray = NDArray[np.int64]
+
+
+@dataclass
+class Curve:
+    materials: Tuple[int, int]
+    degree: int
+    knots: List[float]
+    control_points_m: List[List[float]]
+    source_vertices_m: List[List[float]]
+    sampled_deviation_m: float
+
+
+def regions(labels: IntArray) -> Tuple[int, int]:
+    visited = np.zeros_like(labels, dtype=np.bool_)
+    count, small = 0, 0
+    for r in range(70):
+        for c in range(70):
+            if visited[r, c]:
+                continue
+            visited[r, c] = True
+            queue = deque([(r, c)])
+            area = 0
+            while queue:
+                rr, cc = queue.popleft()
+                area += 1
+                for nr, nc in ((rr-1, cc), (rr+1, cc), (rr, cc-1), (rr, cc+1)):
+                    if 0 <= nr < 70 and 0 <= nc < 70 and not visited[nr, nc] and labels[nr, nc] == labels[r, c]:
+                        visited[nr, nc] = True
+                        queue.append((nr, nc))
+            count += 1
+            small += int(area <= 4)
+    return count, small
+
+
+def majority_once(labels: IntArray) -> IntArray:
+    padded = np.pad(labels, 1, mode="edge")
+    result = labels.copy()
+    best = np.zeros_like(labels)
+    for dr in range(3):
+        for dc in range(3):
+            best += padded[dr:dr+70, dc:dc+70] == labels
+    # A strict majority avoids tie-based dependence on material numbering.
+    for value in np.unique(labels):
+        votes = np.zeros_like(labels)
+        for dr in range(3):
+            for dc in range(3):
+                votes += padded[dr:dr+70, dc:dc+70] == value
+        mask = (votes >= 5) & (votes > best)
+        result[mask] = value
+    return result
+
+
+def chains(labels: IntArray) -> List[Tuple[Tuple[int, int], FloatArray]]:
+    edges: Dict[Edge, Tuple[int, int]] = {}
+    adjacency: DefaultDict[Vertex, List[Edge]] = defaultdict(list)
+
+    def add(a: Vertex, b: Vertex, left: int, right: int) -> None:
+        edge = tuple(sorted((a, b)))
+        key: Edge = (edge[0], edge[1])
+        edges[key] = (min(left, right), max(left, right))
+        adjacency[a].append(key)
+        adjacency[b].append(key)
+
+    for r in range(70):
+        for c in range(70):
+            value = int(labels[r, c])
+            if c == 0:
+                add((0, r), (0, r+1), -1, value)
+            if r == 0:
+                add((c, 0), (c+1, 0), -1, value)
+            other = int(labels[r, c+1]) if c < 69 else -1
+            if value != other:
+                add((c+1, r), (c+1, r+1), value, other)
+            other = int(labels[r+1, c]) if r < 69 else -1
+            if value != other:
+                add((c, r+1), (c+1, r+1), value, other)
+    anchors = {v for v, links in adjacency.items() if len(links) != 2 or len({edges[e] for e in links}) != 1}
+    anchors.update({(0, 0), (70, 0), (70, 70), (0, 70)})
+    unused: Set[Edge] = set(edges)
+    result: List[Tuple[Tuple[int, int], FloatArray]] = []
+    for initial in sorted(edges):
+        if initial not in unused:
+            continue
+        # Trace both ways, because the sorted initial edge may be inside a chain.
+        pair = edges[initial]
+        unused.remove(initial)
+        path = deque(initial)
+        for front in (False, True):
+            while True:
+                vertex = path[0] if front else path[-1]
+                if vertex in anchors:
+                    break
+                candidates = [e for e in adjacency[vertex] if e in unused]
+                if not candidates:
+                    break
+                edge = candidates[0]
+                unused.remove(edge)
+                target = edge[1] if edge[0] == vertex else edge[0]
+                if front:
+                    path.appendleft(target)
+                else:
+                    path.append(target)
+        result.append((pair, np.asarray(path, dtype=np.float64) * 10.0))
+    return result
+
+
+def fit(pair: Tuple[int, int], points: FloatArray, smooth: bool) -> Tuple[Curve, FloatArray]:
+    delta = points[-1] - points[0]
+    if np.linalg.norm(delta) > 0:
+        cross = (points[:, 0]-points[0, 0])*delta[1] - (points[:, 1]-points[0, 1])*delta[0]
+        if np.max(np.abs(cross)) < 1e-9:
+            ends = points[[0, -1]]
+            return Curve(pair, 1, [0, 0, 1, 1], ends.tolist(), points.tolist(), 0.0), ends
+    distance = np.r_[0.0, np.cumsum(np.linalg.norm(np.diff(points, axis=0), axis=1))]
+    t = distance / distance[-1]
+    sample_t = np.linspace(0, 1, int(distance[-1]) + 1)
+    reference = np.column_stack([np.interp(sample_t, t, points[:, k]) for k in range(2)])
+    if smooth and -1 not in pair and len(points) >= 5:
+        controls = min(len(points), max(4, int(np.ceil(distance[-1] / 40)) + 3))
+        for _ in range(3):
+            knots = np.r_[np.zeros(4), np.linspace(0, 1, controls-2)[1:-1], np.ones(4)]
+            basis = BSpline.design_matrix(t, knots, 3).toarray()
+            rhs = points - basis[:, :1] * points[0] - basis[:, -1:] * points[-1]
+            interior = np.linalg.lstsq(basis[:, 1:-1], rhs, rcond=None)[0]
+            coefficients = np.vstack((points[0], interior, points[-1]))
+            sampled = np.asarray(BSpline(knots, coefficients, 3)(sample_t), dtype=np.float64)
+            deviation = float(np.linalg.norm(sampled-reference, axis=1).max())
+            if deviation <= 10.0:
+                return Curve(pair, 3, knots.tolist(), coefficients.tolist(), points.tolist(), deviation), sampled
+            controls = min(len(points), controls + max(1, controls // 2))
+    knots = np.r_[0.0, t, 1.0]
+    return Curve(pair, 1, knots.tolist(), points.tolist(), points.tolist(), 0.0), points
+
+
+def main() -> None:
+    output = ROOT / "vectorization_trial"
+    output.mkdir(exist_ok=True)
+    bounds = json.loads((BINARY / "manifest.json").read_text())["bounds"]
+    font = report_font(18)
+    small = report_font(15)
+    figure = Image.new("RGB", (1160, 1820), "white")
+    draw = ImageDraw.Draw(figure)
+    draw.text((20, 10), "Проба геометрии: точные границы / сплайны / изменение меток + сплайны", fill="black", font=font)
+    records: List[Dict[str, object]] = []
+    for row, (dataset, model_id) in enumerate((("EFVB", 15000), ("ECVB", 0), ("ECVB", 15000), ("ECVB", 29999))):
+        start = model_id // 1000 * 1000
+        with np.load(BINARY / f"{dataset}_{start:05d}_{start+999:05d}.npz", allow_pickle=False) as archive:
+            vp, vs = archive["vp"][model_id-start], archive["vs"][model_id-start]
+        materials, inv = np.unique(np.stack((vp.ravel(), vs.ravel()), axis=1), axis=0, return_inverse=True)
+        original = inv.reshape(70, 70).astype(np.int64)
+        for col, mode in enumerate(("exact", "spline", "majority_spline")):
+            labels = majority_once(original) if mode == "majority_spline" else original
+            count, small_count = regions(labels)
+            p = (materials[labels, 0] - bounds["vp_min"]) / (bounds["vp_max"]-bounds["vp_min"])
+            s = (materials[labels, 1] - bounds["vs_min"]) / (bounds["vs_max"]-bounds["vs_min"])
+            rgb = np.rint(255 * np.stack((p, s, np.zeros_like(p)), axis=-1)).astype(np.uint8)
+            panel = Image.fromarray(rgb).resize((350, 350), Image.Resampling.NEAREST)
+            pen = ImageDraw.Draw(panel)
+            curves: List[Curve] = []
+            for pair, points in chains(labels):
+                curve, sampled = fit(pair, points, mode != "exact")
+                curves.append(curve)
+                pen.line([(float(x/2), float(y/2)) for x, y in sampled], fill="white", width=1)
+            changed = int(np.count_nonzero(labels != original))
+            record: Dict[str, object] = {
+                "dataset": dataset, "model_id": model_id, "mode": mode,
+                "status": "preview_only_not_validated_for_meshing",
+                "coordinates": "x right, depth down, metres",
+                "materials_vp_vs": materials.tolist(), "regions_4": count,
+                "regions_area_le_4_cells": small_count, "changed_cells": changed,
+                "smoothing": "clamped cubic least squares, endpoints fixed, sampled parameterwise deviation <=10 m; linear fallback; experimental tolerance, not an accepted geometry contract",
+                "topology_note": "shared interfaces and junction endpoints retained; intersections, region loops and re-rasterization not yet validated",
+                "curves": [asdict(curve) for curve in curves],
+            }
+            (output / f"{dataset}_{model_id:05d}_{mode}.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+            summary = {k: v for k, v in record.items() if k not in ("curves", "materials_vp_vs")}
+            summary["cubic_curves"] = sum(c.degree == 3 for c in curves)
+            records.append(summary)
+            x, y = 20 + col * 385, 55 + row * 435
+            title = ("Точные границы", "Сплайны, метки сохранены", "Большинство 3×3 + сплайны")[col]
+            draw.text((x, y), f"{dataset} {model_id:05d}: {title}", fill="black", font=small)
+            draw.text((x, y+23), f"Областей: {count}; мелких ≤4 яч.: {small_count};", fill="black", font=small)
+            draw.text((x, y+43), f"Изменено меток: {changed}/4900", fill="black", font=small)
+            figure.paste(panel, (x, y+67))
+            panel.save(image_directory(output) / f"{dataset}_{model_id:05d}_{mode}.png")
+    figure.save(image_directory(output) / "comparison.png")
+    (output / "summary.json").write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps([{k: r[k] for k in ("dataset", "model_id", "mode", "regions_4", "changed_cells", "cubic_curves")} for r in records], indent=2))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,54 @@
+# Local environments, caches, private backups and generated notebook previews.
+.venv/
+.mypy_cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.local-backups/
+.matplotlib/
+.sync_cache
+.syncignore
+build/
+dist/
+*.log
+*.html
+
+# Original data are read-only and stay local. Keep their descriptions and request.
+/src/*
+!/src/README.md
+!/src/vasily_message.txt
+
+# Generated data: retain only compact, reviewable JSON evidence and descriptions.
+/data/**
+!/data/**/
+!/data/**/*.md
+!/data/**/*.json
+/data/dev_1_2_smoothing/provenance_runtime/
+
+# Only curated illustrations are versioned; mass previews remain local.
+/img/dev_1_1_preprocessing/previews/A/EFVB/
+/img/dev_1_1_preprocessing/previews/A/ECVB/
+
+# Native files and bulk array/model/archive formats never enter history.
+*.so
+*.dll
+*.pyd
+*.npz
+*.npy
+*.msh
+*.vtu
+*.vtk
+*.pvd
+*.sgy
+*.segy
+*.fc
+*.fds
+*.h5
+*.hdf5
+*.zip
+*.tar
+*.gz
+*.7z
+*.mp4

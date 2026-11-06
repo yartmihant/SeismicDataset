@@ -1,0 +1,293 @@
+{
+  "amplitude_diagnostics_without_thresholds": {
+    "curved": {
+      "fields": [
+        {
+          "l2_m": [
+            3.0499672947516056e-10,
+            5.00663867078828e-10
+          ],
+          "max_abs_m": [
+            2.8588487411372122e-11,
+            7.510373121451926e-11
+          ],
+          "time_s": 0.2
+        },
+        {
+          "l2_m": [
+            8.559880804809694e-11,
+            7.647364783860184e-11
+          ],
+          "max_abs_m": [
+            7.403799892143529e-12,
+            7.348550524443962e-12
+          ],
+          "time_s": 0.5
+        },
+        {
+          "l2_m": [
+            2.574989509028499e-11,
+            2.625725253932013e-11
+          ],
+          "max_abs_m": [
+            3.045759705670821e-12,
+            3.845540748695359e-12
+          ],
+          "time_s": 1.0
+        },
+        {
+          "l2_m": [
+            9.296350614116975e-13,
+            7.078731716705762e-13
+          ],
+          "max_abs_m": [
+            6.587428659166686e-14,
+            5.3046734481851854e-14
+          ],
+          "time_s": 2.0
+        }
+      ],
+      "surface": {
+        "early_0_to_0_2_s": {
+          "l2_m": [
+            1.3073845510580772e-09,
+            2.3307217915787978e-09
+          ],
+          "max_abs_m": [
+            5.978327778906051e-11,
+            3.0585323060627386e-10
+          ]
+        },
+        "full_0_to_2_s": {
+          "l2_m": [
+            2.0232547321588415e-09,
+            3.374331989937161e-09
+          ],
+          "max_abs_m": [
+            5.978327778906051e-11,
+            3.0585323060627386e-10
+          ]
+        },
+        "late_1_to_2_s": {
+          "l2_m": [
+            3.746849586800621e-11,
+            4.842933627878043e-11
+          ],
+          "max_abs_m": [
+            1.500054970588821e-12,
+            1.5892398155975183e-12
+          ]
+        },
+        "tail_1_9_to_2_s": {
+          "l2_m": [
+            2.023248784226489e-12,
+            2.1244148986309004e-12
+          ],
+          "max_abs_m": [
+            8.155477133588059e-14,
+            6.122297703292768e-14
+          ]
+        }
+      }
+    },
+    "raster": {
+      "fields": [
+        {
+          "l2_m": [
+            3.0451277709609767e-10,
+            5.014515530038292e-10
+          ],
+          "max_abs_m": [
+            2.8487093178919188e-11,
+            7.510717556499547e-11
+          ],
+          "time_s": 0.2
+        },
+        {
+          "l2_m": [
+            8.518635272398106e-11,
+            7.630346437470236e-11
+          ],
+          "max_abs_m": [
+            7.298518831539947e-12,
+            7.300307433961866e-12
+          ],
+          "time_s": 0.5
+        },
+        {
+          "l2_m": [
+            2.5824911047303237e-11,
+            2.654120164163335e-11
+          ],
+          "max_abs_m": [
+            3.0173284160563277e-12,
+            3.963262468297941e-12
+          ],
+          "time_s": 1.0
+        },
+        {
+          "l2_m": [
+            8.818780944023196e-13,
+            6.992625435782958e-13
+          ],
+          "max_abs_m": [
+            6.477974838219322e-14,
+            5.3186423935698514e-14
+          ],
+          "time_s": 2.0
+        }
+      ],
+      "surface": {
+        "early_0_to_0_2_s": {
+          "l2_m": [
+            1.3081385220083718e-09,
+            2.319288654073793e-09
+          ],
+          "max_abs_m": [
+            5.969884765447551e-11,
+            3.0160555169896573e-10
+          ]
+        },
+        "full_0_to_2_s": {
+          "l2_m": [
+            2.0232927438305114e-09,
+            3.3664526431481215e-09
+          ],
+          "max_abs_m": [
+            5.969884765447551e-11,
+            3.0160555169896573e-10
+          ]
+        },
+        "late_1_to_2_s": {
+          "l2_m": [
+            3.738551066567911e-11,
+            4.846986568466426e-11
+          ],
+          "max_abs_m": [
+            1.4680201802999422e-12,
+            1.5822970416063277e-12
+          ]
+        },
+        "tail_1_9_to_2_s": {
+          "l2_m": [
+            1.978573422545169e-12,
+            2.1313388106235224e-12
+          ],
+          "max_abs_m": [
+            7.261276396507566e-14,
+            6.415654065760516e-14
+          ]
+        }
+      }
+    }
+  },
+  "checked": {
+    "field_shape": [
+      4,
+      2,
+      70,
+      70
+    ],
+    "steps_count": 144000,
+    "substeps": 72,
+    "surface_components": 2,
+    "surface_receivers": 71,
+    "t_end_s": 2.0,
+    "time_samples": 2001
+  },
+  "common_physics": {
+    "material": {
+      "law": "plane_strain",
+      "rho_kg_m3": 1000.0
+    },
+    "physical_source": {
+      "kind": "N_FORCE_DYNAMIC",
+      "ricker_center_s": 0.1,
+      "ricker_hz": 15.0,
+      "sigma_m": 1.6666666666666667,
+      "support_m": [
+        345.0,
+        355.0
+      ],
+      "total_force_N_per_unit_thickness": -1.0,
+      "x_m": 350.0
+    }
+  },
+  "comparison": {
+    "reference": "research\\seismic_dataset\\model65\\runs\\raster_p4_s72",
+    "value": "research\\seismic_dataset\\model65\\runs\\curved_p4_s72"
+  },
+  "metrics": {
+    "fields_relative_l2_by_time": [
+      {
+        "relative_l2": [
+          0.025939656918541856,
+          0.014843723068298745
+        ],
+        "time_s": 0.2
+      },
+      {
+        "relative_l2": [
+          0.10316969957451207,
+          0.0950898634947104
+        ],
+        "time_s": 0.5
+      },
+      {
+        "relative_l2": [
+          0.12683664729696034,
+          0.10263363319145655
+        ],
+        "time_s": 1.0
+      },
+      {
+        "relative_l2": [
+          0.26071577000755297,
+          0.22022479557934074
+        ],
+        "time_s": 2.0
+      }
+    ],
+    "surface_far_abs_x_minus_350_ge_20_m_relative_l2": [
+      0.021474842428847035,
+      0.012252666683132544
+    ],
+    "surface_full_0_to_2_s_relative_l2": [
+      0.022280515780623757,
+      0.013667441256076957
+    ],
+    "surface_late_1_to_2_s_relative_l2": [
+      0.1374506337685186,
+      0.06230697351688781
+    ]
+  },
+  "provenance_current_sha256": {
+    "curved": {
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Lib\\site-packages\\semgpu2\\solvers\\lin_elast_2d_tenzor_newmark_kim_ceed\\_native.cp313-win_amd64.pyd": "ec09ec361a5b26fa1934e99dedf525b24bdd58a01c17d6eda9f2a3496c252a81",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\case.json": "bab9e88e0ccf6c9ca84d6d6833e94ac187a1c47b25a168ea296ba3f63af85473",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\curved_p4_mesh.npz": "a5d260862b4318171d1985ddafae51e7451ee9eaf5dcbe63a816742e68028745",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\curved_q2_mesh.npz": "ab95be4d161ccc001b086cef7fd7d10829656bb96002855c7cde65badef53c7b",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\curves.json": "56dbd4bbc9b96da09f25a2aed8037e45dcac0200bd7fcafa7f8e576fad4358f6",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\model65.npz": "c66bc45f989d15c3b80d072cbbd89e6e89e0ca1119170f49045580a976ac69ba",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65_geometry.py": "18c29f86586ec4e286ce37d7f47939437e879520097f17d9f7c41853fa3a6520",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65_mesh.py": "863e0bd748b2f3e7633f25513efa443e371fc2b2ca96ba83368863f7dab1e89a",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65_run.py": "605f2b4221c25efdf8416397c26512449d1339c1bc02358c468818fc1d900b28",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_run.py": "7eb63cf3e82a2fdff136efbab48213b3fc1f3df74c04d108b55e11ab6490ca8e",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\tmp\\libceed-win-clang-prefix\\bin\\ceed.dll": "84f50925453828644871feec9a81c768e98843039a70c3e36b04524d50f4d216"
+    },
+    "raster": {
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Lib\\site-packages\\semgpu2\\solvers\\lin_elast_2d_tenzor_newmark_kim_ceed\\_native.cp313-win_amd64.pyd": "ec09ec361a5b26fa1934e99dedf525b24bdd58a01c17d6eda9f2a3496c252a81",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\case.json": "bab9e88e0ccf6c9ca84d6d6833e94ac187a1c47b25a168ea296ba3f63af85473",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\curves.json": "56dbd4bbc9b96da09f25a2aed8037e45dcac0200bd7fcafa7f8e576fad4358f6",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\model65.npz": "c66bc45f989d15c3b80d072cbbd89e6e89e0ca1119170f49045580a976ac69ba",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\raster_p4_mesh.npz": "f362af7d140201649df7b37a5457820bcd603c1a836093675839c9c7203931b8",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry\\raster_q2_mesh.npz": "a54ff6c52fccf2fee678b58d19d3618cc824090d533b53a8784d1cb2adc1152f",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65_geometry.py": "18c29f86586ec4e286ce37d7f47939437e879520097f17d9f7c41853fa3a6520",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65_mesh.py": "863e0bd748b2f3e7633f25513efa443e371fc2b2ca96ba83368863f7dab1e89a",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65_run.py": "605f2b4221c25efdf8416397c26512449d1339c1bc02358c468818fc1d900b28",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_run.py": "7eb63cf3e82a2fdff136efbab48213b3fc1f3df74c04d108b55e11ab6490ca8e",
+      "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\tmp\\libceed-win-clang-prefix\\bin\\ceed.dll": "84f50925453828644871feec9a81c768e98843039a70c3e36b04524d50f4d216"
+    }
+  },
+  "status": "independent_numpy_audit_of_completed_outputs"
+}

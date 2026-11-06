@@ -1,0 +1,413 @@
+"""Vectorize ECVB 00065 into shared region-boundary curves without topology edits.
+
+The input is a 70 by 70 cell-property raster.  Curves are directed with the
+left adjacent region on their left; exterior is region -1.  The resulting
+loops therefore have their ordinary outer boundary counter-clockwise.
+"""
+
+from __future__ import annotations
+
+from collections import Counter, defaultdict, deque
+from dataclasses import asdict, dataclass
+import json
+from pathlib import Path
+from typing import Final, TypeAlias
+
+import numpy as np
+from numpy.typing import NDArray
+from scipy.interpolate import BSpline  # type: ignore[import-untyped]
+
+
+ROOT: Final = Path(__file__).resolve().parent
+INPUT: Final = ROOT / "binary" / "ECVB_00000_00999.npz"
+OUTPUT: Final = ROOT / "model65" / "geometry"
+MODEL_OUTPUT: Final = OUTPUT / "model65.npz"
+GRID: Final = 70
+CELL_M: Final = 10.0
+EXTERIOR: Final = -1
+PointKey: TypeAlias = tuple[int, int]
+Point: TypeAlias = tuple[float, float]
+IntGrid = NDArray[np.int64]
+FloatGrid = NDArray[np.float64]
+
+
+@dataclass(frozen=True, slots=True)
+class Region:
+    identifier: int
+    material: int
+    cells: int
+    bbox_row_col: tuple[int, int, int, int]
+
+
+@dataclass(frozen=True, slots=True)
+class BoundaryEdge:
+    identifier: int
+    start: PointKey
+    end: PointKey
+    left: int
+    right: int
+
+
+@dataclass(frozen=True, slots=True)
+class Chain:
+    left: int
+    right: int
+    source: tuple[PointKey, ...]
+
+
+def _read_model() -> tuple[FloatGrid, FloatGrid]:
+    with np.load(INPUT, allow_pickle=False) as source:
+        ids = np.asarray(source["ids"], dtype=np.int64)
+        matches = np.flatnonzero(ids == 65)
+        if matches.size != 1:
+            raise ValueError("Expected ECVB ID 65 exactly once")
+        index = int(matches[0])
+        return np.asarray(source["vp"][index], dtype=np.float64), np.asarray(source["vs"][index], dtype=np.float64)
+
+
+def _material_labels(vp: FloatGrid, vs: FloatGrid) -> tuple[IntGrid, list[tuple[float, float]]]:
+    pairs = np.column_stack((vp.ravel(), vs.ravel()))
+    materials, inverse = np.unique(pairs, axis=0, return_inverse=True)
+    labels = inverse.reshape(vp.shape).astype(np.int64)
+    values = [(float(pair[0]), float(pair[1])) for pair in materials]
+    return labels, values
+
+
+def _regions(materials: IntGrid) -> tuple[IntGrid, list[Region]]:
+    owners = np.full(materials.shape, EXTERIOR, dtype=np.int64)
+    regions: list[Region] = []
+    next_identifier = 1
+    for row in range(GRID):
+        for column in range(GRID):
+            if owners[row, column] != EXTERIOR:
+                continue
+            material = int(materials[row, column])
+            queue: deque[tuple[int, int]] = deque([(row, column)])
+            owners[row, column] = next_identifier
+            cells: list[tuple[int, int]] = []
+            while queue:
+                current_row, current_column = queue.popleft()
+                cells.append((current_row, current_column))
+                for candidate_row, candidate_column in ((current_row - 1, current_column), (current_row + 1, current_column), (current_row, current_column - 1), (current_row, current_column + 1)):
+                    if (0 <= candidate_row < GRID and 0 <= candidate_column < GRID
+                            and owners[candidate_row, candidate_column] == EXTERIOR
+                            and int(materials[candidate_row, candidate_column]) == material):
+                        owners[candidate_row, candidate_column] = next_identifier
+                        queue.append((candidate_row, candidate_column))
+            rows = [cell[0] for cell in cells]
+            columns = [cell[1] for cell in cells]
+            regions.append(Region(next_identifier, material, len(cells), (min(rows), max(rows), min(columns), max(columns))))
+            next_identifier += 1
+    return owners, regions
+
+
+def _boundary_edges(owners: IntGrid) -> list[BoundaryEdge]:
+    """Build canonical x-right/y-up edges, whose left owner fixes direction."""
+    edges: list[BoundaryEdge] = []
+    identifier = 1
+    # Horizontal edges point right: their left side is physically north.
+    for y_index in range(GRID + 1):
+        for x_index in range(GRID):
+            left = int(owners[GRID - 1 - y_index, x_index]) if y_index < GRID else EXTERIOR
+            right = int(owners[GRID - y_index, x_index]) if y_index > 0 else EXTERIOR
+            if left != right:
+                edges.append(BoundaryEdge(identifier, (x_index, y_index), (x_index + 1, y_index), left, right))
+                identifier += 1
+    # Vertical edges point up: their left side is physically west.
+    for x_index in range(GRID + 1):
+        for y_index in range(GRID):
+            row = GRID - 1 - y_index
+            left = int(owners[row, x_index - 1]) if x_index > 0 else EXTERIOR
+            right = int(owners[row, x_index]) if x_index < GRID else EXTERIOR
+            if left != right:
+                edges.append(BoundaryEdge(identifier, (x_index, y_index), (x_index, y_index + 1), left, right))
+                identifier += 1
+    return edges
+
+
+def _chains(edges: list[BoundaryEdge]) -> list[Chain]:
+    """Join grid segments by an unordered region pair, then orient consistently.
+
+    Horizontal canonical edges point right and vertical canonical edges point
+    up.  A staircase interface can therefore put the same region on opposite
+    sides of these two canonical directions; grouping by an ordered pair would
+    incorrectly split every stair into short fragments.
+    """
+    by_pair: dict[tuple[int, int], list[BoundaryEdge]] = defaultdict(list)
+    for edge in edges:
+        key = (edge.left, edge.right) if edge.left <= edge.right else (edge.right, edge.left)
+        by_pair[key].append(edge)
+    result: list[Chain] = []
+
+    def is_outer_corner(node: PointKey) -> bool:
+        return node in {(0, 0), (0, GRID), (GRID, 0), (GRID, GRID)}
+
+    for pair, pair_edges in by_pair.items():
+        left = pair[1] if pair[0] == EXTERIOR else pair[0]
+        right = pair[0] if pair[0] == EXTERIOR else pair[1]
+        oriented: list[BoundaryEdge] = []
+        for edge in pair_edges:
+            if edge.left == left:
+                oriented.append(BoundaryEdge(edge.identifier, edge.start, edge.end, left, right))
+            elif edge.right == left:
+                oriented.append(BoundaryEdge(edge.identifier, edge.end, edge.start, left, right))
+            else:
+                raise ValueError("Boundary edge does not match its region pair")
+        outgoing: dict[PointKey, list[BoundaryEdge]] = defaultdict(list)
+        incoming: dict[PointKey, list[BoundaryEdge]] = defaultdict(list)
+        for edge in oriented:
+            outgoing[edge.start].append(edge)
+            incoming[edge.end].append(edge)
+        visited: set[int] = set()
+
+        def trace(first: BoundaryEdge) -> Chain:
+            source: list[PointKey] = [first.start]
+            current = first
+            while True:
+                if current.identifier in visited:
+                    raise ValueError("Boundary edge was revisited while tracing a chain")
+                visited.add(current.identifier)
+                source.append(current.end)
+                candidates = outgoing[current.end]
+                if (is_outer_corner(current.end) or len(candidates) != 1
+                        or len(incoming[current.end]) != 1 or candidates[0].identifier in visited):
+                    break
+                current = candidates[0]
+            return Chain(left, right, tuple(source))
+
+        for edge in oriented:
+            if edge.identifier not in visited and (is_outer_corner(edge.start) or len(incoming[edge.start]) != 1 or len(outgoing[edge.start]) != 1):
+                result.append(trace(edge))
+        for edge in oriented:
+            if edge.identifier not in visited:
+                result.append(trace(edge))
+        if len(visited) != len(oriented):
+            raise ValueError("Not all boundary edges were assigned to chains")
+    return result
+
+
+def _physical(points: tuple[PointKey, ...]) -> NDArray[np.float64]:
+    return np.asarray([(CELL_M * x_index, CELL_M * y_index) for x_index, y_index in points], dtype=np.float64)
+
+
+def _is_straight(points: NDArray[np.float64]) -> bool:
+    if points.shape[0] <= 2:
+        return True
+    vector = points[-1] - points[0]
+    scale = float(np.linalg.norm(vector))
+    if scale == 0.0:
+        raise ValueError("Boundary chain has equal endpoints")
+    cross = vector[0] * (points[1:-1, 1] - points[0, 1]) - vector[1] * (points[1:-1, 0] - points[0, 0])
+    return bool(np.max(np.abs(cross)) <= 1.0e-10 * scale)
+
+
+def _parameters(points: NDArray[np.float64]) -> NDArray[np.float64]:
+    lengths = np.linalg.norm(np.diff(points, axis=0), axis=1)
+    total = float(np.sum(lengths))
+    if total <= 0.0:
+        raise ValueError("Boundary chain has zero arc length")
+    return np.r_[0.0, np.cumsum(lengths) / total]
+
+
+def _fit_curve(points: NDArray[np.float64]) -> tuple[int, NDArray[np.float64], NDArray[np.float64], float]:
+    """Fit locked-endpoint cubic candidates; leave short/straight chains linear."""
+    if _is_straight(points) or points.shape[0] < 4:
+        return 1, np.asarray((points[0], points[-1]), dtype=np.float64), np.asarray((0.0, 0.0, 1.0, 1.0), dtype=np.float64), 0.0
+    parameters = _parameters(points)
+    candidates = sorted({4, 5, 6, 8, 10, 14, 20, 28, 40, 52, 64, int(points.shape[0])})
+    for control_count in candidates:
+        if control_count > points.shape[0]:
+            continue
+        knots = np.r_[np.zeros(4), np.linspace(0.0, 1.0, control_count - 2)[1:-1], np.ones(4)]
+        basis = BSpline.design_matrix(parameters, knots, 3).toarray()
+        rhs = points - basis[:, :1] * points[:1] - basis[:, -1:] * points[-1:]
+        interior, _, _, _ = np.linalg.lstsq(basis[:, 1:-1], rhs, rcond=None)
+        controls = np.vstack((points[0], interior, points[-1]))
+        fitted = np.asarray(BSpline(knots, controls, 3)(parameters), dtype=np.float64)
+        error = float(np.max(np.linalg.norm(fitted - points, axis=1)))
+        if error <= 7.5:
+            return 3, controls, knots, error
+    raise ValueError("A shared cubic could not meet the 7.5 m sampled source-point error bound")
+
+
+def _sample(degree: int, controls: NDArray[np.float64], knots: NDArray[np.float64]) -> NDArray[np.float64]:
+    if degree == 1:
+        parameter = np.linspace(0.0, 1.0, 101, dtype=np.float64)
+        return controls[0] * (1.0 - parameter[:, None]) + controls[-1] * parameter[:, None]
+    return np.asarray(BSpline(knots, controls, degree)(np.linspace(0.0, 1.0, 101, dtype=np.float64)), dtype=np.float64)
+
+
+def _orientation(first: Point, second: Point, third: Point) -> float:
+    return (second[0] - first[0]) * (third[1] - first[1]) - (second[1] - first[1]) * (third[0] - first[0])
+
+
+def _segments_intersect(first: Point, second: Point, third: Point, fourth: Point) -> bool:
+    tolerance = 1.0e-9
+    first_side = _orientation(first, second, third)
+    second_side = _orientation(first, second, fourth)
+    third_side = _orientation(third, fourth, first)
+    fourth_side = _orientation(third, fourth, second)
+    if max(abs(first_side), abs(second_side), abs(third_side), abs(fourth_side)) <= tolerance:
+        return False
+    return (first_side * second_side <= tolerance and third_side * fourth_side <= tolerance)
+
+
+def _common_endpoint(first: NDArray[np.float64], second: NDArray[np.float64]) -> bool:
+    return any(np.allclose(left, right, rtol=0.0, atol=1.0e-9) for left in (first[0], first[-1]) for right in (second[0], second[-1]))
+
+
+def _check_crossings(samples: list[NDArray[np.float64]]) -> None:
+    for first_index, first in enumerate(samples):
+        for second_index in range(first_index, len(samples)):
+            second = samples[second_index]
+            first_low, first_high = np.min(first, axis=0), np.max(first, axis=0)
+            second_low, second_high = np.min(second, axis=0), np.max(second, axis=0)
+            if bool(np.any(first_high < second_low - 1.0e-9) or np.any(second_high < first_low - 1.0e-9)):
+                continue
+            shared = first_index != second_index and _common_endpoint(first, second)
+            for left_index in range(first.shape[0] - 1):
+                for right_index in range(second.shape[0] - 1):
+                    if first_index == second_index and abs(left_index - right_index) <= 1:
+                        continue
+                    first_low_segment = np.minimum(first[left_index], first[left_index + 1])
+                    first_high_segment = np.maximum(first[left_index], first[left_index + 1])
+                    second_low_segment = np.minimum(second[right_index], second[right_index + 1])
+                    second_high_segment = np.maximum(second[right_index], second[right_index + 1])
+                    if bool(np.any(first_high_segment < second_low_segment - 1.0e-9) or np.any(second_high_segment < first_low_segment - 1.0e-9)):
+                        continue
+                    if shared:
+                        left_segment = (first[left_index], first[left_index + 1])
+                        right_segment = (second[right_index], second[right_index + 1])
+                        common = any(np.allclose(a, b, rtol=0.0, atol=1.0e-9) for a in left_segment for b in right_segment)
+                        if common:
+                            continue
+                    if _segments_intersect(tuple(first[left_index]), tuple(first[left_index + 1]), tuple(second[right_index]), tuple(second[right_index + 1])):
+                        raise ValueError(f"Sampled curves {first_index + 1} and {second_index + 1} intersect")
+
+
+def _signed_area(points: list[Point]) -> float:
+    return 0.5 * sum(first[0] * second[1] - first[1] * second[0] for first, second in zip(points, points[1:] + points[:1], strict=True))
+
+
+def _region_loops(curves: list[dict[str, object]], regions: list[Region]) -> dict[int, list[list[int]]]:
+    loops_by_region: dict[int, list[list[int]]] = {}
+    for region in regions:
+        directed: list[tuple[int, Point, Point, NDArray[np.float64]]] = []
+        for curve in curves:
+            identifier_value = curve["id"]
+            if not isinstance(identifier_value, int):
+                raise ValueError("Malformed curve id")
+            identifier = identifier_value
+            adjacent = curve["adjacent_regions"]
+            if not isinstance(adjacent, list) or len(adjacent) != 2:
+                raise ValueError("Malformed curve adjacency")
+            source = np.asarray(curve["source_points_m"], dtype=np.float64)
+            if int(adjacent[0]) == region.identifier:
+                directed.append((identifier, tuple(source[0]), tuple(source[-1]), source))
+            elif int(adjacent[1]) == region.identifier:
+                directed.append((-identifier, tuple(source[-1]), tuple(source[0]), source[::-1]))
+        outgoing: dict[Point, list[tuple[int, Point, Point, NDArray[np.float64]]]] = defaultdict(list)
+        incoming: dict[Point, list[tuple[int, Point, Point, NDArray[np.float64]]]] = defaultdict(list)
+        for edge in directed:
+            outgoing[edge[1]].append(edge)
+            incoming[edge[2]].append(edge)
+        for node in set(outgoing) | set(incoming):
+            if len(outgoing[node]) != 1 or len(incoming[node]) != 1:
+                raise ValueError(f"Region {region.identifier} has nonmanifold boundary at {node}")
+        visited: set[int] = set()
+        loops: list[list[int]] = []
+        areas: list[float] = []
+        for first in directed:
+            if abs(first[0]) in visited:
+                continue
+            current = first
+            loop: list[int] = []
+            polygon: list[Point] = []
+            while abs(current[0]) not in visited:
+                visited.add(abs(current[0]))
+                loop.append(current[0])
+                polygon.extend(tuple(point) for point in current[3][:-1])
+                candidates = outgoing[current[2]]
+                current = candidates[0]
+            if current[0] != first[0]:
+                raise ValueError(f"Region {region.identifier} boundary did not close")
+            loops.append(loop)
+            areas.append(_signed_area(polygon))
+        if not loops:
+            raise ValueError(f"Region {region.identifier} has no boundary loop")
+        outer = max(range(len(loops)), key=lambda index: abs(areas[index]))
+        if areas[outer] <= 0.0:
+            raise ValueError(f"Region {region.identifier} outer loop is not counter-clockwise")
+        loops_by_region[region.identifier] = loops
+    return loops_by_region
+
+
+def main() -> None:
+    vp, vs = _read_model()
+    materials, material_values = _material_labels(vp, vs)
+    region_labels, regions = _regions(materials)
+    edges = _boundary_edges(region_labels)
+    chains = _chains(edges)
+    curves: list[dict[str, object]] = []
+    samples: list[NDArray[np.float64]] = []
+    for identifier, chain in enumerate(chains, start=1):
+        source = _physical(chain.source)
+        degree, controls, knots, error = _fit_curve(source)
+        sampled = _sample(degree, controls, knots)
+        curves.append({
+            "id": identifier,
+            "adjacent_regions": [chain.left, chain.right],
+            "degree": degree,
+            "knots": knots.tolist(),
+            "control_points_m": controls.tolist(),
+            "source_points_m": source.tolist(),
+            "sampled_points_m": sampled.tolist(),
+            "sampled_source_point_max_error_m": error,
+        })
+        samples.append(sampled)
+    _check_crossings(samples)
+    loops = _region_loops(curves, regions)
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    MODEL_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    region_material = {region.identifier: region.material for region in regions}
+    document = {
+        "schema": "seismic_dataset.model65.shared_curves.v1",
+        "model_id": 65,
+        "coordinate_system": {"x": "right, metres", "y": "up, metres", "extent_m": [0.0, 0.0, 700.0, 700.0], "raster_row_zero": "top"},
+        "raster": {"shape_cells": [GRID, GRID], "cell_size_m": CELL_M},
+        "materials": [{"id": identifier, "vp_m_per_s": pair[0], "vs_m_per_s": pair[1]} for identifier, pair in enumerate(material_values)],
+        "regions": [{
+            "id": region.identifier,
+            "material_id": region.material,
+            "vp": material_values[region.material][0],
+            "vs": material_values[region.material][1],
+            "source_cells": region.cells,
+            "bbox_row_col": list(region.bbox_row_col),
+            "loops": loops[region.identifier],
+        } for region in regions],
+        "curves": curves,
+        "validation": {
+            "regions": len(regions),
+            "materials": len(material_values),
+            "deleted_regions": 0,
+            "merged_regions": 0,
+            "curve_count": len(curves),
+            "source_chain_error_bound_m": 7.5,
+            "sampled_curve_intersections": 0,
+            "outer_loops_ccw_with_region_on_left": True,
+            "outer_boundary_fixed": True,
+        },
+    }
+    (OUTPUT / "curves.json").write_text(json.dumps(document, indent=2) + "\n", encoding="utf-8")
+    np.savez_compressed(MODEL_OUTPUT, model_id=np.asarray(65, dtype=np.int64), vp=vp, vs=vs, material_labels=materials, region_labels=region_labels, materials_vp_vs=np.asarray(material_values, dtype=np.float64), x_m=np.arange(GRID, dtype=np.float64) * CELL_M + CELL_M / 2.0, y_m=700.0 - (np.arange(GRID, dtype=np.float64) * CELL_M + CELL_M / 2.0))
+    errors: list[float] = []
+    for curve in curves:
+        curve_error = curve["sampled_source_point_max_error_m"]
+        if not isinstance(curve_error, float):
+            raise ValueError("Malformed sampled source-point error")
+        errors.append(curve_error)
+    print(json.dumps({"curves": len(curves), "regions": len(regions), "materials": len(material_values), "max_error_m": max(errors)}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

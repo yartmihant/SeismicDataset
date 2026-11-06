@@ -1,0 +1,373 @@
+{
+  "accuracy_limit": "A single p4 pair: this experiment has no separate spatial or time convergence series. Differences include smoothing and the different spatial discretizations; the stability bound is not an accuracy estimate.",
+  "comparison": {
+    "reference": "research\\seismic_dataset\\model65\\runs\\raster_p4_s72",
+    "value": "research\\seismic_dataset\\model65\\runs\\curved_p4_s72"
+  },
+  "images": {
+    "geometry_difference": "research\\seismic_dataset\\model65\\comparison\\geometry_difference_p4.png",
+    "late_seismogram": "research\\seismic_dataset\\model65\\comparison\\seismograms_late_p4.png",
+    "late_snapshots": "research\\seismic_dataset\\model65\\comparison\\snapshots_late_p4.png",
+    "seismogram": "research\\seismic_dataset\\model65\\comparison\\seismograms_p4.png",
+    "snapshots": "research\\seismic_dataset\\model65\\comparison\\snapshots_p4.png"
+  },
+  "metrics": {
+    "fields": [
+      {
+        "difference_l2_m": [
+          7.898956965185183e-12,
+          7.44340798495717e-12
+        ],
+        "max_abs_difference_m": [
+          1.7333556408852275e-12,
+          1.300492049782766e-12
+        ],
+        "reference_l2_m": [
+          3.0451277709609767e-10,
+          5.014515530038292e-10
+        ],
+        "relative_l2": [
+          0.025939656918541856,
+          0.014843723068298745
+        ],
+        "time_s": 0.2,
+        "value_l2_m": [
+          3.0499672947516056e-10,
+          5.00663867078828e-10
+        ]
+      },
+      {
+        "difference_l2_m": [
+          8.788650418381544e-12,
+          7.255686011563945e-12
+        ],
+        "max_abs_difference_m": [
+          7.068382500459414e-13,
+          5.769715427116228e-13
+        ],
+        "reference_l2_m": [
+          8.518635272398106e-11,
+          7.630346437470236e-11
+        ],
+        "relative_l2": [
+          0.10316969957451207,
+          0.0950898634947104
+        ],
+        "time_s": 0.5,
+        "value_l2_m": [
+          8.559880804809694e-11,
+          7.647364783860184e-11
+        ]
+      },
+      {
+        "difference_l2_m": [
+          3.275545133982175e-12,
+          2.7240199537478814e-12
+        ],
+        "max_abs_difference_m": [
+          3.4206128507498654e-13,
+          2.9313349833351943e-13
+        ],
+        "reference_l2_m": [
+          2.5824911047303237e-11,
+          2.654120164163335e-11
+        ],
+        "relative_l2": [
+          0.12683664729696034,
+          0.10263363319145655
+        ],
+        "time_s": 1.0,
+        "value_l2_m": [
+          2.574989509028499e-11,
+          2.625725253932013e-11
+        ]
+      },
+      {
+        "difference_l2_m": [
+          2.2991952643489424e-13,
+          1.5399495071582005e-13
+        ],
+        "max_abs_difference_m": [
+          1.6678951812496498e-14,
+          1.2887065336430897e-14
+        ],
+        "reference_l2_m": [
+          8.818780944023196e-13,
+          6.992625435782958e-13
+        ],
+        "relative_l2": [
+          0.26071577000755297,
+          0.22022479557934074
+        ],
+        "time_s": 2.0,
+        "value_l2_m": [
+          9.296350614116975e-13,
+          7.078731716705762e-13
+        ]
+      }
+    ],
+    "name": "curved minus raster at model 65 p4",
+    "reference": "raster_p4_s72",
+    "surface": {
+      "all_surface": [
+        0.022280515780623757,
+        0.013667441256076957
+      ],
+      "difference_l2_m": [
+        4.508000590773725e-11,
+        4.6010793741591954e-11
+      ],
+      "far_difference_l2_m": [
+        4.319732993817047e-11,
+        3.623676184247772e-11
+      ],
+      "far_reference_l2_m": [
+        2.0115318695025086e-09,
+        2.9574592029311083e-09
+      ],
+      "far_surface": [
+        0.021474842428847035,
+        0.012252666683132544
+      ],
+      "far_value_l2_m": [
+        2.0115838841768664e-09,
+        2.9572694752742814e-09
+      ],
+      "max_abs_difference_m": [
+        2.5457801666352505e-12,
+        5.052946360384788e-12
+      ],
+      "reference_l2_m": [
+        2.0232927438305114e-09,
+        3.3664526431481215e-09
+      ],
+      "reference_max_abs_m": [
+        5.969884765447551e-11,
+        3.0160555169896573e-10
+      ],
+      "time_windows": [
+        {
+          "difference_l2_m": [
+            9.565189341998104e-12,
+            2.3609926721926538e-11
+          ],
+          "far_difference_l2_m": [
+            6.76544761441849e-12,
+            5.924350858874298e-12
+          ],
+          "far_reference_l2_m": [
+            1.2916349203217817e-09,
+            1.676480074377107e-09
+          ],
+          "far_relative_l2": [
+            0.0052378946310409685,
+            0.0035338033236544607
+          ],
+          "reference_l2_fraction_of_full": [
+            0.6465394224326605,
+            0.6889414169524517
+          ],
+          "reference_l2_m": [
+            1.3081385220083718e-09,
+            2.319288654073793e-09
+          ],
+          "relative_l2": [
+            0.0073120615141833495,
+            0.010179813832338671
+          ],
+          "time_window_s": [
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "difference_l2_m": [
+            3.6460476559796314e-11,
+            3.5997754102995283e-11
+          ],
+          "far_difference_l2_m": [
+            3.540557398400129e-11,
+            3.216130531491612e-11
+          ],
+          "far_reference_l2_m": [
+            1.521025344109398e-09,
+            2.4084256130702333e-09
+          ],
+          "far_relative_l2": [
+            0.023277438552302507,
+            0.013353663546999591
+          ],
+          "reference_l2_fraction_of_full": [
+            0.7521815993299376,
+            0.7157896852083971
+          ],
+          "reference_l2_m": [
+            1.5218835719670919e-09,
+            2.4096720777079704e-09
+          ],
+          "relative_l2": [
+            0.023957467727094114,
+            0.014938860119604155
+          ],
+          "time_window_s": [
+            0.2,
+            0.5
+          ]
+        },
+        {
+          "difference_l2_m": [
+            2.4185571855771902e-11,
+            1.5956369769021948e-11
+          ],
+          "far_difference_l2_m": [
+            2.32603302111269e-11,
+            1.5333003265035165e-11
+          ],
+          "far_reference_l2_m": [
+            2.5109856080212395e-10,
+            3.65015984299302e-10
+          ],
+          "far_relative_l2": [
+            0.09263426336185575,
+            0.04200638855437785
+          ],
+          "reference_l2_fraction_of_full": [
+            0.12596903067933676,
+            0.11312626081286753
+          ],
+          "reference_l2_m": [
+            2.5487222572086516e-10,
+            3.8083419972294166e-10
+          ],
+          "relative_l2": [
+            0.09489292835799153,
+            0.04189846862658413
+          ],
+          "time_window_s": [
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "difference_l2_m": [
+            5.138662134757306e-12,
+            3.020010637581485e-12
+          ],
+          "far_difference_l2_m": [
+            5.06363522545479e-12,
+            2.924795214126021e-12
+          ],
+          "far_reference_l2_m": [
+            3.7028502124607665e-11,
+            4.721117168338856e-11
+          ],
+          "far_relative_l2": [
+            0.13674966404027722,
+            0.06195133714834538
+          ],
+          "reference_l2_fraction_of_full": [
+            0.018477558810842475,
+            0.014397905101477353
+          ],
+          "reference_l2_m": [
+            3.738551066567911e-11,
+            4.846986568466426e-11
+          ],
+          "relative_l2": [
+            0.1374506337685186,
+            0.06230697351688781
+          ],
+          "time_window_s": [
+            1.0,
+            2.0
+          ]
+        }
+      ],
+      "value_l2_m": [
+        2.0232547321588415e-09,
+        3.374331989937161e-09
+      ]
+    },
+    "value": "curved_p4_s72"
+  },
+  "series_consistency": {
+    "case_root": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\model65\\geometry",
+    "discrete_source": {
+      "curved": {
+        "consistent_integral_before_normalization_m": 4.166434815805164,
+        "node_count": 9
+      },
+      "raster": {
+        "consistent_integral_before_normalization_m": 4.166434815805164,
+        "node_count": 9
+      }
+    },
+    "experiment": "ecvb_00065_p4",
+    "material": {
+      "law": "plane_strain",
+      "rho_kg_m3": 1000.0
+    },
+    "model_id": 65,
+    "physical_source": {
+      "kind": "N_FORCE_DYNAMIC",
+      "ricker_center_s": 0.1,
+      "ricker_hz": 15.0,
+      "sigma_m": 1.6666666666666667,
+      "support_m": [
+        345.0,
+        355.0
+      ],
+      "total_force_N_per_unit_thickness": -1.0,
+      "x_m": 350.0
+    },
+    "solver_intent": {
+      "ceed_resource": "/cpu/self/gen",
+      "id": "lin_elast_2d_tenzor_newmark_kim_ceed"
+    },
+    "source_per_run_fields_not_compared": [
+      "node_count",
+      "consistent_integral_before_normalization_m"
+    ]
+  },
+  "status": "computed_from_completed_solver_outputs",
+  "summary": {
+    "field_relative_l2_by_time": [
+      {
+        "relative_l2": [
+          0.025939656918541856,
+          0.014843723068298745
+        ],
+        "time_s": 0.2
+      },
+      {
+        "relative_l2": [
+          0.10316969957451207,
+          0.0950898634947104
+        ],
+        "time_s": 0.5
+      },
+      {
+        "relative_l2": [
+          0.12683664729696034,
+          0.10263363319145655
+        ],
+        "time_s": 1.0
+      },
+      {
+        "relative_l2": [
+          0.26071577000755297,
+          0.22022479557934074
+        ],
+        "time_s": 2.0
+      }
+    ],
+    "full_0_to_2_s_relative_l2": [
+      0.022280515780623757,
+      0.013667441256076957
+    ],
+    "late_1_to_2_s_relative_l2": [
+      0.1374506337685186,
+      0.06230697351688781
+    ]
+  }
+}

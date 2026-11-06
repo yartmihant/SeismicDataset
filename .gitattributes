@@ -1,0 +1,12 @@
+*.py text eol=lf
+*.md text eol=lf
+*.mdc text eol=lf
+*.toml text eol=lf
+*.lock text eol=lf
+*.json text eol=lf
+*.ipynb text eol=lf
+*.png binary
+*.pptx binary
+
+# Preserve the original request byte for byte, including its original spaces.
+src/vasily_message.txt -whitespace

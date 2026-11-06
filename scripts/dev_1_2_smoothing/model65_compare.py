@@ -1,0 +1,131 @@
+"""Compare completed raster and curved p=4 runs of isolated ECVB 00065.
+
+This postprocessor never imports the solver.  It validates that both inputs
+belong to the model-65 experiment, then writes a compact JSON report and PNG
+views with common raster/curved scales and a separate difference scale.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+import sys
+from typing import Sequence
+
+from scripts.dev_1_2_smoothing.pilot_compare import (
+    PHYSICAL_SOURCE_FIELDS,
+    RunData,
+    _metric_record,
+    _save_geometry_difference,
+    load_run,
+    render_pair,
+)
+
+
+MODEL_ID = 65
+EXPERIMENT_ID = "ecvb_00065_p4"
+ORDER = 4
+PHYSICAL_KEYS = ("material", "solver_intent")
+DISCRETE_SOURCE_FIELDS = ("node_count", "consistent_integral_before_normalization_m")
+
+
+def _experiment(run: RunData) -> dict[str, object]:
+    experiment = run.metadata.get("experiment")
+    if not isinstance(experiment, dict):
+        raise ValueError(f"{run.label}: missing experiment record")
+    if experiment.get("id") != EXPERIMENT_ID:
+        raise ValueError(f"{run.label}: expected experiment {EXPERIMENT_ID!r}")
+    mesh = run.metadata.get("mesh")
+    if not isinstance(mesh, dict) or mesh.get("model_id") != MODEL_ID:
+        raise ValueError(f"{run.label}: expected model_id {MODEL_ID}")
+    return experiment
+
+
+def _validate_pair(raster: RunData, curved: RunData) -> dict[str, object]:
+    raster_experiment = _experiment(raster)
+    curved_experiment = _experiment(curved)
+    raster_source = raster.metadata.get("source")
+    curved_source = curved.metadata.get("source")
+    if not isinstance(raster_source, dict) or not isinstance(curved_source, dict):
+        raise ValueError("model-65 runs must record a source object")
+    physical_source = {key: raster_source.get(key) for key in PHYSICAL_SOURCE_FIELDS}
+    if any(value is None for value in physical_source.values()) or {
+        key: curved_source.get(key) for key in PHYSICAL_SOURCE_FIELDS
+    } != physical_source:
+        raise ValueError("continuous physical source differs between raster and curved model-65 runs")
+    for key in PHYSICAL_KEYS:
+        if raster.metadata.get(key) != curved.metadata.get(key):
+            raise ValueError(f"{key} differs between raster and curved model-65 runs")
+    if raster_experiment.get("case_root") != curved_experiment.get("case_root"):
+        raise ValueError("raster and curved runs use different model-65 case roots")
+    return {
+        "experiment": EXPERIMENT_ID,
+        "model_id": MODEL_ID,
+        "case_root": raster_experiment.get("case_root"),
+        "physical_source": physical_source,
+        "source_per_run_fields_not_compared": list(DISCRETE_SOURCE_FIELDS),
+        "discrete_source": {
+            "raster": {key: raster_source.get(key) for key in DISCRETE_SOURCE_FIELDS},
+            "curved": {key: curved_source.get(key) for key in DISCRETE_SOURCE_FIELDS},
+        },
+        "material": raster.metadata["material"],
+        "solver_intent": raster.metadata["solver_intent"],
+    }
+
+
+def _summary(record: dict[str, object]) -> dict[str, object]:
+    surface = record.get("surface")
+    fields = record.get("fields")
+    if not isinstance(surface, dict) or not isinstance(fields, list):
+        raise AssertionError("metric layout")
+    windows = surface.get("time_windows")
+    if not isinstance(windows, list) or len(windows) != 4:
+        raise AssertionError("time-window metric layout")
+    return {
+        "full_0_to_2_s_relative_l2": surface["all_surface"],
+        "late_1_to_2_s_relative_l2": windows[-1]["relative_l2"],
+        "field_relative_l2_by_time": [{"time_s": item["time_s"], "relative_l2": item["relative_l2"]} for item in fields],
+    }
+
+
+def make_report(raster: RunData, curved: RunData, output: Path) -> dict[str, object]:
+    if output.exists():
+        raise FileExistsError(f"Output must be a new directory: {output}")
+    consistency = _validate_pair(raster, curved)
+    metric = _metric_record("curved minus raster at model 65 p4", curved, raster)
+    output.mkdir(parents=True)
+    images = render_pair(output, raster, curved, provisional=True)
+    images["geometry_difference"] = str(_save_geometry_difference(output, raster, curved))
+    document: dict[str, object] = {
+        "status": "computed_from_completed_solver_outputs",
+        "accuracy_limit": "A single p4 pair: this experiment has no separate spatial or time convergence series. Differences include smoothing and the different spatial discretizations; the stability bound is not an accuracy estimate.",
+        "comparison": {"value": str(curved.path), "reference": str(raster.path)},
+        "series_consistency": consistency,
+        "metrics": metric,
+        "summary": _summary(metric),
+        "images": images,
+    }
+    (output / "report.json").write_text(json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return document
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--raster", type=Path, required=True, metavar="DIR")
+    parser.add_argument("--curved", type=Path, required=True, metavar="DIR")
+    parser.add_argument("--substeps", type=int, default=36)
+    parser.add_argument("--out", type=Path, required=True, metavar="NEW_DIR")
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    args = parse_args(argv)
+    raster = load_run(args.raster, "raster", ORDER, args.substeps)
+    curved = load_run(args.curved, "curved", ORDER, args.substeps)
+    print(json.dumps(make_report(raster, curved, args.out), indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

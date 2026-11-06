@@ -1,0 +1,119 @@
+"""Validate and compare the completed native CU pair for ECVB 12404."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+import numpy as np
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from research.seismic_dataset.pilot_compare import (
+    RunData, _array, _metric_record, _relative_l2, _same_coordinates, render_pair,
+)
+
+
+def load_cu(path: Path, kind: str) -> RunData:
+    metadata = json.loads((path / "metadata.json").read_text(encoding="utf-8"))
+    pilot = metadata["pilot"]
+    if (pilot["kind"], pilot["order"], pilot["substeps"], pilot["t_end"]) != (kind, 5, 36, 2.0):
+        raise ValueError("Unexpected CU case")
+    if metadata["solver_intent"] != {"id": "lin_elast_2d_tenzor_newmark_kim_cu"}:
+        raise ValueError("Unexpected solver")
+    runtime = metadata["runtime"]
+    if (runtime["result_code"], runtime["steps_count"], runtime["current_time"]) != (0, 72000, 2.0):
+        raise ValueError("Incomplete CU run")
+    if metadata["mesh"]["model_id"] != 12404:
+        raise ValueError("Unexpected model")
+    for record in metadata["provenance"]["files"]:
+        if hashlib.sha256(Path(record["path"]).read_bytes()).hexdigest() != record["sha256"]:
+            raise ValueError(f"Provenance changed: {record['path']}")
+    with np.load(path / "surface.npz", allow_pickle=False) as data:
+        time = _array(data, "time_s", 1, path)
+        surface = _array(data, "displacement_ux_uy_m", 3, path)
+        x = _array(data, "x_m", 1, path)
+    with np.load(path / "fields.npz", allow_pickle=False) as data:
+        field_time = _array(data, "time_s", 1, path)
+        field = _array(data, "displacement_ux_uy_m", 4, path)
+        field_x = _array(data, "x_m", 1, path)
+        field_y = _array(data, "y_m", 1, path)
+    if surface.shape != (2001, 2, 71) or field.shape != (4, 2, 70, 70):
+        raise ValueError("Unexpected receiver dimensions")
+    for actual, expected in (
+        (time, np.linspace(0, 2, 2001)), (x, np.arange(71) * 10),
+        (field_time, np.array([0.2, 0.5, 1.0, 2.0])),
+        (field_x, np.arange(70) * 10 + 5), (field_y, 695 - np.arange(70) * 10),
+    ):
+        if actual.shape != expected.shape or not np.allclose(actual, expected, rtol=0, atol=1e-12):
+            raise ValueError("Unexpected receiver coordinates")
+    return RunData(f"{kind}_p5_s36", path, kind, 5, 36, time, surface, x,
+                   field_time, field, field_x, field_y, metadata)
+
+
+def compare(root: Path, output: Path) -> None:
+    raster = load_cu(root / "raster_p5_s36", "raster")
+    curved = load_cu(root / "curved_p5_s36", "curved")
+    _same_coordinates(raster, curved)
+    for key in ("material", "source"):
+        if raster.metadata[key] != curved.metadata[key]:
+            raise ValueError(f"Physical prescription differs: {key}")
+    if output.exists():
+        raise FileExistsError(output)
+    output.mkdir(parents=True)
+    metrics = _metric_record("ECVB 12404 CU p5: curved minus raster", curved, raster)
+    images = render_pair(output, raster, curved)
+    # Separate arithmetic path: flatten each component and use dot products.
+    checked = {}
+    for label, a, b in (("full", curved.surface, raster.surface),
+                        ("late", curved.surface[1000:], raster.surface[1000:]),
+                        ("field_t2", curved.field[-1:], raster.field[-1:])):
+        values = []
+        for component in range(2):
+            difference = (a[:, component] - b[:, component]).ravel()
+            reference = b[:, component].ravel()
+            values.append(float(np.sqrt(np.dot(difference, difference) / np.dot(reference, reference))))
+        checked[label] = values
+        if not np.allclose(values, _relative_l2(a, b), rtol=1e-13, atol=1e-15):
+            raise AssertionError(f"Dot-product cross-check differs: {label}")
+    old = json.loads((Path(__file__).parent / "pilot_runs/comparison/metrics.json").read_text())
+    previous = next(record for record in old["metrics"]["records"]
+                    if record["name"] == "curved minus raster at p5 s36")
+    previous_values = {"full": previous["surface"]["all_surface"],
+                       "late": previous["surface"]["time_windows"][-1]["relative_l2"],
+                       "field_t2": previous["fields"][-1]["relative_l2"]}
+    historical_difference = {}
+    for key, value in checked.items():
+        historical_difference[key] = (np.asarray(value) - np.asarray(previous_values[key])).tolist()
+        if not np.allclose(value, previous_values[key], rtol=0, atol=1e-8):
+            raise AssertionError(f"Historical aggregate differs by more than 1e-8: {key}")
+    artifacts = [root / kind / name for kind in ("raster_p5_s36", "curved_p5_s36")
+                 for name in ("surface.npz", "fields.npz", "metadata.json")]
+    artifacts += [Path(__file__), Path(__file__).with_name("pilot_run.py"),
+                  Path(__file__).with_name("pilot_compare.py")]
+    report = {
+        "model_id": 12404, "solver_id": "lin_elast_2d_tenzor_newmark_kim_cu",
+        "metrics": metrics, "direct_dot_product_check": checked,
+        "historical_aggregate_delta": historical_difference,
+        "historical_comparison_limit": "Only stored aggregate metrics compared; old raw arrays are unavailable here",
+        "images": images,
+        "artifacts_sha256": {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in artifacts},
+        "scope": "Author research check; no new p/dt convergence series and no independent solver validation",
+    }
+    (output / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(checked, indent=2))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+    compare(args.root, args.out)
+
+
+if __name__ == "__main__":
+    main()

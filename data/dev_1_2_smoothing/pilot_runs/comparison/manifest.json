@@ -1,0 +1,266 @@
+{
+  "status": "completed_10_runs",
+  "created_utc": "2026-11-04T19:29:41.6378116Z",
+  "files": [
+    {
+      "path": "research/seismic_dataset/PILOT_REPORT.md",
+      "bytes": 22595,
+      "sha256": "178c1ccc639fc476dae96c249cb0119972ed05348c64592713316909f1a7076d"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_geometry/PROTOCOL.md",
+      "bytes": 16454,
+      "sha256": "f3a9eac457e4d6e221ba155218d2ce6f883392136dfbd5350c5fe4c0224d87e7"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_run.py",
+      "bytes": 18478,
+      "sha256": "7eb63cf3e82a2fdff136efbab48213b3fc1f3df74c04d108b55e11ab6490ca8e"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_mesh.py",
+      "bytes": 11136,
+      "sha256": "b34ab702c2d1873cff6e0f0594b94a97fda672c36f69c195e0d2c4ec699db47c"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_compare.py",
+      "bytes": 41943,
+      "sha256": "69458db5a464faea1270d345f49dc79df30f733d36ddce19cd1ab7570651fbff"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_windows.py",
+      "bytes": 1731,
+      "sha256": "a6fbd4e0347b2c3395ff40d438ee09698701335fde90024bd29315589dd939d6"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_verify_order.py",
+      "bytes": 3323,
+      "sha256": "f686926756f2a81c0308fbfa9e9d93f1aa03a760613dc27fee2fef1dbdd639bb"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_geometry/selected_model.npz",
+      "bytes": 2478,
+      "sha256": "af52dddc2974a8927b00e05989c6e8fcbb0edb0ca8da2b5344c9f1942c259352"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_geometry/frozen_q2_geometry.npz",
+      "bytes": 3149,
+      "sha256": "439399b283f0442d6f7903cd78d172ec9319953c1a0587056da41825f4b7b18f"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_geometry/order5_check.json",
+      "bytes": 812,
+      "sha256": "149ab02c51dbcee46046bf384b5a1006cd495c511f3dcde30a9d543962a8f64c"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/jit_header_manifest.json",
+      "bytes": 1099,
+      "sha256": "22dcea6af4a53a4169049ecce626cf325be3bed22e26d4fe48690eb039a370b2"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p2_s18/metadata.json",
+      "bytes": 2835,
+      "sha256": "10106d04bb1a46f674636ed5417d3bd2f11c9836aef6b95fb19b2faf4e6ebbc8"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p2_s18/surface.npz",
+      "bytes": 4237784,
+      "sha256": "0f1ecde1f2237ccce6e1c71d770414f08cba70344e37e747dc0e50ead9be86e3"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p2_s18/fields.npz",
+      "bytes": 300509,
+      "sha256": "ea18d257115fc71d66e49dd72294b7df9229b883979b1fcea953c5bf722ba6cd"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p3_s18/metadata.json",
+      "bytes": 2834,
+      "sha256": "87c87909c14a155a474c9e323a9155b655a1c26dcd9f2a30ef9a1db308803b6a"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p3_s18/surface.npz",
+      "bytes": 4242710,
+      "sha256": "280bd156cbbc91a3c377c3d1e2cd19ed02f6f06c4c335cbba59b0701f853e38a"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p3_s18/fields.npz",
+      "bytes": 300497,
+      "sha256": "ed22ccf8c23fb8a038d4ce1b8a39681de15c6affa6e8d24ba9070e75fee30297"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p4_s18/metadata.json",
+      "bytes": 2834,
+      "sha256": "f2975125f9c6e7c7f0dfb822b12a6c101690118c38f5123914650d6cd5c5f970"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p4_s18/surface.npz",
+      "bytes": 4253164,
+      "sha256": "cfb027843d617301e2ba3d277096d90262ee575b5219a060520c9009772c9ccb"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p4_s18/fields.npz",
+      "bytes": 300585,
+      "sha256": "b5845ab1253a7caef63a80fc37d203215049c68389499308695a5e5a369dee2e"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p4_s36/metadata.json",
+      "bytes": 2835,
+      "sha256": "313846f2f039fffddd777bc3c58e1bcd27771e3cff2ff3dd243c3287a5c95a4d"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p4_s36/surface.npz",
+      "bytes": 4253945,
+      "sha256": "f237989bd8bf3670ba64c199ce04ab2f3980764da67d15e18a3130968f501080"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p4_s36/fields.npz",
+      "bytes": 300624,
+      "sha256": "be2cdd1e598beddfcf7d68a02d24ff60c398174e3645334f92d6dae729151d7f"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p5_s36/metadata.json",
+      "bytes": 2836,
+      "sha256": "5750f846b56e6abbe921b831cd71ae432615d66e3b1e361c5d5805db010053e8"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p5_s36/surface.npz",
+      "bytes": 4258155,
+      "sha256": "7e9aafe5d2b102e52aa66770669f839e1c1914cf79de8bbe106a83216f695931"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/raster_p5_s36/fields.npz",
+      "bytes": 300509,
+      "sha256": "67c662e18867cd651aee84a3089b7e1bccfdcc5c45efe3b666b1b1fd42760daf"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p2_s18/metadata.json",
+      "bytes": 7562,
+      "sha256": "5e2f51a90dfe07e317b261a82ded2b07372308b0590c1acedcb636f378059425"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p2_s18/surface.npz",
+      "bytes": 4343991,
+      "sha256": "d000eb122e96ca8be199d98563321374134869a46d9c7e5b88f861802fdaf2ad"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p2_s18/fields.npz",
+      "bytes": 304046,
+      "sha256": "8109c74859d76c1503885a6b7414f12ae197c88fb78bbcc4a5db22d763e8504b"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p3_s18/metadata.json",
+      "bytes": 7561,
+      "sha256": "596034c8c25343b81f8e7d2258661770badc399239fc3d49250a6b2436a1dbe8"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p3_s18/surface.npz",
+      "bytes": 4335570,
+      "sha256": "3d1a9d9ba1fe4519557108908d85ce5439286ec48018c43a8e9caf4dc2847477"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p3_s18/fields.npz",
+      "bytes": 303557,
+      "sha256": "f8c799ca89e2784182cf470f87c7da92ae6afdcd7887951150d814ed789fd346"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p4_s18/metadata.json",
+      "bytes": 7561,
+      "sha256": "af40558f2490c5946a3cf096bfc9d09ffce66dbf80247adfdd9c3bd6fbac79f9"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p4_s18/surface.npz",
+      "bytes": 4323512,
+      "sha256": "bee9557748bb1f849df347831cbb12ec65e34e0cc0bc45fcd274225be54dd558"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p4_s18/fields.npz",
+      "bytes": 303043,
+      "sha256": "3a19126dfbc4b6c56d8ef0afe4288678de9c3910ec1fa46ee77d3f1464a3be22"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p4_s36/metadata.json",
+      "bytes": 7562,
+      "sha256": "53541f9fee2f7e556ed23396eb0bae2b7edeb8f4cfe465e2cb960e102e428a8c"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p4_s36/surface.npz",
+      "bytes": 4324324,
+      "sha256": "9e20631208ed2e1b234600aab60c31efbfb25a6c6fef74f9061bd8d86ec4d12a"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p4_s36/fields.npz",
+      "bytes": 302996,
+      "sha256": "43ac4d2f35cd6935921279b21dc27fa24ee783865e832fdda46b8d6cbfef01b0"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p5_s36/metadata.json",
+      "bytes": 7563,
+      "sha256": "795004430c62bd923bc3b6bcbffbc27ee9f4533143a6f45cefa3db07a5f8735c"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p5_s36/surface.npz",
+      "bytes": 4315376,
+      "sha256": "0d3f409fc2d6efafde5bc238c0ebbe745a7c9acd8f1370f67e2d12f190d18677"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/curved_p5_s36/fields.npz",
+      "bytes": 302341,
+      "sha256": "7aab4fc9e4034ae6f7334c1414861382176139b3bf9109a242019033ac3edbf9"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/metrics.json",
+      "bytes": 130026,
+      "sha256": "426e753efb4c9131a97617c8cea5f2bd589190a9d57816a9291de7fa994297dc"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/convergence_p.png",
+      "bytes": 82401,
+      "sha256": "58f37ee753eb39f21903317ee428dc930bfe86d4613b92e479a8fd1caf21c673"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/geometry_difference_p5.png",
+      "bytes": 642914,
+      "sha256": "b6c5e1e134c092c60fa9e9a77ddd16b47f7068c79090a6352f397153e9538f3a"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/seismograms_late_p4.png",
+      "bytes": 1070549,
+      "sha256": "17b6650f161546c46b43fc003e7a86f7f73b4f0b44c033ae8dff7fd590eb7f94"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/seismograms_late_p5.png",
+      "bytes": 1070578,
+      "sha256": "518d9c0da62ed33b0cac32812761732a8eb7790bf24f2aa2b452858ff25ae745"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/seismograms_p4.png",
+      "bytes": 881512,
+      "sha256": "ebb5e61e20735fbcfbba424caedf7a25c3a0aae13a1f795e2c4a03bda25c903f"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/seismograms_p5.png",
+      "bytes": 880590,
+      "sha256": "69ab8ec813052ab7098a26d52fca70a122073096102507cec2cdd964b0f5c193"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/snapshots_late_p4.png",
+      "bytes": 432565,
+      "sha256": "a7f469e83570665cbbf13f7980be98af412d3772de21149feb0de6ee3201f2f7"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/snapshots_late_p5.png",
+      "bytes": 432623,
+      "sha256": "5f3ceee2ae1b52e5b58c2a7d7428a4df236e622c4a19b6c6b0c064cc6704a5a0"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/snapshots_p4.png",
+      "bytes": 682818,
+      "sha256": "0bacc8554702630f107474789d9bdf9a8add270834922f8547ef14070eb85753"
+    },
+    {
+      "path": "research/seismic_dataset/pilot_runs/comparison/snapshots_p5.png",
+      "bytes": 684228,
+      "sha256": "63e684a51493df3ebb75737b5c1af919d4311a531627e3c95ef58f91860d6f90"
+    }
+  ]
+}

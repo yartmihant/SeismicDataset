@@ -1,0 +1,66 @@
+{
+  "estimates": [
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 14189.999999999283,
+      "dt_start_s": 4.8403259061888746e-05,
+      "element_count": 4900,
+      "kind": "raster",
+      "max_lumped_mass_kg_per_m": 7696.6954641620705,
+      "min_lumped_mass_kg_per_m": 111.11111111112292,
+      "node_count": 123201,
+      "order": 5,
+      "stiffness_bound_s_minus_2": 133663848.35254213,
+      "substeps_per_ms": 21
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 14633.437499999212,
+      "dt_start_s": 3.7613251468231384e-05,
+      "element_count": 4900,
+      "kind": "curved",
+      "max_lumped_mass_kg_per_m": 10355.151975675952,
+      "min_lumped_mass_kg_per_m": 104.57516339870388,
+      "node_count": 123201,
+      "order": 5,
+      "stiffness_bound_s_minus_2": 317785270.0135171,
+      "substeps_per_ms": 27
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 19866.00000000112,
+      "dt_start_s": 3.41772949238058e-05,
+      "element_count": 4900,
+      "kind": "raster",
+      "max_lumped_mass_kg_per_m": 5944.308390026022,
+      "min_lumped_mass_kg_per_m": 56.68934240362131,
+      "node_count": 177241,
+      "order": 6,
+      "stiffness_bound_s_minus_2": 274837169.524382,
+      "substeps_per_ms": 30
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 20486.812500001124,
+      "dt_start_s": 2.6330412100724825e-05,
+      "element_count": 4900,
+      "kind": "curved",
+      "max_lumped_mass_kg_per_m": 7976.351097463133,
+      "min_lumped_mass_kg_per_m": 53.35467520340831,
+      "node_count": 177241,
+      "order": 6,
+      "stiffness_bound_s_minus_2": 664330056.2832038,
+      "substeps_per_ms": 38
+    }
+  ],
+  "orders": [
+    5,
+    6
+  ],
+  "recommended_substeps_per_ms_both_orders": 38,
+  "recommended_substeps_per_ms_by_order": {
+    "5": 27,
+    "6": 38
+  },
+  "status": "host_side_gershgorin_estimate_not_solver_run"
+}

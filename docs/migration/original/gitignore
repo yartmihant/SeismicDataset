@@ -1,0 +1,21 @@
+# Full source dataset and streaming conversion output remain local.
+/src/
+/binary/*
+!/binary/manifest.json
+/previews/A/ECVB/
+/previews/A/EFVB/
+
+# Keep only the two selected model fixtures and the frozen pilot geometry.
+*.npz
+!/pilot_geometry/selected_model.npz
+!/pilot_geometry/frozen_q2_geometry.npz
+!/model65/geometry/model65.npz
+
+# Rebuildable meshes and intermediate run diagnostics.
+/model65/geometry/*.msh
+/pilot_geometry/dry_*/
+/pilot_runs/p*_preview*/
+/pilot_runs/comparison_p4/
+/pilot_runs/*/metadata.started.json
+/model65/runs/dry_*/
+/model65/runs/*/metadata.started.json

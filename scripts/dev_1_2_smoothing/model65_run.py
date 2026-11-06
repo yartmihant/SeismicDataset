@@ -1,0 +1,323 @@
+"""Run the isolated ECVB 00065 p=4 raster-versus-curved SEM experiment.
+
+The module accepts prebuilt tensor-GLL meshes from ``model65/geometry`` and
+does not read or alter the geometry cache of the ECVB 12404 pilot.  Its source,
+receivers, material law and CPU-gen resource are deliberately shared with that
+pilot so the two experiments remain physically comparable.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from math import erf, exp, pi, sqrt
+import os
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+import sys
+from time import perf_counter
+from typing import Sequence
+
+import numpy as np
+from numpy.typing import NDArray
+
+from scripts.dev_1_2_smoothing.pilot_mesh import MeshCase
+from scripts.dev_1_2_smoothing.pilot_run import (
+    ABC,
+    BOUNDARY_SPACE,
+    MAIN_SPACE,
+    MATERIAL_ISO_PLANE_STRAIN,
+    N_FORCE_DYNAMIC,
+    OUTPUT_INTERVAL_S,
+    RECEIVER_UX,
+    RECEIVER_UY,
+    RHO_KG_M3,
+    SOURCE_SIGMA_M,
+    SOURCE_X_M,
+    SNAPSHOT_TIMES_S,
+    _case_metadata,
+    _make_handler,
+    PilotSpec,
+    SourceLoad,
+    build_spec,
+    consistent_surface_source,
+    dynamic_source_values,
+    loaded_windows_ceed_libraries,
+    plane_strain_parameters,
+    top_boundary_ids,
+)
+from semgpu2.model import SGPETALineModel
+from semgpu2.model.mesh import SGMeshModel, SGMeshStratumData
+
+
+FloatArray = NDArray[np.float64]
+IntArray = NDArray[np.int64]
+DEFAULT_CASE_ROOT = (DATA_12 / "model65") / "geometry"
+EXPECTED_MODEL_ID = 65
+ORDER = 4
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _npz_array(data: np.lib.npyio.NpzFile, name: str, dtype: np.dtype[np.generic], dimensions: int, path: Path) -> NDArray[np.generic]:
+    if name not in data:
+        raise ValueError(f"{path}: missing {name!r}")
+    value = np.asarray(data[name], dtype=dtype)
+    if value.ndim != dimensions:
+        raise ValueError(f"{path}: {name!r} must have {dimensions} dimensions")
+    return value
+
+
+def _cell_boundary_edges(cells: IntArray) -> dict[tuple[int, ...], list[int]]:
+    """Map unordered tensor p4 edges to their incident MAIN element ids."""
+    owners: dict[tuple[int, ...], list[int]] = {}
+    for element_id, cell in enumerate(cells.reshape((-1, ORDER + 1, ORDER + 1))):
+        for edge in (cell[0, :], cell[:, -1], cell[-1, ::-1], cell[::-1, 0]):
+            key = tuple(sorted(int(node) for node in edge))
+            owners.setdefault(key, []).append(element_id)
+    return owners
+
+
+def _node_tags(node_count: int, cells: IntArray, boundary: IntArray) -> IntArray:
+    """Build rank-0/1/2 topology tags and external-boundary dimensions."""
+    local_rank = np.full(node_count, -1, dtype=np.int64)
+    for cell in cells.reshape((-1, ORDER + 1, ORDER + 1)):
+        for row in range(ORDER + 1):
+            for column in range(ORDER + 1):
+                rank = int(row not in (0, ORDER)) + int(column not in (0, ORDER))
+                node = int(cell[row, column])
+                if local_rank[node] not in (-1, rank):
+                    raise ValueError("A global node has incompatible tensor-topology ranks")
+                local_rank[node] = rank
+    if np.any(local_rank < 0):
+        raise ValueError("Some mesh nodes are not used by MAIN elements")
+    exterior_incidence = np.zeros(node_count, dtype=np.int64)
+    for edge in boundary:
+        exterior_incidence[edge] += 1
+    tags = np.zeros((node_count, 3), dtype=np.int64)
+    tags[:, 0] = local_rank
+    tags[:, 1] = 2 - np.minimum(exterior_incidence, 2)
+    return tags
+
+
+def _q2_at_p4_gll(q2_nodes: FloatArray, q2_cells: IntArray) -> FloatArray:
+    """Evaluate each y-major/x-fast Q2 map at the p4 tensor-GLL nodes."""
+    reference = np.asarray(SGPETALineModel("GLL", order=ORDER).p_nodes.coords[:, 0], dtype=np.float64)
+    q2_weight = np.column_stack((0.5 * reference * (reference - 1.0), 1.0 - reference * reference, 0.5 * reference * (reference + 1.0)))
+    local = q2_nodes[q2_cells].reshape((-1, 3, 3, 2))
+    return np.einsum("ai,bj,eijc->eabc", q2_weight, q2_weight, local).reshape((-1, (ORDER + 1) ** 2, 2))
+
+
+def _load_mesh(case_root: Path, kind: str) -> tuple[MeshCase, list[Path]]:
+    mesh_path = case_root / f"{kind}_p4_mesh.npz"
+    q2_path = case_root / f"{kind}_q2_mesh.npz"
+    model_path = case_root / "model65.npz"
+    case_path = case_root / "case.json"
+    curves_path = case_root / "curves.json"
+    geometry_script = Path(__file__).with_name("model65_geometry.py")
+    mesh_script = Path(__file__).with_name("model65_mesh.py")
+    for path in (mesh_path, q2_path, model_path, case_path, curves_path, geometry_script, mesh_script):
+        if not path.is_file():
+            raise FileNotFoundError(path)
+    case_info = json.loads(case_path.read_text(encoding="utf-8"))
+    if not isinstance(case_info, dict) or case_info.get("model_id") != EXPECTED_MODEL_ID:
+        raise ValueError(f"{case_path}: expected model_id {EXPECTED_MODEL_ID}")
+    domain = case_info.get("domain_m")
+    if domain != [0.0, 0.0, 700.0, 700.0]:
+        raise ValueError(f"{case_path}: expected domain_m [0, 0, 700, 700]")
+    if not isinstance(case_info.get("boundary_audit"), dict):
+        raise ValueError(f"{case_path}: boundary_audit object is required")
+    with np.load(model_path, allow_pickle=False) as data:
+        model_id = int(np.asarray(_npz_array(data, "model_id", np.dtype(np.int64), 0, model_path)).item())
+        vp = np.asarray(_npz_array(data, "vp", np.dtype(np.float64), 2, model_path), dtype=np.float64)
+        vs = np.asarray(_npz_array(data, "vs", np.dtype(np.float64), 2, model_path), dtype=np.float64)
+    if model_id != EXPECTED_MODEL_ID or vp.shape != (70, 70) or vs.shape != (70, 70):
+        raise ValueError(f"{model_path}: expected 70x70 VP/VS for model {EXPECTED_MODEL_ID}")
+    if not np.isfinite(vp).all() or not np.isfinite(vs).all() or np.any(vp <= 0.0) or np.any(vs <= 0.0):
+        raise ValueError(f"{model_path}: invalid VP/VS")
+    with np.load(mesh_path, allow_pickle=False) as data:
+        nodes = np.asarray(_npz_array(data, "nodes", np.dtype(np.float64), 2, mesh_path), dtype=np.float64)
+        cells = np.asarray(_npz_array(data, "cells", np.dtype(np.int64), 2, mesh_path), dtype=np.int64)
+        boundary = np.asarray(_npz_array(data, "boundary", np.dtype(np.int64), 2, mesh_path), dtype=np.int64)
+        element_vp = np.asarray(_npz_array(data, "vp", np.dtype(np.float64), 1, mesh_path), dtype=np.float64)
+        element_vs = np.asarray(_npz_array(data, "vs", np.dtype(np.float64), 1, mesh_path), dtype=np.float64)
+        boundary_vp = np.asarray(_npz_array(data, "boundary_vp", np.dtype(np.float64), 1, mesh_path), dtype=np.float64)
+        boundary_vs = np.asarray(_npz_array(data, "boundary_vs", np.dtype(np.float64), 1, mesh_path), dtype=np.float64)
+    if nodes.shape[1:] != (2,) or cells.shape[1:] != ((ORDER + 1) ** 2,) or boundary.shape[1:] != (ORDER + 1,):
+        raise ValueError(f"{mesh_path}: expected x-fast p4 tensor cells and p4 boundary edges")
+    if not np.isfinite(nodes).all() or np.any(nodes < -1.0e-9) or np.any(nodes > 700.0 + 1.0e-9):
+        raise ValueError(f"{mesh_path}: nodes must be finite and within the 700 m square")
+    if cells.size == 0 or boundary.size == 0 or int(cells.min()) < 0 or int(boundary.min()) < 0 or int(cells.max()) >= nodes.shape[0] or int(boundary.max()) >= nodes.shape[0]:
+        raise ValueError(f"{mesh_path}: invalid node indices")
+    if np.any(np.diff(np.sort(cells, axis=1), axis=1) == 0) or np.any(np.diff(np.sort(boundary, axis=1), axis=1) == 0):
+        raise ValueError(f"{mesh_path}: an element repeats a node")
+    count = cells.shape[0]
+    boundary_count = boundary.shape[0]
+    for name, values, expected in (("vp", element_vp, count), ("vs", element_vs, count), ("boundary_vp", boundary_vp, boundary_count), ("boundary_vs", boundary_vs, boundary_count)):
+        if values.shape != (expected,) or not np.isfinite(values).all() or np.any(values <= 0.0):
+            raise ValueError(f"{mesh_path}: invalid {name}")
+    edge_owners = _cell_boundary_edges(cells)
+    exterior_edges = {edge: owners[0] for edge, owners in edge_owners.items() if len(owners) == 1}
+    if any(len(owners) > 2 for owners in edge_owners.values()):
+        raise ValueError(f"{mesh_path}: an edge belongs to more than two MAIN elements")
+    boundary_keys = [tuple(sorted(int(node) for node in edge)) for edge in boundary]
+    if len(set(boundary_keys)) != boundary_count or set(boundary_keys) != set(exterior_edges):
+        raise ValueError(f"{mesh_path}: BOUNDARY must enumerate each and only external MAIN edge")
+    boundary_owners = np.asarray([exterior_edges[key] for key in boundary_keys], dtype=np.int64)
+    if not np.allclose(boundary_vp, element_vp[boundary_owners], rtol=0.0, atol=0.0) or not np.allclose(boundary_vs, element_vs[boundary_owners], rtol=0.0, atol=0.0):
+        raise ValueError(f"{mesh_path}: boundary VP/VS must equal the unique incident MAIN material")
+    with np.load(q2_path, allow_pickle=False) as data:
+        q2_nodes = np.asarray(_npz_array(data, "nodes", np.dtype(np.float64), 2, q2_path), dtype=np.float64)
+        q2_cells = np.asarray(_npz_array(data, "cells", np.dtype(np.int64), 2, q2_path), dtype=np.int64)
+    if q2_nodes.shape[1:] != (2,) or q2_cells.shape != (count, 9) or q2_cells.size == 0 or int(q2_cells.min()) < 0 or int(q2_cells.max()) >= q2_nodes.shape[0]:
+        raise ValueError(f"{q2_path}: expected one valid y-major/x-fast Q2 cell for each p4 element")
+    expected_nodes = _q2_at_p4_gll(q2_nodes, q2_cells)
+    if not np.allclose(nodes[cells], expected_nodes, rtol=0.0, atol=1.0e-9):
+        error = float(np.max(np.abs(nodes[cells] - expected_nodes)))
+        raise ValueError(f"{mesh_path}: p4 nodes do not equal the frozen Q2 embedding (max error {error:g} m)")
+    line = SGPETALineModel("GLL", order=ORDER)
+    main_offsets = np.arange(count + 1, dtype=np.int64) * (ORDER + 1) ** 2
+    boundary_offsets = np.arange(boundary_count + 1, dtype=np.int64) * (ORDER + 1)
+    strata = {
+        MAIN_SPACE: SGMeshStratumData((2, 2, 2), cells.reshape(-1), main_offsets, np.zeros(2 * count, dtype=np.int32), np.arange(count + 1, dtype=np.int64) * 2, np.ones(count, dtype=np.int64)),
+        BOUNDARY_SPACE: SGMeshStratumData((2, 1, 1), boundary.reshape(-1), boundary_offsets, np.zeros(boundary_count, dtype=np.int32), np.arange(boundary_count + 1, dtype=np.int64), np.zeros(boundary_count, dtype=np.int64)),
+    }
+    mesh = SGMeshModel(nodes, _node_tags(nodes.shape[0], cells, boundary), [line], strata)
+    metadata: dict[str, object] = {"kind": kind, "order": ORDER, "model_id": model_id, "nodes": int(nodes.shape[0]), "elements": int(count), "geometry": "prebuilt frozen Q2 embedded in p4 GLL nodes", "case_root": str(case_root), "case_json": case_info, "boundary_owner_ids": boundary_owners.tolist()}
+    return MeshCase(mesh, element_vp, element_vs, boundary_vp, boundary_vs, metadata), [mesh_path, q2_path, model_path, case_path, curves_path, geometry_script, mesh_script]
+
+
+def _metadata(case: MeshCase, spec: PilotSpec, source: SourceLoad, case_root: Path, provenance_files: list[Path]) -> dict[str, object]:
+    metadata = _case_metadata(case, spec, source)
+    source_metadata = metadata.get("source")
+    if not isinstance(source_metadata, dict):
+        raise AssertionError("pilot source metadata contract")
+    displacement = case.mesh.nodes_coords[source.node_ids, 0] - SOURCE_X_M
+    analytic_second_moment = -SOURCE_SIGMA_M**2 * (1.0 - 6.0 * exp(-4.5) / sqrt(2.0 * pi) / erf(3.0 / sqrt(2.0)))
+    source_metadata["moment_audit"] = {
+        "total_force_N_per_unit_thickness": float(np.sum(source.nodal_force_y)),
+        "first_centered_m_N_per_unit_thickness": float(source.nodal_force_y @ displacement),
+        "second_centered_m2_N_per_unit_thickness": float(source.nodal_force_y @ (displacement * displacement)),
+        "analytic_truncated_gaussian_second_centered_m2_N_per_unit_thickness": analytic_second_moment,
+    }
+    metadata["experiment"] = {"id": "ecvb_00065_p4", "case_root": str(case_root), "p4_geometry": "input mesh contains the frozen Q2 map sampled at p4 GLL nodes"}
+    metadata["provenance"] = {
+        "python": sys.executable,
+        "python_version": sys.version,
+        "numpy_version": np.__version__,
+        "platform": sys.platform,
+        "geometry_nodes_sha256": hashlib.sha256(case.mesh.nodes_coords.tobytes()).hexdigest(),
+        "files": [{"path": str(path.resolve()), "sha256": _sha256(path)} for path in provenance_files],
+    }
+    return metadata
+
+
+def run_case(case: MeshCase, spec: PilotSpec, output: Path, case_root: Path, input_files: list[Path]) -> dict[str, object]:
+    """Run a prebuilt model-65 mesh with the pilot's unchanged physical setup."""
+    from semgpu2.model.model import SGModel
+    from semgpu2.model.physics import SGPhysicsModel, SGPhysicsTimeData
+    from semgpu2.model.receiver import SGReceiverModel
+    from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_ceed import _native
+    from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_ceed.constants import SGSolverConfig, SGRunCodeEnum, SGRunResultData
+    from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_ceed.solver import SGSolver
+
+    source = consistent_surface_source(case)
+    top_ids = top_boundary_ids(case)
+    boundary_count = int(case.mesh.strata[BOUNDARY_SPACE].p_node_offsets.size - 1)
+    abc_ids = np.setdiff1d(np.arange(boundary_count, dtype=np.int64), top_ids, assume_unique=True)
+    materials = plane_strain_parameters(case.element_vp, case.element_vs)
+    abc_values = np.column_stack((RHO_KG_M3 * case.boundary_vp[abc_ids], RHO_KG_M3 * case.boundary_vs[abc_ids]))
+    spec_steps = spec.steps_count
+    spec_tacts = spec.steps_per_tact
+    spec_end = spec.t_end
+    spec_count = spec.output_count
+    times = np.linspace(0.0, spec_end, spec_count, dtype=np.float64)
+    model = SGModel(case.mesh, SGSolver(SGSolverConfig(t_begin=0.0, t_end=spec_end, steps_count=spec_steps, steps_per_tact=spec_tacts, ceed_resource="/cpu/self/gen")))
+    main_count = int(case.mesh.strata[MAIN_SPACE].p_node_offsets.size - 1)
+    model.add_physics(SGPhysicsModel.from_entity_values("material", MATERIAL_ISO_PLANE_STRAIN, case.mesh, MAIN_SPACE, np.arange(main_count, dtype=np.int64), materials))
+    model.add_physics(SGPhysicsModel.from_entity_values("abc_bottom_sides", ABC, case.mesh, BOUNDARY_SPACE, abc_ids, abc_values))
+    model.add_physics(SGPhysicsModel("surface_ricker_consistent", N_FORCE_DYNAMIC, case.mesh, 0, source.node_ids, dynamic_source_values(source, spec), time=SGPhysicsTimeData(0.0, spec_end, spec_count, 3)))
+    surface_frames: list[tuple[float, FloatArray]] = []
+    surface_points = np.column_stack((np.arange(71, dtype=np.float64) * 10.0, np.full(71, 700.0)))
+    model.add_receiver(SGReceiverModel.from_points("surface_ux_uy", case.mesh, MAIN_SPACE, surface_points, np.asarray([RECEIVER_UX, RECEIVER_UY], dtype=np.int32), begin_tact=0, end_tact=spec_count - 1, stride=1, handler=_make_handler(surface_frames, progress=True), frame_shape=(71,)))
+    field_frames: list[tuple[float, FloatArray]] = []
+    grid_x = np.arange(70, dtype=np.float64) * 10.0 + 5.0
+    grid_y = 700.0 - (np.arange(70, dtype=np.float64) * 10.0 + 5.0)
+    grid_points = np.stack(np.meshgrid(grid_x, grid_y), axis=-1).reshape((-1, 2))
+    for snapshot_s in SNAPSHOT_TIMES_S:
+        if snapshot_s <= spec_end + 1.0e-12:
+            tact = round(snapshot_s / OUTPUT_INTERVAL_S)
+            model.add_receiver(SGReceiverModel.from_points(f"field_{snapshot_s:g}s", case.mesh, MAIN_SPACE, grid_points, np.asarray([RECEIVER_UX, RECEIVER_UY], dtype=np.int32), begin_tact=tact, end_tact=tact, stride=1, handler=_make_handler(field_frames), frame_shape=(70, 70)))
+    output.mkdir(parents=True, exist_ok=True)
+    if (output / "metadata.json").exists():
+        raise FileExistsError(f"Completed output already exists: {output}")
+    provenance = [Path(__file__).resolve(), Path(__file__).with_name("pilot_run.py").resolve(), Path(_native.__file__).resolve(), *loaded_windows_ceed_libraries(), *input_files]
+    metadata = _metadata(case, spec, source, case_root, provenance)
+    (output / "metadata.started.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    started = perf_counter()
+    model.prepare()
+    print(json.dumps({"stage": "prepared", "kind": spec.kind, "p": ORDER, "steps": spec_steps}), flush=True)
+    result = model.run(sync=True)
+    elapsed = perf_counter() - started
+    if not isinstance(result, SGRunResultData) or result.code != SGRunCodeEnum.TIME_END or result.steps_count != spec_steps:
+        raise RuntimeError(f"Incomplete run: {result}")
+    surface_frames.sort(key=lambda frame: frame[0])
+    field_frames.sort(key=lambda frame: frame[0])
+    surface_time = np.asarray([frame[0] for frame in surface_frames], dtype=np.float64)
+    surface = np.asarray([frame[1].reshape((2, 71)) for frame in surface_frames], dtype=np.float64)
+    field_time = np.asarray([frame[0] for frame in field_frames], dtype=np.float64)
+    field = np.asarray([frame[1].reshape((2, 70, 70)) for frame in field_frames], dtype=np.float64)
+    if not np.isfinite(surface).all() or not np.isfinite(field).all() or surface_time.shape != (spec_count,) or not np.allclose(surface_time, times, rtol=0.0, atol=1.0e-12):
+        raise RuntimeError("Invalid receiver output")
+    np.savez_compressed(output / "surface.npz", time_s=surface_time, displacement_ux_uy_m=surface, x_m=surface_points[:, 0], compatibility_2000_t0_to_1_999=surface[:2000])
+    np.savez_compressed(output / "fields.npz", time_s=field_time, displacement_ux_uy_m=field, x_m=grid_x, y_m=grid_y)
+    metadata["runtime"] = {"wall_seconds_prepare_and_run": elapsed, "result_code": int(result.code)}
+    (output / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return metadata
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--case-root", type=Path, default=DEFAULT_CASE_ROOT)
+    parser.add_argument("--kind", choices=("raster", "curved"), required=True)
+    parser.add_argument("--order", type=int, default=ORDER)
+    parser.add_argument("--substeps", type=int, default=36)
+    parser.add_argument("--t-end", type=float, default=2.0)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--run", action="store_true")
+    parser.add_argument("--ceed-prefix", type=Path)
+    parser.add_argument("--jit-cxx", type=Path)
+    args = parser.parse_args(argv)
+    if args.order != ORDER:
+        parser.error("only the requested p=4 experiment is accepted")
+    if (args.ceed_prefix is None) != (args.jit_cxx is None):
+        parser.error("--ceed-prefix and --jit-cxx must be supplied together")
+    case_root = args.case_root.resolve()
+    case, inputs = _load_mesh(case_root, args.kind)
+    spec = build_spec(args.kind, args.order, args.substeps, args.t_end)
+    if not args.run:
+        source = consistent_surface_source(case)
+        metadata = _metadata(case, spec, source, case_root, [Path(__file__).resolve(), Path(__file__).with_name("pilot_run.py").resolve(), *inputs])
+        args.out.mkdir(parents=True, exist_ok=True)
+        (args.out / "metadata.dry_run.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        print(json.dumps(metadata, indent=2, sort_keys=True))
+        return
+    if args.ceed_prefix is None:
+        metadata = run_case(case, spec, args.out, case_root, inputs)
+    else:
+        prefix = args.ceed_prefix.resolve()
+        compiler = args.jit_cxx.resolve()
+        if sys.platform != "win32" or not (prefix / "bin" / "ceed.dll").is_file() or not compiler.is_file():
+            raise ValueError("invalid native Windows CEED prefix or JIT compiler")
+        os.environ["CEED_ROOT"] = str(prefix)
+        os.environ["CEED_CPU_JIT_CXX"] = str(compiler)
+        with os.add_dll_directory(str(prefix / "bin")):
+            metadata = run_case(case, spec, args.out, case_root, inputs)
+    print(json.dumps(metadata, indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

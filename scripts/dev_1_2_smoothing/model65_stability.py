@@ -1,0 +1,211 @@
+"""Conservative explicit-step bound for the unstructured ECVB 00065 Q4 meshes.
+
+Unlike ``pilot_stability.py``, this module makes no Cartesian or layered-grid
+assumption.  It uses the actual tensor-GLL node coordinates of every curved
+quadrilateral and the actual exterior boundary edges written for model 65.
+"""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, dataclass
+import json
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+import sys
+from typing import Sequence
+
+import numpy as np
+from numpy.typing import NDArray
+
+from scripts.dev_1_2_smoothing.model65_run import DEFAULT_CASE_ROOT, ORDER, _load_mesh
+from scripts.dev_1_2_smoothing.pilot_mesh import MeshCase
+from scripts.dev_1_2_smoothing.pilot_stability import (
+    BOUNDARY_SPACE,
+    MAIN_SPACE,
+    OUTPUT_TACT_S,
+    RHO_KG_M3,
+    _material_matrix,
+    tensor_basis,
+)
+from semgpu2.model import SGPETALineModel
+
+
+FloatArray = NDArray[np.float64]
+IntArray = NDArray[np.int64]
+
+
+@dataclass(frozen=True, slots=True)
+class StabilityEstimate:
+    kind: str
+    order: int
+    node_count: int
+    element_count: int
+    stiffness_bound_s_minus_2: float
+    damping_bound_s_minus_1: float
+    dt_start_s: float
+    substeps_per_ms: int
+    min_lumped_mass_kg_per_m: float
+    max_lumped_mass_kg_per_m: float
+    abc_edge_count: int
+    jacobian_min: float
+    jacobian_max: float
+    jacobian_check_points_per_axis: int
+
+
+def _main_nodes(case: MeshCase) -> IntArray:
+    values = np.asarray(case.mesh.strata[MAIN_SPACE].p_nodes, dtype=np.int64)
+    return values.reshape((-1, (ORDER + 1) ** 2))
+
+
+def _boundary_nodes(case: MeshCase) -> IntArray:
+    values = np.asarray(case.mesh.strata[BOUNDARY_SPACE].p_nodes, dtype=np.int64)
+    return values.reshape((-1, ORDER + 1))
+
+
+def _lagrange(nodes: FloatArray, samples: FloatArray) -> tuple[FloatArray, FloatArray]:
+    """Cardinal values and reference derivatives at arbitrary samples."""
+    size = nodes.size
+    values = np.ones((samples.size, size), dtype=np.float64)
+    derivatives = np.zeros((samples.size, size), dtype=np.float64)
+    for index, node in enumerate(nodes):
+        for other_index, other in enumerate(nodes):
+            if index == other_index:
+                continue
+            values[:, index] *= (samples - other) / (node - other)
+        for omitted in range(size):
+            if omitted == index:
+                continue
+            term = np.full(samples.size, 1.0 / (node - nodes[omitted]), dtype=np.float64)
+            for other_index, other in enumerate(nodes):
+                if other_index == index or other_index == omitted:
+                    continue
+                term *= (samples - other) / (node - other)
+            derivatives[:, index] += term
+    return values, derivatives
+
+
+def _jacobians(element_coordinates: FloatArray, derivative: FloatArray) -> FloatArray:
+    """Return J[quadrature, physical coordinate, reference coordinate]."""
+    return np.einsum("epc,qpr->eqcr", element_coordinates, derivative)
+
+
+def _check_jacobians(case: MeshCase, nodes: IntArray) -> tuple[float, float]:
+    """Check the mapped Q4 geometry at a denser reference grid than GLL points."""
+    line_nodes = np.asarray(case.mesh.pets[0].p_nodes.coords[:, 0], dtype=np.float64)
+    samples = np.linspace(-1.0, 1.0, 2 * ORDER + 1, dtype=np.float64)
+    values, derivative_1d = _lagrange(line_nodes, samples)
+    derivative = np.empty((samples.size * samples.size, (ORDER + 1) ** 2, 2), dtype=np.float64)
+    derivative[:, :, 0] = np.einsum("ai,bj->abij", values, derivative_1d).reshape((samples.size * samples.size, -1))
+    derivative[:, :, 1] = np.einsum("ai,bj->abij", derivative_1d, values).reshape((samples.size * samples.size, -1))
+    coordinates = case.mesh.nodes_coords[nodes]
+    determinants = np.linalg.det(_jacobians(coordinates, derivative))
+    if not np.isfinite(determinants).all() or float(determinants.min()) <= 1.0e-12:
+        raise ValueError("A curved MAIN element has a nonpositive Jacobian on the dense reference grid")
+    return float(determinants.min()), float(determinants.max())
+
+
+def _assemble_mass_and_stiffness(case: MeshCase, nodes: IntArray) -> tuple[FloatArray, FloatArray]:
+    """Assemble lumped mass and absolute local stiffness row sums on actual maps."""
+    _, reference_derivative, quadrature_weight, _ = tensor_basis(ORDER)
+    coordinates = case.mesh.nodes_coords
+    p_count = nodes.shape[1]
+    mass = np.zeros(2 * coordinates.shape[0], dtype=np.float64)
+    stiffness_rows = np.zeros_like(mass)
+    materials = _material_matrix(case.element_vp, case.element_vs)
+    batch_size = 64
+    for begin in range(0, nodes.shape[0], batch_size):
+        end = min(begin + batch_size, nodes.shape[0])
+        element_nodes = nodes[begin:end]
+        jacobian = _jacobians(coordinates[element_nodes], reference_derivative)
+        determinant = np.linalg.det(jacobian)
+        if not np.isfinite(determinant).all() or np.any(determinant <= 1.0e-12):
+            raise ValueError("A MAIN element has a nonpositive Jacobian at a GLL point")
+        inverse = np.linalg.inv(jacobian)
+        gradient = np.einsum("qpr,eqrc->eqpc", reference_derivative, inverse)
+        b_matrix = np.zeros((end - begin, p_count, 3, 2 * p_count), dtype=np.float64)
+        b_matrix[:, :, 0, 0::2] = gradient[:, :, :, 0]
+        b_matrix[:, :, 1, 1::2] = gradient[:, :, :, 1]
+        b_matrix[:, :, 2, 0::2] = gradient[:, :, :, 1]
+        b_matrix[:, :, 2, 1::2] = gradient[:, :, :, 0]
+        weighted = determinant * quadrature_weight[None, :]
+        constitutive_b = np.einsum("eab,eqbj->eqaj", materials[begin:end], b_matrix)
+        local_stiffness = np.einsum("eqai,eqaj,eq->eij", b_matrix, constitutive_b, weighted)
+        element_dofs = np.empty((end - begin, 2 * p_count), dtype=np.int64)
+        element_dofs[:, 0::2] = 2 * element_nodes
+        element_dofs[:, 1::2] = 2 * element_nodes + 1
+        np.add.at(mass, element_dofs.ravel(), np.repeat(RHO_KG_M3 * weighted, 2, axis=1).ravel())
+        np.add.at(stiffness_rows, element_dofs.ravel(), np.abs(local_stiffness).sum(axis=2).ravel())
+    if not np.isfinite(mass).all() or np.any(mass <= 0.0):
+        raise ValueError("Lumped mass is nonfinite or nonpositive")
+    return mass, stiffness_rows
+
+
+def _assemble_abc_bound(case: MeshCase, mass: FloatArray) -> tuple[FloatArray, int]:
+    """Assemble a diagonal ABC row bound from each non-free exterior edge."""
+    boundary = _boundary_nodes(case)
+    coordinates = case.mesh.nodes_coords
+    top = float(np.max(coordinates[:, 1]))
+    tolerance = 1.0e-9 * max(1.0, abs(top))
+    top_mask = np.all(np.abs(coordinates[boundary, 1] - top) <= tolerance, axis=1)
+    line_data = case.mesh.pets[0].build_data(use_symmetry=False)
+    line_weight = np.asarray(line_data.weights, dtype=np.float64)
+    line_derivative = np.asarray(line_data.grads[:, :, 0], dtype=np.float64)
+    damping = np.zeros_like(mass)
+    for edge_id in np.flatnonzero(~top_mask):
+        edge_nodes = boundary[edge_id]
+        tangent = line_derivative @ coordinates[edge_nodes]
+        weights = line_weight * np.linalg.norm(tangent, axis=1)
+        impedance_bound = RHO_KG_M3 * float(case.boundary_vp[edge_id])
+        dofs = np.empty(2 * edge_nodes.size, dtype=np.int64)
+        dofs[0::2] = 2 * edge_nodes
+        dofs[1::2] = 2 * edge_nodes + 1
+        np.add.at(damping, dofs, np.repeat(impedance_bound * weights, 2))
+    return damping / mass, int(np.count_nonzero(~top_mask))
+
+
+def estimate(case: MeshCase) -> StabilityEstimate:
+    nodes = _main_nodes(case)
+    jacobian_min, jacobian_max = _check_jacobians(case, nodes)
+    mass, stiffness_rows = _assemble_mass_and_stiffness(case, nodes)
+    damping_ratio, abc_edges = _assemble_abc_bound(case, mass)
+    stiffness = float(np.max(stiffness_rows / mass))
+    damping = float(np.max(damping_ratio))
+    dt_start = 2.0 / (np.sqrt(damping*damping + 4.0*stiffness) + damping)
+    return StabilityEstimate(
+        kind=str(case.metadata["kind"]), order=ORDER, node_count=int(case.mesh.nodes_coords.shape[0]),
+        element_count=int(nodes.shape[0]), stiffness_bound_s_minus_2=stiffness,
+        damping_bound_s_minus_1=damping, dt_start_s=float(dt_start),
+        substeps_per_ms=max(1, int(np.ceil(OUTPUT_TACT_S / dt_start))),
+        min_lumped_mass_kg_per_m=float(mass.min()), max_lumped_mass_kg_per_m=float(mass.max()),
+        abc_edge_count=abc_edges, jacobian_min=jacobian_min, jacobian_max=jacobian_max,
+        jacobian_check_points_per_axis=2 * ORDER + 1,
+    )
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--case-root", type=Path, default=DEFAULT_CASE_ROOT)
+    parser.add_argument("--out", type=Path)
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    args = parse_args(argv)
+    root = args.case_root.resolve()
+    output = args.out if args.out is not None else root / "stability.json"
+    estimates = [estimate(_load_mesh(root, kind)[0]) for kind in ("raster", "curved")]
+    common = max(item.substeps_per_ms for item in estimates)
+    document = {
+        "method": "The actual curved tensor-GLL maps are sampled at a 9x9 reference grid for positive Jacobians. GLL mass, plane-strain stiffness, and ABC row bounds are assembled on all elements. The explicit start step is half the damped scalar central-difference limit based on a Gershgorin |K| bound.",
+        "limits": "This is a conservative host-side bound, not the CEED spectrum or a convergence proof.",
+        "estimates": [asdict(item) for item in estimates],
+        "recommended_common_substeps_per_ms": common,
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(document, indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

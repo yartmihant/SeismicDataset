@@ -1,0 +1,40 @@
+{
+  "case": {
+    "material": "plane strain rho=1,E=20,nu=.25",
+    "mesh": "2x2 Q2 curved; y=eta+.06(1-x^2)(eta+1), detJ>=1",
+    "receivers": "three physical points, Ux/Uy",
+    "source": "dynamic N_FORCE vertical five-sample pulse",
+    "time": "0..0.1, 40 steps, 4 per tact"
+  },
+  "comparison": {
+    "max_abs": 1.3552527156068805e-20,
+    "reference_l2": 0.01791496437611214,
+    "relative_l2": 1.3818525192886098e-18,
+    "response_max_abs": 0.008945847957046414
+  },
+  "gen": {
+    "loaded_ceed_dlls": [
+      [
+        "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\tmp\\libceed-win-clang-prefix\\bin\\ceed.dll",
+        "84f50925453828644871feec9a81c768e98843039a70c3e36b04524d50f4d216"
+      ]
+    ],
+    "native_module": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Lib\\site-packages\\semgpu2\\solvers\\lin_elast_2d_tenzor_newmark_kim_ceed\\_native.cp313-win_amd64.pyd",
+    "native_sha256": "ec09ec361a5b26fa1934e99dedf525b24bdd58a01c17d6eda9f2a3496c252a81",
+    "resource": "/cpu/self/gen",
+    "wall_seconds": 10.255155400140211
+  },
+  "ref": {
+    "loaded_ceed_dlls": [
+      [
+        "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\tmp\\libceed-win-clang-prefix\\bin\\ceed.dll",
+        "84f50925453828644871feec9a81c768e98843039a70c3e36b04524d50f4d216"
+      ]
+    ],
+    "native_module": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Lib\\site-packages\\semgpu2\\solvers\\lin_elast_2d_tenzor_newmark_kim_ceed\\_native.cp313-win_amd64.pyd",
+    "native_sha256": "ec09ec361a5b26fa1934e99dedf525b24bdd58a01c17d6eda9f2a3496c252a81",
+    "resource": "/cpu/self/ref",
+    "wall_seconds": 0.004909500014036894
+  },
+  "status": "research_sanity_not_solver_acceptance"
+}

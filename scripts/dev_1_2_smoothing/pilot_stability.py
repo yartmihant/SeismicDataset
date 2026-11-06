@@ -1,0 +1,214 @@
+"""Conservative, native-free explicit-step bound for the seismic SEM pilot.
+
+The estimate is deliberately a Gershgorin bound for the assembled lumped-mass
+operator, not a claim about the CEED solver's actual spectrum.
+"""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, dataclass
+import json
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+import sys
+from typing import Sequence
+
+import numpy as np
+from numpy.typing import NDArray
+
+from scripts.dev_1_2_smoothing.pilot_mesh import MeshCase, build_case
+
+
+FloatArray = NDArray[np.float64]
+IntArray = NDArray[np.int64]
+MAIN_SPACE = 1
+BOUNDARY_SPACE = 2
+RHO_KG_M3 = 1000.0
+OUTPUT_TACT_S = 0.001
+
+
+@dataclass(frozen=True, slots=True)
+class StabilityEstimate:
+    kind: str
+    order: int
+    node_count: int
+    element_count: int
+    stiffness_bound_s_minus_2: float
+    damping_bound_s_minus_1: float
+    dt_start_s: float
+    substeps_per_ms: int
+    min_lumped_mass_kg_per_m: float
+    max_lumped_mass_kg_per_m: float
+    abc_edge_count: int
+
+
+def tensor_basis(order: int) -> tuple[FloatArray, FloatArray, FloatArray, FloatArray]:
+    """Return GLL tensor values, reference derivatives and tensor weights."""
+    from semgpu2.model import SGPETALineModel
+
+    line = SGPETALineModel("GLL", order=order)
+    data = line.build_data(use_symmetry=False)
+    values_1d = np.asarray(data.values, dtype=np.float64)
+    deriv_1d = np.asarray(data.grads[:, :, 0], dtype=np.float64)
+    weights_1d = np.asarray(data.weights, dtype=np.float64)
+    size = order + 1
+    value = np.einsum("ai,bj->abij", values_1d, values_1d).reshape((size * size, size * size))
+    deriv = np.empty((size * size, size * size, 2), dtype=np.float64)
+    # MAIN flattens (y, x): x is the fast second factor and y is the first.
+    deriv[:, :, 0] = np.einsum("ai,bj->abij", values_1d, deriv_1d).reshape((size * size, size * size))
+    deriv[:, :, 1] = np.einsum("ai,bj->abij", deriv_1d, values_1d).reshape((size * size, size * size))
+    return value, deriv, np.outer(weights_1d, weights_1d).ravel(), deriv_1d
+
+
+def _main_nodes(case: MeshCase, order: int) -> IntArray:
+    stratum = case.mesh.strata[MAIN_SPACE]
+    count = (order + 1) ** 2
+    return np.asarray(stratum.p_nodes, dtype=np.int64).reshape((-1, count))
+
+
+def _boundary_nodes(case: MeshCase, order: int) -> IntArray:
+    stratum = case.mesh.strata[BOUNDARY_SPACE]
+    return np.asarray(stratum.p_nodes, dtype=np.int64).reshape((-1, order + 1))
+
+
+def _material_matrix(vp: FloatArray, vs: FloatArray) -> FloatArray:
+    mu = RHO_KG_M3 * vs * vs
+    lame_lambda = RHO_KG_M3 * (vp * vp - 2.0 * vs * vs)
+    result = np.zeros((vp.size, 3, 3), dtype=np.float64)
+    result[:, 0, 0] = lame_lambda + 2.0 * mu
+    result[:, 1, 1] = lame_lambda + 2.0 * mu
+    result[:, 0, 1] = lame_lambda
+    result[:, 1, 0] = lame_lambda
+    result[:, 2, 2] = mu
+    return result
+
+
+def _top_boundary_mask(case: MeshCase, boundary: IntArray) -> NDArray[np.bool_]:
+    coords = case.mesh.nodes_coords
+    top = float(np.max(coords[:, 1]))
+    tolerance = 1.0e-9 * max(1.0, abs(top))
+    return np.all(np.abs(coords[boundary, 1] - top) <= tolerance, axis=1)
+
+
+def _assert_main_reference_order(case: MeshCase, nodes: IntArray, order: int) -> None:
+    """Verify the pilot's tensor layout before using x/y derivative columns."""
+    count = order + 1
+    coords = case.mesh.nodes_coords
+    for element_id in (0, nodes.shape[0] - 1):
+        local = coords[nodes[element_id]].reshape((count, count, 2))
+        x = local[:, :, 0]
+        if not np.allclose(x, x[0:1, :], rtol=0.0, atol=1.0e-10):
+            raise ValueError("MAIN tensor layout is not y-major/x-fast as pilot_mesh requires")
+        if float(np.ptp(x[0])) <= 0.0 or float(np.ptp(local[:, 0, 1])) <= 0.0:
+            raise ValueError("MAIN reference grid has a degenerate x or y direction")
+
+
+def _assemble_mass_and_stiffness(case: MeshCase, order: int) -> tuple[FloatArray, FloatArray]:
+    """Assemble M and local-absolute-row-sums(K) in batches of elements."""
+    _, ref_deriv, quadrature_weight, _ = tensor_basis(order)
+    nodes = _main_nodes(case, order)
+    _assert_main_reference_order(case, nodes, order)
+    coords = case.mesh.nodes_coords
+    p_count = nodes.shape[1]
+    dof_count = 2 * coords.shape[0]
+    mass = np.zeros(dof_count, dtype=np.float64)
+    stiffness_rows = np.zeros(dof_count, dtype=np.float64)
+    materials = _material_matrix(case.element_vp, case.element_vs)
+    batch_size = 96
+    for begin in range(0, nodes.shape[0], batch_size):
+        end = min(begin + batch_size, nodes.shape[0])
+        element_nodes = nodes[begin:end]
+        element_coords = coords[element_nodes]
+        # J[e,q,physical_coordinate,reference_coordinate].
+        jacobian = np.einsum("epc,qpr->eqcr", element_coords, ref_deriv)
+        determinant = np.linalg.det(jacobian)
+        if np.any(~np.isfinite(determinant)) or np.any(determinant <= 1.0e-14):
+            raise ValueError("A MAIN element has a nonpositive Jacobian at a GLL point")
+        inverse = np.linalg.inv(jacobian)
+        gradient = np.einsum("qpr,eqrc->eqpc", ref_deriv, inverse)
+        b_matrix = np.zeros((end - begin, p_count, 3, 2 * p_count), dtype=np.float64)
+        b_matrix[:, :, 0, 0::2] = gradient[:, :, :, 0]
+        b_matrix[:, :, 1, 1::2] = gradient[:, :, :, 1]
+        b_matrix[:, :, 2, 0::2] = gradient[:, :, :, 1]
+        b_matrix[:, :, 2, 1::2] = gradient[:, :, :, 0]
+        weighted = determinant * quadrature_weight[None, :]
+        constitutive_b = np.einsum("eab,eqbj->eqaj", materials[begin:end], b_matrix)
+        local_stiffness = np.einsum("eqai,eqaj,eq->eij", b_matrix, constitutive_b, weighted)
+        # GLL collocation makes the mass diagonal: q index and P-node index agree.
+        local_mass = RHO_KG_M3 * weighted
+        element_dofs = np.empty((end - begin, 2 * p_count), dtype=np.int64)
+        element_dofs[:, 0::2] = 2 * element_nodes
+        element_dofs[:, 1::2] = 2 * element_nodes + 1
+        mass_dofs = np.repeat(local_mass, 2, axis=1)
+        np.add.at(mass, element_dofs.ravel(), mass_dofs.ravel())
+        np.add.at(stiffness_rows, element_dofs.ravel(), np.abs(local_stiffness).sum(axis=2).ravel())
+    if np.any(mass <= 0.0) or np.any(~np.isfinite(mass)):
+        raise ValueError("Lumped mass is nonpositive or nonfinite")
+    return mass, stiffness_rows
+
+
+def _assemble_abc_bound(case: MeshCase, order: int, mass: FloatArray) -> tuple[FloatArray, int]:
+    """Bound each ABC row by z_n times its GLL edge quadrature weight.
+
+    The pilot outer boundary is axis-aligned; using ``z_n=rho*Vp`` for both
+    components bounds its normal/tangential diagonal action.  Corner-node
+    contributions are assembled, rather than overwritten.
+    """
+    _, _, _, derivative = tensor_basis(order)
+    boundary = _boundary_nodes(case, order)
+    top_mask = _top_boundary_mask(case, boundary)
+    damping = np.zeros_like(mass)
+    line = np.asarray(case.mesh.pets[0].build_data(use_symmetry=False).weights, dtype=np.float64)
+    for edge_id in np.flatnonzero(~top_mask):
+        node_ids = boundary[edge_id]
+        tangent = derivative @ case.mesh.nodes_coords[node_ids]
+        edge_weights = line * np.linalg.norm(tangent, axis=1)
+        z_bound = RHO_KG_M3 * float(case.boundary_vp[edge_id])
+        dofs = np.empty(2 * node_ids.size, dtype=np.int64)
+        dofs[0::2] = 2 * node_ids
+        dofs[1::2] = 2 * node_ids + 1
+        values = np.repeat(z_bound * edge_weights, 2)
+        np.add.at(damping, dofs, values)
+    return damping / mass, int(np.count_nonzero(~top_mask))
+
+
+def estimate(case: MeshCase, order: int) -> StabilityEstimate:
+    mass, stiffness_rows = _assemble_mass_and_stiffness(case, order)
+    damping_ratio, abc_edges = _assemble_abc_bound(case, order, mass)
+    stiffness_bound = float(np.max(stiffness_rows / mass))
+    damping_bound = float(np.max(damping_ratio))
+    dt_start = 2.0 / (np.sqrt(damping_bound * damping_bound + 4.0 * stiffness_bound) + damping_bound)
+    substeps = int(np.ceil(OUTPUT_TACT_S / dt_start))
+    return StabilityEstimate(
+        kind=str(case.metadata["kind"]), order=order, node_count=case.mesh.nodes_coords.shape[0],
+        element_count=int(case.element_vp.size), stiffness_bound_s_minus_2=stiffness_bound,
+        damping_bound_s_minus_1=damping_bound, dt_start_s=float(dt_start), substeps_per_ms=max(1, substeps),
+        min_lumped_mass_kg_per_m=float(np.min(mass)), max_lumped_mass_kg_per_m=float(np.max(mass)), abc_edge_count=abc_edges,
+    )
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--out", type=Path, default=DATA_12 / "pilot_geometry" / "stability_estimates.json")
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    args = parse_args(argv)
+    estimates = [estimate(build_case(kind, order), order) for kind in ("raster", "curved") for order in (2, 3, 4)]
+    by_order = {str(order): max(item.substeps_per_ms for item in estimates if item.order == order) for order in (2, 3, 4)}
+    document = {
+        "method": "Element stiffness is integrated at GLL points, local |K| row sums are assembled, and lambda_max(M^-1 K) is bounded by max_i sum_j |K_ij|/M_i. ABC is a separately assembled z_n edge-weight/mass row bound. dt_start uses 0.5 of the damped central-difference scalar stability limit.",
+        "limits": "This is a conservative host-side bound, not CEED's spectrum and not a numerical convergence result. The common recommendation is the maximum substeps across raster/curved cases at each p; the all-p recommendation is the maximum of those.",
+        "estimates": [asdict(item) for item in estimates],
+        "recommended_substeps_per_ms_by_order": by_order,
+        "recommended_substeps_per_ms_all_orders": max(by_order.values()),
+    }
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(document, indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

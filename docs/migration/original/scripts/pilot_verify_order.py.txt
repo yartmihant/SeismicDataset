@@ -1,0 +1,80 @@
+"""Check a higher-order mesh against its full Q2 map and analytic source moments."""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, dataclass
+import hashlib
+import json
+from math import erf, exp, pi, sqrt
+from pathlib import Path
+import sys
+from typing import Sequence
+
+import numpy as np
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from research.seismic_dataset.pilot_geometry_plot import lagrange
+from research.seismic_dataset.pilot_mesh import build_case
+from research.seismic_dataset.pilot_run import SOURCE_SIGMA_M, SOURCE_X_M, consistent_surface_source
+from semgpu2.model import SGPETALineModel
+
+
+@dataclass(frozen=True)
+class OrderCheck:
+    kind: str
+    order: int
+    nodes: int
+    geometry_nodes_sha256: str
+    max_q2_coordinate_error_m: float
+    total_force: float
+    first_moment: float
+    second_moment: float
+    exact_second_moment: float
+
+
+def verify(kind: str, order: int, output: Path) -> OrderCheck:
+    q2 = build_case(kind, 2)
+    case = build_case(kind, order)
+    ref2 = SGPETALineModel("GLL", order=2).p_nodes.coords[:, 0]
+    ref = SGPETALineModel("GLL", order=order).p_nodes.coords[:, 0]
+    weights = lagrange(ref2, ref)
+    cells2 = q2.mesh.strata[1].p_nodes.reshape((-1, 3, 3))
+    cells = case.mesh.strata[1].p_nodes.reshape((-1, order+1, order+1))
+    expected = np.einsum("ai,bj,eijc->eabc", weights, weights, q2.mesh.nodes_coords[cells2])
+    error = float(np.max(np.abs(expected - case.mesh.nodes_coords[cells])))
+    source = consistent_surface_source(case)
+    dx = case.mesh.nodes_coords[source.node_ids, 0] - SOURCE_X_M
+    force = float(source.nodal_force_y.sum())
+    moment1 = float(source.nodal_force_y @ dx)
+    moment2 = float(source.nodal_force_y @ (dx*dx))
+    exact_moment2 = -SOURCE_SIGMA_M**2 * (1 - 6*exp(-4.5)/sqrt(2*pi)/erf(3/sqrt(2)))
+    if error > 1e-9 or abs(force+1) > 1e-12 or abs(moment1) > 1e-12 or abs(moment2-exact_moment2) > 1e-11:
+        raise ValueError("Frozen Q2 geometry or Gaussian source moment check failed")
+    np.savez_compressed(output / f"{kind}_p{order}_mesh.npz", nodes=case.mesh.nodes_coords,
+                        cells=cells.reshape((-1, (order+1)**2)),
+                        boundary=case.mesh.strata[2].p_nodes.reshape((-1, order+1)),
+                        vp=case.element_vp, vs=case.element_vs)
+    return OrderCheck(kind, order, int(case.mesh.nodes_coords.shape[0]),
+                      hashlib.sha256(case.mesh.nodes_coords.tobytes()).hexdigest(),
+                      error, force, moment1, moment2, exact_moment2)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--order", type=int, required=True)
+    parser.add_argument("--out", type=Path, default=Path(__file__).with_name("pilot_geometry"))
+    args = parser.parse_args(argv)
+    if args.order < 2:
+        parser.error("order must be at least 2")
+    args.out.mkdir(parents=True, exist_ok=True)
+    records = [asdict(verify(kind, args.order, args.out)) for kind in ("raster", "curved")]
+    payload = json.dumps(records, indent=2) + "\n"
+    (args.out / f"order{args.order}_check.json").write_text(payload, encoding="utf-8")
+    print(payload)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "dtype": "float64",
+  "shape_per_field": [
+    70,
+    70
+  ],
+  "axes": [
+    "model",
+    "row_top_to_bottom",
+    "column_left_to_right"
+  ],
+  "units": "m/s",
+  "cell_size_m": [
+    10,
+    10
+  ],
+  "density_kg_m3": 1000,
+  "normalization": "global linear min/max per component over EFVB + ECVB; no clipping of input",
+  "bounds": {
+    "vp_min": 1500.0,
+    "vp_max": 4500.0,
+    "vs_min": 615.71051,
+    "vs_max": 2999.36597
+  },
+  "class_bounds": {
+    "EFVB": {
+      "vp_min": 1500.0,
+      "vp_max": 4500.0,
+      "vs_min": 615.71051,
+      "vs_max": 2995.11597
+    },
+    "ECVB": {
+      "vp_min": 1500.0,
+      "vp_max": 4500.0,
+      "vs_min": 616.98389,
+      "vs_max": 2999.36597
+    }
+  },
+  "source_archives_sha256": {
+    "data_EFVB_out.zip": "9c1507741a12360815996a613b1a2b1d806df3deb31a8f60bbcc1d4bf9fada25",
+    "data_ECVB_out.zip": "c20778a8a2e6023b27bdad52adbaaf74043e4215b92bfc16305c5eb2af9558a7"
+  },
+  "source_digest_algorithm": "SHA256 of ordered dataset/name-in-ZIP + NUL + raw bytes, EFVB then ECVB, ascending ID, VP then VS",
+  "source_sha256": "59ac347cf14575f3d759c4cd6bbac9147c4e0015ed1d658961abea2ee63e8295",
+  "verification": "all pairs, exact 70x70 shape, finite, positive, positive isotropic bulk modulus; every NPZ array reloaded and exactly compared to parsed float64 input",
+  "shards": [
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_00000_00999.npz",
+      "first_id": 0,
+      "last_id": 999,
+      "count": 1000,
+      "sha256": "2947909b035d9db26bd9cd96f42acea457e4d6a1644ae2729a783a6ac6adfbc4"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_01000_01999.npz",
+      "first_id": 1000,
+      "last_id": 1999,
+      "count": 1000,
+      "sha256": "d43e027d80e7b9288c83c810b7e9cd37723379b034d6deb23bb17ff31ed30022"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_02000_02999.npz",
+      "first_id": 2000,
+      "last_id": 2999,
+      "count": 1000,
+      "sha256": "0db6bd0679d917903863ad89126313789a32e3a4d390567c3ad668de38792146"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_03000_03999.npz",
+      "first_id": 3000,
+      "last_id": 3999,
+      "count": 1000,
+      "sha256": "d6343f861022d454a0082695309df06c32324ee62301757f461c7c8ef5ce49b2"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_04000_04999.npz",
+      "first_id": 4000,
+      "last_id": 4999,
+      "count": 1000,
+      "sha256": "09e6203c4ebc11a7be57db1b798435b2b0da7229d20f6e2b153a146129f2801b"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_05000_05999.npz",
+      "first_id": 5000,
+      "last_id": 5999,
+      "count": 1000,
+      "sha256": "851c546a737c1ddf6ddff914004cd42ae69d1a459abbc848e961597d2b80b301"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_06000_06999.npz",
+      "first_id": 6000,
+      "last_id": 6999,
+      "count": 1000,
+      "sha256": "2bb1921df132bd4834090755a49c91bfbb85c2a02b5d26b8a16ae808cbbc1d2b"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_07000_07999.npz",
+      "first_id": 7000,
+      "last_id": 7999,
+      "count": 1000,
+      "sha256": "097c4bc960c782d4e0e301b78ec1fb37289038687ecbdb5184504f9e8cd9ef5a"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_08000_08999.npz",
+      "first_id": 8000,
+      "last_id": 8999,
+      "count": 1000,
+      "sha256": "7e0fc21572ff1d7dd18c42f050e705caffa6aac4b098f603d22f1c93f29dd8dd"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_09000_09999.npz",
+      "first_id": 9000,
+      "last_id": 9999,
+      "count": 1000,
+      "sha256": "8a98efbf957093b30f093a73fa06dcb2440c87f096578cf8befab137c057f6b7"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_10000_10999.npz",
+      "first_id": 10000,
+      "last_id": 10999,
+      "count": 1000,
+      "sha256": "9fd8e84a1e93ff4b696d510c9e0e3c33e36e7303dd1b289e381b4de5f53b03fa"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_11000_11999.npz",
+      "first_id": 11000,
+      "last_id": 11999,
+      "count": 1000,
+      "sha256": "706523c3878f7d9492873cf9e97ed3d27cc5159a83b19a987402dfc643e4ebdf"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_12000_12999.npz",
+      "first_id": 12000,
+      "last_id": 12999,
+      "count": 1000,
+      "sha256": "0ff30c89a80e00c5a36c7ed40bff54e1513ba39eddeb381a8c15b45bb35ffdb7"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_13000_13999.npz",
+      "first_id": 13000,
+      "last_id": 13999,
+      "count": 1000,
+      "sha256": "124f74469e4da0c576abbacf3f9cba22653cd755dabb4de498b1dac9d314b34d"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_14000_14999.npz",
+      "first_id": 14000,
+      "last_id": 14999,
+      "count": 1000,
+      "sha256": "86f522ece552938e17156b26aeaa6c3e7a8338e5e1f02687936b9a7347dec00a"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_15000_15999.npz",
+      "first_id": 15000,
+      "last_id": 15999,
+      "count": 1000,
+      "sha256": "15b836ed11e5df9e2f89f60961bc7b2a1c1549c77031a526fd92f798235fdaf0"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_16000_16999.npz",
+      "first_id": 16000,
+      "last_id": 16999,
+      "count": 1000,
+      "sha256": "a805ddec93e7c5c308ee973ee273a8eba154d2e96f620b242f640207f5451dba"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_17000_17999.npz",
+      "first_id": 17000,
+      "last_id": 17999,
+      "count": 1000,
+      "sha256": "443e649bf0fe08c6dbbf7391390aa97e1d821480ee5903cbf2ef320d40c4f50f"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_18000_18999.npz",
+      "first_id": 18000,
+      "last_id": 18999,
+      "count": 1000,
+      "sha256": "00731fc5647289176e69a5cdec46056e57eabcc02b2b8e15b35d2b3cacf6fb0a"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_19000_19999.npz",
+      "first_id": 19000,
+      "last_id": 19999,
+      "count": 1000,
+      "sha256": "fabe31378d0ca03ae7f6fc2816a108cf61189a8edeaa191c1ef2b3289b0b42aa"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_20000_20999.npz",
+      "first_id": 20000,
+      "last_id": 20999,
+      "count": 1000,
+      "sha256": "7cea50a363bd6d28e5f28b6275c1c4b26158cd005fd8542265b7f1d5afcd4b75"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_21000_21999.npz",
+      "first_id": 21000,
+      "last_id": 21999,
+      "count": 1000,
+      "sha256": "15c621832f075acd62f3b6a8577208f4936699f131ec4b36e54f59fd83da1c3c"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_22000_22999.npz",
+      "first_id": 22000,
+      "last_id": 22999,
+      "count": 1000,
+      "sha256": "48bb471f777c1fa913e0a12b23a4cc1b6a4b8c6170056ab516ad12771306f0c9"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_23000_23999.npz",
+      "first_id": 23000,
+      "last_id": 23999,
+      "count": 1000,
+      "sha256": "6161a8fcb95f99d4ac491b823921dd6628b2ef222e1957191d30a90dfafea964"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_24000_24999.npz",
+      "first_id": 24000,
+      "last_id": 24999,
+      "count": 1000,
+      "sha256": "c3e0c39203cd906a1b88a17cfe67c3572e5684ff70827820ac2e1d9c3ffad547"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_25000_25999.npz",
+      "first_id": 25000,
+      "last_id": 25999,
+      "count": 1000,
+      "sha256": "7d7013a40beba11f9c8fadca4423a631879715778842304b68bcee15931f9ac4"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_26000_26999.npz",
+      "first_id": 26000,
+      "last_id": 26999,
+      "count": 1000,
+      "sha256": "a22ed57f41e2b5b7b835f15b9c3b7766749eeb0d1470b92890715361751cb25d"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_27000_27999.npz",
+      "first_id": 27000,
+      "last_id": 27999,
+      "count": 1000,
+      "sha256": "c975e10ed0abb19ec9d2fa2961fbf0f6896a217b60cab40b919225c470327e9f"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_28000_28999.npz",
+      "first_id": 28000,
+      "last_id": 28999,
+      "count": 1000,
+      "sha256": "6f24272b832ef1c6a338156786b6b51ef9778b08d82c603342c91bd1458953f6"
+    },
+    {
+      "dataset": "EFVB",
+      "file": "EFVB_29000_29999.npz",
+      "first_id": 29000,
+      "last_id": 29999,
+      "count": 1000,
+      "sha256": "7831b8e8bb2d4218ffe4cc1787893cf80810cd34ed58e0b364c0813b36c4a2e0"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_00000_00999.npz",
+      "first_id": 0,
+      "last_id": 999,
+      "count": 1000,
+      "sha256": "cca329f98cf562c30d243f70e490f970a31c13480284b51b40b058d9cc479abb"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_01000_01999.npz",
+      "first_id": 1000,
+      "last_id": 1999,
+      "count": 1000,
+      "sha256": "effc95163d7b2de021e34ddfe3cf0bf61c69b2ba789f48cf313eed992c875fc6"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_02000_02999.npz",
+      "first_id": 2000,
+      "last_id": 2999,
+      "count": 1000,
+      "sha256": "92ac7551bb0ae98ff368db0cfdde7a1d4243569035eb37206e78c783aaaa4c07"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_03000_03999.npz",
+      "first_id": 3000,
+      "last_id": 3999,
+      "count": 1000,
+      "sha256": "081df29860d7946bb27762c480c5ac442517a87b7d319a3ac08caec9da55e868"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_04000_04999.npz",
+      "first_id": 4000,
+      "last_id": 4999,
+      "count": 1000,
+      "sha256": "d528c85b6f9970e4422ceb3fa7ef75d9510999443cf0ce305a7972597436a146"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_05000_05999.npz",
+      "first_id": 5000,
+      "last_id": 5999,
+      "count": 1000,
+      "sha256": "2091f2a817963fc568d9314b9a312bca875be9f478f94ed1c186377268d711c8"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_06000_06999.npz",
+      "first_id": 6000,
+      "last_id": 6999,
+      "count": 1000,
+      "sha256": "d1d950c5497c5905e64cddc6848430dbb954130266cf2ba4a83400fa7c108b00"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_07000_07999.npz",
+      "first_id": 7000,
+      "last_id": 7999,
+      "count": 1000,
+      "sha256": "a82a439f7c7d5872cc643866c4d8ea112b39a13ca7e8641b49a881bdfd047bfa"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_08000_08999.npz",
+      "first_id": 8000,
+      "last_id": 8999,
+      "count": 1000,
+      "sha256": "fc066397a5e5823fc87be4838895899252a44e0a78ab22adce87386bd19b9dcc"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_09000_09999.npz",
+      "first_id": 9000,
+      "last_id": 9999,
+      "count": 1000,
+      "sha256": "a3781d08900329d31ec222b505e99997a45861ec24c8e0876ecbca28aa3d4e83"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_10000_10999.npz",
+      "first_id": 10000,
+      "last_id": 10999,
+      "count": 1000,
+      "sha256": "8394ed48e395d767cec79cff98637fb6087db833bbd8b2e65a7bb32ac8631f22"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_11000_11999.npz",
+      "first_id": 11000,
+      "last_id": 11999,
+      "count": 1000,
+      "sha256": "bca33c2a4dd8481743f21b5edd09dc4fa07ab4df09d5e335f4b9c01956de7968"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_12000_12999.npz",
+      "first_id": 12000,
+      "last_id": 12999,
+      "count": 1000,
+      "sha256": "6b4ccaa57e676001ea92075e8bdb57d90bec2f9c473d7b0da976735cc701c56d"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_13000_13999.npz",
+      "first_id": 13000,
+      "last_id": 13999,
+      "count": 1000,
+      "sha256": "24f21674bd0d2dd5d2168afb2caaa29d5e14037c81c8c02ea453546ac81f1f9b"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_14000_14999.npz",
+      "first_id": 14000,
+      "last_id": 14999,
+      "count": 1000,
+      "sha256": "c1c6f9a6439c4087a9f323982e82b54c3789ce7bd76b0320fdedf87f7e216dcb"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_15000_15999.npz",
+      "first_id": 15000,
+      "last_id": 15999,
+      "count": 1000,
+      "sha256": "a6f0b4cd8c7b1da0553a9a0a135787f41675f42bac5e434d89547c7ae4bb15bf"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_16000_16999.npz",
+      "first_id": 16000,
+      "last_id": 16999,
+      "count": 1000,
+      "sha256": "ec5c864dd553c1fa749eb74807998ecb5c3c20c95f8e09b95ec2929ede5a5e28"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_17000_17999.npz",
+      "first_id": 17000,
+      "last_id": 17999,
+      "count": 1000,
+      "sha256": "53ad69981f91150de72fe9049b3b70c228b29b1492c2477cef4fa4fb1ef0e7ab"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_18000_18999.npz",
+      "first_id": 18000,
+      "last_id": 18999,
+      "count": 1000,
+      "sha256": "a861ec6bb96df1884ad2e975a639f41845a643842e45b8cc426e9246316c3da8"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_19000_19999.npz",
+      "first_id": 19000,
+      "last_id": 19999,
+      "count": 1000,
+      "sha256": "bddcd475d9d339a077fd6ac29b7d53aa6d28d3ddf3c7612770cbc3ebc4ff8070"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_20000_20999.npz",
+      "first_id": 20000,
+      "last_id": 20999,
+      "count": 1000,
+      "sha256": "3d29c534bbbc74b9bdb0b048ffc7116886adea77c7abf7c05744c71f12eaaaa0"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_21000_21999.npz",
+      "first_id": 21000,
+      "last_id": 21999,
+      "count": 1000,
+      "sha256": "3537e1a6a58411e77dd9f08b8fe717b657392db9d6438209aede05a13677d237"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_22000_22999.npz",
+      "first_id": 22000,
+      "last_id": 22999,
+      "count": 1000,
+      "sha256": "359961153079138f61e28c3c0b27b5837e4551fa0f77852cef1c5fd37e3ba8a9"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_23000_23999.npz",
+      "first_id": 23000,
+      "last_id": 23999,
+      "count": 1000,
+      "sha256": "967c3d7a3c405dea05b656fe587fccdae920cdbeb6692782192f86eee8a0b648"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_24000_24999.npz",
+      "first_id": 24000,
+      "last_id": 24999,
+      "count": 1000,
+      "sha256": "20fcfe1d268b00009dfd7465b775ec3b9884ce87a3ee2c47304394e8e1a22980"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_25000_25999.npz",
+      "first_id": 25000,
+      "last_id": 25999,
+      "count": 1000,
+      "sha256": "011fec30569117d80582063893b5d3c624812c67d7b94cbfb10583bcdd2b8907"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_26000_26999.npz",
+      "first_id": 26000,
+      "last_id": 26999,
+      "count": 1000,
+      "sha256": "3d430215df1d0de8d3a3f3bae6d526e6820abd9789dd3faa24d8595b6ded4dbe"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_27000_27999.npz",
+      "first_id": 27000,
+      "last_id": 27999,
+      "count": 1000,
+      "sha256": "dee6de9cb935cc42be339171385c58c74bf98737ea88f344c86dc1ff3dfefe05"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_28000_28999.npz",
+      "first_id": 28000,
+      "last_id": 28999,
+      "count": 1000,
+      "sha256": "b4ad51bd262aaac0937a2854b0bf1fd92697c497d75c3c09ad5eadf2a54b5f7f"
+    },
+    {
+      "dataset": "ECVB",
+      "file": "ECVB_29000_29999.npz",
+      "first_id": 29000,
+      "last_id": 29999,
+      "count": 1000,
+      "sha256": "f5e1f9c73830d0de3a29f85eeed1b1f1710bd27d8bf624eb0ea4eae0e0e698cb"
+    }
+  ]
+}

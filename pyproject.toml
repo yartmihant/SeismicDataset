@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seismic-dataset"
+version = "0.1.0"
+description = "Research diaries for EFVB/ECVB preprocessing and SEM smoothing pilots"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = ["numpy==2.4.6", "scipy==1.18.0", "pillow==12.3.0", "matplotlib==3.11.1", "semgpu2"]
+
+[project.optional-dependencies]
+reports = ["ipython", "ipykernel", "nbformat", "nbconvert", "nbclient"]
+dev = ["mypy==1.20.2", "scikit-build-core==1.0.3", "pybind11==3.1.0", "setuptools", "wheel"]
+meshing = ["gmsh"]
+
+[tool.setuptools.packages.find]
+include = ["scripts", "scripts.*"]
+
+[tool.uv.sources]
+semgpu2 = { path = "../../SEM/TrySEMGPU/semgpu2", editable = true }
+
+[tool.mypy]
+files = ["scripts", "dev_1_1_dataset_preprocessing.py", "dev_1_2_smoothing_pilot.py"]
+check_untyped_defs = true
+show_error_codes = true
+follow_imports = "silent"
+
+[[tool.mypy.overrides]]
+module = ["scipy.*", "matplotlib.*", "IPython.*", "nbformat.*", "nbclient.*", "gmsh"]
+ignore_missing_imports = true

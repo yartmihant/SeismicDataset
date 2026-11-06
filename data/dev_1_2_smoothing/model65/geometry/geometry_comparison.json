@@ -1,0 +1,120 @@
+{
+  "area_by_region_m2": {
+    "1": {
+      "curved_minus_raster_m2": -40.55100470497564,
+      "curved_minus_source_fraction": -0.0007495564640462639,
+      "curved_minus_source_m2": -40.55100470490288,
+      "curved_q2_m2": 54059.4489952951,
+      "raster_q2_m2": 54100.00000000007,
+      "source_cells": 541,
+      "source_cells_times_100_m2": 54100.0
+    },
+    "2": {
+      "curved_minus_raster_m2": 1.72006598585358,
+      "curved_minus_source_fraction": 7.678866008339874e-05,
+      "curved_minus_source_m2": 1.720065985868132,
+      "curved_q2_m2": 22401.720065985868,
+      "raster_q2_m2": 22400.000000000015,
+      "source_cells": 224,
+      "source_cells_times_100_m2": 22400.0
+    },
+    "3": {
+      "curved_minus_raster_m2": 9.771811801576405,
+      "curved_minus_source_fraction": 0.0005170270794496419,
+      "curved_minus_source_m2": 9.771811801598233,
+      "curved_q2_m2": 18909.7718118016,
+      "raster_q2_m2": 18900.000000000022,
+      "source_cells": 189,
+      "source_cells_times_100_m2": 18900.0
+    },
+    "4": {
+      "curved_minus_raster_m2": 103.1937284838059,
+      "curved_minus_source_fraction": 0.0006461723762288522,
+      "curved_minus_source_m2": 103.19372848374769,
+      "curved_q2_m2": 159803.19372848375,
+      "raster_q2_m2": 159699.99999999994,
+      "source_cells": 1597,
+      "source_cells_times_100_m2": 159700.0
+    },
+    "5": {
+      "curved_minus_raster_m2": 10.537167249676713,
+      "curved_minus_source_fraction": 0.00021074334499266115,
+      "curved_minus_source_m2": 10.537167249633058,
+      "curved_q2_m2": 50010.53716724963,
+      "raster_q2_m2": 49999.999999999956,
+      "source_cells": 500,
+      "source_cells_times_100_m2": 50000.0
+    },
+    "6": {
+      "curved_minus_raster_m2": -37.70440867880825,
+      "curved_minus_source_fraction": -0.0013611699884051552,
+      "curved_minus_source_m2": -37.7044086788228,
+      "curved_q2_m2": 27662.295591321177,
+      "raster_q2_m2": 27699.999999999985,
+      "source_cells": 277,
+      "source_cells_times_100_m2": 27700.0
+    },
+    "7": {
+      "curved_minus_raster_m2": -35.93324814469088,
+      "curved_minus_source_fraction": -0.0002596332958431422,
+      "curved_minus_source_m2": -35.93324814469088,
+      "curved_q2_m2": 138364.0667518553,
+      "raster_q2_m2": 138400.0,
+      "source_cells": 1384,
+      "source_cells_times_100_m2": 138400.0
+    },
+    "8": {
+      "curved_minus_raster_m2": -11.034111992608814,
+      "curved_minus_source_fraction": -0.0005869208506710686,
+      "curved_minus_source_m2": -11.03411199261609,
+      "curved_q2_m2": 18788.965888007384,
+      "raster_q2_m2": 18799.999999999993,
+      "source_cells": 188,
+      "source_cells_times_100_m2": 18800.0
+    }
+  },
+  "color": "R=globally normalized VP; G=globally normalized VS; B=0",
+  "curve_count": 24,
+  "input_sha256": {
+    "case": "bab9e88e0ccf6c9ca84d6d6833e94ac187a1c47b25a168ea296ba3f63af85473",
+    "curved": "ab95be4d161ccc001b086cef7fd7d10829656bb96002855c7cde65badef53c7b",
+    "curves": "56dbd4bbc9b96da09f25a2aed8037e45dcac0200bd7fcafa7f8e576fad4358f6",
+    "raster": "a54ff6c52fccf2fee678b58d19d3618cc824090d533b53a8784d1cb2adc1152f"
+  },
+  "model_id": 65,
+  "q2_central_displacement_from_corner_mean_m": {
+    "max": 0.26416097819956913,
+    "mean": 0.012863542377480412,
+    "min": 0.0
+  },
+  "q2_central_nodes_in_zoom": 308,
+  "regions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "source": {
+    "x_m": 350.0,
+    "y_m": 700.0
+  },
+  "view": {
+    "global_extent_m": [
+      0.0,
+      0.0,
+      700.0,
+      700.0
+    ],
+    "zoom_extent_m": [
+      280.0,
+      500.0,
+      470.0,
+      610.0
+    ],
+    "zoom_scale": 3.2
+  }
+}

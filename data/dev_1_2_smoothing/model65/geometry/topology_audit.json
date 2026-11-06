@@ -1,0 +1,321 @@
+{
+  "conforming": {
+    "nonconforming_edges": [],
+    "passed": true
+  },
+  "m3_m4_material_edge_contact_m": 10.000000000000068,
+  "m3_m4_raw_raster_edge_contact_m": 10.0,
+  "mesh": {
+    "elements": 6075,
+    "external_q2_edges": 234,
+    "nodes": 24535,
+    "path": "research\\seismic_dataset\\model65\\geometry\\curved_q2_mesh.npz"
+  },
+  "mesh_material_contacts_q2_integrated_m": [
+    {
+      "length_m": 374.7447336942405,
+      "materials": [
+        0,
+        1
+      ]
+    },
+    {
+      "length_m": 924.4672413345883,
+      "materials": [
+        0,
+        4
+      ]
+    },
+    {
+      "length_m": 1299.5111969909203,
+      "materials": [
+        2,
+        3
+      ]
+    },
+    {
+      "length_m": 900.6766177953488,
+      "materials": [
+        2,
+        4
+      ]
+    },
+    {
+      "length_m": 10.000000000000068,
+      "materials": [
+        3,
+        4
+      ]
+    }
+  ],
+  "mesh_region_components": {
+    "1": {
+      "components": 1,
+      "element_counts": [
+        702
+      ]
+    },
+    "2": {
+      "components": 1,
+      "element_counts": [
+        297
+      ]
+    },
+    "3": {
+      "components": 1,
+      "element_counts": [
+        258
+      ]
+    },
+    "4": {
+      "components": 1,
+      "element_counts": [
+        1914
+      ]
+    },
+    "5": {
+      "components": 1,
+      "element_counts": [
+        621
+      ]
+    },
+    "6": {
+      "components": 1,
+      "element_counts": [
+        348
+      ]
+    },
+    "7": {
+      "components": 1,
+      "element_counts": [
+        1710
+      ]
+    },
+    "8": {
+      "components": 1,
+      "element_counts": [
+        225
+      ]
+    }
+  },
+  "mesh_region_contacts_q2_integrated_m": [
+    {
+      "length_m": 375.61889038962414,
+      "regions": [
+        1,
+        2
+      ]
+    },
+    {
+      "length_m": 333.89230660129624,
+      "regions": [
+        1,
+        3
+      ]
+    },
+    {
+      "length_m": 130.36645684121206,
+      "regions": [
+        1,
+        4
+      ]
+    },
+    {
+      "length_m": 10.000000000000068,
+      "regions": [
+        2,
+        4
+      ]
+    },
+    {
+      "length_m": 319.99999999999994,
+      "regions": [
+        2,
+        5
+      ]
+    },
+    {
+      "length_m": 269.99999999999994,
+      "regions": [
+        3,
+        6
+      ]
+    },
+    {
+      "length_m": 445.94368410167766,
+      "regions": [
+        4,
+        5
+      ]
+    },
+    {
+      "length_m": 324.36647685245924,
+      "regions": [
+        4,
+        6
+      ]
+    },
+    {
+      "length_m": 924.4672413345883,
+      "regions": [
+        4,
+        7
+      ]
+    },
+    {
+      "length_m": 374.7447336942405,
+      "regions": [
+        7,
+        8
+      ]
+    }
+  ],
+  "mixed_junctions_match_raw": true,
+  "raw_mixed_junctions": [
+    {
+      "incident_regions": [
+        2,
+        4,
+        5
+      ],
+      "mesh_incident_regions": [
+        2,
+        4,
+        5
+      ],
+      "mesh_node": 6,
+      "mesh_node_count": 1,
+      "point_m": [
+        320.0,
+        560.0
+      ]
+    },
+    {
+      "incident_regions": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "mesh_incident_regions": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "mesh_node": 9,
+      "mesh_node_count": 1,
+      "point_m": [
+        430.0,
+        560.0
+      ]
+    },
+    {
+      "incident_regions": [
+        1,
+        2,
+        4
+      ],
+      "mesh_incident_regions": [
+        1,
+        2,
+        4
+      ],
+      "mesh_node": 11,
+      "mesh_node_count": 1,
+      "point_m": [
+        320.0,
+        570.0
+      ]
+    }
+  ],
+  "raw_region_components": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 1,
+    "8": 1
+  },
+  "raw_region_contacts_m": [
+    {
+      "length_m": 380.0,
+      "regions": [
+        1,
+        2
+      ]
+    },
+    {
+      "length_m": 340.0,
+      "regions": [
+        1,
+        3
+      ]
+    },
+    {
+      "length_m": 180.0,
+      "regions": [
+        1,
+        4
+      ]
+    },
+    {
+      "length_m": 10.0,
+      "regions": [
+        2,
+        4
+      ]
+    },
+    {
+      "length_m": 320.0,
+      "regions": [
+        2,
+        5
+      ]
+    },
+    {
+      "length_m": 270.0,
+      "regions": [
+        3,
+        6
+      ]
+    },
+    {
+      "length_m": 600.0,
+      "regions": [
+        4,
+        5
+      ]
+    },
+    {
+      "length_m": 440.0,
+      "regions": [
+        4,
+        6
+      ]
+    },
+    {
+      "length_m": 1220.0,
+      "regions": [
+        4,
+        7
+      ]
+    },
+    {
+      "length_m": 510.0,
+      "regions": [
+        7,
+        8
+      ]
+    }
+  ],
+  "region_component_counts_match_raw": true,
+  "region_contact_pair_set_matches_raw": true,
+  "result": {
+    "no_regions_deleted_or_merged": true,
+    "passed": true
+  },
+  "schema": "seismic_dataset.model65.q2_topology_audit.v1"
+}

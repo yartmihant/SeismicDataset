@@ -1,0 +1,158 @@
+{
+  "all_interface_samples": {
+    "max_m": 0.07269387574049684,
+    "mean_m": 0.0030814507196352775,
+    "p95_m": 0.015596735384744351,
+    "sample_count": 3168
+  },
+  "method": {
+    "cubic_initial_search": "KD-tree over 2001 uniform parameters per cubic curve",
+    "cubic_refinement": "bounded scalar minimization around nearest KD-tree parameter",
+    "description": "one-sided sampled distance from physical Q2 interface-edge points to CAD curve(s) of the same region pair; not a Hausdorff distance",
+    "line_closest_point": "exact segment projection",
+    "q2_samples_per_edge": 11
+  },
+  "per_region_pair": [
+    {
+      "max_m": 0.07269387574049684,
+      "mean_m": 0.00462218693729182,
+      "p95_m": 0.031912835419618694,
+      "q2_interface_edges": 32,
+      "regions": [
+        1,
+        2
+      ],
+      "sample_count": 352,
+      "source_curve_ids": [
+        13
+      ]
+    },
+    {
+      "max_m": 0.04076759721899261,
+      "mean_m": 0.0033043882474445303,
+      "p95_m": 0.017826017254011832,
+      "q2_interface_edges": 28,
+      "regions": [
+        1,
+        3
+      ],
+      "sample_count": 308,
+      "source_curve_ids": [
+        14
+      ]
+    },
+    {
+      "max_m": 0.026874428440111,
+      "mean_m": 0.006082105503126957,
+      "p95_m": 0.017781392985908105,
+      "q2_interface_edges": 12,
+      "regions": [
+        1,
+        4
+      ],
+      "sample_count": 132,
+      "source_curve_ids": [
+        11
+      ]
+    },
+    {
+      "max_m": 5.684341886080802e-14,
+      "mean_m": 5.167583532800729e-15,
+      "p95_m": 5.4001247917767574e-14,
+      "q2_interface_edges": 2,
+      "regions": [
+        2,
+        4
+      ],
+      "sample_count": 22,
+      "source_curve_ids": [
+        22
+      ]
+    },
+    {
+      "max_m": 5.684341886080802e-14,
+      "mean_m": 6.077500585150857e-15,
+      "p95_m": 2.842170943040401e-14,
+      "q2_interface_edges": 26,
+      "regions": [
+        2,
+        5
+      ],
+      "sample_count": 286,
+      "source_curve_ids": [
+        10
+      ]
+    },
+    {
+      "max_m": 0.0,
+      "mean_m": 0.0,
+      "p95_m": 0.0,
+      "q2_interface_edges": 22,
+      "regions": [
+        3,
+        6
+      ],
+      "sample_count": 242,
+      "source_curve_ids": [
+        12
+      ]
+    },
+    {
+      "max_m": 0.006886596374783903,
+      "mean_m": 0.000739006790516942,
+      "p95_m": 0.0032474758487695487,
+      "q2_interface_edges": 36,
+      "regions": [
+        4,
+        5
+      ],
+      "sample_count": 396,
+      "source_curve_ids": [
+        8
+      ]
+    },
+    {
+      "max_m": 0.0016255687102744443,
+      "mean_m": 0.0003581492956888318,
+      "p95_m": 0.0012906232102316093,
+      "q2_interface_edges": 26,
+      "regions": [
+        4,
+        6
+      ],
+      "sample_count": 286,
+      "source_curve_ids": [
+        9
+      ]
+    },
+    {
+      "max_m": 0.05925119598251198,
+      "mean_m": 0.004665801855748157,
+      "p95_m": 0.017203499030695655,
+      "q2_interface_edges": 74,
+      "regions": [
+        4,
+        7
+      ],
+      "sample_count": 814,
+      "source_curve_ids": [
+        7
+      ]
+    },
+    {
+      "max_m": 0.03336807373421068,
+      "mean_m": 0.006428474160786659,
+      "p95_m": 0.02412838764943337,
+      "q2_interface_edges": 30,
+      "regions": [
+        7,
+        8
+      ],
+      "sample_count": 330,
+      "source_curve_ids": [
+        6
+      ]
+    }
+  ],
+  "schema": "seismic_dataset.model65.spline_to_q2_audit.v1"
+}

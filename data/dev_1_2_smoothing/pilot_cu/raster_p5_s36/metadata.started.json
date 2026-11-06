@@ -1,0 +1,77 @@
+{
+  "coordinate_convention": "x right; y upward; raster row 0 maps to y=700 m; negative Fy is downward",
+  "material": {
+    "law": "plane_strain",
+    "rho_kg_m3": 1000.0
+  },
+  "mesh": {
+    "det_jacobian_max": 25.0,
+    "det_jacobian_min": 25.0,
+    "elements": 4900,
+    "kind": "raster",
+    "model_id": 12404,
+    "nodes": 123201,
+    "nx": 70,
+    "ny": 70,
+    "order": 5
+  },
+  "output": {
+    "canonical_count": 2001,
+    "canonical_times_s": [
+      0.0,
+      2.0
+    ],
+    "compatibility_slice": "surface[:2000] represents t=0.000,...,1.999 s when t_end=2 s"
+  },
+  "pilot": {
+    "kind": "raster",
+    "order": 5,
+    "output_count": 2001,
+    "steps_count": 72000,
+    "steps_per_tact": 36,
+    "substeps": 36,
+    "t_end": 2.0
+  },
+  "provenance": {
+    "files": [
+      {
+        "path": "/home/antonov/Work/Areas/SEM/TrySEMGPU/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/SEM/TrySEMGPU/research/seismic_dataset/pilot_cu_run.py",
+        "sha256": "50cb18dc4f96aa3521e62b25c951c6a93f4fa6604c4085a7d393fe50582c4876"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/SEM/TrySEMGPU/research/seismic_dataset/pilot_mesh.py",
+        "sha256": "b34ab702c2d1873cff6e0f0594b94a97fda672c36f69c195e0d2c4ec699db47c"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/SEM/TrySEMGPU/research/seismic_dataset/pilot_geometry/selected_model.npz",
+        "sha256": "af52dddc2974a8927b00e05989c6e8fcbb0edb0ca8da2b5344c9f1942c259352"
+      }
+    ],
+    "geometry_nodes_sha256": "498858cfb1f8bc82a312fb6b11575c66e356ae893c0fcbfda6195b39cbda1eea",
+    "numpy_version": "2.4.6",
+    "platform": "linux",
+    "python": "/home/antonov/Work/Areas/SEM/TrySEMGPU/.venv/bin/python",
+    "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]"
+  },
+  "solver_intent": {
+    "id": "lin_elast_2d_tenzor_newmark_kim_cu"
+  },
+  "source": {
+    "consistent_integral_before_normalization_m": 4.166434815805163,
+    "kind": "N_FORCE_DYNAMIC",
+    "node_count": 11,
+    "ricker_center_s": 0.1,
+    "ricker_hz": 15.0,
+    "sigma_m": 1.6666666666666667,
+    "support_m": [
+      345.0,
+      355.0
+    ],
+    "total_force_N_per_unit_thickness": -1.0,
+    "x_m": 350.0
+  }
+}

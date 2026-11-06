@@ -1,0 +1,330 @@
+{
+  "artifacts_sha256": {
+    "/home/antonov/Work/Areas/SEM/TrySEMGPU/research/seismic_dataset/pilot_compare.py": "69458db5a464faea1270d345f49dc79df30f733d36ddce19cd1ab7570651fbff",
+    "/home/antonov/Work/Areas/SEM/TrySEMGPU/research/seismic_dataset/pilot_cu_compare.py": "8d30890bb380fb5a2af5f3fc9ed3fc2f6fc917b7554af333090b50c7de974e24",
+    "/home/antonov/Work/Areas/SEM/TrySEMGPU/research/seismic_dataset/pilot_run.py": "7eb63cf3e82a2fdff136efbab48213b3fc1f3df74c04d108b55e11ab6490ca8e",
+    "research/seismic_dataset/pilot_cu/curved_p5_s36/fields.npz": "7f81f0bf581c9b63bdd52f972586e2e084ca0edf2c4f255300de62e4372530df",
+    "research/seismic_dataset/pilot_cu/curved_p5_s36/metadata.json": "5ba150ad94aa51c05f8709dbec0d324c3049fd733c57fa0608e709370a25cf23",
+    "research/seismic_dataset/pilot_cu/curved_p5_s36/surface.npz": "3b946105d73ea4fed288c09976b4b7edaba8b3b0a7305b43594a7196094d39f6",
+    "research/seismic_dataset/pilot_cu/raster_p5_s36/fields.npz": "a67c725f0f217982193277648215ef21cc76c7eb5b6030afb4ba108603835f25",
+    "research/seismic_dataset/pilot_cu/raster_p5_s36/metadata.json": "ed8c61ed198dbc0202abeee0be6f33d3cda37c58134d6989c5e292d98b492a1d",
+    "research/seismic_dataset/pilot_cu/raster_p5_s36/surface.npz": "8ee4584660b4eedc2ab2f726a8696bc01b7854554aa25f9d6507e2a33151eae2"
+  },
+  "direct_dot_product_check": {
+    "field_t2": [
+      0.1394980832933407,
+      0.14550423820851588
+    ],
+    "full": [
+      0.008395798396915066,
+      0.005090114858868731
+    ],
+    "late": [
+      0.18479695899511384,
+      0.16081990256570833
+    ]
+  },
+  "historical_aggregate_delta": {
+    "field_t2": [
+      -1.740274591099933e-14,
+      -5.329070518200751e-15
+    ],
+    "full": [
+      4.3368086899420177e-16,
+      4.466912950640278e-16
+    ],
+    "late": [
+      -9.992007221626409e-16,
+      -5.9674487573602164e-15
+    ]
+  },
+  "historical_comparison_limit": "Only stored aggregate metrics compared; old raw arrays are unavailable here",
+  "images": {
+    "late_seismogram": "research/seismic_dataset/pilot_cu/comparison/seismograms_late_p5.png",
+    "late_snapshots": "research/seismic_dataset/pilot_cu/comparison/snapshots_late_p5.png",
+    "seismogram": "research/seismic_dataset/pilot_cu/comparison/seismograms_p5.png",
+    "snapshots": "research/seismic_dataset/pilot_cu/comparison/snapshots_p5.png"
+  },
+  "metrics": {
+    "fields": [
+      {
+        "difference_l2_m": [
+          2.9461552381444334e-13,
+          5.667197239285261e-13
+        ],
+        "max_abs_difference_m": [
+          1.0748887706101595e-13,
+          1.48384101874284e-13
+        ],
+        "reference_l2_m": [
+          3.55907632432208e-10,
+          5.551786652251802e-10
+        ],
+        "relative_l2": [
+          0.0008277864731393773,
+          0.001020788008304795
+        ],
+        "time_s": 0.2,
+        "value_l2_m": [
+          3.559102889430927e-10,
+          5.551809707593811e-10
+        ]
+      },
+      {
+        "difference_l2_m": [
+          5.790589588497318e-12,
+          6.0235680618477956e-12
+        ],
+        "max_abs_difference_m": [
+          3.9301240239563454e-13,
+          5.209003364506811e-13
+        ],
+        "reference_l2_m": [
+          2.9820332247779344e-10,
+          1.6616000639162994e-10
+        ],
+        "relative_l2": [
+          0.01941825979798911,
+          0.036251611880963576
+        ],
+        "time_s": 0.5,
+        "value_l2_m": [
+          2.982923332386134e-10,
+          1.6618632810244626e-10
+        ]
+      },
+      {
+        "difference_l2_m": [
+          4.10975884343824e-12,
+          4.5136580434536555e-12
+        ],
+        "max_abs_difference_m": [
+          2.890719960526067e-13,
+          3.7018725698311375e-13
+        ],
+        "reference_l2_m": [
+          3.912170264442259e-11,
+          4.6991386751101816e-11
+        ],
+        "relative_l2": [
+          0.10505061297540819,
+          0.09605288023018012
+        ],
+        "time_s": 1.0,
+        "value_l2_m": [
+          3.957798681905071e-11,
+          4.699903493573537e-11
+        ]
+      },
+      {
+        "difference_l2_m": [
+          4.630552537223904e-13,
+          3.560028687363951e-13
+        ],
+        "max_abs_difference_m": [
+          3.066997830384977e-14,
+          2.6177113800109233e-14
+        ],
+        "reference_l2_m": [
+          3.3194381083262926e-12,
+          2.446683843162167e-12
+        ],
+        "relative_l2": [
+          0.1394980832933407,
+          0.1455042382085159
+        ],
+        "time_s": 2.0,
+        "value_l2_m": [
+          3.3451349888358187e-12,
+          2.475792971068666e-12
+        ]
+      }
+    ],
+    "name": "ECVB 12404 CU p5: curved minus raster",
+    "reference": "raster_p5_s36",
+    "surface": {
+      "all_surface": [
+        0.008395798396915068,
+        0.005090114858868731
+      ],
+      "difference_l2_m": [
+        1.963761467787317e-11,
+        1.8814880445479767e-11
+      ],
+      "far_difference_l2_m": [
+        1.922693730524586e-11,
+        1.8074109627790253e-11
+      ],
+      "far_reference_l2_m": [
+        2.2972566050935137e-09,
+        3.0796282847776036e-09
+      ],
+      "far_surface": [
+        0.008369520959311028,
+        0.005868925713252267
+      ],
+      "far_value_l2_m": [
+        2.297580205434298e-09,
+        3.079801401773376e-09
+      ],
+      "max_abs_difference_m": [
+        6.231193140793518e-13,
+        5.656671148136577e-13
+      ],
+      "reference_l2_m": [
+        2.3389812081586868e-09,
+        3.696356755623652e-09
+      ],
+      "reference_max_abs_m": [
+        7.69202205458131e-11,
+        3.8304599690999217e-10
+      ],
+      "time_windows": [
+        {
+          "difference_l2_m": [
+            1.2350480359890484e-18,
+            3.2648166509289824e-19
+          ],
+          "far_difference_l2_m": [
+            1.1798834328927762e-18,
+            2.5980638537762764e-19
+          ],
+          "far_reference_l2_m": [
+            1.527345772775608e-09,
+            1.9672918505943354e-09
+          ],
+          "far_relative_l2": [
+            7.72505776965358e-10,
+            1.320629602054916e-10
+          ],
+          "reference_l2_fraction_of_full": [
+            0.6791369075107605,
+            0.7669588562507306
+          ],
+          "reference_l2_m": [
+            1.588488464434673e-09,
+            2.8349535495877773e-09
+          ],
+          "relative_l2": [
+            7.774989014028437e-10,
+            1.1516296806357586e-10
+          ],
+          "time_window_s": [
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "difference_l2_m": [
+            3.892526681647206e-12,
+            3.966540616427462e-12
+          ],
+          "far_difference_l2_m": [
+            3.8224572947715564e-12,
+            3.803577461160523e-12
+          ],
+          "far_reference_l2_m": [
+            1.6979370431200368e-09,
+            2.347947426128364e-09
+          ],
+          "far_relative_l2": [
+            0.0022512361752515964,
+            0.0016199585300904343
+          ],
+          "reference_l2_fraction_of_full": [
+            0.7259439074472445,
+            0.6353265020881906
+          ],
+          "reference_l2_m": [
+            1.6979691576963937e-09,
+            2.348393408020428e-09
+          ],
+          "relative_l2": [
+            0.002292460180447642,
+            0.0016890443495883628
+          ],
+          "time_window_s": [
+            0.2,
+            0.5
+          ]
+        },
+        {
+          "difference_l2_m": [
+            1.515465358856361e-11,
+            1.6179403720904222e-11
+          ],
+          "far_difference_l2_m": [
+            1.477139633890097e-11,
+            1.5586372375220516e-11
+          ],
+          "far_reference_l2_m": [
+            2.3998267981486677e-10,
+            3.1338526305515403e-10
+          ],
+          "far_relative_l2": [
+            0.06155192679028452,
+            0.04973549880192485
+          ],
+          "reference_l2_fraction_of_full": [
+            0.1049988635401535,
+            0.08898246874460258
+          ],
+          "reference_l2_m": [
+            2.455903686984373e-10,
+            3.2891094947618224e-10
+          ],
+          "relative_l2": [
+            0.06170703545452203,
+            0.0491908334054286
+          ],
+          "time_window_s": [
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "difference_l2_m": [
+            1.1866786459691564e-11,
+            8.746037785873018e-12
+          ],
+          "far_difference_l2_m": [
+            1.1699136231731144e-11,
+            8.32293418905224e-12
+          ],
+          "far_reference_l2_m": [
+            6.341065383608402e-11,
+            5.2968934522051143e-11
+          ],
+          "far_relative_l2": [
+            0.1844979593172672,
+            0.15712859365874868
+          ],
+          "reference_l2_fraction_of_full": [
+            0.027454375830163476,
+            0.014712879360317387
+          ],
+          "reference_l2_m": [
+            6.421526914847842e-11,
+            5.438405101818497e-11
+          ],
+          "relative_l2": [
+            0.18479695899511384,
+            0.16081990256570833
+          ],
+          "time_window_s": [
+            1.0,
+            2.0
+          ]
+        }
+      ],
+      "value_l2_m": [
+        2.3393138183051164e-09,
+        3.6965682244765796e-09
+      ]
+    },
+    "value": "curved_p5_s36"
+  },
+  "model_id": 12404,
+  "scope": "Author research check; no new p/dt convergence series and no independent solver validation",
+  "solver_id": "lin_elast_2d_tenzor_newmark_kim_cu"
+}

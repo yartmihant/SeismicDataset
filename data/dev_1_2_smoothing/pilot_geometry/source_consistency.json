@@ -1,0 +1,56 @@
+[
+  {
+    "kind": "raster",
+    "order": 2,
+    "nodes": 19881,
+    "source_nodes": 5,
+    "force": -1.0,
+    "first_moment": 2.220446049250313e-16,
+    "second_moment": -2.7037136796181565
+  },
+  {
+    "kind": "raster",
+    "order": 3,
+    "nodes": 44521,
+    "source_nodes": 7,
+    "force": -1.0,
+    "first_moment": 5.551115123125783e-17,
+    "second_moment": -2.703713679618155
+  },
+  {
+    "kind": "raster",
+    "order": 4,
+    "nodes": 78961,
+    "source_nodes": 9,
+    "force": -1.0,
+    "first_moment": 2.42861286636753e-17,
+    "second_moment": -2.703713679618155
+  },
+  {
+    "kind": "curved",
+    "order": 2,
+    "nodes": 19881,
+    "source_nodes": 5,
+    "force": -1.0,
+    "first_moment": 2.220446049250313e-16,
+    "second_moment": -2.7037136796181565
+  },
+  {
+    "kind": "curved",
+    "order": 3,
+    "nodes": 44521,
+    "source_nodes": 7,
+    "force": -1.0,
+    "first_moment": 5.551115123125783e-17,
+    "second_moment": -2.703713679618155
+  },
+  {
+    "kind": "curved",
+    "order": 4,
+    "nodes": 78961,
+    "source_nodes": 9,
+    "force": -1.0,
+    "first_moment": 2.42861286636753e-17,
+    "second_moment": -2.703713679618155
+  }
+]

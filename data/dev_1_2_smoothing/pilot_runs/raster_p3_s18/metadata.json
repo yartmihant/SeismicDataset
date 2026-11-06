@@ -1,0 +1,86 @@
+{
+  "coordinate_convention": "x right; y upward; raster row 0 maps to y=700 m; negative Fy is downward",
+  "material": {
+    "law": "plane_strain",
+    "rho_kg_m3": 1000.0
+  },
+  "mesh": {
+    "det_jacobian_max": 25.0,
+    "det_jacobian_min": 25.0,
+    "elements": 4900,
+    "kind": "raster",
+    "model_id": 12404,
+    "nodes": 44521,
+    "nx": 70,
+    "ny": 70,
+    "order": 3
+  },
+  "output": {
+    "canonical_count": 2001,
+    "canonical_times_s": [
+      0.0,
+      2.0
+    ],
+    "compatibility_slice": "surface[:2000] represents t=0.000,...,1.999 s when t_end=2 s"
+  },
+  "pilot": {
+    "kind": "raster",
+    "order": 3,
+    "output_count": 2001,
+    "steps_count": 36000,
+    "steps_per_tact": 18,
+    "substeps": 18,
+    "t_end": 2.0
+  },
+  "provenance": {
+    "files": [
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Lib\\site-packages\\semgpu2\\solvers\\lin_elast_2d_tenzor_newmark_kim_ceed\\_native.cp313-win_amd64.pyd",
+        "sha256": "ec09ec361a5b26fa1934e99dedf525b24bdd58a01c17d6eda9f2a3496c252a81"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\tmp\\libceed-win-clang-prefix\\bin\\ceed.dll",
+        "sha256": "84f50925453828644871feec9a81c768e98843039a70c3e36b04524d50f4d216"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_run.py",
+        "sha256": "7eb63cf3e82a2fdff136efbab48213b3fc1f3df74c04d108b55e11ab6490ca8e"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_mesh.py",
+        "sha256": "b34ab702c2d1873cff6e0f0594b94a97fda672c36f69c195e0d2c4ec699db47c"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_geometry\\selected_model.npz",
+        "sha256": "af52dddc2974a8927b00e05989c6e8fcbb0edb0ca8da2b5344c9f1942c259352"
+      }
+    ],
+    "geometry_nodes_sha256": "17c31e6b1de612d0532bc173259eeceae91fb54f00e8425f9b17cff7c3d36797",
+    "numpy_version": "2.5.4",
+    "platform": "win32",
+    "python": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Scripts\\python.exe",
+    "python_version": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "runtime": {
+    "result_code": 0,
+    "wall_seconds_prepare_and_run": 456.8656573998742
+  },
+  "solver_intent": {
+    "ceed_resource": "/cpu/self/gen",
+    "id": "lin_elast_2d_tenzor_newmark_kim_ceed"
+  },
+  "source": {
+    "consistent_integral_before_normalization_m": 4.166434815805164,
+    "kind": "N_FORCE_DYNAMIC",
+    "node_count": 7,
+    "ricker_center_s": 0.1,
+    "ricker_hz": 15.0,
+    "sigma_m": 1.6666666666666667,
+    "support_m": [
+      345.0,
+      355.0
+    ],
+    "total_force_N_per_unit_thickness": -1.0,
+    "x_m": 350.0
+  }
+}

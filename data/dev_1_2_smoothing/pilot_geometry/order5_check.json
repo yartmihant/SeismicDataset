@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "raster",
+    "order": 5,
+    "nodes": 123201,
+    "geometry_nodes_sha256": "498858cfb1f8bc82a312fb6b11575c66e356ae893c0fcbfda6195b39cbda1eea",
+    "max_q2_coordinate_error_m": 2.2737367544323206e-13,
+    "total_force": -1.0000000000000002,
+    "first_moment": -3.122502256758253e-17,
+    "second_moment": -2.703713679618157,
+    "exact_second_moment": -2.703713679618171
+  },
+  {
+    "kind": "curved",
+    "order": 5,
+    "nodes": 123201,
+    "geometry_nodes_sha256": "520402ef7ba4eafb97c7f57559b243575c1d978d31a2f9310baac2b700ab420e",
+    "max_q2_coordinate_error_m": 4.547473508864641e-13,
+    "total_force": -1.0000000000000002,
+    "first_moment": -3.122502256758253e-17,
+    "second_moment": -2.703713679618157,
+    "exact_second_moment": -2.703713679618171
+  }
+]

@@ -1,0 +1,279 @@
+{
+  "coordinate_convention": "x right; y upward; raster row 0 maps to y=700 m; negative Fy is downward",
+  "material": {
+    "law": "plane_strain",
+    "rho_kg_m3": 1000.0
+  },
+  "mesh": {
+    "curved_layer_areas_m2": [
+      56000.0,
+      149384.007470026,
+      164713.8515335638,
+      119902.14099641023
+    ],
+    "det_jacobian_max": 33.8235294117647,
+    "det_jacobian_min": 17.547917308762376,
+    "elements": 4900,
+    "embedding_space": "Q2",
+    "geometry_degree": [
+      2,
+      1
+    ],
+    "geometry_refinement": "Higher p samples the frozen Q2 polynomial, never the cubic spline anew",
+    "horizontal_elements": 70,
+    "jacobian_check": "Analytic min/max of each quadratic layer thickness over each x interval; x affine and y affine in vertical layer fraction",
+    "kind": "curved",
+    "layer_max_thickness_m": [
+      80.00000000000003,
+      260.2382691105972,
+      259.7096540658899,
+      230.0
+    ],
+    "layer_min_thickness_m": [
+      79.99999999999991,
+      168.7217938655657,
+      190.00000000000006,
+      119.32583769958414
+    ],
+    "model_id": 12404,
+    "nodes": 78961,
+    "nx": 70,
+    "ny": 70,
+    "order": 4,
+    "raster_to_q2_interface_change": {
+      "area_between_interfaces_m2": [
+        1.3117464422143975e-11,
+        1698.2406694257816,
+        1655.936331105436
+      ],
+      "fraction_of_domain": 0.006845259184757613,
+      "max_depth_difference_including_step_sides_m": [
+        9.237055564881302e-14,
+        8.430924601101566,
+        7.277137990392816
+      ],
+      "sum_interface_displacement_area_m2": 3354.1770005312305
+    },
+    "rows_topdown": [
+      8,
+      21,
+      24,
+      17
+    ],
+    "source_material_areas_m2": [
+      164700,
+      269300,
+      56000
+    ],
+    "splines": [
+      {
+        "coefficients": [
+          80.0,
+          79.99999999999994,
+          79.9999999999999,
+          80.00000000000006,
+          79.99999999999997,
+          79.99999999999999,
+          79.99999999999999,
+          80.0,
+          79.99999999999994,
+          80.0
+        ],
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "max_sample_depth_error_m": 7.105427357601002e-14
+      },
+      {
+        "coefficients": [
+          310.0,
+          293.50774716745667,
+          254.17411116079842,
+          241.75180904294373,
+          282.74534020402314,
+          347.0391382495781,
+          336.6597669015279,
+          322.23646399663374,
+          319.9966121347072,
+          274.0011264081921,
+          249.10789878933227,
+          301.82689112019256,
+          285.34007386404227,
+          280.0
+        ],
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          63.63636363636363,
+          127.27272727272727,
+          190.9090909090909,
+          254.54545454545453,
+          318.1818181818182,
+          381.8181818181818,
+          445.45454545454544,
+          509.09090909090907,
+          572.7272727272727,
+          636.3636363636364,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "max_sample_depth_error_m": 5.332009787048548
+      },
+      {
+        "coefficients": [
+          540.0,
+          535.0191029970401,
+          529.1886534297431,
+          499.7022490706338,
+          503.2306423388756,
+          486.6491571488941,
+          504.6109333530365,
+          500.55396464111556,
+          533.5955313605274,
+          554.2532394357719,
+          569.9539172390354,
+          580.7124412154164,
+          579.3234779761049,
+          582.4860531970968,
+          568.9094816901145,
+          563.2490304688404,
+          535.5472494402745,
+          536.6946359322103,
+          518.3725583391006,
+          520.0781891923224,
+          525.2574965637266,
+          518.8443339852856,
+          518.247084083877,
+          507.12822418651706,
+          491.1586419623534,
+          487.93564659327166,
+          472.7392766868812,
+          470.0
+        ],
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          28.0,
+          56.0,
+          84.0,
+          112.0,
+          140.0,
+          168.0,
+          196.0,
+          224.0,
+          252.0,
+          280.0,
+          308.0,
+          336.0,
+          364.0,
+          392.0,
+          420.0,
+          448.0,
+          476.0,
+          504.0,
+          532.0,
+          560.0,
+          588.0,
+          616.0,
+          644.0,
+          672.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "max_sample_depth_error_m": 6.843379789873438
+      }
+    ],
+    "vertical_cell_max_m": 13.529411764705882,
+    "vertical_cell_min_m": 7.019166923504949,
+    "vertical_elements": 70
+  },
+  "output": {
+    "canonical_count": 2001,
+    "canonical_times_s": [
+      0.0,
+      2.0
+    ],
+    "compatibility_slice": "surface[:2000] represents t=0.000,...,1.999 s when t_end=2 s"
+  },
+  "pilot": {
+    "kind": "curved",
+    "order": 4,
+    "output_count": 2001,
+    "steps_count": 72000,
+    "steps_per_tact": 36,
+    "substeps": 36,
+    "t_end": 2.0
+  },
+  "provenance": {
+    "files": [
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Lib\\site-packages\\semgpu2\\solvers\\lin_elast_2d_tenzor_newmark_kim_ceed\\_native.cp313-win_amd64.pyd",
+        "sha256": "ec09ec361a5b26fa1934e99dedf525b24bdd58a01c17d6eda9f2a3496c252a81"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\tmp\\libceed-win-clang-prefix\\bin\\ceed.dll",
+        "sha256": "84f50925453828644871feec9a81c768e98843039a70c3e36b04524d50f4d216"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_run.py",
+        "sha256": "7eb63cf3e82a2fdff136efbab48213b3fc1f3df74c04d108b55e11ab6490ca8e"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_mesh.py",
+        "sha256": "b34ab702c2d1873cff6e0f0594b94a97fda672c36f69c195e0d2c4ec699db47c"
+      },
+      {
+        "path": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\research\\seismic_dataset\\pilot_geometry\\selected_model.npz",
+        "sha256": "af52dddc2974a8927b00e05989c6e8fcbb0edb0ca8da2b5344c9f1942c259352"
+      }
+    ],
+    "geometry_nodes_sha256": "d67087f114e1eb532ff4375698b5d199eba251c6d610990964f42985119e9870",
+    "numpy_version": "2.5.4",
+    "platform": "win32",
+    "python": "C:\\Base\\Areas\\SEMGPU\\TrySEMGPU\\.venv\\Scripts\\python.exe",
+    "python_version": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "runtime": {
+    "result_code": 0,
+    "wall_seconds_prepare_and_run": 1943.3835581999738
+  },
+  "solver_intent": {
+    "ceed_resource": "/cpu/self/gen",
+    "id": "lin_elast_2d_tenzor_newmark_kim_ceed"
+  },
+  "source": {
+    "consistent_integral_before_normalization_m": 4.166434815805163,
+    "kind": "N_FORCE_DYNAMIC",
+    "node_count": 9,
+    "ricker_center_s": 0.1,
+    "ricker_hz": 15.0,
+    "sigma_m": 1.6666666666666667,
+    "support_m": [
+      345.0,
+      355.0
+    ],
+    "total_force_N_per_unit_thickness": -1.0,
+    "x_m": 350.0
+  }
+}

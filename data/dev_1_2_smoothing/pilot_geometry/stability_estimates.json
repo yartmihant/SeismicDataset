@@ -1,0 +1,90 @@
+{
+  "estimates": [
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 2837.9999999999986,
+      "dt_start_s": 0.0002564938093426328,
+      "element_count": 4900,
+      "kind": "raster",
+      "max_lumped_mass_kg_per_m": 44444.44444444475,
+      "min_lumped_mass_kg_per_m": 2777.7777777777783,
+      "node_count": 19881,
+      "order": 2,
+      "stiffness_bound_s_minus_2": 4135497.759550714,
+      "substeps_per_ms": 4
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 5675.999999999976,
+      "dt_start_s": 0.00012509529642507552,
+      "element_count": 4900,
+      "kind": "raster",
+      "max_lumped_mass_kg_per_m": 17361.111111111968,
+      "min_lumped_mass_kg_per_m": 694.4444444444501,
+      "node_count": 44521,
+      "order": 3,
+      "stiffness_bound_s_minus_2": 18529119.328819945,
+      "substeps_per_ms": 8
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 9460.000000000218,
+      "dt_start_s": 7.36638248424532e-05,
+      "element_count": 4900,
+      "kind": "raster",
+      "max_lumped_mass_kg_per_m": 12641.975308641895,
+      "min_lumped_mass_kg_per_m": 249.99999999981713,
+      "node_count": 78961,
+      "order": 4,
+      "stiffness_bound_s_minus_2": 55864385.66617873,
+      "substeps_per_ms": 14
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 2926.687499999998,
+      "dt_start_s": 0.00020907285005255315,
+      "element_count": 4900,
+      "kind": "curved",
+      "max_lumped_mass_kg_per_m": 59637.63485345365,
+      "min_lumped_mass_kg_per_m": 2614.379084967323,
+      "node_count": 19881,
+      "order": 2,
+      "stiffness_bound_s_minus_2": 8878887.43802389,
+      "substeps_per_ms": 5
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 5853.374999999976,
+      "dt_start_s": 9.982416884311507e-05,
+      "element_count": 4900,
+      "kind": "curved",
+      "max_lumped_mass_kg_per_m": 23390.322065511653,
+      "min_lumped_mass_kg_per_m": 653.5947712418356,
+      "node_count": 44521,
+      "order": 3,
+      "stiffness_bound_s_minus_2": 41715740.13589416,
+      "substeps_per_ms": 11
+    },
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 9755.624999999998,
+      "dt_start_s": 5.7893073354917677e-05,
+      "element_count": 4900,
+      "kind": "curved",
+      "max_lumped_mass_kg_per_m": 16963.593913870514,
+      "min_lumped_mass_kg_per_m": 235.29411764705904,
+      "node_count": 78961,
+      "order": 4,
+      "stiffness_bound_s_minus_2": 129853161.14574279,
+      "substeps_per_ms": 18
+    }
+  ],
+  "limits": "This is a conservative host-side bound, not CEED's spectrum and not a numerical convergence result. The common recommendation is the maximum substeps across raster/curved cases at each p; the all-p recommendation is the maximum of those.",
+  "method": "Element stiffness is integrated at GLL points, local |K| row sums are assembled, and lambda_max(M^-1 K) is bounded by max_i sum_j |K_ij|/M_i. ABC is a separately assembled z_n edge-weight/mass row bound. dt_start uses 0.5 of the damped central-difference scalar stability limit.",
+  "recommended_substeps_per_ms_all_orders": 18,
+  "recommended_substeps_per_ms_by_order": {
+    "2": 5,
+    "3": 11,
+    "4": 18
+  }
+}

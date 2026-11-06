@@ -1,0 +1,117 @@
+{
+  "model_id": 65,
+  "domain_m": [
+    0.0,
+    0.0,
+    700.0,
+    700.0
+  ],
+  "order": 4,
+  "geometry_order": 2,
+  "target_h_m": 10.0,
+  "gmsh_seed_size_m": 25.0,
+  "gmsh_version": "4.15.2",
+  "gmsh_algorithm": 6,
+  "gmsh_recombination": 3,
+  "triangle_subdivision": true,
+  "meshes": {
+    "raster": {
+      "positive_jacobian_certificate": "tensor cubic Bernstein coefficients, recursively subdivided where necessary",
+      "det_jacobian_certified_lower_bound": 24.99999999998872,
+      "bernstein_max_subdivision_depth": 0,
+      "area_m2": 490000.0000000003,
+      "area_by_region_m2": {
+        "1": 54100.00000000001,
+        "2": 22400.000000000044,
+        "3": 18900.000000000036,
+        "4": 159700.0000000001,
+        "5": 50000.000000000044,
+        "6": 27700.000000000022,
+        "7": 138400.00000000006,
+        "8": 18800.000000000007
+      },
+      "sqrt_area_quantiles_m": [
+        9.99999999999995,
+        9.999999999999973,
+        9.999999999999982,
+        10.000000000000004,
+        10.000000000000025,
+        10.000000000000034,
+        10.000000000000052
+      ],
+      "edge_length_quantiles_m": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "q2_centre_shift_from_corner_average_max_m": 0.0,
+      "kind": "raster",
+      "elements": 4900,
+      "nodes_p4": 78961,
+      "nodes_q2": 19881,
+      "external_edges": 280,
+      "euler_characteristic": 1,
+      "conforming_edges": true,
+      "geometry": "full Q2 with Coons central node, frozen and evaluated at p4 GLL nodes"
+    },
+    "curved": {
+      "positive_jacobian_certificate": "tensor cubic Bernstein coefficients, recursively subdivided where necessary",
+      "det_jacobian_certified_lower_bound": 2.825267388294847,
+      "bernstein_max_subdivision_depth": 0,
+      "area_m2": 490000.0000000002,
+      "area_by_region_m2": {
+        "1": 54059.44899529512,
+        "2": 22401.720065985886,
+        "3": 18909.771811801606,
+        "4": 159803.19372848386,
+        "5": 50010.53716724966,
+        "6": 27662.295591321195,
+        "7": 138364.06675185543,
+        "8": 18788.9658880074
+      },
+      "sqrt_area_quantiles_m": [
+        4.754170706480778,
+        6.950637338270353,
+        7.482245929987885,
+        9.087542149226202,
+        10.10427278430815,
+        10.4928443722901,
+        11.215027816261708
+      ],
+      "edge_length_quantiles_m": [
+        2.6147590537107033,
+        4.910784420174901,
+        5.792699718976616,
+        8.635050831289107,
+        13.367401648419028,
+        14.422090988198814,
+        17.28623852659538
+      ],
+      "q2_centre_shift_from_corner_average_max_m": 0.572581186698932,
+      "kind": "curved",
+      "elements": 6075,
+      "nodes_p4": 97669,
+      "nodes_q2": 24535,
+      "external_edges": 234,
+      "euler_characteristic": 1,
+      "conforming_edges": true,
+      "geometry": "full Q2 with Coons central node, frozen and evaluated at p4 GLL nodes"
+    }
+  },
+  "boundary_audit": {
+    "raster": {
+      "external_edges": 280,
+      "conforming": true,
+      "all_on_domain_square": true
+    },
+    "curved": {
+      "external_edges": 234,
+      "conforming": true,
+      "all_on_domain_square": true
+    }
+  }
+}

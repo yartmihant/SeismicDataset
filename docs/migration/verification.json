@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-06T13:56:36.641756+03:00",
+  "status": "author_checked_not_independent_review",
+  "migrated_files": 167,
+  "mypy": {
+    "scope": "all project Python",
+    "files": 28,
+    "exit_code": 0
+  },
+  "notebooks": {
+    "dev_1_1_dataset_preprocessing": {
+      "cells": 19,
+      "executed": true,
+      "roundtrip_ast_equal": true
+    },
+    "dev_1_2_smoothing_pilot": {
+      "cells": 23,
+      "executed": true,
+      "roundtrip_ast_equal": true
+    }
+  },
+  "raw_file_names": {
+    "EFVB_pairs": 30000,
+    "ECVB_pairs": 30000,
+    "sample_field_read_per_class": 1,
+    "full_recalculation": false
+  },
+  "stored_cu_arrays": {
+    "raster_surface_shape": [
+      2001,
+      2,
+      71
+    ],
+    "curved_surface_shape": [
+      2001,
+      2,
+      71
+    ],
+    "coordinates_and_terminal_state_checked": true,
+    "portable_provenance_hash_resolution": true,
+    "verified_after_original_directory_move": true
+  },
+  "notebook_visual_qa": {
+    "html_exports_checked": true,
+    "horizontal_page_overflow": false,
+    "figures_rendered": [
+      3,
+      7
+    ]
+  },
+  "py2jupyter": {
+    "path": "/home/antonov/Work/Tools/Org/PyToJupyter",
+    "upstream_fix_used": true,
+    "pytest_passed": 27,
+    "mypy_exit_code": 0
+  },
+  "not_run": [
+    "GPU/CEED recalculation",
+    "60000-model conversion",
+    "historical Windows raw replay",
+    "model65 convergence"
+  ],
+  "environment_profile": "base semgpu2 for reports; native profile configured separately",
+  "migration_integrity": {
+    "original_files_sha256_verified": 167,
+    "original_directory_backup": ".local-backups/research-before-reorganization",
+    "historical_data_bytes_preserved": true,
+    "old_location_contains_navigation_only": true
+  }
+}

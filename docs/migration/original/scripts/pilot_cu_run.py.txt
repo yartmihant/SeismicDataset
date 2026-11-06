@@ -1,0 +1,137 @@
+"""Repeat ECVB 12404 with native CU, preserving the original experiment files."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import shutil
+import sys
+from tempfile import TemporaryDirectory
+from time import perf_counter
+
+import numpy as np
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from research.seismic_dataset import pilot_mesh
+from research.seismic_dataset.pilot_mesh import MeshCase
+from research.seismic_dataset.pilot_run import (
+    ABC, BOUNDARY_SPACE, FloatArray, MAIN_SPACE, MATERIAL_ISO_PLANE_STRAIN,
+    N_FORCE_DYNAMIC, OUTPUT_INTERVAL_S, PilotSpec, RECEIVER_UX, RECEIVER_UY,
+    RHO_KG_M3, SNAPSHOT_TIMES_S, _case_metadata, _make_handler, build_spec,
+    consistent_surface_source, dynamic_source_values, plane_strain_parameters,
+    top_boundary_ids,
+)
+
+
+def build_preserved_case(kind: str, order: int) -> MeshCase:
+    """Reconstruct in a scratch directory and check the frozen geometry."""
+    original = pilot_mesh.OUTPUT
+    with TemporaryDirectory(prefix="seismic_cu_geometry_") as directory:
+        scratch = Path(directory)
+        shutil.copy2(original / "selected_model.npz", scratch)
+        try:
+            pilot_mesh.OUTPUT = scratch
+            case = pilot_mesh.build_case(kind, order)
+            with np.load(original / "frozen_q2_geometry.npz", allow_pickle=False) as ref:
+                with np.load(scratch / "frozen_q2_geometry.npz", allow_pickle=False) as new:
+                    for key in ref.files:
+                        if not np.allclose(ref[key], new[key], rtol=0.0, atol=1e-10):
+                            raise ValueError(f"Frozen Q2 geometry differs: {key}")
+        finally:
+            pilot_mesh.OUTPUT = original
+    return case
+
+
+def run_case(case: MeshCase, spec: PilotSpec, output: Path) -> dict[str, object]:
+    """Import native CUDA lazily, run the experiment, and save receiver products."""
+    from semgpu2.model.model import SGModel
+    from semgpu2.model.physics import SGPhysicsModel, SGPhysicsTimeData
+    from semgpu2.model.receiver import SGReceiverModel
+    from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu import _native
+    from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.constants import SGSolverConfig, SGRunCodeEnum, SGRunResultData
+    from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.solver import SGSolver
+
+    source = consistent_surface_source(case)
+    top_ids = top_boundary_ids(case)
+    boundary_count = int(case.mesh.strata[BOUNDARY_SPACE].p_node_offsets.size - 1)
+    abc_ids = np.setdiff1d(np.arange(boundary_count, dtype=np.int64), top_ids, assume_unique=True)
+    materials = plane_strain_parameters(case.element_vp, case.element_vs)
+    abc_values = np.column_stack((RHO_KG_M3 * case.boundary_vp[abc_ids], RHO_KG_M3 * case.boundary_vs[abc_ids]))
+    times = np.linspace(0.0, spec.t_end, spec.output_count, dtype=np.float64)
+    source_values = dynamic_source_values(source, spec)
+    config = SGSolverConfig(t_begin=0.0, t_end=spec.t_end, steps_count=spec.steps_count, steps_per_tact=spec.steps_per_tact)
+    model = SGModel(case.mesh, SGSolver(config))
+    main_count = int(case.mesh.strata[MAIN_SPACE].p_node_offsets.size - 1)
+    model.add_physics(SGPhysicsModel.from_entity_values("material", MATERIAL_ISO_PLANE_STRAIN, case.mesh, MAIN_SPACE, np.arange(main_count, dtype=np.int64), materials))
+    model.add_physics(SGPhysicsModel.from_entity_values("abc_bottom_sides", ABC, case.mesh, BOUNDARY_SPACE, abc_ids, abc_values))
+    model.add_physics(SGPhysicsModel("surface_ricker_consistent", N_FORCE_DYNAMIC, case.mesh, 0, source.node_ids, source_values, time=SGPhysicsTimeData(0.0, spec.t_end, spec.output_count, 3)))
+    surface_frames: list[tuple[float, FloatArray]] = []
+    surface_points = np.column_stack((np.arange(71, dtype=np.float64) * 10.0, np.full(71, 700.0)))
+    model.add_receiver(SGReceiverModel.from_points("surface_ux_uy", case.mesh, MAIN_SPACE, surface_points, np.asarray([RECEIVER_UX, RECEIVER_UY], dtype=np.int32), begin_tact=0, end_tact=spec.output_count - 1, stride=1, handler=_make_handler(surface_frames, progress=True), frame_shape=(71,)))
+    field_frames: list[tuple[float, FloatArray]] = []
+    grid_x = np.arange(70, dtype=np.float64) * 10.0 + 5.0
+    grid_y = 700.0 - (np.arange(70, dtype=np.float64) * 10.0 + 5.0)
+    grid_points = np.stack(np.meshgrid(grid_x, grid_y), axis=-1).reshape((-1, 2))
+    for snapshot_s in SNAPSHOT_TIMES_S:
+        if snapshot_s > spec.t_end + 1.0e-12:
+            continue
+        tact = round(snapshot_s / OUTPUT_INTERVAL_S)
+        model.add_receiver(SGReceiverModel.from_points(f"field_{snapshot_s:g}s", case.mesh, MAIN_SPACE, grid_points, np.asarray([RECEIVER_UX, RECEIVER_UY], dtype=np.int32), begin_tact=tact, end_tact=tact, stride=1, handler=_make_handler(field_frames), frame_shape=(70, 70)))
+    output.mkdir(parents=True, exist_ok=True)
+    if (output / "metadata.json").exists():
+        raise FileExistsError(f"Completed output already exists: {output}")
+    metadata = _case_metadata(case, spec, source)
+    metadata["solver_intent"] = {"id": "lin_elast_2d_tenzor_newmark_kim_cu"}
+    native_path = Path(_native.__file__).resolve()
+    provenance_files = [native_path, Path(__file__).resolve(), Path(__file__).with_name("pilot_mesh.py"), Path(__file__).with_name("pilot_geometry") / "selected_model.npz"]
+    metadata["provenance"] = {
+        "python": sys.executable,
+        "python_version": sys.version,
+        "numpy_version": np.__version__,
+        "platform": sys.platform,
+        "geometry_nodes_sha256": hashlib.sha256(case.mesh.nodes_coords.tobytes()).hexdigest(),
+        "files": [{"path": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()} for path in provenance_files],
+    }
+    (output / "metadata.started.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    started = perf_counter()
+    model.prepare()
+    print(json.dumps({"stage": "prepared", "kind": spec.kind, "p": spec.order, "steps": spec.steps_count}), flush=True)
+    result = model.run(sync=True)
+    elapsed = perf_counter() - started
+    if not isinstance(result, SGRunResultData) or result.code != SGRunCodeEnum.TIME_END or result.steps_count != spec.steps_count:
+        raise RuntimeError(f"Incomplete run: {result}")
+    surface_frames.sort(key=lambda item: item[0])
+    field_frames.sort(key=lambda item: item[0])
+    surface_time = np.asarray([item[0] for item in surface_frames], dtype=np.float64)
+    surface = np.asarray([item[1].reshape((2, 71)) for item in surface_frames], dtype=np.float64)
+    field_time = np.asarray([item[0] for item in field_frames], dtype=np.float64)
+    field = np.asarray([item[1].reshape((2, 70, 70)) for item in field_frames], dtype=np.float64)
+    if not np.isfinite(surface).all() or not np.isfinite(field).all():
+        raise RuntimeError("Nonfinite receiver output")
+    if surface_time.shape != (spec.output_count,) or not np.allclose(surface_time, times, rtol=0.0, atol=1.0e-12):
+        raise RuntimeError("CU did not emit the requested inclusive 1 ms surface time grid")
+    output.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(output / "surface.npz", time_s=surface_time, displacement_ux_uy_m=surface, x_m=surface_points[:, 0], compatibility_2000_t0_to_1_999=surface[:2000])
+    np.savez_compressed(output / "fields.npz", time_s=field_time, displacement_ux_uy_m=field, x_m=grid_x, y_m=grid_y)
+    metadata["runtime"] = {"wall_seconds_prepare_and_run": elapsed, "result_code": int(result.code), "steps_count": result.steps_count, "current_time": result.current_time}
+    (output / "metadata.json").write_text(json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return metadata
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--kind", choices=("raster", "curved"), required=True)
+    parser.add_argument("--order", type=int, default=5)
+    parser.add_argument("--substeps", type=int, default=36)
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+    spec = build_spec(args.kind, args.order, args.substeps, 2.0)
+    case = build_preserved_case(spec.kind, spec.order)
+    print(json.dumps(run_case(case, spec, args.out), indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

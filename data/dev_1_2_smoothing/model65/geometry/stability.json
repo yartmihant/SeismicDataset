@@ -1,0 +1,39 @@
+{
+  "estimates": [
+    {
+      "abc_edge_count": 210,
+      "damping_bound_s_minus_1": 8770.00000000329,
+      "dt_start_s": 5.1710396456235494e-05,
+      "element_count": 4900,
+      "jacobian_check_points_per_axis": 9,
+      "jacobian_max": 25.000000000012086,
+      "jacobian_min": 24.999999999982375,
+      "kind": "raster",
+      "max_lumped_mass_kg_per_m": 12641.97530864204,
+      "min_lumped_mass_kg_per_m": 249.99999999995362,
+      "node_count": 78961,
+      "order": 4,
+      "stiffness_bound_s_minus_2": 204378068.63640887,
+      "substeps_per_ms": 20
+    },
+    {
+      "abc_edge_count": 178,
+      "damping_bound_s_minus_1": 18971.810483522528,
+      "dt_start_s": 1.4840842200513038e-05,
+      "element_count": 6075,
+      "jacobian_check_points_per_axis": 9,
+      "jacobian_max": 47.55172979802828,
+      "jacobian_min": 2.8252673882936326,
+      "kind": "curved",
+      "max_lumped_mass_kg_per_m": 15951.64859634225,
+      "min_lumped_mass_kg_per_m": 84.75802164888023,
+      "node_count": 97669,
+      "order": 4,
+      "stiffness_bound_s_minus_2": 3261931469.9821386,
+      "substeps_per_ms": 68
+    }
+  ],
+  "limits": "This is a conservative host-side bound, not the CEED spectrum or a convergence proof.",
+  "method": "The actual curved tensor-GLL maps are sampled at a 9x9 reference grid for positive Jacobians. GLL mass, plane-strain stiffness, and ABC row bounds are assembled on all elements. The explicit start step is half the damped scalar central-difference limit based on a Gershgorin |K| bound.",
+  "recommended_common_substeps_per_ms": 68
+}

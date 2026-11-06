@@ -1,0 +1,191 @@
+"""Render and verify the raster and frozen-Q2 geometry of the ECVB pilot."""
+
+from __future__ import annotations
+
+from dataclasses import asdict, dataclass
+import json
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+from typing import Dict, Iterable, Tuple
+
+import numpy as np
+from numpy.typing import NDArray
+from PIL import Image, ImageDraw, ImageFont
+
+from semgpu2.model import SGPETALineModel
+
+
+ROOT = DATA_12
+OUTPUT = ROOT / "pilot_geometry"
+FloatArray = NDArray[np.float64]
+IntArray = NDArray[np.int64]
+
+
+@dataclass(frozen=True)
+class PolynomialCheck:
+    order: int
+    reference_nodes: list[float]
+    checked_coordinates: int
+    max_coordinate_error_m: float
+
+
+def lagrange(nodes: FloatArray, points: FloatArray) -> FloatArray:
+    result = np.ones((points.size, nodes.size), dtype=np.float64)
+    for i, node in enumerate(nodes):
+        for j, other in enumerate(nodes):
+            if i != j:
+                result[:, i] *= (points-other) / (node-other)
+    return result
+
+
+def q2_map(corners_and_midpoints: FloatArray, q2_ref: FloatArray, xi: FloatArray, eta: FloatArray) -> FloatArray:
+    """Map reference points using the Q2 tensor-product geometry of one cell."""
+    wx = lagrange(q2_ref, xi)
+    wy = lagrange(q2_ref, eta)
+    values = np.empty((xi.size, 2), dtype=np.float64)
+    local = corners_and_midpoints.reshape((3, 3, 2))
+    for k in range(xi.size):
+        values[k] = np.einsum("i,j,ijc->c", wy[k], wx[k], local)
+    return values
+
+
+def check_geometry() -> list[PolynomialCheck]:
+    with np.load(OUTPUT / "curved_p2_mesh.npz", allow_pickle=False) as q2:
+        q2_nodes = np.asarray(q2["nodes"], dtype=np.float64)
+        q2_cells = np.asarray(q2["cells"], dtype=np.int64)
+    q2_ref = np.asarray(SGPETALineModel("GLL", order=2).p_nodes.coords[:, 0], dtype=np.float64)
+    checks: list[PolynomialCheck] = []
+    for order in (3, 4):
+        with np.load(OUTPUT / f"curved_p{order}_mesh.npz", allow_pickle=False) as mesh:
+            nodes = np.asarray(mesh["nodes"], dtype=np.float64)
+            cells = np.asarray(mesh["cells"], dtype=np.int64)
+        reference = np.asarray(SGPETALineModel("GLL", order=order).p_nodes.coords[:, 0], dtype=np.float64)
+        target_xi, target_eta = np.meshgrid(reference, reference)
+        maximum = 0.0
+        for q2_cell, cell in zip(q2_cells, cells):
+            expected = q2_map(q2_nodes[q2_cell], q2_ref, target_xi.ravel(), target_eta.ravel())
+            maximum = max(maximum, float(np.max(np.abs(expected-nodes[cell]))))
+        checks.append(PolynomialCheck(order, reference.tolist(), int(nodes.size), maximum))
+    return checks
+
+
+def rgb(vp: FloatArray, vs: FloatArray, bounds: Dict[str, float]) -> Tuple[int, int, int]:
+    red = int(np.rint(255 * (float(vp)-bounds["vp_min"]) / (bounds["vp_max"]-bounds["vp_min"])))
+    green = int(np.rint(255 * (float(vs)-bounds["vs_min"]) / (bounds["vs_max"]-bounds["vs_min"])))
+    return max(0, min(255, red)), max(0, min(255, green)), 0
+
+
+def edge_points(local: FloatArray, samples: int = 9) -> Iterable[Tuple[float, float]]:
+    ref = np.array([-1.0, 0.0, 1.0], dtype=np.float64)
+    grid = np.linspace(-1.0, 1.0, samples)
+    segments = ((local[0, :, :],), (local[:, 2, :],), (local[2, ::-1, :],), (local[::-1, 0, :],))
+    for segment_tuple in segments:
+        segment = segment_tuple[0]
+        weights = lagrange(ref, grid)
+        for point in weights @ segment:
+            yield float(point[0]), float(point[1])
+
+
+def transform(point: Tuple[float, float], origin: Tuple[float, float], scale: float) -> Tuple[int, int]:
+    return int(round(origin[0] + point[0]*scale)), int(round(origin[1] - point[1]*scale))
+
+
+def draw_mesh(panel: Image.Image, nodes: FloatArray, cells: IntArray, vp: FloatArray, vs: FloatArray,
+              bounds: Dict[str, float], origin: Tuple[float, float], scale: float,
+              zoom: Tuple[float, float, float, float] | None = None) -> None:
+    draw = ImageDraw.Draw(panel)
+    order = int(round(np.sqrt(cells.shape[1]))) - 1
+    for cell, cell_vp, cell_vs in zip(cells, vp, vs):
+        local = nodes[cell].reshape((order+1, order+1, 2))
+        if zoom is not None:
+            x0, y0, x1, y1 = zoom
+            if float(local[:, :, 0].max()) < x0 or float(local[:, :, 0].min()) > x1 or float(local[:, :, 1].max()) < y0 or float(local[:, :, 1].min()) > y1:
+                continue
+        if order != 2:
+            raise ValueError("This visualizer expects Q2 cells")
+        curve = list(edge_points(local, samples=9))
+        draw.polygon([transform(point, origin, scale) for point in curve], fill=rgb(cell_vp, cell_vs, bounds))
+    # Draw after filling to retain the shared geometry rather than raster seams.
+    for cell in cells:
+        local = nodes[cell].reshape((order+1, order+1, 2))
+        if zoom is not None:
+            x0, y0, x1, y1 = zoom
+            if float(local[:, :, 0].max()) < x0 or float(local[:, :, 0].min()) > x1 or float(local[:, :, 1].max()) < y0 or float(local[:, :, 1].min()) > y1:
+                continue
+        curve = list(edge_points(local, samples=9))
+        draw.line([transform(point, origin, scale) for point in curve], fill=(240, 240, 240), width=1, joint="curve")
+
+
+def main() -> None:
+    manifest = json.loads((BINARY / "manifest.json").read_text(encoding="utf-8"))
+    bounds = manifest["bounds"]
+    with np.load(OUTPUT / "raster_p2_mesh.npz", allow_pickle=False) as raster, np.load(OUTPUT / "curved_p2_mesh.npz", allow_pickle=False) as curved:
+        raster_nodes, raster_cells = np.asarray(raster["nodes"]), np.asarray(raster["cells"])
+        raster_vp, raster_vs = np.asarray(raster["vp"]), np.asarray(raster["vs"])
+        curved_nodes, curved_cells = np.asarray(curved["nodes"]), np.asarray(curved["cells"])
+        curved_vp, curved_vs = np.asarray(curved["vp"]), np.asarray(curved["vs"])
+    checks = check_geometry()
+    canvas = Image.new("RGB", (1480, 1280), "white")
+    draw = ImageDraw.Draw(canvas)
+    font = report_font(23)
+    small = report_font(17)
+    draw.text((20, 12), "ECVB 12404: исходная структурированная сетка и сглаженная Q2-геометрия", fill="black", font=font)
+    draw.text((20, 42), "Материал: R=VP, G=VS; белые линии — границы Q2-элементов, h≈10 м.", fill="black", font=small)
+    big_origin = ((20.0, 80.0), (760.0, 80.0))
+    for index, (title, nodes, cells, vp, vs) in enumerate((("Растровая среда, структурированные элементы", raster_nodes, raster_cells, raster_vp, raster_vs),
+                                                              ("Сглаженные слои, криволинейные Q2-элементы", curved_nodes, curved_cells, curved_vp, curved_vs))):
+        draw.text((big_origin[index][0], 62), title, fill="black", font=small)
+        panel = Image.new("RGB", (701, 701), "white")
+        draw_mesh(panel, nodes, cells, vp, vs, bounds, (0.0, 700.0), 1.0)
+        canvas.paste(panel, (int(big_origin[index][0]), int(big_origin[index][1])))
+        draw.rectangle((big_origin[index][0], big_origin[index][1], big_origin[index][0]+700, big_origin[index][1]+700), outline="black", width=2)
+    zoom = (300.0, 325.0, 400.0, 425.0)
+    zoom_origin = ((20.0, 850.0), (760.0, 850.0))
+    zoom_scale = 4.0
+    for index, (title, nodes, cells, vp, vs) in enumerate((("Увеличение растра", raster_nodes, raster_cells, raster_vp, raster_vs),
+                                                              ("Увеличение Q2: реальные центральные узлы", curved_nodes, curved_cells, curved_vp, curved_vs))):
+        draw.text((zoom_origin[index][0], 830), title, fill="black", font=small)
+        shifted_origin = (-zoom[0]*zoom_scale, zoom[3]*zoom_scale)
+        panel = Image.new("RGB", (401, 401), "white")
+        draw_mesh(panel, nodes, cells, vp, vs, bounds, shifted_origin, zoom_scale, zoom)
+        canvas.paste(panel, (int(zoom_origin[index][0]), int(zoom_origin[index][1])))
+        draw.rectangle((zoom_origin[index][0], zoom_origin[index][1], zoom_origin[index][0]+400, zoom_origin[index][1]+400), outline="black", width=2)
+    # Mark the actual Q2 central control point for each cell around the requested interface.
+    q2_centres: list[Tuple[float, float]] = []
+    q2_corner_means: list[Tuple[float, float]] = []
+    for cell in curved_cells:
+        local = curved_nodes[cell].reshape((3, 3, 2))
+        centre = local[1, 1]
+        if zoom[0] <= centre[0] <= zoom[2] and zoom[1] <= centre[1] <= zoom[3]:
+            q2_centres.append((float(centre[0]), float(centre[1])))
+            corners = local[np.ix_([0, 2], [0, 2])].reshape((4, 2))
+            mean = corners.mean(axis=0)
+            q2_corner_means.append((float(mean[0]), float(mean[1])))
+    shifted = (zoom_origin[1][0]-zoom[0]*zoom_scale, zoom_origin[1][1]+zoom[3]*zoom_scale)
+    for centre, mean in zip(q2_centres, q2_corner_means):
+        actual = transform(centre, shifted, zoom_scale)
+        linear = transform(mean, shifted, zoom_scale)
+        draw.line((linear, actual), fill=(255, 90, 255), width=1)
+        draw.ellipse((linear[0]-2, linear[1]-2, linear[0]+2, linear[1]+2), outline=(255, 90, 255), width=1)
+        draw.ellipse((actual[0]-3, actual[1]-3, actual[0]+3, actual[1]+3), fill=(255, 90, 255))
+    displacements = [float(np.linalg.norm(np.subtract(centre, mean))) for centre, mean in zip(q2_centres, q2_corner_means)]
+    draw.text((1180, 830), "● Q2 центр", fill=(130, 0, 130), font=small)
+    draw.text((1180, 853), "○ среднее углов", fill=(130, 0, 130), font=small)
+    draw.text((1180, 876), f"max Δ={max(displacements):.3f} м", fill=(130, 0, 130), font=small)
+    canvas.save(image_directory(OUTPUT) / "geometry_comparison.png")
+    record = {
+        "model_id": 12404,
+        "view": {"global_extent_m": [0, 0, 700, 700], "zoom_extent_m": list(zoom), "pixel_scale_global": 1.0, "pixel_scale_zoom": zoom_scale},
+        "color": "R=globally normalized VP; G=globally normalized VS; B=0",
+        "curved_edge_rendering": "Every Q2 edge is evaluated with its three Q2 nodes at nine reference points; it is not drawn as a corner-to-corner chord.",
+        "q2_central_nodes_in_zoom": len(q2_centres),
+        "q2_central_displacement_from_corner_mean_m": {"min": min(displacements), "max": max(displacements), "mean": float(np.mean(displacements))},
+        "polynomial_geometry_checks": [asdict(check) for check in checks],
+        "result": "Geometry coordinates of p3/p4 match the frozen Q2 map at their GLL reference nodes within the reported floating-point error.",
+    }
+    (OUTPUT / "geometry_check.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(record, indent=2))
+
+
+if __name__ == "__main__":
+    main()

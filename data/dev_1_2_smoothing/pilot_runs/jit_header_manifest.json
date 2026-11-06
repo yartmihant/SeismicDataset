@@ -1,0 +1,26 @@
+[
+  {
+    "path": "semgpu2/src/semgpu2/solvers/common/ceed/actions.h",
+    "sha256": "eb4a7db34e4fe2c9ceab891be98c769d6ec92e623e7a8851c95a3a42a0dbef6d"
+  },
+  {
+    "path": ".venv/Lib/site-packages/semgpu2/solvers/common/ceed/actions.h",
+    "sha256": "eb4a7db34e4fe2c9ceab891be98c769d6ec92e623e7a8851c95a3a42a0dbef6d"
+  },
+  {
+    "path": "tmp/libceed-win-clang-prefix/include/ceed/jit-source/cpu-gen/cpu-jit.h",
+    "sha256": "845de4ea684320505d7a44d211a929af9b2c159e09b5f0f1a0eeccf06d12d051"
+  },
+  {
+    "path": "tmp/libceed-win-clang-prefix/include/ceed/jit-source/cpu-gen/cpu-gen-utils.h",
+    "sha256": "e510df0a5dc39cc80b3ab7dc93cdb6437c974d2c1b963631ebd85ad7c8498449"
+  },
+  {
+    "path": "tmp/libceed-win-clang-prefix/include/ceed/jit-source/cpu-gen/cpu-gen-basis-templates.h",
+    "sha256": "d34881cdb2cac73413f8435c6c010b80203a52e02df529b2200e5fc07e2e508e"
+  },
+  {
+    "path": "tmp/libceed-win-clang-prefix/include/ceed/jit-source/cpu-gen/cpu-gen-restriction-templates.h",
+    "sha256": "a45338b0caee1c074a83d7f8f577cafc1148ce932c82674e9e9b80d355158128"
+  }
+]

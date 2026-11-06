@@ -1,0 +1,60 @@
+{
+  "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src",
+  "material_definition": "Exact float64 (Vp, Vs) pair at fixed density; count per model, not connected regions",
+  "groups": {
+    "EFVB": {
+      "models": 30000,
+      "vp_min": 1500.0,
+      "vp_max": 4500.0,
+      "vs_min": 615.71051,
+      "vs_max": 2995.11597,
+      "materials_min": 3,
+      "materials_max": 10,
+      "material_count_histogram": {
+        "4": 3539,
+        "8": 5748,
+        "9": 2233,
+        "5": 6127,
+        "7": 5971,
+        "6": 6199,
+        "3": 181,
+        "10": 2
+      }
+    },
+    "ECVB": {
+      "models": 30000,
+      "vp_min": 1500.0,
+      "vp_max": 4500.0,
+      "vs_min": 616.98389,
+      "vs_max": 2999.36597,
+      "materials_min": 3,
+      "materials_max": 12,
+      "material_count_histogram": {
+        "8": 5944,
+        "9": 5697,
+        "6": 5979,
+        "5": 5845,
+        "7": 5955,
+        "10": 545,
+        "4": 33,
+        "3": 1,
+        "12": 1
+      }
+    }
+  },
+  "combined": {
+    "models": 60000,
+    "vp_min": 1500.0,
+    "vp_max": 4500.0,
+    "vs_min": 615.71051,
+    "vs_max": 2999.36597,
+    "materials_min": 3,
+    "materials_max": 12
+  },
+  "ordered_raw_digest": {
+    "EFVB": "6853a9f02331686a031b7eee2771d9094ba995285f31c92fb1886d2b7b263b49",
+    "ECVB": "1f9cbe922f869dcbafa2ae986f7226fe359fec121fd0dae837320d57e385b890"
+  },
+  "digest_recipe": "SHA256 of ascending lines ID:SHA256(vp_raw + NUL + vs_raw) + LF",
+  "validation": "All 120000 text fields: paired IDs, shape, finite positive speeds, positive bulk modulus, bounds equal historical manifest"
+}

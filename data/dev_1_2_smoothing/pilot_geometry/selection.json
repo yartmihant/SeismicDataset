@@ -1,0 +1,143 @@
+{
+  "selection_rule": "Same ordered exact (VP,VS) material sequence in every column; no material is removed; rank candidates first by minimum layer thickness, then curvature with a slope penalty.",
+  "exact_topology_candidate_counts_by_minimum_thickness_cells": {
+    "1": 90,
+    "2": 42,
+    "3": 21,
+    "4": 12
+  },
+  "selected": {
+    "model_id": 12404,
+    "layer_count": 4,
+    "minimum_thickness_m": 80.0,
+    "minimum_thickness_cells": 8,
+    "interface_amplitude_m": 110.0,
+    "interface_slope_max": 1.0,
+    "curvature_score": 3.7745098039215685,
+    "score": 8002509.803921568
+  },
+  "top_candidates": [
+    {
+      "model_id": 12404,
+      "layer_count": 4,
+      "minimum_thickness_m": 80.0,
+      "minimum_thickness_cells": 8,
+      "interface_amplitude_m": 110.0,
+      "interface_slope_max": 1.0,
+      "curvature_score": 3.7745098039215685,
+      "score": 8002509.803921568
+    },
+    {
+      "model_id": 22936,
+      "layer_count": 4,
+      "minimum_thickness_m": 70.0,
+      "minimum_thickness_cells": 7,
+      "interface_amplitude_m": 120.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 6.372549019607843,
+      "score": 7001649.019607843
+    },
+    {
+      "model_id": 18990,
+      "layer_count": 4,
+      "minimum_thickness_m": 60.0,
+      "minimum_thickness_cells": 6,
+      "interface_amplitude_m": 120.0,
+      "interface_slope_max": 1.0,
+      "curvature_score": 5.147058823529412,
+      "score": 6003158.823529412
+    },
+    {
+      "model_id": 20721,
+      "layer_count": 4,
+      "minimum_thickness_m": 50.0,
+      "minimum_thickness_cells": 5,
+      "interface_amplitude_m": 230.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 5.196078431372549,
+      "score": 5002278.431372549
+    },
+    {
+      "model_id": 6605,
+      "layer_count": 5,
+      "minimum_thickness_m": 50.0,
+      "minimum_thickness_cells": 5,
+      "interface_amplitude_m": 120.0,
+      "interface_slope_max": 1.0,
+      "curvature_score": 2.389705882352941,
+      "score": 5002105.882352941
+    },
+    {
+      "model_id": 28749,
+      "layer_count": 6,
+      "minimum_thickness_m": 50.0,
+      "minimum_thickness_cells": 5,
+      "interface_amplitude_m": 100.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 5.294117647058823,
+      "score": 5001117.647058823
+    },
+    {
+      "model_id": 18580,
+      "layer_count": 5,
+      "minimum_thickness_m": 50.0,
+      "minimum_thickness_cells": 5,
+      "interface_amplitude_m": 190.0,
+      "interface_slope_max": 3.0,
+      "curvature_score": 2.7941176470588234,
+      "score": 4998967.647058823
+    },
+    {
+      "model_id": 9942,
+      "layer_count": 7,
+      "minimum_thickness_m": 40.0,
+      "minimum_thickness_cells": 4,
+      "interface_amplitude_m": 70.0,
+      "interface_slope_max": 1.0,
+      "curvature_score": 3.0392156862745097,
+      "score": 4001865.68627451
+    },
+    {
+      "model_id": 38,
+      "layer_count": 5,
+      "minimum_thickness_m": 40.0,
+      "minimum_thickness_cells": 4,
+      "interface_amplitude_m": 150.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 4.779411764705882,
+      "score": 4001361.7647058824
+    },
+    {
+      "model_id": 26143,
+      "layer_count": 6,
+      "minimum_thickness_m": 40.0,
+      "minimum_thickness_cells": 4,
+      "interface_amplitude_m": 140.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 3.235294117647059,
+      "score": 4000694.117647059
+    },
+    {
+      "model_id": 13953,
+      "layer_count": 5,
+      "minimum_thickness_m": 40.0,
+      "minimum_thickness_cells": 4,
+      "interface_amplitude_m": 130.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 2.9044117647058822,
+      "score": 4000411.7647058824
+    },
+    {
+      "model_id": 24498,
+      "layer_count": 5,
+      "minimum_thickness_m": 40.0,
+      "minimum_thickness_cells": 4,
+      "interface_amplitude_m": 100.0,
+      "interface_slope_max": 2.0,
+      "curvature_score": 2.0588235294117645,
+      "score": 3999773.529411765
+    }
+  ],
+  "coordinate_convention": "x increases right; interface_depth_m is depth below top surface and increases downwards; source arrays retain first row at top.",
+  "limits": "Selection proves only raster topology. It does not prove spline validity, mesh element Jacobians, or wave-simulation convergence."
+}

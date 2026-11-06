@@ -1,0 +1,53 @@
+{
+  "model_id": 12404,
+  "view": {
+    "global_extent_m": [
+      0,
+      0,
+      700,
+      700
+    ],
+    "zoom_extent_m": [
+      300.0,
+      325.0,
+      400.0,
+      425.0
+    ],
+    "pixel_scale_global": 1.0,
+    "pixel_scale_zoom": 4.0
+  },
+  "color": "R=globally normalized VP; G=globally normalized VS; B=0",
+  "curved_edge_rendering": "Every Q2 edge is evaluated with its three Q2 nodes at nine reference points; it is not drawn as a corner-to-corner chord.",
+  "q2_central_nodes_in_zoom": 91,
+  "q2_central_displacement_from_corner_mean_m": {
+    "min": 0.0005935509238952363,
+    "max": 0.05627008729794625,
+    "mean": 0.02001750087642067
+  },
+  "polynomial_geometry_checks": [
+    {
+      "order": 3,
+      "reference_nodes": [
+        -1.0,
+        -0.4472135954999581,
+        0.44721359549995804,
+        1.0
+      ],
+      "checked_coordinates": 89042,
+      "max_coordinate_error_m": 3.410605131648481e-13
+    },
+    {
+      "order": 4,
+      "reference_nodes": [
+        -1.0,
+        -0.6546536707079773,
+        5.702903427273753e-17,
+        0.6546536707079772,
+        1.0
+      ],
+      "checked_coordinates": 157922,
+      "max_coordinate_error_m": 3.410605131648481e-13
+    }
+  ],
+  "result": "Geometry coordinates of p3/p4 match the frozen Q2 map at their GLL reference nodes within the reported floating-point error."
+}

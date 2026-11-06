@@ -1,0 +1,295 @@
+"""Render the raster and shared-spline Q2 geometry of ECVB 00065.
+
+The input meshes contain Q2 geometry only.  The caption records the p=4
+solution-node count from ``case.json``; marked magenta nodes are true geometry
+control centres, not p=4 solution nodes.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+from scripts.project_paths import BINARY, DATA_11, DATA_12, IMG_11, IMG_12, PROJECT_ROOT, SOURCE, image_directory, report_font, resolve_provenance
+import sys
+from typing import Iterable, Sequence
+
+import numpy as np
+from numpy.typing import NDArray
+from PIL import Image, ImageDraw, ImageFont
+
+
+ROOT = DATA_12
+DEFAULT_GEOMETRY = ROOT / "model65" / "geometry"
+FloatArray = NDArray[np.float64]
+IntArray = NDArray[np.int64]
+Color = tuple[int, int, int]
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def lagrange(nodes: FloatArray, points: FloatArray) -> FloatArray:
+    result = np.ones((points.size, nodes.size), dtype=np.float64)
+    for index, node in enumerate(nodes):
+        for other_index, other in enumerate(nodes):
+            if index != other_index:
+                result[:, index] *= (points - other) / (node - other)
+    return result
+
+
+def _rgb(vp: float, vs: float, bounds: dict[str, float]) -> Color:
+    red = int(np.rint(255.0 * (vp - bounds["vp_min"]) / (bounds["vp_max"] - bounds["vp_min"])))
+    green = int(np.rint(255.0 * (vs - bounds["vs_min"]) / (bounds["vs_max"] - bounds["vs_min"])))
+    return (max(0, min(255, red)), max(0, min(255, green)), 0)
+
+
+def _transform(point: tuple[float, float], origin: tuple[float, float], scale: float) -> tuple[int, int]:
+    return (int(round(origin[0] + point[0] * scale)), int(round(origin[1] - point[1] * scale)))
+
+
+def _edge_points(local: FloatArray, samples: int = 9) -> Iterable[tuple[float, float]]:
+    if local.shape != (3, 3, 2):
+        raise ValueError("The display mesh must use 3x3 Q2 cells")
+    reference = np.asarray((-1.0, 0.0, 1.0), dtype=np.float64)
+    values = lagrange(reference, np.linspace(-1.0, 1.0, samples, dtype=np.float64))
+    for edge in (local[0, :, :], local[:, 2, :], local[2, ::-1, :], local[::-1, 0, :]):
+        for point in values @ edge:
+            yield (float(point[0]), float(point[1]))
+
+
+def _inside_or_touches(local: FloatArray, view: tuple[float, float, float, float] | None) -> bool:
+    if view is None:
+        return True
+    x0, y0, x1, y1 = view
+    return not (float(local[:, :, 0].max()) < x0 or float(local[:, :, 0].min()) > x1
+                or float(local[:, :, 1].max()) < y0 or float(local[:, :, 1].min()) > y1)
+
+
+def _material_arrays(source: np.lib.npyio.NpzFile, path: Path, count: int) -> tuple[FloatArray, FloatArray]:
+    if "materials" in source:
+        materials = np.asarray(source["materials"], dtype=np.float64)
+        if materials.shape != (count, 2):
+            raise ValueError(f"{path}: materials must have shape ({count}, 2)")
+        return materials[:, 0], materials[:, 1]
+    if "vp" in source and "vs" in source:
+        vp = np.asarray(source["vp"], dtype=np.float64)
+        vs = np.asarray(source["vs"], dtype=np.float64)
+        if vp.shape != (count,) or vs.shape != (count,):
+            raise ValueError(f"{path}: vp/vs must have one value per cell")
+        return vp, vs
+    raise ValueError(f"{path}: expected materials or vp/vs")
+
+
+def _load_mesh(path: Path) -> tuple[FloatArray, IntArray, FloatArray, FloatArray, IntArray]:
+    with np.load(path, allow_pickle=False) as source:
+        nodes = np.asarray(source["nodes"], dtype=np.float64)
+        cells = np.asarray(source["cells"], dtype=np.int64)
+        regions = np.asarray(source["region_ids"], dtype=np.int64)
+        vp, vs = _material_arrays(source, path, cells.shape[0])
+    if nodes.ndim != 2 or nodes.shape[1] != 2 or not np.isfinite(nodes).all():
+        raise ValueError(f"{path}: invalid nodes")
+    if cells.ndim != 2 or cells.shape[1] != 9 or cells.size == 0 or int(cells.min()) < 0 or int(cells.max()) >= nodes.shape[0]:
+        raise ValueError(f"{path}: cells must be nonempty Q2 node indices")
+    if regions.shape != (cells.shape[0],) or not np.isfinite(vp).all() or not np.isfinite(vs).all():
+        raise ValueError(f"{path}: invalid material or region arrays")
+    return nodes, cells, vp, vs, regions
+
+
+def _draw_mesh(panel: Image.Image, nodes: FloatArray, cells: IntArray, vp: FloatArray, vs: FloatArray,
+               bounds: dict[str, float], origin: tuple[float, float], scale: float,
+               view: tuple[float, float, float, float] | None = None) -> None:
+    draw = ImageDraw.Draw(panel)
+    for element, value_vp, value_vs in zip(cells, vp, vs, strict=True):
+        local = nodes[element].reshape((3, 3, 2))
+        if _inside_or_touches(local, view):
+            draw.polygon([_transform(point, origin, scale) for point in _edge_points(local)], fill=_rgb(float(value_vp), float(value_vs), bounds))
+    for element in cells:
+        local = nodes[element].reshape((3, 3, 2))
+        if _inside_or_touches(local, view):
+            draw.line([_transform(point, origin, scale) for point in _edge_points(local)], fill=(238, 238, 238), width=1, joint="curve")
+def _p4_count(case: dict[str, object], kind: str) -> str:
+    meshes = case.get("meshes")
+    if not isinstance(meshes, dict):
+        raise ValueError("case.json must contain a meshes object")
+    mesh = meshes.get(kind)
+    if not isinstance(mesh, dict) or not isinstance(mesh.get("nodes_p4"), int):
+        raise ValueError(f"case.json meshes.{kind}.nodes_p4 must be an integer")
+    return str(mesh["nodes_p4"])
+
+
+def _draw_source_marker(draw: ImageDraw.ImageDraw, panel_origin: tuple[float, float]) -> None:
+    """Draw the top-edge source just inside the visible global panel."""
+    x = int(round(panel_origin[0] + 350.0))
+    y = int(round(panel_origin[1] + 4.0))
+    draw.polygon(((x, y + 7), (x - 5, y - 3), (x + 5, y - 3)), fill=(15, 30, 240))
+
+
+def _curve_count(curves: object) -> int:
+    if isinstance(curves, dict):
+        for field in ("curves", "interfaces"):
+            value = curves.get(field)
+            if isinstance(value, list):
+                return len(value)
+    raise ValueError("curves.json must contain a curves or interfaces list")
+
+
+def _draw_centres(draw: ImageDraw.ImageDraw, nodes: FloatArray, cells: IntArray,
+                  origin: tuple[float, float], scale: float, view: tuple[float, float, float, float]) -> list[float]:
+    shifts: list[float] = []
+    for cell in cells:
+        local = nodes[cell].reshape((3, 3, 2))
+        centre = local[1, 1]
+        if not (view[0] <= centre[0] <= view[2] and view[1] <= centre[1] <= view[3]):
+            continue
+        corners = local[np.ix_([0, 2], [0, 2])].reshape((4, 2))
+        mean = corners.mean(axis=0)
+        actual = _transform((float(centre[0]), float(centre[1])), origin, scale)
+        linear = _transform((float(mean[0]), float(mean[1])), origin, scale)
+        draw.line((linear, actual), fill=(245, 70, 245), width=1)
+        draw.ellipse((linear[0] - 2, linear[1] - 2, linear[0] + 2, linear[1] + 2), outline=(245, 70, 245), width=1)
+        draw.ellipse((actual[0] - 3, actual[1] - 3, actual[0] + 3, actual[1] + 3), fill=(245, 70, 245))
+        shifts.append(float(np.linalg.norm(centre - mean)))
+    return shifts
+
+
+def _q2_region_areas(nodes: FloatArray, cells: IntArray, regions: IntArray) -> dict[str, float]:
+    """Integrate absolute Q2 cell area by region using tensor 5-point Gauss."""
+    samples, weights = np.polynomial.legendre.leggauss(5)
+    reference = np.asarray((-1.0, 0.0, 1.0), dtype=np.float64)
+    value = lagrange(reference, samples)
+    derivative = np.empty_like(value)
+    for point_index, point in enumerate(samples):
+        derivative[point_index] = np.asarray((point - 0.5, -2.0 * point, point + 0.5), dtype=np.float64)
+    derivative_2d = np.empty((25, 9, 2), dtype=np.float64)
+    derivative_2d[:, :, 0] = np.einsum("ai,bj->abij", value, derivative).reshape((25, 9))
+    derivative_2d[:, :, 1] = np.einsum("ai,bj->abij", derivative, value).reshape((25, 9))
+    weight_2d = np.outer(weights, weights).ravel()
+    coordinates = nodes[cells]
+    jacobian = np.einsum("epc,qpr->eqcr", coordinates, derivative_2d)
+    determinant = np.linalg.det(jacobian)
+    if not np.isfinite(determinant).all() or np.any(determinant <= 1.0e-12):
+        raise ValueError("Q2 mesh has a nonpositive Jacobian while computing region areas")
+    areas = np.sum(determinant * weight_2d[None, :], axis=1)
+    result: dict[str, float] = {}
+    for region in np.unique(regions):
+        result[str(int(region))] = float(np.sum(areas[regions == region]))
+    return result
+
+
+def _source_region_cells(case: dict[str, object], curves: object) -> dict[str, int] | None:
+    raw = case.get("source_cells_by_region")
+    if not isinstance(raw, dict) and isinstance(curves, dict):
+        regions = curves.get("regions")
+        if isinstance(regions, list):
+            raw = {str(item["id"]): item["source_cells"] for item in regions
+                   if isinstance(item, dict) and isinstance(item.get("id"), int)
+                   and isinstance(item.get("source_cells"), int)}
+    if not isinstance(raw, dict):
+        return None
+    result: dict[str, int] = {}
+    for key, value in raw.items():
+        if not isinstance(key, str) or not isinstance(value, int) or value < 1:
+            raise ValueError("source_cells_by_region must map string region ids to positive integer counts")
+        result[key] = value
+    return result
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--geometry", type=Path, default=DEFAULT_GEOMETRY)
+    parser.add_argument("--out", type=Path)
+    args = parser.parse_args(argv)
+    geometry = args.geometry.resolve()
+    output = args.out if args.out is not None else geometry / "geometry_comparison.png"
+    paths = {kind: geometry / f"{kind}_q2_mesh.npz" for kind in ("raster", "curved")}
+    curves_path = geometry / "curves.json"
+    case_path = geometry / "case.json"
+    for path in (*paths.values(), curves_path, case_path):
+        if not path.is_file():
+            raise FileNotFoundError(path)
+    manifest = json.loads((BINARY / "manifest.json").read_text(encoding="utf-8"))
+    bounds = manifest.get("bounds")
+    if not isinstance(bounds, dict) or not all(isinstance(bounds.get(key), (int, float)) for key in ("vp_min", "vp_max", "vs_min", "vs_max")):
+        raise ValueError("binary manifest has no global VP/VS bounds")
+    numeric_bounds = {key: float(bounds[key]) for key in ("vp_min", "vp_max", "vs_min", "vs_max")}
+    case = json.loads(case_path.read_text(encoding="utf-8"))
+    curves = json.loads(curves_path.read_text(encoding="utf-8"))
+    if not isinstance(case, dict) or case.get("model_id") != 65:
+        raise ValueError("case.json must identify model 65")
+    raster = _load_mesh(paths["raster"])
+    curved = _load_mesh(paths["curved"])
+    if set(np.unique(raster[4])) != set(np.unique(curved[4])) or len(np.unique(curved[4])) != 8:
+        raise ValueError("Both meshes must preserve the same eight region ids")
+    raster_areas = _q2_region_areas(raster[0], raster[1], raster[4])
+    curved_areas = _q2_region_areas(curved[0], curved[1], curved[4])
+    source_cells = _source_region_cells(case, curves)
+    area_by_region: dict[str, dict[str, float | int | None]] = {}
+    for region in sorted(curved_areas, key=int):
+        source_area = None if source_cells is None else 100.0 * source_cells.get(region, 0)
+        area_by_region[region] = {
+            "raster_q2_m2": raster_areas[region],
+            "curved_q2_m2": curved_areas[region],
+            "curved_minus_raster_m2": curved_areas[region] - raster_areas[region],
+            "source_cells": None if source_cells is None else source_cells.get(region),
+            "source_cells_times_100_m2": source_area,
+            "curved_minus_source_m2": None if source_area is None else curved_areas[region] - source_area,
+            "curved_minus_source_fraction": None if source_area is None or source_area == 0.0 else (curved_areas[region] - source_area) / source_area,
+        }
+    font = report_font(23)
+    small = report_font(16)
+    canvas = Image.new("RGB", (1480, 1300), "white")
+    draw = ImageDraw.Draw(canvas)
+    draw.text((20, 12), "ECVB 00065: исходная сетка и сглаженная conforming Q2-геометрия", fill="black", font=font)
+    draw.text((20, 42), "R=VP, G=VS; светлые линии — границы Q2-элементов; синий маркер — источник x=350 м.", fill="black", font=small)
+    global_origins = ((20.0, 90.0), (760.0, 90.0))
+    loaded = (raster, curved)
+    titles = ("Исходная растровая среда", "Сглаженная общая сплайновая геометрия")
+    for index, ((nodes, cells, vp, vs, regions), title, kind) in enumerate(zip(loaded, titles, ("raster", "curved"), strict=True)):
+        draw.text((global_origins[index][0], 68), title, fill="black", font=small)
+        draw.text((global_origins[index][0], 790), f"{cells.shape[0]} Q2-элементов; {nodes.shape[0]} Q2-узлов; p4-узлов: {_p4_count(case, kind)}", fill="black", font=small)
+        panel = Image.new("RGB", (701, 701), "white")
+        _draw_mesh(panel, nodes, cells, vp, vs, numeric_bounds, (0.0, 700.0), 1.0)
+        canvas.paste(panel, (int(global_origins[index][0]), int(global_origins[index][1])))
+        draw.rectangle((global_origins[index][0], global_origins[index][1], global_origins[index][0] + 700, global_origins[index][1] + 700), outline="black", width=2)
+        _draw_source_marker(draw, global_origins[index])
+        draw.text((global_origins[index][0], 815), f"областей: {len(np.unique(regions))}; материалов: 5", fill="black", font=small)
+    draw.text((20, 842), "Площади всех 8 областей и их изменение при сглаживании записаны в JSON рядом с PNG.", fill="black", font=small)
+    view = (280.0, 500.0, 470.0, 610.0)
+    zoom_scale = 3.2
+    zoom_origins = ((20.0, 890.0), (760.0, 890.0))
+    for index, ((nodes, cells, vp, vs, _), title) in enumerate(zip(loaded, ("Увеличение растра", "Увеличение Q2 и центральных узлов"), strict=True)):
+        draw.text((zoom_origins[index][0], 868), title, fill="black", font=small)
+        panel = Image.new("RGB", (625, 370), "white")
+        local_origin = (-view[0] * zoom_scale, view[3] * zoom_scale)
+        _draw_mesh(panel, nodes, cells, vp, vs, numeric_bounds, local_origin, zoom_scale, view)
+        canvas.paste(panel, (int(zoom_origins[index][0]), int(zoom_origins[index][1])))
+        draw.rectangle((zoom_origins[index][0], zoom_origins[index][1], zoom_origins[index][0] + 624, zoom_origins[index][1] + 369), outline="black", width=2)
+    curved_origin = (zoom_origins[1][0] - view[0] * zoom_scale, zoom_origins[1][1] + view[3] * zoom_scale)
+    shifts = _draw_centres(draw, curved[0], curved[1], curved_origin, zoom_scale, view)
+    legend = f"● Q2 центр   ○ среднее углов   границ: {_curve_count(curves)}"
+    if shifts:
+        legend += f"   max Δцентр={max(shifts):.3f} м"
+    draw.text((740, 1270), legend, fill=(80, 0, 80), font=small, anchor="ma")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(image_directory(output.parent) / output.name)
+    record = {
+        "model_id": 65,
+        "view": {"global_extent_m": [0.0, 0.0, 700.0, 700.0], "zoom_extent_m": list(view), "zoom_scale": zoom_scale},
+        "color": "R=globally normalized VP; G=globally normalized VS; B=0",
+        "source": {"x_m": 350.0, "y_m": 700.0},
+        "regions": sorted(int(value) for value in np.unique(curved[4])),
+        "curve_count": _curve_count(curves),
+        "area_by_region_m2": area_by_region,
+        "q2_central_nodes_in_zoom": len(shifts),
+        "q2_central_displacement_from_corner_mean_m": {"min": min(shifts) if shifts else None, "max": max(shifts) if shifts else None, "mean": float(np.mean(shifts)) if shifts else None},
+        "input_sha256": {name: _sha256(path) for name, path in {**paths, "curves": curves_path, "case": case_path}.items()},
+    }
+    (output.with_suffix(".json")).write_text(json.dumps(record, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(record, indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

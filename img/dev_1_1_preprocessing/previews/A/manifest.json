@@ -1,0 +1,43 @@
+{
+  "variant": "A",
+  "rgb": [
+    "normalized VP",
+    "normalized VS",
+    "0"
+  ],
+  "bounds": {
+    "vp_min": 1500.0,
+    "vp_max": 4500.0,
+    "vs_min": 615.71051,
+    "vs_max": 2999.36597
+  },
+  "size_px": [
+    350,
+    350
+  ],
+  "resampling": "nearest; each cell 5x5 pixels",
+  "counts": {
+    "EFVB": 30000,
+    "ECVB": 30000
+  },
+  "binary_manifest_sha256": "77f523b736c27587d7480c2a65c8b526fd4d20934df03e91dbc3f0331846b604",
+  "overview_ids": [
+    0,
+    1999,
+    3999,
+    5999,
+    7999,
+    9999,
+    11999,
+    13999,
+    15999,
+    17999,
+    19999,
+    21999,
+    23999,
+    25999,
+    27999,
+    29999
+  ],
+  "verification": "Every NPZ checksum matched; every PNG reloaded and compared pixelwise with 5x5 repeated RGB cell array"
+}
