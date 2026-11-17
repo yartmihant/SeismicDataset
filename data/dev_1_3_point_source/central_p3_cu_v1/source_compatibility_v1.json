@@ -1,0 +1,120 @@
+{
+  "status": "p3_core_compatibility_verified_before_completion",
+  "utc": "2026-11-13T19:09:06.145934+00:00",
+  "baseline_completion": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/completion_validation_v1.json",
+  "baseline_completion_sha256": "4c544060bc2ce57e85eee6f74e663e74a6b8ec8485e4b69a0c891aa62679dcfd",
+  "baseline_runs_checked": 12,
+  "baseline_metadata_and_source_histories_unchanged": true,
+  "native_and_physics_identical_to_all_12_baseline_runs": true,
+  "shared_unchanged_sha256": {
+    "_native.cpython-313-x86_64-linux-gnu.so": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f",
+    "physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+  },
+  "core_differences": [
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+      "previous_sha256": "1f7bc39b20be44d39db08a16130d504fb4a135ce8614c1f3ed9d107741352319",
+      "current_sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057",
+      "only_allowed_p3_gates_or_descriptions_changed": true,
+      "exact_replacements": [
+        {
+          "before": "if self.order not in (4, 5) or self.substeps < 1:",
+          "after": "if self.order not in (3, 4, 5) or self.substeps < 1:"
+        },
+        {
+          "before": "Ожидается p4/p5 и положительное число подшагов",
+          "after": "Ожидается p3/p4/p5 и положительное число подшагов"
+        },
+        {
+          "before": "parser.add_argument(\"--order\", type=int, choices=(4, 5), required=True)",
+          "after": "parser.add_argument(\"--order\", type=int, choices=(3, 4, 5), required=True)"
+        }
+      ]
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/mesh.py",
+      "previous_sha256": "0f31fe935fb450054477888fbb354b5f397aec5dd6140ff6c35442f98cfa99fc",
+      "current_sha256": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f",
+      "only_allowed_p3_gates_or_descriptions_changed": true,
+      "exact_replacements": [
+        {
+          "before": "GLL p4/p5.",
+          "after": "GLL p3/p4/p5."
+        },
+        {
+          "before": "if order not in (4, 5):",
+          "after": "if order not in (3, 4, 5):"
+        },
+        {
+          "before": "Chapter 1.3 supports p4/p5",
+          "after": "Chapter 1.3 supports p3/p4/p5"
+        }
+      ]
+    }
+  ],
+  "source_snapshot_manifest": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_p3_runtime_v1/manifest.json",
+  "source_snapshot_manifest_sha256": "573e6c3e3a8b9e5387635f0e572980f88dbbbee4ad230d442d8ffc5240b983de",
+  "baseline_inputs": [
+    {
+      "job_id": "main_12404_raster_p4_x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "source_history_sha256": "d74ab8877c7e6941e8c06b0436810faeed5490606ab19e702ce3ae90079cf722"
+    },
+    {
+      "job_id": "main_12404_raster_p5_x350",
+      "metadata_sha256": "c9cd82ffb7f0945ca0f2d7e9cd814a9d37872ecbf149c9042ee5e2a079c29182",
+      "source_history_sha256": "e1358a60cc86c0a45fb01a7849ff92795fb83ab9ee1e4db4e6806a047decd161"
+    },
+    {
+      "job_id": "main_12404_curved_p4_x350",
+      "metadata_sha256": "b2ba7388a4427931544fe71b74b09c377bbe77082506067ec9c591bbd19cab23",
+      "source_history_sha256": "3988c9e146b078131bb8d76243c4673d9de28737c25d18bd38a8bdca858f7603"
+    },
+    {
+      "job_id": "main_12404_curved_p5_x350",
+      "metadata_sha256": "2136cac8be916a50c538a482e36ec2254a808865fa6a224c81a18ac30ada3ab8",
+      "source_history_sha256": "62b46aafcd57951f5418be8be1c49f6e79e062f6e1d2c1e303b26454a04dd243"
+    },
+    {
+      "job_id": "main_00065_raster_p4_x350",
+      "metadata_sha256": "7a36c72221535d2a7f2a5fb71a3424a3ceda0b3d076a2524d29064eda751b5e9",
+      "source_history_sha256": "fc61b2b23a5e69a23cf3d7e4f49fe8149b6e4a3901cdfa4806e0a76072a8bbba"
+    },
+    {
+      "job_id": "main_00065_raster_p5_x350",
+      "metadata_sha256": "5f9af9e952c3944fac853eb3c761850df042a9fb0d52ed522ef6c1a6f16faf01",
+      "source_history_sha256": "7e6c35884526fa64a8b4fddb4c539453c185319986f6d9fcab37cc48cb1f2dbe"
+    },
+    {
+      "job_id": "main_00065_curved_p4_x350",
+      "metadata_sha256": "fa739138dee9d3cae42a721beeeadecd7c23f7fc7dbb00bfec7e7fee3a2d6451",
+      "source_history_sha256": "e58bfe0e5810a0d7252bf512d66f9aff0d9caf83508e5b3c1b3f990d2c0be3ba"
+    },
+    {
+      "job_id": "main_00065_curved_p5_x350",
+      "metadata_sha256": "c313092fb9d1dca6d3aff9a676c6bf5fc5636c9e97fca85ce712654713d6e888",
+      "source_history_sha256": "9f2a97cc2c58660870688400591a334a1653a0469e6fd96c8ccb6d6691773f57"
+    },
+    {
+      "job_id": "dt_control_12404_raster_p4_x350",
+      "metadata_sha256": "2974a40706e4937a0b6f22875f971329b13f5087a582c1fa21ff329c8bf0aac3",
+      "source_history_sha256": "ffd21db445aebd164dc033c71e42340d8452782c4a514b82b91828f086a36d76"
+    },
+    {
+      "job_id": "dt_control_12404_curved_p4_x350",
+      "metadata_sha256": "b8eb8e65965f1e754b27074ada5d9a2ced1bbf72bd1cd88706acdaf892c0f782",
+      "source_history_sha256": "8a7958707690116a65cad93d012eb093eec35ed4a3cf41a4bb44cf972912a804"
+    },
+    {
+      "job_id": "dt_control_00065_raster_p4_x350",
+      "metadata_sha256": "9150ed8169e75c8c8918ba3009eb6901740a0293d2994836c7b71d36d4147ed0",
+      "source_history_sha256": "ea05fedd250830d5ae88be50a565b62ec10aadd922caecf7880e04978dd9072f"
+    },
+    {
+      "job_id": "dt_control_00065_curved_p4_x350",
+      "metadata_sha256": "52bb97556a2224caba59672da34165345be2869dfc329515b436730a5dfb53c3",
+      "source_history_sha256": "79e7417e8eefc649ce99631661fd69c5ec1ed0065b73357e30d9156e902b620a"
+    }
+  ],
+  "limit": "This validates code compatibility and preserved baseline inputs, not completion or convergence of the new eight p3 runs."
+}

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "mypy_files": 49,
+  "roundtrip": "AST equivalence passed",
+  "notebook_cells": 29,
+  "executed_code_cells": 8,
+  "storage_plan": "data/dev_1_4_server_preparation/storage_plan_v2.json",
+  "sha256": {
+    "dev_1_4_server_preparation.py": "339192ebceeba0bd08b254de7ab83f1807cb41422c51e2ecf26cfe197042a997",
+    "dev_1_4_server_preparation.ipynb": "9f4a9671fd86a56b8827f6a6d5ed0a6f803f3ccbf6aa708dff53d504decf4dee",
+    "data/dev_1_4_server_preparation/storage_plan_v2.json": "311c4bc7836a8c85a7912f4de29d2d21ed2c48b7bf96f83850f6997bc50e03d0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-13T19:30:29.338287+00:00",
+  "status": "started",
+  "job_id": "dt_control_12404_curved_p3_x350",
+  "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_p3_cu_v1/controls_dt/12404/curved/p3/x350",
+  "free_bytes": 93600129024,
+  "required_bytes": 1109806984
+}

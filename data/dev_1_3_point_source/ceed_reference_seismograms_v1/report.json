@@ -1,0 +1,30 @@
+{
+  "status": "single_run_plot_complete",
+  "short_run": false,
+  "run": "m12404_raster_p4_x350_k64",
+  "input": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350",
+  "metadata_sha256": "c497690c717297c895f1e8d00fa6b475e54e3413ee9264ef717c60de38d8d538",
+  "surface_sha256": "bb92e11d7a8234d28d8d8d19c64d6318a921c3ab5802a6fcdb62a13afedce41d",
+  "images": [
+    "img/dev_1_3_point_source/ceed_reference_seismograms_v1/seismograms_full.png",
+    "img/dev_1_3_point_source/ceed_reference_seismograms_v1/seismograms_late.png"
+  ],
+  "surface_shape": [
+    2001,
+    141,
+    4
+  ],
+  "component_order": [
+    "Ux",
+    "Uy",
+    "Vx",
+    "Vy"
+  ],
+  "max_abs_by_component": [
+    7.553531918845321e-11,
+    5.625424677886294e-10,
+    1.4388306234353472e-08,
+    1.0461677055536393e-07
+  ],
+  "limitation": "Один завершённый опыт; p/dt-сходимость и геометрический эффект не оценивались."
+}

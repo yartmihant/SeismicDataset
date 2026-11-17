@@ -1,0 +1,27 @@
+{
+  "status": "supplemental_far20_plot_complete",
+  "value": "m12404_raster_p4_x350_k64",
+  "reference": "m12404_raster_p5_x350_k64",
+  "time_window_s": [
+    0.0,
+    2.0
+  ],
+  "hidden_source_radius_m": 20.0,
+  "hidden_condition": "abs(x-source_x)<20m",
+  "raw_outputs_modified": false,
+  "scales": "One constant physical-unit scale per component shared by p4/p5, computed from all times and retained receivers; difference has its own scale; no per-trace/time normalization",
+  "image": "img/dev_1_3_point_source/central_cu_v1/comparison_12404_raster_far20_v1/seismograms_full_far20.png",
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "surface_sha256": "dc860d99307ffe7f0ff83184775db0c059e378e652c79b8f2c853c0fd86ecf45"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p5/x350",
+      "metadata_sha256": "c9cd82ffb7f0945ca0f2d7e9cd814a9d37872ecbf149c9042ee5e2a079c29182",
+      "surface_sha256": "844b9d48f2c32514c04b395e6dbc261ecf87617d8746d40b384e645708f09036"
+    }
+  ],
+  "limitation": "Дополнительный рисунок для удалённых приёмников; полные all-receiver данные и их отличия у источника сохраняют самостоятельное значение."
+}

@@ -1,0 +1,568 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-17T17:08:55.716774+00:00",
+  "finished_utc": "2026-11-17T17:09:15.144385+00:00",
+  "commands": {
+    "identity": {
+      "argv": [
+        "id"
+      ],
+      "returncode": 0,
+      "stdout": "uid=1013(antonov) gid=1002(antonov) groups=1002(antonov),27(sudo),998(docker),1000(pikman)\n",
+      "stderr": ""
+    },
+    "hostname": {
+      "argv": [
+        "hostname"
+      ],
+      "returncode": 0,
+      "stdout": "saturn\n",
+      "stderr": ""
+    },
+    "os": {
+      "argv": [
+        "cat",
+        "/etc/os-release"
+      ],
+      "returncode": 0,
+      "stdout": "NAME=\"Ubuntu\"\nVERSION=\"20.04.6 LTS (Focal Fossa)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 20.04.6 LTS\"\nVERSION_ID=\"20.04\"\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nVERSION_CODENAME=focal\nUBUNTU_CODENAME=focal\n",
+      "stderr": ""
+    },
+    "kernel": {
+      "argv": [
+        "uname",
+        "-a"
+      ],
+      "returncode": 0,
+      "stdout": "Linux saturn 5.4.0-216-generic #236-Ubuntu SMP Fri Apr 11 19:53:21 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux\n",
+      "stderr": ""
+    },
+    "cpu": {
+      "argv": [
+        "lscpu",
+        "--json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n   \"lscpu\": [\n      {\"field\":\"Architecture:\", \"data\":\"x86_64\"},\n      {\"field\":\"CPU op-mode(s):\", \"data\":\"32-bit, 64-bit\"},\n      {\"field\":\"Byte Order:\", \"data\":\"Little Endian\"},\n      {\"field\":\"Address sizes:\", \"data\":\"46 bits physical, 48 bits virtual\"},\n      {\"field\":\"CPU(s):\", \"data\":\"32\"},\n      {\"field\":\"On-line CPU(s) list:\", \"data\":\"0-31\"},\n      {\"field\":\"Thread(s) per core:\", \"data\":\"2\"},\n      {\"field\":\"Core(s) per socket:\", \"data\":\"8\"},\n      {\"field\":\"Socket(s):\", \"data\":\"2\"},\n      {\"field\":\"NUMA node(s):\", \"data\":\"2\"},\n      {\"field\":\"Vendor ID:\", \"data\":\"GenuineIntel\"},\n      {\"field\":\"CPU family:\", \"data\":\"6\"},\n      {\"field\":\"Model:\", \"data\":\"85\"},\n      {\"field\":\"Model name:\", \"data\":\"Intel(R) Xeon(R) Silver 4215R CPU @ 3.20GHz\"},\n      {\"field\":\"Stepping:\", \"data\":\"7\"},\n      {\"field\":\"CPU MHz:\", \"data\":\"1023.853\"},\n      {\"field\":\"CPU max MHz:\", \"data\":\"4000.0000\"},\n      {\"field\":\"CPU min MHz:\", \"data\":\"1000.0000\"},\n      {\"field\":\"BogoMIPS:\", \"data\":\"6400.00\"},\n      {\"field\":\"Virtualization:\", \"data\":\"VT-x\"},\n      {\"field\":\"L1d cache:\", \"data\":\"512 KiB\"},\n      {\"field\":\"L1i cache:\", \"data\":\"512 KiB\"},\n      {\"field\":\"L2 cache:\", \"data\":\"16 MiB\"},\n      {\"field\":\"L3 cache:\", \"data\":\"22 MiB\"},\n      {\"field\":\"NUMA node0 CPU(s):\", \"data\":\"0-7,16-23\"},\n      {\"field\":\"NUMA node1 CPU(s):\", \"data\":\"8-15,24-31\"},\n      {\"field\":\"Vulnerability Gather data sampling:\", \"data\":\"Mitigation; Microcode\"},\n      {\"field\":\"Vulnerability Itlb multihit:\", \"data\":\"KVM: Mitigation: Split huge pages\"},\n      {\"field\":\"Vulnerability L1tf:\", \"data\":\"Not affected\"},\n      {\"field\":\"Vulnerability Mds:\", \"data\":\"Not affected\"},\n      {\"field\":\"Vulnerability Meltdown:\", \"data\":\"Not affected\"},\n      {\"field\":\"Vulnerability Mmio stale data:\", \"data\":\"Mitigation; Clear CPU buffers; SMT vulnerable\"},\n      {\"field\":\"Vulnerability Retbleed:\", \"data\":\"Mitigation; Enhanced IBRS\"},\n      {\"field\":\"Vulnerability Spec store bypass:\", \"data\":\"Mitigation; Speculative Store Bypass disabled via prctl and seccomp\"},\n      {\"field\":\"Vulnerability Spectre v1:\", \"data\":\"Mitigation; usercopy/swapgs barriers and __user pointer sanitization\"},\n      {\"field\":\"Vulnerability Spectre v2:\", \"data\":\"Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop\"},\n      {\"field\":\"Vulnerability Srbds:\", \"data\":\"Not affected\"},\n      {\"field\":\"Vulnerability Tsx async abort:\", \"data\":\"Mitigation; TSX disabled\"},\n      {\"field\":\"Flags:\", \"data\":\"fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts hwp hwp_act_window hwp_pkg_req pku ospke avx512_vnni md_clear flush_l1d arch_capabilities\"}\n   ]\n}\n",
+      "stderr": ""
+    },
+    "memory": {
+      "argv": [
+        "cat",
+        "/proc/meminfo"
+      ],
+      "returncode": 0,
+      "stdout": "MemTotal:       528016564 kB\nMemFree:        489550712 kB\nMemAvailable:   509164064 kB\nBuffers:         2835684 kB\nCached:         18566240 kB\nSwapCached:            0 kB\nActive:         22246284 kB\nInactive:       12730032 kB\nActive(anon):   13586472 kB\nInactive(anon):   228828 kB\nActive(file):    8659812 kB\nInactive(file): 12501204 kB\nUnevictable:       18888 kB\nMlocked:           18888 kB\nSwapTotal:       8388604 kB\nSwapFree:        8388604 kB\nDirty:               536 kB\nWriteback:             0 kB\nAnonPages:      13592092 kB\nMapped:          1463596 kB\nShmem:            232696 kB\nKReclaimable:    1869468 kB\nSlab:            2740132 kB\nSReclaimable:    1869468 kB\nSUnreclaim:       870664 kB\nKernelStack:       42464 kB\nPageTables:        77860 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272396884 kB\nCommitted_AS:   33337736 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      338388 kB\nVmallocChunk:          0 kB\nPercpu:            78976 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:         0 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     1529684 kB\nDirectMap2M:    41111552 kB\nDirectMap1G:    493879296 kB\n",
+      "stderr": ""
+    },
+    "uptime": {
+      "argv": [
+        "uptime"
+      ],
+      "returncode": 0,
+      "stdout": " 17:08:55 up 48 days, 10:31,  1 user,  load average: 0.14, 0.12, 0.05\n",
+      "stderr": ""
+    },
+    "filesystems": {
+      "argv": [
+        "df",
+        "-B1",
+        "-T",
+        "-x",
+        "tmpfs",
+        "-x",
+        "devtmpfs",
+        "-x",
+        "squashfs"
+      ],
+      "returncode": 0,
+      "stdout": "Filesystem     Type     1B-blocks          Used    Available Use% Mounted on\n/dev/sda2      ext4 1887976378368 1614166011904 177830903808  91% /\n/dev/sda1      vfat    1124999168       6377472   1118621696   1% /boot/efi\n",
+      "stderr": ""
+    },
+    "inodes": {
+      "argv": [
+        "df",
+        "-i",
+        "/home/antonov"
+      ],
+      "returncode": 0,
+      "stdout": "Filesystem        Inodes   IUsed     IFree IUse% Mounted on\n/dev/sda2      117145600 5026091 112119509    5% /\n",
+      "stderr": ""
+    },
+    "mounts": {
+      "argv": [
+        "findmnt",
+        "--json",
+        "--real"
+      ],
+      "returncode": 0,
+      "stdout": "{\n   \"filesystems\": [\n      {\"target\":\"/\", \"source\":\"/dev/sda2\", \"fstype\":\"ext4\", \"options\":\"rw,relatime\",\n         \"children\": [\n            {\"target\":\"/sys/kernel/tracing\", \"source\":\"tracefs\", \"fstype\":\"tracefs\", \"options\":\"rw,nosuid,nodev,noexec,relatime\"},\n            {\"target\":\"/boot/efi\", \"source\":\"/dev/sda1\", \"fstype\":\"vfat\", \"options\":\"rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro\"},\n            {\"target\":\"/snap/snapd/28332\", \"source\":\"/dev/loop1\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/core20/2922\", \"source\":\"/dev/loop2\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/lxd/41263\", \"source\":\"/dev/loop0\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/core18/2999\", \"source\":\"/dev/loop4\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/lxd/40953\", \"source\":\"/dev/loop6\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/core24/2124\", \"source\":\"/dev/loop5\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/caddy/727\", \"source\":\"/dev/loop10\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/octave/306\", \"source\":\"/dev/loop9\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/cmake/1585\", \"source\":\"/dev/loop11\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/core18/3084\", \"source\":\"/dev/loop13\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/cmake/1579\", \"source\":\"/dev/loop3\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/snapd/28254\", \"source\":\"/dev/loop15\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/core20/3015\", \"source\":\"/dev/loop14\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/caddy/708\", \"source\":\"/dev/loop7\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"},\n            {\"target\":\"/snap/core24/2307\", \"source\":\"/dev/loop12\", \"fstype\":\"squashfs\", \"options\":\"ro,nodev,relatime\"}\n         ]\n      }\n   ]\n}\n",
+      "stderr": ""
+    },
+    "disks": {
+      "argv": [
+        "lsblk",
+        "--json",
+        "--bytes",
+        "-o",
+        "NAME,TYPE,SIZE,MODEL,ROTA,TRAN,MOUNTPOINT"
+      ],
+      "returncode": 0,
+      "stdout": "{\n   \"blockdevices\": [\n      {\"name\":\"loop0\", \"type\":\"loop\", \"size\":96665600, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/lxd/41263\"},\n      {\"name\":\"loop1\", \"type\":\"loop\", \"size\":34091008, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/snapd/28332\"},\n      {\"name\":\"loop2\", \"type\":\"loop\", \"size\":66883584, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/core20/2922\"},\n      {\"name\":\"loop3\", \"type\":\"loop\", \"size\":62468096, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/cmake/1579\"},\n      {\"name\":\"loop4\", \"type\":\"loop\", \"size\":58183680, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/core18/2999\"},\n      {\"name\":\"loop5\", \"type\":\"loop\", \"size\":70033408, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/core24/2124\"},\n      {\"name\":\"loop6\", \"type\":\"loop\", \"size\":96645120, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/lxd/40953\"},\n      {\"name\":\"loop7\", \"type\":\"loop\", \"size\":14090240, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/caddy/708\"},\n      {\"name\":\"loop9\", \"type\":\"loop\", \"size\":300417024, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/octave/306\"},\n      {\"name\":\"loop10\", \"type\":\"loop\", \"size\":14123008, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/caddy/727\"},\n      {\"name\":\"loop11\", \"type\":\"loop\", \"size\":64573440, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/cmake/1585\"},\n      {\"name\":\"loop12\", \"type\":\"loop\", \"size\":70086656, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/core24/2307\"},\n      {\"name\":\"loop13\", \"type\":\"loop\", \"size\":58200064, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/core18/3084\"},\n      {\"name\":\"loop14\", \"type\":\"loop\", \"size\":66895872, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/core20/3015\"},\n      {\"name\":\"loop15\", \"type\":\"loop\", \"size\":46882816, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/snap/snapd/28254\"},\n      {\"name\":\"sda\", \"type\":\"disk\", \"size\":1920383410176, \"model\":\"VK001920GXCGP\", \"rota\":false, \"tran\":\"sas\", \"mountpoint\":null,\n         \"children\": [\n            {\"name\":\"sda1\", \"type\":\"part\", \"size\":1127219200, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/boot/efi\"},\n            {\"name\":\"sda2\", \"type\":\"part\", \"size\":1919253741568, \"model\":null, \"rota\":false, \"tran\":null, \"mountpoint\":\"/\"}\n         ]\n      },\n      {\"name\":\"sdb\", \"type\":\"disk\", \"size\":1920383410176, \"model\":\"VK001920GXCGP\", \"rota\":false, \"tran\":\"sas\", \"mountpoint\":null},\n      {\"name\":\"sdc\", \"type\":\"disk\", \"size\":1920383410176, \"model\":\"VK001920GXCGP\", \"rota\":false, \"tran\":\"sas\", \"mountpoint\":null},\n      {\"name\":\"sdd\", \"type\":\"disk\", \"size\":1920383410176, \"model\":\"VK001920GXCGP\", \"rota\":false, \"tran\":\"sas\", \"mountpoint\":null},\n      {\"name\":\"sde\", \"type\":\"disk\", \"size\":2400476553216, \"model\":\"EG002400JWJNT\", \"rota\":true, \"tran\":\"sas\", \"mountpoint\":null},\n      {\"name\":\"sdf\", \"type\":\"disk\", \"size\":2400476553216, \"model\":\"EG002400JWJNT\", \"rota\":true, \"tran\":\"sas\", \"mountpoint\":null}\n   ]\n}\n",
+      "stderr": ""
+    },
+    "gpu": {
+      "argv": [
+        "nvidia-smi",
+        "-q",
+        "-x"
+      ],
+      "returncode": 0,
+      "stdout": "<?xml version=\"1.0\" ?>\n<!DOCTYPE nvidia_smi_log SYSTEM \"nvsmi_device_v12.dtd\">\n<nvidia_smi_log>\n\t<timestamp>Tue Nov 17 17:08:55 2026</timestamp>\n\t<driver_version>525.147.05</driver_version>\n\t<cuda_version>12.0</cuda_version>\n\t<attached_gpus>2</attached_gpus>\n\t<gpu id=\"00000000:37:00.0\">\n\t\t<product_name>NVIDIA A100-PCIE-40GB</product_name>\n\t\t<product_brand>NVIDIA</product_brand>\n\t\t<product_architecture>Ampere</product_architecture>\n\t\t<display_mode>Enabled</display_mode>\n\t\t<display_active>Disabled</display_active>\n\t\t<persistence_mode>Enabled</persistence_mode>\n\t\t<mig_mode>\n\t\t\t<current_mig>Disabled</current_mig>\n\t\t\t<pending_mig>Disabled</pending_mig>\n\t\t</mig_mode>\n\t\t<mig_devices>\n\t\t\tNone\n\t\t</mig_devices>\n\t\t<accounting_mode>Disabled</accounting_mode>\n\t\t<accounting_mode_buffer_size>4000</accounting_mode_buffer_size>\n\t\t<driver_model>\n\t\t\t<current_dm>N/A</current_dm>\n\t\t\t<pending_dm>N/A</pending_dm>\n\t\t</driver_model>\n\t\t<serial>1565020013777</serial>\n\t\t<uuid>GPU-44959449-64cd-cf32-cc53-841c2a5945ce</uuid>\n\t\t<minor_number>0</minor_number>\n\t\t<vbios_version>92.00.25.00.08</vbios_version>\n\t\t<multigpu_board>No</multigpu_board>\n\t\t<board_id>0x3700</board_id>\n\t\t<board_part_number>900-21001-0000-000</board_part_number>\n\t\t<gpu_part_number>20F1-883-A1</gpu_part_number>\n\t\t<gpu_module_id>1</gpu_module_id>\n\t\t<inforom_version>\n\t\t\t<img_version>1001.0200.00.04</img_version>\n\t\t\t<oem_object>2.0</oem_object>\n\t\t\t<ecc_object>6.16</ecc_object>\n\t\t\t<pwr_object>N/A</pwr_object>\n\t\t</inforom_version>\n\t\t<gpu_operation_mode>\n\t\t\t<current_gom>N/A</current_gom>\n\t\t\t<pending_gom>N/A</pending_gom>\n\t\t</gpu_operation_mode>\n\t\t<gsp_firmware_version>525.147.05</gsp_firmware_version>\n\t\t<gpu_virtualization_mode>\n\t\t\t<virtualization_mode>None</virtualization_mode>\n\t\t\t<host_vgpu_mode>N/A</host_vgpu_mode>\n\t\t</gpu_virtualization_mode>\n\t\t<ibmnpu>\n\t\t\t<relaxed_ordering_mode>N/A</relaxed_ordering_mode>\n\t\t</ibmnpu>\n\t\t<pci>\n\t\t\t<pci_bus>37</pci_bus>\n\t\t\t<pci_device>00</pci_device>\n\t\t\t<pci_domain>0000</pci_domain>\n\t\t\t<pci_device_id>20F110DE</pci_device_id>\n\t\t\t<pci_bus_id>00000000:37:00.0</pci_bus_id>\n\t\t\t<pci_sub_system_id>145F10DE</pci_sub_system_id>\n\t\t\t<pci_gpu_link_info>\n\t\t\t\t<pcie_gen>\n\t\t\t\t\t<max_link_gen>3</max_link_gen>\n\t\t\t\t\t<current_link_gen>3</current_link_gen>\n\t\t\t\t\t<device_current_link_gen>3</device_current_link_gen>\n\t\t\t\t\t<max_device_link_gen>4</max_device_link_gen>\n\t\t\t\t\t<max_host_link_gen>3</max_host_link_gen>\n\t\t\t\t</pcie_gen>\n\t\t\t\t<link_widths>\n\t\t\t\t\t<max_link_width>16x</max_link_width>\n\t\t\t\t\t<current_link_width>16x</current_link_width>\n\t\t\t\t</link_widths>\n\t\t\t</pci_gpu_link_info>\n\t\t\t<pci_bridge_chip>\n\t\t\t\t<bridge_chip_type>N/A</bridge_chip_type>\n\t\t\t\t<bridge_chip_fw>N/A</bridge_chip_fw>\n\t\t\t</pci_bridge_chip>\n\t\t\t<replay_counter>0</replay_counter>\n\t\t\t<replay_rollover_counter>0</replay_rollover_counter>\n\t\t\t<tx_util>0 KB/s</tx_util>\n\t\t\t<rx_util>0 KB/s</rx_util>\n\t\t\t<atomic_caps_inbound>N/A</atomic_caps_inbound>\n\t\t\t<atomic_caps_outbound>N/A</atomic_caps_outbound>\n\t\t</pci>\n\t\t<fan_speed>N/A</fan_speed>\n\t\t<performance_state>P0</performance_state>\n\t\t<clocks_throttle_reasons>\n\t\t\t<clocks_throttle_reason_gpu_idle>Active</clocks_throttle_reason_gpu_idle>\n\t\t\t<clocks_throttle_reason_applications_clocks_setting>Not Active</clocks_throttle_reason_applications_clocks_setting>\n\t\t\t<clocks_throttle_reason_sw_power_cap>Not Active</clocks_throttle_reason_sw_power_cap>\n\t\t\t<clocks_throttle_reason_hw_slowdown>Not Active</clocks_throttle_reason_hw_slowdown>\n\t\t\t<clocks_throttle_reason_hw_thermal_slowdown>Not Active</clocks_throttle_reason_hw_thermal_slowdown>\n\t\t\t<clocks_throttle_reason_hw_power_brake_slowdown>Not Active</clocks_throttle_reason_hw_power_brake_slowdown>\n\t\t\t<clocks_throttle_reason_sync_boost>Not Active</clocks_throttle_reason_sync_boost>\n\t\t\t<clocks_throttle_reason_sw_thermal_slowdown>Not Active</clocks_throttle_reason_sw_thermal_slowdown>\n\t\t\t<clocks_throttle_reason_display_clocks_setting>Not Active</clocks_throttle_reason_display_clocks_setting>\n\t\t</clocks_throttle_reasons>\n\t\t<fb_memory_usage>\n\t\t\t<total>40960 MiB</total>\n\t\t\t<reserved>622 MiB</reserved>\n\t\t\t<used>5 MiB</used>\n\t\t\t<free>40332 MiB</free>\n\t\t</fb_memory_usage>\n\t\t<bar1_memory_usage>\n\t\t\t<total>65536 MiB</total>\n\t\t\t<used>1 MiB</used>\n\t\t\t<free>65535 MiB</free>\n\t\t</bar1_memory_usage>\n\t\t<compute_mode>Default</compute_mode>\n\t\t<utilization>\n\t\t\t<gpu_util>0 %</gpu_util>\n\t\t\t<memory_util>0 %</memory_util>\n\t\t\t<encoder_util>0 %</encoder_util>\n\t\t\t<decoder_util>0 %</decoder_util>\n\t\t</utilization>\n\t\t<encoder_stats>\n\t\t\t<session_count>0</session_count>\n\t\t\t<average_fps>0</average_fps>\n\t\t\t<average_latency>0</average_latency>\n\t\t</encoder_stats>\n\t\t<fbc_stats>\n\t\t\t<session_count>0</session_count>\n\t\t\t<average_fps>0</average_fps>\n\t\t\t<average_latency>0</average_latency>\n\t\t</fbc_stats>\n\t\t<ecc_mode>\n\t\t\t<current_ecc>Enabled</current_ecc>\n\t\t\t<pending_ecc>Enabled</pending_ecc>\n\t\t</ecc_mode>\n\t\t<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable>0</sram_uncorrectable>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable>0</sram_uncorrectable>\n\t\t\t\t<dram_correctable>830</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</aggregate>\n\t\t</ecc_errors>\n\t\t<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t<remapped_rows>\n\t\t\t<remapped_row_corr>2</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>639 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>1 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t<temperature>\n\t\t\t<gpu_temp>43 C</gpu_temp>\n\t\t\t<gpu_temp_tlimit>N/A</gpu_temp_tlimit>\n\t\t\t<gpu_temp_max_threshold>95 C</gpu_temp_max_threshold>\n\t\t\t<gpu_temp_slow_threshold>92 C</gpu_temp_slow_threshold>\n\t\t\t<gpu_temp_max_gpu_threshold>85 C</gpu_temp_max_gpu_threshold>\n\t\t\t<gpu_target_temperature>N/A</gpu_target_temperature>\n\t\t\t<memory_temp>42 C</memory_temp>\n\t\t\t<gpu_temp_max_mem_threshold>95 C</gpu_temp_max_mem_threshold>\n\t\t</temperature>\n\t\t<supported_gpu_target_temp>\n\t\t\t<gpu_target_temp_min>N/A</gpu_target_temp_min>\n\t\t\t<gpu_target_temp_max>N/A</gpu_target_temp_max>\n\t\t</supported_gpu_target_temp>\n\t\t<power_readings>\n\t\t\t<power_state>P0</power_state>\n\t\t\t<power_management>Supported</power_management>\n\t\t\t<power_draw>38.70 W</power_draw>\n\t\t\t<power_limit>250.00 W</power_limit>\n\t\t\t<default_power_limit>250.00 W</default_power_limit>\n\t\t\t<enforced_power_limit>250.00 W</enforced_power_limit>\n\t\t\t<min_power_limit>150.00 W</min_power_limit>\n\t\t\t<max_power_limit>250.00 W</max_power_limit>\n\t\t</power_readings>\n\t\t<clocks>\n\t\t\t<graphics_clock>210 MHz</graphics_clock>\n\t\t\t<sm_clock>210 MHz</sm_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t\t<video_clock>585 MHz</video_clock>\n\t\t</clocks>\n\t\t<applications_clocks>\n\t\t\t<graphics_clock>765 MHz</graphics_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t</applications_clocks>\n\t\t<default_applications_clocks>\n\t\t\t<graphics_clock>765 MHz</graphics_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t</default_applications_clocks>\n\t\t<deferred_clocks>\n\t\t\t<mem_clock>N/A</mem_clock>\n\t\t</deferred_clocks>\n\t\t<max_clocks>\n\t\t\t<graphics_clock>1410 MHz</graphics_clock>\n\t\t\t<sm_clock>1410 MHz</sm_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t\t<video_clock>1290 MHz</video_clock>\n\t\t</max_clocks>\n\t\t<max_customer_boost_clocks>\n\t\t\t<graphics_clock>1410 MHz</graphics_clock>\n\t\t</max_customer_boost_clocks>\n\t\t<clock_policy>\n\t\t\t<auto_boost>N/A</auto_boost>\n\t\t\t<auto_boost_default>N/A</auto_boost_default>\n\t\t</clock_policy>\n\t\t<voltage>\n\t\t\t<graphics_volt>693.750 mV</graphics_volt>\n\t\t</voltage>\n\t\t<fabric>\n\t\t\t<state>N/A</state>\n\t\t\t<status>N/A</status>\n\t\t</fabric>\n\t\t<supported_clocks>\n\t\t\t<supported_mem_clock>\n\t\t\t\t<value>1215 MHz</value>\n\t\t\t\t<supported_graphics_clock>1410 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1395 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1380 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1365 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1350 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1335 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1320 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1305 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1290 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1275 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1260 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1245 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1230 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1215 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1200 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1185 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1170 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1155 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1140 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1125 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1110 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1095 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1080 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1065 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1050 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1035 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1020 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1005 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>990 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>975 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>960 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>945 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>930 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>915 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>900 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>885 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>870 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>855 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>840 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>825 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>810 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>795 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>780 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>765 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>750 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>735 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>720 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>705 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>690 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>675 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>660 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>645 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>630 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>615 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>600 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>585 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>570 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>555 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>540 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>525 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>510 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>495 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>480 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>465 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>450 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>435 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>420 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>405 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>390 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>375 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>360 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>345 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>330 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>315 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>300 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>285 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>270 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>255 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>240 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>225 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>210 MHz</supported_graphics_clock>\n\t\t\t</supported_mem_clock>\n\t\t</supported_clocks>\n\t\t<processes>\n\t\t\t<process_info>\n\t\t\t\t<gpu_instance_id>N/A</gpu_instance_id>\n\t\t\t\t<compute_instance_id>N/A</compute_instance_id>\n\t\t\t\t<pid>1744</pid>\n\t\t\t\t<type>G</type>\n\t\t\t\t<process_name>/usr/lib/xorg/Xorg</process_name>\n\t\t\t\t<used_memory>4 MiB</used_memory>\n\t\t\t</process_info>\n\t\t</processes>\n\t\t<accounted_processes>\n\t\t</accounted_processes>\n\t</gpu>\n\n\t<gpu id=\"00000000:86:00.0\">\n\t\t<product_name>NVIDIA A100-PCIE-40GB</product_name>\n\t\t<product_brand>NVIDIA</product_brand>\n\t\t<product_architecture>Ampere</product_architecture>\n\t\t<display_mode>Enabled</display_mode>\n\t\t<display_active>Disabled</display_active>\n\t\t<persistence_mode>Enabled</persistence_mode>\n\t\t<mig_mode>\n\t\t\t<current_mig>Disabled</current_mig>\n\t\t\t<pending_mig>Disabled</pending_mig>\n\t\t</mig_mode>\n\t\t<mig_devices>\n\t\t\tNone\n\t\t</mig_devices>\n\t\t<accounting_mode>Disabled</accounting_mode>\n\t\t<accounting_mode_buffer_size>4000</accounting_mode_buffer_size>\n\t\t<driver_model>\n\t\t\t<current_dm>N/A</current_dm>\n\t\t\t<pending_dm>N/A</pending_dm>\n\t\t</driver_model>\n\t\t<serial>1565020015530</serial>\n\t\t<uuid>GPU-8380bb23-7338-d665-4b90-ba1ff7b004ec</uuid>\n\t\t<minor_number>1</minor_number>\n\t\t<vbios_version>92.00.25.00.08</vbios_version>\n\t\t<multigpu_board>No</multigpu_board>\n\t\t<board_id>0x8600</board_id>\n\t\t<board_part_number>900-21001-0000-000</board_part_number>\n\t\t<gpu_part_number>20F1-883-A1</gpu_part_number>\n\t\t<gpu_module_id>1</gpu_module_id>\n\t\t<inforom_version>\n\t\t\t<img_version>1001.0200.00.04</img_version>\n\t\t\t<oem_object>2.0</oem_object>\n\t\t\t<ecc_object>6.16</ecc_object>\n\t\t\t<pwr_object>N/A</pwr_object>\n\t\t</inforom_version>\n\t\t<gpu_operation_mode>\n\t\t\t<current_gom>N/A</current_gom>\n\t\t\t<pending_gom>N/A</pending_gom>\n\t\t</gpu_operation_mode>\n\t\t<gsp_firmware_version>525.147.05</gsp_firmware_version>\n\t\t<gpu_virtualization_mode>\n\t\t\t<virtualization_mode>None</virtualization_mode>\n\t\t\t<host_vgpu_mode>N/A</host_vgpu_mode>\n\t\t</gpu_virtualization_mode>\n\t\t<ibmnpu>\n\t\t\t<relaxed_ordering_mode>N/A</relaxed_ordering_mode>\n\t\t</ibmnpu>\n\t\t<pci>\n\t\t\t<pci_bus>86</pci_bus>\n\t\t\t<pci_device>00</pci_device>\n\t\t\t<pci_domain>0000</pci_domain>\n\t\t\t<pci_device_id>20F110DE</pci_device_id>\n\t\t\t<pci_bus_id>00000000:86:00.0</pci_bus_id>\n\t\t\t<pci_sub_system_id>145F10DE</pci_sub_system_id>\n\t\t\t<pci_gpu_link_info>\n\t\t\t\t<pcie_gen>\n\t\t\t\t\t<max_link_gen>3</max_link_gen>\n\t\t\t\t\t<current_link_gen>3</current_link_gen>\n\t\t\t\t\t<device_current_link_gen>3</device_current_link_gen>\n\t\t\t\t\t<max_device_link_gen>4</max_device_link_gen>\n\t\t\t\t\t<max_host_link_gen>3</max_host_link_gen>\n\t\t\t\t</pcie_gen>\n\t\t\t\t<link_widths>\n\t\t\t\t\t<max_link_width>16x</max_link_width>\n\t\t\t\t\t<current_link_width>16x</current_link_width>\n\t\t\t\t</link_widths>\n\t\t\t</pci_gpu_link_info>\n\t\t\t<pci_bridge_chip>\n\t\t\t\t<bridge_chip_type>N/A</bridge_chip_type>\n\t\t\t\t<bridge_chip_fw>N/A</bridge_chip_fw>\n\t\t\t</pci_bridge_chip>\n\t\t\t<replay_counter>0</replay_counter>\n\t\t\t<replay_rollover_counter>0</replay_rollover_counter>\n\t\t\t<tx_util>0 KB/s</tx_util>\n\t\t\t<rx_util>0 KB/s</rx_util>\n\t\t\t<atomic_caps_inbound>N/A</atomic_caps_inbound>\n\t\t\t<atomic_caps_outbound>N/A</atomic_caps_outbound>\n\t\t</pci>\n\t\t<fan_speed>N/A</fan_speed>\n\t\t<performance_state>P0</performance_state>\n\t\t<clocks_throttle_reasons>\n\t\t\t<clocks_throttle_reason_gpu_idle>Active</clocks_throttle_reason_gpu_idle>\n\t\t\t<clocks_throttle_reason_applications_clocks_setting>Not Active</clocks_throttle_reason_applications_clocks_setting>\n\t\t\t<clocks_throttle_reason_sw_power_cap>Not Active</clocks_throttle_reason_sw_power_cap>\n\t\t\t<clocks_throttle_reason_hw_slowdown>Not Active</clocks_throttle_reason_hw_slowdown>\n\t\t\t<clocks_throttle_reason_hw_thermal_slowdown>Not Active</clocks_throttle_reason_hw_thermal_slowdown>\n\t\t\t<clocks_throttle_reason_hw_power_brake_slowdown>Not Active</clocks_throttle_reason_hw_power_brake_slowdown>\n\t\t\t<clocks_throttle_reason_sync_boost>Not Active</clocks_throttle_reason_sync_boost>\n\t\t\t<clocks_throttle_reason_sw_thermal_slowdown>Not Active</clocks_throttle_reason_sw_thermal_slowdown>\n\t\t\t<clocks_throttle_reason_display_clocks_setting>Not Active</clocks_throttle_reason_display_clocks_setting>\n\t\t</clocks_throttle_reasons>\n\t\t<fb_memory_usage>\n\t\t\t<total>40960 MiB</total>\n\t\t\t<reserved>622 MiB</reserved>\n\t\t\t<used>5 MiB</used>\n\t\t\t<free>40332 MiB</free>\n\t\t</fb_memory_usage>\n\t\t<bar1_memory_usage>\n\t\t\t<total>65536 MiB</total>\n\t\t\t<used>1 MiB</used>\n\t\t\t<free>65535 MiB</free>\n\t\t</bar1_memory_usage>\n\t\t<compute_mode>Default</compute_mode>\n\t\t<utilization>\n\t\t\t<gpu_util>0 %</gpu_util>\n\t\t\t<memory_util>0 %</memory_util>\n\t\t\t<encoder_util>0 %</encoder_util>\n\t\t\t<decoder_util>0 %</decoder_util>\n\t\t</utilization>\n\t\t<encoder_stats>\n\t\t\t<session_count>0</session_count>\n\t\t\t<average_fps>0</average_fps>\n\t\t\t<average_latency>0</average_latency>\n\t\t</encoder_stats>\n\t\t<fbc_stats>\n\t\t\t<session_count>0</session_count>\n\t\t\t<average_fps>0</average_fps>\n\t\t\t<average_latency>0</average_latency>\n\t\t</fbc_stats>\n\t\t<ecc_mode>\n\t\t\t<current_ecc>Enabled</current_ecc>\n\t\t\t<pending_ecc>Enabled</pending_ecc>\n\t\t</ecc_mode>\n\t\t<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable>0</sram_uncorrectable>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable>0</sram_uncorrectable>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</aggregate>\n\t\t</ecc_errors>\n\t\t<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>640 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t<temperature>\n\t\t\t<gpu_temp>35 C</gpu_temp>\n\t\t\t<gpu_temp_tlimit>N/A</gpu_temp_tlimit>\n\t\t\t<gpu_temp_max_threshold>95 C</gpu_temp_max_threshold>\n\t\t\t<gpu_temp_slow_threshold>92 C</gpu_temp_slow_threshold>\n\t\t\t<gpu_temp_max_gpu_threshold>85 C</gpu_temp_max_gpu_threshold>\n\t\t\t<gpu_target_temperature>N/A</gpu_target_temperature>\n\t\t\t<memory_temp>35 C</memory_temp>\n\t\t\t<gpu_temp_max_mem_threshold>95 C</gpu_temp_max_mem_threshold>\n\t\t</temperature>\n\t\t<supported_gpu_target_temp>\n\t\t\t<gpu_target_temp_min>N/A</gpu_target_temp_min>\n\t\t\t<gpu_target_temp_max>N/A</gpu_target_temp_max>\n\t\t</supported_gpu_target_temp>\n\t\t<power_readings>\n\t\t\t<power_state>P0</power_state>\n\t\t\t<power_management>Supported</power_management>\n\t\t\t<power_draw>34.74 W</power_draw>\n\t\t\t<power_limit>250.00 W</power_limit>\n\t\t\t<default_power_limit>250.00 W</default_power_limit>\n\t\t\t<enforced_power_limit>250.00 W</enforced_power_limit>\n\t\t\t<min_power_limit>150.00 W</min_power_limit>\n\t\t\t<max_power_limit>250.00 W</max_power_limit>\n\t\t</power_readings>\n\t\t<clocks>\n\t\t\t<graphics_clock>210 MHz</graphics_clock>\n\t\t\t<sm_clock>210 MHz</sm_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t\t<video_clock>585 MHz</video_clock>\n\t\t</clocks>\n\t\t<applications_clocks>\n\t\t\t<graphics_clock>765 MHz</graphics_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t</applications_clocks>\n\t\t<default_applications_clocks>\n\t\t\t<graphics_clock>765 MHz</graphics_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t</default_applications_clocks>\n\t\t<deferred_clocks>\n\t\t\t<mem_clock>N/A</mem_clock>\n\t\t</deferred_clocks>\n\t\t<max_clocks>\n\t\t\t<graphics_clock>1410 MHz</graphics_clock>\n\t\t\t<sm_clock>1410 MHz</sm_clock>\n\t\t\t<mem_clock>1215 MHz</mem_clock>\n\t\t\t<video_clock>1290 MHz</video_clock>\n\t\t</max_clocks>\n\t\t<max_customer_boost_clocks>\n\t\t\t<graphics_clock>1410 MHz</graphics_clock>\n\t\t</max_customer_boost_clocks>\n\t\t<clock_policy>\n\t\t\t<auto_boost>N/A</auto_boost>\n\t\t\t<auto_boost_default>N/A</auto_boost_default>\n\t\t</clock_policy>\n\t\t<voltage>\n\t\t\t<graphics_volt>712.500 mV</graphics_volt>\n\t\t</voltage>\n\t\t<fabric>\n\t\t\t<state>N/A</state>\n\t\t\t<status>N/A</status>\n\t\t</fabric>\n\t\t<supported_clocks>\n\t\t\t<supported_mem_clock>\n\t\t\t\t<value>1215 MHz</value>\n\t\t\t\t<supported_graphics_clock>1410 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1395 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1380 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1365 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1350 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1335 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1320 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1305 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1290 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1275 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1260 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1245 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1230 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1215 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1200 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1185 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1170 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1155 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1140 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1125 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1110 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1095 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1080 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1065 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1050 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1035 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1020 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>1005 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>990 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>975 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>960 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>945 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>930 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>915 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>900 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>885 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>870 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>855 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>840 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>825 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>810 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>795 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>780 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>765 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>750 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>735 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>720 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>705 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>690 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>675 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>660 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>645 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>630 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>615 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>600 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>585 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>570 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>555 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>540 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>525 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>510 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>495 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>480 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>465 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>450 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>435 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>420 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>405 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>390 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>375 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>360 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>345 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>330 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>315 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>300 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>285 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>270 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>255 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>240 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>225 MHz</supported_graphics_clock>\n\t\t\t\t<supported_graphics_clock>210 MHz</supported_graphics_clock>\n\t\t\t</supported_mem_clock>\n\t\t</supported_clocks>\n\t\t<processes>\n\t\t\t<process_info>\n\t\t\t\t<gpu_instance_id>N/A</gpu_instance_id>\n\t\t\t\t<compute_instance_id>N/A</compute_instance_id>\n\t\t\t\t<pid>1744</pid>\n\t\t\t\t<type>G</type>\n\t\t\t\t<process_name>/usr/lib/xorg/Xorg</process_name>\n\t\t\t\t<used_memory>4 MiB</used_memory>\n\t\t\t</process_info>\n\t\t</processes>\n\t\t<accounted_processes>\n\t\t</accounted_processes>\n\t</gpu>\n\n</nvidia_smi_log>\n",
+      "stderr": ""
+    },
+    "gpu_topology": {
+      "argv": [
+        "nvidia-smi",
+        "topo",
+        "-m"
+      ],
+      "returncode": 0,
+      "stdout": "\t\u001b[4mGPU0\tGPU1\tCPU Affinity\tNUMA Affinity\u001b[0m\nGPU0\t X \tSYS\t0-7,16-23\t0\nGPU1\tSYS\t X \t8-15,24-31\t1\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n",
+      "stderr": ""
+    },
+    "vmstat": {
+      "argv": [
+        "vmstat",
+        "1",
+        "4"
+      ],
+      "returncode": 0,
+      "stdout": "procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----\n r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st\n 0  0      0 489546464 2835684 20436916    0    0     0    11    0    0  1  0 99  0  0\n 0  0      0 489543904 2835684 20438536    0    0     0    24  537 1907  0  0 100  0  0\n 0  0      0 489543616 2835684 20438560    0    0     0   552  901 2845  0  0 100  0  0\n 0  0      0 489543712 2835684 20438560    0    0     0  1160  917 3350  1  0 99  0  0\n",
+      "stderr": ""
+    },
+    "quota": {
+      "argv": [
+        "quota",
+        "-s"
+      ],
+      "returncode": 127,
+      "stdout": "",
+      "stderr": "Command unavailable"
+    },
+    "user_processes": {
+      "argv": [
+        "ps",
+        "-u",
+        "1013",
+        "-o",
+        "pid,comm,pcpu,pmem,etime"
+      ],
+      "returncode": 0,
+      "stdout": "    PID COMMAND         %CPU %MEM     ELAPSED\n   3106 start            0.0  0.0 48-10:28:53\n   3108 start            0.0  0.0 48-10:28:53\n   3111 start            0.0  0.0 48-10:28:53\n   3112 start            0.0  0.0 48-10:28:53\n   3130 start            0.0  0.0 48-10:28:53\n   3132 start            0.0  0.0 48-10:28:53\n   3134 start            0.0  0.0 48-10:28:53\n   3142 start            0.0  0.0 48-10:28:53\n   3150 start            0.0  0.0 48-10:28:53\n   3160 start            0.0  0.0 48-10:28:53\n   3162 start            0.0  0.0 48-10:28:53\n   3163 start            0.0  0.0 48-10:28:53\n   3171 start            0.0  0.0 48-10:28:53\n   3188 start            0.0  0.0 48-10:28:53\n   3200 start            0.0  0.0 48-10:28:53\n   3207 start            0.0  0.0 48-10:28:53\n   3224 start            0.0  0.0 48-10:28:53\n   3606 python3          0.0  0.0 48-10:28:53\n   3607 python3          0.0  0.0 48-10:28:53\n   3708 python3          0.0  0.0 48-10:28:53\n   3709 python3          0.0  0.0 48-10:28:53\n   3710 python3          0.0  0.0 48-10:28:53\n   3711 python3          0.0  0.0 48-10:28:53\n   3712 python3          0.0  0.0 48-10:28:53\n   3717 python3          0.0  0.0 48-10:28:53\n   3718 python3          0.0  0.0 48-10:28:53\n   3720 python3          0.0  0.0 48-10:28:53\n   3856 python3          0.0  0.0 48-10:28:52\n   3860 python3          0.0  0.0 48-10:28:52\n   3861 python3          0.0  0.0 48-10:28:52\n   3864 python3          0.0  0.0 48-10:28:52\n   3865 python3          0.0  0.0 48-10:28:52\n   3866 python3          0.0  0.0 48-10:28:52\n   3867 python3          0.0  0.0 48-10:28:52\n 236816 start            0.0  0.0 44-04:58:44\n 236849 python3          0.0  0.0 44-04:58:44\n 236976 start            0.0  0.0 44-04:58:10\n 237010 python3          0.0  0.0 44-04:58:10\n 237264 start            0.0  0.0 44-04:57:36\n 237290 python3          0.0  0.0 44-04:57:36\n 237511 start            0.0  0.0 44-04:57:18\n 237543 python3          0.0  0.0 44-04:57:18\n1728860 systemd          0.0  0.0       13:11\n1728861 (sd-pam)         0.0  0.0       13:11\n1728869 pulseaudio       0.0  0.0       13:11\n1728893 dbus-daemon      0.0  0.0       13:10\n1729033 sshd             0.0  0.0       13:10\n1729034 bash             0.0  0.0       13:10\n1734697 sshd             0.0  0.0       00:03\n1734698 python3          2.3  0.0       00:03\n1734719 ps               0.0  0.0       00:00\n",
+      "stderr": ""
+    },
+    "cuda_compiler": {
+      "argv": [
+        "nvcc",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2019 NVIDIA Corporation\nBuilt on Sun_Jul_28_19:07:16_PDT_2019\nCuda compilation tools, release 10.1, V10.1.243\n",
+      "stderr": ""
+    },
+    "python": {
+      "argv": [
+        "python3",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Python 3.8.10\n",
+      "stderr": ""
+    },
+    "compiler": {
+      "argv": [
+        "gcc",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\nCopyright (C) 2019 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": ""
+    },
+    "cmake": {
+      "argv": [
+        "cmake",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "cmake version 3.16.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+      "stderr": ""
+    },
+    "dmi": {
+      "argv": [
+        "sh",
+        "-c",
+        "for f in sys_vendor product_name product_version board_vendor board_name; do printf '%s: ' \"$f\"; cat /sys/class/dmi/id/\"$f\"; done"
+      ],
+      "returncode": 0,
+      "stdout": "sys_vendor: HPE\nproduct_name: ProLiant DL380 Gen10\nproduct_version: \nboard_vendor: HPE\nboard_name: ProLiant DL380 Gen10\n",
+      "stderr": ""
+    },
+    "locations": {
+      "argv": [
+        "ls",
+        "-ld",
+        "/home/antonov",
+        "/media",
+        "/mnt",
+        "/srv",
+        "/opt",
+        "/data",
+        "/scratch",
+        "/work"
+      ],
+      "returncode": 2,
+      "stdout": "drwxr-xr-x 30 antonov antonov 4096 Sep 22 17:09 /home/antonov\ndrwxr-xr-x  4 root    root    4096 Mar 19  2026 /media\ndrwxr-xr-x  2 root    root    4096 Feb 23  2022 /mnt\ndrwxr-xr-x  4 root    root    4096 Apr 15  2025 /opt\ndrwxr-xr-x  2 root    root    4096 Feb 23  2022 /srv\n",
+      "stderr": "ls: cannot access '/data': No such file or directory\nls: cannot access '/scratch': No such file or directory\nls: cannot access '/work': No such file or directory\n"
+    },
+    "shared_location_entries": {
+      "argv": [
+        "find",
+        "/media",
+        "/mnt",
+        "/srv",
+        "/opt",
+        "-maxdepth",
+        "2",
+        "-type",
+        "d",
+        "-user",
+        "1013",
+        "-print"
+      ],
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "find: ‘/media/masalkin’: Permission denied\nfind: ‘/media/pikman’: Permission denied\nfind: ‘/opt/containerd’: Permission denied\n"
+    }
+  },
+  "gpu_samples": [
+    {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=timestamp,index,name,memory.total,memory.used,utilization.gpu,utilization.memory,temperature.gpu,power.draw,power.limit",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "timestamp, index, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], utilization.memory [%], temperature.gpu, power.draw [W], power.limit [W]\n2026/11/17 17:08:59.337, 0, NVIDIA A100-PCIE-40GB, 40960 MiB, 5 MiB, 0 %, 0 %, 43, 38.71 W, 250.00 W\n2026/11/17 17:08:59.344, 1, NVIDIA A100-PCIE-40GB, 40960 MiB, 5 MiB, 0 %, 0 %, 34, 34.76 W, 250.00 W\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=timestamp,index,name,memory.total,memory.used,utilization.gpu,utilization.memory,temperature.gpu,power.draw,power.limit",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "timestamp, index, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], utilization.memory [%], temperature.gpu, power.draw [W], power.limit [W]\n2026/11/17 17:09:01.390, 0, NVIDIA A100-PCIE-40GB, 40960 MiB, 5 MiB, 0 %, 0 %, 43, 38.71 W, 250.00 W\n2026/11/17 17:09:01.397, 1, NVIDIA A100-PCIE-40GB, 40960 MiB, 5 MiB, 0 %, 0 %, 35, 34.76 W, 250.00 W\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=timestamp,index,name,memory.total,memory.used,utilization.gpu,utilization.memory,temperature.gpu,power.draw,power.limit",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "timestamp, index, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], utilization.memory [%], temperature.gpu, power.draw [W], power.limit [W]\n2026/11/17 17:09:03.443, 0, NVIDIA A100-PCIE-40GB, 40960 MiB, 5 MiB, 0 %, 0 %, 43, 38.71 W, 250.00 W\n2026/11/17 17:09:03.449, 1, NVIDIA A100-PCIE-40GB, 40960 MiB, 5 MiB, 0 %, 0 %, 35, 34.77 W, 250.00 W\n",
+      "stderr": ""
+    }
+  ],
+  "home_usage": {
+    "root": "/home/antonov",
+    "uid": 1013,
+    "complete": true,
+    "elapsed_seconds": 11.632611197885126,
+    "unvisited_paths": 0,
+    "errors": [],
+    "skipped_mounts": [],
+    "allocated_bytes": 124378693632,
+    "antonov_allocated_bytes": 110534578176,
+    "unique_inodes": 250098,
+    "top_level": {
+      ".": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".vscode-server": {
+        "allocated_bytes": 5233958912,
+        "antonov_allocated_bytes": 5233958912,
+        "inodes": 40086
+      },
+      ".Xdefaults": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".dotnet": {
+        "allocated_bytes": 286720,
+        "antonov_allocated_bytes": 286720,
+        "inodes": 10
+      },
+      "gamma": {
+        "allocated_bytes": 8247971840,
+        "antonov_allocated_bytes": 8247971840,
+        "inodes": 12743
+      },
+      ".profile": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".viminfo": {
+        "allocated_bytes": 16384,
+        "antonov_allocated_bytes": 16384,
+        "inodes": 1
+      },
+      ".sudo_as_admin_successful": {
+        "allocated_bytes": 0,
+        "antonov_allocated_bytes": 0,
+        "inodes": 1
+      },
+      ".local": {
+        "allocated_bytes": 3059712,
+        "antonov_allocated_bytes": 3059712,
+        "inodes": 178
+      },
+      ".cache": {
+        "allocated_bytes": 526561280,
+        "antonov_allocated_bytes": 526561280,
+        "inodes": 2932
+      },
+      "thinclient_drives": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      "cuda-keyring_1.0-1_all.deb": {
+        "allocated_bytes": 8192,
+        "antonov_allocated_bytes": 8192,
+        "inodes": 1
+      },
+      "fidesys.tar.gz": {
+        "allocated_bytes": 1916301312,
+        "antonov_allocated_bytes": 1916301312,
+        "inodes": 1
+      },
+      ".anydesk": {
+        "allocated_bytes": 16384,
+        "antonov_allocated_bytes": 16384,
+        "inodes": 3
+      },
+      "process.log": {
+        "allocated_bytes": 0,
+        "antonov_allocated_bytes": 0,
+        "inodes": 1
+      },
+      "beta": {
+        "allocated_bytes": 8580423680,
+        "antonov_allocated_bytes": 8580423680,
+        "inodes": 11815
+      },
+      ".copilot": {
+        "allocated_bytes": 24576,
+        "antonov_allocated_bytes": 24576,
+        "inodes": 6
+      },
+      ".wget-hsts": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".bashrc": {
+        "allocated_bytes": 8192,
+        "antonov_allocated_bytes": 8192,
+        "inodes": 1
+      },
+      ".xorgxrdp.10.log.old": {
+        "allocated_bytes": 24576,
+        "antonov_allocated_bytes": 24576,
+        "inodes": 1
+      },
+      "sources": {
+        "allocated_bytes": 1914703872,
+        "antonov_allocated_bytes": 1914703872,
+        "inodes": 506
+      },
+      "TrySEMGPU": {
+        "allocated_bytes": 43125202944,
+        "antonov_allocated_bytes": 43125202944,
+        "inodes": 9785
+      },
+      "fidesys": {
+        "allocated_bytes": 6442385408,
+        "antonov_allocated_bytes": 6442385408,
+        "inodes": 27414
+      },
+      "abc_dataset.tar.gz": {
+        "allocated_bytes": 2768125952,
+        "antonov_allocated_bytes": 2768125952,
+        "inodes": 1
+      },
+      "abc_dataset": {
+        "allocated_bytes": 13844115456,
+        "antonov_allocated_bytes": 0,
+        "inodes": 37169
+      },
+      "alpha": {
+        "allocated_bytes": 3247722496,
+        "antonov_allocated_bytes": 3247722496,
+        "inodes": 2580
+      },
+      "mdb": {
+        "allocated_bytes": 32768,
+        "antonov_allocated_bytes": 32768,
+        "inodes": 8
+      },
+      ".gnupg": {
+        "allocated_bytes": 8192,
+        "antonov_allocated_bytes": 8192,
+        "inodes": 2
+      },
+      ".ssh": {
+        "allocated_bytes": 32768,
+        "antonov_allocated_bytes": 32768,
+        "inodes": 8
+      },
+      "ProgramSeismic3D": {
+        "allocated_bytes": 21586382848,
+        "antonov_allocated_bytes": 21586382848,
+        "inodes": 63130
+      },
+      ".mozilla": {
+        "allocated_bytes": 12853248,
+        "antonov_allocated_bytes": 12853248,
+        "inodes": 99
+      },
+      "fc_model.tar.gz": {
+        "allocated_bytes": 2826240,
+        "antonov_allocated_bytes": 2826240,
+        "inodes": 1
+      },
+      "bad_mesh.tar.gz": {
+        "allocated_bytes": 420233216,
+        "antonov_allocated_bytes": 420233216,
+        "inodes": 1
+      },
+      ".xorgxrdp.10.log": {
+        "allocated_bytes": 24576,
+        "antonov_allocated_bytes": 24576,
+        "inodes": 1
+      },
+      ".xorgxrdp.11.log": {
+        "allocated_bytes": 20480,
+        "antonov_allocated_bytes": 20480,
+        "inodes": 1
+      },
+      ".nv": {
+        "allocated_bytes": 859107328,
+        "antonov_allocated_bytes": 859107328,
+        "inodes": 6975
+      },
+      "FCModel": {
+        "allocated_bytes": 59461632,
+        "antonov_allocated_bytes": 59461632,
+        "inodes": 1351
+      },
+      "semgpu-test": {
+        "allocated_bytes": 2811785216,
+        "antonov_allocated_bytes": 2811785216,
+        "inodes": 87
+      },
+      ".xscreensaver": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".pyenv": {
+        "allocated_bytes": 1423450112,
+        "antonov_allocated_bytes": 1423450112,
+        "inodes": 24347
+      },
+      ".Xauthority": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".bash_logout": {
+        "allocated_bytes": 4096,
+        "antonov_allocated_bytes": 4096,
+        "inodes": 1
+      },
+      ".docker": {
+        "allocated_bytes": 569344,
+        "antonov_allocated_bytes": 569344,
+        "inodes": 139
+      },
+      ".cursor": {
+        "allocated_bytes": 8192,
+        "antonov_allocated_bytes": 8192,
+        "inodes": 2
+      },
+      ".bash_history": {
+        "allocated_bytes": 36864,
+        "antonov_allocated_bytes": 36864,
+        "inodes": 1
+      },
+      ".config": {
+        "allocated_bytes": 196608,
+        "antonov_allocated_bytes": 196608,
+        "inodes": 46
+      },
+      ".xsession-errors": {
+        "allocated_bytes": 16384,
+        "antonov_allocated_bytes": 16384,
+        "inodes": 1
+      },
+      "research": {
+        "allocated_bytes": 1115467776,
+        "antonov_allocated_bytes": 1115467776,
+        "inodes": 3669
+      },
+      ".cursor-server": {
+        "allocated_bytes": 235220992,
+        "antonov_allocated_bytes": 235220992,
+        "inodes": 4985
+      },
+      ".python_history": {
+        "allocated_bytes": 8192,
+        "antonov_allocated_bytes": 8192,
+        "inodes": 1
+      }
+    },
+    "scope": "Home only; hard links counted once; symlinks not followed; no other users' homes scanned"
+  },
+  "io_priority": {
+    "argv": [
+      "ionice",
+      "-c",
+      "3",
+      "-p",
+      "1734698"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "tools": {
+    "squeue": null,
+    "sinfo": null,
+    "qstat": null,
+    "quota": null,
+    "docker": "/usr/bin/docker",
+    "uv": null,
+    "nvcc": "/usr/bin/nvcc",
+    "nvidia-smi": "/usr/bin/nvidia-smi"
+  },
+  "policy": "Read-only; no sudo, installs, benchmarks, solver, containers or other users' home scans"
+}

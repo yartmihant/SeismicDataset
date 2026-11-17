@@ -1,0 +1,96 @@
+{
+  "status": "completed_backend_comparison",
+  "reference": "CEED /gpu/cuda/gen",
+  "value": "native CU",
+  "model_id": 12404,
+  "kind": "raster",
+  "order": 4,
+  "source_x_m": 350.0,
+  "end_s": 2.0,
+  "substeps": 64,
+  "surface": [
+    {
+      "component": "Ux",
+      "relative_l2": 2.4286587448022812e-14,
+      "max_abs_difference": 9.370405376577267e-25
+    },
+    {
+      "component": "Uy",
+      "relative_l2": 1.771037470394925e-14,
+      "max_abs_difference": 1.137373342260413e-24
+    },
+    {
+      "component": "Vx",
+      "relative_l2": 7.489741303319548e-13,
+      "max_abs_difference": 4.968046758993484e-21
+    },
+    {
+      "component": "Vy",
+      "relative_l2": 5.481998448172106e-13,
+      "max_abs_difference": 6.51322014324254e-21
+    }
+  ],
+  "fields": [
+    {
+      "time_s": 0.1,
+      "velocity_m_s": {
+        "relative_l2": 9.12460690655006e-14,
+        "max_abs_difference": 4.593333941506963e-21
+      },
+      "kinetic_energy_density_j_m3": {
+        "relative_l2": 7.675674269931633e-14,
+        "max_abs_difference": 4.1443596516691076e-26
+      },
+      "elastic_energy_density_j_m3": {
+        "relative_l2": 3.8697321567823744e-14,
+        "max_abs_difference": 1.2217877700063031e-26
+      }
+    },
+    {
+      "time_s": 1.0,
+      "velocity_m_s": {
+        "relative_l2": 5.464623525611505e-12,
+        "max_abs_difference": 2.3167842617447124e-21
+      },
+      "kinetic_energy_density_j_m3": {
+        "relative_l2": 2.8833781058668515e-12,
+        "max_abs_difference": 1.162031017175427e-28
+      },
+      "elastic_energy_density_j_m3": {
+        "relative_l2": 1.186847181145523e-12,
+        "max_abs_difference": 4.208388040079437e-29
+      }
+    },
+    {
+      "time_s": 2.0,
+      "velocity_m_s": {
+        "relative_l2": 1.1032803175805975e-10,
+        "max_abs_difference": 2.2401911942365842e-21
+      },
+      "kinetic_energy_density_j_m3": {
+        "relative_l2": 6.893693452400089e-11,
+        "max_abs_difference": 8.056092734998893e-30
+      },
+      "elastic_energy_density_j_m3": {
+        "relative_l2": 2.4619347147725212e-11,
+        "max_abs_difference": 5.70897545346909e-31
+      }
+    }
+  ],
+  "source_work_j_per_m": {
+    "ceed": 3.9101689956356995e-10,
+    "cu": 3.910168995635695e-10
+  },
+  "input_metadata": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350",
+      "sha256": "c497690c717297c895f1e8d00fa6b475e54e3413ee9264ef717c60de38d8d538"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962"
+    }
+  ],
+  "frozen_mesh_sha256": "b7a3b29c3752ba9573355e20c212856c4e7cfaae07db38aa776064debef6b19b",
+  "limitation": "Совпадение двух backend при одной постановке — проверка реализации, не независимая валидация физического решения и не p/dt-сходимость."
+}

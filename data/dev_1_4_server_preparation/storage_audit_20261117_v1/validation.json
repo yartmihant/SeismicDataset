@@ -1,0 +1,19 @@
+{
+  "status": "passed_with_declared_permission_limits",
+  "mypy_files": 50,
+  "notebook_cells": 33,
+  "executed_code_cells": 9,
+  "error_outputs": 0,
+  "roundtrip": "AST equivalence passed",
+  "other_home_count": 24,
+  "other_home_totals_sum_verified": true,
+  "all_queries_finished_before_timeout": true,
+  "sha256": {
+    "dev_1_4_server_preparation.py": "f45d00864b0f590f261d6da1885c9844103a4a03a2f2fc4e4a06c4b9ddb4d072",
+    "dev_1_4_server_preparation.ipynb": "41c386f294b89f89afb3e18c4b5c96a89b03e25f4c1b67fc731b91b1c1929cc0",
+    "dev_1_4_server_preparation_summary.md": "fba407ef5c8a3aca7da4bb83560c44def1306dd4bd4d2c0b28418f6b5ef64a3a",
+    "data/dev_1_4_server_preparation/storage_audit_20261117_v1/snapshot.json": "8ba48a0296c9ed9d422a7c1794eee4f44fbcc37cf1ca1644695ab6a61a3c19e7",
+    "data/dev_1_4_server_preparation/storage_audit_20261117_v1/report.json": "f0c6e80f80e30b52dd9f58bae54e74ca2b5e7e43fff43be518dfaa0069dfe33c",
+    "data/dev_1_4_server_preparation/storage_audit_20261117_v1/own_details.json": "8ad86a259f7eaec6db62e06cb119ab05f4d8a8cd566ef6e4dc105a65a500d606"
+  }
+}

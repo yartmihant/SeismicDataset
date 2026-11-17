@@ -1,0 +1,79 @@
+{
+  "status": "animation_complete",
+  "short_run": false,
+  "model_id": 12404,
+  "source_x_m": 350.0,
+  "frame_count": 201,
+  "physical_interval_s": 0.01,
+  "end_s": 2.0,
+  "playback_fps": 25,
+  "common_limits": {
+    "speed_m_s": [
+      0.0,
+      7.186947276696837e-08
+    ],
+    "total_energy_density_j_m3": [
+      0.0,
+      5.302896132900224e-10
+    ]
+  },
+  "color_scale": "logarithmic",
+  "log_color_limits": {
+    "speed_m_s": [
+      7.186947276696837e-14,
+      7.186947276696837e-08
+    ],
+    "total_energy_density_j_m3": [
+      5.302896132900224e-22,
+      5.302896132900224e-10
+    ]
+  },
+  "log_zero_policy": "Zeros are masked and drawn black; positive values below the fixed lower limit use the lowest colormap color",
+  "zero_field_display_limit": "1 only if every actual value is zero; recorded maxima remain zero",
+  "rendering": "nearest_global_node_on_common_regular_pixel_centres_no_temporal_rescaling",
+  "pixel_shape": [
+    525,
+    630
+  ],
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_p3_cu_v1/12404/raster/p3/x350",
+      "metadata_sha256": "eba82a3dc2e4d4ac4c2b04e7108962205a59b626f45db323fddc2bd238117c1f",
+      "geometry_sha256": "df90f361632435097017b7141e79dbb57afa6d05645446f816b7026a3c2e5848",
+      "node_count": 331906,
+      "max_pixel_to_node_distance_m": 1.5811388300842175
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "geometry_sha256": "5bf87c713b6ce9467495a8478d6a0510b5c9044a725616062fad2871b7ee9659",
+      "node_count": 589541,
+      "max_pixel_to_node_distance_m": 0.04247235452408451
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_p3_cu_v1/12404/curved/p3/x350",
+      "metadata_sha256": "b32c0243a70aec1fc7d6df73834cd8bb38882b9f5d23b230e4118eba5aa938d3",
+      "geometry_sha256": "8326a713e0c8048452c7f782945caacf821d8c8ebfa1d4c2c4d1fc408a3b84ba",
+      "node_count": 331906,
+      "max_pixel_to_node_distance_m": 1.8809737594492772
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p4/x350",
+      "metadata_sha256": "b2ba7388a4427931544fe71b74b09c377bbe77082506067ec9c591bbd19cab23",
+      "geometry_sha256": "6f0d47e13f2ed21fb2682a248bbc9ebd67a081b0c4b62735a96c99da4f77de85",
+      "node_count": 589541,
+      "max_pixel_to_node_distance_m": 1.1043693246647568
+    }
+  ],
+  "outputs": [
+    "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/speed.mp4",
+    "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/energy.mp4",
+    "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/speed_final.png",
+    "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/energy_final.png"
+  ],
+  "limits": [
+    "Цветная картинка является пространственной выборкой, а не всеми исходными значениями; все узловые поля сохранены отдельно.",
+    "Плотность энергии у материальных интерфейсов является узловым восстановлением решателя.",
+    "Одна постоянная шкала может скрывать слабую позднюю коду; временного усиления в этих роликах нет."
+  ]
+}

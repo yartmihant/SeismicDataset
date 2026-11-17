@@ -1,0 +1,29 @@
+{
+  "model_id": 12404,
+  "kind": "curved",
+  "elements": 36750,
+  "q2_nodes": 147771,
+  "area_m2": 918750.0,
+  "det_jacobian_certified_min_m2": 4.386461145217807,
+  "bernstein_max_depth": 0,
+  "euler_characteristic": 1,
+  "conforming": true,
+  "core_top_edges": 140,
+  "core_top_edge_m": 5,
+  "external_edges": 770,
+  "area_by_region_m2": {
+    "0": 84000.0,
+    "1": 224634.00747002597,
+    "2": 238213.85153356384,
+    "3": 371902.1409964102
+  },
+  "sqrt_area_quantiles_m": [
+    4.189355107822764,
+    4.21179753129707,
+    4.999999999999995,
+    5.815799980378009,
+    5.8157999803780935
+  ],
+  "sha256": "71088952879be8cd0ec0e9fd197e2f28502c66dea3725c797e618edaf0ff690e",
+  "construction": "exact_2x2_refinement_of_frozen_Q2"
+}

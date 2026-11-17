@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-13T17:46:32.152878+00:00",
+  "status": "started",
+  "job_id": "dt_control_00065_curved_p4_x350",
+  "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/curved/p4/x350",
+  "manager": "independent_dt_queue",
+  "systemd_unit": "seismic13-central-dt-00065-curved-v1.service",
+  "log": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/process_dt_00065_curved.log",
+  "free_bytes": 102239920128,
+  "parallel_start_authorization": "main8 verified; previous main batch stopped at incomplete dt raster; parent explicitly authorized remaining two controls concurrently"
+}

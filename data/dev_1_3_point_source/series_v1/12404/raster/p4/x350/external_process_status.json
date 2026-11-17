@@ -1,0 +1,9 @@
+{
+  "status": "externally_interrupted",
+  "process_exit_code": 143,
+  "completed_solver_result": false,
+  "last_reported_surface_time_s": 0.8,
+  "field_files_including_possibly_incomplete": 84,
+  "cause": "SIGTERM; external command lifetime suspected but not independently established",
+  "policy": "Original partial arrays and metadata.started.json preserved; restart uses new directory"
+}

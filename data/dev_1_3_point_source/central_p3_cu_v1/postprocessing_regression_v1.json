@@ -1,0 +1,141 @@
+{
+  "status": "software_regression_passed",
+  "evidence_type": "software_checks_not_solver_results",
+  "created_at_utc": "2026-11-13T19:14:30.034106+00:00",
+  "mypy": {
+    "command": ".venv/bin/python -m mypy scripts/dev_1_3_point_source/compare.py scripts/dev_1_3_point_source/source_diagnostic.py scripts/dev_1_3_point_source/p3_report.py",
+    "passed_before_targeted_checks": true
+  },
+  "historical_regression": {
+    "metric_comparisons_exact": 14,
+    "acceptance_cases_exact": 4,
+    "source_localizations_exact_after_json_type_normalization": 4,
+    "metadata_and_surface_hashes_verified_for_runs": 12,
+    "force_histories_equal_with_zero_initial_sample_for_pairs": 4,
+    "historical_acceptance_source_unchanged": true
+  },
+  "order_support_checks": {
+    "p3_load_passed": true,
+    "invalid_p6_rejected": true,
+    "p_pairs_verified": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "radii_m": [
+      0,
+      10,
+      20
+    ],
+    "receiver_counts_with_5_7e_minus14_perturbations": [
+      141,
+      138,
+      134
+    ],
+    "boundary_tolerance_m": 1e-09,
+    "pending_without_new_p3_runs_verified": true,
+    "six_windows_per_p_and_dt_comparison_verified": true,
+    "sixteen_input_schema_verified": true,
+    "source_force_mismatch_prevents_acceptance": true,
+    "legacy_and_new_source_diagnostic_cli_aliases_verified": true
+  },
+  "synthetic_check_scope": "Only parser/pair/report logic was tested with temporary metadata and in-memory copies of historical arrays. No synthetic arrays or solver outputs were saved; the temporary directory was removed.",
+  "new_p3_solver_results_used_for_software_regression": false,
+  "source_files": [
+    {
+      "path": "scripts/dev_1_3_point_source/compare.py",
+      "sha256": "06bbf3a6e7b4c980371b508ba53ad2b506fe72513b4c8e4dc8be26c13b42e41c"
+    },
+    {
+      "path": "scripts/dev_1_3_point_source/source_diagnostic.py",
+      "sha256": "3bcfe892284c1d27d3be29d9d8f8e30eb84614162beb6d2edb2da87486eeadc2"
+    },
+    {
+      "path": "scripts/dev_1_3_point_source/p3_report.py",
+      "sha256": "a4df544ffd9ca5bca6970b550a699cbd7f277fdcd0eaf60bad90e158005de6b6"
+    },
+    {
+      "path": "scripts/dev_1_3_point_source/acceptance.py",
+      "sha256": "452ddd9a4ae114a0f5b38afd2c085fd9a62263a37cd4dd6bdf32d82034720e8c"
+    },
+    {
+      "path": "scripts/dev_1_3_point_source/animate.py",
+      "sha256": "93853059e6b5d4b7982b0a97fe2ce6e84392b3da1d258537f279bb95a696dacb"
+    }
+  ],
+  "historical_reports": [
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/comparison_all_v1/report.json",
+      "sha256": "b4f4d053db0eba89d7e15494e5be25cca0004d7f33602cd5472ebde4872ed38e"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/acceptance_v1/acceptance.json",
+      "sha256": "e7b41538495bfe2ea4b19fbe9696281798e41c1e87d6c2073d3ea8b98f255723"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/source_diagnostic_12404_raster_v1/point_source_diagnostic.json",
+      "sha256": "c1b86305dc8a93f773308f840fa1816736696d7d767df6809cf31f8e4e6cfec7"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/source_diagnostic_12404_curved_v1/point_source_diagnostic.json",
+      "sha256": "fab24c9c2c40c3212b1500265c1c01a45fb9f8b0f08b6f926fca4021f0a5267f"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/source_diagnostic_00065_raster_v1/point_source_diagnostic.json",
+      "sha256": "35cc1315ec57de497cbc4c33ee70038995275e4b5e99865ca44384f5113809cc"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/source_diagnostic_00065_curved_v1/point_source_diagnostic.json",
+      "sha256": "3939da1ecad5835a6ec7287c73bc2e0c4ebffba1b7a9a84cafc36cfcc7fb1b14"
+    }
+  ],
+  "historical_source_histories": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350/source_history.npz",
+      "sha256": "d74ab8877c7e6941e8c06b0436810faeed5490606ab19e702ce3ae90079cf722"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p5/x350/source_history.npz",
+      "sha256": "e1358a60cc86c0a45fb01a7849ff92795fb83ab9ee1e4db4e6806a047decd161"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p4/x350/source_history.npz",
+      "sha256": "3988c9e146b078131bb8d76243c4673d9de28737c25d18bd38a8bdca858f7603"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p5/x350/source_history.npz",
+      "sha256": "62b46aafcd57951f5418be8be1c49f6e79e062f6e1d2c1e303b26454a04dd243"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p4/x350/source_history.npz",
+      "sha256": "fc61b2b23a5e69a23cf3d7e4f49fe8149b6e4a3901cdfa4806e0a76072a8bbba"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p5/x350/source_history.npz",
+      "sha256": "7e6c35884526fa64a8b4fddb4c539453c185319986f6d9fcab37cc48cb1f2dbe"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p4/x350/source_history.npz",
+      "sha256": "e58bfe0e5810a0d7252bf512d66f9aff0d9caf83508e5b3c1b3f990d2c0be3ba"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p5/x350/source_history.npz",
+      "sha256": "9f2a97cc2c58660870688400591a334a1653a0469e6fd96c8ccb6d6691773f57"
+    }
+  ],
+  "historical_input_hash_index": "data/dev_1_3_point_source/central_cu_v1/comparison_all_v1/report.json",
+  "independent_read_only_review": {
+    "reviewer": "mesh13",
+    "material_findings": 0
+  },
+  "limitation": "This evidence verifies postprocessing software and preservation of historical metrics, not physical convergence or independent validation of the solver."
+}

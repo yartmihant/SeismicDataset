@@ -1,0 +1,4176 @@
+{
+  "chapter": "1.3",
+  "status": "postprocessing_complete",
+  "short_run": false,
+  "completed_run_count": 12,
+  "observed_source_x_m": [
+    350.0
+  ],
+  "expected_main_run_count": 8,
+  "distinct_main_case_count": 8,
+  "additional_time_step_run_count": 4,
+  "coverage_definition": "Two models, raster/curved, p4/p5, only the source positions present in this report; additional time steps counted separately",
+  "coverage": [
+    "m00065_curved_p4_x350_k224",
+    "m00065_curved_p4_x350_k448",
+    "m00065_curved_p5_x350_k224",
+    "m00065_raster_p4_x350_k224",
+    "m00065_raster_p4_x350_k448",
+    "m00065_raster_p5_x350_k224",
+    "m12404_curved_p4_x350_k128",
+    "m12404_curved_p4_x350_k64",
+    "m12404_curved_p5_x350_k64",
+    "m12404_raster_p4_x350_k128",
+    "m12404_raster_p4_x350_k64",
+    "m12404_raster_p5_x350_k64"
+  ],
+  "comparisons": [
+    {
+      "comparison": "dt",
+      "value": "m00065_curved_p4_x350_k224",
+      "reference": "m00065_curved_p4_x350_k448",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.4611748175196766e-15,
+              "reference_discrete_l2": 1.8183482597732304e-09,
+              "relative_l2": 1.3535222443178263e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0891060198184531e-16,
+              "reference_max_abs": 5.757000481749121e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.938381934525721e-15,
+              "reference_discrete_l2": 3.2048741843284537e-09,
+              "relative_l2": 1.228872557239237e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9196182646065775e-16,
+              "reference_max_abs": 4.750121694642864e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.659421926096876e-13,
+              "reference_discrete_l2": 3.7353160489822347e-07,
+              "relative_l2": 2.0505418619620814e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.61634067561617e-14,
+              "reference_max_abs": 1.251700403826608e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2314665943137551e-12,
+              "reference_discrete_l2": 6.573563794657607e-07,
+              "relative_l2": 1.8733622016638508e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.759626056642244e-14,
+              "reference_max_abs": 8.792374037987111e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.4607407930910573e-15,
+              "reference_discrete_l2": 1.8123158588526206e-09,
+              "relative_l2": 1.3577880373727763e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0891060198184531e-16,
+              "reference_max_abs": 5.757000481749121e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.9380761707574605e-15,
+              "reference_discrete_l2": 2.757766091910647e-09,
+              "relative_l2": 1.427994992870866e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9196182646065775e-16,
+              "reference_max_abs": 9.859366996163625e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.657301373738557e-13,
+              "reference_discrete_l2": 3.721621962868034e-07,
+              "relative_l2": 2.057517246549547e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.61634067561617e-14,
+              "reference_max_abs": 1.251700403826608e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2302583186322805e-12,
+              "reference_discrete_l2": 5.692232535481983e-07,
+              "relative_l2": 2.161293149855674e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.759626056642244e-14,
+              "reference_max_abs": 2.0418166415793023e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.4599154772798246e-15,
+              "reference_discrete_l2": 1.7923499575834993e-09,
+              "relative_l2": 1.3724526657708952e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0891060198184531e-16,
+              "reference_max_abs": 5.757000481749121e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.93747069609442e-15,
+              "reference_discrete_l2": 2.6880375928137665e-09,
+              "relative_l2": 1.464812362230686e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9196182646065775e-16,
+              "reference_max_abs": 8.978681468946518e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.653445493570632e-13,
+              "reference_discrete_l2": 3.6716880422960774e-07,
+              "relative_l2": 2.084448734589275e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.61634067561617e-14,
+              "reference_max_abs": 1.251700403826608e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2299170105899426e-12,
+              "reference_discrete_l2": 5.560249697271583e-07,
+              "relative_l2": 2.2119816151304563e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.759626056642244e-14,
+              "reference_max_abs": 2.0418166415793023e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.3307773086006583e-16,
+              "reference_discrete_l2": 1.5375192611196016e-11,
+              "relative_l2": 8.655353739319035e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.303255195724161e-18,
+              "reference_max_abs": 3.011370311152715e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.225347530823392e-17,
+              "reference_discrete_l2": 7.925184318486916e-12,
+              "relative_l2": 5.331544808323271e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.607241588694711e-19,
+              "reference_max_abs": 1.497861238801008e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 4.115321582835857e-14,
+              "reference_discrete_l2": 2.7751269205238254e-09,
+              "relative_l2": 1.4829309435905225e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.825601177086855e-16,
+              "reference_max_abs": 6.79449798190639e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8085792989567417e-14,
+              "reference_discrete_l2": 1.0038989785162632e-09,
+              "relative_l2": 1.801555074425691e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.468222302225938e-16,
+              "reference_max_abs": 2.432215742866929e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.3198752210860913e-16,
+              "reference_discrete_l2": 1.5253656295727324e-11,
+              "relative_l2": 8.65284490155845e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.303255195724161e-18,
+              "reference_max_abs": 3.011370311152715e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.1641130114481957e-17,
+              "reference_discrete_l2": 7.788552909856787e-12,
+              "relative_l2": 5.346452748851858e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.607241588694711e-19,
+              "reference_max_abs": 1.497861238801008e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.9775257798506816e-14,
+              "reference_discrete_l2": 2.7492314305352897e-09,
+              "relative_l2": 1.4467773559086064e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.825601177086855e-16,
+              "reference_max_abs": 6.79449798190639e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.499408244561e-14,
+              "reference_discrete_l2": 9.89479886665267e-10,
+              "relative_l2": 1.5153498972215468e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.838370172540291e-16,
+              "reference_max_abs": 2.432215742866929e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.305621118395911e-16,
+              "reference_discrete_l2": 1.5092492824891446e-11,
+              "relative_l2": 8.65079833758544e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.303255195724161e-18,
+              "reference_max_abs": 3.011370311152715e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.09916908196397e-17,
+              "reference_discrete_l2": 7.606564322488893e-12,
+              "relative_l2": 5.388988915593247e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.607241588694711e-19,
+              "reference_max_abs": 1.497861238801008e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.890167096320552e-14,
+              "reference_discrete_l2": 2.715152742109346e-09,
+              "relative_l2": 1.4327617875738223e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.825601177086855e-16,
+              "reference_max_abs": 6.79449798190639e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.276831070672221e-14,
+              "reference_discrete_l2": 9.707773163509855e-10,
+              "relative_l2": 1.315266693160537e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.315210054547145e-16,
+              "reference_max_abs": 2.432215742866929e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.001,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "p",
+      "value": "m00065_curved_p4_x350_k224",
+      "reference": "m00065_curved_p5_x350_k224",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 6.875828928246567e-12,
+              "reference_discrete_l2": 1.8186158645770683e-09,
+              "relative_l2": 0.003780803336303012,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.8572185398580863e-12,
+              "reference_max_abs": 5.756963993541559e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2640150195637442e-10,
+              "reference_discrete_l2": 3.263511738005835e-09,
+              "relative_l2": 0.038731744238680726,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.000378098802842e-11,
+              "reference_max_abs": 5.139590362235735e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4500211430574033e-09,
+              "reference_discrete_l2": 3.735674984628389e-07,
+              "relative_l2": 0.0038815505873074393,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.3927453079865935e-10,
+              "reference_max_abs": 1.2516265755852992e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.6617855813014566e-08,
+              "reference_discrete_l2": 6.695028059940411e-07,
+              "relative_l2": 0.03975764638281662,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.305828073340266e-09,
+              "reference_max_abs": 9.473914111290259e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 9.543926367598928e-14,
+              "reference_discrete_l2": 1.8122886118429941e-09,
+              "relative_l2": 5.266228737095743e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.2193838508407853e-14,
+              "reference_max_abs": 5.756963993541559e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.1046999647854642e-13,
+              "reference_discrete_l2": 2.757744089760032e-09,
+              "relative_l2": 4.0058102885158965e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.731301511337045e-14,
+              "reference_max_abs": 9.859765559707419e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.0359524889467825e-11,
+              "reference_discrete_l2": 3.7215087468411484e-07,
+              "relative_l2": 8.157853965878027e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.1237737032300388e-12,
+              "reference_max_abs": 1.2516265755852992e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.8645897255224302e-11,
+              "reference_discrete_l2": 5.69213292672481e-07,
+              "relative_l2": 5.032541865059155e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.282236942329199e-12,
+              "reference_max_abs": 2.0417503489117824e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.938660732380046e-14,
+              "reference_discrete_l2": 1.7923227971748758e-09,
+              "relative_l2": 4.429258359539504e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.53169120660031e-15,
+              "reference_max_abs": 5.756963993541559e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.134477265317699e-14,
+              "reference_discrete_l2": 2.6880064274012687e-09,
+              "relative_l2": 2.2821661446875466e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4906626403552442e-15,
+              "reference_max_abs": 8.978513334701914e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.7545721837269178e-11,
+              "reference_discrete_l2": 3.671575315727726e-07,
+              "relative_l2": 7.502425925807127e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5843945022934322e-12,
+              "reference_max_abs": 1.2516265755852992e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.0549372340071972e-11,
+              "reference_discrete_l2": 5.560127144689918e-07,
+              "relative_l2": 3.6958457613145085e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.473643888096869e-13,
+              "reference_max_abs": 2.0417503489117824e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.7201975322758787e-15,
+              "reference_discrete_l2": 1.5375167929103356e-11,
+              "relative_l2": 0.00017692148435835095,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.879399845597318e-17,
+              "reference_max_abs": 3.0113068582275473e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2049869381494351e-15,
+              "reference_discrete_l2": 7.92516527739653e-12,
+              "relative_l2": 0.0001520456540617764,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.32340984796055e-17,
+              "reference_max_abs": 1.4977908359858883e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2652844378143236e-12,
+              "reference_discrete_l2": 2.775123181474651e-09,
+              "relative_l2": 0.0004559381170035032,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.695291586873552e-14,
+              "reference_max_abs": 6.794686562651536e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.377888722457661e-13,
+              "reference_discrete_l2": 1.0038973289407416e-09,
+              "relative_l2": 0.0005357010689660983,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3670701643851711e-14,
+              "reference_max_abs": 2.4320181567462832e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.6831499782897395e-15,
+              "reference_discrete_l2": 1.5253631432735293e-11,
+              "relative_l2": 0.00017590237381319727,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.879399845597318e-17,
+              "reference_max_abs": 3.0113068582275473e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.1949991021053738e-15,
+              "reference_discrete_l2": 7.788532407289113e-12,
+              "relative_l2": 0.00015343058738344605,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.32340984796055e-17,
+              "reference_max_abs": 1.4977908359858883e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2478531565054348e-12,
+              "reference_discrete_l2": 2.7492275320375353e-09,
+              "relative_l2": 0.0004538922813640722,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.695291586873552e-14,
+              "reference_max_abs": 6.794686562651536e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.3279187975376e-13,
+              "reference_discrete_l2": 9.894777981469373e-10,
+              "relative_l2": 0.0005384576397283049,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3670701643851711e-14,
+              "reference_max_abs": 2.4320181567462832e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.6117348372711766e-15,
+              "reference_discrete_l2": 1.5092467174906842e-11,
+              "relative_l2": 0.00017304889962679662,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.879399845597318e-17,
+              "reference_max_abs": 3.0113068582275473e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.1872182217380072e-15,
+              "reference_discrete_l2": 7.606543261031499e-12,
+              "relative_l2": 0.00015607854724499555,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.32340984796055e-17,
+              "reference_max_abs": 1.4977908359858883e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.213146292603065e-12,
+              "reference_discrete_l2": 2.7151486307747626e-09,
+              "relative_l2": 0.0004468065868854097,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.695291586873552e-14,
+              "reference_max_abs": 6.794686562651536e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.290252425901005e-13,
+              "reference_discrete_l2": 9.707750780214998e-10,
+              "relative_l2": 0.0005449514048797864,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3670701643851711e-14,
+              "reference_max_abs": 2.4320181567462832e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.01,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "geometry",
+      "value": "m00065_curved_p4_x350_k224",
+      "reference": "m00065_raster_p4_x350_k224",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.861282446660674e-11,
+              "reference_discrete_l2": 1.819396737992541e-09,
+              "relative_l2": 0.043208181495007734,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.312918532645122e-12,
+              "reference_max_abs": 5.7570699834027675e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2519394310140414e-10,
+              "reference_discrete_l2": 3.1608177802301306e-09,
+              "relative_l2": 0.03960808619985968,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.3275594932042186e-11,
+              "reference_max_abs": 4.427100377758114e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8626408795964036e-08,
+              "reference_discrete_l2": 3.7375786530823033e-07,
+              "relative_l2": 0.04983549652019557,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590540483155785e-10,
+              "reference_max_abs": 1.251640804706378e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.7348724935606227e-08,
+              "reference_discrete_l2": 6.483088059686761e-07,
+              "relative_l2": 0.04218471920143503,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.094776288634256e-09,
+              "reference_max_abs": 8.232981249246348e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.700431597781944e-11,
+              "reference_discrete_l2": 1.8133314249511763e-09,
+              "relative_l2": 0.042465660120511485,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.312918532645122e-12,
+              "reference_max_abs": 5.7570699834027675e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.530494543702662e-11,
+              "reference_discrete_l2": 2.759723987709282e-09,
+              "relative_l2": 0.0236635785781002,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.6291007074050575e-12,
+              "reference_max_abs": 9.857421839755772e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8211272030426397e-08,
+              "reference_discrete_l2": 3.7237908205881586e-07,
+              "relative_l2": 0.04890519609678289,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590540483155785e-10,
+              "reference_max_abs": 1.251640804706378e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.5390371223949857e-08,
+              "reference_discrete_l2": 5.696411102345254e-07,
+              "relative_l2": 0.0270176624324279,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.641561675095344e-10,
+              "reference_max_abs": 2.0356999415886293e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.483923788999354e-11,
+              "reference_discrete_l2": 1.7934431018793596e-09,
+              "relative_l2": 0.041729362817013296,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.312918532645122e-12,
+              "reference_max_abs": 5.7570699834027675e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.240974162826025e-11,
+              "reference_discrete_l2": 2.690128985549313e-09,
+              "relative_l2": 0.023199535027320056,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.6291007074050575e-12,
+              "reference_max_abs": 8.951950994898784e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.7634348804955278e-08,
+              "reference_discrete_l2": 3.673969055844172e-07,
+              "relative_l2": 0.04799808745504911,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590540483155785e-10,
+              "reference_max_abs": 1.251640804706378e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4785908450144402e-08,
+              "reference_discrete_l2": 5.564686084226958e-07,
+              "relative_l2": 0.02657096595629158,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.641561675095344e-10,
+              "reference_max_abs": 2.0356999415886293e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 8.008694099542486e-12,
+              "reference_discrete_l2": 1.5165851708963336e-11,
+              "relative_l2": 0.5280741400635732,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7832840390810668e-13,
+              "reference_max_abs": 2.776776544501422e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.1024241026229986e-12,
+              "reference_discrete_l2": 8.058133659768285e-12,
+              "relative_l2": 0.3850052919961382,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412209157978308e-14,
+              "reference_max_abs": 1.4537727356180272e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8816050667599156e-09,
+              "reference_discrete_l2": 2.702153050479163e-09,
+              "relative_l2": 0.6963354893706918,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.315564840249198e-11,
+              "reference_max_abs": 5.484213648354697e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.076008878386372e-10,
+              "reference_discrete_l2": 1.0440324187411974e-09,
+              "relative_l2": 0.677757582175274,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.360654699380116e-11,
+              "reference_max_abs": 2.1177334261993756e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.964585498310664e-12,
+              "reference_discrete_l2": 1.5063938626358562e-11,
+              "relative_l2": 0.528718663548881,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7832840390810668e-13,
+              "reference_max_abs": 2.776776544501422e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.0493554974107188e-12,
+              "reference_discrete_l2": 7.885860180248408e-12,
+              "relative_l2": 0.3866864777856945,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412209157978308e-14,
+              "reference_max_abs": 1.4537727356180272e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.872452181346079e-09,
+              "reference_discrete_l2": 2.6794260487349204e-09,
+              "relative_l2": 0.6988258482558791,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.315564840249198e-11,
+              "reference_max_abs": 5.484213648354697e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.966502038895927e-10,
+              "reference_discrete_l2": 1.020031534996854e-09,
+              "relative_l2": 0.6829692808386961,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.360654699380116e-11,
+              "reference_max_abs": 1.8873330921261937e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.887829732470223e-12,
+              "reference_discrete_l2": 1.4910065987126442e-11,
+              "relative_l2": 0.5290271511394171,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7832840390810668e-13,
+              "reference_max_abs": 2.776776544501422e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.0008246595495396e-12,
+              "reference_discrete_l2": 7.69190774952459e-12,
+              "relative_l2": 0.3901274894690475,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412209157978308e-14,
+              "reference_max_abs": 1.4537727356180272e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.856584309591565e-09,
+              "reference_discrete_l2": 2.646444370706083e-09,
+              "relative_l2": 0.7015391406456128,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.315564840249198e-11,
+              "reference_max_abs": 5.484213648354697e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.869196880547568e-10,
+              "reference_discrete_l2": 9.990972113962484e-10,
+              "relative_l2": 0.6875403916849889,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.360654699380116e-11,
+              "reference_max_abs": 1.7921812144944833e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": null,
+      "preliminary_full_far20_all_components_pass": null,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "geometry",
+      "value": "m00065_curved_p4_x350_k448",
+      "reference": "m00065_raster_p4_x350_k448",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.861282628490237e-11,
+              "reference_discrete_l2": 1.8193967329274092e-09,
+              "relative_l2": 0.043208182614692475,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.3129184261902146e-12,
+              "reference_max_abs": 5.7570701640399617e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.251939439592018e-10,
+              "reference_discrete_l2": 3.1608177712996662e-09,
+              "relative_l2": 0.039608086583151715,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.327559496266927e-11,
+              "reference_max_abs": 4.4271003507518805e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8626412860027577e-08,
+              "reference_discrete_l2": 3.7375792024753993e-07,
+              "relative_l2": 0.049835500068309724,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590541802829443e-10,
+              "reference_max_abs": 1.251640908502934e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.7348729771823947e-08,
+              "reference_discrete_l2": 6.483089011093263e-07,
+              "relative_l2": 0.042184720470484556,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.094777339427927e-09,
+              "reference_max_abs": 8.232982584453487e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.700431771070188e-11,
+              "reference_discrete_l2": 1.8133314198027548e-09,
+              "relative_l2": 0.04246566119671496,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.3129184261902146e-12,
+              "reference_max_abs": 5.7570701640399617e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.530494693072351e-11,
+              "reference_discrete_l2": 2.759723982511191e-09,
+              "relative_l2": 0.023663579163920496,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.6291002904156634e-12,
+              "reference_max_abs": 9.857421953504109e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8211275976389435e-08,
+              "reference_discrete_l2": 3.7237913672405757e-07,
+              "relative_l2": 0.04890519951412975,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590541802829443e-10,
+              "reference_max_abs": 1.251640908502934e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.5390374566155982e-08,
+              "reference_discrete_l2": 5.696411956196497e-07,
+              "relative_l2": 0.027017664249887153,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.641565941648673e-10,
+              "reference_max_abs": 2.0356999285540194e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.483923949746924e-11,
+              "reference_discrete_l2": 1.7934430961068719e-09,
+              "relative_l2": 0.04172936384763308,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.3129184261902146e-12,
+              "reference_max_abs": 5.7570701640399617e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.240974313951716e-11,
+              "reference_discrete_l2": 2.6901289811324356e-09,
+              "relative_l2": 0.023199535627189585,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.6291002904156634e-12,
+              "reference_max_abs": 8.951955015255938e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.7634352590085933e-08,
+              "reference_discrete_l2": 3.673969590359008e-07,
+              "relative_l2": 0.047998090774514994,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590541802829443e-10,
+              "reference_max_abs": 1.251640908502934e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4785911704513988e-08,
+              "reference_discrete_l2": 5.564686922468461e-07,
+              "relative_l2": 0.026570967802003582,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.641565941648673e-10,
+              "reference_max_abs": 2.0356999285540194e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 8.00869594920109e-12,
+              "reference_discrete_l2": 1.5165852829440516e-11,
+              "relative_l2": 0.5280742230106779,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7832848532338708e-13,
+              "reference_max_abs": 2.7767749862414677e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.10242496073401e-12,
+              "reference_discrete_l2": 8.058134011370058e-12,
+              "relative_l2": 0.38500538168718423,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412230319770086e-14,
+              "reference_max_abs": 1.453770537848184e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8816060171044255e-09,
+              "reference_discrete_l2": 2.7021537717926272e-09,
+              "relative_l2": 0.6963356551896582,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.315570890640135e-11,
+              "reference_max_abs": 5.4842238770234863e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.076012386363077e-10,
+              "reference_discrete_l2": 1.04403265088495e-09,
+              "relative_l2": 0.6777577674764539,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3606756674236213e-11,
+              "reference_max_abs": 2.11771859154797e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.964587347999297e-12,
+              "reference_discrete_l2": 1.506393975556185e-11,
+              "relative_l2": 0.5287187467049344,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7832848532338708e-13,
+              "reference_max_abs": 2.7767749862414677e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.049356347267091e-12,
+              "reference_discrete_l2": 7.885860524298577e-12,
+              "relative_l2": 0.38668656868469303,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412230319770086e-14,
+              "reference_max_abs": 1.453770537848184e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8724531292622183e-09,
+              "reference_discrete_l2": 2.679426770507666e-09,
+              "relative_l2": 0.6988260137848247,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.315570890640135e-11,
+              "reference_max_abs": 5.4842238770234863e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.966505544464095e-10,
+              "reference_discrete_l2": 1.020031766724949e-09,
+              "relative_l2": 0.6829694693560078,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3606756674236213e-11,
+              "reference_max_abs": 1.887328439263067e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.887831549894911e-12,
+              "reference_discrete_l2": 1.4910067115246186e-11,
+              "relative_l2": 0.5290272330048242,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7832848532338708e-13,
+              "reference_max_abs": 2.7767749862414677e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.0008255043402527e-12,
+              "reference_discrete_l2": 7.691908094540712e-12,
+              "relative_l2": 0.39012758179860096,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412230319770086e-14,
+              "reference_max_abs": 1.453770537848184e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8565852622823533e-09,
+              "reference_discrete_l2": 2.646445091964094e-09,
+              "relative_l2": 0.7015393094381052,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.315570890640135e-11,
+              "reference_max_abs": 5.4842238770234863e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.869200397109687e-10,
+              "reference_discrete_l2": 9.990974414447154e-10,
+              "relative_l2": 0.6875405853483804,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3606756674236213e-11,
+              "reference_max_abs": 1.7921767534431164e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": null,
+      "preliminary_full_far20_all_components_pass": null,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "geometry",
+      "value": "m00065_curved_p5_x350_k224",
+      "reference": "m00065_raster_p5_x350_k224",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.857223720623595e-11,
+              "reference_discrete_l2": 1.819544474020156e-09,
+              "relative_l2": 0.0431823669759696,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.313239938135726e-12,
+              "reference_max_abs": 5.7570047956818235e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2270240614411252e-10,
+              "reference_discrete_l2": 3.2174472346798167e-09,
+              "relative_l2": 0.03813657138539623,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2423362995046415e-11,
+              "reference_max_abs": 4.823953071230529e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8618539863321137e-08,
+              "reference_discrete_l2": 3.7377905274586095e-07,
+              "relative_l2": 0.049811619261554,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590980581091887e-10,
+              "reference_max_abs": 1.2516253646272167e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.6813013628562706e-08,
+              "reference_discrete_l2": 6.598879088153022e-07,
+              "relative_l2": 0.04063267908136118,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.93094730199064e-09,
+              "reference_max_abs": 8.917533992813717e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.700133862970784e-11,
+              "reference_discrete_l2": 1.813320611981323e-09,
+              "relative_l2": 0.042464271415065646,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.313239938135726e-12,
+              "reference_max_abs": 5.7570047956818235e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.530103899426757e-11,
+              "reference_discrete_l2": 2.7596947504637947e-09,
+              "relative_l2": 0.02366241374459732,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.6290913626244443e-12,
+              "reference_max_abs": 9.858507114146837e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8211050546963475e-08,
+              "reference_discrete_l2": 3.723747976676531e-07,
+              "relative_l2": 0.04890516399344769,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590980581091887e-10,
+              "reference_max_abs": 1.2516253646272167e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.5389865329531724e-08,
+              "reference_discrete_l2": 5.696276609615768e-07,
+              "relative_l2": 0.027017412222490052,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.641866951330706e-10,
+              "reference_max_abs": 2.03562007862031e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.483653526021243e-11,
+              "reference_discrete_l2": 1.7934315285792295e-09,
+              "relative_l2": 0.04172812514314306,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.313239938135726e-12,
+              "reference_max_abs": 5.7570047956818235e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.240586957194863e-11,
+              "reference_discrete_l2": 2.690086904053389e-09,
+              "relative_l2": 0.02319845856203242,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.6290913626244443e-12,
+              "reference_max_abs": 8.951797621339767e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.7634175277339608e-08,
+              "reference_discrete_l2": 3.673922553671318e-07,
+              "relative_l2": 0.047998222661819405,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.590980581091887e-10,
+              "reference_max_abs": 1.2516253646272167e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.478537361265258e-08,
+              "reference_discrete_l2": 5.564519107066199e-07,
+              "relative_l2": 0.02657080212713642,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.641866951330706e-10,
+              "reference_max_abs": 2.03562007862031e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 8.009268152247139e-12,
+              "reference_discrete_l2": 1.5165943808250415e-11,
+              "relative_l2": 0.5281087846237451,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7839354528025032e-13,
+              "reference_max_abs": 2.776355948119631e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.1020020453854008e-12,
+              "reference_discrete_l2": 8.058179234808565e-12,
+              "relative_l2": 0.3849507382493825,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412311623906715e-14,
+              "reference_max_abs": 1.453800829686355e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8817808385629703e-09,
+              "reference_discrete_l2": 2.702147603063881e-09,
+              "relative_l2": 0.6964019420809128,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.316314128713681e-11,
+              "reference_max_abs": 5.4833337944064115e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.075204819599233e-10,
+              "reference_discrete_l2": 1.0440174701052616e-09,
+              "relative_l2": 0.6776902707275468,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.361050061020776e-11,
+              "reference_max_abs": 2.1168982876265022e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.965191815874285e-12,
+              "reference_discrete_l2": 1.506400861272245e-11,
+              "relative_l2": 0.5287564565747266,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7839354528025032e-13,
+              "reference_max_abs": 2.776355948119631e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.0489492112234533e-12,
+              "reference_discrete_l2": 7.885915968807401e-12,
+              "relative_l2": 0.3866322217081081,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412311623906715e-14,
+              "reference_max_abs": 1.453800829686355e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8726357007355358e-09,
+              "reference_discrete_l2": 2.679414267268759e-09,
+              "relative_l2": 0.6988974133680318,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.316314128713681e-11,
+              "reference_max_abs": 5.4833337944064115e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.965738360970119e-10,
+              "reference_discrete_l2": 1.0200211708884488e-09,
+              "relative_l2": 0.6829013514398814,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.361050061020776e-11,
+              "reference_max_abs": 1.8868585015096915e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 7.88850289542134e-12,
+              "reference_discrete_l2": 1.4910108419096768e-11,
+              "relative_l2": 0.5290707936984413,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7839354528025032e-13,
+              "reference_max_abs": 2.776355948119631e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.0004353018456114e-12,
+              "reference_discrete_l2": 7.691971347806737e-12,
+              "relative_l2": 0.3900736451262452,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.412311623906715e-14,
+              "reference_max_abs": 1.453800829686355e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.8567826672396286e-09,
+              "reference_discrete_l2": 2.646423807143775e-09,
+              "relative_l2": 0.7016195449222519,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.316314128713681e-11,
+              "reference_max_abs": 5.4833337944064115e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.868465465953957e-10,
+              "reference_discrete_l2": 9.990913865285201e-10,
+              "relative_l2": 0.6874711921818665,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.361050061020776e-11,
+              "reference_max_abs": 1.7917620117520287e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": null,
+      "preliminary_full_far20_all_components_pass": null,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "dt",
+      "value": "m00065_raster_p4_x350_k224",
+      "reference": "m00065_raster_p4_x350_k448",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.4662739556822982e-15,
+              "reference_discrete_l2": 1.8193967329274092e-09,
+              "relative_l2": 1.3555448963097034e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0864661906374804e-16,
+              "reference_max_abs": 5.7570701640399617e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.94192926189158e-15,
+              "reference_discrete_l2": 3.1608177712996662e-09,
+              "relative_l2": 1.2471232279457656e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9110114801405458e-16,
+              "reference_max_abs": 4.4271003507518805e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.679106217894827e-13,
+              "reference_discrete_l2": 3.7375792024753993e-07,
+              "relative_l2": 2.054566820365694e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.6340130545916726e-14,
+              "reference_max_abs": 1.251640908502934e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2326305788327378e-12,
+              "reference_discrete_l2": 6.483089011093263e-07,
+              "relative_l2": 1.9013013344773984e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.738171825142525e-14,
+              "reference_max_abs": 8.232982584453487e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.4653668983370235e-15,
+              "reference_discrete_l2": 1.8133314198027548e-09,
+              "relative_l2": 1.3595787683451675e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0864661906374804e-16,
+              "reference_max_abs": 5.7570701640399617e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.941655717154254e-15,
+              "reference_discrete_l2": 2.759723982511191e-09,
+              "relative_l2": 1.4282789663506758e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9110114801405458e-16,
+              "reference_max_abs": 9.857421953504109e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.675723473730575e-13,
+              "reference_discrete_l2": 3.7237913672405757e-07,
+              "relative_l2": 2.0612657146306457e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.6340130545916726e-14,
+              "reference_max_abs": 1.251640908502934e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.231610080216604e-12,
+              "reference_discrete_l2": 5.696411956196497e-07,
+              "relative_l2": 2.162080428324485e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.738171825142525e-14,
+              "reference_max_abs": 2.0356999285540194e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.464245977032668e-15,
+              "reference_discrete_l2": 1.7934430961068719e-09,
+              "relative_l2": 1.3740307581444573e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0864661906374804e-16,
+              "reference_max_abs": 5.7570701640399617e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.941018101885846e-15,
+              "reference_discrete_l2": 2.6901289811324356e-09,
+              "relative_l2": 1.4649922474077196e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9110114801405458e-16,
+              "reference_max_abs": 8.951955015255938e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.670816495954572e-13,
+              "reference_discrete_l2": 3.673969590359008e-07,
+              "relative_l2": 2.087882413638869e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.6340130545916726e-14,
+              "reference_max_abs": 1.251640908502934e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2312685418473439e-12,
+              "reference_discrete_l2": 5.564686922468461e-07,
+              "relative_l2": 2.2126465675469858e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.738171825142525e-14,
+              "reference_max_abs": 2.0356999285540194e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.190849696541158e-16,
+              "reference_discrete_l2": 1.5165852829440516e-11,
+              "relative_l2": 7.852177585618108e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.384210237767294e-18,
+              "reference_max_abs": 2.7767749862414677e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.3157250608900154e-17,
+              "reference_discrete_l2": 8.058134011370058e-12,
+              "relative_l2": 5.355737512928565e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.609732986063538e-19,
+              "reference_max_abs": 1.453770537848184e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.5573082111542415e-14,
+              "reference_discrete_l2": 2.7021537717926272e-09,
+              "relative_l2": 1.3164714193131573e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.299837288788727e-16,
+              "reference_max_abs": 5.4842238770234863e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.5484048055719457e-14,
+              "reference_discrete_l2": 1.04403265088495e-09,
+              "relative_l2": 2.4409244322118177e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.153081388782977e-16,
+              "reference_max_abs": 2.11771859154797e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.1804842345889024e-16,
+              "reference_discrete_l2": 1.506393975556185e-11,
+              "relative_l2": 7.836490677367775e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.384210237767294e-18,
+              "reference_max_abs": 2.7767749862414677e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.241920049538723e-17,
+              "reference_discrete_l2": 7.885860524298577e-12,
+              "relative_l2": 5.379146684712673e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.609732986063538e-19,
+              "reference_max_abs": 1.453770537848184e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.528261201519739e-14,
+              "reference_discrete_l2": 2.679426770507666e-09,
+              "relative_l2": 1.3167970255261898e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.299837288788727e-16,
+              "reference_max_abs": 5.4842238770234863e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.5192954573260353e-14,
+              "reference_discrete_l2": 1.020031766724949e-09,
+              "relative_l2": 2.469820587465451e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.153081388782977e-16,
+              "reference_max_abs": 1.887328439263067e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.1667337608278657e-16,
+              "reference_discrete_l2": 1.4910067115246186e-11,
+              "relative_l2": 7.82514090519975e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.384210237767294e-18,
+              "reference_max_abs": 2.7767749862414677e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.1725757899714405e-17,
+              "reference_discrete_l2": 7.691908094540712e-12,
+              "relative_l2": 5.424630324084218e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.609732986063538e-19,
+              "reference_max_abs": 1.453770537848184e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.487983470089178e-14,
+              "reference_discrete_l2": 2.646445091964094e-09,
+              "relative_l2": 1.317988225291508e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.299837288788727e-16,
+              "reference_max_abs": 5.4842238770234863e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.4869610367832723e-14,
+              "reference_discrete_l2": 9.990974414447154e-10,
+              "relative_l2": 2.489207692482002e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.153081388782977e-16,
+              "reference_max_abs": 1.7921767534431164e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.001,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "p",
+      "value": "m00065_raster_p4_x350_k224",
+      "reference": "m00065_raster_p5_x350_k224",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.5734721658090683e-12,
+              "reference_discrete_l2": 1.819544474020156e-09,
+              "relative_l2": 0.001963937796977137,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.015157847843446e-13,
+              "reference_max_abs": 5.7570047956818235e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.304961376365972e-10,
+              "reference_discrete_l2": 3.2174472346798167e-09,
+              "relative_l2": 0.04055890528056585,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.085601292502419e-11,
+              "reference_max_abs": 4.823953071230529e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.560591178989709e-10,
+              "reference_discrete_l2": 3.7377905274586095e-07,
+              "relative_l2": 0.002022743415782128,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.4706212461993528e-10,
+              "reference_max_abs": 1.2516253646272167e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.7516468146789817e-08,
+              "reference_discrete_l2": 6.598879088153022e-07,
+              "relative_l2": 0.041698700308345056,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.469701321483878e-09,
+              "reference_max_abs": 8.917533992813717e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 6.548754554744484e-14,
+              "reference_discrete_l2": 1.813320611981323e-09,
+              "relative_l2": 3.611470862612097e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.6576465308198e-15,
+              "reference_max_abs": 5.7570047956818235e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5532270340157436e-13,
+              "reference_discrete_l2": 2.7596947504637947e-09,
+              "relative_l2": 5.628256653221187e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.874146112916682e-14,
+              "reference_max_abs": 9.858507114146837e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.6689436005756822e-11,
+              "reference_discrete_l2": 3.723747976676531e-07,
+              "relative_l2": 4.4818919299292245e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5668966527903559e-12,
+              "reference_max_abs": 1.2516253646272167e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.949898356239509e-11,
+              "reference_discrete_l2": 5.696276609615768e-07,
+              "relative_l2": 6.93417582561171e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.520011605777641e-12,
+              "reference_max_abs": 2.03562007862031e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 5.057462056425584e-14,
+              "reference_discrete_l2": 1.7934315285792295e-09,
+              "relative_l2": 2.8199917174602954e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.0059522878921085e-15,
+              "reference_max_abs": 5.7570047956818235e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 8.577106794224148e-14,
+              "reference_discrete_l2": 2.690086904053389e-09,
+              "relative_l2": 3.1884125309484504e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.585444050792322e-15,
+              "reference_max_abs": 8.951797621339767e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4217962791960012e-11,
+              "reference_discrete_l2": 3.673922553671318e-07,
+              "relative_l2": 3.8699680203525595e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.3358712634043563e-13,
+              "reference_max_abs": 1.2516253646272167e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.875692576294193e-11,
+              "reference_discrete_l2": 5.564519107066199e-07,
+              "relative_l2": 5.167908530752362e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.911948649483229e-13,
+              "reference_max_abs": 2.03562007862031e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.0967711874331733e-14,
+              "reference_discrete_l2": 1.5165943808250415e-11,
+              "relative_l2": 0.0007231803053605668,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.0860759660587043e-16,
+              "reference_max_abs": 2.776355948119631e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.2373706648643936e-15,
+              "reference_discrete_l2": 8.058179234808565e-12,
+              "relative_l2": 0.000525847159934146,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.874292251437916e-17,
+              "reference_max_abs": 1.453800829686355e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.7026169941604053e-12,
+              "reference_discrete_l2": 2.702147603063881e-09,
+              "relative_l2": 0.0010001737103835454,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.517501739925599e-14,
+              "reference_max_abs": 5.4833337944064115e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0144748890948295e-12,
+              "reference_discrete_l2": 1.0440174701052616e-09,
+              "relative_l2": 0.0009717029821278244,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.961130632551527e-14,
+              "reference_max_abs": 2.1168982876265022e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.082568008639641e-14,
+              "reference_discrete_l2": 1.506400861272245e-11,
+              "relative_l2": 0.0007186453728693093,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.0860759660587043e-16,
+              "reference_max_abs": 2.776355948119631e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.141842665341778e-15,
+              "reference_discrete_l2": 7.885915968807401e-12,
+              "relative_l2": 0.0005252202384256644,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.874292251437916e-17,
+              "reference_max_abs": 1.453800829686355e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.667948271489649e-12,
+              "reference_discrete_l2": 2.679414267268759e-09,
+              "relative_l2": 0.0009957207080968492,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.517501739925599e-14,
+              "reference_max_abs": 5.4833337944064115e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.938322153430883e-13,
+              "reference_discrete_l2": 1.0200211708884488e-09,
+              "relative_l2": 0.0009743250862895819,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9572097912955144e-14,
+              "reference_max_abs": 1.8868585015096915e-11
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.0601088832988356e-14,
+              "reference_discrete_l2": 1.4910108419096768e-11,
+              "relative_l2": 0.0007110001171695406,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.0860759660587043e-16,
+              "reference_max_abs": 2.776355948119631e-13
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 4.046246185031278e-15,
+              "reference_discrete_l2": 7.691971347806737e-12,
+              "relative_l2": 0.0005260350048216198,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.874292251437916e-17,
+              "reference_max_abs": 1.453800829686355e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.614128050572385e-12,
+              "reference_discrete_l2": 2.646423807143775e-09,
+              "relative_l2": 0.0009877964532800036,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.439185286638438e-14,
+              "reference_max_abs": 5.4833337944064115e-11
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.735826649767368e-13,
+              "reference_discrete_l2": 9.990913865285201e-10,
+              "relative_l2": 0.0009744680798015716,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.8985492342690145e-14,
+              "reference_max_abs": 1.7917620117520287e-11
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.01,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "geometry",
+      "value": "m12404_curved_p4_x350_k128",
+      "reference": "m12404_raster_p4_x350_k128",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.0052085602057355e-11,
+              "reference_discrete_l2": 2.4957367923118597e-09,
+              "relative_l2": 0.016048200966319114,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.919577916515511e-13,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.3691891197190004e-11,
+              "reference_discrete_l2": 3.988221203406351e-09,
+              "relative_l2": 0.008447849173564812,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.588139094775567e-13,
+              "reference_max_abs": 5.62542425691802e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.490739662200276e-09,
+              "reference_discrete_l2": 5.307263868785444e-07,
+              "relative_l2": 0.017882547197285315,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4770384733789675e-10,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 8.038439297849683e-09,
+              "reference_discrete_l2": 8.387364077804998e-07,
+              "relative_l2": 0.009583987559478126,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9844159249607092e-10,
+              "reference_max_abs": 1.04616978197702e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.9645296225748865e-11,
+              "reference_discrete_l2": 2.4762574315249457e-09,
+              "relative_l2": 0.016010167489465838,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.919577916515511e-13,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.322899809059331e-11,
+              "reference_discrete_l2": 3.476324559254528e-09,
+              "relative_l2": 0.009558658152942722,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.588139094775567e-13,
+              "reference_max_abs": 1.2073824727324404e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.385374198658266e-09,
+              "reference_discrete_l2": 5.266438048010702e-07,
+              "relative_l2": 0.017821104346235336,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4770384733789675e-10,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.927369800569344e-09,
+              "reference_discrete_l2": 7.413726229281414e-07,
+              "relative_l2": 0.01069282781074277,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9844159249607092e-10,
+              "reference_max_abs": 2.3463986495935216e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.917743832380403e-11,
+              "reference_discrete_l2": 2.4347709182329365e-09,
+              "relative_l2": 0.01609081085634024,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.919577916515511e-13,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.242665068651142e-11,
+              "reference_discrete_l2": 3.3959060724430057e-09,
+              "relative_l2": 0.009548747814212591,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.588139094775567e-13,
+              "reference_max_abs": 9.449994692127784e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.278122058309612e-09,
+              "reference_discrete_l2": 5.177990624045576e-07,
+              "relative_l2": 0.01791838327250696,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4770384733789675e-10,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.729788007597838e-09,
+              "reference_discrete_l2": 7.270986775975495e-07,
+              "relative_l2": 0.010631002703977259,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9844159249607092e-10,
+              "reference_max_abs": 2.0629198795441708e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.3249111193864547e-11,
+              "reference_discrete_l2": 3.434089290639661e-11,
+              "relative_l2": 0.677009513329631,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.919577916515511e-13,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.6134877581120554e-11,
+              "reference_discrete_l2": 2.424715871656407e-11,
+              "relative_l2": 0.6654337429687489,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.199837179943526e-13,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.48896591215934e-09,
+              "reference_discrete_l2": 5.346541775773335e-09,
+              "relative_l2": 1.0266385529860382,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4770384733789675e-10,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.927680845484028e-09,
+              "reference_discrete_l2": 3.2930614919391136e-09,
+              "relative_l2": 1.1927140914612013,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5156045952373915e-10,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.3051645751617774e-11,
+              "reference_discrete_l2": 3.4130373993393857e-11,
+              "relative_l2": 0.6753997408900225,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.919577916515511e-13,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5815631078457734e-11,
+              "reference_discrete_l2": 2.375503510942028e-11,
+              "relative_l2": 0.6657801601053369,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.199837179943526e-13,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.447426653709643e-09,
+              "reference_discrete_l2": 5.310620790067524e-09,
+              "relative_l2": 1.0257608044426723,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4770384733789675e-10,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.825974870634201e-09,
+              "reference_discrete_l2": 3.253092642773116e-09,
+              "relative_l2": 1.17610387737766,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5156045952373915e-10,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.281541740322268e-11,
+              "reference_discrete_l2": 3.3778095058127705e-11,
+              "relative_l2": 0.6754500916632603,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.919577916515511e-13,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5472830719448168e-11,
+              "reference_discrete_l2": 2.3009627365263773e-11,
+              "relative_l2": 0.6724502954274937,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.199837179943526e-13,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.393889039120518e-09,
+              "reference_discrete_l2": 5.245615731484455e-09,
+              "relative_l2": 1.0282661398062614,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4770384733789675e-10,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.7146955308521608e-09,
+              "reference_discrete_l2": 3.184055565807357e-09,
+              "relative_l2": 1.1666553720805601,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5156045952373915e-10,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": null,
+      "preliminary_full_far20_all_components_pass": null,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "dt",
+      "value": "m12404_curved_p4_x350_k64",
+      "reference": "m12404_curved_p4_x350_k128",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.521257576351737e-14,
+              "reference_discrete_l2": 2.496102980569654e-09,
+              "relative_l2": 1.811326540429797e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.8871546940775887e-15,
+              "reference_max_abs": 7.553531941877105e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.497365971239872e-14,
+              "reference_discrete_l2": 3.988490242325909e-09,
+              "relative_l2": 1.6290289248522518e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9942437812042037e-15,
+              "reference_max_abs": 5.625424256918018e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.41789505942514e-11,
+              "reference_discrete_l2": 5.30802813124937e-07,
+              "relative_l2": 2.6712274772579338e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507073641443638e-13,
+              "reference_max_abs": 1.4388314444039384e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.0398358757344746e-11,
+              "reference_discrete_l2": 8.387976663440103e-07,
+              "relative_l2": 2.4318568798901388e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.728460099267045e-13,
+              "reference_max_abs": 1.0461697819770362e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.520862884797943e-14,
+              "reference_discrete_l2": 2.476623589008088e-09,
+              "relative_l2": 1.8254138032370888e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.8871546940775887e-15,
+              "reference_max_abs": 7.553531941877105e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.49656650462636e-14,
+              "reference_discrete_l2": 3.4766230270944292e-09,
+              "relative_l2": 1.8686427760492152e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9942437812042037e-15,
+              "reference_max_abs": 1.2073824727324463e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.417680083482e-11,
+              "reference_discrete_l2": 5.267198933403998e-07,
+              "relative_l2": 2.6915256123918697e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507073641443638e-13,
+              "reference_max_abs": 1.4388314444039384e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.038219240982418e-11,
+              "reference_discrete_l2": 7.414394868292662e-07,
+              "relative_l2": 2.7490028211186513e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.728460099267045e-13,
+              "reference_max_abs": 2.3463986495934624e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.5200925998134827e-14,
+              "reference_discrete_l2": 2.4351328682289755e-09,
+              "relative_l2": 1.856199576945819e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.8871546940775887e-15,
+              "reference_max_abs": 7.553531941877105e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.49516739401682e-14,
+              "reference_discrete_l2": 3.3961962931258847e-09,
+              "relative_l2": 1.912482917186927e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9942437812042037e-15,
+              "reference_max_abs": 9.449994692132176e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4172829497756864e-11,
+              "reference_discrete_l2": 5.178743875006567e-07,
+              "relative_l2": 2.7367311146931148e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507073641443638e-13,
+              "reference_max_abs": 1.4388314444039384e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.03759267367411e-11,
+              "reference_discrete_l2": 7.271629882674974e-07,
+              "relative_l2": 2.802112740265807e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.728460099267045e-13,
+              "reference_max_abs": 2.062919897439273e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.58147550856446e-15,
+              "reference_discrete_l2": 4.352464763207291e-11,
+              "relative_l2": 8.228614597502919e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9094382160702405e-16,
+              "reference_max_abs": 2.184290045680898e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 2.8600086607155205e-15,
+              "reference_discrete_l2": 2.967863780633326e-11,
+              "relative_l2": 9.636590059754057e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.2685071528203823e-16,
+              "reference_max_abs": 1.4025383532747073e-12
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0548071896282774e-12,
+              "reference_discrete_l2": 7.790762853165436e-09,
+              "relative_l2": 0.00013539202893330304,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.280974129228834e-14,
+              "reference_max_abs": 3.706572253246008e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 8.888973695845239e-13,
+              "reference_discrete_l2": 5.194390432861072e-09,
+              "relative_l2": 0.0001711264066638362,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.271084684853427e-14,
+              "reference_max_abs": 2.4084247048800436e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.562828624296333e-15,
+              "reference_discrete_l2": 4.3322660204443733e-11,
+              "relative_l2": 8.223937790253432e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9094382160702405e-16,
+              "reference_max_abs": 2.184290045680898e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 2.7613773206935874e-15,
+              "reference_discrete_l2": 2.9069786894418853e-11,
+              "relative_l2": 9.499131626670948e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.2685071528203823e-16,
+              "reference_max_abs": 1.4025383532747073e-12
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0476747649656946e-12,
+              "reference_discrete_l2": 7.754882860921812e-09,
+              "relative_l2": 0.000135098722154155,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.280974129228834e-14,
+              "reference_max_abs": 3.706572253246008e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 8.518237661546732e-13,
+              "reference_discrete_l2": 5.093863901688561e-09,
+              "relative_l2": 0.00016722546628548574,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.271084684853427e-14,
+              "reference_max_abs": 2.4084247048800436e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.5363098519564737e-15,
+              "reference_discrete_l2": 4.298579619240831e-11,
+              "relative_l2": 8.226693850516647e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9094382160702405e-16,
+              "reference_max_abs": 2.184290045680898e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 2.6326992229055626e-15,
+              "reference_discrete_l2": 2.8263465779112544e-11,
+              "relative_l2": 9.314849224369354e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.2685071528203823e-16,
+              "reference_max_abs": 1.4025383532747073e-12
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0382715564312253e-12,
+              "reference_discrete_l2": 7.697036031899326e-09,
+              "relative_l2": 0.0001348923861247692,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.280974129228834e-14,
+              "reference_max_abs": 3.706572253246008e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 8.026595049000631e-13,
+              "reference_discrete_l2": 4.963484077405249e-09,
+              "relative_l2": 0.00016171292027588571,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.1437118815633253e-14,
+              "reference_max_abs": 2.4084247048800436e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.001,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "p",
+      "value": "m12404_curved_p4_x350_k64",
+      "reference": "m12404_curved_p5_x350_k64",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5361672677187963e-12,
+              "reference_discrete_l2": 2.4959731941762963e-09,
+              "relative_l2": 0.0006154582394166102,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.4331700316759534e-13,
+              "reference_max_abs": 7.553528765280005e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.6330428677686727e-10,
+              "reference_discrete_l2": 4.060399303062387e-09,
+              "relative_l2": 0.04021877519624777,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.1640690761918556e-11,
+              "reference_max_abs": 6.126291515038362e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.2269606910623094e-10,
+              "reference_discrete_l2": 5.307793711554847e-07,
+              "relative_l2": 0.0006079664859689911,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.257753700664492e-11,
+              "reference_max_abs": 1.4388284985020295e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.442961988138374e-08,
+              "reference_discrete_l2": 8.532494824207597e-07,
+              "relative_l2": 0.04035117581753843,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.440578316283085e-09,
+              "reference_max_abs": 1.132676309160528e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.6537429462384238e-14,
+              "reference_discrete_l2": 2.4766232563061668e-09,
+              "relative_l2": 6.67741022792844e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5192072781607868e-15,
+              "reference_max_abs": 7.553528765280005e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 9.520924246380479e-14,
+              "reference_discrete_l2": 3.4765844232144105e-09,
+              "relative_l2": 2.7385856597658978e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.572584988249316e-15,
+              "reference_max_abs": 1.2074038250221776e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.860034604527332e-12,
+              "reference_discrete_l2": 5.267187560427603e-07,
+              "relative_l2": 1.3024094027079641e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.961921908886902e-13,
+              "reference_max_abs": 1.4388284985020295e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.218504478711943e-11,
+              "reference_discrete_l2": 7.414215448058699e-07,
+              "relative_l2": 4.3409913041502725e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.0004900625209e-12,
+              "reference_max_abs": 2.346509344733213e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.4950564647413773e-14,
+              "reference_discrete_l2": 2.4351323778616077e-09,
+              "relative_l2": 6.139528505034495e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.341832834401252e-16,
+              "reference_max_abs": 7.553528765280005e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 8.495601625745861e-14,
+              "reference_discrete_l2": 3.3961534971345785e-09,
+              "relative_l2": 2.5015364096215963e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.492175271110027e-15,
+              "reference_max_abs": 9.449803142026589e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.68480129501932e-12,
+              "reference_discrete_l2": 5.178731731858632e-07,
+              "relative_l2": 1.2908182236773566e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.961921908886902e-13,
+              "reference_max_abs": 1.4388284985020295e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.070027243874936e-11,
+              "reference_discrete_l2": 7.271441552163878e-07,
+              "relative_l2": 4.222033859243962e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.220538657560748e-13,
+              "reference_max_abs": 2.062835112091514e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.9687993542259055e-15,
+              "reference_discrete_l2": 4.3524634730812793e-11,
+              "relative_l2": 6.820963283407354e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.1044115016743737e-16,
+              "reference_max_abs": 2.184283417521327e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 2.373512389170188e-15,
+              "reference_discrete_l2": 2.9678582900662734e-11,
+              "relative_l2": 7.997391240392366e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.2003937788358676e-16,
+              "reference_max_abs": 1.4025097260053747e-12
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4574889653599143e-12,
+              "reference_discrete_l2": 7.790765108553055e-09,
+              "relative_l2": 0.00018707905386080974,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.409383628258306e-14,
+              "reference_max_abs": 3.706672245269396e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0872429199113577e-12,
+              "reference_discrete_l2": 5.194354019363216e-09,
+              "relative_l2": 0.00020931244113481595,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.474065406797469e-14,
+              "reference_max_abs": 2.4083122174047103e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.940025456167563e-15,
+              "reference_discrete_l2": 4.3322647982847785e-11,
+              "relative_l2": 6.78634754120194e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.1044115016743737e-16,
+              "reference_max_abs": 2.184283417521327e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 2.250043442351794e-15,
+              "reference_discrete_l2": 2.9069732150527303e-11,
+              "relative_l2": 7.740158838412206e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.1989260995552953e-16,
+              "reference_max_abs": 1.4025097260053747e-12
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4434353230039682e-12,
+              "reference_discrete_l2": 7.754885294564128e-09,
+              "relative_l2": 0.0001861323885752069,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.409383628258306e-14,
+              "reference_max_abs": 3.706672245269396e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0309544176668624e-12,
+              "reference_discrete_l2": 5.093827832527807e-09,
+              "relative_l2": 0.0002023928667324534,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.198651882365368e-14,
+              "reference_max_abs": 2.4083122174047103e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.8897520326813513e-15,
+              "reference_discrete_l2": 4.298578257820775e-11,
+              "relative_l2": 6.722576301649913e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.1044115016743737e-16,
+              "reference_max_abs": 2.184283417521327e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 2.087109207533185e-15,
+              "reference_discrete_l2": 2.826341263677887e-11,
+              "relative_l2": 7.384491159490246e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.1661524803628458e-16,
+              "reference_max_abs": 1.4025097260053747e-12
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4197551279826158e-12,
+              "reference_discrete_l2": 7.697036923308123e-09,
+              "relative_l2": 0.00018445476384338518,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.409383628258306e-14,
+              "reference_max_abs": 3.706672245269396e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.566001026799368e-13,
+              "reference_discrete_l2": 4.963449662317832e-09,
+              "relative_l2": 0.00019272888167726953,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.09552089369309e-14,
+              "reference_max_abs": 2.4083122174047103e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.01,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "geometry",
+      "value": "m12404_curved_p4_x350_k64",
+      "reference": "m12404_raster_p4_x350_k64",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.0052075944697505e-11,
+              "reference_discrete_l2": 2.495736777936085e-09,
+              "relative_l2": 0.01604819718921625,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91924048380881e-13,
+              "reference_max_abs": 7.553531918845361e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.369188137393844e-11,
+              "reference_discrete_l2": 3.9882212387010976e-09,
+              "relative_l2": 0.008447846635737633,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.587977053870235e-13,
+              "reference_max_abs": 5.625424677886297e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.490715917182163e-09,
+              "reference_discrete_l2": 5.307253743077532e-07,
+              "relative_l2": 0.01788253657470456,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.47717997752625e-10,
+              "reference_max_abs": 1.4388306234355394e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 8.038418213554858e-09,
+              "reference_discrete_l2": 8.387348417565725e-07,
+              "relative_l2": 0.009583980315781209,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.984447820577608e-10,
+              "reference_max_abs": 1.0461677055536772e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.96452868551702e-11,
+              "reference_discrete_l2": 2.4762574172093862e-09,
+              "relative_l2": 0.016010163797852802,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91924048380881e-13,
+              "reference_max_abs": 7.553531918845361e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.3228988568292916e-11,
+              "reference_discrete_l2": 3.4763245193261742e-09,
+              "relative_l2": 0.009558655523545248,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.587977053870235e-13,
+              "reference_max_abs": 1.2073824071206394e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.385350837319291e-09,
+              "reference_discrete_l2": 5.266428000595699e-07,
+              "relative_l2": 0.01782109398677375,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.47717997752625e-10,
+              "reference_max_abs": 1.4388306234355394e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.927349155071047e-09,
+              "reference_discrete_l2": 7.413711960460196e-07,
+              "relative_l2": 0.010692820543002277,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.984447820577608e-10,
+              "reference_max_abs": 2.3463946507035272e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.917742903208636e-11,
+              "reference_discrete_l2": 2.4347709055989926e-09,
+              "relative_l2": 0.016090807123575385,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91924048380881e-13,
+              "reference_max_abs": 7.553531918845361e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.2426641597066706e-11,
+              "reference_discrete_l2": 3.3959060160577285e-09,
+              "relative_l2": 0.00954874529617002,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.587977053870235e-13,
+              "reference_max_abs": 9.449989376152026e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.278098948627302e-09,
+              "reference_discrete_l2": 5.177980756647678e-07,
+              "relative_l2": 0.01791837278791688,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.47717997752625e-10,
+              "reference_max_abs": 1.4388306234355394e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.729768018117862e-09,
+              "reference_discrete_l2": 7.270972685645653e-07,
+              "relative_l2": 0.01063099581350094,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.984447820577608e-10,
+              "reference_max_abs": 2.062914918964328e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.324902739279891e-11,
+              "reference_discrete_l2": 3.43408490038099e-11,
+              "relative_l2": 0.6770079385695904,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91924048380881e-13,
+              "reference_max_abs": 1.337395511126348e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.61348683766805e-11,
+              "reference_discrete_l2": 2.4247158817968704e-11,
+              "relative_l2": 0.6654333605768081,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.199928256730096e-13,
+              "reference_max_abs": 8.053299560524403e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.488932769565841e-09,
+              "reference_discrete_l2": 5.346528038935629e-09,
+              "relative_l2": 1.026634991828933,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.47717997752625e-10,
+              "reference_max_abs": 1.9584258962083977e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.9276687867958755e-09,
+              "reference_discrete_l2": 3.2930575636041398e-09,
+              "relative_l2": 1.192711852415108,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.515686305056288e-10,
+              "reference_max_abs": 1.0351963480313047e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.3051561220904735e-11,
+              "reference_discrete_l2": 3.413032980618655e-11,
+              "relative_l2": 0.6753981386000657,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91924048380881e-13,
+              "reference_max_abs": 1.337395511126348e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5815622498735047e-11,
+              "reference_discrete_l2": 2.3755035190426868e-11,
+              "relative_l2": 0.6657797966600633,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.199928256730096e-13,
+              "reference_max_abs": 8.053299560524403e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.4473934108848535e-09,
+              "reference_discrete_l2": 5.310607048931768e-09,
+              "relative_l2": 1.0257571988838075,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.47717997752625e-10,
+              "reference_max_abs": 1.9584258962083977e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.825963438677547e-09,
+              "reference_discrete_l2": 3.253088741106549e-09,
+              "relative_l2": 1.1761017737795045,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.515686305056288e-10,
+              "reference_max_abs": 1.0351963480313047e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.281533216403487e-11,
+              "reference_discrete_l2": 3.377805048001079e-11,
+              "relative_l2": 0.6754484595710032,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91924048380881e-13,
+              "reference_max_abs": 1.337395511126348e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5472822848524105e-11,
+              "reference_discrete_l2": 2.3009627481363764e-11,
+              "relative_l2": 0.6724499499635985,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.199928256730096e-13,
+              "reference_max_abs": 8.053299560524403e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.393855806536421e-09,
+              "reference_discrete_l2": 5.245601956666354e-09,
+              "relative_l2": 1.0282625046838825,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.47717997752625e-10,
+              "reference_max_abs": 1.9584258962083977e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.714684798249265e-09,
+              "reference_discrete_l2": 3.184051712751233e-09,
+              "relative_l2": 1.1666534131254827,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.515686305056288e-10,
+              "reference_max_abs": 1.0351963480313047e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": null,
+      "preliminary_full_far20_all_components_pass": null,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "geometry",
+      "value": "m12404_curved_p5_x350_k64",
+      "reference": "m12404_raster_p5_x350_k64",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.005253482173108e-11,
+              "reference_discrete_l2": 2.4956069936946984e-09,
+              "relative_l2": 0.01604921565091227,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91983133893821e-13,
+              "reference_max_abs": 7.553528765274582e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.3691476773785045e-11,
+              "reference_discrete_l2": 4.060135028849767e-09,
+              "relative_l2": 0.00829811731245052,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.587607477820359e-13,
+              "reference_max_abs": 6.126291515038361e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.490943664308183e-09,
+              "reference_discrete_l2": 5.307029421741804e-07,
+              "relative_l2": 0.01788372158900372,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4768859577417177e-10,
+              "reference_max_abs": 1.4388284984980424e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 8.038385974433306e-09,
+              "reference_discrete_l2": 8.531892612859359e-07,
+              "relative_l2": 0.009421574249912341,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9844957490579694e-10,
+              "reference_max_abs": 1.1326763091605291e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.9645748659333396e-11,
+              "reference_discrete_l2": 2.476257105957605e-09,
+              "relative_l2": 0.01601035230305853,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91983133893821e-13,
+              "reference_max_abs": 7.553528765274582e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.322857929337713e-11,
+              "reference_discrete_l2": 3.476285952423005e-09,
+              "relative_l2": 0.00955864383659707,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.587607477820359e-13,
+              "reference_max_abs": 1.2074038250225193e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.385578517889199e-09,
+              "reference_discrete_l2": 5.266426680272309e-07,
+              "relative_l2": 0.0178215307792036,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4768859577417177e-10,
+              "reference_max_abs": 1.4388284984980424e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.927313413774249e-09,
+              "reference_discrete_l2": 7.413546790938849e-07,
+              "relative_l2": 0.010693010562047505,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9844957490579694e-10,
+              "reference_max_abs": 2.3465093447337305e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 3.9177894623173284e-11,
+              "reference_discrete_l2": 2.434770435479783e-09,
+              "relative_l2": 0.01609100145634596,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91983133893821e-13,
+              "reference_max_abs": 7.553528765274582e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.2426223021602315e-11,
+              "reference_discrete_l2": 3.3958632739118783e-09,
+              "relative_l2": 0.00954874222137006,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.587607477820359e-13,
+              "reference_max_abs": 9.449803142087535e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 9.27832696258969e-09,
+              "reference_discrete_l2": 5.17797848718638e-07,
+              "relative_l2": 0.017918820994622105,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4768859577417177e-10,
+              "reference_max_abs": 1.4388284984980424e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 7.729726123157221e-09,
+              "reference_discrete_l2": 7.27079842746308e-07,
+              "relative_l2": 0.01063119298419922,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.9844957490579694e-10,
+              "reference_max_abs": 2.0628351070342676e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.3249476322696836e-11,
+              "reference_discrete_l2": 3.434072186174432e-11,
+              "relative_l2": 0.6770235179184405,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91983133893821e-13,
+              "reference_max_abs": 1.337367440137053e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.6134814532098314e-11,
+              "reference_discrete_l2": 2.4247057856408116e-11,
+              "relative_l2": 0.6654339106892565,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.19940538207083e-13,
+              "reference_max_abs": 8.053296978352718e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.489103827249022e-09,
+              "reference_discrete_l2": 5.346464615687362e-09,
+              "relative_l2": 1.0266791649837417,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4768859577417177e-10,
+              "reference_max_abs": 1.9586300240580878e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.927680788399874e-09,
+              "reference_discrete_l2": 3.29299206593057e-09,
+              "relative_l2": 1.1927392200654898,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.515498422960724e-10,
+              "reference_max_abs": 1.0354825355866484e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.30520125006006e-11,
+              "reference_discrete_l2": 3.413019982784784e-11,
+              "relative_l2": 0.6754139330233802,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91983133893821e-13,
+              "reference_max_abs": 1.337367440137053e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.581555859865573e-11,
+              "reference_discrete_l2": 2.3754938465742964e-11,
+              "relative_l2": 0.6657798175930185,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.19940538207083e-13,
+              "reference_max_abs": 8.053296978352718e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.447565519656409e-09,
+              "reference_discrete_l2": 5.31054306714966e-09,
+              "relative_l2": 1.0258019661594222,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4768859577417177e-10,
+              "reference_max_abs": 1.9586300240580878e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.82597043010989e-09,
+              "reference_discrete_l2": 3.2530240535391093e-09,
+              "relative_l2": 1.1761273102015484,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.515498422960724e-10,
+              "reference_max_abs": 1.0354825355866484e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.2815790293442395e-11,
+              "reference_discrete_l2": 3.377792790622336e-11,
+              "relative_l2": 0.6754644736286128,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.91983133893821e-13,
+              "reference_max_abs": 1.337367440137053e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.54727423363918e-11,
+              "reference_discrete_l2": 2.3009531795339268e-11,
+              "relative_l2": 0.6724492472952408,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.19940538207083e-13,
+              "reference_max_abs": 8.053296978352718e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 5.3940305272460605e-09,
+              "reference_discrete_l2": 5.245540544728013e-09,
+              "relative_l2": 1.0283078514505595,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.4768859577417177e-10,
+              "reference_max_abs": 1.9586300240580878e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.7146838250330684e-09,
+              "reference_discrete_l2": 3.1839843989179817e-09,
+              "relative_l2": 1.1666777721321233,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.515498422960724e-10,
+              "reference_max_abs": 1.0354825355866484e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": null,
+      "preliminary_full_far20_all_components_pass": null,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "dt",
+      "value": "m12404_raster_p4_x350_k64",
+      "reference": "m12404_raster_p4_x350_k128",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.507620491594512e-14,
+              "reference_discrete_l2": 2.4957367923118597e-09,
+              "relative_l2": 1.8061281564146824e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.886322294721159e-15,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.488332796785787e-14,
+              "reference_discrete_l2": 3.988221203406351e-09,
+              "relative_l2": 1.6268738532466764e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9950314181862524e-15,
+              "reference_max_abs": 5.62542425691802e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4139492622607934e-11,
+              "reference_discrete_l2": 5.307263868785444e-07,
+              "relative_l2": 2.6641774315705404e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507767296761561e-13,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.0370110091547606e-11,
+              "reference_discrete_l2": 8.387364077804998e-07,
+              "relative_l2": 2.4286664919497013e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.731887102721501e-13,
+              "reference_max_abs": 1.04616978197702e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.507456143935498e-14,
+              "reference_discrete_l2": 2.4762574315249457e-09,
+              "relative_l2": 1.820269607897627e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.886322294721159e-15,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.488007768359437e-14,
+              "reference_discrete_l2": 3.476324559254528e-09,
+              "relative_l2": 1.866341205422644e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9950314181862524e-15,
+              "reference_max_abs": 1.2073824727324404e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4138316458676015e-11,
+              "reference_discrete_l2": 5.266438048010702e-07,
+              "relative_l2": 2.684607001883654e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507767296761561e-13,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.035569341836383e-11,
+              "reference_discrete_l2": 7.413726229281414e-07,
+              "relative_l2": 2.7456764370346643e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.731887102721501e-13,
+              "reference_max_abs": 2.3463986495935216e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.506903332989849e-14,
+              "reference_discrete_l2": 2.4347709182329365e-09,
+              "relative_l2": 1.8510584709385253e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.886322294721159e-15,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.487305651383995e-14,
+              "reference_discrete_l2": 3.3959060724430057e-09,
+              "relative_l2": 1.910331296859764e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9950314181862524e-15,
+              "reference_max_abs": 9.449994692127784e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4135109951084428e-11,
+              "reference_discrete_l2": 5.177990624045576e-07,
+              "relative_l2": 2.729844640012236e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507767296761561e-13,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.0351964849599604e-11,
+              "reference_discrete_l2": 7.270986775975495e-07,
+              "relative_l2": 2.7990650343149784e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.731887102721501e-13,
+              "reference_max_abs": 2.0629198795441708e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.1202246894905926e-15,
+              "reference_discrete_l2": 3.434089290639661e-11,
+              "relative_l2": 6.17405230338569e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.112951475507695e-17,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2961864911806979e-15,
+              "reference_discrete_l2": 2.424715871656407e-11,
+              "relative_l2": 5.345725271700507e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2266438098343384e-17,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.182973620467343e-13,
+              "reference_discrete_l2": 5.346541775773335e-09,
+              "relative_l2": 0.00011564435255110346,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.821311634497213e-14,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.530146746732724e-13,
+              "reference_discrete_l2": 3.2930614919391136e-09,
+              "relative_l2": 0.00010719953925470135,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.226460642121884e-15,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.104446074766218e-15,
+              "reference_discrete_l2": 3.4130373993393857e-11,
+              "relative_l2": 6.165903939914477e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.112951475507695e-17,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2808681421986841e-15,
+              "reference_discrete_l2": 2.375503510942028e-11,
+              "relative_l2": 5.391985893932626e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2266438098343384e-17,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.13214388584347e-13,
+              "reference_discrete_l2": 5.310620790067524e-09,
+              "relative_l2": 0.00011546943621567642,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.821311634497213e-14,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.485191621868083e-13,
+              "reference_discrete_l2": 3.253092642773116e-09,
+              "relative_l2": 0.00010713471777726911,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.226460642121884e-15,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.079039190148476e-15,
+              "reference_discrete_l2": 3.3778095058127705e-11,
+              "relative_l2": 6.154992419112801e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.112951475507695e-17,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2585035375596901e-15,
+              "reference_discrete_l2": 2.3009627365263773e-11,
+              "relative_l2": 5.469465096421231e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2266438098343384e-17,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.059945967892476e-13,
+              "reference_discrete_l2": 5.245615731484455e-09,
+              "relative_l2": 0.0001155240162088193,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.821311634497213e-14,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.423665089013979e-13,
+              "reference_discrete_l2": 3.184055565807357e-09,
+              "relative_l2": 0.00010752529339562156,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.226460642121884e-15,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.001,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    },
+    {
+      "comparison": "p",
+      "value": "m12404_raster_p4_x350_k64",
+      "reference": "m12404_raster_p5_x350_k64",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5361757618290555e-12,
+              "reference_discrete_l2": 2.4956069936946984e-09,
+              "relative_l2": 0.0006155519541780001,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.4331700316780214e-13,
+              "reference_max_abs": 7.553528765274582e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.633042868566811e-10,
+              "reference_discrete_l2": 4.060135028849767e-09,
+              "relative_l2": 0.040221393056216914,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.164069076191783e-11,
+              "reference_max_abs": 6.126291515038361e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.2269579568632707e-10,
+              "reference_discrete_l2": 5.307029421741804e-07,
+              "relative_l2": 0.0006080535268267197,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.25775370073199e-11,
+              "reference_max_abs": 1.4388284984980424e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.4429619898032734e-08,
+              "reference_discrete_l2": 8.531892612859359e-07,
+              "relative_l2": 0.040354023966663675,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.440578316277486e-09,
+              "reference_max_abs": 1.1326763091605291e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.7297234382422382e-14,
+              "reference_discrete_l2": 2.476257105957605e-09,
+              "relative_l2": 6.985233617626828e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.5192072784620938e-15,
+              "reference_max_abs": 7.553528765274582e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 9.534080344217242e-14,
+              "reference_discrete_l2": 3.476285952423005e-09,
+              "relative_l2": 2.742605319211987e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.572584988494885e-15,
+              "reference_max_abs": 1.2074038250225193e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.847250370700455e-12,
+              "reference_discrete_l2": 5.266426680272309e-07,
+              "relative_l2": 1.3001700747776113e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.958967021491587e-13,
+              "reference_max_abs": 1.4388284984980424e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.220310848142874e-11,
+              "reference_discrete_l2": 7.413546790938849e-07,
+              "relative_l2": 4.3438194145869215e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.000490061907132e-12,
+              "reference_max_abs": 2.3465093447337305e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 1.5759897252939152e-14,
+              "reference_discrete_l2": 2.434770435479783e-09,
+              "relative_l2": 6.472847305554533e-06,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.331676578426804e-16,
+              "reference_max_abs": 7.553528765274582e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 8.509952065232727e-14,
+              "reference_discrete_l2": 3.3958632739118783e-09,
+              "relative_l2": 2.5059760593451846e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.496203448877731e-15,
+              "reference_max_abs": 9.449803142087535e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.67040889121548e-12,
+              "reference_discrete_l2": 5.17797848718638e-07,
+              "relative_l2": 1.2882264589786004e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.958967021491587e-13,
+              "reference_max_abs": 1.4388284984980424e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.071991848228123e-11,
+              "reference_discrete_l2": 7.27079842746308e-07,
+              "relative_l2": 4.225109358863081e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 9.226673812786703e-13,
+              "reference_max_abs": 2.0628351070342676e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.228906186287477e-15,
+              "reference_discrete_l2": 3.434072186174432e-11,
+              "relative_l2": 0.00012314552394422708,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7098003492499379e-16,
+              "reference_max_abs": 1.337367440137053e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.605353291225225e-15,
+              "reference_discrete_l2": 2.4247057856408116e-11,
+              "relative_l2": 0.00014869240270618594,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3198427373061103e-16,
+              "reference_max_abs": 8.053296978352718e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2732489363918644e-12,
+              "reference_discrete_l2": 5.346464615687362e-09,
+              "relative_l2": 0.0002381478281285082,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.698185996431973e-14,
+              "reference_max_abs": 1.9586300240580878e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0999683937461778e-12,
+              "reference_discrete_l2": 3.29299206593057e-09,
+              "relative_l2": 0.0003340331138743077,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.351010074489325e-14,
+              "reference_max_abs": 1.0354825355866484e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.190974632798692e-15,
+              "reference_discrete_l2": 3.413019982784784e-11,
+              "relative_l2": 0.0001227937326455133,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7098003492499379e-16,
+              "reference_max_abs": 1.337367440137053e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.4901754263334442e-15,
+              "reference_discrete_l2": 2.3754938465742964e-11,
+              "relative_l2": 0.00014692420404989186,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3198427373061103e-16,
+              "reference_max_abs": 8.053296978352718e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2599847999278792e-12,
+              "reference_discrete_l2": 5.31054306714966e-09,
+              "relative_l2": 0.0002372610077718763,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.698185996431973e-14,
+              "reference_max_abs": 1.9586300240580878e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.061179468546619e-12,
+              "reference_discrete_l2": 3.2530240535391093e-09,
+              "relative_l2": 0.00032621322531941157,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.351010074489325e-14,
+              "reference_max_abs": 1.0354825355866484e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.129160839167531e-15,
+              "reference_discrete_l2": 3.377792790622336e-11,
+              "relative_l2": 0.00012224434993855145,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.7098003492499379e-16,
+              "reference_max_abs": 1.337367440137053e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 3.4043218894325007e-15,
+              "reference_discrete_l2": 2.3009531795339268e-11,
+              "relative_l2": 0.00014795267977256576,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.3198427373061103e-16,
+              "reference_max_abs": 8.053296978352718e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.2405953985018272e-12,
+              "reference_discrete_l2": 5.245540544728013e-09,
+              "relative_l2": 0.00023650477732913098,
+              "reference_near_zero": false,
+              "max_abs_difference": 5.698185996431973e-14,
+              "reference_max_abs": 1.9586300240580878e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.0312277401655515e-12,
+              "reference_discrete_l2": 3.1839843989179817e-09,
+              "relative_l2": 0.000323879646054797,
+              "reference_near_zero": false,
+              "max_abs_difference": 4.351010074489325e-14,
+              "reference_max_abs": 1.0354825355866484e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.01,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    }
+  ],
+  "images": [
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m00065_curved_p4_x350_k224_minus_m00065_curved_p4_x350_k448_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m00065_curved_p4_x350_k224_minus_m00065_curved_p4_x350_k448_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_curved_p4_x350_k224_minus_m00065_curved_p5_x350_k224_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_curved_p4_x350_k224_minus_m00065_curved_p5_x350_k224_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_curved_p4_x350_k224_minus_m00065_curved_p5_x350_k224_full_far20.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m00065_curved_p4_x350_k224_minus_m00065_raster_p4_x350_k224_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m00065_curved_p4_x350_k224_minus_m00065_raster_p4_x350_k224_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m00065_curved_p4_x350_k448_minus_m00065_raster_p4_x350_k448_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m00065_curved_p4_x350_k448_minus_m00065_raster_p4_x350_k448_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m00065_curved_p5_x350_k224_minus_m00065_raster_p5_x350_k224_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m00065_curved_p5_x350_k224_minus_m00065_raster_p5_x350_k224_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m00065_raster_p4_x350_k224_minus_m00065_raster_p4_x350_k448_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m00065_raster_p4_x350_k224_minus_m00065_raster_p4_x350_k448_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_raster_p4_x350_k224_minus_m00065_raster_p5_x350_k224_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_raster_p4_x350_k224_minus_m00065_raster_p5_x350_k224_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_raster_p4_x350_k224_minus_m00065_raster_p5_x350_k224_full_far20.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m12404_curved_p4_x350_k128_minus_m12404_raster_p4_x350_k128_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m12404_curved_p4_x350_k128_minus_m12404_raster_p4_x350_k128_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m12404_curved_p4_x350_k64_minus_m12404_curved_p4_x350_k128_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m12404_curved_p4_x350_k64_minus_m12404_curved_p4_x350_k128_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m12404_curved_p4_x350_k64_minus_m12404_curved_p5_x350_k64_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m12404_curved_p4_x350_k64_minus_m12404_curved_p5_x350_k64_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m12404_curved_p4_x350_k64_minus_m12404_curved_p5_x350_k64_full_far20.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m12404_curved_p4_x350_k64_minus_m12404_raster_p4_x350_k64_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m12404_curved_p4_x350_k64_minus_m12404_raster_p4_x350_k64_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m12404_curved_p5_x350_k64_minus_m12404_raster_p5_x350_k64_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/geometry_m12404_curved_p5_x350_k64_minus_m12404_raster_p5_x350_k64_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m12404_raster_p4_x350_k64_minus_m12404_raster_p4_x350_k128_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/dt_m12404_raster_p4_x350_k64_minus_m12404_raster_p4_x350_k128_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m12404_raster_p4_x350_k64_minus_m12404_raster_p5_x350_k64_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m12404_raster_p4_x350_k64_minus_m12404_raster_p5_x350_k64_late.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m12404_raster_p4_x350_k64_minus_m12404_raster_p5_x350_k64_full_far20.png"
+  ],
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p4/x350",
+      "metadata_sha256": "fa739138dee9d3cae42a721beeeadecd7c23f7fc7dbb00bfec7e7fee3a2d6451",
+      "surface_sha256": "836505a621d77b1015883a032e35902bcc4bb6186deca10077e232d88cbdae3b"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/curved/p4/x350",
+      "metadata_sha256": "52bb97556a2224caba59672da34165345be2869dfc329515b436730a5dfb53c3",
+      "surface_sha256": "fe6cfefd7085ed6efecf2ac59540abbcffe16f4e087112dd8c46f04f8250c503"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p5/x350",
+      "metadata_sha256": "c313092fb9d1dca6d3aff9a676c6bf5fc5636c9e97fca85ce712654713d6e888",
+      "surface_sha256": "e168a20d3b4580c9b2a33ff40a356015b7e7c8ec60de91c70a902ff185700f50"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p4/x350",
+      "metadata_sha256": "7a36c72221535d2a7f2a5fb71a3424a3ceda0b3d076a2524d29064eda751b5e9",
+      "surface_sha256": "12c7e3afe49a4677f2a6cc168170146c3b3492d003dcffe1e8d3eaeadf5fda1d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/raster/p4/x350",
+      "metadata_sha256": "9150ed8169e75c8c8918ba3009eb6901740a0293d2994836c7b71d36d4147ed0",
+      "surface_sha256": "5b43fa35795f9c22da768ff54c552c8c72beb24c5f366f6da444d5bd7cd6649a"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p5/x350",
+      "metadata_sha256": "5f9af9e952c3944fac853eb3c761850df042a9fb0d52ed522ef6c1a6f16faf01",
+      "surface_sha256": "942df348cda7d2c05f4bf2d2f9e7ba797ed21f9d9e22328868f8413d5b06a98b"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/curved/p4/x350",
+      "metadata_sha256": "b8eb8e65965f1e754b27074ada5d9a2ced1bbf72bd1cd88706acdaf892c0f782",
+      "surface_sha256": "172824ffd9f7ed78f003c88f9a8f9fd97ea58998b61cb7b6cedb54c6e8b25f43"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p4/x350",
+      "metadata_sha256": "b2ba7388a4427931544fe71b74b09c377bbe77082506067ec9c591bbd19cab23",
+      "surface_sha256": "399ccc5774ecc1cb71ef67cb59b58bb3a902c1ad006a25f0e386bd750cbc5225"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p5/x350",
+      "metadata_sha256": "2136cac8be916a50c538a482e36ec2254a808865fa6a224c81a18ac30ada3ab8",
+      "surface_sha256": "85a028993df16eac360525db206504794fe86f72b9bb5792a71d6c429237c536"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/raster/p4/x350",
+      "metadata_sha256": "2974a40706e4937a0b6f22875f971329b13f5087a582c1fa21ff329c8bf0aac3",
+      "surface_sha256": "e2927d5553d53a7b170bdbf389bab649fcb897ad6bb2de3e5619d745a6f3ce83"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "surface_sha256": "dc860d99307ffe7f0ff83184775db0c059e378e652c79b8f2c853c0fd86ecf45"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p5/x350",
+      "metadata_sha256": "c9cd82ffb7f0945ca0f2d7e9cd814a9d37872ecbf149c9042ee5e2a079c29182",
+      "surface_sha256": "844b9d48f2c32514c04b395e6dbc261ecf87617d8746d40b384e645708f09036"
+    }
+  ],
+  "limitations": [
+    "Нормы рассчитаны в общих физических приёмниках; поля на разных сетках напрямую не вычитались.",
+    "Прохождение p-критерия требует также временного контроля и проверки отражений; этот отчёт их не подменяет.",
+    "Результаты исследовательские и не являются независимой валидацией решателя."
+  ]
+}

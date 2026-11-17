@@ -1,0 +1,39 @@
+{
+  "status": "built_imported_benchmark_pending",
+  "python": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+  "executable": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+  "packages": {
+    "semgpu2": "0.1.0",
+    "scikit-build-core": "1.0.3",
+    "pybind11": "3.1.0",
+    "numpy": "2.4.6"
+  },
+  "build": {
+    "cuda_native": true,
+    "ceed_native": true,
+    "build_dir": ".venv/build/semgpu2-combined/cp313-cp313-linux_x86_64",
+    "nvcc": "/usr/local/cuda-12.8/bin/nvcc",
+    "cuda_architectures": "86",
+    "parallel_jobs": 2,
+    "type": "Release",
+    "installation": "standard_editable_combined_wheel_uv_no_deps_no_build_isolation"
+  },
+  "semgpu_git_revision": "acec5b9fe11a6ea812a675bdfaac03540a63702f",
+  "semgpu_git_status": "",
+  "files": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_ceed/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "c2f49d05cba303cf36d955fd1becf7c377d1931ca910695be9557652ba6f0b0d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/SEM/TrySEMGPU/.venv/libceed/p113-cuda/lib/libceed.so",
+      "sha256": "26b3abe7c1a1d03e1ffcd2986dadd0d7ff9ebc002c0714226b25c530a2956965"
+    }
+  ],
+  "previous_profile": "data/dev_1_3_point_source/runtime_precombined_v1/profile.json",
+  "build_log": "data/dev_1_3_point_source/runtime_precombined_v1/combined_build.log"
+}

@@ -1,0 +1,19 @@
+{
+  "input": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350",
+  "metadata_sha256": "c497690c717297c895f1e8d00fa6b475e54e3413ee9264ef717c60de38d8d538",
+  "global_maximum_speed_m_s": 7.186947276696484e-08,
+  "global_maximum_energy_density_j_m3": 5.302896132900217e-10,
+  "frames": [
+    {
+      "time_s": 0.1,
+      "speed_max_m_s": 1.9596402520517917e-08,
+      "energy_density_max_j_m3": 3.2076280880193533e-13
+    },
+    {
+      "time_s": 2.0,
+      "speed_max_m_s": 5.336483687922342e-12,
+      "energy_density_max_j_m3": 2.662431392888031e-20
+    }
+  ],
+  "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_3_point_source/central_full_v1/preview_12404_raster_p4_v1.png"
+}

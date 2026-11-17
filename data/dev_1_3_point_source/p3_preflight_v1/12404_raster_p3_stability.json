@@ -1,0 +1,17 @@
+{
+  "mesh": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/meshes_v1/12404_raster_q2.npz",
+  "mesh_sha256": "b7a3b29c3752ba9573355e20c212856c4e7cfaae07db38aa776064debef6b19b",
+  "order": 3,
+  "nodes": 331906,
+  "elements": 36750,
+  "alpha_max_s_inv": 346.1772216952762,
+  "stiffness_bound_s_minus_2": 105383860.4176409,
+  "damping_bound_s_minus_1": 12044.354443393591,
+  "dt_start_s": 5.579149812785713e-05,
+  "substeps_per_ms": 18,
+  "min_mass_kg_per_m": 173.61111111103054,
+  "quadrature_jacobian_min_m2": 6.249999999996377,
+  "abc_edge_count": 560,
+  "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+  "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately"
+}

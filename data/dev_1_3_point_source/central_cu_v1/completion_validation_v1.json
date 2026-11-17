@@ -1,0 +1,226 @@
+{
+  "status": "completed_verified_with_explicit_initial_state_convention",
+  "scope": "central_source_350m_only",
+  "main_runs": 8,
+  "time_controls": 4,
+  "common_substeps_per_ms": {
+    "12404": 64,
+    "65": 224
+  },
+  "all_shared_source_native_hashes_identical": true,
+  "shared_sha256": {
+    "_native.cpython-313-x86_64-linux-gnu.so": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f",
+    "run.py": "1f7bc39b20be44d39db08a16130d504fb4a135ce8614c1f3ed9d107741352319",
+    "physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec",
+    "mesh.py": "0f31fe935fb450054477888fbb354b5f397aec5dd6140ff6c35442f98cfa99fc"
+  },
+  "initial_state_convention": "U0=V0=A0=0 and initial native force response=0; first force assembly at dt. The analytic input Ricker tail at t=0 is not used to equilibrate A0. See SOLVER_AUDIT.md.",
+  "validation": "batch.verify_completed for all jobs; complete finite source-force histories; F(0)=0; analytic Ricker agreement for t>0; peak -1 N/m at 0.05 s; one shared native/run/physics/mesh source hash across 12 jobs.",
+  "scientific_criteria": "Recorded separately in acceptance_v1/acceptance.json; successful execution does not imply all criteria passed.",
+  "runs": [
+    {
+      "job_id": "main_12404_raster_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "source_history_sha256": "d74ab8877c7e6941e8c06b0436810faeed5490606ab19e702ce3ae90079cf722",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 128001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.3322676295501878e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_12404_raster_p5_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p5/x350",
+      "completed_verified": true,
+      "metadata_sha256": "c9cd82ffb7f0945ca0f2d7e9cd814a9d37872ecbf149c9042ee5e2a079c29182",
+      "source_history_sha256": "e1358a60cc86c0a45fb01a7849ff92795fb83ab9ee1e4db4e6806a047decd161",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 128001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.3322676295501878e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_12404_curved_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "b2ba7388a4427931544fe71b74b09c377bbe77082506067ec9c591bbd19cab23",
+      "source_history_sha256": "3988c9e146b078131bb8d76243c4673d9de28737c25d18bd38a8bdca858f7603",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 128001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.3322676295501878e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_12404_curved_p5_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p5/x350",
+      "completed_verified": true,
+      "metadata_sha256": "2136cac8be916a50c538a482e36ec2254a808865fa6a224c81a18ac30ada3ab8",
+      "source_history_sha256": "62b46aafcd57951f5418be8be1c49f6e79e062f6e1d2c1e303b26454a04dd243",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 128001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.3322676295501878e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_00065_raster_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "7a36c72221535d2a7f2a5fb71a3424a3ceda0b3d076a2524d29064eda751b5e9",
+      "source_history_sha256": "fc61b2b23a5e69a23cf3d7e4f49fe8149b6e4a3901cdfa4806e0a76072a8bbba",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 448001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.5543122344752192e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_00065_raster_p5_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p5/x350",
+      "completed_verified": true,
+      "metadata_sha256": "5f9af9e952c3944fac853eb3c761850df042a9fb0d52ed522ef6c1a6f16faf01",
+      "source_history_sha256": "7e6c35884526fa64a8b4fddb4c539453c185319986f6d9fcab37cc48cb1f2dbe",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 448001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.5543122344752192e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_00065_curved_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "fa739138dee9d3cae42a721beeeadecd7c23f7fc7dbb00bfec7e7fee3a2d6451",
+      "source_history_sha256": "e58bfe0e5810a0d7252bf512d66f9aff0d9caf83508e5b3c1b3f990d2c0be3ba",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 448001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.5543122344752192e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "main_00065_curved_p5_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p5/x350",
+      "completed_verified": true,
+      "metadata_sha256": "c313092fb9d1dca6d3aff9a676c6bf5fc5636c9e97fca85ce712654713d6e888",
+      "source_history_sha256": "9f2a97cc2c58660870688400591a334a1653a0469e6fd96c8ccb6d6691773f57",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 448001,
+        "fields": 201
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.5543122344752192e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "dt_control_12404_raster_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/raster/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "2974a40706e4937a0b6f22875f971329b13f5087a582c1fa21ff329c8bf0aac3",
+      "source_history_sha256": "ffd21db445aebd164dc033c71e42340d8452782c4a514b82b91828f086a36d76",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 256001,
+        "fields": 0
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.3322676295501878e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "dt_control_12404_curved_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/curved/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "b8eb8e65965f1e754b27074ada5d9a2ced1bbf72bd1cd88706acdaf892c0f782",
+      "source_history_sha256": "8a7958707690116a65cad93d012eb093eec35ed4a3cf41a4bb44cf972912a804",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 256001,
+        "fields": 0
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.3322676295501878e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "dt_control_00065_raster_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/raster/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "9150ed8169e75c8c8918ba3009eb6901740a0293d2994836c7b71d36d4147ed0",
+      "source_history_sha256": "ea05fedd250830d5ae88be50a565b62ec10aadd922caecf7880e04978dd9072f",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 896001,
+        "fields": 0
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.5543122344752192e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    },
+    {
+      "job_id": "dt_control_00065_curved_p4_x350",
+      "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/curved/p4/x350",
+      "completed_verified": true,
+      "metadata_sha256": "52bb97556a2224caba59672da34165345be2869dfc329515b436730a5dfb53c3",
+      "source_history_sha256": "79e7417e8eefc649ce99631661fd69c5ec1ed0065b73357e30d9156e902b620a",
+      "recorded_counts": {
+        "surface": 2001,
+        "source": 896001,
+        "fields": 0
+      },
+      "initial_recorded_force_n_per_m": 0.0,
+      "initial_analytic_force_n_per_m": 9.84949251974796e-09,
+      "max_force_error_positive_time_n_per_m": 1.5543122344752192e-15,
+      "minimum_force_n_per_m": -1.0,
+      "peak_time_s": 0.05
+    }
+  ]
+}

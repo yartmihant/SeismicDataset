@@ -1,0 +1,50 @@
+{
+  "status": "completed_backend_comparison",
+  "model_id": 12404,
+  "kind": "raster",
+  "order": 4,
+  "source_x_m": 350,
+  "end_s": 2.0,
+  "substeps": 64,
+  "norms": {
+    "displacement_m": {
+      "relative_l2": 1.9783199330934117e-14,
+      "max_absolute": 1.137373342260413e-24
+    },
+    "velocity_m_s": {
+      "relative_l2": 6.123617739062183e-13,
+      "max_absolute": 6.51322014324254e-21
+    },
+    "kinetic_j_per_m": {
+      "relative_l2": 4.937366523445031e-16,
+      "max_absolute": 1.809457589959748e-25
+    },
+    "elastic_j_per_m": {
+      "relative_l2": 5.543119119613577e-16,
+      "max_absolute": 3.101927297073854e-25
+    },
+    "source_work_j_per_m": {
+      "relative_l2": 1.2011628229188757e-15,
+      "max_absolute": 7.754818242684634e-25
+    },
+    "force_y_n_per_m": {
+      "relative_l2": 2.4375668160666113e-17,
+      "max_absolute": 1.1102230246251565e-16
+    },
+    "work_j_per_m": {
+      "relative_l2": 1.2036861558680475e-15,
+      "max_absolute": 1.6543612251060553e-24
+    }
+  },
+  "inputs": [
+    {
+      "path": "data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350",
+      "metadata_sha256": "c497690c717297c895f1e8d00fa6b475e54e3413ee9264ef717c60de38d8d538"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962"
+    }
+  ],
+  "limits": "Agreement between two implementations is not independent validation; this is not a p-convergence result."
+}

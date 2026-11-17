@@ -1,0 +1,50 @@
+{
+  "purpose": "Frozen utility sources before adding p3; original p4/p5 records remain unchanged",
+  "files": [
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+      "sha256": "1f7bc39b20be44d39db08a16130d504fb4a135ce8614c1f3ed9d107741352319",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/1f7bc39b20be44d39db08a16130d504fb4a135ce8614c1f3ed9d107741352319_run.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/mesh.py",
+      "sha256": "0f31fe935fb450054477888fbb354b5f397aec5dd6140ff6c35442f98cfa99fc",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/0f31fe935fb450054477888fbb354b5f397aec5dd6140ff6c35442f98cfa99fc_mesh.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/stability.py",
+      "sha256": "4df8ebfeb01292bf4a0210cc898b993555091c4e8aea80e054f78a666bda0ad5",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/4df8ebfeb01292bf4a0210cc898b993555091c4e8aea80e054f78a666bda0ad5_stability.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/compare.py",
+      "sha256": "c49126d825d5dc61597e3788b18e56fb736d2bfcf4aee35e543f9f9fb8fc37ab",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/c49126d825d5dc61597e3788b18e56fb736d2bfcf4aee35e543f9f9fb8fc37ab_compare.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/animate.py",
+      "sha256": "93853059e6b5d4b7982b0a97fe2ce6e84392b3da1d258537f279bb95a696dacb",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/93853059e6b5d4b7982b0a97fe2ce6e84392b3da1d258537f279bb95a696dacb_animate.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/acceptance.py",
+      "sha256": "452ddd9a4ae114a0f5b38afd2c085fd9a62263a37cd4dd6bdf32d82034720e8c",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/452ddd9a4ae114a0f5b38afd2c085fd9a62263a37cd4dd6bdf32d82034720e8c_acceptance.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/batch.py",
+      "sha256": "af9b7887313cf672c1d7d34e927bdec797ac5de25ce8504fe3d819539737773c",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/af9b7887313cf672c1d7d34e927bdec797ac5de25ce8504fe3d819539737773c_batch.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/check_run.py",
+      "sha256": "0691b4b461a494f95159e1200b57ac28b07132d68d6927001c5d399890a1eb73",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/0691b4b461a494f95159e1200b57ac28b07132d68d6927001c5d399890a1eb73_check_run.py"
+    },
+    {
+      "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/source_diagnostic.py",
+      "sha256": "d2d68a526651e6c95a0eb77b8af980a3d656a697106a5a5535fb10fab2ab6ce6",
+      "snapshot": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/provenance_pre_p3_v1/d2d68a526651e6c95a0eb77b8af980a3d656a697106a5a5535fb10fab2ab6ce6_source_diagnostic.py"
+    }
+  ]
+}

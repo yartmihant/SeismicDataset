@@ -1,0 +1,33 @@
+{
+  "model_id": 65,
+  "kind": "curved",
+  "elements": 42692,
+  "q2_nodes": 171539,
+  "area_m2": 918750.0,
+  "det_jacobian_certified_min_m2": 0.9620395469556922,
+  "bernstein_max_depth": 0,
+  "euler_characteristic": 1,
+  "conforming": true,
+  "core_top_edges": 140,
+  "core_top_edge_m": 5,
+  "external_edges": 770,
+  "area_by_region_m2": {
+    "1": 78559.43888275773,
+    "2": 34651.73824123157,
+    "3": 31159.76410704408,
+    "4": 238553.1843523546,
+    "5": 74510.54089526892,
+    "6": 50412.29790501328,
+    "7": 348364.02337616286,
+    "8": 62539.01224016699
+  },
+  "sqrt_area_quantiles_m": [
+    2.7742235626654344,
+    3.331374307644326,
+    4.732579424127454,
+    5.071660416877588,
+    5.603908170220176
+  ],
+  "sha256": "bb3f0f6f5e0efe10814e34db5cad90c3284dc7d979eb69071584e6b181fc4490",
+  "construction": "new_shared_CAD_triangle_seed12.5_boundary10_quad_subdivision_Q2"
+}

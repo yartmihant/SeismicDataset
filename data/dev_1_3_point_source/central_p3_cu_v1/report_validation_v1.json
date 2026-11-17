@@ -1,0 +1,17 @@
+{
+  "status": "report_execution_and_artifacts_verified",
+  "diary_sha256": "2bbd967756b474c0cd542265aaf29738082aca4f317c56e806ae27515083b881",
+  "notebook_sha256": "91b1ffcd94717221781beaf3bc5c2a738e2728d0a734ffbb129289c046e7a0c9",
+  "cells": 56,
+  "code_cells": 18,
+  "executed_code_cells": 18,
+  "embedded_png_images": 12,
+  "error_outputs": 0,
+  "syntax_format_and_roundtrip": "verified_by_scripts.build_notebooks",
+  "mypy_source_files": 45,
+  "comparison_runs": 16,
+  "comparison_pairs": 24,
+  "comparison_png_count": 60,
+  "p3_recommendation_present": true,
+  "scientific_validation_scope": "Checks report execution and saved artifacts; not an independent solver validation"
+}

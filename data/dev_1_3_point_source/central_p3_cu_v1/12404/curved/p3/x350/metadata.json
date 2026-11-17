@@ -1,0 +1,103 @@
+{
+  "status": "completed",
+  "run_spec": {
+    "model_id": 12404,
+    "kind": "curved",
+    "order": 3,
+    "source_x_m": 350.0,
+    "substeps": 64,
+    "t_end_s": 2.0,
+    "backend": "cu",
+    "ceed_resource": "/gpu/cuda/gen",
+    "alpha_max_s_inv": 346.1772216952762,
+    "fields": true,
+    "field_layout": "compact"
+  },
+  "experiment_spec": {
+    "size_m": 700.0,
+    "padding_m": 175.0,
+    "frequency_hz": 30.0,
+    "center_s": 0.05,
+    "end_s": 2.0,
+    "output_interval_s": 0.001,
+    "field_interval_s": 0.01,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "density_kg_m3": 1000.0,
+    "force_amplitude_n_per_m": 1.0
+  },
+  "dt_s": 1.5625e-05,
+  "mesh": {
+    "model_id": 12404,
+    "kind": "curved",
+    "order": 3,
+    "nodes": 331906,
+    "elements": 36750,
+    "geometry": "frozen_full_Q2",
+    "coordinate_convention": "y_up_surface_0"
+  },
+  "steps_count": 128000,
+  "coordinate_convention": "x right, y upward, surface y=0, main source peak downward",
+  "short_test": false,
+  "field_components": [
+    "vx",
+    "vy",
+    "kinetic_density",
+    "elastic_density"
+  ],
+  "field_layout_note": "compact omits all-node displacement and redundant nodal energies; full float64 velocity and both energy densities remain. Total energies are still summed from native nodal energies and saved separately.",
+  "energy_limitations": "Integrated source work and total energies are measured. Separate core/layer balance and cumulative ABC/mass-damping losses are not implemented; no energy-balance closure is claimed.",
+  "stability_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/p3_preflight_v1/12404_curved_p3_stability.json",
+    "sha256": "112f7d39771308328ad9e28bda46b1105ebcadc7c1c47b36ae5665777cc93262"
+  },
+  "provenance": {
+    "files": [
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+        "sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+        "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/mesh.py",
+        "sha256": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/meshes_v1/12404_curved_q2.npz",
+        "sha256": "71088952879be8cd0ec0e9fd197e2f28502c66dea3725c797e618edaf0ff690e"
+      }
+    ],
+    "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+    "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+    "numpy": "2.4.6",
+    "semgpu2": "0.1.0",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "nodes_sha256": "ba6a0e84681ffc4cbd7b25c3d5b7aa259031ff39ca675fe28b091aa1e1feabfa"
+  },
+  "source_node_id": 19810,
+  "storage_uncompressed_fields_bytes": 2134819392,
+  "runtime": {
+    "result_code": 0,
+    "steps_count": 128000,
+    "current_time_s": 2.0
+  },
+  "recorded_counts": {
+    "surface": 2001,
+    "source": 128001,
+    "fields": 201
+  },
+  "source_work_final_j_per_m": 3.9101379972394734e-10,
+  "wall_seconds": 294.31615817709826
+}

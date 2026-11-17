@@ -1,0 +1,75 @@
+{
+  "status": "diagnostic_complete_not_used_for_main_runs",
+  "purpose": "Оценить последствия разрежения только диагностики работы; основная серия сохраняет работу по каждому внутреннему шагу.",
+  "source_case": {
+    "backend": "CEED /gpu/cuda/gen",
+    "model_id": 12404,
+    "kind": "raster",
+    "order": 4,
+    "source_x_m": 350.0,
+    "substeps_per_ms": 64,
+    "t_end_s": 2.0
+  },
+  "reference_interval_s": 1.5625e-05,
+  "reference_sample_count": 128001,
+  "reference_final_work_j_per_m": 3.9101689956356995e-10,
+  "stored_cumulative_work_bitwise_reproduced": true,
+  "quadrature": "signed cumulative trapezoid of saved actual Fy(t)*Vy(t), including t=0 and t=2",
+  "implementation_recipe": "power_i=force_y_i*velocity_y_i; W=[0,cumsum((power[1:]+power[:-1])*diff(time)/2)]; subsample every stride then repeat same quadrature; compare W_coarse with W_reference[::stride].",
+  "numpy_version": "2.4.6",
+  "resamplings": [
+    {
+      "stride_from_internal_steps": 16,
+      "diagnostic_interval_s": 0.00025,
+      "sample_count": 8001,
+      "final_work_j_per_m": 3.9101689956357243e-10,
+      "final_work_relative_error": 6.3463800168965435e-15,
+      "max_cumulative_work_error_j_per_m": 1.4665825731558766e-13,
+      "max_cumulative_work_error_over_abs_reference_final_work": 0.0003750688460761644,
+      "time_of_max_error_s": 0.05075,
+      "comparison_grid": "coarse sample times only; no temporal interpolation",
+      "max_cumulative_error_below_0_1_percent_final_work": true
+    },
+    {
+      "stride_from_internal_steps": 32,
+      "diagnostic_interval_s": 0.0005,
+      "sample_count": 4001,
+      "final_work_j_per_m": 3.910168995635718e-10,
+      "final_work_relative_error": 4.759785012672408e-15,
+      "max_cumulative_work_error_j_per_m": 5.848604706547054e-13,
+      "max_cumulative_work_error_over_abs_reference_final_work": 0.0014957421822624347,
+      "time_of_max_error_s": 0.051000000000000004,
+      "comparison_grid": "coarse sample times only; no temporal interpolation",
+      "max_cumulative_error_below_0_1_percent_final_work": false
+    },
+    {
+      "stride_from_internal_steps": 64,
+      "diagnostic_interval_s": 0.001,
+      "sample_count": 2001,
+      "final_work_j_per_m": 3.910168991368721e-10,
+      "final_work_relative_error": 1.0912517142815885e-09,
+      "max_cumulative_work_error_j_per_m": 2.348291952854912e-12,
+      "max_cumulative_work_error_over_abs_reference_final_work": 0.006005602201531282,
+      "time_of_max_error_s": 0.051000000000000004,
+      "comparison_grid": "coarse sample times only; no temporal interpolation",
+      "max_cumulative_error_below_0_1_percent_final_work": false
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350/source_history.npz",
+      "sha256": "308bd562246d66e8b42d815e5a66c962b704d3d24627fab670eed7c61831136d"
+    },
+    {
+      "path": "data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350/metadata.json",
+      "sha256": "c497690c717297c895f1e8d00fa6b475e54e3413ee9264ef717c60de38d8d538"
+    }
+  ],
+  "limitations": [
+    "Это повторная квадратура одной уже завершённой истории, без изменения решателя или источника.",
+    "Малость ошибки конечной работы не гарантирует малость ошибки промежуточной кривой W(t).",
+    "Проверена только ECVB12404 raster p4 в CEED; вывод не переносится на модель65, p5 или другие положения источника.",
+    "Не является проверкой p-сходимости, временной сходимости решения или независимой валидацией решателя.",
+    "Оптимизация расписания не применена: per-step native finite-check barrier остаётся, выигрыш производительности этой диагностикой не измерялся."
+  ]
+}

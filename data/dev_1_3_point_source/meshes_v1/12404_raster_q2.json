@@ -1,0 +1,28 @@
+{
+  "model_id": 12404,
+  "kind": "raster",
+  "elements": 36750,
+  "q2_nodes": 147771,
+  "area_m2": 918750.0000000002,
+  "det_jacobian_certified_min_m2": 6.249999999992333,
+  "bernstein_max_depth": 0,
+  "euler_characteristic": 1,
+  "conforming": true,
+  "core_top_edges": 140,
+  "core_top_edge_m": 5,
+  "external_edges": 770,
+  "area_by_region_m2": {
+    "0": 238200.00000000012,
+    "1": 596550.0000000001,
+    "2": 84000.00000000003
+  },
+  "sqrt_area_quantiles_m": [
+    4.999999999999908,
+    4.999999999999955,
+    5.000000000000001,
+    5.000000000000056,
+    5.000000000000102
+  ],
+  "sha256": "b7a3b29c3752ba9573355e20c212856c4e7cfaae07db38aa776064debef6b19b",
+  "construction": "exact_2x2_refinement_of_frozen_Q2"
+}

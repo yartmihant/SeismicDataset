@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-13T15:15:35.034534+00:00",
+  "status": "started",
+  "job_id": "main_12404_raster_p4_x350",
+  "output": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+  "free_bytes": 141489135616,
+  "required_bytes": 4919299261
+}

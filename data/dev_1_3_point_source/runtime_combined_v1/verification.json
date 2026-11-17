@@ -1,0 +1,10 @@
+{
+  "status": "combined_build_and_cu_benchmark_completed",
+  "profile": "data/dev_1_3_point_source/runtime_combined_v1/profile.json",
+  "benchmark_comparison": "data/dev_1_3_point_source/benchmark_cu_v1/comparison.json",
+  "benchmark_comparison_sha256": "e9c4f10d377e8b12c657461eb3b7f4de867046114a7ec6cf016554ebef40cb83",
+  "ceed_native_unchanged_from_precombined": true,
+  "libceed_unchanged_from_precombined": true,
+  "semgpu_source_unchanged": true,
+  "full_runs_launched_by_this_subtask": false
+}

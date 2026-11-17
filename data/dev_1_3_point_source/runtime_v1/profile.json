@@ -1,0 +1,41 @@
+{
+  "status": "built_and_smoke_tested",
+  "python": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+  "executable": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+  "packages": {
+    "numpy": "2.4.6",
+    "semgpu2": "0.1.0",
+    "gmsh": "4.15.2",
+    "pybind11": "3.1.0",
+    "scikit-build-core": "1.0.3"
+  },
+  "semgpu_git_revision": "acec5b9fe11a6ea812a675bdfaac03540a63702f",
+  "semgpu_git_status": "",
+  "build": {
+    "cuda_native": false,
+    "ceed_native": true,
+    "build_dir": ".venv/build/semgpu2-ceed/cp313-cp313-linux_x86_64",
+    "libceed_prefix": "/home/antonov/Work/Areas/SEM/TrySEMGPU/.venv/libceed/p113-cuda",
+    "type": "Release",
+    "parallel_jobs": 2
+  },
+  "resources_tested": [
+    "/cpu/self/opt/blocked",
+    "/gpu/cuda/gen"
+  ],
+  "files": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_ceed/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "c2f49d05cba303cf36d955fd1becf7c377d1931ca910695be9557652ba6f0b0d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/SEM/TrySEMGPU/.venv/libceed/p113-cuda/lib/libceed.so",
+      "sha256": "26b3abe7c1a1d03e1ffcd2986dadd0d7ff9ebc002c0714226b25c530a2956965"
+    }
+  ],
+  "gpu_report": "NVIDIA GeForce RTX 3060, 580.196.07, 12288 MiB",
+  "limitations": [
+    "Smoke CPU/GPU agreement is not independent solver validation",
+    "Base process environment hides GPU devices; GPU runs need device access"
+  ]
+}

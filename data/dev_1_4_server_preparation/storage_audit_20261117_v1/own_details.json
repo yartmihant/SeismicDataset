@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-17T17:22:11.652546+00:00",
+  "argv": [
+    "timeout",
+    "25",
+    "du",
+    "-x",
+    "-B1",
+    "--max-depth=1",
+    "/home/antonov/TrySEMGPU/research/seismic",
+    "/home/antonov/TrySEMGPU/research/lave_wave",
+    "/home/antonov/.vscode-server/cli/servers",
+    "/home/antonov/.cache"
+  ],
+  "returncode": 0,
+  "stdout": "162803712\t/home/antonov/TrySEMGPU/research/seismic/research_test2_dev_2_5_milen2Do5pore_full_aligned\n139264\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_sweep_new_half\n53248\t/home/antonov/TrySEMGPU/research/seismic/__pycache__\n39972864\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_sweep_test2_full\n39972864\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_sweep_test1_full\n503087104\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_wavefield_full\n39444480\t/home/antonov/TrySEMGPU/research/seismic/research_test1_dev_2_5_milen2Do5pore_full_aligned\n39993344\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_sweep_test3_full\n8955191296\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_sweep_new_full\n1188691968\t/home/antonov/TrySEMGPU/research/seismic/src\n8192\t/home/antonov/TrySEMGPU/research/seismic/plot_seismic_energy\n163840\t/home/antonov/TrySEMGPU/research/seismic/research_seismic_sweep_new_center\n9028644864\t/home/antonov/TrySEMGPU/research/seismic/research_all_dev_2_5_milen2Do5pore_full_aligned\n24047812608\t/home/antonov/TrySEMGPU/research/seismic\n2984091648\t/home/antonov/TrySEMGPU/research/lave_wave/parametric_layers\n315789312\t/home/antonov/TrySEMGPU/research/lave_wave/parametric_layers_d0_sp_noise\n848265216\t/home/antonov/TrySEMGPU/research/lave_wave/parametric_layers_d2_sp_2\n848650240\t/home/antonov/TrySEMGPU/research/lave_wave/parametric_layers_d0_sp_2\n958492672\t/home/antonov/TrySEMGPU/research/lave_wave/parametric_layers2\n957861888\t/home/antonov/TrySEMGPU/research/lave_wave/parametric_layers_5\n14502117376\t/home/antonov/TrySEMGPU/research/lave_wave\n654872576\t/home/antonov/.vscode-server/cli/servers/Stable-04c0d99f4fb0d8afe6ce4f0c58e31e183ac3e4b1\n736698368\t/home/antonov/.vscode-server/cli/servers/Stable-88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f\n626814976\t/home/antonov/.vscode-server/cli/servers/Stable-1b6a188127eeaf9194f945eb6eb89a657e93c54c.staging\n654839808\t/home/antonov/.vscode-server/cli/servers/Stable-2242ebbb54efeeb0129e08e919e7e8d43033cd83\n689356800\t/home/antonov/.vscode-server/cli/servers/Stable-7debcd0e2acdea1c52de81bf9ee1620444407dda\n685723648\t/home/antonov/.vscode-server/cli/servers/Stable-645f29cc3176500b4b5762ba887cf2a7f0ffdf2c\n626823168\t/home/antonov/.vscode-server/cli/servers/Stable-1b6a188127eeaf9194f945eb6eb89a657e93c54c\n4675137536\t/home/antonov/.vscode-server/cli/servers\n24576\t/home/antonov/.cache/nvidia\n53248\t/home/antonov/.cache/evolution\n16384\t/home/antonov/.cache/thumbnails\n501538816\t/home/antonov/.cache/pip\n7999488\t/home/antonov/.cache/tracker\n4096\t/home/antonov/.cache/obexd\n49152\t/home/antonov/.cache/fontconfig\n864256\t/home/antonov/.cache/mesa_shader_cache\n12288\t/home/antonov/.cache/Microsoft\n4096\t/home/antonov/.cache/ibus-table\n4096\t/home/antonov/.cache/libgweather\n7139328\t/home/antonov/.cache/mozilla\n24576\t/home/antonov/.cache/torch\n12288\t/home/antonov/.cache/update-manager-core\n393216\t/home/antonov/.cache/matplotlib\n24576\t/home/antonov/.cache/ibus\n1007616\t/home/antonov/.cache/gstreamer-1.0\n7364608\t/home/antonov/.cache/gnome-software\n526561280\t/home/antonov/.cache\n",
+  "stderr": "",
+  "scope": "own directories; metadata only; nice=19, ionice=idle"
+}

@@ -1,0 +1,22 @@
+{
+  "collected_utc": "2026-11-17T17:08:39.755546+00:00",
+  "ssh_command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=12",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UpdateHostKeys=no",
+    "antonov@188.44.53.153",
+    "python3 -B -"
+  ],
+  "probe_sha256": "b7f03108674abb01cbd873b7b72b332579003db2b7080574ac638becf7fcfb6a",
+  "snapshot_sha256": "dabfcf04ea97d7c199a4106e932bf5b2640843787cf242f4724d95f7e31299df",
+  "remote_files_created": false,
+  "origin": "current workstation"
+}

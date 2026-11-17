@@ -1,0 +1,16 @@
+{
+  "mesh": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/meshes_v1/00065_curved_q2.npz",
+  "order": 5,
+  "nodes": 1069226,
+  "elements": 42692,
+  "alpha_max_s_inv": 346.1772216952762,
+  "stiffness_bound_s_minus_2": 42958353022.65659,
+  "damping_bound_s_minus_1": 26656.177221728714,
+  "dt_start_s": 4.524474420992793e-06,
+  "substeps_per_ms": 222,
+  "min_mass_kg_per_m": 12.82719395939778,
+  "quadrature_jacobian_min_m2": 0.9620395469544138,
+  "abc_edge_count": 560,
+  "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+  "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately"
+}

@@ -1,0 +1,423 @@
+{
+  "status": "passed",
+  "scope": "p3_cpu_embedding_and_stability_of_four_existing_frozen_Q2_meshes",
+  "native_solver_executed": false,
+  "gpu_solver_executed": false,
+  "meshes": [
+    {
+      "model_id": 12404,
+      "kind": "raster",
+      "order": 3,
+      "mesh": "data/dev_1_3_point_source/meshes_v1/12404_raster_q2.npz",
+      "mesh_sha256": "b7a3b29c3752ba9573355e20c212856c4e7cfaae07db38aa776064debef6b19b",
+      "frozen_mesh_unchanged_from_p4_p5_validation": true,
+      "elements": 36750,
+      "global_nodes": 331906,
+      "nodes_per_element": 16,
+      "topological_node_count_expected": 331906,
+      "all_global_nodes_used": true,
+      "materials_equal_frozen_per_element": true,
+      "boundary_materials_equal_owner": true,
+      "sources_m": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          175.0,
+          0.0
+        ],
+        [
+          350.0,
+          0.0
+        ],
+        [
+          525.0,
+          0.0
+        ],
+        [
+          700.0,
+          0.0
+        ]
+      ],
+      "source_node_ids": [
+        19740,
+        19775,
+        19810,
+        19845,
+        19880
+      ],
+      "receiver_count": 141,
+      "receiver_range_m": [
+        0.0,
+        700.0
+      ],
+      "receiver_spacing_m": 5.0,
+      "all_sources_and_receivers_are_vertices": true,
+      "source_coordinate_max_abs_error_m": 0.0,
+      "receiver_coordinate_max_abs_error_m": 0.0,
+      "coordinate_tolerance_m": 1e-09,
+      "source_coordinates_bitwise_equal_requested": true,
+      "receiver_coordinates_bitwise_equal_requested": true,
+      "q2_to_p3_map_max_abs_error_m": 9.094947017729282e-13,
+      "geometry_check": "Independent Vandermonde interpolation of GLL p3 and frozen Q2 maps at 5x5 reference points in every cell; cubic polynomial equality checked beyond the Q2 nodes.",
+      "geometry": {
+        "model_id": 12404,
+        "kind": "raster",
+        "elements": 36750,
+        "q2_nodes": 147771,
+        "area_m2": 918750.0000000002,
+        "det_jacobian_certified_min_m2": 6.249999999992333,
+        "bernstein_max_depth": 0,
+        "euler_characteristic": 1,
+        "conforming": true,
+        "core_top_edges": 140,
+        "core_top_edge_m": 5,
+        "external_edges": 770,
+        "area_by_region_m2": {
+          "0": 238200.00000000012,
+          "1": 596550.0000000001,
+          "2": 84000.00000000003
+        },
+        "sqrt_area_quantiles_m": [
+          4.999999999999908,
+          4.999999999999955,
+          5.000000000000001,
+          5.000000000000056,
+          5.000000000000102
+        ]
+      },
+      "quadrature_jacobian_min_m2": 6.249999999996377,
+      "stability": {
+        "path": "data/dev_1_3_point_source/p3_preflight_v1/12404_raster_p3_stability.json",
+        "sha256": "7036d7060c81ff0a548bf77d57c3c1857262f66dfad5265bb3d8b628efafbe5b",
+        "minimum_substeps_per_ms": 18,
+        "selected_substeps_per_ms": 64,
+        "selected_dt_s": 1.5625e-05,
+        "dt_start_s": 5.579149812785713e-05,
+        "selected_step_within_bound": true
+      }
+    },
+    {
+      "model_id": 12404,
+      "kind": "curved",
+      "order": 3,
+      "mesh": "data/dev_1_3_point_source/meshes_v1/12404_curved_q2.npz",
+      "mesh_sha256": "71088952879be8cd0ec0e9fd197e2f28502c66dea3725c797e618edaf0ff690e",
+      "frozen_mesh_unchanged_from_p4_p5_validation": true,
+      "elements": 36750,
+      "global_nodes": 331906,
+      "nodes_per_element": 16,
+      "topological_node_count_expected": 331906,
+      "all_global_nodes_used": true,
+      "materials_equal_frozen_per_element": true,
+      "boundary_materials_equal_owner": true,
+      "sources_m": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          175.0,
+          0.0
+        ],
+        [
+          350.0,
+          0.0
+        ],
+        [
+          525.0,
+          0.0
+        ],
+        [
+          700.0,
+          0.0
+        ]
+      ],
+      "source_node_ids": [
+        19740,
+        19775,
+        19810,
+        19845,
+        19880
+      ],
+      "receiver_count": 141,
+      "receiver_range_m": [
+        0.0,
+        700.0
+      ],
+      "receiver_spacing_m": 5.0,
+      "all_sources_and_receivers_are_vertices": true,
+      "source_coordinate_max_abs_error_m": 0.0,
+      "receiver_coordinate_max_abs_error_m": 0.0,
+      "coordinate_tolerance_m": 1e-09,
+      "source_coordinates_bitwise_equal_requested": true,
+      "receiver_coordinates_bitwise_equal_requested": true,
+      "q2_to_p3_map_max_abs_error_m": 9.094947017729282e-13,
+      "geometry_check": "Independent Vandermonde interpolation of GLL p3 and frozen Q2 maps at 5x5 reference points in every cell; cubic polynomial equality checked beyond the Q2 nodes.",
+      "geometry": {
+        "model_id": 12404,
+        "kind": "curved",
+        "elements": 36750,
+        "q2_nodes": 147771,
+        "area_m2": 918750.0,
+        "det_jacobian_certified_min_m2": 4.386461145217807,
+        "bernstein_max_depth": 0,
+        "euler_characteristic": 1,
+        "conforming": true,
+        "core_top_edges": 140,
+        "core_top_edge_m": 5,
+        "external_edges": 770,
+        "area_by_region_m2": {
+          "0": 84000.0,
+          "1": 224634.00747002597,
+          "2": 238213.85153356384,
+          "3": 371902.1409964102
+        },
+        "sqrt_area_quantiles_m": [
+          4.189355107822764,
+          4.21179753129707,
+          4.999999999999995,
+          5.815799980378009,
+          5.8157999803780935
+        ]
+      },
+      "quadrature_jacobian_min_m2": 4.386980848762181,
+      "stability": {
+        "path": "data/dev_1_3_point_source/p3_preflight_v1/12404_curved_p3_stability.json",
+        "sha256": "112f7d39771308328ad9e28bda46b1105ebcadc7c1c47b36ae5665777cc93262",
+        "minimum_substeps_per_ms": 23,
+        "selected_substeps_per_ms": 64,
+        "selected_dt_s": 1.5625e-05,
+        "dt_start_s": 4.364729502292272e-05,
+        "selected_step_within_bound": true
+      }
+    },
+    {
+      "model_id": 65,
+      "kind": "raster",
+      "order": 3,
+      "mesh": "data/dev_1_3_point_source/meshes_v1/00065_raster_q2.npz",
+      "mesh_sha256": "5ed4dee9c7c2715b53a8dd73c8d2c0f1b2edbe9f94cbe1499423d1a9d301fbb4",
+      "frozen_mesh_unchanged_from_p4_p5_validation": true,
+      "elements": 36750,
+      "global_nodes": 331906,
+      "nodes_per_element": 16,
+      "topological_node_count_expected": 331906,
+      "all_global_nodes_used": true,
+      "materials_equal_frozen_per_element": true,
+      "boundary_materials_equal_owner": true,
+      "sources_m": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          175.0,
+          0.0
+        ],
+        [
+          350.0,
+          0.0
+        ],
+        [
+          525.0,
+          0.0
+        ],
+        [
+          700.0,
+          0.0
+        ]
+      ],
+      "source_node_ids": [
+        19740,
+        19775,
+        19810,
+        19845,
+        19880
+      ],
+      "receiver_count": 141,
+      "receiver_range_m": [
+        0.0,
+        700.0
+      ],
+      "receiver_spacing_m": 5.0,
+      "all_sources_and_receivers_are_vertices": true,
+      "source_coordinate_max_abs_error_m": 0.0,
+      "receiver_coordinate_max_abs_error_m": 0.0,
+      "coordinate_tolerance_m": 1e-09,
+      "source_coordinates_bitwise_equal_requested": true,
+      "receiver_coordinates_bitwise_equal_requested": true,
+      "q2_to_p3_map_max_abs_error_m": 9.094947017729282e-13,
+      "geometry_check": "Independent Vandermonde interpolation of GLL p3 and frozen Q2 maps at 5x5 reference points in every cell; cubic polynomial equality checked beyond the Q2 nodes.",
+      "geometry": {
+        "model_id": 65,
+        "kind": "raster",
+        "elements": 36750,
+        "q2_nodes": 147771,
+        "area_m2": 918750.0000000002,
+        "det_jacobian_certified_min_m2": 6.249999999992333,
+        "bernstein_max_depth": 0,
+        "euler_characteristic": 1,
+        "conforming": true,
+        "core_top_edges": 140,
+        "core_top_edge_m": 5,
+        "external_edges": 770,
+        "area_by_region_m2": {
+          "1": 78600.00000000003,
+          "2": 34650.000000000015,
+          "3": 31150.000000000015,
+          "4": 238450.0000000001,
+          "5": 74500.00000000003,
+          "6": 50450.00000000003,
+          "7": 348400.0,
+          "8": 62549.99999999996
+        },
+        "sqrt_area_quantiles_m": [
+          4.999999999999908,
+          4.999999999999955,
+          5.000000000000001,
+          5.000000000000056,
+          5.000000000000102
+        ]
+      },
+      "quadrature_jacobian_min_m2": 6.249999999996377,
+      "stability": {
+        "path": "data/dev_1_3_point_source/p3_preflight_v1/00065_raster_p3_stability.json",
+        "sha256": "d21b08afeea2dc26458c113b205b15554c41a38f20016f74d79aa6e1a9df3aba",
+        "minimum_substeps_per_ms": 26,
+        "selected_substeps_per_ms": 224,
+        "selected_dt_s": 4.464285714285715e-06,
+        "dt_start_s": 3.945512205690568e-05,
+        "selected_step_within_bound": true
+      }
+    },
+    {
+      "model_id": 65,
+      "kind": "curved",
+      "order": 3,
+      "mesh": "data/dev_1_3_point_source/meshes_v1/00065_curved_q2.npz",
+      "mesh_sha256": "bb3f0f6f5e0efe10814e34db5cad90c3284dc7d979eb69071584e6b181fc4490",
+      "frozen_mesh_unchanged_from_p4_p5_validation": true,
+      "elements": 42692,
+      "global_nodes": 385384,
+      "nodes_per_element": 16,
+      "topological_node_count_expected": 385384,
+      "all_global_nodes_used": true,
+      "materials_equal_frozen_per_element": true,
+      "boundary_materials_equal_owner": true,
+      "sources_m": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          175.0,
+          0.0
+        ],
+        [
+          350.0,
+          0.0
+        ],
+        [
+          525.0,
+          0.0
+        ],
+        [
+          700.0,
+          0.0
+        ]
+      ],
+      "source_node_ids": [
+        16,
+        893,
+        858,
+        823,
+        15
+      ],
+      "receiver_count": 141,
+      "receiver_range_m": [
+        0.0,
+        700.0
+      ],
+      "receiver_spacing_m": 5.0,
+      "all_sources_and_receivers_are_vertices": true,
+      "source_coordinate_max_abs_error_m": 0.0,
+      "receiver_coordinate_max_abs_error_m": 5.684341886080802e-14,
+      "coordinate_tolerance_m": 1e-09,
+      "source_coordinates_bitwise_equal_requested": true,
+      "receiver_coordinates_bitwise_equal_requested": false,
+      "q2_to_p3_map_max_abs_error_m": 9.094947017729282e-13,
+      "geometry_check": "Independent Vandermonde interpolation of GLL p3 and frozen Q2 maps at 5x5 reference points in every cell; cubic polynomial equality checked beyond the Q2 nodes.",
+      "geometry": {
+        "model_id": 65,
+        "kind": "curved",
+        "elements": 42692,
+        "q2_nodes": 171539,
+        "area_m2": 918750.0,
+        "det_jacobian_certified_min_m2": 0.9620395469556922,
+        "bernstein_max_depth": 0,
+        "euler_characteristic": 1,
+        "conforming": true,
+        "core_top_edges": 140,
+        "core_top_edge_m": 5,
+        "external_edges": 770,
+        "area_by_region_m2": {
+          "1": 78559.43888275773,
+          "2": 34651.73824123157,
+          "3": 31159.76410704408,
+          "4": 238553.1843523546,
+          "5": 74510.54089526892,
+          "6": 50412.29790501328,
+          "7": 348364.02337616286,
+          "8": 62539.01224016699
+        },
+        "sqrt_area_quantiles_m": [
+          2.7742235626654344,
+          3.331374307644326,
+          4.732579424127454,
+          5.071660416877588,
+          5.603908170220176
+        ]
+      },
+      "quadrature_jacobian_min_m2": 0.962039546955696,
+      "stability": {
+        "path": "data/dev_1_3_point_source/p3_preflight_v1/00065_curved_p3_stability.json",
+        "sha256": "018603d49a87467a8deb09e2e9870703e446fe303587faf17d9d62f8572453f7",
+        "minimum_substeps_per_ms": 81,
+        "selected_substeps_per_ms": 224,
+        "selected_dt_s": 4.464285714285715e-06,
+        "dt_start_s": 1.2447556464217329e-05,
+        "selected_step_within_bound": true
+      }
+    }
+  ],
+  "existing_meshes_v1_files_unchanged_during_validation": true,
+  "selected_substeps_per_ms": {
+    "12404": 64,
+    "65": 224
+  },
+  "inputs": [
+    {
+      "path": "scripts/dev_1_3_point_source/mesh.py",
+      "sha256": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f"
+    },
+    {
+      "path": "scripts/dev_1_3_point_source/stability.py",
+      "sha256": "d135a8c5c25fce497a5308a04e36038140eba8e0d56f8685671c6061957c0b0e"
+    },
+    {
+      "path": "data/dev_1_3_point_source/meshes_v1/validation.json",
+      "sha256": "5d584f358a6dfd7abf6e060323e1a7c484cb9fe455703eebaa697cc1935ed65f"
+    },
+    {
+      "path": "data/dev_1_3_point_source/provenance_pre_p3_v1/manifest.json",
+      "sha256": "e148cdcb62dba99d37912a543bedafa53354b295e28401a549b00c0813d8847e"
+    }
+  ],
+  "limitations": [
+    "CPU geometry, material and conservative stability checks do not establish p3 waveform accuracy.",
+    "p4/p5 results and their certificates are historical and unchanged; no old dynamics rerun.",
+    "The later p3 native smoke and two-second simulations are separate evidence."
+  ]
+}

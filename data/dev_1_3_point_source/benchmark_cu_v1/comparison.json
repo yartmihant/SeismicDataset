@@ -1,0 +1,234 @@
+{
+  "status": "completed",
+  "reference_backend": "CEED /gpu/cuda/gen",
+  "candidate_backend": "native CU",
+  "model_id": 12404,
+  "kind": "raster",
+  "order": 5,
+  "source_x_m": 350,
+  "t_end_s": 0.01,
+  "substeps_per_ms": 48,
+  "steps": 480,
+  "field_layout": "full",
+  "reference_wall_s": 8.933358838083223,
+  "cu_wall_s": 4.683059205068275,
+  "wall_speedup": 1.9075904119288154,
+  "limitations": [
+    "Only0.01s: before Ricker peak at0.05s; backend agreement is not solver validation or p convergence.",
+    "Wall time includes prepare,callbacks,compression and IO; it is not a pure kernel benchmark."
+  ],
+  "comparisons": {
+    "surface.npz": {
+      "time_s": {
+        "shape": [
+          11
+        ],
+        "reference_l2": 0.019621416870348584,
+        "absolute_l2": 0.0,
+        "relative_l2": 0.0,
+        "max_absolute": 0.0
+      },
+      "coordinates_m": {
+        "shape": [
+          141,
+          2
+        ],
+        "reference_l2": 4807.520150763801,
+        "absolute_l2": 0.0,
+        "relative_l2": 0.0,
+        "max_absolute": 0.0
+      },
+      "node_ids": {
+        "shape": [
+          141
+        ],
+        "reference_l2": 235231.21325623433,
+        "absolute_l2": 0.0,
+        "relative_l2": 0.0,
+        "max_absolute": 0.0
+      },
+      "displacement_m": {
+        "shape": [
+          11,
+          141,
+          2
+        ],
+        "reference_l2": 9.196604111413751e-15,
+        "absolute_l2": 2.484947844924444e-30,
+        "relative_l2": 2.7020276341355356e-16,
+        "max_absolute": 1.5777218104420236e-30
+      },
+      "velocity_m_s": {
+        "shape": [
+          11,
+          141,
+          2
+        ],
+        "reference_l2": 6.194830653439844e-12,
+        "absolute_l2": 1.616241144633897e-26,
+        "relative_l2": 2.6090158634706767e-15,
+        "max_absolute": 1.2116903504194741e-26
+      }
+    },
+    "source_history.npz": {
+      "time_s": {
+        "shape": [
+          481
+        ],
+        "reference_l2": 0.12668873163080535,
+        "absolute_l2": 0.0,
+        "relative_l2": 0.0,
+        "max_absolute": 0.0
+      },
+      "velocity_y_m_s": {
+        "shape": [
+          481
+        ],
+        "reference_l2": 3.22954639247536e-11,
+        "absolute_l2": 8.021846674066153e-26,
+        "relative_l2": 2.4838926893128246e-15,
+        "max_absolute": 1.454028420503369e-26
+      },
+      "force_y_n_per_m": {
+        "shape": [
+          481
+        ],
+        "reference_l2": 0.0001109359442263618,
+        "absolute_l2": 7.658205904078364e-21,
+        "relative_l2": 6.903268329741712e-17,
+        "max_absolute": 3.3881317890172014e-21
+      },
+      "power_w_per_m": {
+        "shape": [
+          481
+        ],
+        "reference_l2": 4.2322664629335726e-16,
+        "absolute_l2": 6.468739875561585e-31,
+        "relative_l2": 1.5284339802834183e-15,
+        "max_absolute": 2.2186712959340957e-31
+      },
+      "work_j_per_m": {
+        "shape": [
+          481
+        ],
+        "reference_l2": 3.1587177088787713e-19,
+        "absolute_l2": 1.6399684362132588e-34,
+        "relative_l2": 5.191880336769275e-16,
+        "max_absolute": 3.611118645726067e-35
+      }
+    },
+    "energy_balance.npz": {
+      "time_s": {
+        "shape": [
+          2
+        ],
+        "reference_l2": 0.01,
+        "absolute_l2": 0.0,
+        "relative_l2": 0.0,
+        "max_absolute": 0.0
+      },
+      "kinetic_j_per_m": {
+        "shape": [
+          2
+        ],
+        "reference_l2": 1.067806439797682e-20,
+        "absolute_l2": 3.009265538105056e-36,
+        "relative_l2": 2.818175116714246e-16,
+        "max_absolute": 3.009265538105056e-36
+      },
+      "elastic_j_per_m": {
+        "shape": [
+          2
+        ],
+        "reference_l2": 6.293001371665364e-20,
+        "absolute_l2": 2.407412430484045e-35,
+        "relative_l2": 3.825539338547694e-16,
+        "max_absolute": 2.407412430484045e-35
+      },
+      "source_work_j_per_m": {
+        "shape": [
+          2
+        ],
+        "reference_l2": 7.361422668392312e-20,
+        "absolute_l2": 1.2037062152420224e-35,
+        "relative_l2": 1.6351543301682257e-16,
+        "max_absolute": 1.2037062152420224e-35
+      }
+    },
+    "fields/frame_0001.npz": {
+      "time_s": {
+        "shape": [],
+        "reference_l2": 0.01,
+        "absolute_l2": 0.0,
+        "relative_l2": 0.0,
+        "max_absolute": 0.0
+      },
+      "displacement_m": {
+        "shape": [
+          920676,
+          2
+        ],
+        "reference_l2": 1.1617452294435001e-14,
+        "absolute_l2": 4.061669647199986e-30,
+        "relative_l2": 3.4961793207841353e-16,
+        "max_absolute": 1.5777218104420236e-30
+      },
+      "velocity_m_s": {
+        "shape": [
+          920676,
+          2
+        ],
+        "reference_l2": 7.848084691898128e-12,
+        "absolute_l2": 2.0325440256961295e-26,
+        "relative_l2": 2.5898599537214484e-15,
+        "max_absolute": 1.2116903504194741e-26
+      },
+      "kinetic_energy_j_per_m": {
+        "shape": [
+          920676
+        ],
+        "reference_l2": 3.0332881909463e-21,
+        "absolute_l2": 7.892669815938288e-36,
+        "relative_l2": 2.6020177837029056e-15,
+        "max_absolute": 3.479463278433971e-36
+      },
+      "elastic_energy_j_per_m": {
+        "shape": [
+          920676
+        ],
+        "reference_l2": 2.950249175450642e-20,
+        "absolute_l2": 1.382204359000939e-35,
+        "relative_l2": 4.685042777072588e-16,
+        "max_absolute": 1.2037062152420224e-35
+      },
+      "kinetic_energy_density_j_m3": {
+        "shape": [
+          920676
+        ],
+        "reference_l2": 1.523738575352292e-20,
+        "absolute_l2": 6.756103765801631e-35,
+        "relative_l2": 4.433899538337542e-15,
+        "max_absolute": 6.319457630020618e-35
+      },
+      "elastic_energy_density_j_m3": {
+        "shape": [
+          920676
+        ],
+        "reference_l2": 4.0549285889421044e-19,
+        "absolute_l2": 5.534796130223562e-35,
+        "relative_l2": 1.3649552658749885e-16,
+        "max_absolute": 4.81482486096809e-35
+      }
+    }
+  },
+  "metadata_files": [
+    {
+      "path": "data/dev_1_3_point_source/benchmark_v1/12404_raster_p5/metadata.json",
+      "sha256": "4f7946f7a20a5c2c9d8fd1799d034d20c8edcde6a1ae4b87cf23f9dd4cc66726"
+    },
+    {
+      "path": "data/dev_1_3_point_source/benchmark_cu_v1/12404_raster_p5/metadata.json",
+      "sha256": "e45d4c6ead492519ab9748466111bea0aad59d7887954084a0a096517d76ebe4"
+    }
+  ]
+}

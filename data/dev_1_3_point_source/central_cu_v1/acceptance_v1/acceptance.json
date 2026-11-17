@@ -1,0 +1,1304 @@
+{
+  "chapter": "1.3",
+  "scope": "central_source_350m_only",
+  "expected_main_runs": 8,
+  "expected_time_controls": 4,
+  "completed_input_runs": 12,
+  "status": "criteria_far20_failed",
+  "acceptance_scope": "far20_receivers_only_full_0_to_2s; all-receiver results are disclosed separately in every complete case",
+  "all_components_pass": false,
+  "criteria": {
+    "full_window_s": [
+      0.0,
+      2.0
+    ],
+    "source_exclusion_radius_m": 20.0,
+    "receiver_mask_boundary_tolerance_m": 1e-09,
+    "p_relative_l2_max": 0.01,
+    "dt_relative_l2_max": 0.001,
+    "dt_absolute_over_p_absolute_max": 0.2,
+    "late_window_used_for_acceptance": false
+  },
+  "cases": [
+    {
+      "model_id": 12404,
+      "kind": "raster",
+      "source_x_m": 350.0,
+      "acceptance_scope": "full_0_to_2s_only_receivers_abs_x_minus_source_ge_20m",
+      "missing_runs": [],
+      "all_components_pass": false,
+      "full_far20": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "components": {
+          "Ux": {
+            "unit": "м",
+            "p_relative_l2": 6.472847305554533e-06,
+            "dt_relative_l2": 1.8510584709385253e-05,
+            "p_difference_l2": 1.5759897252939152e-14,
+            "dt_difference_l2": 4.506903332989849e-14,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 2.8597288806240986,
+            "accepted": false
+          },
+          "Uy": {
+            "unit": "м",
+            "p_relative_l2": 2.5059760593451846e-05,
+            "dt_relative_l2": 1.910331296859764e-05,
+            "p_difference_l2": 8.509952065232727e-14,
+            "dt_difference_l2": 6.487305651383995e-14,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 0.7623198816698132,
+            "accepted": false
+          },
+          "Vx": {
+            "unit": "м/с",
+            "p_relative_l2": 1.2882264589786004e-05,
+            "dt_relative_l2": 2.729844640012236e-05,
+            "p_difference_l2": 6.67040889121548e-12,
+            "dt_difference_l2": 1.4135109951084428e-11,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 2.1190769833764618,
+            "accepted": false
+          },
+          "Vy": {
+            "unit": "м/с",
+            "p_relative_l2": 4.225109358863081e-05,
+            "dt_relative_l2": 2.7990650343149784e-05,
+            "p_difference_l2": 3.071991848228123e-11,
+            "dt_difference_l2": 2.0351964849599604e-11,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 0.6625006137740339,
+            "accepted": false
+          }
+        }
+      },
+      "full_all_receivers": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 0.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 1.5361757618290555e-12,
+            "reference_discrete_l2": 2.4956069936946984e-09,
+            "relative_l2": 0.0006155519541780001,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.4331700316780214e-13,
+            "reference_max_abs": 7.553528765274582e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 1.633042868566811e-10,
+            "reference_discrete_l2": 4.060135028849767e-09,
+            "relative_l2": 0.040221393056216914,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.164069076191783e-11,
+            "reference_max_abs": 6.126291515038361e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.2269579568632707e-10,
+            "reference_discrete_l2": 5.307029421741804e-07,
+            "relative_l2": 0.0006080535268267197,
+            "reference_near_zero": false,
+            "max_abs_difference": 6.25775370073199e-11,
+            "reference_max_abs": 1.4388284984980424e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.4429619898032734e-08,
+            "reference_discrete_l2": 8.531892612859359e-07,
+            "relative_l2": 0.040354023966663675,
+            "reference_near_zero": false,
+            "max_abs_difference": 9.440578316277486e-09,
+            "reference_max_abs": 1.1326763091605291e-07
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 4.507620491594512e-14,
+            "reference_discrete_l2": 2.4957367923118597e-09,
+            "relative_l2": 1.8061281564146824e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.886322294721159e-15,
+            "reference_max_abs": 7.553531941924773e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 6.488332796785787e-14,
+            "reference_discrete_l2": 3.988221203406351e-09,
+            "relative_l2": 1.6268738532466764e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 2.9950314181862524e-15,
+            "reference_max_abs": 5.62542425691802e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.4139492622607934e-11,
+            "reference_discrete_l2": 5.307263868785444e-07,
+            "relative_l2": 2.6641774315705404e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 6.507767296761561e-13,
+            "reference_max_abs": 1.4388314443976156e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 2.0370110091547606e-11,
+            "reference_discrete_l2": 8.387364077804998e-07,
+            "relative_l2": 2.4286664919497013e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 8.731887102721501e-13,
+            "reference_max_abs": 1.04616978197702e-07
+          }
+        },
+        "includes_force_application_node": true,
+        "used_for_far20_acceptance": false
+      },
+      "late_far20_diagnostic": {
+        "time_window_s": [
+          1.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 4.129160839167531e-15,
+            "reference_discrete_l2": 3.377792790622336e-11,
+            "relative_l2": 0.00012224434993855145,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.7098003492499379e-16,
+            "reference_max_abs": 1.337367440137053e-12
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 3.4043218894325007e-15,
+            "reference_discrete_l2": 2.3009531795339268e-11,
+            "relative_l2": 0.00014795267977256576,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.3198427373061103e-16,
+            "reference_max_abs": 8.053296978352718e-13
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.2405953985018272e-12,
+            "reference_discrete_l2": 5.245540544728013e-09,
+            "relative_l2": 0.00023650477732913098,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.698185996431973e-14,
+            "reference_max_abs": 1.9586300240580878e-10
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.0312277401655515e-12,
+            "reference_discrete_l2": 3.1839843989179817e-09,
+            "relative_l2": 0.000323879646054797,
+            "reference_near_zero": false,
+            "max_abs_difference": 4.351010074489325e-14,
+            "reference_max_abs": 1.0354825355866484e-10
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 2.079039190148476e-15,
+            "reference_discrete_l2": 3.3778095058127705e-11,
+            "relative_l2": 6.154992419112801e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 7.112951475507695e-17,
+            "reference_max_abs": 1.3373904131507571e-12
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 1.2585035375596901e-15,
+            "reference_discrete_l2": 2.3009627365263773e-11,
+            "relative_l2": 5.469465096421231e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.2266438098343384e-17,
+            "reference_max_abs": 8.053224085028879e-13
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 6.059945967892476e-13,
+            "reference_discrete_l2": 5.245615731484455e-09,
+            "relative_l2": 0.0001155240162088193,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.821311634497213e-14,
+            "reference_max_abs": 1.9583945363151055e-10
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.423665089013979e-13,
+            "reference_discrete_l2": 3.184055565807357e-09,
+            "relative_l2": 0.00010752529339562156,
+            "reference_near_zero": false,
+            "max_abs_difference": 8.226460642121884e-15,
+            "reference_max_abs": 1.0351907099508382e-10
+          }
+        },
+        "used_for_acceptance": false
+      },
+      "base_substeps_per_ms": 64,
+      "reference_norms": "p correction normalized to p5; dt correction normalized to fine-time p4; one-fifth comparison uses absolute discrete L2 differences",
+      "status": "criteria_far20_failed"
+    },
+    {
+      "model_id": 12404,
+      "kind": "curved",
+      "source_x_m": 350.0,
+      "acceptance_scope": "full_0_to_2s_only_receivers_abs_x_minus_source_ge_20m",
+      "missing_runs": [],
+      "all_components_pass": false,
+      "full_far20": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "components": {
+          "Ux": {
+            "unit": "м",
+            "p_relative_l2": 6.139528505034495e-06,
+            "dt_relative_l2": 1.856199576945819e-05,
+            "p_difference_l2": 1.4950564647413773e-14,
+            "dt_difference_l2": 4.5200925998134827e-14,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 3.023359121486687,
+            "accepted": false
+          },
+          "Uy": {
+            "unit": "м",
+            "p_relative_l2": 2.5015364096215963e-05,
+            "dt_relative_l2": 1.912482917186927e-05,
+            "p_difference_l2": 8.495601625745861e-14,
+            "dt_difference_l2": 6.49516739401682e-14,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 0.7645329524789934,
+            "accepted": false
+          },
+          "Vx": {
+            "unit": "м/с",
+            "p_relative_l2": 1.2908182236773566e-05,
+            "dt_relative_l2": 2.7367311146931148e-05,
+            "p_difference_l2": 6.68480129501932e-12,
+            "dt_difference_l2": 1.4172829497756864e-11,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 2.1201571852729098,
+            "accepted": false
+          },
+          "Vy": {
+            "unit": "м/с",
+            "p_relative_l2": 4.222033859243962e-05,
+            "dt_relative_l2": 2.802112740265807e-05,
+            "p_difference_l2": 3.070027243874936e-11,
+            "dt_difference_l2": 2.03759267367411e-11,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": false,
+            "dt_to_p_absolute_ratio": 0.663705078754381,
+            "accepted": false
+          }
+        }
+      },
+      "full_all_receivers": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 0.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 1.5361672677187963e-12,
+            "reference_discrete_l2": 2.4959731941762963e-09,
+            "relative_l2": 0.0006154582394166102,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.4331700316759534e-13,
+            "reference_max_abs": 7.553528765280005e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 1.6330428677686727e-10,
+            "reference_discrete_l2": 4.060399303062387e-09,
+            "relative_l2": 0.04021877519624777,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.1640690761918556e-11,
+            "reference_max_abs": 6.126291515038362e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.2269606910623094e-10,
+            "reference_discrete_l2": 5.307793711554847e-07,
+            "relative_l2": 0.0006079664859689911,
+            "reference_near_zero": false,
+            "max_abs_difference": 6.257753700664492e-11,
+            "reference_max_abs": 1.4388284985020295e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.442961988138374e-08,
+            "reference_discrete_l2": 8.532494824207597e-07,
+            "relative_l2": 0.04035117581753843,
+            "reference_near_zero": false,
+            "max_abs_difference": 9.440578316283085e-09,
+            "reference_max_abs": 1.132676309160528e-07
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 4.521257576351737e-14,
+            "reference_discrete_l2": 2.496102980569654e-09,
+            "relative_l2": 1.811326540429797e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.8871546940775887e-15,
+            "reference_max_abs": 7.553531941877105e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 6.497365971239872e-14,
+            "reference_discrete_l2": 3.988490242325909e-09,
+            "relative_l2": 1.6290289248522518e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 2.9942437812042037e-15,
+            "reference_max_abs": 5.625424256918018e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.41789505942514e-11,
+            "reference_discrete_l2": 5.30802813124937e-07,
+            "relative_l2": 2.6712274772579338e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 6.507073641443638e-13,
+            "reference_max_abs": 1.4388314444039384e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 2.0398358757344746e-11,
+            "reference_discrete_l2": 8.387976663440103e-07,
+            "relative_l2": 2.4318568798901388e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 8.728460099267045e-13,
+            "reference_max_abs": 1.0461697819770362e-07
+          }
+        },
+        "includes_force_application_node": true,
+        "used_for_far20_acceptance": false
+      },
+      "late_far20_diagnostic": {
+        "time_window_s": [
+          1.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 2.8897520326813513e-15,
+            "reference_discrete_l2": 4.298578257820775e-11,
+            "relative_l2": 6.722576301649913e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.1044115016743737e-16,
+            "reference_max_abs": 2.184283417521327e-12
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 2.087109207533185e-15,
+            "reference_discrete_l2": 2.826341263677887e-11,
+            "relative_l2": 7.384491159490246e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.1661524803628458e-16,
+            "reference_max_abs": 1.4025097260053747e-12
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.4197551279826158e-12,
+            "reference_discrete_l2": 7.697036923308123e-09,
+            "relative_l2": 0.00018445476384338518,
+            "reference_near_zero": false,
+            "max_abs_difference": 4.409383628258306e-14,
+            "reference_max_abs": 3.706672245269396e-10
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 9.566001026799368e-13,
+            "reference_discrete_l2": 4.963449662317832e-09,
+            "relative_l2": 0.00019272888167726953,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.09552089369309e-14,
+            "reference_max_abs": 2.4083122174047103e-10
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 3.5363098519564737e-15,
+            "reference_discrete_l2": 4.298579619240831e-11,
+            "relative_l2": 8.226693850516647e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.9094382160702405e-16,
+            "reference_max_abs": 2.184290045680898e-12
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 2.6326992229055626e-15,
+            "reference_discrete_l2": 2.8263465779112544e-11,
+            "relative_l2": 9.314849224369354e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.2685071528203823e-16,
+            "reference_max_abs": 1.4025383532747073e-12
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.0382715564312253e-12,
+            "reference_discrete_l2": 7.697036031899326e-09,
+            "relative_l2": 0.0001348923861247692,
+            "reference_near_zero": false,
+            "max_abs_difference": 6.280974129228834e-14,
+            "reference_max_abs": 3.706572253246008e-10
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 8.026595049000631e-13,
+            "reference_discrete_l2": 4.963484077405249e-09,
+            "relative_l2": 0.00016171292027588571,
+            "reference_near_zero": false,
+            "max_abs_difference": 4.1437118815633253e-14,
+            "reference_max_abs": 2.4084247048800436e-10
+          }
+        },
+        "used_for_acceptance": false
+      },
+      "base_substeps_per_ms": 64,
+      "reference_norms": "p correction normalized to p5; dt correction normalized to fine-time p4; one-fifth comparison uses absolute discrete L2 differences",
+      "status": "criteria_far20_failed"
+    },
+    {
+      "model_id": 65,
+      "kind": "raster",
+      "source_x_m": 350.0,
+      "acceptance_scope": "full_0_to_2s_only_receivers_abs_x_minus_source_ge_20m",
+      "missing_runs": [],
+      "all_components_pass": true,
+      "full_far20": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "components": {
+          "Ux": {
+            "unit": "м",
+            "p_relative_l2": 2.8199917174602954e-05,
+            "dt_relative_l2": 1.3740307581444573e-06,
+            "p_difference_l2": 5.057462056425584e-14,
+            "dt_difference_l2": 2.464245977032668e-15,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.04872495234841762,
+            "accepted": true
+          },
+          "Uy": {
+            "unit": "м",
+            "p_relative_l2": 3.1884125309484504e-05,
+            "dt_relative_l2": 1.4649922474077196e-06,
+            "p_difference_l2": 8.577106794224148e-14,
+            "dt_difference_l2": 3.941018101885846e-15,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.04594810577081471,
+            "accepted": true
+          },
+          "Vx": {
+            "unit": "м/с",
+            "p_relative_l2": 3.8699680203525595e-05,
+            "dt_relative_l2": 2.087882413638869e-06,
+            "p_difference_l2": 1.4217962791960012e-11,
+            "dt_difference_l2": 7.670816495954572e-13,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.053951586512044285,
+            "accepted": true
+          },
+          "Vy": {
+            "unit": "м/с",
+            "p_relative_l2": 5.167908530752362e-05,
+            "dt_relative_l2": 2.2126465675469858e-06,
+            "p_difference_l2": 2.875692576294193e-11,
+            "dt_difference_l2": 1.2312685418473439e-12,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.04281641758223119,
+            "accepted": true
+          }
+        }
+      },
+      "full_all_receivers": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 0.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 3.5734721658090683e-12,
+            "reference_discrete_l2": 1.819544474020156e-09,
+            "relative_l2": 0.001963937796977137,
+            "reference_near_zero": false,
+            "max_abs_difference": 8.015157847843446e-13,
+            "reference_max_abs": 5.7570047956818235e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 1.304961376365972e-10,
+            "reference_discrete_l2": 3.2174472346798167e-09,
+            "relative_l2": 0.04055890528056585,
+            "reference_near_zero": false,
+            "max_abs_difference": 4.085601292502419e-11,
+            "reference_max_abs": 4.823953071230529e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 7.560591178989709e-10,
+            "reference_discrete_l2": 3.7377905274586095e-07,
+            "relative_l2": 0.002022743415782128,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.4706212461993528e-10,
+            "reference_max_abs": 1.2516253646272167e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 2.7516468146789817e-08,
+            "reference_discrete_l2": 6.598879088153022e-07,
+            "relative_l2": 0.041698700308345056,
+            "reference_near_zero": false,
+            "max_abs_difference": 7.469701321483878e-09,
+            "reference_max_abs": 8.917533992813717e-08
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 2.4662739556822982e-15,
+            "reference_discrete_l2": 1.8193967329274092e-09,
+            "relative_l2": 1.3555448963097034e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.0864661906374804e-16,
+            "reference_max_abs": 5.7570701640399617e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 3.94192926189158e-15,
+            "reference_discrete_l2": 3.1608177712996662e-09,
+            "relative_l2": 1.2471232279457656e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.9110114801405458e-16,
+            "reference_max_abs": 4.4271003507518805e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 7.679106217894827e-13,
+            "reference_discrete_l2": 3.7375792024753993e-07,
+            "relative_l2": 2.054566820365694e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.6340130545916726e-14,
+            "reference_max_abs": 1.251640908502934e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.2326305788327378e-12,
+            "reference_discrete_l2": 6.483089011093263e-07,
+            "relative_l2": 1.9013013344773984e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.738171825142525e-14,
+            "reference_max_abs": 8.232982584453487e-08
+          }
+        },
+        "includes_force_application_node": true,
+        "used_for_far20_acceptance": false
+      },
+      "late_far20_diagnostic": {
+        "time_window_s": [
+          1.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 1.0601088832988356e-14,
+            "reference_discrete_l2": 1.4910108419096768e-11,
+            "relative_l2": 0.0007110001171695406,
+            "reference_near_zero": false,
+            "max_abs_difference": 2.0860759660587043e-16,
+            "reference_max_abs": 2.776355948119631e-13
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 4.046246185031278e-15,
+            "reference_discrete_l2": 7.691971347806737e-12,
+            "relative_l2": 0.0005260350048216198,
+            "reference_near_zero": false,
+            "max_abs_difference": 8.874292251437916e-17,
+            "reference_max_abs": 1.453800829686355e-13
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 2.614128050572385e-12,
+            "reference_discrete_l2": 2.646423807143775e-09,
+            "relative_l2": 0.0009877964532800036,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.439185286638438e-14,
+            "reference_max_abs": 5.4833337944064115e-11
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 9.735826649767368e-13,
+            "reference_discrete_l2": 9.990913865285201e-10,
+            "relative_l2": 0.0009744680798015716,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.8985492342690145e-14,
+            "reference_max_abs": 1.7917620117520287e-11
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 1.1667337608278657e-16,
+            "reference_discrete_l2": 1.4910067115246186e-11,
+            "relative_l2": 7.82514090519975e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 2.384210237767294e-18,
+            "reference_max_abs": 2.7767749862414677e-13
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 4.1725757899714405e-17,
+            "reference_discrete_l2": 7.691908094540712e-12,
+            "relative_l2": 5.424630324084218e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 7.609732986063538e-19,
+            "reference_max_abs": 1.453770537848184e-13
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.487983470089178e-14,
+            "reference_discrete_l2": 2.646445091964094e-09,
+            "relative_l2": 1.317988225291508e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 7.299837288788727e-16,
+            "reference_max_abs": 5.4842238770234863e-11
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 2.4869610367832723e-14,
+            "reference_discrete_l2": 9.990974414447154e-10,
+            "relative_l2": 2.489207692482002e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.153081388782977e-16,
+            "reference_max_abs": 1.7921767534431164e-11
+          }
+        },
+        "used_for_acceptance": false
+      },
+      "base_substeps_per_ms": 224,
+      "reference_norms": "p correction normalized to p5; dt correction normalized to fine-time p4; one-fifth comparison uses absolute discrete L2 differences",
+      "status": "criteria_far20_passed"
+    },
+    {
+      "model_id": 65,
+      "kind": "curved",
+      "source_x_m": 350.0,
+      "acceptance_scope": "full_0_to_2s_only_receivers_abs_x_minus_source_ge_20m",
+      "missing_runs": [],
+      "all_components_pass": true,
+      "full_far20": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "components": {
+          "Ux": {
+            "unit": "м",
+            "p_relative_l2": 4.429258359539504e-05,
+            "dt_relative_l2": 1.3724526657708952e-06,
+            "p_difference_l2": 7.938660732380046e-14,
+            "dt_difference_l2": 2.4599154772798246e-15,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.03098652984685908,
+            "accepted": true
+          },
+          "Uy": {
+            "unit": "м",
+            "p_relative_l2": 2.2821661446875466e-05,
+            "dt_relative_l2": 1.464812362230686e-06,
+            "p_difference_l2": 6.134477265317699e-14,
+            "dt_difference_l2": 3.93747069609442e-15,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.06418592042643266,
+            "accepted": true
+          },
+          "Vx": {
+            "unit": "м/с",
+            "p_relative_l2": 7.502425925807127e-05,
+            "dt_relative_l2": 2.084448734589275e-06,
+            "p_difference_l2": 2.7545721837269178e-11,
+            "dt_difference_l2": 7.653445493570632e-13,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.027784516008636854,
+            "accepted": true
+          },
+          "Vy": {
+            "unit": "м/с",
+            "p_relative_l2": 3.6958457613145085e-05,
+            "dt_relative_l2": 2.2119816151304563e-06,
+            "p_difference_l2": 2.0549372340071972e-11,
+            "dt_difference_l2": 1.2299170105899426e-12,
+            "p_within_one_percent": true,
+            "dt_within_point_one_percent": true,
+            "dt_below_one_fifth_p_absolute": true,
+            "dt_to_p_absolute_ratio": 0.05985180424180464,
+            "accepted": true
+          }
+        }
+      },
+      "full_all_receivers": {
+        "time_window_s": [
+          0.0,
+          2.0
+        ],
+        "excluded_radius_m": 0.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 6.875828928246567e-12,
+            "reference_discrete_l2": 1.8186158645770683e-09,
+            "relative_l2": 0.003780803336303012,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.8572185398580863e-12,
+            "reference_max_abs": 5.756963993541559e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 1.2640150195637442e-10,
+            "reference_discrete_l2": 3.263511738005835e-09,
+            "relative_l2": 0.038731744238680726,
+            "reference_near_zero": false,
+            "max_abs_difference": 4.000378098802842e-11,
+            "reference_max_abs": 5.139590362235735e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.4500211430574033e-09,
+            "reference_discrete_l2": 3.735674984628389e-07,
+            "relative_l2": 0.0038815505873074393,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.3927453079865935e-10,
+            "reference_max_abs": 1.2516265755852992e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 2.6617855813014566e-08,
+            "reference_discrete_l2": 6.695028059940411e-07,
+            "relative_l2": 0.03975764638281662,
+            "reference_near_zero": false,
+            "max_abs_difference": 7.305828073340266e-09,
+            "reference_max_abs": 9.473914111290259e-08
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 2.4611748175196766e-15,
+            "reference_discrete_l2": 1.8183482597732304e-09,
+            "relative_l2": 1.3535222443178263e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.0891060198184531e-16,
+            "reference_max_abs": 5.757000481749121e-11
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 3.938381934525721e-15,
+            "reference_discrete_l2": 3.2048741843284537e-09,
+            "relative_l2": 1.228872557239237e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.9196182646065775e-16,
+            "reference_max_abs": 4.750121694642864e-10
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 7.659421926096876e-13,
+            "reference_discrete_l2": 3.7353160489822347e-07,
+            "relative_l2": 2.0505418619620814e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.61634067561617e-14,
+            "reference_max_abs": 1.251700403826608e-08
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.2314665943137551e-12,
+            "reference_discrete_l2": 6.573563794657607e-07,
+            "relative_l2": 1.8733622016638508e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.759626056642244e-14,
+            "reference_max_abs": 8.792374037987111e-08
+          }
+        },
+        "includes_force_application_node": true,
+        "used_for_far20_acceptance": false
+      },
+      "late_far20_diagnostic": {
+        "time_window_s": [
+          1.0,
+          2.0
+        ],
+        "excluded_radius_m": 20.0,
+        "p": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 2.6117348372711766e-15,
+            "reference_discrete_l2": 1.5092467174906842e-11,
+            "relative_l2": 0.00017304889962679662,
+            "reference_near_zero": false,
+            "max_abs_difference": 5.879399845597318e-17,
+            "reference_max_abs": 3.0113068582275473e-13
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 1.1872182217380072e-15,
+            "reference_discrete_l2": 7.606543261031499e-12,
+            "relative_l2": 0.00015607854724499555,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.32340984796055e-17,
+            "reference_max_abs": 1.4977908359858883e-13
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.213146292603065e-12,
+            "reference_discrete_l2": 2.7151486307747626e-09,
+            "relative_l2": 0.0004468065868854097,
+            "reference_near_zero": false,
+            "max_abs_difference": 2.695291586873552e-14,
+            "reference_max_abs": 6.794686562651536e-11
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 5.290252425901005e-13,
+            "reference_discrete_l2": 9.707750780214998e-10,
+            "relative_l2": 0.0005449514048797864,
+            "reference_near_zero": false,
+            "max_abs_difference": 1.3670701643851711e-14,
+            "reference_max_abs": 2.4320181567462832e-11
+          }
+        },
+        "dt": {
+          "Ux": {
+            "unit": "м",
+            "difference_discrete_l2": 1.305621118395911e-16,
+            "reference_discrete_l2": 1.5092492824891446e-11,
+            "relative_l2": 8.65079833758544e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 3.303255195724161e-18,
+            "reference_max_abs": 3.011370311152715e-13
+          },
+          "Uy": {
+            "unit": "м",
+            "difference_discrete_l2": 4.09916908196397e-17,
+            "reference_discrete_l2": 7.606564322488893e-12,
+            "relative_l2": 5.388988915593247e-06,
+            "reference_near_zero": false,
+            "max_abs_difference": 7.607241588694711e-19,
+            "reference_max_abs": 1.497861238801008e-13
+          },
+          "Vx": {
+            "unit": "м/с",
+            "difference_discrete_l2": 3.890167096320552e-14,
+            "reference_discrete_l2": 2.715152742109346e-09,
+            "relative_l2": 1.4327617875738223e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 8.825601177086855e-16,
+            "reference_max_abs": 6.79449798190639e-11
+          },
+          "Vy": {
+            "unit": "м/с",
+            "difference_discrete_l2": 1.276831070672221e-14,
+            "reference_discrete_l2": 9.707773163509855e-10,
+            "relative_l2": 1.315266693160537e-05,
+            "reference_near_zero": false,
+            "max_abs_difference": 2.315210054547145e-16,
+            "reference_max_abs": 2.432215742866929e-11
+          }
+        },
+        "used_for_acceptance": false
+      },
+      "base_substeps_per_ms": 224,
+      "reference_norms": "p correction normalized to p5; dt correction normalized to fine-time p4; one-fifth comparison uses absolute discrete L2 differences",
+      "status": "criteria_far20_passed"
+    }
+  ],
+  "geometry_attribution": [
+    {
+      "model_id": 12404,
+      "source_x_m": 350.0,
+      "status": "computed",
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 3.917742903208636e-11,
+              "corrections_discrete_l2": {
+                "raster_p": 1.5759897252939152e-14,
+                "curved_p": 1.4950564647413773e-14,
+                "raster_dt": 4.506903332989849e-14,
+                "curved_dt": 4.5200925998134827e-14
+              },
+              "correction_sum_discrete_l2": 1.2098042122838624e-13,
+              "effect_over_correction_sum": 323.8328039718708,
+              "five_times_margin": true
+            },
+            "Uy": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 3.2426641597066706e-11,
+              "corrections_discrete_l2": {
+                "raster_p": 8.509952065232727e-14,
+                "curved_p": 8.495601625745861e-14,
+                "raster_dt": 6.487305651383995e-14,
+                "curved_dt": 6.49516739401682e-14
+              },
+              "correction_sum_discrete_l2": 2.99880267363794e-13,
+              "effect_over_correction_sum": 108.13196173967974,
+              "five_times_margin": true
+            },
+            "Vx": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 9.278098948627302e-09,
+              "corrections_discrete_l2": {
+                "raster_p": 6.67040889121548e-12,
+                "curved_p": 6.68480129501932e-12,
+                "raster_dt": 1.4135109951084428e-11,
+                "curved_dt": 1.4172829497756864e-11
+              },
+              "correction_sum_discrete_l2": 4.1663149635076093e-11,
+              "effect_over_correction_sum": 222.6931720211593,
+              "five_times_margin": true
+            },
+            "Vy": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 7.729768018117862e-09,
+              "corrections_discrete_l2": {
+                "raster_p": 3.071991848228123e-11,
+                "curved_p": 3.070027243874936e-11,
+                "raster_dt": 2.0351964849599604e-11,
+                "curved_dt": 2.03759267367411e-11
+              },
+              "correction_sum_discrete_l2": 1.021480825073713e-10,
+              "effect_over_correction_sum": 75.6721793339592,
+              "five_times_margin": true
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 2.281533216403487e-11,
+              "corrections_discrete_l2": {
+                "raster_p": 4.129160839167531e-15,
+                "curved_p": 2.8897520326813513e-15,
+                "raster_dt": 2.079039190148476e-15,
+                "curved_dt": 3.5363098519564737e-15
+              },
+              "correction_sum_discrete_l2": 1.2634261913953832e-14,
+              "effect_over_correction_sum": 1805.8302352301735,
+              "five_times_margin": true
+            },
+            "Uy": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 1.5472822848524105e-11,
+              "corrections_discrete_l2": {
+                "raster_p": 3.4043218894325007e-15,
+                "curved_p": 2.087109207533185e-15,
+                "raster_dt": 1.2585035375596901e-15,
+                "curved_dt": 2.6326992229055626e-15
+              },
+              "correction_sum_discrete_l2": 9.382633857430938e-15,
+              "effect_over_correction_sum": 1649.0916179436979,
+              "five_times_margin": true
+            },
+            "Vx": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 5.393855806536421e-09,
+              "corrections_discrete_l2": {
+                "raster_p": 1.2405953985018272e-12,
+                "curved_p": 1.4197551279826158e-12,
+                "raster_dt": 6.059945967892476e-13,
+                "curved_dt": 1.0382715564312253e-12
+              },
+              "correction_sum_discrete_l2": 4.304616679704916e-12,
+              "effect_over_correction_sum": 1253.0397496174207,
+              "five_times_margin": true
+            },
+            "Vy": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 3.714684798249265e-09,
+              "corrections_discrete_l2": {
+                "raster_p": 1.0312277401655515e-12,
+                "curved_p": 9.566001026799368e-13,
+                "raster_dt": 3.423665089013979e-13,
+                "curved_dt": 8.026595049000631e-13
+              },
+              "correction_sum_discrete_l2": 3.1328538566469493e-12,
+              "effect_over_correction_sum": 1185.7191456179323,
+              "five_times_margin": true
+            }
+          }
+        }
+      ],
+      "limitation": "Observed p/dt corrections are not rigorous error bounds; layer reflection and solver validation are separate checks"
+    },
+    {
+      "model_id": 65,
+      "source_x_m": 350.0,
+      "status": "computed",
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 7.483923788999354e-11,
+              "corrections_discrete_l2": {
+                "raster_p": 5.057462056425584e-14,
+                "curved_p": 7.938660732380046e-14,
+                "raster_dt": 2.464245977032668e-15,
+                "curved_dt": 2.4599154772798246e-15
+              },
+              "correction_sum_discrete_l2": 1.348853893423688e-13,
+              "effect_over_correction_sum": 554.8357628270256,
+              "five_times_margin": true
+            },
+            "Uy": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 6.240974162826025e-11,
+              "corrections_discrete_l2": {
+                "raster_p": 8.577106794224148e-14,
+                "curved_p": 6.134477265317699e-14,
+                "raster_dt": 3.941018101885846e-15,
+                "curved_dt": 3.93747069609442e-15
+              },
+              "correction_sum_discrete_l2": 1.5499432939339872e-13,
+              "effect_over_correction_sum": 402.6582254493648,
+              "five_times_margin": true
+            },
+            "Vx": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 1.7634348804955278e-08,
+              "corrections_discrete_l2": {
+                "raster_p": 1.4217962791960012e-11,
+                "curved_p": 2.7545721837269178e-11,
+                "raster_dt": 7.670816495954572e-13,
+                "curved_dt": 7.653445493570632e-13
+              },
+              "correction_sum_discrete_l2": 4.329611082818171e-11,
+              "effect_over_correction_sum": 407.2963706817973,
+              "five_times_margin": true
+            },
+            "Vy": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 1.4785908450144402e-08,
+              "corrections_discrete_l2": {
+                "raster_p": 2.875692576294193e-11,
+                "curved_p": 2.0549372340071972e-11,
+                "raster_dt": 1.2312685418473439e-12,
+                "curved_dt": 1.2299170105899426e-12
+              },
+              "correction_sum_discrete_l2": 5.176748365545119e-11,
+              "effect_over_correction_sum": 285.62154089920546,
+              "five_times_margin": true
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 7.887829732470223e-12,
+              "corrections_discrete_l2": {
+                "raster_p": 1.0601088832988356e-14,
+                "curved_p": 2.6117348372711766e-15,
+                "raster_dt": 1.1667337608278657e-16,
+                "curved_dt": 1.305621118395911e-16
+              },
+              "correction_sum_discrete_l2": 1.3460059158181911e-14,
+              "effect_over_correction_sum": 586.0174639481788,
+              "five_times_margin": true
+            },
+            "Uy": {
+              "unit": "м",
+              "geometry_effect_discrete_l2": 3.0008246595495396e-12,
+              "corrections_discrete_l2": {
+                "raster_p": 4.046246185031278e-15,
+                "curved_p": 1.1872182217380072e-15,
+                "raster_dt": 4.1725757899714405e-17,
+                "curved_dt": 4.09916908196397e-17
+              },
+              "correction_sum_discrete_l2": 5.316181855488639e-15,
+              "effect_over_correction_sum": 564.4699036116245,
+              "five_times_margin": true
+            },
+            "Vx": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 1.856584309591565e-09,
+              "corrections_discrete_l2": {
+                "raster_p": 2.614128050572385e-12,
+                "curved_p": 1.213146292603065e-12,
+                "raster_dt": 3.487983470089178e-14,
+                "curved_dt": 3.890167096320552e-14
+              },
+              "correction_sum_discrete_l2": 3.9010558488395476e-12,
+              "effect_over_correction_sum": 475.9184132531314,
+              "five_times_margin": true
+            },
+            "Vy": {
+              "unit": "м/с",
+              "geometry_effect_discrete_l2": 6.869196880547568e-10,
+              "corrections_discrete_l2": {
+                "raster_p": 9.735826649767368e-13,
+                "curved_p": 5.290252425901005e-13,
+                "raster_dt": 2.4869610367832723e-14,
+                "curved_dt": 1.276831070672221e-14
+              },
+              "correction_sum_discrete_l2": 1.5402458286413923e-12,
+              "effect_over_correction_sum": 445.9805540656256,
+              "five_times_margin": true
+            }
+          }
+        }
+      ],
+      "limitation": "Observed p/dt corrections are not rigorous error bounds; layer reflection and solver validation are separate checks"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "surface_sha256": "dc860d99307ffe7f0ff83184775db0c059e378e652c79b8f2c853c0fd86ecf45"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p5/x350",
+      "metadata_sha256": "c9cd82ffb7f0945ca0f2d7e9cd814a9d37872ecbf149c9042ee5e2a079c29182",
+      "surface_sha256": "844b9d48f2c32514c04b395e6dbc261ecf87617d8746d40b384e645708f09036"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p4/x350",
+      "metadata_sha256": "b2ba7388a4427931544fe71b74b09c377bbe77082506067ec9c591bbd19cab23",
+      "surface_sha256": "399ccc5774ecc1cb71ef67cb59b58bb3a902c1ad006a25f0e386bd750cbc5225"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/curved/p5/x350",
+      "metadata_sha256": "2136cac8be916a50c538a482e36ec2254a808865fa6a224c81a18ac30ada3ab8",
+      "surface_sha256": "85a028993df16eac360525db206504794fe86f72b9bb5792a71d6c429237c536"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p4/x350",
+      "metadata_sha256": "7a36c72221535d2a7f2a5fb71a3424a3ceda0b3d076a2524d29064eda751b5e9",
+      "surface_sha256": "12c7e3afe49a4677f2a6cc168170146c3b3492d003dcffe1e8d3eaeadf5fda1d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/raster/p5/x350",
+      "metadata_sha256": "5f9af9e952c3944fac853eb3c761850df042a9fb0d52ed522ef6c1a6f16faf01",
+      "surface_sha256": "942df348cda7d2c05f4bf2d2f9e7ba797ed21f9d9e22328868f8413d5b06a98b"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p4/x350",
+      "metadata_sha256": "fa739138dee9d3cae42a721beeeadecd7c23f7fc7dbb00bfec7e7fee3a2d6451",
+      "surface_sha256": "836505a621d77b1015883a032e35902bcc4bb6186deca10077e232d88cbdae3b"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/00065/curved/p5/x350",
+      "metadata_sha256": "c313092fb9d1dca6d3aff9a676c6bf5fc5636c9e97fca85ce712654713d6e888",
+      "surface_sha256": "e168a20d3b4580c9b2a33ff40a356015b7e7c8ec60de91c70a902ff185700f50"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/raster/p4/x350",
+      "metadata_sha256": "2974a40706e4937a0b6f22875f971329b13f5087a582c1fa21ff329c8bf0aac3",
+      "surface_sha256": "e2927d5553d53a7b170bdbf389bab649fcb897ad6bb2de3e5619d745a6f3ce83"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/curved/p4/x350",
+      "metadata_sha256": "b8eb8e65965f1e754b27074ada5d9a2ced1bbf72bd1cd88706acdaf892c0f782",
+      "surface_sha256": "172824ffd9f7ed78f003c88f9a8f9fd97ea58998b61cb7b6cedb54c6e8b25f43"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/raster/p4/x350",
+      "metadata_sha256": "9150ed8169e75c8c8918ba3009eb6901740a0293d2994836c7b71d36d4147ed0",
+      "surface_sha256": "5b43fa35795f9c22da768ff54c552c8c72beb24c5f366f6da444d5bd7cd6649a"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/00065/curved/p4/x350",
+      "metadata_sha256": "52bb97556a2224caba59672da34165345be2869dfc329515b436730a5dfb53c3",
+      "surface_sha256": "fe6cfefd7085ed6efecf2ac59540abbcffe16f4e087112dd8c46f04f8250c503"
+    }
+  ],
+  "limitations": [
+    "Только центральный источник; боковые положения не исследовались в этой серии.",
+    "Пороги 1%, 0,1% и отношение 1:5 — рабочие критерии протокола, а не допуск, заданный пользователем.",
+    "Статус criteria_far20 относится только к приёмникам на расстоянии не менее 20 м от источника; полная запись со всеми приёмниками приведена отдельно.",
+    "Сходимость самого узла приложения точечной силы не утверждается и не следует из выполнения критериев far20.",
+    "Приёмка по указанным p/dt-критериям не заменяет отдельного контроля отражения от слоя.",
+    "Наблюдаемые поправки не являются строгими оценками ошибки или независимой валидацией решателя."
+  ]
+}

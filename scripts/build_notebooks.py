@@ -1,4 +1,4 @@
-"""Convert and verify the two report diaries using the MilenSem2D converter."""
+"""Convert and verify report diaries using the MilenSem2D converter."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from nbclient import NotebookClient
 
 from scripts.project_paths import PROJECT_ROOT
 
-DIARIES: Final = ("dev_1_1_dataset_preprocessing", "dev_1_2_smoothing_pilot")
+DIARIES: Final = ("dev_1_1_dataset_preprocessing", "dev_1_2_smoothing_pilot", "dev_1_3_point_source", "dev_1_4_server_preparation")
 
 
 def semantic_tree(path: Path) -> str:
@@ -57,9 +57,10 @@ def build(stem: str, execute: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--execute", action="store_true", help="Run only the two report diaries, no solver or mass processing")
+    parser.add_argument("--execute", action="store_true", help="Run only report diaries, no solver or mass processing")
+    parser.add_argument("--diary", choices=DIARIES, action="append", help="Convert only the selected diary; repeat for several")
     args = parser.parse_args()
-    for stem in DIARIES:
+    for stem in args.diary or DIARIES:
         build(stem, args.execute)
 
 

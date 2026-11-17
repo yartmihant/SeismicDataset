@@ -1,0 +1,329 @@
+{
+  "chapter": "1.3",
+  "status": "postprocessing_complete",
+  "short_run": false,
+  "completed_run_count": 2,
+  "observed_source_x_m": [
+    350.0
+  ],
+  "expected_main_run_count": 8,
+  "distinct_main_case_count": 1,
+  "additional_time_step_run_count": 1,
+  "coverage_definition": "Two models, raster/curved, p4/p5, only the source positions present in this report; additional time steps counted separately",
+  "coverage": [
+    "m12404_raster_p4_x350_k128",
+    "m12404_raster_p4_x350_k64"
+  ],
+  "comparisons": [
+    {
+      "comparison": "dt",
+      "value": "m12404_raster_p4_x350_k64",
+      "reference": "m12404_raster_p4_x350_k128",
+      "norm_definition": "unweighted_discrete_l2_common_time_and_receiver_samples",
+      "receiver_mask_boundary_tolerance_m": 1e-09,
+      "source_point_included_only_when_radius_zero": true,
+      "windows": [
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.507620491594512e-14,
+              "reference_discrete_l2": 2.4957367923118597e-09,
+              "relative_l2": 1.8061281564146824e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.886322294721159e-15,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.488332796785787e-14,
+              "reference_discrete_l2": 3.988221203406351e-09,
+              "relative_l2": 1.6268738532466764e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9950314181862524e-15,
+              "reference_max_abs": 5.62542425691802e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4139492622607934e-11,
+              "reference_discrete_l2": 5.307263868785444e-07,
+              "relative_l2": 2.6641774315705404e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507767296761561e-13,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.0370110091547606e-11,
+              "reference_discrete_l2": 8.387364077804998e-07,
+              "relative_l2": 2.4286664919497013e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.731887102721501e-13,
+              "reference_max_abs": 1.04616978197702e-07
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.507456143935498e-14,
+              "reference_discrete_l2": 2.4762574315249457e-09,
+              "relative_l2": 1.820269607897627e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.886322294721159e-15,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.488007768359437e-14,
+              "reference_discrete_l2": 3.476324559254528e-09,
+              "relative_l2": 1.866341205422644e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9950314181862524e-15,
+              "reference_max_abs": 1.2073824727324404e-10
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4138316458676015e-11,
+              "reference_discrete_l2": 5.266438048010702e-07,
+              "relative_l2": 2.684607001883654e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507767296761561e-13,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.035569341836383e-11,
+              "reference_discrete_l2": 7.413726229281414e-07,
+              "relative_l2": 2.7456764370346643e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.731887102721501e-13,
+              "reference_max_abs": 2.3463986495935216e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            0.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 4.506903332989849e-14,
+              "reference_discrete_l2": 2.4347709182329365e-09,
+              "relative_l2": 1.8510584709385253e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.886322294721159e-15,
+              "reference_max_abs": 7.553531941924773e-11
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 6.487305651383995e-14,
+              "reference_discrete_l2": 3.3959060724430057e-09,
+              "relative_l2": 1.910331296859764e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 2.9950314181862524e-15,
+              "reference_max_abs": 9.449994692127784e-11
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 1.4135109951084428e-11,
+              "reference_discrete_l2": 5.177990624045576e-07,
+              "relative_l2": 2.729844640012236e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 6.507767296761561e-13,
+              "reference_max_abs": 1.4388314443976156e-08
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 2.0351964849599604e-11,
+              "reference_discrete_l2": 7.270986775975495e-07,
+              "relative_l2": 2.7990650343149784e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.731887102721501e-13,
+              "reference_max_abs": 2.0629198795441708e-08
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 0.0,
+          "receiver_count": 141,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.1202246894905926e-15,
+              "reference_discrete_l2": 3.434089290639661e-11,
+              "relative_l2": 6.17405230338569e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.112951475507695e-17,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2961864911806979e-15,
+              "reference_discrete_l2": 2.424715871656407e-11,
+              "relative_l2": 5.345725271700507e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2266438098343384e-17,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.182973620467343e-13,
+              "reference_discrete_l2": 5.346541775773335e-09,
+              "relative_l2": 0.00011564435255110346,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.821311634497213e-14,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.530146746732724e-13,
+              "reference_discrete_l2": 3.2930614919391136e-09,
+              "relative_l2": 0.00010719953925470135,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.226460642121884e-15,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 10.0,
+          "receiver_count": 138,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.104446074766218e-15,
+              "reference_discrete_l2": 3.4130373993393857e-11,
+              "relative_l2": 6.165903939914477e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.112951475507695e-17,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2808681421986841e-15,
+              "reference_discrete_l2": 2.375503510942028e-11,
+              "relative_l2": 5.391985893932626e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2266438098343384e-17,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.13214388584347e-13,
+              "reference_discrete_l2": 5.310620790067524e-09,
+              "relative_l2": 0.00011546943621567642,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.821311634497213e-14,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.485191621868083e-13,
+              "reference_discrete_l2": 3.253092642773116e-09,
+              "relative_l2": 0.00010713471777726911,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.226460642121884e-15,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        },
+        {
+          "time_window_s": [
+            1.0,
+            2.0
+          ],
+          "excluded_radius_m": 20.0,
+          "receiver_count": 134,
+          "components": {
+            "Ux": {
+              "unit": "м",
+              "difference_discrete_l2": 2.079039190148476e-15,
+              "reference_discrete_l2": 3.3778095058127705e-11,
+              "relative_l2": 6.154992419112801e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 7.112951475507695e-17,
+              "reference_max_abs": 1.3373904131507571e-12
+            },
+            "Uy": {
+              "unit": "м",
+              "difference_discrete_l2": 1.2585035375596901e-15,
+              "reference_discrete_l2": 2.3009627365263773e-11,
+              "relative_l2": 5.469465096421231e-05,
+              "reference_near_zero": false,
+              "max_abs_difference": 3.2266438098343384e-17,
+              "reference_max_abs": 8.053224085028879e-13
+            },
+            "Vx": {
+              "unit": "м/с",
+              "difference_discrete_l2": 6.059945967892476e-13,
+              "reference_discrete_l2": 5.245615731484455e-09,
+              "relative_l2": 0.0001155240162088193,
+              "reference_near_zero": false,
+              "max_abs_difference": 1.821311634497213e-14,
+              "reference_max_abs": 1.9583945363151055e-10
+            },
+            "Vy": {
+              "unit": "м/с",
+              "difference_discrete_l2": 3.423665089013979e-13,
+              "reference_discrete_l2": 3.184055565807357e-09,
+              "relative_l2": 0.00010752529339562156,
+              "reference_near_zero": false,
+              "max_abs_difference": 8.226460642121884e-15,
+              "reference_max_abs": 1.0351907099508382e-10
+            }
+          }
+        }
+      ],
+      "preliminary_full_far20_threshold": 0.001,
+      "preliminary_full_far20_all_components_pass": true,
+      "threshold_limit": "Предварительный порог по полной записи вне 20 м; это не подтверждение временного запаса 1/5 и не проверка отражений."
+    }
+  ],
+  "images": [
+    "img/dev_1_3_point_source/central_cu_v1/comparison_dt_12404_raster_v1/dt_m12404_raster_p4_x350_k64_minus_m12404_raster_p4_x350_k128_full.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_dt_12404_raster_v1/dt_m12404_raster_p4_x350_k64_minus_m12404_raster_p4_x350_k128_late.png"
+  ],
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/controls_dt/12404/raster/p4/x350",
+      "metadata_sha256": "2974a40706e4937a0b6f22875f971329b13f5087a582c1fa21ff329c8bf0aac3",
+      "surface_sha256": "e2927d5553d53a7b170bdbf389bab649fcb897ad6bb2de3e5619d745a6f3ce83"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350",
+      "metadata_sha256": "fe39a5455c5983f1675477b6cf721f83ccf74ba9351e4aba248d1a2d69663962",
+      "surface_sha256": "dc860d99307ffe7f0ff83184775db0c059e378e652c79b8f2c853c0fd86ecf45"
+    }
+  ],
+  "limitations": [
+    "Нормы рассчитаны в общих физических приёмниках; поля на разных сетках напрямую не вычитались.",
+    "Прохождение p-критерия требует также временного контроля и проверки отражений; этот отчёт их не подменяет.",
+    "Результаты исследовательские и не являются независимой валидацией решателя."
+  ]
+}

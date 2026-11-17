@@ -1,0 +1,58 @@
+{
+  "status": "animation_complete",
+  "short_run": false,
+  "model_id": 12404,
+  "source_x_m": 350.0,
+  "frame_count": 201,
+  "physical_interval_s": 0.01,
+  "end_s": 2.0,
+  "playback_fps": 25,
+  "common_limits": {
+    "speed_m_s": [
+      0.0,
+      7.186947276696484e-08
+    ],
+    "total_energy_density_j_m3": [
+      0.0,
+      5.302896132900217e-10
+    ]
+  },
+  "color_scale": "logarithmic",
+  "log_color_limits": {
+    "speed_m_s": [
+      7.186947276696483e-14,
+      7.186947276696484e-08
+    ],
+    "total_energy_density_j_m3": [
+      5.302896132900217e-22,
+      5.302896132900217e-10
+    ]
+  },
+  "log_zero_policy": "Zeros are masked and drawn black; positive values below the fixed lower limit use the lowest colormap color",
+  "zero_field_display_limit": "1 only if every actual value is zero; recorded maxima remain zero",
+  "rendering": "nearest_global_node_on_common_regular_pixel_centres_no_temporal_rescaling",
+  "pixel_shape": [
+    525,
+    630
+  ],
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350",
+      "metadata_sha256": "c497690c717297c895f1e8d00fa6b475e54e3413ee9264ef717c60de38d8d538",
+      "geometry_sha256": "5bf87c713b6ce9467495a8478d6a0510b5c9044a725616062fad2871b7ee9659",
+      "node_count": 589541,
+      "max_pixel_to_node_distance_m": 0.04247235452408451
+    }
+  ],
+  "outputs": [
+    "img/dev_1_3_point_source/ceed_reference_animation_v2/speed.mp4",
+    "img/dev_1_3_point_source/ceed_reference_animation_v2/energy.mp4",
+    "img/dev_1_3_point_source/ceed_reference_animation_v2/speed_final.png",
+    "img/dev_1_3_point_source/ceed_reference_animation_v2/energy_final.png"
+  ],
+  "limits": [
+    "Цветная картинка является пространственной выборкой, а не всеми исходными значениями; все узловые поля сохранены отдельно.",
+    "Плотность энергии у материальных интерфейсов является узловым восстановлением решателя.",
+    "Одна постоянная шкала может скрывать слабую позднюю коду; временного усиления в этих роликах нет."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "mypy_source_files": 49,
+  "notebook_cells": 25,
+  "executed_code_cells": 7,
+  "notebook_errors": 0,
+  "roundtrip": "AST equivalence passed by scripts.build_notebooks",
+  "home_du_matches": true,
+  "storage": {
+    "models": 60000,
+    "sources": 5,
+    "samples": 2001,
+    "components": 4,
+    "dtype": "float64",
+    "bytes_per_receiver_per_run": 64032,
+    "signal_bytes_per_N": 19209600000,
+    "N_example": 141,
+    "signal_bytes_N141": 2708553600000,
+    "surface_array_bytes_N141": 2714371200000,
+    "illustrative_20percent_budget_bytes": 3257245440000,
+    "compression_assumed": false,
+    "geometry_variants": 1
+  },
+  "surface_schema_verified_from": "data/dev_1_3_point_source/central_cu_v1/12404/raster/p4/x350/surface.npz",
+  "surface_schema": {
+    "time_s": {
+      "shape": [
+        2001
+      ],
+      "dtype": "float64",
+      "bytes": 16008
+    },
+    "coordinates_m": {
+      "shape": [
+        141,
+        2
+      ],
+      "dtype": "float64",
+      "bytes": 2256
+    },
+    "node_ids": {
+      "shape": [
+        141
+      ],
+      "dtype": "int64",
+      "bytes": 1128
+    },
+    "displacement_m": {
+      "shape": [
+        2001,
+        141,
+        2
+      ],
+      "dtype": "float64",
+      "bytes": 4514256
+    },
+    "velocity_m_s": {
+      "shape": [
+        2001,
+        141,
+        2
+      ],
+      "dtype": "float64",
+      "bytes": 4514256
+    }
+  },
+  "sha256": {
+    "data/dev_1_4_server_preparation/server_audit_20261117_v1/snapshot.json": "dabfcf04ea97d7c199a4106e932bf5b2640843787cf242f4724d95f7e31299df",
+    "data/dev_1_4_server_preparation/server_audit_20261117_v1/supplement.json": "d20bd44f9ed3f37885c747536d2ceeaf066d7bd3d10ea313432e1061bd24b29a",
+    "dev_1_4_server_preparation.py": "df2e7155459f9e7c3a56291a02d899d706d140de06d3751f117f59c4f37b6d6a",
+    "dev_1_4_server_preparation.ipynb": "b4e84eb0d8f1acfdcf3f266048f2a92b9980bc17036b432477e71b7bd9f16e5b"
+  },
+  "scope_limits": [
+    "No global UID quota",
+    "No inspection or use of unmounted drives",
+    "No remote solver or benchmark",
+    "Only short load observation",
+    "No guaranteed compression or total solver RAM estimate"
+  ]
+}

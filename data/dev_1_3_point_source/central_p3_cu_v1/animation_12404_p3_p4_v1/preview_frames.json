@@ -1,0 +1,21 @@
+{
+  "status": "extracted_from_completed_movies",
+  "frames": [
+    {
+      "movie": "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/speed.mp4",
+      "movie_sha256": "0b369476787d06279e7c59dddc51f4fb970397ee0775338bf3cf40d97d2cea83",
+      "frame_index": 30,
+      "physical_time_s": 0.3,
+      "playback_time_s": 1.2,
+      "image": "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/speed_t0_30.png"
+    },
+    {
+      "movie": "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/energy.mp4",
+      "movie_sha256": "475976a517e0c4c3208b01314b6d662b3fd88e3ac18e16dbe935c9d2436e155c",
+      "frame_index": 30,
+      "physical_time_s": 0.3,
+      "playback_time_s": 1.2,
+      "image": "img/dev_1_3_point_source/central_p3_cu_v1/animation_12404_p3_p4_v1/energy_t0_30.png"
+    }
+  ]
+}
