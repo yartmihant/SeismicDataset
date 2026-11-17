@@ -29,6 +29,9 @@ dist/
 !/data/**/*.md
 !/data/**/*.json
 /data/dev_1_2_smoothing/provenance_runtime/
+/data/dev_1_4_server_preparation/*/chunks/
+/data/dev_1_4_server_preparation/*/work/
+/data/dev_1_4_server_preparation/*/runtime_cache/
 
 # Only curated illustrations are versioned; mass previews remain local.
 /img/dev_1_1_preprocessing/previews/A/EFVB/
