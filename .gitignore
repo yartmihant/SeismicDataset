@@ -1,5 +1,6 @@
 # Local environments, caches, private backups and generated notebook previews.
 .venv/
+.runtime_stage_v1/
 .mypy_cache/
 .pytest_cache/
 __pycache__/
@@ -8,6 +9,8 @@ __pycache__/
 .ipynb_checkpoints/
 .local-backups/
 .matplotlib/
+.runtime_build/
+.runtime_cache/
 .sync_cache
 .syncignore
 build/
