@@ -101,6 +101,20 @@ def compact_geometry(report: dict[str, object], mesh_sha256: str, provenance: di
     keys = ("construction", "source_sample_bound_m", "source_topology", "source_regions",
             "rows_topdown_before_refinement", "curve_intersection_check", "settings", "method")
     compact = {key: construction[key] for key in keys if key in construction}
+    method = construction.get("construction")
+    if method == "layered_pilot_Q2_exact_2x2":
+        compact["settings"] = {"fit": "cubic least squares, locked endpoints", "degree": 3,
+            "control_counts": [10, 14, 20, 28, 40], "source_centres_x_m": "5:10:695",
+            "source_bound_m": 7.5, "frozen_Q2_x_m": "0:5:700", "row_rule": "max(1, round(mean_layer_thickness/10m))",
+            "refinement": "exact 2x2 subdivision of frozen Q2", "absorbing_extension_m": 175.}
+    elif method == "shared_CAD_model65_rules_plus_periodic_closed_chains":
+        compact["settings"] = {"fit": "cubic arclength least squares; straight interfaces degree1",
+            "control_counts": [4, 5, 6, 8, 10, 14, 20, 28, 40, 52, 64, "source_count"],
+            "periodic_fit": "cyclic cubic, C2 seam, two exact clamped CAD arcs", "source_bound_m": 7.5,
+            "gmsh_seed_min_max_m": 12.5, "outer_transfinite_spacing_m": 10., "gmsh_algorithm": 6,
+            "gmsh_subdivision_algorithm": 1, "gmsh_recombine_all": 0, "gmsh_second_order_incomplete": 0,
+            "gmsh_second_order_linear": 0, "gmsh_threads": 2, "Q2_centre": "serendipity",
+            "final_top_edge_m": 5., "absorbing_extension_m": 175.}
     if "curves" in construction:
         compact["curves_count"] = len(sequence(construction["curves"]))
     if "closed_chain_fits" in construction:
@@ -126,6 +140,7 @@ def compact_geometry(report: dict[str, object], mesh_sha256: str, provenance: di
             "fallback": report["fallback"], "algorithm_evidence": report["algorithm_evidence"],
             "implementation": provenance,
             "mesh_sha256": mesh_sha256, "full_geometry_report_sha256": hashlib.sha256(encoded).hexdigest(),
+            "full_geometry_report_sha256_format": "json.dumps(report, sort_keys=True, allow_nan=False).encode()",
             "full_geometry_report_retention": "temporary work only; deleted after five verified sources"}
 
 
