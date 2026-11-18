@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T19:17:07.641471+00:00",
+  "scope": "CPU comparator tests on downloaded A100 reference and temporary altered copies; no GPU execution",
+  "reference_sha256": "571be8b62090849e9019d01b1389dc12a12a66808d9015f589c0e0bd98110980",
+  "reference_self_comparison_zero_error": true,
+  "speedup_ratio_2_checked": true,
+  "separate_geometry_timing_checked": true,
+  "different_native_build_allowed_and_reported": true,
+  "different_force_hash_rejected": true,
+  "npz_sha_tampering_rejected": true,
+  "above_numerical_threshold_rejected": true,
+  "temporary_files_removed": true,
+  "comparison_code_sha256": "36a48db5243d4041d80e7ee0910f21d11e5c27dd637054be1ee85492c0e7c065"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T18:02:54.251930+00:00",
+  "checks": [
+    "12 chunks alternate, cover 60000 distinct (group,id), exact 5000-model byte accounting",
+    "boundary equality, one-byte shortage, recheck after external write, duplicate completion and failed reserve",
+    "two processes with identical free-space observation cannot reserve the same remaining capacity twice",
+    "chunk barrier waits for last model; default stops after EFVB chunk 1; explicit two-chunk plan transitions to ECVB"
+  ],
+  "scope": "CPU and SQLite concurrency only; no SSH, GPU, solver or dataset run",
+  "sha256": {
+    "chunk_plan.py": "fd26fe10057590d408dc48598aef566c1b467bbfd621182bf9b3db8897750d10",
+    "check_chunk_plan.py": "c8eb15cc7c2dd00a1e9da3ad644dbf7d75b1d898236d4bfb0378a4cf08e77c05"
+  }
+}

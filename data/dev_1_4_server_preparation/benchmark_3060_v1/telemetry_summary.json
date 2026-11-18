@@ -1,0 +1,169 @@
+{
+  "status": "completed",
+  "scope": "Read-only local NVIDIA/systemd/log telemetry; no process or environment changes; shared GPU load is not isolated benchmark validation",
+  "started_utc": "2026-11-17T19:16:21.472776+00:00",
+  "finished_utc": "2026-11-17T19:21:21.473941+00:00",
+  "samples": 11,
+  "requested_interval_seconds": 30,
+  "first": {
+    "utc": "2026-11-17T19:16:21.472776+00:00",
+    "elapsed_seconds": 0.026124899042770267,
+    "gpu": [
+      {
+        "name": "NVIDIA GeForce RTX 3060",
+        "driver_version": "580.196.07",
+        "utilization.gpu": "99",
+        "memory.used": "869",
+        "memory.total": "12288",
+        "power.draw": "120.69",
+        "clocks.current.graphics": "1912",
+        "clocks.current.memory": "7301",
+        "temperature.gpu": "64"
+      }
+    ],
+    "gpu_query_returncode": 0,
+    "service": {
+      "ExecMainStatus": "0",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "service_query_returncode": 0,
+    "latest_surface_time_s": 0.0,
+    "last_log_event": {
+      "stage": "surface",
+      "time_s": 0.0
+    },
+    "log_tail": [
+      "{\"stage\": \"cpu_prepared\", \"dataset\": \"EFVB\", \"model_id\": 0, \"gpu\": 0, \"substeps_per_ms\": 96, \"t_end_s\": 2.0, \"preparation_seconds\": 3.4919544782023877, \"out\": \"/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000\"}",
+      "{\"stage\": \"prepared\", \"nodes\": 589541, \"steps\": 192000}",
+      "{\"stage\": \"surface\", \"time_s\": 0.0}"
+    ]
+  },
+  "last": {
+    "utc": "2026-11-17T19:21:21.473941+00:00",
+    "elapsed_seconds": 300.0418521061074,
+    "gpu": [
+      {
+        "name": "NVIDIA GeForce RTX 3060",
+        "driver_version": "580.196.07",
+        "utilization.gpu": "8",
+        "memory.used": "576",
+        "memory.total": "12288",
+        "power.draw": "17.44",
+        "clocks.current.graphics": "210",
+        "clocks.current.memory": "405",
+        "temperature.gpu": "47"
+      }
+    ],
+    "gpu_query_returncode": 0,
+    "service": {
+      "ExecMainStatus": "0",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    },
+    "service_query_returncode": 0,
+    "latest_surface_time_s": 2.0,
+    "last_log_event": {
+      "status": "completed",
+      "dataset": "EFVB",
+      "model_id": 0,
+      "gpu": 0,
+      "source_x_m": 350.0,
+      "t_end_s": 2.0,
+      "substeps_per_ms": 96,
+      "order": 4,
+      "geometry": "curved",
+      "preparation_seconds": 3.4919544782023877,
+      "wall_seconds": 347.7698137490079,
+      "surface": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/surface.npz",
+      "surface_metadata": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/metadata.json",
+      "free_bytes_at_end": 93348065280,
+      "scope": "single central source; short integration unless t-end=2"
+    },
+    "log_tail": [
+      "{\"stage\": \"surface\", \"time_s\": 1.5}",
+      "{\"stage\": \"surface\", \"time_s\": 2.0}",
+      "{\"status\": \"completed\", \"dataset\": \"EFVB\", \"model_id\": 0, \"gpu\": 0, \"source_x_m\": 350.0, \"t_end_s\": 2.0, \"substeps_per_ms\": 96, \"order\": 4, \"geometry\": \"curved\", \"preparation_seconds\": 3.4919544782023877, \"wall_seconds\": 347.7698137490079, \"surface\": \"/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/surface.npz\", \"surface_metadata\": \"/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/metadata.json\", \"free_bytes_at_end\": 93348065280, \"scope\": \"single central source; short integration unless t-end=2\"}"
+    ]
+  },
+  "sampled_metrics": {
+    "utilization.gpu": {
+      "min": 8.0,
+      "max": 100.0,
+      "mean": 91.27272727272727
+    },
+    "memory.used": {
+      "min": 576.0,
+      "max": 871.0,
+      "mean": 842.9090909090909
+    },
+    "power.draw": {
+      "min": 17.44,
+      "max": 121.55,
+      "mean": 111.80363636363636
+    },
+    "clocks.current.graphics": {
+      "min": 210.0,
+      "max": 1912.0,
+      "mean": 1757.2727272727273
+    },
+    "clocks.current.memory": {
+      "min": 405.0,
+      "max": 7301.0,
+      "mean": 6674.090909090909
+    },
+    "temperature.gpu": {
+      "min": 47.0,
+      "max": 65.0,
+      "mean": 63.09090909090909
+    }
+  },
+  "units": {
+    "utilization.gpu": "percent",
+    "memory.used": "MiB",
+    "memory.total": "MiB",
+    "power.draw": "W",
+    "clocks.current.graphics": "MHz",
+    "clocks.current.memory": "MHz",
+    "temperature.gpu": "C"
+  },
+  "active_sample_count": 10,
+  "active_sampled_metrics": {
+    "utilization.gpu": {
+      "min": 99.0,
+      "max": 100.0,
+      "mean": 99.6
+    },
+    "memory.used": {
+      "min": 868.0,
+      "max": 871.0,
+      "mean": 869.6
+    },
+    "power.draw": {
+      "min": 120.69,
+      "max": 121.55,
+      "mean": 121.24000000000001
+    },
+    "clocks.current.graphics": {
+      "min": 1912.0,
+      "max": 1912.0,
+      "mean": 1912.0
+    },
+    "clocks.current.memory": {
+      "min": 7301.0,
+      "max": 7301.0,
+      "mean": 7301.0
+    },
+    "temperature.gpu": {
+      "min": 64.0,
+      "max": 65.0,
+      "mean": 64.7
+    }
+  },
+  "sample_interval_seconds": {
+    "min": 30.000069,
+    "max": 30.000151
+  },
+  "baseline_context": "Requester observed desktop baseline574MiB before benchmark (Telegram28MiB compute listing); final sampled total576MiB. No desktop or other processes were stopped.",
+  "sampling_limitations": "Sampling started after the benchmark launch and ended on the first30s sample after completion. GPU device totals include desktop/background activity; these observations do not isolate the benchmark. Use run metadata for solver duration."
+}

@@ -1,0 +1,42 @@
+{
+  "status": "cleanup_completed_capacity_estimated",
+  "utc": "2026-11-17T17:46:42.506366+00:00",
+  "available_budget_bytes": 221651558400,
+  "reserve_bytes": 21474836480,
+  "working_allowance_bytes": 21474836480,
+  "reserve_interpretation": "20 GiB, stricter than requested 20 decimal GB",
+  "models_recommended": 15000,
+  "sources_per_model": 5,
+  "receiver_count": 70,
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "time_samples": 2001,
+  "dtype": "float64",
+  "geometry_variants": 1,
+  "signal_bytes_per_model": 11205600,
+  "surface_bytes_per_model": 11294040,
+  "vp_vs_input_bytes_per_model": 78400,
+  "capacity_outputs_only_with_reserve": 17724,
+  "capacity_with_inputs_work_and_reserve": 15713,
+  "recommended_output_bytes": 169410600000,
+  "recommended_input_bytes": 1176000000,
+  "remaining_after_outputs_inputs_bytes": 51064958400,
+  "remaining_after_outputs_inputs_work_bytes": 29590121920,
+  "minimum_reserve_extra_margin_bytes": 8115285440,
+  "removed_path_count": 33,
+  "removed_results_allocated_bytes": 37011300352,
+  "removed_cache_allocated_bytes": 6619684864,
+  "observed_free_space_increase_bytes": 43630985216,
+  "limitations": [
+    "Shared filesystem: other writers can consume free space",
+    "Working allowance is a budget, not measured runtime footprint",
+    "No source_history or all-node fields",
+    "Only active meshes retained, not all per-model meshes",
+    "No second full chunk/archive copy",
+    "No performance or production success guarantee"
+  ],
+  "runtime_guard_status": "required_before_compute_not_implemented",
+  "production_run_started": false
+}

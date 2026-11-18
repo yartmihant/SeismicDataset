@@ -1,0 +1,11 @@
+{
+  "status": "completed_verified",
+  "utc": "2026-11-18T08:18:11.446558+00:00",
+  "note": "Final visual QA and summary supplement the unchanged report-only notebook validation snapshot. All requested movies and plots are complete.",
+  "sha256": {
+    "data/dev_1_4_server_preparation/velocity_visualization_v1/chapter_validation.json": "a7dba99106d630b20555c31724c464aa00db37bce160e0ecc93f368aa4c13cc6",
+    "data/dev_1_4_server_preparation/velocity_visualization_v1/animation_qa.json": "0769544e1dee1f4b1ef98a2b07fbbbeda109e17833bb02aff7c9b5158e593438",
+    "data/dev_1_4_server_preparation/velocity_visualization_v1/animations.json": "1465a79307b79c0b6a1d4915f58acaf3b241cd3c5e1535d5815aa61b21ee42e1",
+    "dev_1_4_server_preparation_summary.md": "a5cb6362c5e8ceba7155eb81c0bd1493ead4825330c03d5e9f80285c5eee6d2f"
+  }
+}

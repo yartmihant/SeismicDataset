@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T08:12:46.404270+00:00",
+  "variant": "core",
+  "scope": "Repetition consistency with historical surface-only run, not independent solver validation",
+  "run": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/velocity_fields_3060_v1/core",
+  "reference": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/no_padding_3060_v1/x350",
+  "field_shape": [
+    201,
+    314721,
+    2
+  ],
+  "fields_and_surface_verified": true,
+  "source_force_native_mesh_stability_sha_equal": true,
+  "common_python_sha_equal": true,
+  "surface_time_coordinates_node_ids_exact": true,
+  "surface_velocity_bitwise_equal": false,
+  "all_node_surface_values_exact": true,
+  "thresholds": {
+    "relative_l2_max": 1e-10,
+    "absolute_max_m_s": 1e-18
+  },
+  "metrics": {
+    "relative_l2": 1.1081225839294904e-12,
+    "error_l2_m_s": 2.490149524595444e-19,
+    "reference_l2_m_s": 2.2471787514384704e-07,
+    "max_abs_m_s": 5.05159200086134e-21,
+    "rms_error_m_s": 4.704764219821657e-22,
+    "rms_reference_m_s": 4.2457073685279387e-10,
+    "rms_new_m_s": 4.245707368527957e-10
+  },
+  "common_python_files": [
+    "no_padding_run.py",
+    "physics.py",
+    "run.py",
+    "surface_runner.py"
+  ],
+  "inputs": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/velocity_fields_3060_v1/core/metadata.json",
+      "sha256": "f25fbec444ba1bc89db8764c87e7dfb445c28197c6c58fa0f0237cb39a1ee4c5",
+      "bytes": 5763
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/no_padding_3060_v1/x350/metadata.json",
+      "sha256": "9894d428f076dfed5e39156032cc82582630ce5c48988e993b790e270f277633",
+      "bytes": 4250
+    }
+  ],
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/verify_velocity_repeat.py",
+    "sha256": "263d32ed83172c865844a53c6068e674468d58ff608f608e396cad0f94cc459d",
+    "bytes": 4828
+  }
+}

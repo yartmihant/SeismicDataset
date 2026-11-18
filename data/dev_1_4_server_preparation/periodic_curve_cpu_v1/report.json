@@ -1,0 +1,130 @@
+{
+  "scope": "one closed interface ECVB00000; local CPU only; no solver or GPU",
+  "input": {
+    "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_ECVB_out.zip",
+    "members": [
+      "data_ECVB_out/vp_00000.txt",
+      "data_ECVB_out/vs_00000.txt"
+    ],
+    "raw_sha256": {
+      "vp_00000.txt": "91f88c3e9d45bed3e4217521837c04a4cd0f4efe410c62a7a6179ac72bd63b3b",
+      "vs_00000.txt": "63a38383e238c6cffd160581a5893f2986e88c8dd99b6a3f8ccfe00d96ef0914"
+    },
+    "array_sha256": {
+      "vp": "8e46a222497bddedb1494248412aabd731a77394362a95cad6050f3cc5578696",
+      "vs": "6dc7101a8349796953a6c1f4fd482d7ff549305511da9e375c6118e0b5d37ba7"
+    },
+    "axes": "row top to bottom; column left to right",
+    "shape": [
+      70,
+      70
+    ],
+    "dtype": "float64"
+  },
+  "closed_chain_fits": [
+    {
+      "control_count": 4,
+      "degree": 3,
+      "fit": "cyclic least squares at source arclength parameters",
+      "sampled_source_point_max_error_m": 3.920812005440569,
+      "periodic_seam_errors_derivatives_0_1_2": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cad_arc_restriction_max_error_m": 6.07087979554246e-14,
+      "cad_arcs": 2,
+      "source_points_m": [
+        [
+          50.0,
+          100.0
+        ],
+        [
+          40.0,
+          100.0
+        ],
+        [
+          40.0,
+          110.0
+        ],
+        [
+          40.0,
+          120.0
+        ],
+        [
+          40.0,
+          130.0
+        ],
+        [
+          40.0,
+          140.0
+        ],
+        [
+          40.0,
+          150.0
+        ],
+        [
+          50.0,
+          150.0
+        ],
+        [
+          50.0,
+          140.0
+        ],
+        [
+          50.0,
+          130.0
+        ],
+        [
+          50.0,
+          120.0
+        ],
+        [
+          50.0,
+          110.0
+        ],
+        [
+          50.0,
+          100.0
+        ]
+      ],
+      "periodic_knots": [
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        1.75
+      ],
+      "independent_controls_m": [
+        [
+          54.43411764705888,
+          134.4341176470589
+        ],
+        [
+          47.57294117647051,
+          89.64588235294119
+        ],
+        [
+          35.56588235294124,
+          115.56588235294119
+        ],
+        [
+          42.427058823529414,
+          160.3541176470589
+        ]
+      ],
+      "topology": "one unchanged closed interface represented by two shared CAD arcs; no gap or region merge"
+    }
+  ],
+  "core_mesh": "failed",
+  "failure_type": "ValueError",
+  "failure": "Material-region adjacency differs after meshing: missing=[(6, 10), (6, 12), (6, 13), (6, 14), (6, 15), (6, 16), (6, 17), (6, 18), (6, 20), (6, 22), (6, 24), (6, 25), (8, 10), (8, 12), (8, 13), (8, 14), (8, 15), (8, 16), (8, 17), (8, 18), (8, 20), (8, 22), (8, 24), (8, 25)], extra=[]",
+  "cad_sample_max_difference_m": 3.410605131648481e-13,
+  "wall_s": 16.86666014115326
+}

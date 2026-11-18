@@ -1,0 +1,33 @@
+{
+  "schema": "chapter14.efvb_flat_input_scan.v1",
+  "dataset": "EFVB",
+  "first_id": 0,
+  "last_id": 4999,
+  "models_checked": 5000,
+  "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+  "ordered_member_hashes_sha256": "8f03227977d5c41c84129d0433322d6a845e8a6273a05dc523e47fb41dbda95f",
+  "all_columns_identical": true,
+  "nonflat_ids": [],
+  "layer_count_histogram": {
+    "3": 27,
+    "4": 131,
+    "5": 641,
+    "6": 1085,
+    "7": 1051,
+    "8": 994,
+    "9": 777,
+    "10": 294
+  },
+  "minimum_flat_layer_thickness_m": 10.0,
+  "vp_range_m_s": [
+    1500.0,
+    4500.0
+  ],
+  "vs_range_m_s": [
+    617.65015,
+    2980.76807
+  ],
+  "wall_s": 3.3998306489083916,
+  "scope": "input layout/positivity only; no meshes, stability estimates, solver or GPU",
+  "geometry_implication": "flat inputs use the already checked layered construction; each actual mesh still requires its own geometry and stability certificates"
+}

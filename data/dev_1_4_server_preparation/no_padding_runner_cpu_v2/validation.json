@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T07:47:26.328431+00:00",
+  "scope": "CPU mock using actual core geometry; no native/GPU solution and no ABC accuracy/convergence claim",
+  "physics_ids_exact": [
+    11000,
+    32000,
+    20200
+  ],
+  "mass_damping_absent": true,
+  "abc_only_core_sides_bottom": true,
+  "abc_edge_count": 420,
+  "free_top_edge_count": 140,
+  "bad_boundary_and_certificate_rejected": true,
+  "K96_satisfies_core_certificate": true,
+  "source_input_sha_matches_padded_run": true,
+  "surface_shape": [
+    2001,
+    70,
+    2
+  ],
+  "core_nodes": 314721,
+  "sha256": {
+    "no_padding_run.py": "acb303a02418ac979407d465b7d7bf72b1fcba2ec22c7cf372fea49c8b055d5f",
+    "check_no_padding_run.py": "05495955324a919be1a6921efbb64a61f0a518eb6590b13ffd4c7324d40a2cfd",
+    "surface_runner.py": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+  }
+}

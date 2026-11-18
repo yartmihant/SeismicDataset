@@ -1,0 +1,203 @@
+{
+  "schema": "chapter14.curved.v1",
+  "dataset": "EFVB",
+  "model_id": 0,
+  "input": {
+    "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+    "members": [
+      "data_EFVB_out/vp_00000.txt",
+      "data_EFVB_out/vs_00000.txt"
+    ],
+    "raw_sha256": {
+      "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+      "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+    },
+    "array_sha256": {
+      "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+      "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+    },
+    "axes": "row top to bottom; column left to right",
+    "shape": [
+      70,
+      70
+    ],
+    "dtype": "float64"
+  },
+  "construction": {
+    "construction": "layered_pilot_Q2_exact_2x2",
+    "splines": [
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          350.0,
+          350.0,
+          350.0,
+          350.0,
+          349.9999999999992,
+          350.00000000000006,
+          349.99999999999966,
+          350.0,
+          350.0,
+          350.0
+        ],
+        "max_sample_depth_error_m": 5.115907697472721e-13
+      },
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          570.0,
+          570.0000000000002,
+          569.9999999999993,
+          570.0000000000008,
+          569.9999999999985,
+          570.0000000000002,
+          569.9999999999995,
+          569.9999999999997,
+          569.9999999999997,
+          570.0
+        ],
+        "max_sample_depth_error_m": 7.958078640513122e-13
+      },
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          590.0,
+          589.9999999999999,
+          590.0000000000002,
+          589.9999999999995,
+          589.9999999999989,
+          589.9999999999997,
+          589.9999999999994,
+          590.0000000000001,
+          589.9999999999999,
+          590.0
+        ],
+        "max_sample_depth_error_m": 7.958078640513122e-13
+      },
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          660.0,
+          660.0000000000001,
+          660.0000000000005,
+          659.9999999999995,
+          659.9999999999986,
+          660.0000000000006,
+          659.9999999999997,
+          659.9999999999997,
+          660.0,
+          660.0
+        ],
+        "max_sample_depth_error_m": 9.094947017729282e-13
+      }
+    ],
+    "rows_topdown_before_refinement": [
+      35,
+      22,
+      2,
+      7,
+      4
+    ],
+    "source_sample_bound_m": 7.5,
+    "source_topology": "same nonvanishing layer sequence in every column"
+  },
+  "certificate": {
+    "model_id": 0,
+    "kind": "curved",
+    "elements": 36750,
+    "q2_nodes": 147771,
+    "area_m2": 918750.0,
+    "det_jacobian_certified_min_m2": 6.249999999992333,
+    "bernstein_max_depth": 0,
+    "euler_characteristic": 1,
+    "conforming": true,
+    "core_top_edges": 140,
+    "core_top_edge_m": 5,
+    "external_edges": 770,
+    "area_by_region_m2": {
+      "0": 367500.0,
+      "1": 231000.0,
+      "2": 20999.999999999935,
+      "3": 73500.00000000012,
+      "4": 225750.0
+    },
+    "sqrt_area_quantiles_m": [
+      4.999999999999877,
+      4.9999999999999485,
+      5.0,
+      5.000000000000063,
+      5.000000000000115
+    ]
+  },
+  "fallback": "none; errors stop the model and must be reported",
+  "algorithm_evidence": "chapter1.3: layered12404 and shared_CAD65",
+  "p4_nodes": 589541,
+  "receivers": 70,
+  "source_exact_node_counts": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}

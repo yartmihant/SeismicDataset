@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "dataset": "ECVB",
+  "model_id": 12404,
+  "gpu": 1,
+  "source_x_m": 350.0,
+  "t_end_s": 0.06,
+  "substeps_per_ms": 64,
+  "order": 4,
+  "geometry": "curved",
+  "preparation_seconds": 7.739408458117396,
+  "wall_seconds": 10.038792422041297,
+  "surface": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/ECVB_12404/x350/surface.npz",
+  "surface_metadata": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/ECVB_12404/x350/metadata.json",
+  "free_bytes_at_end": 220258160640,
+  "scope": "single central source; short integration unless t-end=2"
+}

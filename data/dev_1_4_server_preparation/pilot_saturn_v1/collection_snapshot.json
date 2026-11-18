@@ -1,0 +1,552 @@
+{
+  "utc": "2026-11-17T18:28:27.818251+00:00",
+  "models": [
+    {
+      "dataset": "EFVB",
+      "model_id": 0,
+      "gpu": 0,
+      "status": "completed",
+      "started_utc": "2026-11-17T18:20:16.547123+00:00",
+      "finished_utc": "2026-11-17T18:26:14.126579+00:00",
+      "substeps_per_ms": 96,
+      "temporary_mesh_removed": true,
+      "allocated_output_bytes": 11411456,
+      "apparent_output_bytes": 11359693,
+      "sources": [
+        {
+          "source_x_m": 0.0,
+          "status": "completed",
+          "wall_seconds": 69.7332644299604,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "a873456b3d0a6cefcfb00db0079c5bad572a1f80282351f72052cd754be62a24",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 175.0,
+          "status": "completed",
+          "wall_seconds": 69.95956717804074,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "60f9ba07d27595914340f7ed7934aa7e053205f85cbb3a6e9389ed88397f1d7c",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 350.0,
+          "status": "completed",
+          "wall_seconds": 70.1960264313966,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "571be8b62090849e9019d01b1389dc12a12a66808d9015f589c0e0bd98110980",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 525.0,
+          "status": "completed",
+          "wall_seconds": 70.09746640408412,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "ee372c4ec8c81d4e1507a9e8b8fa7f5b659651f06c038ae0ea5ffba9688c0e22",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 700.0,
+          "status": "completed",
+          "wall_seconds": 70.0698423711583,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "af3795c2188e37e651b94676fee119a87ddeb14607b7705216fbf7313ffbd1fd",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        }
+      ]
+    },
+    {
+      "dataset": "EFVB",
+      "model_id": 1,
+      "gpu": 1,
+      "status": "completed",
+      "started_utc": "2026-11-17T18:20:16.549155+00:00",
+      "finished_utc": "2026-11-17T18:24:46.546512+00:00",
+      "substeps_per_ms": 72,
+      "temporary_mesh_removed": true,
+      "allocated_output_bytes": 11411456,
+      "apparent_output_bytes": 11359644,
+      "sources": [
+        {
+          "source_x_m": 0.0,
+          "status": "completed",
+          "wall_seconds": 52.30164902377874,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "efb05baf68c0e1a594d2780d5b344c7d39db1c8915c54cb58e15144c99ccdd09",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 175.0,
+          "status": "completed",
+          "wall_seconds": 52.28966520866379,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "c8b877405df296cc762d522471085f15883cd20b95da481f657b905756f8bbd2",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 350.0,
+          "status": "completed",
+          "wall_seconds": 52.486128725111485,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "97382ad19ceed5189461c1d3354dbf2d583282ae1a0092bf5eb70728b5e8e293",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 525.0,
+          "status": "completed",
+          "wall_seconds": 52.53273397590965,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "6885d14cee6b5d93645e92afbec48aa6abbb15653ad6f79fdb15a67bbe18cc7a",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 700.0,
+          "status": "completed",
+          "wall_seconds": 52.4713661596179,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "037f120fdaef1d7bc4bb4cadcfe6ed8dd6927446c8f763df11871572ee5a7f9a",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        }
+      ]
+    }
+  ],
+  "worker_events": [
+    {
+      "gpu": 0,
+      "event": "model_started",
+      "job_id": "EFVB/00000",
+      "utc": "2026-11-17T18:20:16.525219+00:00"
+    },
+    {
+      "gpu": 0,
+      "event": "model_completed",
+      "utc": "2026-11-17T18:26:14.129599+00:00",
+      "job_id": "EFVB/00000",
+      "status": "completed",
+      "allocated_bytes": 11411456,
+      "output": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/chunks/chunk_01_EFVB_00000_04999/models/00000",
+      "substeps_per_ms": 96
+    },
+    {
+      "gpu": 1,
+      "event": "model_started",
+      "job_id": "EFVB/00001",
+      "utc": "2026-11-17T18:20:16.526678+00:00"
+    },
+    {
+      "gpu": 1,
+      "event": "model_completed",
+      "utc": "2026-11-17T18:24:46.549010+00:00",
+      "job_id": "EFVB/00001",
+      "status": "completed",
+      "allocated_bytes": 11411456,
+      "output": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/chunks/chunk_01_EFVB_00000_04999/models/00001",
+      "substeps_per_ms": 72
+    }
+  ],
+  "gpu_snapshot_csv": "index, name, memory.used [MiB], memory.free [MiB], utilization.gpu [%]\n0, NVIDIA A100-PCIE-40GB, 603 MiB, 39733 MiB, 96 %\n1, NVIDIA A100-PCIE-40GB, 603 MiB, 39733 MiB, 96 %\n",
+  "service_snapshot": "ExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
+  "available_bytes": 220338900992,
+  "root_allocated_bytes": 22888448,
+  "verification_scope": "Read-only verify_surface plus NPZ shape/dtype inspection; no solver rerun, no independent solver validation"
+}

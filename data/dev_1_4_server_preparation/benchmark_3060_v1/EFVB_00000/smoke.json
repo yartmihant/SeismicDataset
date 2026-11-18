@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "dataset": "EFVB",
+  "model_id": 0,
+  "gpu": 0,
+  "source_x_m": 350.0,
+  "t_end_s": 2.0,
+  "substeps_per_ms": 96,
+  "order": 4,
+  "geometry": "curved",
+  "preparation_seconds": 3.4919544782023877,
+  "wall_seconds": 347.7698137490079,
+  "surface": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/surface.npz",
+  "surface_metadata": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/metadata.json",
+  "free_bytes_at_end": 93348065280,
+  "scope": "single central source; short integration unless t-end=2"
+}

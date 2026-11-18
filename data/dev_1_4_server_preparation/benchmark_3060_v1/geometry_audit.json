@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "local_mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/mesh_q2.npz",
+    "sha256": "0aa67afe07a6e46a476077f14ee182da601639dfd3febf9b7da90c17fee4dcff"
+  },
+  "reference_mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/EFVB_00000/mesh_q2.npz",
+    "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+  },
+  "arrays": {
+    "cells": {
+      "shape": [
+        36750,
+        9
+      ],
+      "dtype": "int64",
+      "exactly_equal": true
+    },
+    "dataset": {
+      "shape": [],
+      "dtype": "<U4",
+      "exactly_equal": true
+    },
+    "kind": {
+      "shape": [],
+      "dtype": "<U6",
+      "exactly_equal": true
+    },
+    "model_id": {
+      "shape": [],
+      "dtype": "int64",
+      "exactly_equal": true
+    },
+    "nodes": {
+      "shape": [
+        147771,
+        2
+      ],
+      "dtype": "float64",
+      "exactly_equal": false,
+      "max_abs_difference_m": 1.0231815394945443e-12,
+      "unequal_coordinate_values": 59347
+    },
+    "regions": {
+      "shape": [
+        36750
+      ],
+      "dtype": "int64",
+      "exactly_equal": true
+    },
+    "vp": {
+      "shape": [
+        36750
+      ],
+      "dtype": "float64",
+      "exactly_equal": true
+    },
+    "vs": {
+      "shape": [
+        36750
+      ],
+      "dtype": "float64",
+      "exactly_equal": true
+    }
+  },
+  "coordinate_tolerance_m": 1e-09,
+  "sem_max_abs_difference_m": 1.1368683772161603e-12,
+  "sem_cells_exactly_equal": true,
+  "rebuilt_sem_node_hashes_match_actual_runs": true,
+  "local_nodes_sha256": "7265be9af4ad64bceea5d6b6873796f7a2a83b37cbc4171a09af3e37ebe557b6",
+  "reference_nodes_sha256": "2e33e0dc042482634df8d46e4053cc8fb1383ec05154485d4a0a7569c73cf04d",
+  "mesh_builder_code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/mesh.py",
+    "sha256": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f"
+  },
+  "utc": "2026-11-17T19:24:11.520837+00:00",
+  "scope": "CPU frozen geometry and SEM-node audit; no solver execution",
+  "local_metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/metadata.json",
+    "sha256": "2252d1210cd91dd21a7f27dcf6710eb6887f1f1bed632e1deba8ed886af60f72"
+  },
+  "reference_metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/chunks/chunk_01_EFVB_00000_04999/models/00000/x350/metadata.json",
+    "sha256": "2491b22e8d3c72173efcb9b86fe8bf15225d26feafa553856bccf77a9dfb5fb6"
+  },
+  "audit_code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/compare_benchmark.py",
+    "sha256": "5a5f1aa40646b160d07ef79c237be1887d1a50b000eda9021179deb5c5b7654a"
+  }
+}

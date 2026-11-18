@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T08:17:10.592812+00:00",
+  "mypy": "velocity_animate.py passed before rendering",
+  "synthetic_layout": "CPU nearest-node map / unique exact node matching / three-view frame update exercised; synthetic temporary files removed",
+  "reviewed_pngs": [
+    "speed_full_t025.png",
+    "components_full_t060.png",
+    "speed_difference_t060.png",
+    "speed_difference_t120.png",
+    "speed_difference_montage.png"
+  ],
+  "visual_findings": "Readable Russian labels, time, common fixed scales; grey outside core, free-surface source marker; no clipping or axes inversion observed",
+  "encoded_frame_check": {
+    "input": "img/dev_1_4_server_preparation/velocity_comparison_v1/speed_difference.mp4",
+    "frame_index": 60,
+    "physical_time_s": 0.6,
+    "frame_sha256": "4465dbdb2329c67cb5720114c4a02c11b2721586014e8beb5a86e000feb6cdb9",
+    "result": "Decoded MP4 frame visually checked: panels, colours, labels and time correspond to the source PNG; temporary frame removed"
+  },
+  "all_videos": "ffprobe reports 201 frames, 25 fps, 8.04 s, yuv420p for each of the three MP4s",
+  "animations_report_sha256": "1465a79307b79c0b6a1d4915f58acaf3b241cd3c5e1535d5815aa61b21ee42e1"
+}

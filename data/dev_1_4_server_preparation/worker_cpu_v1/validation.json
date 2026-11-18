@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T18:11:58.874261+00:00",
+  "scope": "CPU mocked geometry/stability/solver; real five-source surface recorder/verifier, SQLite guard and filesystem lifecycle",
+  "completed": {
+    "sources": 5,
+    "times_per_source": 2001,
+    "temporary_work_removed_only_after_verified_outputs": true,
+    "allocated_model_bytes": 11407360,
+    "model_budget_bytes": 11634584,
+    "all_json_metadata_bytes": 59583,
+    "metadata_allowance_bytes": 262144
+  },
+  "failure": {
+    "failure_keeps_work_and_reservation": true,
+    "queue_blocks_after_failure": true
+  },
+  "sha256": {
+    "worker.py": "e369cb4858be4104bbba9932f9d1383fc523ab2b70a414d0c86046f8c0b81c38",
+    "check_worker.py": "2e3ffb541942dc6eac2f3db82c46342f37e245788c8ec41281df31ab4b263669",
+    "surface_runner.py": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001",
+    "chunk_plan.py": "fd26fe10057590d408dc48598aef566c1b467bbfd621182bf9b3db8897750d10"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T07:52:46.345259+00:00",
+  "mypy_files": 71,
+  "notebook_cells": 62,
+  "notebook_errors": 0,
+  "roundtrip": "AST, syntax and format passed; report cells executed without solver",
+  "cpu_checks": [
+    "no_padding_runner_cpu_v2",
+    "no_padding_compare_cpu_v1"
+  ],
+  "native_smoke": "completed 0.01s",
+  "full_source": "completed 2s / 192000 steps / 2001 frames",
+  "waveform_interpretation": "changed boundary diagnostic, not solver error or ABC accuracy validation",
+  "sha256": {
+    "dev_1_4_server_preparation.py": "8a3b8ac5a08bbef2f2cab2445e8c8ddff79c102accacc718b76aee215b9d3cdd",
+    "dev_1_4_server_preparation.ipynb": "28c2aa3aeaf46c7633d7761bab1a24cc5d1423327bd353c4a2532e33c540be2a",
+    "scripts/dev_1_4_server_preparation/no_padding_mesh.py": "81b47e2e1a1f7f1a6c9f87b67b6cc799ee5bf4922b65fed939559db384372da9",
+    "scripts/dev_1_4_server_preparation/no_padding_run.py": "acb303a02418ac979407d465b7d7bf72b1fcba2ec22c7cf372fea49c8b055d5f",
+    "scripts/dev_1_4_server_preparation/no_padding_compare.py": "dbaaa571a3a602f8087f8a9e46a7f87ebc377e911f4cb0cd70bdf691b55b0220",
+    "scripts/dev_1_4_server_preparation/check_no_padding_run.py": "05495955324a919be1a6921efbb64a61f0a518eb6590b13ffd4c7324d40a2cfd",
+    "data/dev_1_4_server_preparation/no_padding_3060_v1/comparison.json": "e1891593217498623163d19418642137d60976119528cac57cd1e35d56aac71d",
+    "data/dev_1_4_server_preparation/no_padding_3060_v1/core/geometry.json": "8323aeedf2e15460daeda471e0919bcfc211fa4e53aa482c8c8ba3abaad488a8",
+    "data/dev_1_4_server_preparation/no_padding_3060_v1/core/stability.json": "dec38a63fcce0d81a781e50d484a04adad888b93ce2280294822798dabc97304",
+    "data/dev_1_4_server_preparation/no_padding_3060_v1/x350/metadata.json": "9894d428f076dfed5e39156032cc82582630ce5c48988e993b790e270f277633",
+    "data/dev_1_4_server_preparation/no_padding_3060_v1/telemetry_summary.json": "44b5ab34a8b0790dbb1e1ff1d985a2fd09254e9cd4f35101153647d2ae6f49ad"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T07:49:56.119127+00:00",
+  "scope": "CPU comparator checks on mocked waveforms; no GPU or ABC accuracy validation",
+  "large_physical_wave_difference_is_not_a_failure": true,
+  "timing_ratio_checked": true,
+  "source_force_mismatch_rejected": true,
+  "extra_mass_damping_physics_rejected": true,
+  "nonexact_receiver_coordinates_rejected": true,
+  "temporary_fixtures_removed": true,
+  "code_sha256": "dbaaa571a3a602f8087f8a9e46a7f87ebc377e911f4cb0cd70bdf691b55b0220"
+}

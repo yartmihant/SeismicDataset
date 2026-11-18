@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "scope": "CPU temporary SQLite/files fixture; no GPU or real queue changes",
+  "missing_queue_not_created": true,
+  "zero_completed_has_no_eta": true,
+  "config_limit_honored": true,
+  "verified_bytes_only_completed": true,
+  "active_and_failed_reported": true,
+  "bounded_log_and_incomplete_metadata_handled": true,
+  "finished_launcher_freezes_elapsed": true,
+  "cli_json_valid": true,
+  "database_sha_mtime_and_file_inventory_unchanged": true,
+  "temporary_fixture_removed": true,
+  "status_code_sha256": "c58deefc15c7bcea6ed46fa07bbeb09b5a54a88d73a7fba11da4be0fd4fa9705"
+}

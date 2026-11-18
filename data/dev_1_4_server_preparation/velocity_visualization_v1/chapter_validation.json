@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T08:17:27.722394+00:00",
+  "mypy_files": 76,
+  "notebook_cells": 68,
+  "notebook_errors": 0,
+  "roundtrip": "AST, syntax and format passed; report-only notebook executed",
+  "embedded_pngs_exact": [
+    "seismograms.png",
+    "traces.png",
+    "difference_over_time.png",
+    "speed_full_t025.png",
+    "speed_difference_montage.png"
+  ],
+  "cpu_fields_check": "velocity_fields_cpu_v1/validation.json passed",
+  "native_smoke": "core 0.01s completed",
+  "field_runs": "Both completed; 201 all-node frames and 2001 surface frames each; historical repeat checks passed",
+  "movies": "Three H264/yuv420p movies; each 201 frames,25fps,8.04s,physical0–2s; common fixed scales",
+  "core_node_matching_distance_m": 0.0,
+  "sha256": {
+    "dev_1_4_server_preparation.py": "d55a8748de30ce5ece4f7a3c17d47a44fabd3169a542ea9a5b0d6fa6fdd78022",
+    "dev_1_4_server_preparation.ipynb": "2f63cfa29f0d35bbcb48fd064872c44c5f92fe661ac50c81916cf12ed507ae74",
+    "dev_1_4_server_preparation_summary.md": "41058d02e81e0e7c7709d7ba264b0720d8d3c09eec7b926efb4f20a5e76a5908",
+    "scripts/dev_1_4_server_preparation/velocity_seismograms.py": "c6b161a501bcfc7c295800c47a4d51c61dc886680ba1a5fee02ed4ee754b4608",
+    "scripts/dev_1_4_server_preparation/velocity_fields_run.py": "ef712b43e4ee0e2f0d212f78f91ceed0fabc4d46700bb6c89457672674ddce94",
+    "scripts/dev_1_4_server_preparation/check_velocity_fields.py": "0fff1c7e6af62e95c35f472e8bfe6adebd5c60f7ce81143dd5bad68232001e72",
+    "scripts/dev_1_4_server_preparation/verify_velocity_repeat.py": "263d32ed83172c865844a53c6068e674468d58ff608f608e396cad0f94cc459d",
+    "scripts/dev_1_4_server_preparation/velocity_animate.py": "829dd238a7a773f1a5d3eb31d5fbb504ff10137f0fabd13ed767d568960c935d",
+    "data/dev_1_4_server_preparation/velocity_visualization_v1/animations.json": "1465a79307b79c0b6a1d4915f58acaf3b241cd3c5e1535d5815aa61b21ee42e1",
+    "data/dev_1_4_server_preparation/velocity_visualization_v1/seismograms.json": "9bbc11954c8f2d91d17ec009bdded53a04fcbdc65da4786478edaa9819648153",
+    "data/dev_1_4_server_preparation/velocity_fields_3060_v1/padded_repeat_check.json": "a055f5904b10f6954967935d404647b970cd91c55fdd28b6c0120fdf4237433a",
+    "data/dev_1_4_server_preparation/velocity_fields_3060_v1/core_repeat_check.json": "8bf275653bdd9d77df74e252612e01a11b1a32180e7e2ed13357a94b474d6997"
+  }
+}

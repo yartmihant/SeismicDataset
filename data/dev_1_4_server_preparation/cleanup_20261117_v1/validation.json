@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "mypy_files_before_chunk_implementation": 50,
+  "diary_cells": 37,
+  "executed_code_cells": 10,
+  "roundtrip": "AST equivalent",
+  "capacity_arithmetic_checked": true,
+  "sha256": {
+    "dev_1_4_server_preparation.py": "4c6657ed2ab3d684b1146743b6510d9364375b8188476e3dcb7c18bc47a21676",
+    "dev_1_4_server_preparation.ipynb": "e6460bcfd645fbf73594571b998f825465a3db839727fe09fcd50b30dacc3f7d",
+    "data/dev_1_4_server_preparation/cleanup_20261117_v1/capacity.json": "96f7d2d6e2c2c3b3a3a16361bc959cbbca248394919477fb4e4866d538ecd109"
+  }
+}

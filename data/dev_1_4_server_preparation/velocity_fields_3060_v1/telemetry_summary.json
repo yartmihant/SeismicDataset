@@ -1,0 +1,68 @@
+{
+  "schema": "chapter14.velocity_fields_telemetry.v1",
+  "status": "completed",
+  "unit": "seismic14-velocity-fields-3060-v1.service",
+  "samples": 17,
+  "active_samples": 16,
+  "started_observation_utc": "2026-11-18T08:04:27.829520+00:00",
+  "ended_observation_utc": "2026-11-18T08:12:28.252154+00:00",
+  "active_gpu_statistics": {
+    "gpu_util_percent": {
+      "minimum": 95.0,
+      "maximum": 100.0,
+      "mean": 98.875
+    },
+    "memory_used_mib": {
+      "minimum": 798.0,
+      "maximum": 900.0,
+      "mean": 861.1875
+    },
+    "power_w": {
+      "minimum": 118.64,
+      "maximum": 121.66,
+      "mean": 120.315
+    },
+    "temperature_c": {
+      "minimum": 64.0,
+      "maximum": 65.0,
+      "mean": 64.875
+    },
+    "graphics_clock_mhz": {
+      "minimum": 1905.0,
+      "maximum": 1920.0,
+      "mean": 1909.6875
+    },
+    "memory_clock_mhz": {
+      "minimum": 7301.0,
+      "maximum": 7301.0,
+      "mean": 7301.0
+    }
+  },
+  "final_outcomes": {
+    "padded": {
+      "status": "completed",
+      "wall_seconds": 347.3093635200057,
+      "recorded_counts": {
+        "surface": 2001,
+        "fields": 201,
+        "source_history": 0
+      }
+    },
+    "core": {
+      "status": "completed",
+      "wall_seconds": 181.41053134412505,
+      "recorded_counts": {
+        "surface": 2001,
+        "fields": 201,
+        "source_history": 0
+      }
+    }
+  },
+  "final_unit": {
+    "ExecMainStatus": "0",
+    "ActiveState": "inactive",
+    "SubState": "dead"
+  },
+  "scope": "Read-only local GPU/systemd monitor, 30s sampling, starts after solver launch; no process changes or SSH",
+  "timing_note": "Source wall times from metadata; monitor interval is not the solver duration"
+}

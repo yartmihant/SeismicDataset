@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "relocated_report_only_execution": "passed at a fresh temporary project root without arrays/native/video",
+  "selected_files": 111,
+  "selected_bytes": 8193866,
+  "forbidden_bulk_extensions_present": false,
+  "excluded_credential_present": false,
+  "private_key_or_token_pattern_present": false,
+  "notebook": "68 cells; syntax/format/AST roundtrip and report execution passed",
+  "historical_artifacts_rewritten": false
+}

@@ -1,0 +1,20 @@
+{
+  "mesh": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/ECVB_12404/mesh_q2.npz",
+  "mesh_sha256": "e3a581a89a2b4a59fea28a0ef2d95e1e81948efbc230e8cea88d7942700d7576",
+  "order": 4,
+  "nodes": 589541,
+  "elements": 36750,
+  "alpha_max_s_inv": 346.1772216952762,
+  "stiffness_bound_s_minus_2": 793957490.2371404,
+  "damping_bound_s_minus_1": 19612.3544433873,
+  "dt_start_s": 2.5226386187874613e-05,
+  "substeps_per_ms": 40,
+  "min_mass_kg_per_m": 62.499999999993356,
+  "quadrature_jacobian_min_m2": 4.387015732303731,
+  "abc_edge_count": 560,
+  "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+  "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately",
+  "dataset": "ECVB",
+  "selected_substeps_per_ms": 64,
+  "selection_rule": "ECVB12404=64, ECVB65=224; otherwise ceil(1.6*Kmin/8)*8"
+}

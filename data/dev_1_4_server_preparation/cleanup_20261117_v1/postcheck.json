@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-17T17:46:42.506366+00:00",
+  "available_bytes": 221651558400,
+  "queries": {
+    "df": {
+      "returncode": 0,
+      "stdout": "Filesystem         1B-blocks          Used    Available Use% Mounted on\n/dev/sda2      1887976378368 1570345357312 221651558400  88% /\n",
+      "stderr": ""
+    },
+    "sizes": {
+      "returncode": 0,
+      "stdout": "5895426048\t/home/antonov/TrySEMGPU\n",
+      "stderr": ""
+    },
+    "load": {
+      "returncode": 0,
+      "stdout": " 17:46:42 up 48 days, 11:09,  2 users,  load average: 0.09, 0.15, 0.22\n",
+      "stderr": ""
+    }
+  },
+  "removed_cache_roots_absent": {
+    "/home/antonov/.vscode-server": true,
+    "/home/antonov/.cache": false,
+    "/home/antonov/.nv/ComputeCache": true
+  }
+}

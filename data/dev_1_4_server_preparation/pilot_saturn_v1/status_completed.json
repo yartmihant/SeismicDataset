@@ -1,0 +1,219 @@
+{
+  "schema": "chapter14.status.v1",
+  "snapshot_utc": "2026-11-17T18:28:27.769470+00:00",
+  "root": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+  "read_only": true,
+  "database_mode": "ro",
+  "config": {
+    "execution_chunk_limit": 1,
+    "max_in_flight": 2,
+    "model_budget_bytes": 11634584,
+    "reserve_bytes": 21474836480,
+    "working_floor_bytes": 21474836480
+  },
+  "execution_chunk_limit": 1,
+  "chunk_progress": [
+    {
+      "chunk_number": 1,
+      "dataset": "EFVB",
+      "authorized": true,
+      "first_id": 0,
+      "last_id": 4999,
+      "target_models": 5000,
+      "completed": 2,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 2,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 0,
+      "last_id": 4999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 3,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 5000,
+      "last_id": 9999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 4,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 5000,
+      "last_id": 9999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 5,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 10000,
+      "last_id": 14999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 6,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 10000,
+      "last_id": 14999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 7,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 15000,
+      "last_id": 19999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 8,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 15000,
+      "last_id": 19999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 9,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 20000,
+      "last_id": 24999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 10,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 20000,
+      "last_id": 24999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 11,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 25000,
+      "last_id": 29999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 12,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 25000,
+      "last_id": 29999,
+      "target_models": 5000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    }
+  ],
+  "completed_models": 2,
+  "verified_output_bytes": 22822912,
+  "active": [],
+  "failed": [],
+  "outstanding_reservation_bytes": 0,
+  "launcher": {
+    "schema": "chapter14.launcher.v1",
+    "status": "completed",
+    "launcher_pid": 1769705,
+    "started_utc": "2026-11-17T18:20:15.972992+00:00",
+    "root": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+    "workers": [
+      {
+        "gpu": 0,
+        "pid": 1769706,
+        "command": [
+          "/home/antonov/SeismicDataset/.venv/bin/python",
+          "-m",
+          "scripts.dev_1_4_server_preparation.worker",
+          "--gpu",
+          "0",
+          "--root",
+          "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+          "--source",
+          "/home/antonov/SeismicDataset/src",
+          "--max-models",
+          "1"
+        ],
+        "log": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/logs/gpu0.log",
+        "returncode": 0
+      },
+      {
+        "gpu": 1,
+        "pid": 1769707,
+        "command": [
+          "/home/antonov/SeismicDataset/.venv/bin/python",
+          "-m",
+          "scripts.dev_1_4_server_preparation.worker",
+          "--gpu",
+          "1",
+          "--root",
+          "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+          "--source",
+          "/home/antonov/SeismicDataset/src",
+          "--max-models",
+          "1"
+        ],
+        "log": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/logs/gpu1.log",
+        "returncode": 0
+      }
+    ],
+    "failure_policy": "stop both; keep outputs, temporary work and SQLite reservations; no retry or release",
+    "finished_utc": "2026-11-17T18:26:14.450727+00:00",
+    "exit_code": 0
+  },
+  "launcher_started_utc": "2026-11-17T18:20:15.972992+00:00",
+  "elapsed_seconds": 358.477735,
+  "completed_models_per_hour": 20.084929402937675,
+  "first_5000_remaining_models": 4998,
+  "rough_first_5000_remaining_seconds": 895835.859765,
+  "rough_first_5000_eta_utc_if_continued": "2026-11-28T03:19:03.629235+00:00",
+  "eta_caveat": "Linear extrapolation from launcher wall time; a small or heterogeneous sample is unreliable. Includes startup and idle time; after a stop assumes explicit continuation. No ETA before the first completed model.",
+  "disk": {
+    "total_bytes": 1887976378368,
+    "used_bytes": 1571658014720,
+    "free_bytes": 220338900992,
+    "guard_required_free_bytes": 42949672960,
+    "guard_threshold_met_now": true
+  },
+  "snapshot_caveat": "Queue rows form one read snapshot; launcher, metadata, logs and disk can change separately. Stored completion is not a fresh revalidation of arrays; no process-liveness claim."
+}

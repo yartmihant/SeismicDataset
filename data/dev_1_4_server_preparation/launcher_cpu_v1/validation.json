@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T18:15:57.202340+00:00",
+  "checks": [
+    "both successful workers complete; existing launcher records cannot be overwritten",
+    "nonzero exit stops partner; SIGTERM-resistant partner is killed after bounded grace",
+    "worker SIGKILL is detected and its live partner is stopped",
+    "supervisor SIGTERM stops and reaps both children and preserves PID/exit status/log evidence"
+  ],
+  "scope": "short Python subprocesses only; no worker queue, geometry, native solver or GPU",
+  "sha256": {
+    "launcher.py": "72465658da94be333065563083f6dd6805602d514220c14ff24cb77510f63d80",
+    "check_launcher.py": "47d0631325657e930c623d73c6fba5602ef7d7380caee623bc176ad18ec6f5ea"
+  }
+}

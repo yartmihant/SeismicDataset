@@ -1,0 +1,18 @@
+{
+  "mesh": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/efvb_layered_preflight_v1/EFVB_00001/mesh_q2.npz",
+  "mesh_sha256": "84460a6e44c3f8551638acfc65d88a7240b14734f445b39058db2d54bc0bde3c",
+  "order": 4,
+  "nodes": 589541,
+  "elements": 36750,
+  "alpha_max_s_inv": 346.1772216952762,
+  "stiffness_bound_s_minus_2": 953613018.3169332,
+  "damping_bound_s_minus_1": 17118.177221702274,
+  "dt_start_s": 2.462816589757903e-05,
+  "substeps_per_ms": 41,
+  "min_mass_kg_per_m": 62.499999999946915,
+  "quadrature_jacobian_min_m2": 6.2499999999936975,
+  "abc_edge_count": 560,
+  "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+  "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately",
+  "dataset": "EFVB"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "dataset": "EFVB",
+  "model_id": 0,
+  "gpu": 0,
+  "source_x_m": 350.0,
+  "t_end_s": 0.06,
+  "substeps_per_ms": 96,
+  "order": 4,
+  "geometry": "curved",
+  "preparation_seconds": 7.558057005982846,
+  "wall_seconds": 10.477691845037043,
+  "surface": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/EFVB_00000/x350/surface.npz",
+  "surface_metadata": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/EFVB_00000/x350/metadata.json",
+  "free_bytes_at_end": 220258271232,
+  "scope": "single central source; short integration unless t-end=2"
+}

@@ -1,0 +1,106 @@
+{
+  "status": "completed",
+  "run_spec": {
+    "dataset": "EFVB",
+    "model_id": 0,
+    "source_x_m": 350.0,
+    "substeps": 96,
+    "t_end_s": 2.0,
+    "order": 4,
+    "kind": "curved",
+    "backend": "cu",
+    "alpha_max_s_inv": 346.1772216952762
+  },
+  "experiment_spec": {
+    "size_m": 700.0,
+    "padding_m": 175.0,
+    "frequency_hz": 30.0,
+    "center_s": 0.05,
+    "end_s": 2.0,
+    "output_interval_s": 0.001,
+    "field_interval_s": 0.01,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "density_kg_m3": 1000.0,
+    "force_amplitude_n_per_m": 1.0
+  },
+  "dt_s": 1.0416666666666666e-05,
+  "steps_count": 192000,
+  "mesh": {
+    "model_id": 0,
+    "kind": "curved",
+    "order": 4,
+    "nodes": 589541,
+    "elements": 36750,
+    "geometry": "frozen_full_Q2",
+    "coordinate_convention": "y_up_surface_0",
+    "dataset": "EFVB"
+  },
+  "mesh_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/mesh_q2.npz",
+    "sha256": "0aa67afe07a6e46a476077f14ee182da601639dfd3febf9b7da90c17fee4dcff"
+  },
+  "stability_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/stability.json",
+    "sha256": "45c25439a318e1b9a9eb483277c4b43d90c35c3efe0ebb308845d0043c8cc365"
+  },
+  "short_test": false,
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "receiver_count": 70,
+  "initial_state": "native U0=V0=A0=0; first force assembly at dt; same convention as chapter 1.3",
+  "storage": "uncompressed NPZ; float64 velocity; no displacements, source history, energy or all-node fields",
+  "provenance": {
+    "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+    "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+    "numpy": "2.4.6",
+    "semgpu2": "0.1.0",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "files": [
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py",
+        "sha256": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+        "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+        "sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+      }
+    ]
+  },
+  "source_node_id": 19810,
+  "source_input_sha256": "76f93b82f28a891bdb442dc2a0c1b55aee24909efeb8f15e9196f2b728d5adf0",
+  "source_input_first_force_y_n_per_m": 9.84949251974796e-09,
+  "native": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+  },
+  "nodes_sha256": "7265be9af4ad64bceea5d6b6873796f7a2a83b37cbc4171a09af3e37ebe557b6",
+  "runtime": {
+    "result_code": 0,
+    "time_end_code": 0,
+    "steps_count": 192000,
+    "current_time_s": 2.0
+  },
+  "recorded_counts": {
+    "surface": 2001,
+    "source_history": 0,
+    "fields": 0
+  },
+  "surface_file": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/surface.npz",
+    "sha256": "c06464bbd69e57c85766927be544b965e9ffb9d1ae9f2d8abd3045a41e972a99"
+  },
+  "surface_file_bytes": 2259836,
+  "wall_seconds": 344.25817201985046
+}

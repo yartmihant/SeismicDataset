@@ -1,0 +1,589 @@
+{
+  "schema": "chapter14.pilot_summary.v1",
+  "status": "completed_verified",
+  "collected_utc": "2026-11-17T18:28:27.818251+00:00",
+  "scope": "Read-only verify_surface plus NPZ shape/dtype inspection; no solver rerun, no independent solver validation",
+  "models_completed": 2,
+  "sources_completed": 10,
+  "surface_schema": {
+    "receivers": 70,
+    "components": [
+      "Vx",
+      "Vy"
+    ],
+    "samples": 2001,
+    "duration_s": 2.0,
+    "dtype": "float64"
+  },
+  "launcher_wall_seconds": 358.477735,
+  "startup_shutdown_residual_seconds": 0.8982790000000023,
+  "models": [
+    {
+      "dataset": "EFVB",
+      "model_id": 0,
+      "gpu": 0,
+      "status": "completed",
+      "started_utc": "2026-11-17T18:20:16.547123+00:00",
+      "finished_utc": "2026-11-17T18:26:14.126579+00:00",
+      "substeps_per_ms": 96,
+      "temporary_mesh_removed": true,
+      "allocated_output_bytes": 11411456,
+      "apparent_output_bytes": 11359693,
+      "sources": [
+        {
+          "source_x_m": 0.0,
+          "status": "completed",
+          "wall_seconds": 69.7332644299604,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "a873456b3d0a6cefcfb00db0079c5bad572a1f80282351f72052cd754be62a24",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 175.0,
+          "status": "completed",
+          "wall_seconds": 69.95956717804074,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "60f9ba07d27595914340f7ed7934aa7e053205f85cbb3a6e9389ed88397f1d7c",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 350.0,
+          "status": "completed",
+          "wall_seconds": 70.1960264313966,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "571be8b62090849e9019d01b1389dc12a12a66808d9015f589c0e0bd98110980",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 525.0,
+          "status": "completed",
+          "wall_seconds": 70.09746640408412,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "ee372c4ec8c81d4e1507a9e8b8fa7f5b659651f06c038ae0ea5ffba9688c0e22",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 700.0,
+          "status": "completed",
+          "wall_seconds": 70.0698423711583,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 192000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "af3795c2188e37e651b94676fee119a87ddeb14607b7705216fbf7313ffbd1fd",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        }
+      ],
+      "wall_seconds": 357.579456,
+      "source_wall_seconds_sum": 350.05616681464016,
+      "source_wall_seconds_mean": 70.01123336292804,
+      "allocated_bytes_from_worker_log": 11411456
+    },
+    {
+      "dataset": "EFVB",
+      "model_id": 1,
+      "gpu": 1,
+      "status": "completed",
+      "started_utc": "2026-11-17T18:20:16.549155+00:00",
+      "finished_utc": "2026-11-17T18:24:46.546512+00:00",
+      "substeps_per_ms": 72,
+      "temporary_mesh_removed": true,
+      "allocated_output_bytes": 11411456,
+      "apparent_output_bytes": 11359644,
+      "sources": [
+        {
+          "source_x_m": 0.0,
+          "status": "completed",
+          "wall_seconds": 52.30164902377874,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "efb05baf68c0e1a594d2780d5b344c7d39db1c8915c54cb58e15144c99ccdd09",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 175.0,
+          "status": "completed",
+          "wall_seconds": 52.28966520866379,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "c8b877405df296cc762d522471085f15883cd20b95da481f657b905756f8bbd2",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 350.0,
+          "status": "completed",
+          "wall_seconds": 52.486128725111485,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "97382ad19ceed5189461c1d3354dbf2d583282ae1a0092bf5eb70728b5e8e293",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 525.0,
+          "status": "completed",
+          "wall_seconds": 52.53273397590965,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "6885d14cee6b5d93645e92afbec48aa6abbb15653ad6f79fdb15a67bbe18cc7a",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        {
+          "source_x_m": 700.0,
+          "status": "completed",
+          "wall_seconds": 52.4713661596179,
+          "recorded_counts": {
+            "surface": 2001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "runtime": {
+            "result_code": 0,
+            "time_end_code": 0,
+            "steps_count": 144000,
+            "current_time_s": 2.0
+          },
+          "schema": {
+            "time_s": {
+              "shape": [
+                2001
+              ],
+              "dtype": "float64"
+            },
+            "coordinates_m": {
+              "shape": [
+                70,
+                2
+              ],
+              "dtype": "float64"
+            },
+            "node_ids": {
+              "shape": [
+                70
+              ],
+              "dtype": "int64"
+            },
+            "velocity_m_s": {
+              "shape": [
+                2001,
+                70,
+                2
+              ],
+              "dtype": "float64"
+            }
+          },
+          "surface_file_bytes": 2259836,
+          "surface_sha256": "037f120fdaef1d7bc4bb4cadcfe6ed8dd6927446c8f763df11871572ee5a7f9a",
+          "native_sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        }
+      ],
+      "wall_seconds": 269.997357,
+      "source_wall_seconds_sum": 262.08154309308156,
+      "source_wall_seconds_mean": 52.41630861861631,
+      "allocated_bytes_from_worker_log": 11411456
+    }
+  ],
+  "allocated_model_output_bytes_sum": 22822912,
+  "apparent_model_output_bytes_sum": 22719337,
+  "surface_file_bytes_sum": 22598360,
+  "root_allocated_bytes": 22888448,
+  "available_bytes": 220338900992,
+  "available_gib": 205.20659255981445,
+  "gpu_snapshot_csv": "index, name, memory.used [MiB], memory.free [MiB], utilization.gpu [%]\n0, NVIDIA A100-PCIE-40GB, 603 MiB, 39733 MiB, 96 %\n1, NVIDIA A100-PCIE-40GB, 603 MiB, 39733 MiB, 96 %\n",
+  "service_snapshot": "ExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
+  "projection_5000": {
+    "models": 5000,
+    "gpu_count": 2,
+    "mean_model_seconds": 313.7884065,
+    "balanced_models_per_hour": 22.94539839858615,
+    "balanced_seconds": 784471.914529,
+    "balanced_days": 9.079536047789352,
+    "balanced_formula": "5000*(t0+t1)/4 + observed_startup_shutdown_residual",
+    "first_pair_conservative_seconds": 893949.538279,
+    "first_pair_conservative_days": 10.346638174525463,
+    "first_pair_conservative_formula": "5000*max(t0,t1)/2 + observed_startup_shutdown_residual",
+    "limitation": "Only two flat-layered EFVB models, K96/K72, on this server load. Other materials/geometries/K or shared-server load may change throughput; not a precise forecast."
+  },
+  "json_file_sha256": {
+    "launcher.json": "95f1de810f5e6a48da41afec80fa5450d8975ce002187242f78ce666ac8ad68c",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/geometry.json": "a7d9792a4c064d3e4aa717fb49151fbb991c56ee59f2d2ce3f0a74c6a43845e3",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/model.json": "168b6f0457fdbe62c91f05db6e59c29f5aa72a1c7c9c30bde22adf25d37c54f9",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/stability.json": "0bf9ef119237820bd9b57d487613f3f4d8b3a5cd0202ae9c516a7f91fd5b0cf5",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/geometry.json": "228e08b4de2ff7d999cac34bb70aef1bad84232afc021255c5b3102ede48c9c8",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/model.json": "719261c176e6d2cc2275e4bf952e24d39ef972d5299ec6d32d6eb33d8621e560",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/stability.json": "ccad02f8b3b5583ada3d4f672e6857e79482861b2ff3e9e9f9f3a86a3156e551",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x700/metadata.json": "c43da5f33b92aa71e27f5cc426666af7ba1bbd84723ef186446cc35ae4a5be4c",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x700/metadata.started.json": "60ac428e631ebdb531f93d91f556b15e8a96e50626ed50738282df637b62f114",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x525/metadata.json": "5e2affd9d966248d7ca5958ab2ed070a057e5ff217636fb512999814c3ce10bb",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x525/metadata.started.json": "221c4ffa791bb3e3f6735024bd0f1832a73c47ca25ae843143fd0cc1439589da",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x175/metadata.json": "0c91e42719ff1c945eb19378bb7b31f29aaa8774e8d1e745729f803f4cec0585",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x175/metadata.started.json": "c4d20a2ed5089fb4ae1f1f35f46c9f8b9d6bf7d3dccbea203e864f118fb39bcd",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x000/metadata.json": "c8df8706c4254b9f3ca8f470b1fe756921c939770dfb5f916762db9c612f4e96",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x000/metadata.started.json": "0ea7fc5ee593e0671602386c8647e325f9dd9e1bfc40975349c72955ac06c998",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x350/metadata.json": "2491b22e8d3c72173efcb9b86fe8bf15225d26feafa553856bccf77a9dfb5fb6",
+    "chunks/chunk_01_EFVB_00000_04999/models/00000/x350/metadata.started.json": "6112c979cfee4ef6eb61f38da27b09df0b423bb6fff98ba3fe3ddbbb7d6cc8f9",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x700/metadata.json": "57d0bcab8454d9acc07f3562cb82b3faf0b51af3a268ce2e822ae45e0b3dab73",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x700/metadata.started.json": "d587b8a0d4c92dfab71378c2a545625a3ff762f47b8299157b1337cf4b131424",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x525/metadata.json": "5db9b5d9d75b68b9e7d6fbaa8b1de93d08da6a6855632cc7e79199ccd090204d",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x525/metadata.started.json": "743fe18d3aa7dbe2dc1c1875d1d4863752eb224a980338ffc484af18b172d3f5",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x175/metadata.json": "5dfd0fe12b3514a5477b90be804f4d1726e82f27f121233fb6a4f0a2a1f04de6",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x175/metadata.started.json": "949fcbf2ca42db1594492c2d01214229ef8684685bed1f7ae08bc3353fc49a9d",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x000/metadata.json": "6532ba4c5ac130da78ddf386abf6c79ddfa92a43bbd3854fc296e911ab33244f",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x000/metadata.started.json": "25ba36e82a40946c3d898777169d90ea39baa1e822e2f91971b50ce079125a96",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x350/metadata.json": "cdd01762f56ebb6fa57877a251fcfd8bce9a91099035013c175609e8e5ebd7b4",
+    "chunks/chunk_01_EFVB_00000_04999/models/00001/x350/metadata.started.json": "15a8c972b379c2bf6e1f616b7b2c61391baa48bc689d3e94cc42d5a9a451fb52"
+  },
+  "snapshot_context": "Collected after the pilot completed; production seismic14-efvb-chunk01-v1 had started at 2026-11-17T18:27:45+00:00. GPU utilization/free memory and filesystem availability describe collection time, not idle post-pilot state. Production was not modified."
+}

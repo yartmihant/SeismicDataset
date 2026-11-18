@@ -1,0 +1,50 @@
+{
+  "schema": "chapter14.launcher.v1",
+  "status": "completed",
+  "launcher_pid": 1769705,
+  "started_utc": "2026-11-17T18:20:15.972992+00:00",
+  "root": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 1769706,
+      "command": [
+        "/home/antonov/SeismicDataset/.venv/bin/python",
+        "-m",
+        "scripts.dev_1_4_server_preparation.worker",
+        "--gpu",
+        "0",
+        "--root",
+        "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+        "--source",
+        "/home/antonov/SeismicDataset/src",
+        "--max-models",
+        "1"
+      ],
+      "log": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/logs/gpu0.log",
+      "returncode": 0
+    },
+    {
+      "gpu": 1,
+      "pid": 1769707,
+      "command": [
+        "/home/antonov/SeismicDataset/.venv/bin/python",
+        "-m",
+        "scripts.dev_1_4_server_preparation.worker",
+        "--gpu",
+        "1",
+        "--root",
+        "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+        "--source",
+        "/home/antonov/SeismicDataset/src",
+        "--max-models",
+        "1"
+      ],
+      "log": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1/logs/gpu1.log",
+      "returncode": 0
+    }
+  ],
+  "failure_policy": "stop both; keep outputs, temporary work and SQLite reservations; no retry or release",
+  "finished_utc": "2026-11-17T18:26:14.450727+00:00",
+  "exit_code": 0
+}

@@ -1,0 +1,237 @@
+{
+  "schema": "chapter14.no_padding_comparison.v1",
+  "status": "completed",
+  "utc": "2026-11-18T07:51:32.787005+00:00",
+  "recording_and_parameter_checks_passed": true,
+  "comparison_kind": "changed_boundary_physics_diagnostic",
+  "waveform_agreement_required": false,
+  "waveform_match_threshold": null,
+  "no_abc_accuracy_or_convergence_claim": true,
+  "waveform_interpretation": "Differences are expected because the sponge and exterior material are removed and ABC moves to the physical core boundary. These norms do not measure solver error, ABC accuracy or mesh convergence.",
+  "fixed_parameters": {
+    "dataset": "EFVB",
+    "model_id": 0,
+    "source_x_m": 350.0,
+    "substeps": 96,
+    "t_end_s": 2.0,
+    "order": 4,
+    "kind": "curved",
+    "backend": "cu"
+  },
+  "shape": [
+    2001,
+    70,
+    2
+  ],
+  "finite": true,
+  "checks": {
+    "source_force_sha256_equal": true,
+    "native_sha256_equal": true,
+    "common_python_code_sha256_equal": true,
+    "receiver_coordinates_times_exact": true,
+    "receiver_node_ids_equal": true,
+    "receiver_node_id_note": "Node IDs are local numbering and need not match after cropping"
+  },
+  "physics_change": {
+    "core": {
+      "padding_m": 0.0,
+      "alpha_max_s_inv": 0.0,
+      "mass_damping": false,
+      "physics_ids": [
+        11000,
+        32000,
+        20200
+      ],
+      "abc_edge_count": 420,
+      "boundary": "ABC on x=0, x=700, y=-700; free top y=0"
+    },
+    "reference": {
+      "padding_m": 175.0,
+      "alpha_max_s_inv": 346.1772216952762,
+      "mass_damping": true,
+      "boundary": "ABC on x=-175, x=875, y=-875; free top y=0"
+    }
+  },
+  "mesh_counts": {
+    "core_nodes": 314721,
+    "reference_nodes": 589541,
+    "core_elements": 19600,
+    "reference_elements": 36750,
+    "nodes_removed": 274820,
+    "elements_removed": 17150,
+    "core_to_reference_node_ratio": 0.5338407337233543,
+    "core_to_reference_element_ratio": 0.5333333333333333
+  },
+  "timing": {
+    "core_source_wall_seconds": 180.00997938006185,
+    "reference_source_wall_seconds": 344.25817201985046,
+    "core_speedup_over_reference": 1.9124393725583693,
+    "core_to_reference_wall_ratio": 0.5228923930081235,
+    "source_steps_each": 192000,
+    "dt_s_each": 1.0416666666666666e-05,
+    "scope": "Source pipeline with native construction/prepare/run, recording and NPZ write/hash; geometry preparation excluded",
+    "caveat": "Single runs on the local GPU. Mesh size and mass-damping workload change together; this is not isolated kernel performance, a timing distribution or a pure mesh-scaling law."
+  },
+  "metrics": {
+    "relative_l2": 0.16898732900547833,
+    "error_l2_m_s": 3.757145296579198e-08,
+    "reference_l2_m_s": 2.223329594408464e-07,
+    "max_abs_m_s": 1.687814208056136e-09,
+    "rms_error_m_s": 7.098562791280093e-11,
+    "rms_reference_m_s": 4.2006479616291043e-10,
+    "rms_new_m_s": 4.2457073685279387e-10
+  },
+  "components": {
+    "Vx": {
+      "relative_l2": 0.1827171043989361,
+      "error_l2_m_s": 2.309945794680692e-08,
+      "reference_l2_m_s": 1.2642197906317862e-07,
+      "max_abs_m_s": 1.687814208056136e-09,
+      "rms_error_m_s": 6.172046999445843e-11,
+      "rms_reference_m_s": 3.377925137194644e-10,
+      "rms_new_m_s": 3.4260136257713506e-10
+    },
+    "Vy": {
+      "relative_l2": 0.16201682297859454,
+      "error_l2_m_s": 2.963155616103241e-08,
+      "reference_l2_m_s": 1.82891847996225e-07,
+      "max_abs_m_s": 1.5890744588258487e-09,
+      "rms_error_m_s": 7.917387399901817e-11,
+      "rms_reference_m_s": 4.886768703610397e-10,
+      "rms_new_m_s": 4.930972800003454e-10
+    }
+  },
+  "common_python_code": {
+    "scripts/dev_1_3_point_source/physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec",
+    "scripts/dev_1_3_point_source/run.py": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057",
+    "scripts/dev_1_4_server_preparation/surface_runner.py": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+  },
+  "core_only_python_code": {
+    "scripts/dev_1_4_server_preparation/no_padding_run.py": "acb303a02418ac979407d465b7d7bf72b1fcba2ec22c7cf372fea49c8b055d5f"
+  },
+  "core": {
+    "surface": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/no_padding_3060_v1/x350/surface.npz",
+      "sha256": "b04d625d752924601feeb60d8778247d36c04e6af7666498c0c9d0b741c3cf7c"
+    },
+    "metadata": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/no_padding_3060_v1/x350/metadata.json",
+      "sha256": "9894d428f076dfed5e39156032cc82582630ce5c48988e993b790e270f277633"
+    },
+    "native": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+    },
+    "provenance": {
+      "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+      "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+      "numpy": "2.4.6",
+      "semgpu2": "0.1.0",
+      "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+      "files": [
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/no_padding_run.py",
+          "sha256": "acb303a02418ac979407d465b7d7bf72b1fcba2ec22c7cf372fea49c8b055d5f"
+        },
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py",
+          "sha256": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+        },
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+          "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+        },
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+          "sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+        }
+      ]
+    },
+    "code_sha256": {
+      "scripts/dev_1_4_server_preparation/no_padding_run.py": "acb303a02418ac979407d465b7d7bf72b1fcba2ec22c7cf372fea49c8b055d5f",
+      "scripts/dev_1_4_server_preparation/surface_runner.py": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001",
+      "scripts/dev_1_3_point_source/physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec",
+      "scripts/dev_1_3_point_source/run.py": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+    },
+    "mesh_evidence": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/no_padding_3060_v1/core/mesh_q2.npz",
+      "sha256": "a3ff3832ff7eaaa121a843d5c2a5d849eae9b4b566e02fa9c2e84e8655defcf8"
+    },
+    "nodes_sha256": "0daaa3e07c871878c2b65c66691d9f4ef24305467a5bb0056909a9c4dee4fdbf",
+    "source_input_sha256": "76f93b82f28a891bdb442dc2a0c1b55aee24909efeb8f15e9196f2b728d5adf0",
+    "source_node_id": 19810,
+    "fixture": null,
+    "smoke_timing": null
+  },
+  "reference": {
+    "surface": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/surface.npz",
+      "sha256": "c06464bbd69e57c85766927be544b965e9ffb9d1ae9f2d8abd3045a41e972a99"
+    },
+    "metadata": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/x350/metadata.json",
+      "sha256": "2252d1210cd91dd21a7f27dcf6710eb6887f1f1bed632e1deba8ed886af60f72"
+    },
+    "native": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+    },
+    "provenance": {
+      "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+      "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+      "numpy": "2.4.6",
+      "semgpu2": "0.1.0",
+      "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+      "files": [
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py",
+          "sha256": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+        },
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+          "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+        },
+        {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+          "sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+        }
+      ]
+    },
+    "code_sha256": {
+      "scripts/dev_1_4_server_preparation/surface_runner.py": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001",
+      "scripts/dev_1_3_point_source/physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec",
+      "scripts/dev_1_3_point_source/run.py": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+    },
+    "mesh_evidence": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/mesh_q2.npz",
+      "sha256": "0aa67afe07a6e46a476077f14ee182da601639dfd3febf9b7da90c17fee4dcff"
+    },
+    "nodes_sha256": "7265be9af4ad64bceea5d6b6873796f7a2a83b37cbc4171a09af3e37ebe557b6",
+    "source_input_sha256": "76f93b82f28a891bdb442dc2a0c1b55aee24909efeb8f15e9196f2b728d5adf0",
+    "source_node_id": 19810,
+    "fixture": null,
+    "smoke_timing": {
+      "preparation_seconds": 3.4919544782023877,
+      "full_smoke_wall_seconds": 347.7698137490079,
+      "evidence": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/smoke.json",
+        "sha256": "b8750a5d7e3dac0f3a4c16f9c635bb2ab10466169fafa72a2e49b9a241310282"
+      },
+      "scope": "CPU geometry, certificate and SEM construction preparation; complete smoke total includes source run and wrapper overhead"
+    }
+  },
+  "comparison_code": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/no_padding_compare.py",
+      "sha256": "dbaaa571a3a602f8087f8a9e46a7f87ebc377e911f4cb0cd70bdf691b55b0220"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/compare_benchmark.py",
+      "sha256": "5a5f1aa40646b160d07ef79c237be1887d1a50b000eda9021179deb5c5b7654a"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/compare_smoke.py",
+      "sha256": "e802a53656ebc6f925006b75b1acd123f0fc985888b3c6b46f4de0944498df46"
+    }
+  ]
+}

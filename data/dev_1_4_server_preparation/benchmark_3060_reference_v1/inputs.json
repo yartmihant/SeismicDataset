@@ -1,0 +1,89 @@
+{
+  "schema": "chapter14.benchmark_inputs.v1",
+  "utc": "2026-11-17T19:23:37.248977+00:00",
+  "scope": "CPU reconstruction only; no solver/native execution",
+  "solver_native_imported": false,
+  "spec": {
+    "dataset": "EFVB",
+    "model_id": 0,
+    "substeps": 96,
+    "source_x_m": 350.0,
+    "t_end_s": 2.0,
+    "order": 4
+  },
+  "experiment_spec": {
+    "size_m": 700.0,
+    "padding_m": 175.0,
+    "frequency_hz": 30.0,
+    "center_s": 0.05,
+    "end_s": 2.0,
+    "output_interval_s": 0.001,
+    "field_interval_s": 0.01,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "density_kg_m3": 1000.0,
+    "force_amplitude_n_per_m": 1.0
+  },
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1/EFVB_00000/mesh_q2.npz",
+    "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+  },
+  "source_node_id": 19810,
+  "nodes_sha256": "2e33e0dc042482634df8d46e4053cc8fb1383ec05154485d4a0a7569c73cf04d",
+  "arrays": {
+    "source_times_s": {
+      "shape": [
+        192001
+      ],
+      "dtype": "float64",
+      "sha256": "aa7882a94cc8cd380f825303246d055503acc4f6b96254b8d264240aa25197d3"
+    },
+    "source_values": {
+      "shape": [
+        192001,
+        1,
+        2
+      ],
+      "dtype": "float64",
+      "sha256": "fe1d8edf12b29134af35f20a82ef0c0204a0938f93a0cd77a350f17af894f73d"
+    }
+  },
+  "output": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_reference_v1/inputs.npz",
+    "sha256": "e8dd2706a728bd9a5943789d52e37a75ed800f69cbe9e11aa245f618a81b2eab"
+  },
+  "provenance": {
+    "hostname": "saturn",
+    "platform": "Linux-5.4.0-216-generic-x86_64-with-glibc2.31",
+    "python": "3.13.5 (main, Mar 27 2026, 11:51:12) [GCC 9.4.0]",
+    "packages": {
+      "numpy": "2.4.6",
+      "scipy": "1.18.0",
+      "semgpu2": "0.1.0"
+    },
+    "environment": {
+      "OMP_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "files": [
+      {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/benchmark_inputs.py",
+        "sha256": "4b5ec1a6d2e1ae3310230878999876733187da2e2b894c2fb002a0fa1fd7c920"
+      },
+      {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+        "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+      },
+      {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_3_point_source/mesh.py",
+        "sha256": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f"
+      }
+    ]
+  }
+}

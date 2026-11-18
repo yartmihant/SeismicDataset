@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T18:20:32.973190+00:00",
+  "scope": "CPU comparator self-reference and rejection checks only; no solver execution",
+  "self_reference_exact_zero_error": true,
+  "above_threshold_rejected": true,
+  "wrong_receiver_coordinate_rejected": true,
+  "temporary_npz_removed": true,
+  "comparison_code_sha256": "e802a53656ebc6f925006b75b1acd123f0fc985888b3c6b46f4de0944498df46"
+}

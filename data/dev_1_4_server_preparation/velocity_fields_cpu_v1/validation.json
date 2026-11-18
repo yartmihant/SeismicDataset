@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T08:03:29.861861+00:00",
+  "scope": "CPU mocks only; actual EFVB geometry and receiver/physics construction, no native/GPU solution",
+  "checks": [
+    "Both physics variants preserve their source and ABC/mass-damping selection",
+    "Two receivers use component-major [4,5], strides96/960 and all global node IDs",
+    "Fields stream to float64 NPY and match surface values at common nodes/times",
+    "Zero initial frame, missing/extra frames, wrong times and nonfinite values checked",
+    "Component/node transpose checked using nonuniform node data",
+    "Incomplete fields retain partial output and failed metadata, never completed"
+  ],
+  "files": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_velocity_fields.py",
+      "sha256": "0fff1c7e6af62e95c35f472e8bfe6adebd5c60f7ce81143dd5bad68232001e72",
+      "bytes": 6414
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/velocity_fields_run.py",
+      "sha256": "ef712b43e4ee0e2f0d212f78f91ceed0fabc4d46700bb6c89457672674ddce94",
+      "bytes": 16163
+    }
+  ]
+}

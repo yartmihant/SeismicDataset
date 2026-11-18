@@ -1,0 +1,45 @@
+{
+  "schema": "chapter14.curved.v1",
+  "dataset": "EFVB",
+  "model_id": 29999,
+  "input": {
+    "synthetic": "uniform material, not actual dataset ID29999"
+  },
+  "construction": {
+    "construction": "layered_pilot_Q2_exact_2x2",
+    "splines": [],
+    "rows_topdown_before_refinement": [
+      70
+    ],
+    "source_sample_bound_m": 7.5,
+    "source_topology": "same nonvanishing layer sequence in every column"
+  },
+  "certificate": {
+    "model_id": 29999,
+    "kind": "curved",
+    "elements": 36750,
+    "q2_nodes": 147771,
+    "area_m2": 918750.0000000001,
+    "det_jacobian_certified_min_m2": 6.249999999992333,
+    "bernstein_max_depth": 0,
+    "euler_characteristic": 1,
+    "conforming": true,
+    "core_top_edges": 140,
+    "core_top_edge_m": 5,
+    "external_edges": 770,
+    "area_by_region_m2": {
+      "0": 918750.0000000001
+    },
+    "sqrt_area_quantiles_m": [
+      4.999999999999908,
+      4.999999999999951,
+      5.0,
+      5.000000000000062,
+      5.000000000000107
+    ]
+  },
+  "fallback": "none; errors stop the model and must be reported",
+  "algorithm_evidence": "chapter1.3: layered12404 and shared_CAD65",
+  "uniform_lattice_max_roundoff_m": 5.684341886080802e-14,
+  "verification": "complete Q2 2.5m lattice to 1e-9m tolerance, exact material values, positive geometry certificate"
+}

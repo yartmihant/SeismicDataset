@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T19:27:09.521848+00:00",
+  "mypy_files": 67,
+  "notebook_cells": 58,
+  "notebook_errors": 0,
+  "roundtrip": "AST, syntax and format passed; report cells executed without solver",
+  "source_comparison": "passed audited_roundoff; one full source per host",
+  "cpu_checks": [
+    "compare_benchmark_cpu_v1",
+    "compare_benchmark_cpu_v2"
+  ],
+  "sha256": {
+    "dev_1_4_server_preparation.py": "28d111de379d114a423ee18f3eb132331458a17d259336700dc3ef8b1e98f457",
+    "dev_1_4_server_preparation.ipynb": "e1bef6da86d41853e5ac258f7a5985654d4090f30920ed98d0d46ee3bb6b0727",
+    "scripts/dev_1_4_server_preparation/compare_benchmark.py": "5a5f1aa40646b160d07ef79c237be1887d1a50b000eda9021179deb5c5b7654a",
+    "scripts/dev_1_4_server_preparation/benchmark_inputs.py": "4b5ec1a6d2e1ae3310230878999876733187da2e2b894c2fb002a0fa1fd7c920",
+    "data/dev_1_4_server_preparation/benchmark_3060_v1/comparison.json": "6b8e78c32d26cabb1f8e877749a3ee5745a4952b93a7e72649cccf6f16fd8254"
+  }
+}

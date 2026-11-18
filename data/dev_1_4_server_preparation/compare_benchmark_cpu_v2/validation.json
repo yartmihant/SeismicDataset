@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "utc": "2026-11-17T19:25:56.014153+00:00",
+  "scope": "CPU audits and comparator only; no GPU execution; temporary altered copies removed",
+  "strict_mode_rejects_hash_differences": true,
+  "real_explicit_roundoff_comparison_passed": true,
+  "different_hash_flags_preserved": true,
+  "geometry_above_1e_minus_9_rejected": true,
+  "source_archive_sha_tamper_rejected": true,
+  "force_above_tolerance_rejected": true,
+  "actual_comparison_sha256": "6b8e78c32d26cabb1f8e877749a3ee5745a4952b93a7e72649cccf6f16fd8254",
+  "code_sha256": {
+    "compare_benchmark.py": "5a5f1aa40646b160d07ef79c237be1887d1a50b000eda9021179deb5c5b7654a",
+    "benchmark_inputs.py": "4b5ec1a6d2e1ae3310230878999876733187da2e2b894c2fb002a0fa1fd7c920"
+  }
+}

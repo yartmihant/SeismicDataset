@@ -1,0 +1,29 @@
+{
+  "status": "preparing",
+  "spec": {
+    "dataset": "EFVB",
+    "model_id": 0,
+    "gpu": 0,
+    "out": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000",
+    "t_end_s": 2.0
+  },
+  "utc": "2026-11-17T19:15:07.247182+00:00",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TMPDIR": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/tmp",
+    "TMP": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/tmp",
+    "TEMP": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/tmp",
+    "XDG_CACHE_HOME": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/xdg",
+    "MPLCONFIGDIR": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/matplotlib",
+    "CUDA_CACHE_PATH": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/cuda",
+    "NUMBA_CACHE_DIR": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/benchmark_3060_v1/EFVB_00000/runtime_cache/numba"
+  },
+  "free_bytes_at_start": 93366988800,
+  "minimum_free_bytes": 42949672960,
+  "smoke_script_sha256": "0eb22fe4c4378db585e77f09121a130205a7f68447345a948032486712553cbd"
+}

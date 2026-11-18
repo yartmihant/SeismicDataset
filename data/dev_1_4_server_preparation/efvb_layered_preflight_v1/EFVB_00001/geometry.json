@@ -1,0 +1,170 @@
+{
+  "schema": "chapter14.curved.v1",
+  "dataset": "EFVB",
+  "model_id": 1,
+  "input": {
+    "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+    "members": [
+      "data_EFVB_out/vp_00001.txt",
+      "data_EFVB_out/vs_00001.txt"
+    ],
+    "raw_sha256": {
+      "vp_00001.txt": "0b7e31b01cb3aa70807919930bb8e435bbfde22cfc8f95d18bf0a8e4b17b3378",
+      "vs_00001.txt": "d593a7dfa87d2c02b9f9a91959d36301407d5b26094262e34c34cc1c913cb233"
+    },
+    "array_sha256": {
+      "vp": "06f20d9fdf641208e8e0a052e694859ee4a25f30b1e06c0206b6b609dd4cb149",
+      "vs": "e2fd75d3a1d3ed449299dfa153007cec64146f4485f239c890704ec684fee711"
+    },
+    "axes": "row top to bottom; column left to right",
+    "shape": [
+      70,
+      70
+    ],
+    "dtype": "float64"
+  },
+  "construction": {
+    "construction": "layered_pilot_Q2_exact_2x2",
+    "splines": [
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          160.0,
+          160.0,
+          159.99999999999974,
+          160.00000000000017,
+          159.9999999999998,
+          159.99999999999997,
+          159.99999999999994,
+          159.99999999999991,
+          159.99999999999994,
+          160.0
+        ],
+        "max_sample_depth_error_m": 1.1368683772161603e-13
+      },
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          390.0,
+          390.00000000000017,
+          389.99999999999966,
+          390.00000000000045,
+          389.99999999999943,
+          389.9999999999999,
+          389.9999999999998,
+          390.00000000000017,
+          390.00000000000006,
+          390.0
+        ],
+        "max_sample_depth_error_m": 3.410605131648481e-13
+      },
+      {
+        "knots": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          200.0,
+          300.0,
+          400.0,
+          500.0,
+          600.0,
+          700.0,
+          700.0,
+          700.0,
+          700.0
+        ],
+        "coefficients": [
+          620.0,
+          620.0000000000003,
+          619.9999999999999,
+          620.0000000000003,
+          619.999999999999,
+          620.0000000000003,
+          619.9999999999998,
+          620.0000000000001,
+          620.0000000000001,
+          620.0
+        ],
+        "max_sample_depth_error_m": 4.547473508864641e-13
+      }
+    ],
+    "rows_topdown_before_refinement": [
+      16,
+      23,
+      23,
+      8
+    ],
+    "source_sample_bound_m": 7.5,
+    "source_topology": "same nonvanishing layer sequence in every column"
+  },
+  "certificate": {
+    "model_id": 1,
+    "kind": "curved",
+    "elements": 36750,
+    "q2_nodes": 147771,
+    "area_m2": 918750.0000000001,
+    "det_jacobian_certified_min_m2": 6.249999999992333,
+    "bernstein_max_depth": 0,
+    "euler_characteristic": 1,
+    "conforming": true,
+    "core_top_edges": 140,
+    "core_top_edge_m": 5,
+    "external_edges": 770,
+    "area_by_region_m2": {
+      "0": 168000.00000000003,
+      "1": 241500.0000000001,
+      "2": 241500.00000000017,
+      "3": 267749.9999999998
+    },
+    "sqrt_area_quantiles_m": [
+      4.999999999999903,
+      4.999999999999949,
+      5.0,
+      5.0000000000000595,
+      5.000000000000102
+    ]
+  },
+  "fallback": "none; errors stop the model and must be reported",
+  "algorithm_evidence": "chapter1.3: layered12404 and shared_CAD65",
+  "p4_nodes": 589541,
+  "receivers": 70,
+  "source_exact_node_counts": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}
