@@ -104,7 +104,7 @@ def inspect_status(root: Path, now: datetime | None = None) -> dict[str, object]
     chunks = [{"chunk_number": chunk, "dataset": "EFVB" if chunk % 2 else "ECVB", "authorized": chunk <= limit,
                "first_id": ((chunk - 1) // 2) * 3000, "last_id": ((chunk - 1) // 2) * 3000 + 2999,
                "target_models": 3000, **{status: counts.get((chunk, status), 0) for status in ("completed", "reserved", "failed")}}
-              for chunk in range(1, 13)]
+              for chunk in range(1, 21)]
     jobs: list[dict[str, object]] = [{"job_id": str(row["job_id"]), "chunk_number": int(row["chunk_number"]),
         "dataset": str(row["dataset"]), "model_id": int(row["model_id"]), "gpu": int(row["gpu"]),
         "budget_bytes": int(row["budget_bytes"]), "status": str(row["status"]),
