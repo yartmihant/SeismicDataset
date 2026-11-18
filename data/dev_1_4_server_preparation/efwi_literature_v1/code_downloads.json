@@ -1,0 +1,26 @@
+[
+  {
+    "name": "kaust_fdps1.m",
+    "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/fdps1.m",
+    "bytes": 2848,
+    "sha256": "a25096c0e2174e0c54ca6b5ca32a6f8295b90906879e37be3e56b50761d20c68"
+  },
+  {
+    "name": "kaust_param.m",
+    "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/param.m",
+    "bytes": 500,
+    "sha256": "5fd36f02ea6fc9a81ea3c935894d14da18be625a7dc64c63dd47ede4681d5ede"
+  },
+  {
+    "name": "kaust_calrick.m",
+    "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/calrick.m",
+    "bytes": 271,
+    "sha256": "2bb00449f25d6b0c945e90fcc7124c237e5ab06474f9a2f5c607cfcb2e0666f8"
+  },
+  {
+    "name": "kaust_lab2.html",
+    "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/lab2.html",
+    "bytes": 2391,
+    "sha256": "c6883aeffc53240babc3c433bfae6821d681f5ce00a2d6b1c9543b5635c641db"
+  }
+]

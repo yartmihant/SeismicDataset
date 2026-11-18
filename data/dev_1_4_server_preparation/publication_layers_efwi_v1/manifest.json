@@ -1,0 +1,218 @@
+{
+  "status": "reviewed",
+  "scope": "Chapter1.4 EFWI literature comparison and double-layer controls, compact reports and curated figures; no arrays/videos/full publications/credentials",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 21335,
+      "sha256": "fb50980b588a8cbf69dfd8cbffbed41c3519c3e10a75b8f43b548e9d4cc57a9f"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_layer_analysis_cpu_v4/validation.json",
+      "bytes": 980,
+      "sha256": "d2318c6b79fdc04530a750ca86305e31969ef73f2b327525e3a9866edc41f379"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_layer_analysis_v1/analysis.json",
+      "bytes": 56840,
+      "sha256": "93ccaeb1e4d95cc623ec448880d44fd06e34135130a40ea32c7d665edc7013bb"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_layer_analysis_v1/animation_qa.json",
+      "bytes": 849,
+      "sha256": "216d0e6a771181a85589a2e9c92d00f87a0933be3a8a2158299ea4b33836eb1d"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_layer_analysis_v1/animations.json",
+      "bytes": 8924,
+      "sha256": "551cb6ae22a07ebe0c0634bf249b679f7ab49fb6d24d7075265ab1d7949976e7"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_layer_analysis_v1/chapter_validation.json",
+      "bytes": 1338,
+      "sha256": "7ca81fe4a2edfa7a5934890176a5aa27f785b5ad6023407472f48a2d4853b429"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_layer_analysis_v1/qa.json",
+      "bytes": 2397,
+      "sha256": "13eab2ab20a425c6927a786dcde81104b5f3556f3d4c027178ed8dd9d0e1e473"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/completion_validation.json",
+      "bytes": 1879,
+      "sha256": "15946c719121a3fe79f6060ad8a92b72500db50b7121d611e7d86eeeb4b4b2c1"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/cpu_checks_v1/validation.json",
+      "bytes": 1271,
+      "sha256": "59271aa861827bc220f297996d4de61545154063edcf68cec435c7a36861b9f2"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/experiment_design.json",
+      "bytes": 2429,
+      "sha256": "ed00119d7c0fc64d956e32a1d14a0177a8866c899b77d0ba58b77d22bbe12759"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/metadata.json",
+      "bytes": 8297,
+      "sha256": "3d06d3c04bb35e5f68f2d1bfe2d77993cadb1aa26c52af48695621aee28fb85b"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/metadata.started.json",
+      "bytes": 6818,
+      "sha256": "68c5a1785f04d6f79bc67bc2433b6f7192fc84ddfb05f8745f342af12ed4df07"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/validation.json",
+      "bytes": 1031,
+      "sha256": "f3938b007910b038a8d8a7c221c628968f920c72bc7c0b4035199e7d12a00bc4"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/geometry.json",
+      "bytes": 1817,
+      "sha256": "e96eebdf5305fa74ad2dd594228592ad8606a2e32f51ea9837cf9c0ae9d0e7eb"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/stability.json",
+      "bytes": 1308,
+      "sha256": "954cfe8d4f2a3629fa2002ce84be9864fd1d9aa4ae2e8e58483af649144867b9"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/preparation.json",
+      "bytes": 2013,
+      "sha256": "9758cad540bab7fb23b7bab1519b42c58ae2d9dc2d55729d56d2da3da14c03dd"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/metadata.json",
+      "bytes": 8271,
+      "sha256": "73f218acd8d19cc54732b8a1f01ce7a134fc56e6d86c5c5d643ba5acfec021f3"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/metadata.started.json",
+      "bytes": 6816,
+      "sha256": "df9f113a6438fddff9a4468ba327969a6982cce355f4cb70109ba0fde3892c77"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/validation.json",
+      "bytes": 1025,
+      "sha256": "d60e481eb5c7b409dc2509839c0c2410c0966e8a74408cbc4c5a4e81e2811c54"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/efwi_literature_v1/audit.json",
+      "bytes": 7284,
+      "sha256": "528c855faa3fd557157538f3874ab76b8f4c92bb97dcb54f180968b0d7b0c065"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/efwi_literature_v1/boundary_downloads.json",
+      "bytes": 784,
+      "sha256": "76f9acb31845fb80e221b27e9eca84ded4bc597329d7a2cd9fcea0403d320464"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/efwi_literature_v1/code_downloads.json",
+      "bytes": 929,
+      "sha256": "5880f80adfb636a7f418bfc3a6bb41f6e7fa9fce1f2daabcf92dbd87724b64c5"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/efwi_literature_v1/downloads.json",
+      "bytes": 1200,
+      "sha256": "67a358c8a17db9da5bf0b0cdd4318ba2be6871245a83d24a0d35a0969f9b667f"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/efwi_literature_v1/efwi_github_repositories.json",
+      "bytes": 5447,
+      "sha256": "50848c751dfed5e2ba050ff2d85beb62ece47eda51e6a9dc7135241a5d6f699c"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/efwi_literature_v1/method_downloads.json",
+      "bytes": 527,
+      "sha256": "0aab59ebd325490b39a1a3bdc4ab820d2c54d5dc21128e64884dd3ce85441454"
+    },
+    {
+      "path": "dev_1_4_server_preparation.ipynb",
+      "bytes": 9759222,
+      "sha256": "04dcbd5f723f8e08473f04094e691481eb85f60ce1c2590573915896749c63c0"
+    },
+    {
+      "path": "dev_1_4_server_preparation.py",
+      "bytes": 107676,
+      "sha256": "cf49aa17d06152f66e14d5297cff41876d2e947fdf7d8578681a21f5ac57776b"
+    },
+    {
+      "path": "dev_1_4_server_preparation_summary.md",
+      "bytes": 68694,
+      "sha256": "aef0272fc94867c08d091542abb7e6203073da02561e8c2745622cf42166ed0c"
+    },
+    {
+      "path": "docs/dev_1_4_damping_layer_protocol_v1.md",
+      "bytes": 10845,
+      "sha256": "29a47d268ce75e6decaa76fb8d2502b2878bfa4129d75ace4d3f2a0a38235a76"
+    },
+    {
+      "path": "docs/dev_1_4_efwi_comparison_v1.md",
+      "bytes": 15901,
+      "sha256": "ad8ece6080aa477693d537184b60cb31da50df5a10a5004d96cd54abfaff785e"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/arrival_traces.png",
+      "bytes": 285977,
+      "sha256": "b5aa828066d77ecd297fac49feee41e3ae2e8dcc1f642e996fb9064168b06cf0"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/damping_profiles.png",
+      "bytes": 153982,
+      "sha256": "ddef66ddd12ae90b5ad519194bdbe5b561c55e8425039bf21adee88a9a0188b3"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_arrivals.png",
+      "bytes": 1194959,
+      "sha256": "ce224472c3ce98424fbbd940045b2f2250f7578b74b97664fb073f8bd95f0899"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t035.png",
+      "bytes": 464064,
+      "sha256": "e141ef07c90877202f3a5ce96e605af3300e14a762c88cebe8be33148de038fb"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/incoming_aperture_check.png",
+      "bytes": 507294,
+      "sha256": "44b8584bbaca620648a92d33e832ab22a277ab5914a7ea99f7407de9d1e0173a"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/return_beam_and_tail.png",
+      "bytes": 450827,
+      "sha256": "9c0411d5f9cc5e5d88fea3d3759d9b31b53d7958ab62f6e89176f42167fcba68"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t035.png",
+      "bytes": 669334,
+      "sha256": "50493745413ebcaa7061841acd7a65788994cb68515bf50bf4da034483a6714a"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 18720,
+      "sha256": "552b1bd561c9b3661b37d58f7d1b17d07f2cff58e2a27de735faac4f0d873017"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/check_double_layer_run.py",
+      "bytes": 6566,
+      "sha256": "d2c79ae0a25d06dac6fec2615515b640675c7d345a06d22457c7707991208071"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/double_layer_run.py",
+      "bytes": 32986,
+      "sha256": "c03d05ca8c68e8ddd1efc700220566417a6087bd9ef62ff1795875db32d599ca"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/layer_analysis.py",
+      "bytes": 29292,
+      "sha256": "9ca17ed8af0ada52581d444251a7a8774ebbaf71c19923460c3cc36068f0ae80"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/layer_animate.py",
+      "bytes": 11337,
+      "sha256": "d2ea004e3b85177bee0fd2077ea69476e4bb3b19861561b595317b396ad42e4c"
+    }
+  ],
+  "relocated_report_only_execution": "passed in fresh project root without arrays/video/native files",
+  "credential_scan": "passed"
+}

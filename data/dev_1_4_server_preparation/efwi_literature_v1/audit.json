@@ -1,0 +1,185 @@
+{
+  "schema": "seismicdataset.efwi_literature_audit.v1",
+  "status": "reviewed",
+  "review_date_moscow": "2026-11-18",
+  "core_sources": [
+    {
+      "name": "efwi_feng_2023_main.pdf",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/4aa8d18aad014fb3d0076e0afd2e3b2e-Paper-Datasets_and_Benchmarks.pdf",
+      "bytes": 2099443,
+      "sha256": "2697013041ab0ebd433566a5db56e7fe397826d26af8d37e34e68cc780e54604"
+    },
+    {
+      "name": "efwi_feng_2023_supplement.pdf",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/4aa8d18aad014fb3d0076e0afd2e3b2e-Supplemental-Datasets_and_Benchmarks.pdf",
+      "bytes": 2460464,
+      "sha256": "571cf9d94bd8d6619f576ce1768c0e961dc9e7f384295456ad182cfef48f7de5"
+    },
+    {
+      "name": "openfwi_deng_2022_main.pdf",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/27d3ef263c7cb8d542c4f9815a49b69b-Paper-Datasets_and_Benchmarks.pdf",
+      "bytes": 2147326,
+      "sha256": "4cbb76aa0192f5936fd8a192eba7ac97d87d2551f27b3e81ea87236f30926859"
+    },
+    {
+      "name": "openfwi_deng_2022_supplement.pdf",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/27d3ef263c7cb8d542c4f9815a49b69b-Supplemental-Datasets_and_Benchmarks.pdf",
+      "bytes": 28170919,
+      "sha256": "a5a49ed5ce5353b2c144856cc07c73a26ec5bbe197ef4eb5b7e4dc2e0848b97f"
+    }
+  ],
+  "teaching_code": [
+    {
+      "name": "kaust_fdps1.m",
+      "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/fdps1.m",
+      "bytes": 2848,
+      "sha256": "a25096c0e2174e0c54ca6b5ca32a6f8295b90906879e37be3e56b50761d20c68"
+    },
+    {
+      "name": "kaust_param.m",
+      "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/param.m",
+      "bytes": 500,
+      "sha256": "5fd36f02ea6fc9a81ea3c935894d14da18be625a7dc64c63dd47ede4681d5ede"
+    },
+    {
+      "name": "kaust_calrick.m",
+      "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/calrick.m",
+      "bytes": 271,
+      "sha256": "2bb00449f25d6b0c945e90fcc7124c237e5ab06474f9a2f5c607cfcb2e0666f8"
+    },
+    {
+      "name": "kaust_lab2.html",
+      "url": "https://csim.kaust.edu.sa/files/ErSE328.2013/LAB/Chapter.FD/lab.fdpsv/lab2.html",
+      "bytes": 2391,
+      "sha256": "c6883aeffc53240babc3c433bfae6821d681f5ce00a2d6b1c9543b5635c641db"
+    }
+  ],
+  "official_repositories": [
+    "efwi-lanl/efwi-lanl.github.io"
+  ],
+  "official_efwi_python_generator_found": false,
+  "page_visual_checks": [
+    "EFWI main p6 Table2",
+    "EFWI supplement p2 sections1–3",
+    "Engquist–Majda PNAS1977 pp1765–1766 full text via PMC page images",
+    "Levander1988 p1427 boundary conditions"
+  ],
+  "efwi_published": {
+    "domain_m": [
+      350,
+      350
+    ],
+    "grid_spacing_m": 5,
+    "source_spacing_m": 87.5,
+    "source_count": 5,
+    "receiver_spacing_m": 5,
+    "receiver_count": 70,
+    "record_duration_s": 1,
+    "record_interval_s": 0.001,
+    "recorded_shape_one_component_one_model": [
+      5,
+      1000,
+      70
+    ],
+    "density_kg_m3": 1000,
+    "source_frequency_hz": 15,
+    "observables_paper": [
+      "ux",
+      "uz"
+    ],
+    "finite_difference_order": {
+      "time": 2,
+      "space": 4
+    },
+    "absorbing_boundary_literal": "350 grids absorbing boundary",
+    "literal_350_times_5_m": 1750,
+    "absorber_physical_thickness_confirmed": false
+  },
+  "our_control": {
+    "domain_m": [
+      700,
+      700
+    ],
+    "top_element_m": 5,
+    "material_map_pixel_m": 10,
+    "order": 4,
+    "source_frequency_hz": 30,
+    "source_center_s": 0.05,
+    "force_amplitude_n_per_m": 1,
+    "receiver_x_m": "5,15,...,695",
+    "recorded_shape_one_source": [
+      2001,
+      70,
+      2
+    ],
+    "observables": [
+      "Vx",
+      "Vy"
+    ],
+    "duration_s": 2,
+    "internal_dt_s": 1.0416666666666666e-05,
+    "native": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+    }
+  },
+  "dimensionless_frequency_length_ratio": 4,
+  "unresolved_efwi": [
+    "actual Python code",
+    "source coordinates/depth/index offsets",
+    "discrete source normalization and physical amplitude",
+    "source time shift",
+    "actual internal time step",
+    "free surface vs absorbing top",
+    "absorbing profile, coefficients and outer closure",
+    "displacement stated by paper vs velocity used in teaching template"
+  ],
+  "interpretation": "Current series changes physical acquisition and observable as well as numerical/geometric representation; not a controlled solver-only replacement of original EFWI.",
+  "local_code_sha256": {
+    "scripts/dev_1_3_point_source/physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec",
+    "scripts/dev_1_3_point_source/run.py": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057",
+    "scripts/dev_1_4_server_preparation/surface_runner.py": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001",
+    "scripts/dev_1_4_server_preparation/velocity_fields_run.py": "ef712b43e4ee0e2f0d212f78f91ceed0fabc4d46700bb6c89457672674ddce94",
+    "scripts/dev_1_4_server_preparation/homogeneous_run.py": "777de1ab7b833917057007e33eb940bc8981dbb5429abc2c1675b7b5a8ebc0a8"
+  },
+  "method_sources": [
+    {
+      "name": "levander_1988_psv.pdf",
+      "url": "https://csim.kaust.edu.sa/files/ErSE210/Levander.PSV.pdf",
+      "bytes": 1514916,
+      "sha256": "a41134265a171563b6890570529ac2c4884572e71fa70cb065e05181a6f3c770",
+      "status": "downloaded"
+    },
+    {
+      "name": "engquist_majda_1977_pnas.pdf",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC430991/pdf/pnas00027-0003.pdf",
+      "status": "failed",
+      "error": "Not PDF: \n\n\n\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width, initi"
+    },
+    {
+      "name": "engquist_majda_1977_page1765.png",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9ac6/430991/997fce691556/pnas00027-0007.png",
+      "bytes": 102040,
+      "sha256": "40c7fb5c2459ac74865e99387678dd570d17c3b9b30edcf74b48607aaefc4e18",
+      "status": "downloaded"
+    },
+    {
+      "name": "engquist_majda_1977_page1766.png",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9ac6/430991/3745db81a276/pnas00027-0008.png",
+      "bytes": 95597,
+      "sha256": "0ab916b3eace22fafa2c611df683baf64c4a8eda23fe87c9836959f0a59f5969",
+      "status": "downloaded"
+    },
+    {
+      "name": "engquist_majda_1977_pnas.pdf",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/430991/pdf/pnas00027-0007.pdf",
+      "status": "failed",
+      "error": "Not PDF: server HTML challenge"
+    }
+  ],
+  "method_interpretation": "Engquist–Majda1977 develops local artificial boundary conditions, not a stated quadratic mass-damping layer; Levander1988 p1427 uses traction-free top and Clayton–Engquist A1 outer boundary. Neither establishes exact settings of unpublished EFWI Python generator.",
+  "report": {
+    "path": "docs/dev_1_4_efwi_comparison_v1.md",
+    "sha256": "ad8ece6080aa477693d537184b60cb31da50df5a10a5004d96cd54abfaff785e"
+  }
+}

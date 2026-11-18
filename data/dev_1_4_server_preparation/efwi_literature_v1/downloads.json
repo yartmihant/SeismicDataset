@@ -1,0 +1,26 @@
+[
+  {
+    "name": "efwi_feng_2023_main.pdf",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/4aa8d18aad014fb3d0076e0afd2e3b2e-Paper-Datasets_and_Benchmarks.pdf",
+    "bytes": 2099443,
+    "sha256": "2697013041ab0ebd433566a5db56e7fe397826d26af8d37e34e68cc780e54604"
+  },
+  {
+    "name": "efwi_feng_2023_supplement.pdf",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/4aa8d18aad014fb3d0076e0afd2e3b2e-Supplemental-Datasets_and_Benchmarks.pdf",
+    "bytes": 2460464,
+    "sha256": "571cf9d94bd8d6619f576ce1768c0e961dc9e7f384295456ad182cfef48f7de5"
+  },
+  {
+    "name": "openfwi_deng_2022_main.pdf",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/27d3ef263c7cb8d542c4f9815a49b69b-Paper-Datasets_and_Benchmarks.pdf",
+    "bytes": 2147326,
+    "sha256": "4cbb76aa0192f5936fd8a192eba7ac97d87d2551f27b3e81ea87236f30926859"
+  },
+  {
+    "name": "openfwi_deng_2022_supplement.pdf",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/27d3ef263c7cb8d542c4f9815a49b69b-Supplemental-Datasets_and_Benchmarks.pdf",
+    "bytes": 28170919,
+    "sha256": "a5a49ed5ce5353b2c144856cc07c73a26ec5bbe197ef4eb5b7e4dc2e0848b97f"
+  }
+]

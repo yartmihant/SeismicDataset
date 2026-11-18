@@ -1,0 +1,53 @@
+{
+  "status": "prepared",
+  "utc": "2026-11-18T10:32:01.683554+00:00",
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "padding_m": 350.0,
+  "nodes": 942761,
+  "elements": 58800,
+  "abc_edges": 700,
+  "minimum_substeps_per_ms": 52,
+  "selected_substeps_per_ms": 96,
+  "field_bytes_each": 3031919376,
+  "disk_free_bytes": 86908502016,
+  "profiles": {
+    "stretched350": {
+      "name": "stretched350",
+      "ramp_width_m": 350.0,
+      "plateau_after_ramp": false,
+      "alpha_max_s_inv": 346.1772216952762,
+      "formula": "alpha_max*(min(dx/L,1)^2+min(dy/L,1)^2)",
+      "convention": "C=alpha*M; sum x/y contributions",
+      "alpha_peak_selection": "Same peak as the175m reference; not rescaled by350m thickness"
+    },
+    "fixed175plateau": {
+      "name": "fixed175plateau",
+      "ramp_width_m": 175.0,
+      "plateau_after_ramp": true,
+      "alpha_max_s_inv": 346.1772216952762,
+      "formula": "alpha_max*(min(dx/L,1)^2+min(dy/L,1)^2)",
+      "convention": "C=alpha*M; sum x/y contributions",
+      "alpha_peak_selection": "Same peak as the175m reference; not rescaled by350m thickness"
+    }
+  },
+  "fixed175_matches_reference_in_old_domain": true,
+  "core_q2_coordinates_connectivity_exact": true,
+  "old175_q2_cell_coordinates_exact": true,
+  "old175_sem_matching_max_distance_m": 0.0,
+  "old175_shared_alpha_max_abs_difference_s_inv": 0.0,
+  "geometry": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/geometry.json",
+    "sha256": "e96eebdf5305fa74ad2dd594228592ad8606a2e32f51ea9837cf9c0ae9d0e7eb"
+  },
+  "stability": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/stability.json",
+    "sha256": "954cfe8d4f2a3629fa2002ce84be9864fd1d9aa4ae2e8e58483af649144867b9"
+  },
+  "solver_run": false
+}

@@ -1,0 +1,28 @@
+{
+  "mesh": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/mesh_q2.npz",
+  "mesh_sha256": "1cb7af41e190e308f7bc33e58cf322f30ec84175bcc8e45e9f91e72ab52395c4",
+  "order": 4,
+  "nodes": 942761,
+  "elements": 58800,
+  "alpha_max_s_inv": 346.1772216952762,
+  "stiffness_bound_s_minus_2": 937192597.9047401,
+  "damping_bound_s_minus_1": 33388.35444340454,
+  "dt_start_s": 1.939346361202252e-05,
+  "substeps_per_ms": 52,
+  "min_mass_kg_per_m": 62.499999999946546,
+  "quadrature_jacobian_min_m2": 6.2499999999901865,
+  "abc_edge_count": 700,
+  "profile_bound": "fixed175plateau >= stretched350 pointwise; same outer ABC",
+  "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+  "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately",
+  "dataset": "EFVB",
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "selected_substeps_per_ms": 96,
+  "selection_rule": "SameK96 as0m/175m homogeneous reference; newmesh spectralcertificate"
+}

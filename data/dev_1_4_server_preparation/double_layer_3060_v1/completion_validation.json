@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:52:33.531062+00:00",
+  "variants": {
+    "padded350": {
+      "wall_seconds": 582.7645434751175,
+      "recorded_counts": {
+        "surface": 2001,
+        "fields": 201,
+        "source_history": 0
+      },
+      "field_shape": [
+        201,
+        942761,
+        2
+      ],
+      "symmetry": {
+        "vx_odd_relative_l2": 1.0992166690844584e-12,
+        "vy_even_relative_l2": 8.450299746911584e-13
+      },
+      "source_and_native_equal_reference": true,
+      "metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/metadata.json",
+        "sha256": "73f218acd8d19cc54732b8a1f01ce7a134fc56e6d86c5c5d643ba5acfec021f3"
+      }
+    },
+    "held175_profile": {
+      "wall_seconds": 584.1731793740764,
+      "recorded_counts": {
+        "surface": 2001,
+        "fields": 201,
+        "source_history": 0
+      },
+      "field_shape": [
+        201,
+        942761,
+        2
+      ],
+      "symmetry": {
+        "vx_odd_relative_l2": 1.0803816200290484e-12,
+        "vy_even_relative_l2": 8.08286125745705e-13
+      },
+      "source_and_native_equal_reference": true,
+      "metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/metadata.json",
+        "sha256": "3d06d3c04bb35e5f68f2d1bfe2d77993cadb1aa26c52af48695621aee28fb85b"
+      }
+    }
+  },
+  "reference": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.json",
+    "sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95"
+  },
+  "scope": "Complete finite records, material/profile/boundary configuration, same input/native and symmetry; not independent solver accuracy validation"
+}

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:32:21.208765+00:00",
+  "scope": "CPU mocked model; actual homogeneous mesh and assembled material/ABC coefficients, no GPU/native solution",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "checks": [
+    "Vp/Vs/rho constant in every element and boundary coefficient",
+    "Actual rho/E/nu and rhoVp/rhoVs passed to model agree with the requested material",
+    "Both350m profiles use actual requested nodal alpha and700 exterior ABC edges; free top",
+    "Two recorders preserve Vx/Vy ordering and exact values at common nodes/times",
+    "Explicit synthetic material identity, new mesh and stability hashes; invalid material rejected"
+  ],
+  "files": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_double_layer_run.py",
+      "sha256": "d2c79ae0a25d06dac6fec2615515b640675c7d345a06d22457c7707991208071",
+      "bytes": 6566
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/double_layer_run.py",
+      "sha256": "c03d05ca8c68e8ddd1efc700220566417a6087bd9ef62ff1795875db32d599ca",
+      "bytes": 32986
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "status": "completed",
+  "variant": "padded",
+  "padding_m": 350.0,
+  "damping_profile": {
+    "name": "fixed175plateau",
+    "ramp_width_m": 175.0,
+    "plateau_after_ramp": true,
+    "alpha_max_s_inv": 346.1772216952762,
+    "formula": "alpha_max*(min(dx/L,1)^2+min(dy/L,1)^2)",
+    "convention": "C=alpha*M; sum x/y contributions",
+    "alpha_peak_selection": "Same peak as the175m reference; not rescaled by350m thickness"
+  },
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "is_original_dataset_model": false,
+  "geometry_parent": {
+    "mesh": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/mesh_q2.npz",
+      "sha256": "4bf3851888429b4d7049488e9e76d840c8dfcd98bc9bee08f0b81f5e12ebede6"
+    },
+    "core_coordinates_exact": true,
+    "core_connectivity_exact": true,
+    "old175_mesh": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/mesh_q2.npz",
+      "sha256": "10ba932d3a2214e98b41c0b63585c3ce08ae2985ca4d3c946a04a410b69318ef"
+    },
+    "old175_q2_cell_coordinates_exact": true
+  },
+  "model_identity_note": "Homogeneous synthetic control. Legacy EFVB0 in run_spec identifies only the reused geometry and API; this is not the original dataset model.",
+  "run_spec": {
+    "dataset": "EFVB",
+    "model_id": 0,
+    "source_x_m": 350.0,
+    "substeps": 96,
+    "t_end_s": 2.0,
+    "order": 4,
+    "kind": "curved",
+    "backend": "cu",
+    "alpha_max_s_inv": 346.1772216952762
+  },
+  "experiment_spec": {
+    "size_m": 700.0,
+    "padding_m": 350.0,
+    "frequency_hz": 30.0,
+    "center_s": 0.05,
+    "end_s": 2.0,
+    "output_interval_s": 0.001,
+    "field_interval_s": 0.01,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "density_kg_m3": 1000.0,
+    "force_amplitude_n_per_m": 1.0
+  },
+  "boundary_mode": "outer_abc",
+  "mass_damping_disabled": false,
+  "dt_s": 1.0416666666666666e-05,
+  "steps_count": 192000,
+  "mesh": {
+    "model_id": 0,
+    "kind": "curved",
+    "order": 4,
+    "nodes": 942761,
+    "elements": 58800,
+    "geometry": "frozen_full_Q2",
+    "coordinate_convention": "y_up_surface_0",
+    "dataset": "EFVB",
+    "material_model": "homogeneous_reference_toplayer",
+    "physical_model": {
+      "vp_m_s": 4087.0,
+      "vs_m_s": 2431.62036,
+      "density_kg_m3": 1000.0,
+      "homogeneous": true
+    },
+    "is_original_dataset_model": false,
+    "identity_note": "EFVB0 is the parent geometry/API identity only; material was replaced uniformly"
+  },
+  "mesh_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/mesh_q2.npz",
+    "sha256": "1cb7af41e190e308f7bc33e58cf322f30ec84175bcc8e45e9f91e72ab52395c4"
+  },
+  "geometry_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/geometry.json",
+    "sha256": "e96eebdf5305fa74ad2dd594228592ad8606a2e32f51ea9837cf9c0ae9d0e7eb"
+  },
+  "stability_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/stability.json",
+    "sha256": "954cfe8d4f2a3629fa2002ce84be9864fd1d9aa4ae2e8e58483af649144867b9"
+  },
+  "short_test": false,
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "receiver_count": 70,
+  "field_components": [
+    "Vx",
+    "Vy"
+  ],
+  "field_cadence_s": 0.01,
+  "field_shape": [
+    201,
+    942761,
+    2
+  ],
+  "field_node_order": "all global SEM node IDs in increasing order, coordinates in nodes.npy",
+  "initial_state": "native U0=V0=A0=0; first force assembly at dt; same convention as chapter 1.3",
+  "storage": "float64 uncompressed NPY memmap all-node velocity plus surface NPZ; no displacement or energy",
+  "timing_note": "Homogeneous animation control with all-node field I/O; not the earlier surface-only benchmark",
+  "provenance": {
+    "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+    "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+    "numpy": "2.4.6",
+    "semgpu2": "0.1.0",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "files": [
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/double_layer_run.py",
+        "sha256": "c03d05ca8c68e8ddd1efc700220566417a6087bd9ef62ff1795875db32d599ca"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/velocity_fields_run.py",
+        "sha256": "ef712b43e4ee0e2f0d212f78f91ceed0fabc4d46700bb6c89457672674ddce94"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py",
+        "sha256": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/no_padding_run.py",
+        "sha256": "acb303a02418ac979407d465b7d7bf72b1fcba2ec22c7cf372fea49c8b055d5f"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+        "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+        "sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/mesh.py",
+        "sha256": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/stability.py",
+        "sha256": "d135a8c5c25fce497a5308a04e36038140eba8e0d56f8685671c6061957c0b0e"
+      }
+    ]
+  },
+  "source_node_id": 19810,
+  "source_input_sha256": "76f93b82f28a891bdb442dc2a0c1b55aee24909efeb8f15e9196f2b728d5adf0",
+  "source_input_first_force_y_n_per_m": 9.84949251974796e-09,
+  "native": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+  },
+  "nodes_sha256": "dc774800506d590ac30e010faf75eb88006754f0b26b8af7d750cc4994d86903",
+  "physics_ids": [
+    11000,
+    32000,
+    30001,
+    20200
+  ],
+  "abc_edge_count": 700,
+  "runtime": {
+    "result_code": 0,
+    "time_end_code": 0,
+    "steps_count": 192000,
+    "current_time_s": 2.0
+  },
+  "recorded_counts": {
+    "surface": 2001,
+    "fields": 201,
+    "source_history": 0
+  },
+  "surface_file": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/surface.npz",
+    "sha256": "ef5fb724227119a7aef5054714e518b9b85df936e7d9d45381fc82b017733a51",
+    "bytes": 2259836
+  },
+  "surface_file_bytes": 2259836,
+  "field_files": {
+    "velocity_m_s.npy": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/velocity_m_s.npy",
+      "sha256": "c5b26a63a3e4ec0a2798e7b0c29cdb4535aaae2a84438d6639b466c334880eaf",
+      "bytes": 3031919504
+    },
+    "nodes.npy": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/nodes.npy",
+      "sha256": "0a8fc391f37aeee478478240dd865ac0bee381c92720fe0b8a0461576f3c9714",
+      "bytes": 15084304
+    },
+    "field_time_s.npy": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/field_time_s.npy",
+      "sha256": "2c6009f6fe3c165062b19dc9977d95844192cc635cc0aa44feaa4bc544c43985",
+      "bytes": 1736
+    }
+  },
+  "all_node_surface_values_exact": true,
+  "wall_seconds": 584.1731793740764
+}

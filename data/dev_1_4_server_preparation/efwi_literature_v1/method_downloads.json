@@ -1,0 +1,15 @@
+[
+  {
+    "name": "levander_1988_psv.pdf",
+    "url": "https://csim.kaust.edu.sa/files/ErSE210/Levander.PSV.pdf",
+    "bytes": 1514916,
+    "sha256": "a41134265a171563b6890570529ac2c4884572e71fa70cb065e05181a6f3c770",
+    "status": "downloaded"
+  },
+  {
+    "name": "engquist_majda_1977_pnas.pdf",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC430991/pdf/pnas00027-0003.pdf",
+    "status": "failed",
+    "error": "Not PDF: \n\n\n\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width, initi"
+  }
+]

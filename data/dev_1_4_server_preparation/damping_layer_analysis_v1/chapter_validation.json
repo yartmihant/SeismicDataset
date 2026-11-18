@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:57:41.348949+00:00",
+  "mypy_files": 83,
+  "notebook_cells": 82,
+  "notebook_errors": 0,
+  "embedded_pngs": 12,
+  "new_embedded_pngs_exact": [
+    "damping_profiles.png",
+    "difference_arrivals.png",
+    "return_beam_and_tail.png",
+    "incoming_aperture_check.png"
+  ],
+  "roundtrip": "AST/syntax/format and report-only execution passed",
+  "sources": {
+    "dev_1_4_server_preparation.py": "cf49aa17d06152f66e14d5297cff41876d2e947fdf7d8578681a21f5ac57776b",
+    "dev_1_4_server_preparation.ipynb": "04dcbd5f723f8e08473f04094e691481eb85f60ce1c2590573915896749c63c0",
+    "dev_1_4_server_preparation_summary.md": "aef0272fc94867c08d091542abb7e6203073da02561e8c2745622cf42166ed0c",
+    "docs/dev_1_4_efwi_comparison_v1.md": "ad8ece6080aa477693d537184b60cb31da50df5a10a5004d96cd54abfaff785e",
+    "docs/dev_1_4_damping_layer_protocol_v1.md": "29a47d268ce75e6decaa76fb8d2502b2878bfa4129d75ace4d3f2a0a38235a76"
+  },
+  "reports": {
+    "analysis.json": "93ccaeb1e4d95cc623ec448880d44fd06e34135130a40ea32c7d665edc7013bb",
+    "qa.json": "13eab2ab20a425c6927a786dcde81104b5f3556f3d4c027178ed8dd9d0e1e473",
+    "animations.json": "551cb6ae22a07ebe0c0634bf249b679f7ab49fb6d24d7075265ab1d7949976e7",
+    "animation_qa.json": "216d0e6a771181a85589a2e9c92d00f87a0933be3a8a2158299ea4b33836eb1d"
+  }
+}

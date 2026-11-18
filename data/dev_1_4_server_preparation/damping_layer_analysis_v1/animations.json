@@ -1,0 +1,209 @@
+{
+  "status": "completed",
+  "utc": "2026-11-18T10:56:05.333400+00:00",
+  "frame_count": 201,
+  "physical_end_s": 2.0,
+  "physical_cadence_s": 0.01,
+  "color_scales": {
+    "speed_log_m_s": [
+      2.609811403452049e-13,
+      2.6098114034520487e-08
+    ],
+    "difference_log_m_s": [
+      1.764565552639299e-14,
+      1.764565552639299e-09
+    ],
+    "fixed_all_frames_and_panels": true
+  },
+  "difference_labels": [
+    "Δv: 175 м − 0 м",
+    "Δv: 350 м плавный − 175 м",
+    "Δv: 350 м с плато − 175 м · перенос ABC",
+    "Δv: 350 м плавный − 350 м с плато · профиль"
+  ],
+  "difference_maxima_m_s": [
+    1.764565552639299e-09,
+    6.025112151445827e-11,
+    4.04198224459978e-12,
+    6.037206889389313e-11
+  ],
+  "core_node_count": 314721,
+  "node_matching_max_distance_m": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "pixel_spacing_m": 2.5,
+  "pixel_max_distance_m": [
+    0.5467832964657368,
+    0.5467832964658171,
+    0.5467832964659378,
+    0.5467832964659378
+  ],
+  "inputs": [
+    {
+      "directory": "data/dev_1_4_server_preparation/homogeneous_3060_v1/core",
+      "metadata_sha256": "b3bd8482e7a513974cd707c1582ed0a1ca705e64feeea9468e240f791df2cb04",
+      "files": {
+        "velocity_m_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/velocity_m_s.npy",
+          "sha256": "4a7264d03493fb1a80acce9cc282111d7e05bd98af44bb046f05f2a93f37dc1d",
+          "bytes": 1012142864
+        },
+        "nodes.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/nodes.npy",
+          "sha256": "ae374205a3ca1071df6fa057b7a1590c1201c069c28515733ecfa426a7ffcc58",
+          "bytes": 5035664
+        },
+        "field_time_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/field_time_s.npy",
+          "sha256": "2c6009f6fe3c165062b19dc9977d95844192cc635cc0aa44feaa4bc544c43985",
+          "bytes": 1736
+        }
+      }
+    },
+    {
+      "directory": "data/dev_1_4_server_preparation/homogeneous_3060_v1/padded",
+      "metadata_sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95",
+      "files": {
+        "velocity_m_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/velocity_m_s.npy",
+          "sha256": "48302ac44a26aa5e37e754c92190ea02887fd107bdeb47ef96455c23bf4a14ea",
+          "bytes": 1895963984
+        },
+        "nodes.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/nodes.npy",
+          "sha256": "e18420e48237cfec6b5af183ab1b06a8510d15f9b324cb949eb2aa2569e2c7b9",
+          "bytes": 9432784
+        },
+        "field_time_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/field_time_s.npy",
+          "sha256": "2c6009f6fe3c165062b19dc9977d95844192cc635cc0aa44feaa4bc544c43985",
+          "bytes": 1736
+        }
+      }
+    },
+    {
+      "directory": "data/dev_1_4_server_preparation/double_layer_3060_v1/padded350",
+      "metadata_sha256": "73f218acd8d19cc54732b8a1f01ce7a134fc56e6d86c5c5d643ba5acfec021f3",
+      "files": {
+        "velocity_m_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/velocity_m_s.npy",
+          "sha256": "d03db083b9f2190ecc39dfa980d3095fac9109d556d253e0ada9b040f429f29a",
+          "bytes": 3031919504
+        },
+        "nodes.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/nodes.npy",
+          "sha256": "0a8fc391f37aeee478478240dd865ac0bee381c92720fe0b8a0461576f3c9714",
+          "bytes": 15084304
+        },
+        "field_time_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/field_time_s.npy",
+          "sha256": "2c6009f6fe3c165062b19dc9977d95844192cc635cc0aa44feaa4bc544c43985",
+          "bytes": 1736
+        }
+      }
+    },
+    {
+      "directory": "data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile",
+      "metadata_sha256": "3d06d3c04bb35e5f68f2d1bfe2d77993cadb1aa26c52af48695621aee28fb85b",
+      "files": {
+        "velocity_m_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/velocity_m_s.npy",
+          "sha256": "c5b26a63a3e4ec0a2798e7b0c29cdb4535aaae2a84438d6639b466c334880eaf",
+          "bytes": 3031919504
+        },
+        "nodes.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/nodes.npy",
+          "sha256": "0a8fc391f37aeee478478240dd865ac0bee381c92720fe0b8a0461576f3c9714",
+          "bytes": 15084304
+        },
+        "field_time_s.npy": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/held175_profile/field_time_s.npy",
+          "sha256": "2c6009f6fe3c165062b19dc9977d95844192cc635cc0aa44feaa4bc544c43985",
+          "bytes": 1736
+        }
+      }
+    }
+  ],
+  "videos": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains.mp4",
+      "sha256": "0bf47f935cd46e24bf3d19c36879512595ac2945491e1c4c405406239030dc26",
+      "bytes": 1867739,
+      "ffprobe": {
+        "width": 1400,
+        "height": 1000,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1",
+        "duration": "8.040000",
+        "nb_read_frames": "201"
+      }
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields.mp4",
+      "sha256": "a6117f2cc926557e3c12106425a9a99e265f9a25a470045e039fce2e284838c4",
+      "bytes": 3252205,
+      "ffprobe": {
+        "width": 1400,
+        "height": 1000,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "25/1",
+        "duration": "8.040000",
+        "nb_read_frames": "201"
+      }
+    }
+  ],
+  "previews": [
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t020.png",
+      "sha256": "49ea77f56dd12fa14c8f0c9da0b26842989d8120ea79c0f5df2b89a371bad49c"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t035.png",
+      "sha256": "50493745413ebcaa7061841acd7a65788994cb68515bf50bf4da034483a6714a"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t050.png",
+      "sha256": "fc64f908da00a9761eda50ef1026f21df45070d428b9bf1ac1561e7f227bcccc"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t065.png",
+      "sha256": "6bb5d843a1f1010630734af41a665f0d24fcd354384ceec7244de34e9ad17a7a"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t080.png",
+      "sha256": "24557fa0459c8cbea1343208d896d794eaabf09c606e50ffe6472eb49628bc36"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/speed_domains_t200.png",
+      "sha256": "2daa02c22324b6e3dd3975b0098fdc8857a97348c3f66c258ad406c3f534eadd"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t020.png",
+      "sha256": "246c7e30de318aa2b9ba388f650c501b3e5cdbf017cd9de9d753a8e65a9a2988"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t035.png",
+      "sha256": "e141ef07c90877202f3a5ce96e605af3300e14a762c88cebe8be33148de038fb"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t050.png",
+      "sha256": "dfda90538e0c353c869840360a9c9bfc17d9adea6ab44de3769aa41cf2ed6812"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t065.png",
+      "sha256": "92eb80fe1bf9e581aa3713ce1866a2c60f228f3f8f7f4b26d17eed99faf6659f"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t080.png",
+      "sha256": "f4a14c06edb172bd785b5af301f956e6adc18a1f7522f495d7a8f9538f85f977"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/damping_layer_comparison_v1/difference_fields_t200.png",
+      "sha256": "55db182bb18afc9b7011392f6121247d9cf12f280501c9ac9483b93d2835f80f"
+    }
+  ],
+  "code_sha256": "d2ea004e3b85177bee0fd2077ea69476e4bb3b19861561b595317b396ad42e4c"
+}

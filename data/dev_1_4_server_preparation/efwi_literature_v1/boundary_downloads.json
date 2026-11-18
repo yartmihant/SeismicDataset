@@ -1,0 +1,22 @@
+[
+  {
+    "name": "engquist_majda_1977_page1765.png",
+    "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9ac6/430991/997fce691556/pnas00027-0007.png",
+    "bytes": 102040,
+    "sha256": "40c7fb5c2459ac74865e99387678dd570d17c3b9b30edcf74b48607aaefc4e18",
+    "status": "downloaded"
+  },
+  {
+    "name": "engquist_majda_1977_page1766.png",
+    "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9ac6/430991/3745db81a276/pnas00027-0008.png",
+    "bytes": 95597,
+    "sha256": "0ab916b3eace22fafa2c611df683baf64c4a8eda23fe87c9836959f0a59f5969",
+    "status": "downloaded"
+  },
+  {
+    "name": "engquist_majda_1977_pnas.pdf",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/430991/pdf/pnas00027-0007.pdf",
+    "status": "failed",
+    "error": "Not PDF: server HTML challenge"
+  }
+]

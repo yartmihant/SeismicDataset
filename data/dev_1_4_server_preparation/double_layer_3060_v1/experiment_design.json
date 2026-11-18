@@ -1,0 +1,46 @@
+{
+  "purpose": "Отделить отражение от пространственного нарастания массового демпфирования от возврата от внешней границыABC.",
+  "same": {
+    "material": "Vp4087m/s, Vs2431.62036m/s, rho1000kg/m3",
+    "source": "Point force downward1N/m at350,0; Ricker30Hz, center0.05s",
+    "time": "p4,dt1/96000s,192000steps,2s",
+    "recording": "70 surface receivers,2001Vx/Vy frames;201all-nodeVx/Vy frames",
+    "native_and_force": "SHA compared with175m reference in completion validation"
+  },
+  "reference_paths": {
+    "zero_layer": "../homogeneous_3060_v1/core",
+    "single_layer": "../homogeneous_3060_v1/padded"
+  },
+  "runs": {
+    "padded350": {
+      "name": "stretched350",
+      "ramp_width_m": 350.0,
+      "plateau_after_ramp": false,
+      "alpha_max_s_inv": 346.1772216952762,
+      "formula": "alpha_max*(min(dx/L,1)^2+min(dy/L,1)^2)",
+      "convention": "C=alpha*M; sum x/y contributions",
+      "alpha_peak_selection": "Same peak as the175m reference; not rescaled by350m thickness"
+    },
+    "held175_profile": {
+      "name": "fixed175plateau",
+      "ramp_width_m": 175.0,
+      "plateau_after_ramp": true,
+      "alpha_max_s_inv": 346.1772216952762,
+      "formula": "alpha_max*(min(dx/L,1)^2+min(dy/L,1)^2)",
+      "convention": "C=alpha*M; sum x/y contributions",
+      "alpha_peak_selection": "Same peak as the175m reference; not rescaled by350m thickness"
+    }
+  },
+  "one_way_normal_integral_alpha_m_per_s": {
+    "175m_quadratic": 20193.67126555778,
+    "350m_stretched": 40387.34253111556,
+    "350m_fixed175_then_plateau": 80774.68506223112
+  },
+  "causal_controls": [
+    "All former175m Q2element coordinates preserved exactly; all formerSEMnode coordinates matched at0.0m distance",
+    "Fixed175plateau nodalalpha identical at every old175mSEMnode, includingcorners",
+    "Old175m external nodes acquire additional adjacent elements and their lumpedmass changes; this is part of extending thedomain. Old interior element contributions areunchanged.",
+    "The stretched350m comparison simultaneously changes rampwidth and outerboundary location; the fixed175plateau comparison holds the olddomainprofile while moving truncation."
+  ],
+  "limitation": "No infinite-domain reference or independent solver validation. Attenuation integrals are profile descriptors, not measured reflection coefficients."
+}

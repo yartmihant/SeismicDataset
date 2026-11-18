@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:47:14.707066+00:00",
+  "mypy": "passed before CPU method checks",
+  "scope": "Analysis-method checks, no GPU calculation, no synthetic data presented as physical result",
+  "checks": {
+    "known_travelling_pulse_tau_expected_s": 0.27,
+    "known_travelling_pulse_tau_measured_s_by_aperture": {
+      "175.0": 0.27,
+      "225.0": 0.27,
+      "275.0": 0.27,
+      "315.0": 0.27
+    },
+    "both_side_minimum_paths": "passed",
+    "three_consecutive_threshold": "passed",
+    "absent_threshold_returns_null": "passed",
+    "synthetic_decomposition_l2_ratio_expected": 100.0,
+    "synthetic_decomposition_l2_ratio_measured": 100.00000000000011,
+    "synthetic_decomposition_identity_relative_l2": 7.454168295735917e-17,
+    "synthetic_pre_boundary_B_over_A_expected": 0.01,
+    "synthetic_pre_boundary_B_over_A_measured": 0.010000000000000276
+  },
+  "code_sha256": "9ca17ed8af0ada52581d444251a7a8774ebbaf71c19923460c3cc36068f0ae80"
+}
