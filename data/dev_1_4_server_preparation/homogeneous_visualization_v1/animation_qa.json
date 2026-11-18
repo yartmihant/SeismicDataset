@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:15:40.861569+00:00",
+  "scope": "Visual and encoded-video QA; scientific differences remain comparisons of boundary treatments, not independent solver validation",
+  "material_labels": "Homogeneous Vp4087,Vs2431.62036,rho1000; no original layered-model label",
+  "mypy": "homogeneous_visualize.py passed before rendering",
+  "encoded_frame_check": {
+    "video": "speed_full.mp4",
+    "video_time_s": 0.4,
+    "physical_time_s": 0.1,
+    "frame_index": 10,
+    "method": "FFmpeg extraction from completed MP4, inspected with view_image",
+    "observations": "Time, material labels, domain panels, grey no-data region, scales and smooth early fronts match the source PNG without visible encoding defects",
+    "temporary_frame_sha256": "cf72406470380d793f2df6bfa880a79575759fbb943876dab290d937f1f4de61",
+    "temporary_frame_removed": true
+  },
+  "reviewed_pngs": [
+    "seismograms.png",
+    "speed_full_t010.png",
+    "speed_difference_t060.png",
+    "speed_difference_montage.png"
+  ],
+  "video_count": 3,
+  "frames_each": 201,
+  "final_frame_max_speed_m_s": {
+    "padded": 1.2092190582999639e-13,
+    "core": 1.34198091988523e-14
+  },
+  "log_floor_m_s": 2.609811403451967e-13,
+  "black_display_note": "Black can mean positive speed below the fixed log floor; final-frame values are not claimed exactly zero",
+  "animations_sha256": "d31638ddf2aca1179e92c37371376ae83ac59e37d8743d3bcb5ad975bc333eeb",
+  "seismograms_sha256": "d2160466427817a9bae7445e27a34806ff19c2c896b1b9f85ed3aa17c293f2b4",
+  "script_sha256": "15006bd39ebe1c449d0097594a7063c7cd4f9c6fca5c02f1e95f996545e9cd95"
+}

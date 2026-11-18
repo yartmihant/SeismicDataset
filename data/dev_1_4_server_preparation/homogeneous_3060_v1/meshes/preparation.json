@@ -1,0 +1,45 @@
+{
+  "status": "prepared",
+  "utc": "2026-11-18T09:57:04.546961+00:00",
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "variants": {
+    "padded": {
+      "geometry": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/geometry.json",
+        "sha256": "58f163c71f356a29f9a373df9cab4655f673b0b212fbdd6033e43282717f88e1"
+      },
+      "stability": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/stability.json",
+        "sha256": "5d898385fca7ac9d7f89585560cafc2035085ce967baf7640135ffc784d8eea2"
+      },
+      "nodes": 589541,
+      "elements": 36750,
+      "abc_edges": 560,
+      "minimum_substeps_per_ms": 52,
+      "selected_substeps_per_ms": 96
+    },
+    "core": {
+      "geometry": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/geometry.json",
+        "sha256": "b82fea7871dd51a57ae41af86a3ecb731e88aa4be9f08074ff8594fb4e83fb17"
+      },
+      "stability": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/stability.json",
+        "sha256": "789711599ca52d4d3132b5e106fe926e27480e1c671fe32d5938ed23784a81e1"
+      },
+      "nodes": 314721,
+      "elements": 19600,
+      "abc_edges": 420,
+      "minimum_substeps_per_ms": 52,
+      "selected_substeps_per_ms": 96
+    }
+  },
+  "source": "Same nodal downward Ricker30Hz/1N per m at x350; p4/K96",
+  "solver_run": false
+}

@@ -1,0 +1,225 @@
+{
+  "schema": "chapter14.homogeneous_seismograms.v1",
+  "status": "completed",
+  "utc": "2026-11-18T10:10:06.593198+00:00",
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "is_original_dataset_model": false,
+  "source_x_m": 350.0,
+  "shape": [
+    2001,
+    70,
+    2
+  ],
+  "time_extent_s": [
+    0.0,
+    2.0
+  ],
+  "full_window_metrics": {
+    "relative_l2": 0.16790224488022298,
+    "error_l2_m_s": 3.732057425175712e-08,
+    "reference_l2_m_s": 2.2227561208833529e-07,
+    "max_abs_m_s": 1.6878143101045823e-09,
+    "rms_error_m_s": 7.051163019272515e-11,
+    "rms_reference_m_s": 4.19956446937481e-10,
+    "rms_new_m_s": 4.2443264711162935e-10
+  },
+  "component_metrics": {
+    "Vx": {
+      "relative_l2": 0.1802302244439128,
+      "error_l2_m_s": 2.277056801865925e-08,
+      "reference_l2_m_s": 1.2634156168265437e-07,
+      "max_abs_m_s": 1.6878143101045823e-09,
+      "rms_error_m_s": 6.084169435442123e-11,
+      "rms_reference_m_s": 3.3757764294054397e-10,
+      "rms_new_m_s": 3.423349133275462e-10
+    },
+    "Vy": {
+      "relative_l2": 0.16168734884418035,
+      "error_l2_m_s": 2.956901240468693e-08,
+      "reference_l2_m_s": 1.8287771193021954e-07,
+      "max_abs_m_s": 1.5890774752726851e-09,
+      "rms_error_m_s": 7.900676055221129e-11,
+      "rms_reference_m_s": 4.886390995769916e-10,
+      "rms_new_m_s": 4.930445730209302e-10
+    }
+  },
+  "relative_l2_definition": "norm(core-padded)/norm(padded), over selected samples, receivers and components; window metrics use their own padded-window denominator",
+  "scale": {
+    "units": "nm/s (1e-9 m/s)",
+    "normalization": "one shared SymLogNorm for all six panels",
+    "limits_nm_s": [
+      -12.619594963103836,
+      12.619594963103836
+    ],
+    "linear_threshold_nm_s": 0.03,
+    "no_clipping": true,
+    "no_trace_or_time_normalization": true,
+    "difference_sign": "core_minus_padded",
+    "rows": [
+      "Vx",
+      "Vy"
+    ],
+    "columns": [
+      "padded",
+      "core",
+      "core_minus_padded"
+    ],
+    "sample_rendering": "nearest cell, no smoothing"
+  },
+  "trace_receiver_x_m": [
+    5.0,
+    175.0,
+    345.0
+  ],
+  "time_diagnostics": {
+    "rms_definition": "sqrt(mean over 70 receivers of component squared), at each recorded time",
+    "rms_plot_lower_limit_nm_s": 1e-05,
+    "cumulative_definition": "sum(deltaVx**2+deltaVy**2) through time / sum over all 2001 times and 70 receivers",
+    "cumulative_fraction_times_s": {
+      "0.1": 0.215,
+      "0.5": 0.34800000000000003,
+      "0.9": 0.489
+    },
+    "maximum_difference_rms_time_s": 0.20600000000000002,
+    "maximum_difference_rms_m_s": 2.978384045520016e-10
+  },
+  "windows": [
+    {
+      "time_interval_s": [
+        0.0,
+        0.5
+      ],
+      "right_endpoint_included": false,
+      "sample_count": 500,
+      "metrics": {
+        "relative_l2": 0.1617332429801527,
+        "error_l2_m_s": 3.5949115840881986e-08,
+        "reference_l2_m_s": 2.2227412978600524e-07,
+        "max_abs_m_s": 1.6878143101045823e-09,
+        "rms_error_m_s": 1.358748862394663e-10,
+        "rms_reference_m_s": 8.401172432815202e-10,
+        "rms_new_m_s": 8.482321222878121e-10
+      },
+      "fraction_of_total_squared_difference": 0.9278543149333919
+    },
+    {
+      "time_interval_s": [
+        0.5,
+        1.0
+      ],
+      "right_endpoint_included": false,
+      "sample_count": 500,
+      "metrics": {
+        "relative_l2": 12.442983339819191,
+        "error_l2_m_s": 1.0018980064094778e-08,
+        "reference_l2_m_s": 8.051911499417281e-10,
+        "max_abs_m_s": 7.997787266858259e-10,
+        "rms_error_m_s": 3.786818520015539e-11,
+        "rms_reference_m_s": 3.0433364865941914e-12,
+        "rms_new_m_s": 3.7861173258820527e-11
+      },
+      "fraction_of_total_squared_difference": 0.07206931424113511
+    },
+    {
+      "time_interval_s": [
+        1.0,
+        1.5
+      ],
+      "right_endpoint_included": false,
+      "sample_count": 500,
+      "metrics": {
+        "relative_l2": 3.3522725439394656,
+        "error_l2_m_s": 3.241191485774899e-10,
+        "reference_l2_m_s": 9.668639537183847e-11,
+        "max_abs_m_s": 9.826770984742471e-12,
+        "rms_error_m_s": 1.2250552318429044e-12,
+        "rms_reference_m_s": 3.654402247387871e-13,
+        "rms_new_m_s": 1.1711478515038262e-12
+      },
+      "fraction_of_total_squared_difference": 7.54245527450263e-05
+    },
+    {
+      "time_interval_s": [
+        1.5,
+        2.0
+      ],
+      "right_endpoint_included": true,
+      "sample_count": 501,
+      "metrics": {
+        "relative_l2": 1.01629310850949,
+        "error_l2_m_s": 3.6304167266231526e-11,
+        "reference_l2_m_s": 3.572214252193025e-11,
+        "max_abs_m_s": 6.766884550127158e-13,
+        "rms_error_m_s": 1.37079843116551e-13,
+        "rms_reference_m_s": 1.3488219291144685e-13,
+        "rms_new_m_s": 2.3890503873737836e-14
+      },
+      "fraction_of_total_squared_difference": 9.46272728100072e-07
+    }
+  ],
+  "source_force_and_native_equal": true,
+  "material_values_verified_in_actual_mesh": true,
+  "source_runs": {
+    "padded": {
+      "metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.json",
+        "sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95"
+      },
+      "surface": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/surface.npz",
+        "sha256": "128de76566e111e0443b0334c1cebf72d195f60dc2cf12c5dbb57f52bdf09489"
+      }
+    },
+    "core": {
+      "metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/metadata.json",
+        "sha256": "b3bd8482e7a513974cd707c1582ed0a1ca705e64feeea9468e240f791df2cb04"
+      },
+      "surface": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/surface.npz",
+        "sha256": "c64da43f6b03fb34c25e1aeeefd5c9a8ab25b76f8e749d289ab47beaf1a61a85"
+      }
+    }
+  },
+  "plots": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/homogeneous_comparison_v1/seismograms.png",
+      "sha256": "72725663ed3e9af7ed86a44bcd4d122bbf1c897e045ff0ce94b3d94652acffca"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/homogeneous_comparison_v1/seismograms.svg",
+      "sha256": "0354b4e3f9fb70197efc370edd794e6c932d8d5f19229bcfe652c32b9da4d1a8"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/homogeneous_comparison_v1/traces.png",
+      "sha256": "fdbe85ca0b596a4ab4d769c6fa7195cd4f81679f9d19162629a647bb3f93c4ba"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/homogeneous_comparison_v1/traces.svg",
+      "sha256": "5555d63a7f1911d88f0d6cb1511dc5284b46c6004cea5670748df530fbf1ab7d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/homogeneous_comparison_v1/difference_over_time.png",
+      "sha256": "ce034d5f457a65acdfa2edecb7f625ecbeffcdb6c503f63e3dfad9f3a42bd662"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/homogeneous_comparison_v1/difference_over_time.svg",
+      "sha256": "136eac8a191eaf3e29e0f091f2b523e297998091e103248315bbb31ba89a83da"
+    }
+  ],
+  "interpretation": "One uniform material, different boundary treatments. Differences are not exact-solution errors, and the stored density/velocities are not those of the original layered dataset model.",
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/homogeneous_visualize.py",
+    "sha256": "15006bd39ebe1c449d0097594a7063c7cd4f9c6fca5c02f1e95f996545e9cd95"
+  },
+  "shared_plot_helpers": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/velocity_seismograms.py",
+    "sha256": "c6b161a501bcfc7c295800c47a4d51c61dc886680ba1a5fee02ed4ee754b4608"
+  }
+}

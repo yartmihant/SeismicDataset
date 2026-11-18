@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:17:24.840012+00:00",
+  "mypy_files": 79,
+  "notebook_cells": 72,
+  "notebook_errors": 0,
+  "embedded_pngs": 8,
+  "new_embedded_pngs_exact": [
+    "speed_full_t010.png",
+    "seismograms.png",
+    "speed_difference_montage.png"
+  ],
+  "roundtrip": "AST/syntax/format passed; report-only execution passed",
+  "all_node_frames_each": 201,
+  "surface_frames_each": 2001,
+  "videos": "Three complete201frame/25fps/8.04s movies; physical0–2s",
+  "sha256": {
+    "dev_1_4_server_preparation.py": "2a8cf0abfe7634001d010808d704acf08ba4fd371394e18316e8e99680d085a1",
+    "dev_1_4_server_preparation.ipynb": "8c3c56830917f00647f2940b265de9d3e3871240299ac18d67c70e0cd5dc8908",
+    "dev_1_4_server_preparation_summary.md": "1c35702fdf71f2565aaefdbd490c9fd66d52a760bffc6fbf39b53594f3123e52",
+    "data/dev_1_4_server_preparation/homogeneous_visualization_v1/animations.json": "d31638ddf2aca1179e92c37371376ae83ac59e37d8743d3bcb5ad975bc333eeb",
+    "data/dev_1_4_server_preparation/homogeneous_visualization_v1/animation_qa.json": "acd351f0613e47afb34cd7746c4f479607a454d11c2b75834521af5ba611b15e",
+    "data/dev_1_4_server_preparation/homogeneous_3060_v1/completion_validation.json": "effa85491fd77fbc11c7c6435eb2047d9fc79bc4c6903e67c744a8233d4dc67c"
+  }
+}

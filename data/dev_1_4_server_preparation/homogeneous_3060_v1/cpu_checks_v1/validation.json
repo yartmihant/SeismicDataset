@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T09:57:51.381348+00:00",
+  "scope": "CPU mocked model; actual homogeneous mesh and assembled material/ABC coefficients, no GPU/native solution",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "checks": [
+    "Vp/Vs/rho constant in every element and boundary coefficient",
+    "Actual rho/E/nu and rhoVp/rhoVs passed to model agree with the requested material",
+    "Padded/core ABC and mass-damping selection preserve preceding boundary experiments",
+    "Two recorders preserve Vx/Vy ordering and exact values at common nodes/times",
+    "Explicit synthetic material identity, new mesh and stability hashes; invalid material rejected"
+  ],
+  "files": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_homogeneous_run.py",
+      "sha256": "6e5a6ee8d331cfd8bbc986e4370f95228fe7770f02bbe1c61406e1b832b910bd",
+      "bytes": 3996
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/homogeneous_run.py",
+      "sha256": "777de1ab7b833917057007e33eb940bc8981dbb5429abc2c1675b7b5a8ebc0a8",
+      "bytes": 14988
+    }
+  ]
+}

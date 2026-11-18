@@ -577,3 +577,57 @@ display(Image(filename=str(velocity_image_root / "speed_difference_montage.png")
 
 Удаление слоя даёт существенную экономию времени, но сопровождается дополнительными приходами на сейсмограммах. Общие шкалы позволяют увидеть разность амплитуд и пространственную эволюцию обоих вариантов без искусственного усиления отдельных кадров. Анимации охватывают полные 2 с; слабая поздняя часть не исключена из записи. Сравнение повторов подтверждает согласованность новой регистрации полей с прежними сейсмограммами, но не заменяет независимой оценки точности ABC или сходимости решателя.
 """
+
+""" ## 16. Однородная среда с материалом верхнего слоя ## """
+
+"""
+По следующему поручению пользователя строится однородный контроль в тех же условиях. Пользователь выбрал материал верхнего слоя прежней модели: Vp=4087 м/с, Vs=2431,62036 м/с, плотность 1000 кг/м³. Эти значения назначаются всем элементам основной области и внешнего слоя. Координаты и связность обеих Q2-сеток сохраняются точно; прежние межслойные рёбра остаются обычными внутренними рёбрами с одинаковым материалом по обе стороны. Разрывов материальных свойств внутри модели больше нет.
+
+Сохраняются свободный верх, центральная точечная сила Рикера 30 Гц одинаковой амплитуды, p4/K96, две секунды и оба варианта границ: слой 175 м с прежним квадратичным массовым демпфированием и внешней ABC либо основная область 700×700 м с ABC на боках и дне. Новые сертификаты с однородными VP/VS дают Kmin=52 в обоих вариантах; K96 оставлен для сопоставимости. Регистрация — 2001×70×2 значения поверхностной скорости и 201 кадр Vx/Vy во всех узлах через 0,01 с.
+
+Серия явно помечена homogeneous_reference_toplayer и is_original_dataset_model=False. EFVB0 в унаследованном техническом run_spec обозначает только родительскую геометрию и совместимость API, а не неизменённую модель датасета. Прежние слоистые массивы и хеши не меняются. Новые данные находятся в homogeneous_3060_v1, рисунки и ролики — в homogeneous_comparison_v1. Ранний контрольный кадр 0,10 с помогает рассмотреть прямые волновые фронты до основных возвратов от боковых границ; все ролики содержат полный интервал 0–2 с.
+"""
+
+homogeneous_root = chapter14_root / "homogeneous_3060_v1"
+homogeneous_visualization_root = chapter14_root / "homogeneous_visualization_v1"
+homogeneous_image_root = PROJECT_ROOT / "img/dev_1_4_server_preparation/homogeneous_comparison_v1"
+homogeneous_preparation = read_json(homogeneous_root / "meshes/preparation.json")
+homogeneous_cpu = read_json(homogeneous_root / "cpu_checks_v1/validation.json")
+assert homogeneous_preparation["status"] == "prepared" and homogeneous_cpu["status"] == "passed"
+print("Однородный материал:", homogeneous_preparation["physical_model"])
+for homogeneous_variant in ("padded", "core"):
+    homogeneous_run = read_json(homogeneous_root / homogeneous_variant / "metadata.json")
+    homogeneous_check = read_json(homogeneous_root / homogeneous_variant / "validation.json")
+    assert homogeneous_run["status"] == "completed" and homogeneous_check["status"] == "passed"
+    assert homogeneous_run["is_original_dataset_model"] is False
+    assert homogeneous_run["physical_model"] == homogeneous_preparation["physical_model"]
+    assert mapping(homogeneous_run["recorded_counts"])["fields"] == 201
+    print(homogeneous_variant, "поля:", homogeneous_run["field_shape"], "; полный источник с записью полей, с:", homogeneous_run["wall_seconds"])
+homogeneous_completion = read_json(homogeneous_root / "completion_validation.json")
+assert homogeneous_completion["status"] == "passed"
+for homogeneous_name, homogeneous_result in mapping(homogeneous_completion["variants"]).items():
+    print("Симметрия центрального источника:", homogeneous_name, mapping(homogeneous_result)["symmetry"])
+homogeneous_seismograms = read_json(homogeneous_visualization_root / "seismograms.json")
+homogeneous_animations = read_json(homogeneous_visualization_root / "animations.json")
+assert homogeneous_seismograms["status"] == "completed" and homogeneous_animations["status"] == "completed"
+assert homogeneous_animations["frame_count"] == 201 and homogeneous_animations["physical_end_s"] == 2.0
+print("Разность двух граничных вариантов в однородной среде:", homogeneous_seismograms["full_window_metrics"])
+print("Шкалы полей:", homogeneous_animations["color_scales"])
+display(Image(filename=str(homogeneous_image_root / "speed_full_t010.png"), width=1200))
+display(Image(filename=str(homogeneous_image_root / "seismograms.png"), width=1200))
+display(Image(filename=str(homogeneous_image_root / "speed_difference_montage.png"), width=1400))
+for homogeneous_movie in sequence(homogeneous_animations["videos"]):
+    homogeneous_video = mapping(homogeneous_movie)
+    assert mapping(homogeneous_video["ffprobe"])["nb_read_frames"] == "201"
+    print("Ролик однородной среды:", (homogeneous_image_root / Path(str(homogeneous_video["path"])).name).relative_to(PROJECT_ROOT))
+
+
+"""
+### Вывод однородного контроля
+
+Оба опыта завершены: со слоем — 354,700 с, без слоя — 191,129 с с записью всех полей. В каждом сохранены 201 кадр поля и 2001 отсчёт поверхности; общие срезы двух регистраторов совпадают точно. Нечётность Vx и чётность Vy относительно x=350 м сохранены с относительными невязками не выше 1,20·10⁻¹². На раннем кадре 0,10 с видны гладкие симметричные расходящиеся фронты; это контроль однородной упругой среды со свободной поверхностью и точечным силовым источником.
+
+Заметная чувствительность к удалению слоя сохраняется и без внутренних скачков материалов: относительная L2-разность поверхностных записей за 0–2 с равна 16,790%, максимальная абсолютная разность — 1,688·10⁻⁹ м/с. На первые 0,5 с приходится 92,785% суммы квадратов разности; половина накапливается к 0,348 с. На записи без слоя появляются более сильные возвращающиеся приходы от боковых границ. Эти величины сравнивают две граничные постановки, не являются ошибкой относительно точного решения и не заменяют отдельную валидацию ABC.
+
+Постоянная log-шкала модуля имеет нижний предел около 2,61·10⁻¹³ м/с. К t=2 с все значения в обоих вариантах ниже него, поэтому конечный кадр модуля чёрный; это не утверждение точного нуля поля. Полные исходные значения сохранены без отсечения, а цветовые пределы не менялись от кадра к кадру.
+"""

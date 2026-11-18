@@ -1,0 +1,177 @@
+{
+  "status": "reviewed",
+  "scope": "Homogeneous control, chapter1.4 and compact reports; no arrays/video/credentials",
+  "relocated_report_only_execution": "passed without arrays/video in fresh project root",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 19683,
+      "sha256": "b8c36feebc3d50e07947eb373cbffba03eaeff414efd5b9c74224f076a45043e"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/completion_validation.json",
+      "bytes": 3830,
+      "sha256": "effa85491fd77fbc11c7c6435eb2047d9fc79bc4c6903e67c744a8233d4dc67c"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/core/metadata.json",
+      "bytes": 7816,
+      "sha256": "b3bd8482e7a513974cd707c1582ed0a1ca705e64feeea9468e240f791df2cb04"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/core/metadata.started.json",
+      "bytes": 6385,
+      "sha256": "84a260840c00ac06e253c7084d2902fbcad763ca0aed488a0316c224d26193bb"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/core/validation.json",
+      "bytes": 1016,
+      "sha256": "965171b651411acdbcee166edd9f1136d89f5d8a44883fee6fe4081a67594fbf"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/cpu_checks_v1/validation.json",
+      "bytes": 1265,
+      "sha256": "3094b53dfff81a0dba1cfb273f6947aa70cf62e27a4cb7406bb1c29a1aeb07d7"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/geometry.json",
+      "bytes": 2427,
+      "sha256": "b82fea7871dd51a57ae41af86a3ecb731e88aa4be9f08074ff8594fb4e83fb17"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/stability.json",
+      "bytes": 1248,
+      "sha256": "789711599ca52d4d3132b5e106fe926e27480e1c671fe32d5938ed23784a81e1"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/geometry.json",
+      "bytes": 2339,
+      "sha256": "58f163c71f356a29f9a373df9cab4655f673b0b212fbdd6033e43282717f88e1"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/stability.json",
+      "bytes": 1265,
+      "sha256": "5d898385fca7ac9d7f89585560cafc2035085ce967baf7640135ffc784d8eea2"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/preparation.json",
+      "bytes": 1748,
+      "sha256": "99c617b84c0b10443eb691fa94e57ae410b05309e02b15de6f0d406ecbde87e9"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.json",
+      "bytes": 7780,
+      "sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.started.json",
+      "bytes": 6342,
+      "sha256": "ac7e9fad28d1b91e87158c9de32827b0bbcbb96cbd95bf5e737317509e7f2e26"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/validation.json",
+      "bytes": 1020,
+      "sha256": "db4e33106bbd38abb23e182e25feac67aafac94815333bbd4ea120c5cb01a845"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/smoke_core/metadata.json",
+      "bytes": 7822,
+      "sha256": "d38be53c320bfc65e3cff49775a0b77e4d263f73d1d3cc31c1f545144953dd78"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/smoke_core/metadata.started.json",
+      "bytes": 6380,
+      "sha256": "8dd79dfb0830f96e6486aba1ccbc23de7551185f8128c82a03aced42bf6231ca"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_3060_v1/smoke_core/validation.json",
+      "bytes": 1016,
+      "sha256": "882b28c3d1f7fcca743ec728152e75455e542b22ef033e7c0334ca3daa29fba5"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_visualization_cpu_v1/validation.json",
+      "bytes": 514,
+      "sha256": "a642987ac73a7eb15e9eb08d70b42538674726f6a4a0b42b525bda35da036943"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_visualization_v1/animation_qa.json",
+      "bytes": 1632,
+      "sha256": "acd351f0613e47afb34cd7746c4f479607a454d11c2b75834521af5ba611b15e"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_visualization_v1/animations.json",
+      "bytes": 41972,
+      "sha256": "d31638ddf2aca1179e92c37371376ae83ac59e37d8743d3bcb5ad975bc333eeb"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_visualization_v1/chapter_validation.json",
+      "bytes": 1293,
+      "sha256": "f3a13dad40a0e785700089b2b4add25af557acc473f01b769e14d92dc246c9f4"
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/homogeneous_visualization_v1/seismograms.json",
+      "bytes": 8311,
+      "sha256": "d2160466427817a9bae7445e27a34806ff19c2c896b1b9f85ed3aa17c293f2b4"
+    },
+    {
+      "path": "dev_1_4_server_preparation.ipynb",
+      "bytes": 6653304,
+      "sha256": "8c3c56830917f00647f2940b265de9d3e3871240299ac18d67c70e0cd5dc8908"
+    },
+    {
+      "path": "dev_1_4_server_preparation.py",
+      "bytes": 88048,
+      "sha256": "2a8cf0abfe7634001d010808d704acf08ba4fd371394e18316e8e99680d085a1"
+    },
+    {
+      "path": "dev_1_4_server_preparation_summary.md",
+      "bytes": 58730,
+      "sha256": "1c35702fdf71f2565aaefdbd490c9fd66d52a760bffc6fbf39b53594f3123e52"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/homogeneous_comparison_v1/difference_over_time.png",
+      "bytes": 369947,
+      "sha256": "ce034d5f457a65acdfa2edecb7f625ecbeffcdb6c503f63e3dfad9f3a42bd662"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/homogeneous_comparison_v1/seismograms.png",
+      "bytes": 557517,
+      "sha256": "72725663ed3e9af7ed86a44bcd4d122bbf1c897e045ff0ce94b3d94652acffca"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/homogeneous_comparison_v1/speed_difference_montage.png",
+      "bytes": 950274,
+      "sha256": "3728134296381fe51029a9919b24dc757adf798057213c69151d91aae6f148b7"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/homogeneous_comparison_v1/speed_full_t010.png",
+      "bytes": 211784,
+      "sha256": "eec8a096b3f44ef619e5f822c51eedb1544e5dddd61d02d2aeed7c82b0415cfe"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/homogeneous_comparison_v1/traces.png",
+      "bytes": 261379,
+      "sha256": "fdbe85ca0b596a4ab4d769c6fa7195cd4f81679f9d19162629a647bb3f93c4ba"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 17040,
+      "sha256": "e1b1690114fd1fea2455eccc95460797bd684b8ac08acbe6d3d3236fee5b7c5b"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/check_homogeneous_run.py",
+      "bytes": 3996,
+      "sha256": "6e5a6ee8d331cfd8bbc986e4370f95228fe7770f02bbe1c61406e1b832b910bd"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/homogeneous_run.py",
+      "bytes": 14988,
+      "sha256": "777de1ab7b833917057007e33eb940bc8981dbb5429abc2c1675b7b5a8ebc0a8"
+    },
+    {
+      "path": "scripts/dev_1_4_server_preparation/homogeneous_visualize.py",
+      "bytes": 27370,
+      "sha256": "15006bd39ebe1c449d0097594a7063c7cd4f9c6fca5c02f1e95f996545e9cd95"
+    }
+  ]
+}

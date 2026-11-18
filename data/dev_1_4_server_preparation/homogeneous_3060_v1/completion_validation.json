@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:09:49.772855+00:00",
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "variants": {
+    "padded": {
+      "wall_seconds": 354.7000109469518,
+      "recorded_counts": {
+        "surface": 2001,
+        "fields": 201,
+        "source_history": 0
+      },
+      "field_shape": [
+        201,
+        589541,
+        2
+      ],
+      "material_and_metadata_verified": true,
+      "all_node_surface_values_exact": true,
+      "symmetry": {
+        "vx_odd_relative_l2": 1.1095985569504837e-12,
+        "vy_even_relative_l2": 7.757002027324825e-13,
+        "vx_odd_max_abs_m_s": 2.9967876884340566e-21,
+        "vy_even_max_abs_m_s": 2.9896375289197803e-21,
+        "relative_tolerance": 1e-08,
+        "definition": "Vx(x,t)+Vx(700-x,t), Vy(x,t)-Vy(700-x,t); each residual norm divided by its own component norm over all2001x70samples"
+      },
+      "metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.json",
+        "sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95"
+      },
+      "validation": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/validation.json",
+        "sha256": "db4e33106bbd38abb23e182e25feac67aafac94815333bbd4ea120c5cb01a845"
+      },
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/mesh_q2.npz",
+        "sha256": "10ba932d3a2214e98b41c0b63585c3ce08ae2985ca4d3c946a04a410b69318ef"
+      }
+    },
+    "core": {
+      "wall_seconds": 191.12889048596844,
+      "recorded_counts": {
+        "surface": 2001,
+        "fields": 201,
+        "source_history": 0
+      },
+      "field_shape": [
+        201,
+        314721,
+        2
+      ],
+      "material_and_metadata_verified": true,
+      "all_node_surface_values_exact": true,
+      "symmetry": {
+        "vx_odd_relative_l2": 1.197006881543064e-12,
+        "vy_even_relative_l2": 8.631604979680941e-13,
+        "vx_odd_max_abs_m_s": 3.3268687248999927e-21,
+        "vy_even_max_abs_m_s": 4.580926232318667e-21,
+        "relative_tolerance": 1e-08,
+        "definition": "Vx(x,t)+Vx(700-x,t), Vy(x,t)-Vy(700-x,t); each residual norm divided by its own component norm over all2001x70samples"
+      },
+      "metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/metadata.json",
+        "sha256": "b3bd8482e7a513974cd707c1582ed0a1ca705e64feeea9468e240f791df2cb04"
+      },
+      "validation": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/core/validation.json",
+        "sha256": "965171b651411acdbcee166edd9f1136d89f5d8a44883fee6fe4081a67594fbf"
+      },
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/mesh_q2.npz",
+        "sha256": "4bf3851888429b4d7049488e9e76d840c8dfcd98bc9bee08f0b81f5e12ebede6"
+      }
+    }
+  },
+  "common_inputs": {
+    "source_force_sha256_equal": true,
+    "native_sha256_equal": true,
+    "source_input_sha256": "76f93b82f28a891bdb442dc2a0c1b55aee24909efeb8f15e9196f2b728d5adf0",
+    "native_sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+  },
+  "scope": "Completion, declared homogeneous material, metadata binding and mirror-symmetry consistency; full fields were checked by the recorded per-run verifier; not independent solver accuracy or ABC convergence validation"
+}

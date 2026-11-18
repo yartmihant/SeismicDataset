@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:00:47.611208+00:00",
+  "scope": "CPU validation of homogeneous visualization inputs; no solver/native imported",
+  "checks": [
+    "Uniform material mesh accepted",
+    "Old layered result cannot be relabelled homogeneous",
+    "Claimed homogeneous metadata with actual nonuniform material arrays rejected",
+    "Mismatched source-force hash and material constants rejected"
+  ],
+  "code_sha256": "15006bd39ebe1c449d0097594a7063c7cd4f9c6fca5c02f1e95f996545e9cd95"
+}
