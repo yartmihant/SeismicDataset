@@ -66,6 +66,15 @@ def main() -> None:
         for order in (3,4,5):
             pairs[f'dt/p{order}']=metrics(records[order,'main'],records[order,'half'])
             pairs[f'beta/p{order}']=metrics(records[order,'main'],records[order,'zero'])
+        common_k=int(number(records[5,'half'].meta['steps_per_ms']))
+        if (base/f'p3_beta0.00000000_k{common_k}'/'result.json').exists():
+            for order in (3,4,5):
+                for label,beta in [('common_zero',0.),('common_beta',1/27)]:
+                    records[order,label]=records[5,'half'] if order==5 and beta else load(base/f'p{order}_beta{beta:.8f}_k{common_k}')
+            for label in ('common_zero','common_beta'):
+                for order in (3,4): pairs[f'p{order}-p5/{label}']=metrics(records[order,label],records[5,label])
+                pairs[f'p3-p4/{label}']=metrics(records[3,label],records[4,label])
+            for order in (3,4,5):pairs[f'beta_common/p{order}']=metrics(records[order,'common_beta'],records[order,'common_zero'])
         models[str(model)]={'pairs':pairs,'runs':{f'p{k[0]}/{k[1]}':v.meta for k,v in records.items()}}
         for col,window in enumerate(('full','late')):
             ax=axes[row,col]
@@ -77,6 +86,20 @@ def main() -> None:
         ax=axes[row,2]
         vals=[100*number(mapping(mapping(pairs[f'dt/p{o}'])['dataset70_far20/full'])['relative_l2']) for o in (3,4,5)]
         ax.plot([3,4,5],vals,'o-',color='#2b8a3e');ax.set(xlabel='Порядок p',ylabel='Разность CFL 0,8 / 0,4, % L2',xticks=[3,4,5],title=f'ECVB {model:05d}: контроль dt');ax.grid(alpha=.25)
+    if all('p3-p5/common_beta' in mapping(mapping(v)['pairs']) for v in models.values()):
+        fig2,axs=plt.subplots(2,2,figsize=(11,8),layout='constrained')
+        for row,model in enumerate((12404,65)):
+            pairs=mapping(mapping(models[str(model)])['pairs'])
+            for col,window in enumerate(('full','late')):
+                ax=axs[row,col]
+                for label,title,color in [('common_zero','β=0','#666666'),('common_beta','β=1/27','#1971c2')]:
+                    for mask,style,suffix in [('dataset70','-','70 приёмников'),('dataset70_far20','--','вне 20 м')]:
+                        vals=[100*number(mapping(mapping(pairs[f'p{o}-p5/{label}'])[f'{mask}/{window}'])['relative_l2']) for o in (3,4)]
+                        ax.plot([3,4],vals,'o'+style,color=color,label=f'{title}, {suffix}')
+                ax.set(xticks=[3,4],xlabel='Порядок p',ylabel='Отличие от p5, % L2',title=f'ECVB {model:05d}: '+('0–1 с' if window=='full' else '0,5–1 с'))
+                ax.grid(alpha=.25);ax.legend(fontsize=8)
+        fig2.suptitle('Общий малый dt для всех p и обоих β внутри каждой модели')
+        fig2.savefig(out/'common_dt.png',dpi=160)
     result['models']=models
     result['mask_note']='Dataset receivers x=5,15,...695, excluding |x-350|<20m; full and source-local metrics also in JSON'
     fig.suptitle('Сходимость Vx/Vy: сглаженные модели, элементы около 5 м\nПоказаны 66 из 70 приёмников, вне 20 м от точечного источника')
