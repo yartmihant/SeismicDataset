@@ -55,6 +55,8 @@ def metrics(a: Record,b: Record) -> dict[str,object]:
 def main() -> None:
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
     args=p.parse_args();out=args.out.resolve();out.mkdir(parents=True,exist_ok=False)
+    images=PROJECT_ROOT/'img/dev_1_4_server_preparation/kim_convergence_v1'/out.name
+    images.mkdir(parents=True,exist_ok=False)
     result:dict[str,object]={'scope':'Relative differences, not exact error; p5 is a comparison reference, not a proven converged solution','models':{}}
     models:dict[str,object]={};fig,axes=plt.subplots(2,3,figsize=(14,8),layout='constrained')
     for row,model in enumerate((12404,65)):
@@ -100,11 +102,11 @@ def main() -> None:
                 ax.set(xticks=[3,4],xlabel='Порядок p',ylabel='Отличие от p5, % L2',title=f'ECVB {model:05d}: '+('0–1 с' if window=='full' else '0,5–1 с'))
                 ax.grid(alpha=.25);ax.legend(fontsize=8)
         fig2.suptitle('Общий малый dt для всех p и обоих β внутри каждой модели')
-        fig2.savefig(out/'common_dt.png',dpi=160)
+        fig2.savefig(images/'common_dt.png',dpi=160)
     result['models']=models
     result['mask_note']='Dataset receivers x=5,15,...695, excluding |x-350|<20m; full and source-local metrics also in JSON'
     fig.suptitle('Сходимость Vx/Vy: сглаженные модели, элементы около 5 м\nПоказаны 66 из 70 приёмников, вне 20 м от точечного источника')
-    fig.savefig(out/'convergence.png',dpi=160)
+    fig.savefig(images/'convergence.png',dpi=160)
     (out/'analysis.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print('analysis saved',out,flush=True)
 
