@@ -10,7 +10,7 @@ import numpy as np
 from semgpu2.model.model import SGModel
 from semgpu2.model.physics import SGPhysicsModel, SGPhysicsTimeData
 from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu import _native
-from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.constants import SGSolverConfig
+from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.constants import SGSolverConfig, SGSpectrumData
 from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.solver import SGSolver
 from scripts.dev_1_2_smoothing.pilot_run import plane_strain_parameters
 from scripts.dev_1_3_point_source.mesh import build_sem, load_frozen
@@ -47,6 +47,7 @@ def main() -> None:
     model.add_physics(SGPhysicsModel('source',20200,mesh,0,np.array([source.node_id],dtype=np.int64),values,time=SGPhysicsTimeData(0.,1.,len(times),3)))
     start=perf_counter();model.prepare();elapsed=perf_counter()-start
     s=solver.spectrum
+    assert isinstance(s,SGSpectrumData)
     kim=2/(2*config.kim_gamma+1)
     bound=2*kim/(hypot(sqrt(s.lambda_max),s.lambda_max_damping/kim)+s.lambda_max_damping/kim)
     assert np.isfinite(bound) and bound>0 and s.step_dt<=bound*(1+1e-12)
