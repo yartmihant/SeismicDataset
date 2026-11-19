@@ -67,10 +67,10 @@ def main() -> None:
             pairs[f'dt/p{order}']=metrics(records[order,'main'],records[order,'half'])
             pairs[f'beta/p{order}']=metrics(records[order,'main'],records[order,'zero'])
         common_k=int(number(records[5,'half'].meta['steps_per_ms']))
-        if (base/f'p3_beta0.00000000_k{common_k}'/'result.json').exists():
+        if (base/f'p3_beta0.00000000_fixedk{common_k}'/'result.json').exists():
             for order in (3,4,5):
                 for label,beta in [('common_zero',0.),('common_beta',1/27)]:
-                    records[order,label]=records[5,'half'] if order==5 and beta else load(base/f'p{order}_beta{beta:.8f}_k{common_k}')
+                    records[order,label]=records[5,'half'] if order==5 and beta else load(base/f'p{order}_beta{beta:.8f}_fixedk{common_k}')
             for label in ('common_zero','common_beta'):
                 for order in (3,4): pairs[f'p{order}-p5/{label}']=metrics(records[order,label],records[5,label])
                 pairs[f'p3-p4/{label}']=metrics(records[3,label],records[4,label])

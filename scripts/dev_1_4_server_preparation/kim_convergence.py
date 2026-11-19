@@ -45,12 +45,12 @@ def main() -> None:
         write_json(base/'geometry.json',result.report)
         print('geometry ready',args.model,flush=True)
         return
-    suffix=f'k{args.substeps}' if args.substeps else f'cfl{args.safety:g}'
+    suffix=f'fixedk{args.substeps}' if args.substeps else f'cfl{args.safety:g}'
     out=base/f'p{args.order}_beta{args.beta:.8f}_{suffix}'
     out.mkdir(exist_ok=False)
     start=perf_counter()
     case=build_sem(load_frozen(mesh_path),args.order);mesh=case.mesh
-    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=args.safety if args.substeps is None else None,steps_count=1000*args.substeps if args.substeps else None,tacts_count=1000,kim_beta=args.beta,kim_gamma=.5)
+    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=args.safety if args.substeps is None else None,steps_count=1000*args.substeps if args.substeps else None,tact_dt=.001,kim_beta=args.beta,kim_gamma=.5)
     solver=SGSolver(config);model=SGModel(mesh,solver)
     edges=abc_edges(case)
     model.add_physics(SGPhysicsModel.from_entity_values('material',11000,mesh,1,np.arange(len(case.element_vp),dtype=np.int64),plane_strain_parameters(case.element_vp,case.element_vs)))
