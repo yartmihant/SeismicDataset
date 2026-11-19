@@ -61,6 +61,7 @@ def main() -> None:
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--reference',type=Path)
     parser.add_argument('--references',type=Path)
+    parser.add_argument('--production-reference',type=Path)
     parser.add_argument('--source-index',type=int,default=0,choices=range(5))
     parser.add_argument('--end',type=float,default=.1)
     args=parser.parse_args()
@@ -104,10 +105,14 @@ def main() -> None:
     assert int(result.code)==success and result.steps_count==spec.steps and count==len(output_times)
     assert np.isfinite(velocity).all() and np.all(velocity[0]==0)
     metrics: list[dict[str,object]]=[]
-    if args.reference or args.references:
+    if args.reference or args.references or args.production_reference:
         for i,scale in enumerate(scales):
-            ref_path=args.reference if args.reference else args.references/f'single{(args.source_index+i)%5}'/'surface.npz'
-            with np.load(ref_path) as z: ref=z['velocity'][:,0]
+            if args.production_reference:
+                ref_path=args.production_reference/f'x{round(positions[i]):03d}'/'surface.npz'
+                with np.load(ref_path) as z: ref=z['velocity_m_s'][:len(output_times)]
+            else:
+                ref_path=args.reference if args.reference else args.references/f'single{(args.source_index+i)%5}'/'surface.npz'
+                with np.load(ref_path) as z: ref=z['velocity'][:,0]
             expected=scale*ref;diff=velocity[:,i]-expected
             relative=float(np.linalg.norm(diff))/max(float(np.linalg.norm(expected)),1e-300)
             peak=float(np.max(np.abs(diff)))
