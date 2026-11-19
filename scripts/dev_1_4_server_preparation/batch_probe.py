@@ -31,8 +31,8 @@ class Packed:
 
 def pack(case: MeshCase, copies: int) -> Packed:
     """Disjoint node IDs; identical coordinates avoid translation roundoff."""
-    if not 1 <= copies <= 10:
-        raise ValueError('Probe supports 1..10 copies')
+    if not 1 <= copies <= 20:
+        raise ValueError('Probe supports 1..20 copies')
     mesh = case.mesh
     nodes = len(mesh.nodes_coords)
     strata = {}
@@ -60,6 +60,8 @@ def main() -> None:
     parser.add_argument('--copies',type=int,required=True)
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--reference',type=Path)
+    parser.add_argument('--references',type=Path)
+    parser.add_argument('--source-index',type=int,default=0,choices=range(5))
     parser.add_argument('--end',type=float,default=.1)
     args=parser.parse_args()
     out=args.out.resolve();out.relative_to(PROJECT_ROOT/'data/dev_1_4_server_preparation')
@@ -79,10 +81,12 @@ def main() -> None:
     model.add_physics(SGPhysicsModel('damping',30001,mesh,0,np.arange(n*b,dtype=np.int64),np.tile(damping_alpha(case.mesh.nodes_coords,ALPHA_MAX_S_INV),b)[:,None]))
     source=nodal_point_force(case.mesh.nodes_coords,350.,1.)
     times=np.linspace(0,spec.t_end_s,spec.steps+1)
-    # Mixed strengths include a silent domain to test isolation, not source superposition.
-    scales=np.array(([1.,0.,-.5,2.,1.5]*2)[:b])
+    source_x=[0.,175.,350.,525.,700.]
+    positions=[source_x[(args.source_index+i)%5] for i in range(b)]
+    sources=[nodal_point_force(case.mesh.nodes_coords,x,1.) for x in positions]
+    scales=np.ones(b)
     values=np.zeros((len(times),b,2));values[:,:,1]=source.force_y*ricker(times)[:,None]*scales[None,:]
-    model.add_physics(SGPhysicsModel('sources',20200,mesh,0,source.node_id+np.arange(b,dtype=np.int64)*n,values,time=SGPhysicsTimeData(0.,spec.t_end_s,len(times),3)))
+    model.add_physics(SGPhysicsModel('sources',20200,mesh,0,np.array([v.node_id+i*n for i,v in enumerate(sources)],dtype=np.int64),values,time=SGPhysicsTimeData(0.,spec.t_end_s,len(times),3)))
     ids=np.concatenate([receiver_nodes(case)+i*n for i in range(b)])
     output_times=np.linspace(0,spec.t_end_s,round(spec.t_end_s/.001)+1)
     velocity=np.empty((len(output_times),b,70,2),dtype=np.float64)
@@ -100,9 +104,10 @@ def main() -> None:
     assert int(result.code)==success and result.steps_count==spec.steps and count==len(output_times)
     assert np.isfinite(velocity).all() and np.all(velocity[0]==0)
     metrics: list[dict[str,object]]=[]
-    if args.reference:
-        with np.load(args.reference) as z: ref=z['velocity'][:,0]
+    if args.reference or args.references:
         for i,scale in enumerate(scales):
+            ref_path=args.reference if args.reference else args.references/f'single{(args.source_index+i)%5}'/'surface.npz'
+            with np.load(ref_path) as z: ref=z['velocity'][:,0]
             expected=scale*ref;diff=velocity[:,i]-expected
             relative=float(np.linalg.norm(diff))/max(float(np.linalg.norm(expected)),1e-300)
             peak=float(np.max(np.abs(diff)))
@@ -110,7 +115,7 @@ def main() -> None:
             if scale==0: assert np.all(velocity[:,i]==0)
             metrics.append({'copy':i,'scale':float(scale),'relative_l2':relative,'max_abs':peak})
     np.savez(out/'surface.npz',time=output_times,velocity=velocity)
-    write_json(out/'result.json',{'status':'passed','copies':b,'end_s':spec.t_end_s,'substeps':spec.substeps,'assembly_seconds':prepared-start,'prepare_seconds':run_start-prepared,'run_seconds':finish-run_start,'total_seconds':finish-start,'per_source_seconds':(finish-start)/b,'nodes':n*b,'comparisons':metrics,'native':file_record(native),'code':file_record(Path(__file__)),'mesh':file_record(args.mesh),'scope':'Identical EFVB0 geometry and central source with varying amplitudes; disjoint node IDs, no geometry translation'})
+    write_json(out/'result.json',{'status':'passed','copies':b,'source_x_m':positions,'end_s':spec.t_end_s,'substeps':spec.substeps,'assembly_seconds':prepared-start,'prepare_seconds':run_start-prepared,'run_seconds':finish-run_start,'total_seconds':finish-start,'per_source_seconds':(finish-start)/b,'nodes':n*b,'comparisons':metrics,'native':file_record(native),'code':file_record(Path(__file__)),'mesh':file_record(args.mesh),'scope':'Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation'})
     print((out/'result.json').read_text(),flush=True)
 
 
