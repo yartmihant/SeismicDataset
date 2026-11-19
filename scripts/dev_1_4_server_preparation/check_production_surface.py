@@ -103,6 +103,7 @@ def checks(root: Path) -> list[str]:
     case = synthetic_case(4)
     case.metadata.update({"model_id": 0, "dataset": "EFVB", "kind": "curved"})
     default_spec = runner.SurfaceSpec("EFVB", 0, 350.0, 24)
+    assert default_spec.kim_beta == 1. / 27. and default_spec.kim_gamma == .5
     assert default_spec.t_end_s == 1. and len(runner.SurfaceRecorder.create(default_spec).times) == 1001
     assert np.isclose(default_spec.alpha_max_s_inv,196.76847003046814,rtol=1e-14)
     models: list[MockModel] = []

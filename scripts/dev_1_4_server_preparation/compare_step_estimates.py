@@ -36,7 +36,7 @@ def main() -> None:
     spec=SurfaceSpec('EFVB',args.model_id,350.,k)
     case=build_sem(load_frozen(mesh_path),4); case.metadata['dataset']='EFVB'
     validate_stability(case,spec,mesh_path,certificate_path)
-    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=1.,tact_dt=.001)
+    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=1.,tact_dt=.001,kim_beta=spec.kim_beta,kim_gamma=spec.kim_gamma)
     solver=SGSolver(config); model=SGModel(case.mesh,solver)
     mesh=case.mesh;edges=abc_edges(case)
     model.add_physics(SGPhysicsModel.from_entity_values('material',11000,mesh,1,np.arange(len(case.element_vp),dtype=np.int64),plane_strain_parameters(case.element_vp,case.element_vs)))

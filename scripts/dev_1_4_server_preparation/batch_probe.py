@@ -120,7 +120,7 @@ def main() -> None:
             if scale==0: assert np.all(velocity[:,i]==0)
             metrics.append({'copy':i,'scale':float(scale),'relative_l2':relative,'max_abs':peak})
     np.savez(out/'surface.npz',time=output_times,velocity=velocity)
-    write_json(out/'result.json',{'status':'passed','copies':b,'source_x_m':positions,'end_s':spec.t_end_s,'substeps':spec.substeps,'assembly_seconds':prepared-start,'prepare_seconds':run_start-prepared,'run_seconds':finish-run_start,'total_seconds':finish-start,'per_source_seconds':(finish-start)/b,'nodes':n*b,'comparisons':metrics,'native':file_record(native),'code':file_record(Path(__file__)),'mesh':file_record(args.mesh),'scope':'Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation'})
+    write_json(out/'result.json',{'status':'passed','kim_beta':spec.kim_beta,'kim_gamma':spec.kim_gamma,'copies':b,'source_x_m':positions,'end_s':spec.t_end_s,'substeps':spec.substeps,'assembly_seconds':prepared-start,'prepare_seconds':run_start-prepared,'run_seconds':finish-run_start,'total_seconds':finish-start,'per_source_seconds':(finish-start)/b,'nodes':n*b,'comparisons':metrics,'native':file_record(native),'code':file_record(Path(__file__)),'mesh':file_record(args.mesh),'scope':'Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation'})
     print((out/'result.json').read_text(),flush=True)
 
 

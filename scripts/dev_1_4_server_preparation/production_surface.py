@@ -36,6 +36,8 @@ if TYPE_CHECKING:
 
 FloatArray = NDArray[np.float64]
 IntArray = NDArray[np.int64]
+KIM_BETA = 1.0 / 27.0
+KIM_GAMMA = 0.5
 DAMPING_FACTOR = 0.5684038628158912
 ALPHA_MAX_S_INV = DAMPING_FACTOR * (-3.0 * 4385.0 * log(0.01) / 175.0)
 RECEIVER_X_M = np.arange(5.0, 700.0, 10.0, dtype=np.float64)
@@ -52,6 +54,8 @@ class SurfaceSpec:
     kind: str = field(default="curved", init=False)
     backend: str = field(default="cu", init=False)
     alpha_max_s_inv: float = field(default=ALPHA_MAX_S_INV, init=False)
+    kim_beta: float = field(default=KIM_BETA, init=False)
+    kim_gamma: float = field(default=KIM_GAMMA, init=False)
 
     def __post_init__(self) -> None:
         if self.dataset not in ("ECVB", "EFVB") or isinstance(self.model_id, bool) or not isinstance(self.model_id, int) or not 0 <= self.model_id < 30000:
@@ -172,7 +176,8 @@ def make_cu_model(case: MeshCase, spec: SurfaceSpec) -> tuple[SGModel[CUConfig],
     from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu import _native
     from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.constants import SGSolverConfig, SGRunCodeEnum
     from semgpu2.solvers.lin_elast_2d_tenzor_newmark_kim_cu.solver import SGSolver
-    config = SGSolverConfig(t_begin=0.0, t_end=spec.t_end_s, steps_count=spec.steps, steps_per_tact=1)
+    config = SGSolverConfig(t_begin=0.0, t_end=spec.t_end_s, steps_count=spec.steps, steps_per_tact=1,
+                            kim_beta=spec.kim_beta, kim_gamma=spec.kim_gamma)
     return SGModel(case.mesh, SGSolver(config)), Path(_native.__file__), int(SGRunCodeEnum.TIME_END)
 
 
