@@ -30,7 +30,7 @@ def main() -> None:
     p.add_argument('--root',type=Path,required=True)
     p.add_argument('--model',type=int,choices=(65,12404),required=True)
     p.add_argument('--grid',choices=('coarse','refined'),required=True)
-    p.add_argument('--order',type=int,choices=(4,5,6,7),default=4)
+    p.add_argument('--order',type=int,choices=(3,4,5,6,7),default=4)
     p.add_argument('--beta',type=float,choices=(0.,1/27),default=1/27)
     p.add_argument('--safety',type=float,default=.8)
     p.add_argument('--substeps',type=int)
