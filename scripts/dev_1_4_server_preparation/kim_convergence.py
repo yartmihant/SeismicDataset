@@ -32,6 +32,7 @@ def main() -> None:
     p.add_argument('--order',type=int,choices=(3,4,5),default=4)
     p.add_argument('--beta',type=float,choices=(0.,1/27),default=1/27)
     p.add_argument('--safety',type=float,default=.8)
+    p.add_argument('--substeps',type=int)
     args=p.parse_args()
     root=args.root.resolve();root.relative_to(PROJECT_ROOT/'data/dev_1_4_server_preparation')
     base=root/f'{args.model:05d}'
@@ -44,11 +45,12 @@ def main() -> None:
         write_json(base/'geometry.json',result.report)
         print('geometry ready',args.model,flush=True)
         return
-    out=base/f'p{args.order}_beta{args.beta:.8f}_cfl{args.safety:g}'
+    suffix=f'k{args.substeps}' if args.substeps else f'cfl{args.safety:g}'
+    out=base/f'p{args.order}_beta{args.beta:.8f}_{suffix}'
     out.mkdir(exist_ok=False)
     start=perf_counter()
     case=build_sem(load_frozen(mesh_path),args.order);mesh=case.mesh
-    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=args.safety,tact_dt=.001,kim_beta=args.beta,kim_gamma=.5)
+    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=args.safety if args.substeps is None else None,steps_count=1000*args.substeps if args.substeps else None,tacts_count=1000,kim_beta=args.beta,kim_gamma=.5)
     solver=SGSolver(config);model=SGModel(mesh,solver)
     edges=abc_edges(case)
     model.add_physics(SGPhysicsModel.from_entity_values('material',11000,mesh,1,np.arange(len(case.element_vp),dtype=np.int64),plane_strain_parameters(case.element_vp,case.element_vs)))
@@ -67,7 +69,7 @@ def main() -> None:
         checked_time(frame,event,float(times[count]));velocity[count]=frame.reshape(2,141).T;count+=1
     model.add_receiver(SGReceiverModel.from_positions('surface',mesh,0,ids,np.array([4,5],dtype=np.int32),begin_tact=0,end_tact=1000,stride=1,handler=handler))
     model.prepare();s=solver.spectrum;assert isinstance(s,SGSpectrumData)
-    report:dict[str,object]={'model':args.model,'order':args.order,'beta':args.beta,'gamma':.5,'safety':args.safety,'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,'lambda_max':s.lambda_max,'lambda_max_damping':s.lambda_max_damping,'mesh':file_record(mesh_path),'native':file_record(Path(_native.__file__)),'code':file_record(Path(__file__)),'alpha_max_s_inv':ALPHA_MAX_S_INV,'source_table_step_s':1e-6,'source_x_m':350.,'nodes':len(mesh.nodes_coords),'status':'prepared'}
+    report:dict[str,object]={'model':args.model,'order':args.order,'beta':args.beta,'gamma':.5,'safety':args.safety if args.substeps is None else None,'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,'lambda_max':s.lambda_max,'lambda_max_damping':s.lambda_max_damping,'mesh':file_record(mesh_path),'native':file_record(Path(_native.__file__)),'code':file_record(Path(__file__)),'alpha_max_s_inv':ALPHA_MAX_S_INV,'source_table_step_s':1e-6,'source_x_m':350.,'nodes':len(mesh.nodes_coords),'status':'prepared'}
     write_json(out/'started.json',report);print(args.model,args.order,args.beta,args.safety,s.steps_count,flush=True)
     run_start=perf_counter();run_result=cast(TimedResult,model.run(sync=True));end=perf_counter()
     assert int(run_result.code)==int(SGRunCodeEnum.TIME_END) and run_result.steps_count==s.steps_count and count==1001
