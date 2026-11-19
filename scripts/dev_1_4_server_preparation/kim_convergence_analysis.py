@@ -43,7 +43,8 @@ def metrics(a: Record,b: Record) -> dict[str,object]:
         for window,lo,hi in [('full',0.,1.),('early',0.,.5),('late',.5,1.)]:
             selected=(a.times>=lo)&(a.times<=hi)
             av=a.values[selected][:,mask];bv=b.values[selected][:,mask];d=av-bv
-            rows[f'{maskname}/{window}']={'relative_l2':float(np.linalg.norm(d))/max(float(np.linalg.norm(bv)),1e-300),
+            trace_relative=np.linalg.norm(d,axis=(0,2))/np.maximum(np.linalg.norm(bv,axis=(0,2)),1e-300)
+            rows[f'{maskname}/{window}']={'max_trace_relative_l2':float(trace_relative.max()),'max_trace_x_m':float(a.x[mask][np.argmax(trace_relative)]),'p95_trace_relative_l2':float(np.quantile(trace_relative,.95)),'relative_l2':float(np.linalg.norm(d))/max(float(np.linalg.norm(bv)),1e-300),
                 'component_relative_l2':[float(np.linalg.norm(d[:,:,i]))/max(float(np.linalg.norm(bv[:,:,i])),1e-300) for i in (0,1)],
                 'max_abs_difference':float(np.max(np.abs(d))),
                 'max_difference_over_reference_peak':float(np.max(np.abs(d)))/max(float(np.max(np.abs(bv))),1e-300),
