@@ -64,11 +64,11 @@ def analyze() -> None:
 
 
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--backend',choices=['tenzor','seismic']);p.add_argument('--frequency',type=int,default=15);p.add_argument('--label');p.add_argument('--dt',type=float);p.add_argument('--analyze',action='store_true');args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--backend',choices=['tenzor','seismic']);p.add_argument('--frequency',type=int,default=15);p.add_argument('--label');p.add_argument('--dt',type=float);p.add_argument('--profile',action='store_true');p.add_argument('--profile-root',type=Path);p.add_argument('--analyze',action='store_true');args=p.parse_args()
     if args.analyze: analyze();return
     if args.backend:
         assert args.label
-        execute(Spec(1400,700,'two_layer',args.frequency),output_root=OUT/args.label,backend=args.backend,explicit_dt=args.dt)
+        execute(Spec(1400,700,'two_layer',args.frequency),output_root=(args.profile_root or OUT)/args.label,backend=args.backend,explicit_dt=args.dt,profile_markers=args.profile)
         return
     space();OUT.mkdir(exist_ok=False)
     env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1')

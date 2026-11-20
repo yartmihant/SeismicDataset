@@ -1,6 +1,10 @@
 """Explicit isolated Saturn runs, full velocity fields and all top nodes."""
 from __future__ import annotations
 import argparse
+import ctypes
+import ctypes.util
+from contextlib import contextmanager
+from collections.abc import Iterator
 from dataclasses import asdict
 import os
 from pathlib import Path
@@ -29,12 +33,33 @@ from scripts.reporting import read_json
 FloatArray=NDArray[np.float64]
 
 
+@contextmanager
+def nvtx_stage(name: str, enabled: bool) -> Iterator[None]:
+    """Mark process time intervals for GPU-kernel attribution in Nsight Systems."""
+    if not enabled:
+        yield
+        return
+    library=os.environ.get('SEMGPU_PROFILE_NVTX_LIBRARY') or ctypes.util.find_library('nvToolsExt')
+    if library is None:
+        raise RuntimeError('NVTX library is required for profiling markers')
+    nvtx=ctypes.CDLL(library)
+    nvtx.nvtxRangePushA.argtypes=[ctypes.c_char_p]
+    nvtx.nvtxRangePushA.restype=ctypes.c_int
+    nvtx.nvtxRangePop.argtypes=[]
+    nvtx.nvtxRangePop.restype=ctypes.c_int
+    nvtx.nvtxRangePushA(name.encode())
+    try:
+        yield
+    finally:
+        nvtx.nvtxRangePop()
+
+
 def space(minimum_gib: int=40) -> None:
     if shutil.disk_usage(ROOT).free < minimum_gib*2**30:
         raise OSError(f'Required free disk reserve {minimum_gib} GiB')
 
 
-def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'tenzor', explicit_dt: float | None = None) -> None:
+def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'tenzor', explicit_dt: float | None = None, profile_markers: bool = False) -> None:
     space()
     out=output_root/spec.run_id;out.mkdir(parents=True,exist_ok=False)
     start=perf_counter()
@@ -98,7 +123,8 @@ def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'te
     model.add_receiver(SGReceiverModel.from_positions('surface',mesh,0,receivers,components,begin_tact=0,end_tact=1000,stride=1,handler=surface_handler))
     model.add_receiver(SGReceiverModel.from_positions('fields',mesh,0,ids,components,begin_tact=0,end_tact=1000,stride=50,handler=field_handler))
     prepare_start=perf_counter()
-    model.prepare()
+    with nvtx_stage("semgpu_prepare", profile_markers):
+        model.prepare()
     if backend == 'tenzor':
         s=solver.spectrum
         assert isinstance(s, SGSpectrumData)
@@ -108,14 +134,17 @@ def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'te
         assert isinstance(new_s, SeismicSpectrum)
         s=cast(SGSpectrumData, new_s)
     prepare_end=perf_counter()
-    meta:dict[str,object]={'spec':asdict(spec),'status':'prepared','geometry':geometry,'native':file_record(native_path),'backend':backend,'explicit_dt_s':explicit_dt,'assembly_seconds':prepare_start-start,'prepare_seconds':prepare_end-prepare_start,
+    meta:dict[str,object]={'spec':asdict(spec),'status':'prepared','geometry':geometry,'native':file_record(native_path),'backend':backend,'profile_markers':profile_markers,'explicit_dt_s':explicit_dt,'assembly_seconds':prepare_start-start,'prepare_seconds':prepare_end-prepare_start,
         'mesh':file_record(mesh_path),'code':file_record(Path(__file__)),'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,
         'source_node':int(source[0]),'source_x_m':spec.width/2,'source_t0_s':1.5/spec.frequency,'force_peak_n_per_m':1.,
         'alpha_max_s_inv':ALPHA,'kim_beta':1/27,'kim_gamma':.5,'cfl_safety':.8 if explicit_dt is None else None,'tact_dt_s':.001,
         'lambda_max':s.lambda_max,'lambda_max_damping':s.lambda_max_damping,'source_table_dt_s':1e-6,
         'surface_nodes':len(receivers),'field_nodes':len(coords),'frame_interval_s':.05,'surface_interval_s':.001}
     write(out/'started.json',meta);print('started',spec.run_id,'steps',s.steps_count,flush=True)
-    run_start=perf_counter();result=cast(TimedResult,model.run(sync=True));run_end=perf_counter()
+    run_start=perf_counter()
+    with nvtx_stage("semgpu_run", profile_markers):
+        result=cast(TimedResult,model.run(sync=True))
+    run_end=perf_counter()
     assert int(result.code)==int(SGRunCodeEnum.TIME_END) and result.steps_count==s.steps_count
     assert surface_count==1001 and field_count==21 and np.isfinite(surface).all()
     fields.flush()
