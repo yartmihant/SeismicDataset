@@ -8,7 +8,9 @@ import shutil
 import subprocess
 import sys
 from time import perf_counter
-from typing import cast
+from typing import TYPE_CHECKING, cast
+if TYPE_CHECKING:
+    from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_cu.solver import SGSolver as SeismicSolver
 import numpy as np
 from numpy.typing import NDArray
 from semgpu2.model.model import SGModel
@@ -32,16 +34,29 @@ def space(minimum_gib: int=40) -> None:
         raise OSError(f'Required free disk reserve {minimum_gib} GiB')
 
 
-def execute(spec: Spec) -> None:
+def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'tenzor', explicit_dt: float | None = None) -> None:
     space()
-    out=ROOT/'runs'/spec.run_id;out.mkdir(parents=True,exist_ok=False)
+    out=output_root/spec.run_id;out.mkdir(parents=True,exist_ok=False)
     start=perf_counter()
     mesh_path=ROOT/'meshes'/spec.mesh_id/'mesh_q2.npz'
     geometry=read_json(mesh_path.with_name('geometry.json'))
     case=build_sem(load_frozen(mesh_path),5);mesh=case.mesh;coords=mesh.nodes_coords
     assert len(coords)==geometry['sem_nodes']
-    config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=.8,tact_dt=.001,kim_beta=1/27,kim_gamma=.5)
-    solver=SGSolver(config);model=SGModel(mesh,solver)
+    model: SGModel[SGSolverConfig] | SGModel[SeismicConfig]
+    native_path = Path(_native.__file__)
+    if backend == 'tenzor':
+        config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=.8 if explicit_dt is None else None,step_dt=explicit_dt,tact_dt=.001,kim_beta=1/27,kim_gamma=.5)
+        solver=SGSolver(config)
+        model=SGModel(mesh,solver)
+    elif backend == 'seismic':
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_cu import _native as seismic_native
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_cu.constants import SGSolverConfig as SeismicConfig
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_cu.solver import SGSolver as SeismicSolver
+        new_solver=SeismicSolver(SeismicConfig(t_begin=0.,t_end=1.,cfl_safety=.8 if explicit_dt is None else None,step_dt=explicit_dt,tact_dt=.001,kim_beta=1/27,kim_gamma=.5))
+        model=SGModel(mesh,new_solver)
+        native_path=Path(seismic_native.__file__)
+    else:
+        raise ValueError(backend)
     model.add_physics(SGPhysicsModel.from_entity_values('material',11000,mesh,1,np.arange(len(case.element_vp),dtype=np.int64),plane_strain_parameters(case.element_vp,case.element_vs)))
     edge_nodes=mesh.strata[2].p_nodes.reshape(-1,6);boundary_coords=coords[edge_nodes]
     top=np.all(np.abs(boundary_coords[:,:,1])<1e-8,axis=1)
@@ -82,11 +97,21 @@ def execute(spec: Spec) -> None:
     components=np.array([4,5],dtype=np.int32)
     model.add_receiver(SGReceiverModel.from_positions('surface',mesh,0,receivers,components,begin_tact=0,end_tact=1000,stride=1,handler=surface_handler))
     model.add_receiver(SGReceiverModel.from_positions('fields',mesh,0,ids,components,begin_tact=0,end_tact=1000,stride=50,handler=field_handler))
-    model.prepare();s=solver.spectrum;assert isinstance(s,SGSpectrumData)
-    meta:dict[str,object]={'spec':asdict(spec),'status':'prepared','geometry':geometry,'native':file_record(Path(_native.__file__)),
+    prepare_start=perf_counter()
+    model.prepare()
+    if backend == 'tenzor':
+        s=solver.spectrum
+        assert isinstance(s, SGSpectrumData)
+    else:
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_cu.constants import SGSpectrumData as SeismicSpectrum
+        new_s=new_solver.spectrum
+        assert isinstance(new_s, SeismicSpectrum)
+        s=cast(SGSpectrumData, new_s)
+    prepare_end=perf_counter()
+    meta:dict[str,object]={'spec':asdict(spec),'status':'prepared','geometry':geometry,'native':file_record(native_path),'backend':backend,'explicit_dt_s':explicit_dt,'assembly_seconds':prepare_start-start,'prepare_seconds':prepare_end-prepare_start,
         'mesh':file_record(mesh_path),'code':file_record(Path(__file__)),'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,
         'source_node':int(source[0]),'source_x_m':spec.width/2,'source_t0_s':1.5/spec.frequency,'force_peak_n_per_m':1.,
-        'alpha_max_s_inv':ALPHA,'kim_beta':1/27,'kim_gamma':.5,'cfl_safety':.8,'tact_dt_s':.001,
+        'alpha_max_s_inv':ALPHA,'kim_beta':1/27,'kim_gamma':.5,'cfl_safety':.8 if explicit_dt is None else None,'tact_dt_s':.001,
         'lambda_max':s.lambda_max,'lambda_max_damping':s.lambda_max_damping,'source_table_dt_s':1e-6,
         'surface_nodes':len(receivers),'field_nodes':len(coords),'frame_interval_s':.05,'surface_interval_s':.001}
     write(out/'started.json',meta);print('started',spec.run_id,'steps',s.steps_count,flush=True)
