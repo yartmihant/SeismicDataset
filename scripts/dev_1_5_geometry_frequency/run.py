@@ -67,7 +67,7 @@ def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'te
     geometry=read_json(mesh_path.with_name('geometry.json'))
     case=build_sem(load_frozen(mesh_path),5);mesh=case.mesh;coords=mesh.nodes_coords
     assert len(coords)==geometry['sem_nodes']
-    model: SGModel[SGSolverConfig] | SGModel[SeismicConfig]
+    model: SGModel[SGSolverConfig] | SGModel[SeismicConfig] | SGModel[P5Config]
     native_path = Path(_native.__file__)
     if backend == 'tenzor':
         config=SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=.8 if explicit_dt is None else None,step_dt=explicit_dt,tact_dt=.001,kim_beta=1/27,kim_gamma=.5)
@@ -80,6 +80,13 @@ def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'te
         new_solver=SeismicSolver(SeismicConfig(t_begin=0.,t_end=1.,cfl_safety=.8 if explicit_dt is None else None,step_dt=explicit_dt,tact_dt=.001,kim_beta=1/27,kim_gamma=.5))
         model=SGModel(mesh,new_solver)
         native_path=Path(seismic_native.__file__)
+    elif backend == 'seismic_p5':
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_p5_cu import _native as p5_native
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_p5_cu.constants import SGSolverConfig as P5Config
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_p5_cu.solver import SGSolver as P5Solver
+        p5_solver=P5Solver(P5Config(t_begin=0.,t_end=1.,cfl_safety=.8 if explicit_dt is None else None,step_dt=explicit_dt,tact_dt=.001,kim_beta=1/27,kim_gamma=.5))
+        model=SGModel(mesh,p5_solver)
+        native_path=Path(p5_native.__file__)
     else:
         raise ValueError(backend)
     model.add_physics(SGPhysicsModel.from_entity_values('material',11000,mesh,1,np.arange(len(case.element_vp),dtype=np.int64),plane_strain_parameters(case.element_vp,case.element_vs)))
@@ -128,11 +135,16 @@ def execute(spec: Spec, *, output_root: Path = ROOT / 'runs', backend: str = 'te
     if backend == 'tenzor':
         s=solver.spectrum
         assert isinstance(s, SGSpectrumData)
-    else:
+    elif backend == 'seismic':
         from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_cu.constants import SGSpectrumData as SeismicSpectrum
         new_s=new_solver.spectrum
         assert isinstance(new_s, SeismicSpectrum)
         s=cast(SGSpectrumData, new_s)
+    else:
+        from semgpu2.solvers.lin_elast_2d_seismic_newmark_kim_p5_cu.constants import SGSpectrumData as P5Spectrum
+        p5_s=p5_solver.spectrum
+        assert isinstance(p5_s,P5Spectrum)
+        s=cast(SGSpectrumData,p5_s)
     prepare_end=perf_counter()
     meta:dict[str,object]={'spec':asdict(spec),'status':'prepared','geometry':geometry,'native':file_record(native_path),'backend':backend,'profile_markers':profile_markers,'explicit_dt_s':explicit_dt,'assembly_seconds':prepare_start-start,'prepare_seconds':prepare_end-prepare_start,
         'mesh':file_record(mesh_path),'code':file_record(Path(__file__)),'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,
