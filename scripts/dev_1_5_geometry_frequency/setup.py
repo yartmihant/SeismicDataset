@@ -7,6 +7,8 @@ import argparse
 import json
 import numpy as np
 from numpy.typing import NDArray
+from semgpu2.model.mesh import SGMeshModel
+from semgpu2.model.physics import SGPhysicsModel
 from scripts.dev_1_3_point_source.mesh import FrozenMesh, structured_cells, save_frozen
 from scripts.dev_1_4_server_preparation.model_input import read_model
 from scripts.project_paths import PROJECT_ROOT
@@ -94,6 +96,17 @@ def damping(coords: FloatArray,width: int,height: int) -> FloatArray:
     sx=np.maximum.reduce((-x,x-width,np.zeros_like(x)))/175
     sy=np.maximum(-y-height,0)/175
     return ALPHA*(sx*sx+sy*sy)
+
+
+def build_damping(frozen: FrozenMesh, mesh: SGMeshModel, width: int, height: int) -> SGPhysicsModel:
+    """Assign nodal damping to the union of the side and bottom padding cells."""
+    center_x, center_y = frozen.nodes[frozen.cells[:, 4]].T
+    in_padding = (center_x < 0) | (center_x > width) | (center_y < -height)
+    # build_sem preserves Q2 cell order and shares GLL node IDs across edges.
+    cell_nodes = mesh.strata[1].p_nodes.reshape(len(frozen.cells), -1)
+    nodes = np.unique(cell_nodes[in_padding])
+    alpha = damping(mesh.nodes_coords[nodes], width, height)
+    return SGPhysicsModel('damping', 30001, mesh, 0, nodes, alpha[:, None])
 
 
 def prepare() -> None:
