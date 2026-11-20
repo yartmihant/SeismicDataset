@@ -79,7 +79,7 @@ def render(spec: Spec) -> None:
         ax.set(xlabel='x, м',ylabel='y, м',title=('Vx' if c==0 else 'Vy')+', м/с')
         fig.colorbar(artists[-1],ax=ax,shrink=.75,label='м/с, знаковая логарифмическая шкала')
     title=fig.suptitle('')
-    writer=FFMpegWriter(fps=5,codec='libx264',extra_args=['-crf','20','-pix_fmt','yuv420p'])
+    writer=FFMpegWriter(fps=5,codec='libx264',extra_args=['-crf','20','-pix_fmt','yuv420p','-threads','2'])
     with writer.saving(fig,str(target/'velocity.mp4'),dpi=110):
         for i,frame in enumerate(fields):
             values=raster(frame)
