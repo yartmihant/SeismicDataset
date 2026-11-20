@@ -26,7 +26,11 @@ FloatArray=NDArray[np.float64]
 Scale = Literal["symlog", "linear"]
 
 
-def image_root(scale: Scale) -> Path:
+def image_root(scale: Scale, limit: float | None = None) -> Path:
+    if limit is not None:
+        if scale != "linear" or not np.isfinite(limit) or limit <= 0:
+            raise ValueError("A positive finite limit requires linear scale")
+        return IMAGES.parent / f"linear_limit_{limit:g}_v1"
     return IMAGES if scale == "symlog" else IMAGES.parent / "linear_v1"
 
 
@@ -56,7 +60,7 @@ def verify(path: Path, meta: dict[str,object]) -> None:
     assert file_record(path)['sha256']==meta['sha256'],path
 
 
-def render(spec: Spec, scale: Scale = "symlog") -> None:
+def render(spec: Spec, scale: Scale = "symlog", limit: float | None = None) -> None:
     encoder = shutil.which('ffmpeg')
     if encoder is None:
         binaries = list((PROJECT_ROOT / '.runtime_ch15_ffmpeg/imageio_ffmpeg/binaries').glob('ffmpeg-*'))
@@ -66,7 +70,7 @@ def render(spec: Spec, scale: Scale = "symlog") -> None:
     matplotlib.rcParams['animation.ffmpeg_path'] = encoder
     base=ROOT/'runs'/spec.run_id
     meta=read_json(base/'result.json');summary=read_json(ROOT/'summary.json')
-    target=image_root(scale)/spec.run_id;target.mkdir(parents=True,exist_ok=False)
+    target=image_root(scale,limit)/spec.run_id;target.mkdir(parents=True,exist_ok=False)
     for name,key in (('nodes.npy','nodes'),('velocity.npy','fields'),('surface.npz','surface')):verify(base/name,mapping(meta[key]))
     coords=np.load(base/'nodes.npy',mmap_mode='r');fields=np.load(base/'velocity.npy',mmap_mode='r')
     rounded=np.round(coords,8);xs=np.unique(rounded[:,0]);ys=np.unique(rounded[:,1]);sort=np.lexsort((rounded[:,0],rounded[:,1]))
@@ -82,7 +86,8 @@ def render(spec: Spec, scale: Scale = "symlog") -> None:
         high=v[iy[:,None]+1,ix[None,:]]*(1-wx)[None,:,None]+v[iy[:,None]+1,ix[None,:]+1]*wx[None,:,None]
         return low*(1-wy)[:,None,None]+high*wy[:,None,None]
     peaks=np.asarray(summary['global_field_peaks_m_s'],dtype=np.float64)
-    norms=[normalization(float(p),scale) for p in peaks]
+    display_peaks=peaks if limit is None else np.full(2,limit)
+    norms=[normalization(float(p),scale) for p in display_peaks]
     fig,axes=plt.subplots(1,2,figsize=(14,5.6),layout='constrained')
     shown=raster(fields[0]);artists=[]
     depths=np.asarray(mapping(meta['geometry'])['depths_m'],dtype=np.float64)
@@ -93,7 +98,7 @@ def render(spec: Spec, scale: Scale = "symlog") -> None:
         for d in depths[1:-1]:ax.axhline(-d,color='k',lw=.5,alpha=.4)
         ax.plot(spec.width/2,0,'kv',ms=5,clip_on=False)
         ax.set(xlabel='x, м',ylabel='y, м',title=('Vx' if c==0 else 'Vy')+', м/с')
-        fig.colorbar(artists[-1],ax=ax,shrink=.75,label=scale_label(scale))
+        fig.colorbar(artists[-1],ax=ax,shrink=.75,label=scale_label(scale),extend='both' if limit is not None else 'neither')
     title=fig.suptitle('')
     writer=FFMpegWriter(fps=5,codec='libx264',extra_args=['-crf','20','-pix_fmt','yuv420p','-threads','2'])
     with writer.saving(fig,str(target/'velocity.mp4'),dpi=110):
@@ -107,45 +112,53 @@ def render(spec: Spec, scale: Scale = "symlog") -> None:
     with np.load(base/'surface.npz') as z:
         times=z['time_s'];rx=z['coordinates_m'][:,0];velocity=z['velocity_m_s']
     surface_peaks=np.asarray(summary['global_surface_peaks_m_s'],dtype=np.float64)
+    display_surface_peaks=surface_peaks if limit is None else np.full(2,limit)
     fig,axes=plt.subplots(1,2,figsize=(14,7),layout='constrained')
     for c,ax in enumerate(axes):
-        norm=normalization(float(surface_peaks[c]),scale)
+        norm=normalization(float(display_surface_peaks[c]),scale)
         artist=ax.pcolormesh(rx,times,velocity[:,:,c],shading='nearest',cmap='RdBu_r',norm=norm,rasterized=True)
         ax.invert_yaxis()
         for x in (0,spec.width):ax.axvline(x,color='k',ls='--',lw=.8)
         ax.set(xlabel='x приёмника, м',ylabel='t, с',title=('Vx' if c==0 else 'Vy')+', м/с')
-        fig.colorbar(artist,ax=ax,shrink=.8,label=scale_label(scale))
+        fig.colorbar(artist,ax=ax,shrink=.8,label=scale_label(scale),extend='both' if limit is not None else 'neither')
     fig.suptitle(f'{NAMES[spec.material]} · {spec.width}×{spec.height} м · {spec.frequency} Гц\nВсе {len(rx)} узлов свободного верха, включая слой · 1001 отсчёт через 0,001 с')
     fig.savefig(target/'seismogram.png',dpi=140);plt.close(fig)
     write(target/'render.json',{'spec':asdict(spec),'frames':21,'fps':5,'source':meta['fields'],'all_input_sha_verified':True,
         'video':file_record(target/'velocity.mp4'),'seismogram':file_record(target/'seismogram.png'),'field_raster':[len(gx),len(gy)],
         'global_field_peaks_m_s':peaks.tolist(),'global_surface_peaks_m_s':surface_peaks.tolist(),
         'ffmpeg':file_record(Path(encoder)), 'scale':scale, 'sign_preserved':True,
-        'normalization_scope':'fixed global per component; separate field and surface peaks; same limits as original symlog series'})
+        'requested_limit_m_s':limit,'display_field_limits_m_s':[[-float(p),float(p)] for p in display_peaks],
+        'display_surface_limits_m_s':[[-float(p),float(p)] for p in display_surface_peaks],
+        'outside_display_range':'saturated at endpoint colors; original data unchanged',
+        'normalization_scope':'fixed for all models and frames; explicit common limit when requested'})
     print('rendered',spec.run_id,flush=True)
 
 
-def gallery(scale: Scale = "symlog") -> None:
+def gallery(scale: Scale = "symlog", limit: float | None = None) -> None:
     summary=read_json(ROOT/'summary.json');rows=[]
     for spec in specs():
-        target=image_root(scale)/spec.run_id;meta=read_json(target/'render.json');assert meta['frames']==21
+        target=image_root(scale,limit)/spec.run_id;meta=read_json(target/'render.json');assert meta['frames']==21
         rows.append(f'<article><h2>{html.escape(NAMES[spec.material])} · {spec.width}×{spec.height} м · {spec.frequency} Гц</h2><video controls preload="none" poster="{spec.run_id}/frame_0.25.png" src="{spec.run_id}/velocity.mp4"></video><p><a href="{spec.run_id}/velocity.mp4">MP4: Vx и Vy</a> · <a href="{spec.run_id}/seismogram.png">Сейсмограмма Vx и Vy</a></p><a href="{spec.run_id}/seismogram.png"><img loading="lazy" src="{spec.run_id}/seismogram.png"></a></article>')
     content='<!doctype html><html lang="ru"><meta charset="utf-8"><title>Глава 1.5 — 30 опытов</title><style>body{font:16px system-ui;background:#f2f4f7;color:#17212b;max-width:1500px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(450px,1fr));gap:24px}article{background:white;padding:18px;border-radius:12px}video,img{width:100%}h2{font-size:19px}a{color:#1263a1}</style><h1>Глава 1.5: геометрия, частота и слоистость</h1><p>30 опытов · p5 · h≈5 м · 1 с · β=1/27 · CFL=0,8. Центральная точечная сила Рикера вниз, 1 Н/м. Слой175 м, квадратичный k=0,5, ABC на внешних боках и дне; верх свободный.</p><p>Анимации: 21 кадр через 0,05 с, воспроизведение 5 кадр/с (замедление 4×). Сейсмограммы: все узлы GLL верха, включая слой, через 0,001 с. Общие фиксированные знаковые SymLog-шкалы для всех опытов, отдельно для Vx/Vy и полей/сейсмограмм. Пунктир — начало слоя, тонкие линии — границы материалов. В поле выполнена только визуальная билинейная интерполяция; исходные поля сохранены во всех узлах.</p><main>'+''.join(rows)+'</main></html>'
     if scale == 'linear':
         content=content.replace('Общие фиксированные знаковые SymLog-шкалы', 'Общие фиксированные линейные шкалы в м/с; знак Vx и Vy сохранён. Пределы совпадают с логарифмической версией. Шкалы')
         content=content.replace('<h1>Глава 1.5:', '<h1>Линейная шкала · Глава 1.5:')
         content=content.replace('<main>', '<p><a href="../series_v1/index.html">Открыть исходную логарифмическую версию</a></p><main>')
-    (image_root(scale)/'index.html').write_text(content)
-    print('gallery',summary['count'],image_root(scale)/'index.html',flush=True)
+    if limit is not None:
+        content=content.replace('Пределы совпадают с логарифмической версией.',f'Одинаковый диапазон для Vx и Vy, полей и сейсмограмм: −{limit:g}…+{limit:g} м/с. Значения за пределами диапазона показаны крайними цветами; исходные данные не обрезаны.')
+        content=content.replace('Линейная шкала ·', f'Линейная шкала ±{limit:g} м/с ·')
+        content=content.replace('<main>', '<p><a href="../linear_v1/index.html">Прежняя линейная версия с полным диапазоном</a></p><main>')
+    (image_root(scale,limit)/'index.html').write_text(content)
+    print('gallery',summary['count'],image_root(scale,limit)/'index.html',flush=True)
 
 
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('action',choices=('scales','render','gallery'));p.add_argument('--index',type=int);p.add_argument('--scale',choices=('symlog','linear'),default='symlog');args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('action',choices=('scales','render','gallery'));p.add_argument('--index',type=int);p.add_argument('--scale',choices=('symlog','linear'),default='symlog');p.add_argument('--limit',type=float);args=p.parse_args()
     if args.action=='scales':scales()
-    elif args.action=='gallery':gallery(args.scale)
+    elif args.action=='gallery':gallery(args.scale,args.limit)
     else:
         if args.index is None:raise ValueError('Need --index')
-        render(specs()[args.index],args.scale)
+        render(specs()[args.index],args.scale,args.limit)
 
 
 if __name__=='__main__':main()
