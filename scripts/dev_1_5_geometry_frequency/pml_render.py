@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');args=parser.parse_args()
+    if args.thickness_review:review_thickness();return
     if args.thickness:render_thickness();return
     OUT.mkdir(parents=True,exist_ok=False)
     for order in (4,5):movies(order);figures(order)
@@ -252,6 +253,20 @@ def render_thickness() -> None:
     (THICK_OUT/'index.html').write_text(page)
     write(THICK_OUT/'render.json',{'status':'completed','files':{p.name:file_record(p) for p in THICK_OUT.iterdir() if p.is_file()},'frames_per_movie':21,'fps':5,'movie_count':6,'source_metrics':file_record(THICK_ROOT/'analysis/metrics.json')})
     print('THICKNESS RENDER COMPLETED',flush=True)
+
+
+def review_thickness() -> None:
+    notes:dict[str,object]={}
+    for order in (4,5):
+        with np.load(THICK_ROOT/'analysis'/f'p{order}_curves.npz') as z:
+            values=z['L100_full_peak']
+            notes[f'p{order}']={'peak_t060_m_s':float(values[12]),'peak_t100_m_s':float(values[-1]),'growth_ratio_060_to_100':float(values[-1]/values[12]),'monotone_060_to_100':bool(np.all(np.diff(values[12:])>0))}
+    p5=mapping(notes['p5'])
+    notice=f'<aside style="border:2px solid #b06920;padding:16px;background:#fff8e8"><b>Уточнение по100 м: хороший результат за1 с ещё не означает устойчивость.</b><p>У100 м с усиленным профилем максимум полного поля при p5 монотонно растёт от {number(p5["peak_t060_m_s"]):.3e} м/с в0,6 с до {number(p5["peak_t100_m_s"]):.3e} м/с в1 с. Такой же тренд есть у p4. Порог грубого роста РОСТ в таблице здесь ещё не превышен, но поздний рост уже наблюдается. Для производственной замены175 м этот вариант пока не подтверждён. Слой100 м экономит около23% времени p5 и даёт в2,07 раза большую позднюю ошибку, но требует дополнительной проверки профиля и устойчивости.</p><p>При50 м и тоньше с усилением рост уже сильный; dt/2 на10 м его не устраняет. При прежнем dmax173,09 с⁻¹ тонкие варианты обходятся без сильного роста за1 с, но отражают значительно больше. Причина неустойчивости реализации и оптимальная амплитуда этим сравнением не установлены.</p></aside>'
+    source=THICK_OUT/'index.html';page=source.read_text();anchor='<h1>Толщина PML: качество и стоимость</h1>';assert anchor in page
+    target=THICK_OUT/'reviewed.html'
+    with target.open('x') as f:f.write(page.replace(anchor,anchor+notice,1))
+    write(THICK_OUT/'reviewed.json',{'status':'completed','source':file_record(source),'reviewed':file_record(target),'late_growth_L100':notes,'note':'Original rendering preserved; review adds observed weak late growth below the gross-growth threshold.'})
 
 
 if __name__=='__main__':main()
