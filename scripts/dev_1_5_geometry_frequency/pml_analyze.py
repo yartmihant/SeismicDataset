@@ -199,6 +199,13 @@ def analyze_layered() -> None:
     physical_metrics:dict[str,object]={}
     for band,active in bands.items():
         physical_metrics[band]={win:norms(physical,active,(t>=a)&(t<=b)).tolist() for win,(a,b) in windows.items()}
+    pp_windows:dict[str,object]={};pp_masks=[]
+    central=offset<=200
+    for bounce in range(1,6):
+        arrivals=.05+np.sqrt((700*bounce)**2+offset[central]**2)/4087
+        mask_pp=np.abs(t[:,None]-arrivals[None,:])<=.02
+        pp_masks.append(mask_pp)
+        pp_windows[str(bounce)]={'central_arrival_s':.05+700*bounce/4087,'half_width_s':.02,'physical_peak_vy_m_s':float(np.max(np.abs(physical[:,central,1][mask_pp])))}
     records:dict[str,object]={};verified=[]
     for label,spec in CASES.items():
         base=root/label;meta=read_json(base/'result.json')
@@ -227,11 +234,15 @@ def analyze_layered() -> None:
         strong=bool(pa[10:].max()>10*refpeak)
         late_growth=bool(np.all(np.diff(pmla[12:])>0) and pmla[-1]>2*pmla[12])
         allratio=np.asarray(mapping(ratios['all'])['full'],dtype=float)
+        pp_ratios:dict[str,object]={}
+        for bounce,mask_pp in enumerate(pp_masks,1):
+            pp_denom=number(mapping(pp_windows[str(bounce)])['physical_peak_vy_m_s'])
+            pp_ratios[str(bounce)]={'matched_peak_ratio':float(np.max(np.abs(error[:,central,1][mask_pp]))/pp_denom),'full_time_peak_ratio':float(np.max(np.abs(error[:,central,1]))/pp_denom)}
         curves[label+'_error']=error;curves[label+'_full_peak']=pa;curves[label+'_pml_peak']=pmla;curves[label+'_core_error_peak']=np.array(core_error)
         curves[label+'_surface_error_envelope']=np.max(abs(error),axis=1)
-        records[label]={'thickness_m':spec.thickness,'rows':spec.thickness//5,'run_seconds':meta['run_seconds'],'dmax_s_inv':meta['dmax_or_alpha_s_inv'],'ratios_error_to_physical':ratios,'error_norms':errors,'strong_growth':strong,'monotone_late_pml_growth':late_growth,'pml_peak_060_m_s':float(pmla[12]),'pml_peak_100_m_s':float(pmla[-1]),'late_full_peak_m_s':float(pa[10:].max()),'passes_100x_global_l2_and_peak':bool(np.all(allratio[:2]<=.01) and not strong and not late_growth),'early_relative_l2':float(np.linalg.norm(error[early])/np.linalg.norm(ref[early]))}
+        records[label]={'thickness_m':spec.thickness,'rows':spec.thickness//5,'run_seconds':meta['run_seconds'],'dmax_s_inv':meta['dmax_or_alpha_s_inv'],'ratios_error_to_physical':ratios,'central_pp_window_ratios':pp_ratios,'error_norms':errors,'strong_growth':strong,'monotone_late_pml_growth':late_growth,'pml_peak_060_m_s':float(pmla[12]),'pml_peak_100_m_s':float(pmla[-1]),'late_full_peak_m_s':float(pa[10:].max()),'passes_100x_global_l2_and_peak':bool(np.all(allratio[:2]<=.01) and not strong and not late_growth),'early_relative_l2':float(np.linalg.norm(error[early])/np.linalg.norm(ref[early]))}
     np.savez_compressed(out/'curves.npz',allow_pickle=False,**curves)
-    write(out/'metrics.json',{'status':'completed','cases':records,'physical_reflection_norms':physical_metrics,'norm_order':['weighted_L2','peak_both','peak_Vx','peak_Vy'],'bands':'all x0..1400; inner offset<=400; outer offset>400; central offset<=200','windows':windows,'reference_interface_y_m':-350,'control_return_lower_bound_s':5700/4087,'physical_definition':'extended layered minus extended homogeneous; all interface-induced response including mode conversion and multiples, not individual pure phases','error_definition':'candidate minus extended layered; includes PML entrance, PML interior, outer boundary and numerical growth, not solely outer boundary','primary_criterion':'full-time/all-physical-top error/physical reflected response <=0.01 for weighted L2 and peak; reject strong or monotonic late PML growth. Echo windows and components additionally reported.','verified_runs':verified,'native_sha256':native,'dt_s':refmeta['dt_s'],'limitations':'1 s, central source30Hz, p5/h5; finite-domain numerical control not analytical exact solution; no long-time stability proof'})
+    write(out/'metrics.json',{'status':'completed','cases':records,'physical_reflection_norms':physical_metrics,'central_pp_windows':pp_windows,'central_pp_note':'Vy, offset<=200m, +/-20ms around geometric n*PP arrivals; windows can include other phases, not a pure-mode decomposition. Matched ratio and worst full-time error relative to each window peak are both reported.','norm_order':['weighted_L2','peak_both','peak_Vx','peak_Vy'],'bands':'all x0..1400; inner offset<=400; outer offset>400; central offset<=200','windows':windows,'reference_interface_y_m':-350,'control_return_lower_bound_s':5700/4087,'physical_definition':'extended layered minus extended homogeneous; all interface-induced response including mode conversion and multiples, not individual pure phases','error_definition':'candidate minus extended layered; includes PML entrance, PML interior, outer boundary and numerical growth, not solely outer boundary','primary_criterion':'full-time/all-physical-top error/physical reflected response <=0.01 for weighted L2 and peak; reject strong or monotonic late PML growth. Echo windows and components additionally reported.','verified_runs':verified,'native_sha256':native,'dt_s':refmeta['dt_s'],'limitations':'1 s, central source30Hz, p5/h5; finite-domain numerical control not analytical exact solution; no long-time stability proof'})
     print('LAYERED ANALYSIS COMPLETED',flush=True)
 
 

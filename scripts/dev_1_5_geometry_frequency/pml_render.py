@@ -276,19 +276,23 @@ def render_layered() -> None:
     metrics=read_json(root/'analysis/metrics.json');cases=mapping(metrics['cases'])
     with np.load(root/'analysis/curves.npz') as z:data={k:z[k] for k in z.files}
     t=data['time_s'];x=data['x_m'];physical=data['physical'];ft=data['field_time_s']
-    labels=[label for label in cases if label.startswith('L')]
+    labels=[label for label in cases if label.startswith(('L','F'))]
     fig,axes=plt.subplots(1,3,figsize=(17,5),layout='constrained')
     ds=[];l2=[];pk=[];times=[]
     for label in labels:
         row=mapping(cases[label]);ds.append(number(row['thickness_m']));rat=np.asarray(mapping(mapping(row['ratios_error_to_physical'])['all'])['full'],dtype=float)
         l2.append(rat[0]);pk.append(rat[1]);times.append(number(row['run_seconds']))
-        if row['strong_growth'] or row['monotone_late_pml_growth']:
+        if row['monotone_late_pml_growth'] and not row['strong_growth']:
             axes[0].scatter(ds[-1],l2[-1],marker='x',c='red',s=90,zorder=5);axes[1].scatter(ds[-1],pk[-1],marker='x',c='red',s=90,zorder=5)
-    axes[0].semilogy(ds,l2,'o-');axes[1].semilogy(ds,pk,'o-');axes[2].plot(ds,times,'o-')
+    visible=np.array([not mapping(cases[label])['strong_growth'] for label in labels])
+    for family,title in [('L','L: постоянный интеграл'),('F','F: постоянный максимум')]:
+        family_mask=np.array([label.startswith(family) for label in labels]);good=visible&family_mask
+        axes[0].semilogy(np.array(ds)[good],np.array(l2)[good],'o-',label=title);axes[1].semilogy(np.array(ds)[good],np.array(pk)[good],'o-',label=title);axes[2].plot(np.array(ds)[family_mask],np.array(times)[family_mask],'o-',label=title)
+    axes[2].legend(fontsize=8)
     for ax,title in zip(axes,['L2 ошибки / L2 отражений интерфейса','Пик ошибки / пик отражений интерфейса','Время интегрирования, с']):
         ax.set(xlabel='Толщина PML, м',title=title);ax.grid(alpha=.3)
     for ax in axes[:2]:ax.axhline(.01,color='green',ls='--',label='100× слабее');ax.axhline(.001,color='gray',ls=':',label='1000× слабее');ax.legend()
-    fig.suptitle('p5, h5 м, двухслойная1400×700 м,30 Гц; красный × — наблюдаемый рост PML')
+    fig.suptitle('p5, h5 м, двухслойная1400×700 м,30 Гц; красный × — поздний рост; сильный рост исключён из графиков ошибки')
     fig.savefig(out/'tradeoff.png',dpi=150);plt.close(fig)
     fig,axes=plt.subplots(1,2,figsize=(14,5),layout='constrained')
     for label in labels:
@@ -299,7 +303,7 @@ def render_layered() -> None:
     for ax,title in zip(axes,['Полный пик внутри PML','Поверхность: ошибка и отражения интерфейса']):ax.set(xlabel='Время, с',ylabel='м/с',title=title,ylim=(1e-16,None));ax.grid(alpha=.3);ax.legend(ncol=2,fontsize=8)
     fig.savefig(out/'decay.png',dpi=150);plt.close(fig)
     # Same linear color scale: magnify boundary errors 100 times to visualize the criterion.
-    show=['physical']+[label for label in ('L50','L100','L150','L175','L250','L350') if label in cases]
+    show=['physical']+[label for label in ('L100','L175','L350','F350','F500','F700') if label in cases]
     fig,axes=plt.subplots(len(show),2,figsize=(14,3*len(show)),layout='constrained')
     limit=float(abs(physical).max())
     for i,label in enumerate(show):
@@ -314,16 +318,26 @@ def render_layered() -> None:
         j=int(np.argmin(abs(x-target)))
         for c,component in enumerate(('Vx','Vy')):
             ax=axes[i,c];ax.plot(t,physical[:,j,c],color='black',label='Отражения интерфейса')
-            for label in ('L100','L175','L350'):
+            for label in ('L175','F350','F700'):
                 ax.plot(t,100*data[label+'_error'][:,j,c],label=f'{label}, ошибка ×100',alpha=.75)
             ax.set(title=f'{component}, x={x[j]:.1f} м',xlabel='Время, с',ylabel='м/с');ax.grid(alpha=.25);ax.legend(fontsize=8)
     fig.savefig(out/'traces.png',dpi=150);plt.close(fig)
+    fig,axes=plt.subplots(5,1,figsize=(12,14),layout='constrained')
+    j=int(np.argmin(abs(x-700)))
+    for bounce,ax in enumerate(axes,1):
+        center=.05+700*bounce/4087;mask=(t>=center-.02)&(t<=center+.02)
+        denom=float(abs(physical[mask,j,1]).max())
+        ax.plot(t[mask],physical[mask,j,1]/denom,color='black',lw=2,label='Вклад интерфейса / пик окна')
+        for label in ('L175','F350','F700'):
+            ax.plot(t[mask],100*data[label+'_error'][mask,j,1]/denom,label=f'{label}, ошибка ×100 / пик окна')
+        ax.set(title=f'Vy в центре, окно около PP{bounce}; пик интерфейса {denom:.3e} м/с',xlabel='Время, с',ylabel='Относительная амплитуда',ylim=(-1.2,1.2));ax.grid(alpha=.3);ax.legend(fontsize=8)
+    fig.savefig(out/'echo_windows.png',dpi=150);plt.close(fig)
     rows=[]
     for label,value in cases.items():
         row=mapping(value);rat=np.asarray(mapping(mapping(row['ratios_error_to_physical'])['all'])['full'],dtype=float)
         growth='сильный' if row['strong_growth'] else 'поздний монотонный' if row['monotone_late_pml_growth'] else 'не выявлен этим критерием'
         rows.append(f'<tr><td>{label}</td><td>{number(row["thickness_m"]):g}</td><td>{rat[0]:.5g}</td><td>{rat[1]:.5g}</td><td>{number(row["run_seconds"]):.2f}</td><td>{growth}</td><td>{"да" if row["passes_100x_global_l2_and_peak"] else "нет"}</td></tr>')
-    page='''<!doctype html><html lang="ru"><meta charset="utf-8"><title>Двухслойная модель: толщина PML</title><style>body{font:16px system-ui;max-width:1400px;margin:30px auto;padding:0 24px}img{max-width:100%}td,th{padding:10px;border-bottom:1px solid #ddd;text-align:right}table{border-collapse:collapse;width:100%}</style><h1>Толщина PML относительно физических отражений</h1><p>Новая версия seismic с кэшированием коэффициентов. Только p5/h5 м, центральный Рикер30 Гц,1 Н/м,1 с, β=1/27. Основная область1400×700 м, интерфейс y=−350 м; Vp4087/3963, Vs2431,62036/2357,84473 м/с, плотность1000 кг/м³. Квадратичный PML, dmax=173,088611·175/L, внешний ABC, свободный верх. Общий dt=1/53000 с.</p><p>Физическое отражённое поле = расширенная двухслойная модель минус расширенная однородная. Это весь вклад интерфейса, включая конверсию и кратные волны, а не разложение на чистые фазы. Ошибка = кандидат минус расширенная двухслойная модель: сюда входят отражения от входа/внешнего края PML и возможный численный рост. Контроль6400×3200 м, интерфейс не масштабируется; геометрический возврат внешнего края позже1,39 с.</p><p>Основной критерий: ошибка как минимум в100 раз слабее физического отражённого поля по общей взвешенной L2 и пику за0–1 с на x0…1400. Компоненты, пространственные полосы и отдельные временные окна сохранены в JSON. Красные отметки означают рост полного поля: хорошей поверхностной метрики недостаточно. Отсутствие флага не доказывает длительную устойчивость.</p><table><tr><th>Вариант</th><th>L, м</th><th>L2 ошибки / отражений</th><th>Пик ошибки / отражений</th><th>run, с</th><th>Рост PML</th><th>Критерий100×</th></tr>'''+''.join(rows)+'''</table><img src="tradeoff.png"><img src="decay.png"><h2>Линейные сейсмограммы</h2><p>Для сравнения с порогом100× ошибки усилены ровно в100 раз; шкала у всех панелей общая. Превышения насыщают цвет. Это диагностическое усиление, исходные массивы не изменены.</p><img src="seismograms.png"><img src="traces.png"><p><a href="../../../data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json">Полные численные метрики</a></p></html>'''
+    page='''<!doctype html><html lang="ru"><meta charset="utf-8"><title>Двухслойная модель: толщина PML</title><style>body{font:16px system-ui;max-width:1400px;margin:30px auto;padding:0 24px}img{max-width:100%}td,th{padding:10px;border-bottom:1px solid #ddd;text-align:right}table{border-collapse:collapse;width:100%}</style><h1>Толщина PML относительно физических отражений</h1><p>Новая версия seismic с кэшированием коэффициентов. Только p5/h5 м, центральный Рикер30 Гц,1 Н/м,1 с, β=1/27. Основная область1400×700 м, интерфейс y=−350 м; Vp4087/3963, Vs2431,62036/2357,84473 м/с, плотность1000 кг/м³. Квадратичный PML: варианты L имеют dmax=173,088611·175/L, варианты F — фиксированный максимум173,088611 с⁻¹; внешний ABC, свободный верх. Общий dt=1/53000 с.</p><p>Физическое отражённое поле = расширенная двухслойная модель минус расширенная однородная. Это весь вклад интерфейса, включая конверсию и кратные волны, а не разложение на чистые фазы. Ошибка = кандидат минус расширенная двухслойная модель: сюда входят отражения от входа/внешнего края PML и возможный численный рост. Контроль6400×3200 м, интерфейс не масштабируется; геометрический возврат внешнего края позже1,39 с.</p><p>Основной критерий: ошибка как минимум в100 раз слабее физического отражённого поля по общей взвешенной L2 и пику за0–1 с на x0…1400. Компоненты, пространственные полосы, отдельные временные окна и окна около пяти кратных PP-приходов сохранены в JSON. Критерий общей нормы не гарантирует100× относительно каждой слабой кратной волны; это отдельно видно на последних графиках. Красные отметки означают поздний рост полного поля: хорошей поверхностной метрики недостаточно. Сильный рост исключён из графиков качества, но сохранён в таблице и диагностике полного поля. Отсутствие флага не доказывает длительную устойчивость.</p><table><tr><th>Вариант</th><th>L, м</th><th>L2 ошибки / отражений</th><th>Пик ошибки / отражений</th><th>run, с</th><th>Рост PML</th><th>Критерий100×</th></tr>'''+''.join(rows)+'''</table><img src="tradeoff.png"><img src="decay.png"><h2>Линейные сейсмограммы</h2><p>Для сравнения с порогом100× ошибки усилены ровно в100 раз; шкала у всех панелей общая. Превышения насыщают цвет. Это диагностическое усиление, исходные массивы не изменены.</p><img src="seismograms.png"><img src="traces.png"><h2>Слабые последующие отражения</h2><p>Окна ±20 мс около геометрических кратных PP-приходов на центральной трассе. Возможна смесь фаз. Каждое окно нормировано на собственный пик физического вклада; ошибка усилена100×. Кривые вне ±1,2 обрезаны: они не выполняют показанный порог.</p><img src="echo_windows.png"><p><a href="../../../data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json">Полные численные метрики</a></p></html>'''
     (out/'index.html').write_text(page)
     write(out/'render.json',{'status':'completed','source':file_record(root/'analysis/metrics.json'),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
     print('LAYERED RENDER COMPLETED',flush=True)

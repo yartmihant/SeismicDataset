@@ -38,12 +38,13 @@ class Case:
     thickness: int
     mode: str='pml_abc'
     homogeneous: bool=False
+    fixed: bool=False
 
     @property
     def mesh_name(self) -> str:
         return ('homogeneous_' if self.homogeneous else 'layered_')+str(self.thickness)
 
-CASES={c.label:c for c in [*(Case(f'L{d}',d) for d in THICKNESSES),Case('old',175,'old'),Case('reference',2500,'reference'),Case('homogeneous_reference',2500,'reference',True)]}
+CASES={c.label:c for c in [*(Case(f'L{d}',d) for d in THICKNESSES),Case('old',175,'old'),Case('reference',2500,'reference'),Case('homogeneous_reference',2500,'reference',True),Case('L700',700),*(Case(f'F{d}',d,fixed=True) for d in (250,350,500,700))]}
 
 
 def frozen_mesh(spec: Case) -> FrozenMesh:
@@ -81,10 +82,10 @@ def prepare(out: Path,save: bool) -> None:
         assert np.all(case.element_vp[np.mean(mesh.nodes_coords[mesh.strata[1].p_nodes.reshape(-1,36)],axis=1)[:,1]>-350]==VP)
         edges=mesh.strata[2].p_nodes.reshape(-1,6);mid=mesh.nodes_coords[edges].mean(axis=1)
         np.testing.assert_array_equal(case.boundary_vp,np.where(mid[:,1]<-350,3963.,VP))
-        pml=pml_field(frozen,mesh,thickness=spec.thickness).build_data().values
-        assert np.all(pml>=0) and np.isclose(pml.max(),ALPHA*175/spec.thickness)
+        pml=pml_field(frozen,mesh,scale=spec.thickness/175 if spec.fixed else 1.,thickness=spec.thickness).build_data().values
+        assert np.all(pml>=0) and np.isclose(pml.max(),ALPHA if spec.fixed else ALPHA*175/spec.thickness)
         assert len(surface)==W+2*spec.thickness+1
-        records.append({'label':spec.label,'elements':len(frozen.cells),'nodes':len(selected),'pml_rows':spec.thickness//5,'dmax_s_inv':ALPHA*175/spec.thickness})
+        records.append({'label':spec.label,'elements':len(frozen.cells),'nodes':len(selected),'pml_rows':spec.thickness//5,'dmax_s_inv':ALPHA if spec.fixed else ALPHA*175/spec.thickness})
     write(out/'plan.json',{'status':'cpu_checked','cases':records,'order':5,'h_m':5,'duration_s':1,'source_hz':30,'reference_interface_y_m':-350,'physical_reflection_definition':'extended two-layer minus extended homogeneous surface; same mesh near source/receivers, dt and source','criterion':'boundary error <= 0.01 of physical reflected signal in weighted L2 and maximum amplitude; report echoes individually; reject field growth','profile':'quadratic dmax=173.0886108476381*175/L; ABC; no mass damping','dt':'explicit 1/53000 from earlier homogeneous native CFL0.8, checked against new two-layer old baseline','raw_budget_bytes':10000000000})
 
 
@@ -113,7 +114,7 @@ def execute(spec: Case,dt: float | None) -> None:
     if old:
         field=build_damping(frozen,mesh,W,H);model.add_physics(field);damping_nodes=len(field.entities)
     if has_pml:
-        field=pml_field(frozen,mesh,thickness=padding);model.add_physics(field);pml_elements=len(field.entities)
+        field=pml_field(frozen,mesh,scale=padding/L if spec.fixed else 1.,thickness=padding);model.add_physics(field);pml_elements=len(field.entities)
     source=np.flatnonzero(np.all(np.abs(coords-[W/2,0])<1e-9,axis=1));assert len(source)==1
     times=np.linspace(0.,1.,1000001);phase=np.pi*30*(times-.05)
     force=np.zeros((len(times),1,2));force[:,0,1]=-(1-2*phase**2)*np.exp(-phase**2)
@@ -136,7 +137,7 @@ def execute(spec: Case,dt: float | None) -> None:
     prep=perf_counter();model.prepare();s=solver.spectrum;assert isinstance(s,SGSpectrumData)
     prep_end=perf_counter();assert len(solver.pml_entity_ids)==pml_elements
     record:dict[str,object]={'status':'prepared','order':order,'mode':mode,'native':file_record(Path(_native.__file__)),'code':file_record(Path(__file__)),'setup_code':file_record(Path(__file__)),'mesh':file_record(path),'global_nodes':len(coords),'elements':len(frozen.cells),'field_nodes':len(view),'surface_nodes':len(surface_ids),'field_bounds':[-175,1575,-875,0],'domain_bounds':[float(coords[:,0].min()),float(coords[:,0].max()),float(coords[:,1].min()),0.],'pml_elements':pml_elements,'damping_nodes':damping_nodes,'ABC':abc,'dmax_or_alpha_s_inv':ALPHA,'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,'cfl_safety':.8 if dt is None else None,'explicit_dt_s':dt,'kim_beta':1/27,'kim_gamma':.5,'frequency_hz':30,'source_x_m':700,'source_y_m':0,'source_t0_s':.05,'force_peak_n_per_m':1.,'material':[[VP,VS,RHO],[3963.,2357.84473,RHO]] if not spec.homogeneous else [[VP,VS,RHO]],'interface_y_m':-350.,'homogeneous':spec.homogeneous,'assembly_seconds':prep-start,'prepare_seconds':prep_end-prep,'gpu_visible':os.environ.get('CUDA_VISIBLE_DEVICES')}
-    record.update(thickness_m=padding,dmax_or_alpha_s_inv=ALPHA*(L/padding) if has_pml else ALPHA if old else 0.,field_bounds=[float(view[:,0].min()),float(view[:,0].max()),float(view[:,1].min()),0.],snapshot=file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')))
+    record.update(thickness_m=padding,fixed_strength=spec.fixed,dmax_or_alpha_s_inv=(ALPHA if spec.fixed else ALPHA*(L/padding)) if has_pml else ALPHA if old else 0.,field_bounds=[float(view[:,0].min()),float(view[:,0].max()),float(view[:,1].min()),0.],snapshot=file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')))
     write(out/'started.json',record);print('STARTED',order,out.name,s.steps_count,len(coords),flush=True)
     run_start=perf_counter();result=cast(TimedResult,model.run(sync=True));run_end=perf_counter()
     assert int(result.code)==int(SGRunCodeEnum.TIME_END) and result.steps_count==s.steps_count and ns==1001 and nf==21
@@ -153,6 +154,23 @@ def execute(spec: Case,dt: float | None) -> None:
     write(out/'result.json',record);print('COMPLETED',order,mode,record['run_seconds'],flush=True)
 
 
+def prepare_extra() -> None:
+    records=[]
+    for label in ('L700','F250','F350','F500','F700'):
+        spec=CASES[label];path=ROOT/'meshes'/f'{spec.mesh_name}.npz'
+        frozen=load_frozen(path) if path.exists() else frozen_mesh(spec)
+        if not path.exists():save_frozen(frozen,path)
+        case=build_sem(frozen,5);mesh=case.mesh;selected,surface=select(mesh,False)
+        assert len(surface)==W+2*spec.thickness+1
+        mass=core_mass(frozen,mesh,5,selected);assert np.count_nonzero(mass)==1401*701
+        scale=spec.thickness/175 if spec.fixed else 1.
+        field=pml_field(frozen,mesh,scale=scale,thickness=spec.thickness).build_data().values
+        target=ALPHA if spec.fixed else ALPHA*175/spec.thickness
+        assert np.all(field>=0) and np.isclose(field.max(),target)
+        records.append({'label':label,'nodes':len(selected),'thickness_m':spec.thickness,'dmax_s_inv':target,'fixed_strength':spec.fixed,'mesh':file_record(path)})
+    write(ROOT/'extra_plan.json',{'status':'cpu_checked','cases':records,'reason':'Constant-integral 175/250/350m leaves boundary errors larger than weak multiples. Add constant maximum profiles and 700m constant-integral delay control.','original_plan_preserved':True})
+
+
 def cfl_check() -> None:
     frozen=load_frozen(ROOT/'meshes/layered_175.npz');case=build_sem(frozen,5);mesh=case.mesh
     solver=SGSolver(SGSolverConfig(t_begin=0.,t_end=1.,cfl_safety=.8,tact_dt=.001,kim_beta=1/27,kim_gamma=.5))
@@ -167,9 +185,10 @@ def cfl_check() -> None:
 
 
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case',choices=tuple(CASES));p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case',choices=tuple(CASES));p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');a=p.parse_args()
     if a.check:prepare(a.check,False)
     if a.prepare:prepare(ROOT,True)
+    if a.extra:prepare_extra()
     if a.cfl_check:cfl_check()
     if a.case:execute(CASES[a.case],None if a.native_cfl else 1/53000)
 
