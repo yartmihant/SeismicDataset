@@ -11,8 +11,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.animation import FFMpegWriter
 from matplotlib.colors import Normalize,SymLogNorm
-from scripts.dev_1_5_geometry_frequency.pml_setup import ROOT,W,H,VP,VS,ALPHA
-from scripts.dev_1_5_geometry_frequency.pml_analyze import MODES,traces
+from scripts.dev_1_5_geometry_frequency.pml_setup import ROOT,THICK_ROOT,THICKNESSES,W,H,VP,VS,ALPHA
+from scripts.dev_1_5_geometry_frequency.pml_analyze import MODES,traces,core_indices,core_traces,thickness_paths
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_3_point_source.run import file_record
 from scripts.project_paths import PROJECT_ROOT
@@ -127,9 +127,115 @@ def report() -> None:
 
 
 def main() -> None:
-    argparse.ArgumentParser().parse_args();OUT.mkdir(parents=True,exist_ok=False)
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');args=parser.parse_args()
+    if args.thickness:render_thickness();return
+    OUT.mkdir(parents=True,exist_ok=False)
     for order in (4,5):movies(order);figures(order)
     report();print('RENDER COMPLETED',OUT,flush=True)
+
+
+THICK_OUT=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_thickness_v1'
+THICK_LABELS=('L175',)+tuple(f'L{v}' for v in THICKNESSES)
+
+
+def thickness_movies(order: int) -> None:
+    encoder=shutil.which('ffmpeg')
+    if encoder is None:
+        encoder=str(next((PROJECT_ROOT/'.runtime_ch15_ffmpeg/imageio_ffmpeg/binaries').glob('ffmpeg-*')))
+    matplotlib.rcParams['animation.ffmpeg_path']=encoder
+    paths=dict(thickness_paths(order));indices={label:core_indices(np.load(paths[label]/'nodes.npy')) for label in THICK_LABELS}
+    nodes=np.round(np.load(paths['L175']/'nodes.npy')[indices['L175']],8)
+    xs=np.unique(nodes[:,0]);ys=np.unique(nodes[:,1]);assert len(xs)*len(ys)==len(nodes)
+    gx=np.linspace(0,W,601);gy=np.linspace(-H,0,301)
+    ix=np.clip(np.searchsorted(xs,gx,side='right')-1,0,len(xs)-2);iy=np.clip(np.searchsorted(ys,gy,side='right')-1,0,len(ys)-2)
+    wx=(gx-xs[ix])/(xs[ix+1]-xs[ix]);wy=(gy-ys[iy])/(ys[iy+1]-ys[iy])
+    fields={label:np.load(paths[label]/'velocity.npy',mmap_mode='r') for label in THICK_LABELS}
+    def raster(label: str,i: int) -> FloatArray:
+        v=fields[label][i,indices[label]].reshape(len(ys),len(xs),2)
+        lo=v[iy[:,None],ix[None,:]]*(1-wx)[None,:,None]+v[iy[:,None],ix[None,:]+1]*wx[None,:,None]
+        hi=v[iy[:,None]+1,ix[None,:]]*(1-wx)[None,:,None]+v[iy[:,None]+1,ix[None,:]+1]*wx[None,:,None]
+        return lo*(1-wy)[:,None,None]+hi*wy[:,None,None]
+    for logarithmic in (False,True):
+        name='symlog' if logarithmic else 'linear';fig,axes=plt.subplots(3,4,figsize=(18,12),layout='constrained');artists=[]
+        for j,label in enumerate(THICK_LABELS):
+            pair=[]
+            for c in range(2):
+                ax=axes[j//2,(j%2)*2+c]
+                a=ax.imshow(raster(label,0)[:,:,c],origin='lower',extent=(0,W,-H,0),cmap='RdBu_r',norm=norm(logarithmic),aspect='equal')
+                ax.set(title=f'{label[1:]} м · p{order} · '+('Vx' if c==0 else 'Vy'),xlabel='x, м',ylabel='y, м');pair.append(a)
+            artists.append(pair)
+        fig.colorbar(artists[0][0],ax=list(axes.ravel()),shrink=.7,label='м/с · '+('SymLog, порог 1e−14' if logarithmic else 'линейная шкала'),extend='both')
+        title=fig.suptitle('');writer=FFMpegWriter(fps=5,codec='libx264',extra_args=['-crf','20','-pix_fmt','yuv420p','-threads','2'])
+        with writer.saving(fig,str(THICK_OUT/f'p{order}_{name}.mp4'),dpi=100):
+            for i in range(21):
+                for j,label in enumerate(THICK_LABELS):
+                    v=raster(label,i)
+                    for c in range(2):artists[j][c].set_data(v[:,:,c])
+                title.set_text(f'PML + ABC · p{order} · t={i*.05:.2f} с · физическая область 1400×700 м\nТолщина меняется, интеграл профиля постоянен; общая шкала ±1e−10 м/с')
+                writer.grab_frame()
+                if i==20:fig.savefig(THICK_OUT/f'p{order}_{name}_final.png',dpi=110)
+        plt.close(fig)
+
+
+def thickness_figures(order: int) -> None:
+    paths=dict(thickness_paths(order));t,x,ref=core_traces(paths['reference'])
+    for difference in (False,True):
+        fig,axes=plt.subplots(6,2,figsize=(14,18),layout='constrained');images=[]
+        for row,label in enumerate(THICK_LABELS):
+            _,_,v=core_traces(paths[label])
+            if difference:v=v-ref
+            for c in range(2):
+                ax=axes[row,c];a=ax.pcolormesh(x[:,0],t,v[:,:,c],shading='nearest',cmap='RdBu_r',norm=norm(True),rasterized=True);images.append(a)
+                ax.invert_yaxis();ax.set(title=f'{label[1:]} м · '+('ΔV' if difference else 'V')+('x' if c==0 else 'y'),xlabel='x, м',ylabel='t, с')
+                ax.axhline(.5,color='k',ls=':',lw=.6)
+        cb=fig.colorbar(images[-1],ax=list(axes.ravel()),shrink=.7,label='м/с · SymLog ±1e−10, порог 1e−14',extend='both')
+        fig.suptitle(f'p{order} · PML + ABC · '+('разность с расширенным контролем' if difference else 'поверхность основной области'))
+        stem=f'p{order}_surface'+('_error' if difference else '')
+        fig.savefig(THICK_OUT/(stem+'.png'),dpi=120)
+        for a in images:a.set_norm(norm(False))
+        cb.set_label('м/с · линейная шкала ±1e−10');fig.savefig(THICK_OUT/(stem+'_linear.png'),dpi=120);plt.close(fig)
+    with np.load(THICK_ROOT/'analysis'/f'p{order}_curves.npz') as z:
+        fig,axes=plt.subplots(1,2,figsize=(14,5),layout='constrained')
+        peak=float(z['reference_kinetic'].max())
+        for label in ('old',)+THICK_LABELS:
+            name='Старый слой 175 м' if label=='old' else label[1:]+' м'
+            axes[0].semilogy(z['surface_time_s'],np.maximum(z[label+'_surface_error'],1e-30),label=name)
+            axes[1].semilogy(z['field_time_s'],np.maximum(z[label+'_kinetic']/peak,1e-30),label=name)
+        axes[1].semilogy(z['field_time_s'],np.maximum(z['reference_kinetic']/peak,1e-30),'k--',label='Контроль')
+        peak_error=max(float(z[label+'_surface_error'].max()) for label in ('old',)+THICK_LABELS)
+        axes[0].set(xlim=(.1,1),ylim=(peak_error*1e-6,peak_error*2),xlabel='t, с',ylabel='GLL-норма ΔVx/ΔVy',title='Ошибка поверхности: весь приход отражений')
+        axes[1].set(ylim=(1e-12,2),xlabel='t, с',ylabel='K / max K контроля',title='Кинетическая энергия основной области')
+        for ax in axes:ax.grid(alpha=.25);ax.legend(fontsize=8);ax.axvline(.5,color='k',ls=':',lw=.6)
+        fig.suptitle(f'p{order} · квадратичный PML, ABC, dmax·L = const');fig.savefig(THICK_OUT/f'p{order}_decay.png',dpi=140);plt.close(fig)
+
+
+def render_thickness() -> None:
+    THICK_OUT.mkdir(parents=True,exist_ok=False);metrics=read_json(THICK_ROOT/'analysis/metrics.json');sections=[]
+    fig,axes=plt.subplots(1,3,figsize=(16,5),layout='constrained')
+    for order in (4,5):
+        entry=mapping(mapping(metrics['orders'])[f'p{order}']);cases=mapping(entry['cases']);rows=''
+        Ls=[175,*THICKNESSES]
+        for ax,window in zip(axes[:2],('full','late')):
+            ax.semilogy(Ls,[number(mapping(cases[label])[window+'_error_ratio_to_L175']) for label in THICK_LABELS],'-o',label=f'p{order}')
+            ax.set(xlabel='Толщина PML, м',ylabel='J / J при 175 м',title='Ошибка за '+('0–1 с' if window=='full' else '0,5–1 с'));ax.axhline(1,color='k',ls=':',lw=.7)
+        axes[2].plot(Ls,[number(mapping(cases[label])['run_seconds']) for label in THICK_LABELS],'-o',label=f'p{order}')
+        for label in THICK_LABELS:
+            row=mapping(cases[label]);rows+=f'<tr><th>{row["thickness_m"]} м / {row["rows"]}</th><td>{number(row["dmax_s_inv"]):.2f}</td><td>{number(row["full_error_ratio_to_L175"]):.3f}</td><td>{number(row["late_error_ratio_to_L175"]):.3f}</td><td>{number(row["full_error_reduction_vs_old"]):.2f}×</td><td>{number(row["run_seconds"]):.3f}</td></tr>'
+        time_note=''
+        if order==5:time_note=f'<p>Контроль 10 м: разность dt/dt/2 составляет {100*number(mapping(entry["time_step_check_L10"])["full_difference_over_L10_error"]):.4f}% нормы ошибки этого варианта за0–1 с.</p>'
+        sections.append(f'<section><h2>p{order}</h2><table><tr><th>Толщина / ряды</th><th>dmax, с⁻¹</th><th>J0–1 / J175</th><th>J0,5–1 / J175</th><th>Уменьшение J0–1 против старого слоя</th><th>run, с</th></tr>{rows}</table>{time_note}<img src="p{order}_decay.png"><h3>Поля: общая физическая область</h3><video controls preload="none" poster="p{order}_linear_final.png" src="p{order}_linear.mp4"></video><video controls preload="none" poster="p{order}_symlog_final.png" src="p{order}_symlog.mp4"></video><p><a href="p{order}_surface.png">Сейсмограммы</a> · <a href="p{order}_surface_linear.png">Линейные</a> · <a href="p{order}_surface_error.png">Разность с контролем</a> · <a href="p{order}_surface_error_linear.png">Линейная разность</a></p><img src="p{order}_surface_error.png" loading="lazy"></section>')
+    axes[2].set(xlabel='Толщина PML, м',ylabel='run, с',title='Время с записью полей; одиночные опыты')
+    for ax in axes:ax.grid(alpha=.25);ax.legend()
+    fig.savefig(THICK_OUT/'tradeoff.png',dpi=140);plt.close(fig)
+    fig,ax=plt.subplots(figsize=(9,5),layout='constrained')
+    for thickness in (175,*THICKNESSES):
+        distance=np.linspace(0,thickness,200);ax.plot(distance,ALPHA*175/thickness*(distance/thickness)**2,label=f'{thickness} м')
+    ax.set(xlabel='Расстояние от входа в PML, м',ylabel='d, с⁻¹',title='Квадратичные профили с одинаковым интегралом');ax.grid(alpha=.25);ax.legend();fig.savefig(THICK_OUT/'profiles.png',dpi=140);plt.close(fig)
+    for order in (4,5):thickness_movies(order);thickness_figures(order)
+    page="""<!doctype html><html lang="ru"><meta charset="utf-8"><title>Толщина PML</title><style>body{font:16px system-ui;max-width:1400px;margin:32px auto;padding:0 24px;color:#20252b}table{border-collapse:collapse;width:100%}td,th{padding:10px;border-bottom:1px solid #ddd;text-align:right}th:first-child{text-align:left}img,video{max-width:100%;display:block;margin:24px auto}a{color:#245a88}</style><h1>Толщина PML: качество и стоимость</h1><p>Однородная основная область1400×700 м, Vp4087 м/с, Vs2431,62036 м/с, плотность1000 кг/м³. Рикер30 Гц, центральная сила вниз1 Н/м,1 с. p4/p5, h5 м, β1/27. Квадратичный PML с внешним ABC, свободный верх. Толщина175/100/50/25/15/10 м; внешний размер области уменьшается, основная область неизменна.</p><p>dmax=173,0886108476381·175/L. Интеграл профиля сохраняется; фиксированный коэффициент при обрезании слоя не проверялся. Во всех вариантах одного порядка одинаковый dt: p4 1/36000 с, p5 1/53000 с. У p5 10 м дополнительно dt/2. Значения175 м, старый массовый слой k0,5+ABC и расширенный контроль6400×3200 м повторно используются из предыдущего исследования; native-библиотека та же.</p><p>Метрика J — пространственно взвешенная GLL-норма разности Vx/Vy с расширенным контролем на физическом верхе0…1400 м; общий множитель временного шага регистрации опущен. Основное окно0–1 с включает ранние возвраты тонких слоёв, дополнительно0,2–1 и0,5–1 с. Отношение J/J175 меньше1 означает улучшение. Кинетическая энергия не является полной упругой энергией. Поля21 кадр через0,05 с; поверхность1001 отсчёт через0,001 с. Визуализация только общей физической области, исходные массивы включают PML.</p><p>Времена включают запись полных полей, объём которой уменьшается вместе с толщиной. Это одиночные прогоны, без статистического бенчмарка; исторические времена175 м не пересняты. Основная очередь остановлена.</p><img src="tradeoff.png"><img src="profiles.png">"""+''.join(sections)+"""<p><a href="../../../data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/analysis/metrics.json">Полные метрики</a> · <a href="../pml_homogeneous_v1/index.html">Предыдущий тест175 м</a></p></html>"""
+    (THICK_OUT/'index.html').write_text(page)
+    write(THICK_OUT/'render.json',{'status':'completed','files':{p.name:file_record(p) for p in THICK_OUT.iterdir() if p.is_file()},'frames_per_movie':21,'fps':5,'movie_count':4,'source_metrics':file_record(THICK_ROOT/'analysis/metrics.json')})
+    print('THICKNESS RENDER COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()
