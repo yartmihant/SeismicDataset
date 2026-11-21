@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');args=parser.parse_args()
+    if args.layered_review:review_layered();return
     if args.layered:render_layered();return
     if args.thickness_review:review_thickness();return
     if args.thickness:render_thickness();return
@@ -342,6 +343,41 @@ def render_layered() -> None:
     (out/'index.html').write_text(page)
     write(out/'render.json',{'status':'completed','source':file_record(root/'analysis/metrics.json'),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
     print('LAYERED RENDER COMPLETED',flush=True)
+
+
+def review_layered() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root
+    out=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_layered_cached_v1'
+    metrics=read_json(root/'analysis/metrics.json');cases=mapping(metrics['cases'])
+    candidates=[]
+    for label,value in cases.items():
+        row=mapping(value);ratios=mapping(row['central_pp_window_ratios'])
+        if label.startswith('F') and not row['strong_growth'] and not row['monotone_late_pml_growth'] and all(number(mapping(ratios[str(n)])['full_surface_both_peak_ratio'])<=.01 for n in range(1,5)):
+            candidates.append((number(row['thickness_m']),label))
+    _,chosen=min(candidates);chosen_row=mapping(cases[chosen]);chosen_pp=mapping(chosen_row['central_pp_window_ratios'])
+    assert chosen=='F550'
+    with np.load(root/'analysis/curves.npz') as z:
+        t=z['time_s'];x=z['x_m'];physical=z['physical'];error=z[chosen+'_error'];largest_error=z['F1200_error']
+    fig,axes=plt.subplots(5,1,figsize=(12,14),layout='constrained');j=int(np.argmin(abs(x-700)))
+    for bounce,ax in enumerate(axes,1):
+        center=.05+700*bounce/4087;mask=(t>=center-.02)&(t<=center+.02);denom=float(abs(physical[mask,j,1]).max())
+        ax.plot(t[mask],physical[mask,j,1]/denom,color='black',lw=2,label='Физическое отражённое поле / пик окна')
+        ax.plot(t[mask],100*error[mask,j,1]/denom,label='PML550 м: ошибка ×100 / пик окна')
+        ax.plot(t[mask],100*largest_error[mask,j,1]/denom,label='PML1200 м: ошибка ×100 / пик окна',ls='--')
+        ax.set(title=f'Центральная Vy: окно{bounce}, пик {denom:.3e} м/с',xlabel='Время, с',ylabel='Относительная амплитуда',ylim=(-1.2,1.2));ax.grid(alpha=.3);ax.legend(fontsize=8)
+    fig.savefig(out/'selected_echo_windows.png',dpi=150);plt.close(fig)
+    factor4=1/number(mapping(chosen_pp['4'])['full_surface_both_peak_ratio']);factor5=1/number(mapping(chosen_pp['5'])['full_surface_both_peak_ratio'])
+    largest=mapping(cases['F1200']);largest_factor5=1/number(mapping(mapping(largest['central_pp_window_ratios'])['5'])['full_surface_both_peak_ratio'])
+    rows=[]
+    for label in ('L175','F350','F500','F550','F700','F1000','F1200'):
+        row=mapping(cases[label]);rr=mapping(row['central_pp_window_ratios']);factors=[1/number(mapping(rr[str(n)])['full_surface_both_peak_ratio']) for n in (3,4,5)]
+        rows.append(f'<tr><td>{label}</td><td>{number(row["run_seconds"]):.1f}</td>'+''.join(f'<td>{v:.3g}×</td>' for v in factors)+'</tr>')
+    verdict=f'<section style="border-left:4px solid #315e84;padding:8px 20px;background:#f4f7fa"><h2>Вывод по слабым отражениям</h2><p><b>550 м (110 рядов по5 м), квадратичный профиль с dmax173,088611 с⁻¹ и ABC</b> — наименьший проверенный вариант с запасом≥100× относительно каждого из первых четырёх окон. Для четвёртого окна запас {factor4:.1f}×; у500 м — лишь79,7×. Порог заключён между500 и550 м, точный минимум не найден.</p><p><b>Для всех пяти окон условие100× не выполнено ни в одном опыте.</b> У550 м запас относительно пятого окна {factor5:.1f}×, у1200 м — {largest_factor5:.1f}×. После500–700 м выигрыш от толщины становится небольшим; причина остаточной ошибки и её зависимость от dt/профиля этим экспериментом не установлены.1200 м нельзя объявлять достаточным решением строгого критерия.</p><p>Это сравнение глобальной ошибки на всей поверхности и по обеим компонентам за1 с с пиком Vy каждого окна в полосе±200 м. Оно консервативнее сопоставления в совпадающих окнах. Окна привязаны к геометрическим PP-приходам и могут содержать другие фазы. Значения ниже1× означают, что ошибка сильнее данной слабой волны.</p><table><tr><th>Вариант</th><th>run, с</th><th>Запас к окну3</th><th>К окну4</th><th>К окну5</th></tr>'+''.join(rows)+'</table><p>При сохранении интеграла профиля (L) утолщение само по себе не обеспечивает нужного подавления: уL700 глобальная ошибка всё ещё в941 раз больше пика пятого окна. Варианты F сохраняют максимум173,09 с⁻¹, поэтому интегральное поглощение возрастает с толщиной. Вывод относится только к данной модели, p5/h5 м,30 Гц,1 с и выбранному шагу.</p><img src="selected_echo_windows.png"><p>На графиках выше каждое центральное окно нормировано на собственный пик; ошибка усилена100×. Значения за ±1,2 обрезаются. Полные амплитуды, все пространственные полосы и отношения хранятся в JSON.</p></section>'
+    source=out/'index.html';anchor='<h1>Толщина PML относительно физических отражений</h1>';page=source.read_text();assert anchor in page
+    target=out/'reviewed.html'
+    with target.open('x') as f:f.write(page.replace(anchor,anchor+verdict,1))
+    write(out/'reviewed.json',{'status':'completed','source':file_record(source),'reviewed':file_record(target),'selected_plot':file_record(out/'selected_echo_windows.png'),'minimum_tested_four_windows_m':550,'threshold_bracket_four_windows_m':[500,550],'all_five_threshold_achieved':False,'max_tested_thickness_m':1200,'source_metrics':file_record(root/'analysis/metrics.json')})
+    print('LAYERED REVIEW COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()
