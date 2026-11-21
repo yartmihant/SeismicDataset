@@ -11,6 +11,8 @@ from scripts.dev_1_3_point_source.run import file_record
 from scripts.dev_1_5_geometry_frequency.setup import ROOT as SERIES, ALPHA,build_damping,damping,write
 
 ROOT=SERIES.parent/'pml_homogeneous_saturn_v1'
+THICK_ROOT=SERIES.parent/'pml_thickness_saturn_v1'
+THICKNESSES=(100,50,25,15,10)
 W=1400;H=700;L=175;VP=4087.;VS=2431.62036;RHO=1000.
 REFERENCE_PADDING=2500
 FloatArray=NDArray[np.float64]
@@ -18,17 +20,17 @@ IntArray=NDArray[np.int64]
 PADDED=SERIES/'meshes/1400x700_homogeneous/mesh_q2.npz'
 
 
-def profile(coords: FloatArray) -> FloatArray:
-    sx=np.maximum(np.maximum(-coords[:,0],coords[:,0]-W),0)/L
-    sy=np.maximum(-coords[:,1]-H,0)/L
-    return ALPHA*np.column_stack((sx*sx,sy*sy))
+def profile(coords: FloatArray,thickness: int=L) -> FloatArray:
+    sx=np.maximum(np.maximum(-coords[:,0],coords[:,0]-W),0)/thickness
+    sy=np.maximum(-coords[:,1]-H,0)/thickness
+    return ALPHA*(L/thickness)*np.column_stack((sx*sx,sy*sy))
 
 
-def pml_field(frozen: FrozenMesh,mesh: SGMeshModel,scale: float=1.) -> SGPhysicsModel:
+def pml_field(frozen: FrozenMesh,mesh: SGMeshModel,scale: float=1.,thickness: int=L) -> SGPhysicsModel:
     center=frozen.nodes[frozen.cells[:,4]]
     entities=np.flatnonzero((center[:,0]<0)|(center[:,0]>W)|(center[:,1]<-H))
     cells=mesh.strata[1].p_nodes.reshape(len(frozen.cells),-1)
-    values=scale*profile(mesh.nodes_coords[cells[entities].ravel()])
+    values=scale*profile(mesh.nodes_coords[cells[entities].ravel()],thickness)
     return SGPhysicsModel('cartesian_pml',31100,mesh,1,entities,values)
 
 
@@ -60,6 +62,38 @@ def reference_mesh() -> FrozenMesh:
     return FrozenMesh(np.column_stack((xx.ravel(),yy.ravel())),cells,np.full(count,VP),np.full(count,VS),np.zeros(count,dtype=np.int64),0,'homogeneous_reference')
 
 
+def thickness_mesh(thickness: int) -> FrozenMesh:
+    assert thickness in THICKNESSES
+    x=np.arange(-thickness,W+thickness+2.5,2.5)
+    y=np.arange(-H-thickness,2.5,2.5)
+    xx,yy=np.meshgrid(x,y);cells=structured_cells((len(x)-1)//2,(len(y)-1)//2);count=len(cells)
+    return FrozenMesh(np.column_stack((xx.ravel(),yy.ravel())),cells,np.full(count,VP),np.full(count,VS),np.zeros(count,dtype=np.int64),0,'homogeneous_pml_thickness')
+
+
+def prepare_thickness(out: Path,save_meshes: bool) -> None:
+    out.mkdir(parents=True,exist_ok=False);records=[]
+    for thickness in THICKNESSES:
+        frozen=thickness_mesh(thickness)
+        if save_meshes:
+            (out/'meshes').mkdir(exist_ok=True)
+            save_frozen(frozen,out/'meshes'/f'L{thickness}.npz')
+        for order in (4,5):
+            mesh=build_sem(frozen,order).mesh;selected,surface=observation(mesh)
+            nx=(W+2*thickness)//5;ny=(H+thickness)//5
+            assert len(selected)==(nx*order+1)*(ny*order+1)
+            assert len(surface)==nx*order+1
+            pml=pml_field(frozen,mesh,thickness=thickness);values=pml.build_data().values
+            dmax=ALPHA*L/thickness
+            assert values.shape==(2,(nx*ny-39200)*(order+1)**2)
+            assert np.all(values>=0) and np.isclose(values.max(),dmax)
+            assert np.all(profile(np.array([[0.,0.],[W,0.],[700.,-H]]),thickness)==0)
+            mass=core_mass(frozen,mesh,order,selected)
+            assert np.count_nonzero(mass)==(280*order+1)*(140*order+1)
+            assert np.count_nonzero(np.all(abs(mesh.nodes_coords-[700,0])<1e-9,axis=1))==1
+            records.append({'order':order,'thickness_m':thickness,'rows':thickness//5,'elements':len(frozen.cells),'nodes':len(selected),'surface_nodes':len(surface),'pml_elements':len(pml.entities),'dmax_s_inv':dmax,'profile_integral_m_per_s':dmax*thickness/3,'raw_velocity_bytes':21*len(selected)*16+1001*len(surface)*16})
+    write(out/'plan.json',{'status':'cpu_checked','cases':records,'new_runs':11,'reference_root':str(ROOT),'profile':'quadratic, dmax=173.0886108476381*175/L','boundary':'ABC on sides and bottom, free top','common_dt':'p4=1/36000, p5=1/53000, inherited from validated baseline; p5 L10 also dt/2','raw_bytes_estimate':sum(int(r['raw_velocity_bytes']) for r in records)+int(records[-1]['raw_velocity_bytes'])})
+
+
 def check(out: Path) -> None:
     out.mkdir(parents=True,exist_ok=False)
     frozen=load_frozen(PADDED);assert np.all(frozen.vp==VP) and np.all(frozen.vs==VS)
@@ -84,7 +118,9 @@ def check(out: Path) -> None:
 
 
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--reference',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--reference',action='store_true');p.add_argument('--thickness-check',type=Path);p.add_argument('--thickness-prepare',action='store_true');a=p.parse_args()
+    if a.thickness_check:prepare_thickness(a.thickness_check,False)
+    if a.thickness_prepare:prepare_thickness(THICK_ROOT,True)
     if a.check:check(a.check)
     if a.reference:
         path=ROOT/'meshes/reference_q2.npz';path.parent.mkdir(parents=True,exist_ok=True)
