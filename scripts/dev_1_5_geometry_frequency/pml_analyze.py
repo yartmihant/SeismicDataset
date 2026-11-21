@@ -105,7 +105,7 @@ def core_traces(path: Path) -> tuple[FloatArray,FloatArray,FloatArray]:
 
 def thickness_paths(order: int) -> list[tuple[str,Path]]:
     base=ROOT/f'p{order}'
-    return [('old',base/'old'),('L175',base/'pml_abc')]+[(f'L{L}',THICK_ROOT/f'p{order}'/f'L{L}') for L in THICKNESSES]+[('reference',base/'reference')]
+    return [('old',base/'old'),('L175',base/'pml_abc')]+[(f'L{L}',THICK_ROOT/f'p{order}'/f'L{L}') for L in THICKNESSES]+([(f'F{L}',THICK_ROOT/f'p{order}'/f'L{L}_fixed') for L in THICKNESSES] if order==5 else [])+[('reference',base/'reference')]
 
 
 def analyze_thickness() -> None:
@@ -116,6 +116,7 @@ def analyze_thickness() -> None:
         assert len(weights)==len(x) and np.isclose(weights.sum(),W)
         refnodes=np.load(refpath/'nodes.npy');ri=core_indices(refnodes);refnodes=refnodes[ri]
         mass=np.load(refpath/'core_mass.npy')[ri];ref_fields=np.load(refpath/'velocity.npy',mmap_mode='r')
+        reference_peak=max(float(abs(frame).max()) for frame in ref_fields)
         windows={'full':t>=0,'wide':t>=.2,'late':t>=.5,'early':t<=.1}
         curves:dict[str,FloatArray]={'surface_time_s':t,'field_time_s':np.arange(21,dtype=np.float64)*.05}
         rows:dict[str,object]={}
@@ -127,17 +128,19 @@ def analyze_thickness() -> None:
             assert number(metrics['early']['relative_l2_to_full_reference'])<1e-5
             nodes=np.load(path/'nodes.npy');idx=core_indices(nodes);np.testing.assert_allclose(nodes[idx],refnodes,atol=1e-8,rtol=0)
             np.testing.assert_allclose(np.load(path/'core_mass.npy')[idx],mass,rtol=1e-12,atol=1e-10)
-            fields=np.load(path/'velocity.npy',mmap_mode='r');energy=[];error_energy=[];peaks=[]
+            fields=np.load(path/'velocity.npy',mmap_mode='r');energy=[];error_energy=[];peaks=[];full_peaks=[]
             for i,frame in enumerate(fields):
                 assert np.isfinite(frame).all()
+                full_peaks.append(float(abs(frame).max()))
                 core=frame[idx];difference=core-ref_fields[i,ri]
                 energy.append(float(.5*np.sum(core**2*mass[:,None])))
                 error_energy.append(float(.5*np.sum(difference**2*mass[:,None])))
                 peaks.append(float(abs(difference).max()))
             curves[label+'_surface_error']=np.sqrt(np.sum(delta**2*weights[None,:,None],axis=(1,2)))
+            curves[label+'_full_peak']=np.asarray(full_peaks,dtype=np.float64)
             curves[label+'_kinetic']=np.asarray(energy,dtype=np.float64)
             curves[label+'_error_kinetic']=np.asarray(error_energy,dtype=np.float64)
-            rows[label]={'surface':metrics,'thickness_m':175 if label in ('old','L175') else (0 if label=='reference' else int(label[1:])),'rows':35 if label in ('old','L175') else (0 if label=='reference' else int(label[1:])//5),'dmax_s_inv':meta['dmax_or_alpha_s_inv'],'run_seconds':meta['run_seconds'],'prepare_seconds':meta['prepare_seconds'],'steps':meta['steps'],'dt_s':meta['dt_s'],'elements':meta['elements'],'global_nodes':meta['global_nodes'],'pml_elements':meta['pml_elements'],'surface_nodes':meta['surface_nodes'],'kinetic_final_j_per_m':energy[-1],'error_kinetic_final_j_per_m':error_energy[-1],'core_error_peak_by_frame_m_s':peaks,'source_result':file_record(path/'result.json')}
+            rows[label]={'surface':metrics,'thickness_m':175 if label in ('old','L175') else (0 if label=='reference' else int(label[1:])),'rows':35 if label in ('old','L175') else (0 if label=='reference' else int(label[1:])//5),'dmax_s_inv':meta['dmax_or_alpha_s_inv'],'run_seconds':meta['run_seconds'],'prepare_seconds':meta['prepare_seconds'],'steps':meta['steps'],'dt_s':meta['dt_s'],'elements':meta['elements'],'global_nodes':meta['global_nodes'],'pml_elements':meta['pml_elements'],'surface_nodes':meta['surface_nodes'],'kinetic_final_j_per_m':energy[-1],'error_kinetic_final_j_per_m':error_energy[-1],'core_error_peak_by_frame_m_s':peaks,'source_result':file_record(path/'result.json'),'late_full_peak_m_s':max(full_peaks[10:]),'late_full_peak_over_reference_peak':max(full_peaks[10:])/reference_peak,'strong_growth':max(full_peaks[10:])>10*reference_peak,'fixed_strength':label.startswith('F')}
             for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy'),('surface','surface.npz')]:
                 assert file_record(path/name)['sha256']==mapping(meta[key])['sha256']
             verified.append(str(path))
@@ -159,10 +162,14 @@ def analyze_thickness() -> None:
             time_check['full_difference_over_L10_error']=number(mapping(time_check['full'])['error_weighted_l2'])/number(mapping(mapping(mapping(rows['L10'])['surface'])['full'])['error_weighted_l2'])
             for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy'),('surface','surface.npz')]:
                 assert file_record(fine/name)['sha256']==mapping(meta[key])['sha256']
+            fine_fields=np.load(fine/'velocity.npy',mmap_mode='r')
+            time_check['late_full_peak_fine_m_s']=max(float(abs(frame).max()) for frame in fine_fields[10:])
+            time_check['late_full_peak_coarse_m_s']=mapping(rows['L10'])['late_full_peak_m_s']
+            time_check['strong_growth_fine']=number(time_check['late_full_peak_fine_m_s'])>10*reference_peak
             verified.append(str(fine))
         np.savez(out/f'p{order}_curves.npz',allow_pickle=False,**curves)
         orders[f'p{order}']={'cases':rows,'time_step_check_L10':time_check}
-    write(out/'metrics.json',{'status':'completed','orders':orders,'verified_runs':verified,'new_runs':11,'reused_runs':6,'primary_window_s':[0.,1.],'secondary_windows_s':[[.2,1.],[.5,1.]],'metric':'GLL weighted L2 of Vx/Vy minus expanded reference, physical top x=0..1400; common sample dt omitted','profile':'dmax*L constant, quadratic, ABC at three outer edges; no mass damping','reference':'reused 6400x3200 homogeneous domain, same local h/p/dt','timing_note':'single runs including full-domain output; output size decreases with thickness; historical L175 and old timings reused, not statistical kernel benchmarks'})
+    write(out/'metrics.json',{'status':'completed','orders':orders,'verified_runs':verified,'new_runs':16,'reused_runs':6,'primary_window_s':[0.,1.],'secondary_windows_s':[[.2,1.],[.5,1.]],'metric':'GLL weighted L2 of Vx/Vy minus expanded reference, physical top x=0..1400; common sample dt omitted','profile':'L labels: dmax*L constant; F labels p5: fixed dmax173.0886108476381; quadratic, ABC at three outer edges; no mass damping','growth_diagnostic':'strong_growth means late full-domain peak exceeds 10 times the full-time reference peak; includes PML and is a conservative gross-growth indicator, not a proof of long-time stability','reference':'reused 6400x3200 homogeneous domain, same local h/p/dt','timing_note':'single runs including full-domain output; output size decreases with thickness; historical L175 and old timings reused, not statistical kernel benchmarks'})
     print('THICKNESS ANALYSIS COMPLETED',flush=True)
 
 
