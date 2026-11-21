@@ -276,7 +276,7 @@ def render_layered() -> None:
     metrics=read_json(root/'analysis/metrics.json');cases=mapping(metrics['cases'])
     with np.load(root/'analysis/curves.npz') as z:data={k:z[k] for k in z.files}
     t=data['time_s'];x=data['x_m'];physical=data['physical'];ft=data['field_time_s']
-    labels=[label for label in cases if label.startswith(('L','F'))]
+    labels=sorted((label for label in cases if label.startswith(('L','F'))),key=lambda label:(label[0],number(mapping(cases[label])['thickness_m'])))
     fig,axes=plt.subplots(1,3,figsize=(17,5),layout='constrained')
     ds=[];l2=[];pk=[];times=[]
     for label in labels:
@@ -296,6 +296,7 @@ def render_layered() -> None:
     fig.savefig(out/'tradeoff.png',dpi=150);plt.close(fig)
     fig,axes=plt.subplots(1,2,figsize=(14,5),layout='constrained')
     for label in labels:
+        if label not in ('L10','L50','L100','L175','L350','L700','F350','F500','F700','F1000','F1200'):continue
         axes[0].semilogy(ft,np.maximum(data[label+'_pml_peak'],1e-30),label=label)
         if not mapping(cases[label])['strong_growth']:
             axes[1].semilogy(t,np.maximum(np.max(data[label+'_surface_error_envelope'],axis=1),1e-30),label=label)
@@ -303,7 +304,7 @@ def render_layered() -> None:
     for ax,title in zip(axes,['Полный пик внутри PML','Поверхность: ошибка и отражения интерфейса']):ax.set(xlabel='Время, с',ylabel='м/с',title=title,ylim=(1e-16,None));ax.grid(alpha=.3);ax.legend(ncol=2,fontsize=8)
     fig.savefig(out/'decay.png',dpi=150);plt.close(fig)
     # Same linear color scale: magnify boundary errors 100 times to visualize the criterion.
-    show=['physical']+[label for label in ('L100','L175','L350','F350','F500','F700') if label in cases]
+    show=['physical']+[label for label in ('L175','F350','F500','F700','F1000','F1200') if label in cases]
     fig,axes=plt.subplots(len(show),2,figsize=(14,3*len(show)),layout='constrained')
     limit=float(abs(physical).max())
     for i,label in enumerate(show):
@@ -318,7 +319,7 @@ def render_layered() -> None:
         j=int(np.argmin(abs(x-target)))
         for c,component in enumerate(('Vx','Vy')):
             ax=axes[i,c];ax.plot(t,physical[:,j,c],color='black',label='Отражения интерфейса')
-            for label in ('L175','F350','F700'):
+            for label in ('L175','F500','F1200'):
                 ax.plot(t,100*data[label+'_error'][:,j,c],label=f'{label}, ошибка ×100',alpha=.75)
             ax.set(title=f'{component}, x={x[j]:.1f} м',xlabel='Время, с',ylabel='м/с');ax.grid(alpha=.25);ax.legend(fontsize=8)
     fig.savefig(out/'traces.png',dpi=150);plt.close(fig)
@@ -328,7 +329,7 @@ def render_layered() -> None:
         center=.05+700*bounce/4087;mask=(t>=center-.02)&(t<=center+.02)
         denom=float(abs(physical[mask,j,1]).max())
         ax.plot(t[mask],physical[mask,j,1]/denom,color='black',lw=2,label='Вклад интерфейса / пик окна')
-        for label in ('L175','F350','F700'):
+        for label in ('L175','F500','F1200'):
             ax.plot(t[mask],100*data[label+'_error'][mask,j,1]/denom,label=f'{label}, ошибка ×100 / пик окна')
         ax.set(title=f'Vy в центре, окно около PP{bounce}; пик интерфейса {denom:.3e} м/с',xlabel='Время, с',ylabel='Относительная амплитуда',ylim=(-1.2,1.2));ax.grid(alpha=.3);ax.legend(fontsize=8)
     fig.savefig(out/'echo_windows.png',dpi=150);plt.close(fig)
