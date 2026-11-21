@@ -173,7 +173,70 @@ def analyze_thickness() -> None:
     print('THICKNESS ANALYSIS COMPLETED',flush=True)
 
 
+def analyze_layered() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root,CASES
+    from semgpu2.model import SGPETALineModel
+    out=root/'analysis';out.mkdir(exist_ok=False)
+    t,x,ref=core_traces(root/'reference');th,xh,hom=core_traces(root/'homogeneous_reference')
+    np.testing.assert_array_equal(t,th);np.testing.assert_allclose(x,xh,rtol=0,atol=1e-8)
+    physical=ref-hom
+    gll=SGPETALineModel('GLL',order=5).build_data(use_symmetry=False).weights
+    ids=np.arange(280)[:,None]*5+np.arange(6)[None,:]
+    weights=np.bincount(ids.ravel(),weights=np.tile(2.5*gll,280),minlength=1401)
+    assert np.isclose(weights.sum(),1400.)
+    refmeta=read_json(root/'reference/result.json');native=mapping(refmeta['native'])['sha256']
+    refnodes=np.load(root/'reference/nodes.npy');reffields=np.load(root/'reference/velocity.npy',mmap_mode='r')
+    refpeak=max(float(np.abs(f).max()) for f in reffields)
+    early=t<=.1
+    assert np.linalg.norm(physical[early])/np.linalg.norm(ref[early])<1e-9
+    curves:dict[str,FloatArray]={'time_s':t,'x_m':x[:,0],'reference':ref,'homogeneous':hom,'physical':physical,'field_time_s':np.arange(21,dtype=np.float64)*.05}
+    offset=np.abs(x[:,0]-700)
+    bands={'all':np.ones(len(x),dtype=bool),'inner':offset<=400,'outer':offset>400,'central':offset<=200}
+    windows={'full':(0.,1.),'echo_1':(.15,.25),'echo_2':(.25,.40),'echo_3':(.40,.60),'late':(.60,1.)}
+    def norms(values: FloatArray,band: NDArray[np.bool_],mask: NDArray[np.bool_]) -> FloatArray:
+        v=values[mask][:,band];w=weights[band]
+        return np.r_[np.sqrt(np.sum(v*v*w[None,:,None])),np.max(np.abs(v)),np.max(np.abs(v),axis=(0,1))]
+    physical_metrics:dict[str,object]={}
+    for band,active in bands.items():
+        physical_metrics[band]={win:norms(physical,active,(t>=a)&(t<=b)).tolist() for win,(a,b) in windows.items()}
+    records:dict[str,object]={};verified=[]
+    for label,spec in CASES.items():
+        base=root/label;meta=read_json(base/'result.json')
+        assert meta['status']=='completed' and meta['dt_s']==refmeta['dt_s'] and mapping(meta['native'])['sha256']==native
+        for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy'),('surface','surface.npz')]:
+            assert file_record(base/name)['sha256']==mapping(meta[key])['sha256']
+        verified.append(label)
+        if spec.mode=='reference':continue
+        tt,xx,v=core_traces(base);np.testing.assert_array_equal(tt,t);np.testing.assert_allclose(xx,x,rtol=0,atol=1e-8)
+        error=v-ref;ratios:dict[str,object]={};errors:dict[str,object]={}
+        for band,active in bands.items():
+            ratios[band]={};errors[band]={}
+            br:dict[str,object]={};be:dict[str,object]={}
+            for win,(a,b) in windows.items():
+                mask=(t>=a)&(t<=b);denom=norms(physical,active,mask);num=norms(error,active,mask)
+                br[win]=(num/denom).tolist();be[win]=num.tolist()
+            ratios[band]=br;errors[band]=be
+        nodes=np.load(base/'nodes.npy');fields=np.load(base/'velocity.npy',mmap_mode='r');core=core_indices(nodes)
+        np.testing.assert_allclose(nodes[core],refnodes,rtol=0,atol=1e-8)
+        peaks=[];pmlpeaks=[];core_error=[]
+        outside=(nodes[:,0]<-1e-8)|(nodes[:,0]>1400+1e-8)|(nodes[:,1]<-700-1e-8)
+        for f,r in zip(fields,reffields):
+            assert np.isfinite(f).all();peaks.append(float(abs(f).max()));pmlpeaks.append(float(abs(f[outside]).max()));core_error.append(float(abs(f[core]-r).max()))
+        pa=np.array(peaks);pmla=np.array(pmlpeaks)
+        # Flags describe measured growth, not a proof of infinite-time stability.
+        strong=bool(pa[10:].max()>10*refpeak)
+        late_growth=bool(np.all(np.diff(pmla[12:])>0) and pmla[-1]>2*pmla[12])
+        allratio=np.asarray(mapping(ratios['all'])['full'],dtype=float)
+        curves[label+'_error']=error;curves[label+'_full_peak']=pa;curves[label+'_pml_peak']=pmla;curves[label+'_core_error_peak']=np.array(core_error)
+        curves[label+'_surface_error_envelope']=np.max(abs(error),axis=1)
+        records[label]={'thickness_m':spec.thickness,'rows':spec.thickness//5,'run_seconds':meta['run_seconds'],'dmax_s_inv':meta['dmax_or_alpha_s_inv'],'ratios_error_to_physical':ratios,'error_norms':errors,'strong_growth':strong,'monotone_late_pml_growth':late_growth,'pml_peak_060_m_s':float(pmla[12]),'pml_peak_100_m_s':float(pmla[-1]),'late_full_peak_m_s':float(pa[10:].max()),'passes_100x_global_l2_and_peak':bool(np.all(allratio[:2]<=.01) and not strong and not late_growth),'early_relative_l2':float(np.linalg.norm(error[early])/np.linalg.norm(ref[early]))}
+    np.savez_compressed(out/'curves.npz',allow_pickle=False,**curves)
+    write(out/'metrics.json',{'status':'completed','cases':records,'physical_reflection_norms':physical_metrics,'norm_order':['weighted_L2','peak_both','peak_Vx','peak_Vy'],'bands':'all x0..1400; inner offset<=400; outer offset>400; central offset<=200','windows':windows,'reference_interface_y_m':-350,'control_return_lower_bound_s':5700/4087,'physical_definition':'extended layered minus extended homogeneous; all interface-induced response including mode conversion and multiples, not individual pure phases','error_definition':'candidate minus extended layered; includes PML entrance, PML interior, outer boundary and numerical growth, not solely outer boundary','primary_criterion':'full-time/all-physical-top error/physical reflected response <=0.01 for weighted L2 and peak; reject strong or monotonic late PML growth. Echo windows and components additionally reported.','verified_runs':verified,'native_sha256':native,'dt_s':refmeta['dt_s'],'limitations':'1 s, central source30Hz, p5/h5; finite-domain numerical control not analytical exact solution; no long-time stability proof'})
+    print('LAYERED ANALYSIS COMPLETED',flush=True)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');args=parser.parse_args()
-    if args.thickness:analyze_thickness()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');args=parser.parse_args()
+    if args.layered:analyze_layered()
+    elif args.thickness:analyze_thickness()
     else:analyze()
