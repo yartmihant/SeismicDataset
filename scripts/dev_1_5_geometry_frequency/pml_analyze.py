@@ -246,8 +246,27 @@ def analyze_layered() -> None:
     print('LAYERED ANALYSIS COMPLETED',flush=True)
 
 
+def layered_tail_spectrum() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root
+    from semgpu2.model import SGPETALineModel
+    out=root/'analysis'
+    gll=SGPETALineModel('GLL',order=5).build_data(use_symmetry=False).weights
+    ids=np.arange(280)[:,None]*5+np.arange(6)[None,:]
+    weights=np.bincount(ids.ravel(),weights=np.tile(2.5*gll,280),minlength=1401)
+    cases:dict[str,object]={}
+    with np.load(out/'curves.npz') as z:
+        mask=z['time_s']>=.5
+        for label in ('physical','L175_error','F550_error','F1200_error'):
+            values=z[label][mask];freq=np.fft.rfftfreq(len(values),.001)
+            spectrum=np.fft.rfft(values*np.hanning(len(values))[:,None,None],axis=0)
+            power=np.sum(abs(spectrum)**2*weights[None,:,None],axis=(1,2));power[1:]*=2
+            cases[label]={'peak_frequency_hz':float(freq[np.argmax(power)]),'fraction_power_above100hz':float(power[freq>100].sum()/power.sum())}
+    write(out/'tail_spectrum.json',{'status':'completed','window_s':[.5,1.],'method':'Hann window, rFFT of sampled surface Vx/Vy, GLL spatial weights, summed components; one-sided power ratios; not an identification of the cause or a no-aliasing proof','sample_dt_s':.001,'cases':cases})
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');args=parser.parse_args()
-    if args.layered:analyze_layered()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');args=parser.parse_args()
+    if args.layered_spectrum:layered_tail_spectrum()
+    elif args.layered:analyze_layered()
     elif args.thickness:analyze_thickness()
     else:analyze()
