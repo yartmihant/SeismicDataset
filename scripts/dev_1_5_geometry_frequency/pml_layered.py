@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import os
+import re
 from pathlib import Path
 import platform
 import subprocess
@@ -45,6 +46,21 @@ class Case:
         return ('homogeneous_' if self.homogeneous else 'layered_')+str(self.thickness)
 
 CASES={c.label:c for c in [*(Case(f'L{d}',d) for d in THICKNESSES),Case('old',175,'old'),Case('reference',2500,'reference'),Case('homogeneous_reference',2500,'reference',True),Case('L700',700),*(Case(f'F{d}',d,fixed=True) for d in (250,350,500,700))]}
+
+
+def resolve_case(label: str) -> Case:
+    if label in CASES:return CASES[label]
+    if re.fullmatch(r'[LF][0-9]+',label) is None:raise ValueError(label)
+    thickness=int(label[1:])
+    if thickness%5 or not 5<=thickness<=2500:raise ValueError(label)
+    return Case(label,thickness,fixed=label.startswith('F'))
+
+
+def study_cases() -> dict[str,Case]:
+    cases=dict(CASES)
+    for path in ROOT.glob('case_plan_*.json'):
+        label=path.stem.removeprefix('case_plan_');cases[label]=resolve_case(label)
+    return cases
 
 
 def frozen_mesh(spec: Case) -> FrozenMesh:
@@ -154,6 +170,21 @@ def execute(spec: Case,dt: float | None) -> None:
     write(out/'result.json',record);print('COMPLETED',order,mode,record['run_seconds'],flush=True)
 
 
+def prepare_case(spec: Case) -> None:
+    target=ROOT/f'case_plan_{spec.label}.json'
+    if target.exists():raise FileExistsError(target)
+    path=ROOT/'meshes'/f'{spec.mesh_name}.npz'
+    frozen=load_frozen(path) if path.exists() else frozen_mesh(spec)
+    if not path.exists():save_frozen(frozen,path)
+    case=build_sem(frozen,5);mesh=case.mesh;selected,surface=select(mesh,False)
+    assert len(surface)==W+2*spec.thickness+1
+    assert np.count_nonzero(core_mass(frozen,mesh,5,selected))==1401*701
+    field=pml_field(frozen,mesh,scale=spec.thickness/175 if spec.fixed else 1.,thickness=spec.thickness).build_data().values
+    dmax=ALPHA if spec.fixed else ALPHA*175/spec.thickness
+    assert np.all(field>=0) and np.isclose(field.max(),dmax)
+    write(target,{'status':'cpu_checked','label':spec.label,'nodes':len(selected),'thickness_m':spec.thickness,'dmax_s_inv':dmax,'fixed_strength':spec.fixed,'mesh':file_record(path),'reason':'Refinement of thickness bracket for weak interface echoes; prior results preserved.'})
+
+
 def prepare_extra() -> None:
     records=[]
     for label in ('L700','F250','F350','F500','F700'):
@@ -185,11 +216,12 @@ def cfl_check() -> None:
 
 
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case',choices=tuple(CASES));p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');a=p.parse_args()
     if a.check:prepare(a.check,False)
     if a.prepare:prepare(ROOT,True)
     if a.extra:prepare_extra()
     if a.cfl_check:cfl_check()
-    if a.case:execute(CASES[a.case],None if a.native_cfl else 1/53000)
+    if a.prepare_case:prepare_case(resolve_case(a.prepare_case))
+    if a.case:execute(resolve_case(a.case),None if a.native_cfl else 1/53000)
 
 if __name__=='__main__':main()

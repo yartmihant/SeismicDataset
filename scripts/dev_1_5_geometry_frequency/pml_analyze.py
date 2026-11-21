@@ -174,7 +174,7 @@ def analyze_thickness() -> None:
 
 
 def analyze_layered() -> None:
-    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root,CASES
+    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root,study_cases
     from semgpu2.model import SGPETALineModel
     out=root/'analysis';out.mkdir(exist_ok=False)
     t,x,ref=core_traces(root/'reference');th,xh,hom=core_traces(root/'homogeneous_reference')
@@ -207,7 +207,7 @@ def analyze_layered() -> None:
         pp_masks.append(mask_pp)
         pp_windows[str(bounce)]={'central_arrival_s':.05+700*bounce/4087,'half_width_s':.02,'physical_peak_vy_m_s':float(np.max(np.abs(physical[:,central,1][mask_pp])))}
     records:dict[str,object]={};verified=[]
-    for label,spec in CASES.items():
+    for label,spec in study_cases().items():
         base=root/label;meta=read_json(base/'result.json')
         assert meta['status']=='completed' and meta['dt_s']==refmeta['dt_s'] and mapping(meta['native'])['sha256']==native
         for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy'),('surface','surface.npz')]:
