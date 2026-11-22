@@ -126,10 +126,36 @@ def render(root:Path,output:Path)->None:
     write(output/'render.json',{'status':'completed','metrics':file_record(root/'analysis/metrics.json'),'files':{p.name:file_record(p) for p in output.iterdir() if p.is_file()}})
 
 
+def review(root:Path,output:Path)->None:
+    m=read_json(root/'analysis/metrics.json')
+    labels=[c.label for c in CASES]
+    fig,axes=plt.subplots(1,2,figsize=(13,5))
+    for ax,key,title in zip(axes,('native_vs_fine_control','common_dt_vs_p9_common'),('Родные dt против p9/5 м на малом шаге','Общий dt: различие порядков'),strict=True):
+        values=[number(mapping(mapping(mapping(mapping(m['cases'])[label])[key])['outside20m_full'])['relative_l2'])*100 for label in labels]
+        if key=='native_vs_fine_control':
+            ax.bar(labels,values);ax.set_ylim(0,max(values)*1.2)
+            for i,value in enumerate(values):ax.text(i,value+max(values)*.02,f'{value:.5f}',ha='center')
+        else:
+            ax.plot(labels,values,'o',markersize=8);ax.set_yscale('log');ax.set_ylim(min(values)*.5,max(values)*2)
+            for i,value in enumerate(values):ax.annotate(f'{value:.3g}',(i,value),xytext=(0,12),textcoords='offset points',ha='center')
+        ax.set(ylabel='Относительная L2-разность, %',title=title);ax.grid(axis='y',alpha=.2)
+    fig.suptitle('Верх основной области вне20 м от источника,0–1 с');fig.tight_layout();fig.savefig(output/'accuracy_reviewed.png',dpi=150);plt.close(fig)
+    rows=[]
+    for label in labels:
+        c=mapping(mapping(m['cases'])[label])
+        native=number(mapping(mapping(c['native_vs_fine_control'])['interior_full'])['relative_l2'])*100
+        common=number(mapping(mapping(c['common_dt_vs_p9_common'])['interior_full'])['relative_l2'])*100
+        rows.append(f'<tr><td>{label}</td><td>{native:.5f}%</td><td>{common:.5f}%</td></tr>')
+    near='''<h2>Что меняется рядом с точечным источником</h2><p>В основной таблице исключены20 м около источника. Если взять весь верх строго внутри0&lt;x&lt;1400, включая источник, за0–1 с, разность становится существенно больше:</p><table><tr><th>Вариант</th><th>L2, родной шаг против малого p9</th><th>L2, общий шаг против p9</th></tr>'''+''.join(rows)+'''</table><p>У самого контроля p8/p9 эта полная норма различается на0,64576%. Пространственная сходимость непосредственно у источника не установлена. Малые значения вне20 м не распространяются на ближайшие трассы; позднее окно0,15–1 с всех внутренних приёмников также сохранено в JSON.</p><h2>Вывод для выбранной двухслойной модели</h2><p>p6/10 м быстрее p4/5 м в1,72 раза при практически одинаковой удалённой точности на родном dt. p7/10 м занимает почти то же время, что p4/5 м, но уменьшает удалённую L2-разность примерно в1,78 раза. p5/5 м даёт наименьшую разность на родном dt, однако медленнее p7/10 м в2,11 раза. На общем шаге p7/10 м и p5/5 м очень близки к p9; основная удалённая разность рабочих конфигураций определяется временной дискретизацией. В окне первого PP пространственная разность не монотонна по порядку; все значения приведены в основной таблице и JSON. Эти выводы относятся к данной плоской двухслойной модели, не заменяют проверку сложных границ EFVB/ECVB.</p><p>Все43 запуска завершены; проверены172 SHA массивов. Поверхность и полные поля совпадают на общих временах. Поля и память PML конечны, кинетическая энергия основной области к концу записи убывает. Это наблюдение за1 с, не доказательство долгосрочной устойчивости.</p>'''
+    body=(output/'index.html').read_text().replace('accuracy.png','accuracy_reviewed.png').replace('</html>',near+'</html>')
+    (output/'reviewed.html').write_text(body)
+    write(output/'review.json',{'status':'completed','source_metrics':file_record(root/'analysis/metrics.json'),'files':{n:file_record(output/n) for n in ('accuracy_reviewed.png','reviewed.html')}})
+
 def main()->None:
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--analyze',action='store_true');p.add_argument('--render',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--analyze',action='store_true');p.add_argument('--render',type=Path);p.add_argument('--review',type=Path);a=p.parse_args()
     if a.analyze:analyze(a.root)
     if a.render:render(a.root,a.render)
+    if a.review:review(a.root,a.review)
 
 
 if __name__=='__main__':main()
