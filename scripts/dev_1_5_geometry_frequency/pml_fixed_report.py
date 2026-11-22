@@ -88,6 +88,11 @@ def analyze(root:Path)->None:
     assert agree,'Fixed and generic disagree: inspect metrics before accepting timing'
 
 
+def cast_list(value:object)->list[object]:
+    if not isinstance(value,list):raise TypeError('Expected JSON list')
+    return value
+
+
 def render(root:Path,output:Path)->None:
     m=read_json(root/'analysis/metrics.json');output.mkdir(parents=True,exist_ok=False)
     rows=m['timings'];assert isinstance(rows,list)
@@ -111,6 +116,12 @@ def render(root:Path,output:Path)->None:
         ax.bar(labels,vals);ax.set_yscale('log');ax.set(ylabel='Относительная L2-разность, %',title=title)
     fig.suptitle('Верх основной области вне20 м от источника, 0–1 с');fig.tight_layout();fig.savefig(output/'accuracy.png',dpi=150);plt.close(fig)
     body='''<!doctype html><html lang="ru"><meta charset="utf-8"><title>PML350: порядок, точность, время</title><style>body{font:17px sans-serif;max-width:1250px;margin:35px auto;padding:15px}table{border-collapse:collapse;width:100%}td,th{padding:9px;border-bottom:1px solid #ccc}img{max-width:100%}</style><h1>PML350 без ABC: фиксированные порядки на A100</h1><p>Двухслойная1400×700 м, центральный Рикер30 Гц вниз,1 с, β=1/27. Нет одномерных граничных элементов. Native CFL0,8 полной PML-модели; p4/p5 h5 м, p6/p7 h10 м.</p><p>Время — медиана трёх повторов после прогрева, включает запись1001 поверхностного отсчёта и21 полного поля. Объём полей различается с порядком и сеткой. Сравнение общего и фиксированного решателя выполнено при одинаковом dt внутри каждой пары.</p><table><tr><th>Вариант</th><th>dt, мкс</th><th>Общий, с</th><th>Фикс., с</th><th>Ускорение</th><th>L2 родной dt, %</th><th>L2 общий dt, %</th><th>Первое PP: пик Δ / пик контроля, %</th></tr>'''+''.join(table)+'''</table><img src="timings.png"><img src="accuracy.png"><p>Точность: одинаковые точки x=0..1400 м через1 м, полиномиальная SEM-интерполяция. Основные числа: строго внутри области, вне20 м от источника. Родные шаги сравниваются с p9/5 м при половине общего шага; общие — с p9/5 м при том же dt. Контроль не является точным PDE-решением. Неопределённость контроля оценена p8/p9 и dt/2; их метрики, попарные сравнения и окна0,15–1/0,5–1 с сохранены в JSON.</p><p>Первое PP: центральная полоса±200 м, окно±0,03 с по гиперболе; нормировка на пик этого окна, без модового разложения.</p><p><a href="../../../data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/analysis/metrics.json">Все метрики и проверки</a></p></html>'''
+    controls=mapping(m['controls'])
+    spatial=number(mapping(mapping(controls['p8_vs_p9_common'])['outside20m_full'])['relative_l2'])*100
+    temporal=number(mapping(mapping(controls['p9_common_vs_half'])['outside20m_full'])['relative_l2'])*100
+    comparisons=m['generic_fixed_comparisons'];assert isinstance(comparisons,list)
+    max_equivalence=max(number(value) for pair in comparisons for key in ('fields','surface') for value in cast_list(mapping(mapping(pair)[key])['relative_l2_components']))
+    body=body.replace('</table>',f'</table><p>Проверка контроля: L2 p8/5 м против p9/5 м при общем dt — <b>{spatial:.6g}%</b>; p9 при общем dt против dt/2 — <b>{temporal:.6g}%</b>. Те же внутренние приёмники вне20 м, вся1 с. Максимальная относительная L2-разность компонент fixed/generic по всем полям и сейсмограммам трёх повторов: <b>{max_equivalence:.3g}</b>.</p>')
     (output/'index.html').write_text(body)
     write(output/'render.json',{'status':'completed','metrics':file_record(root/'analysis/metrics.json'),'files':{p.name:file_record(p) for p in output.iterdir() if p.is_file()}})
 
