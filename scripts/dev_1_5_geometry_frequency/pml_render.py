@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-review',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-review',action='store_true');parser.add_argument('--tradeoff',action='store_true');args=parser.parse_args()
+    if args.tradeoff:render_tradeoff();return
     if args.timing_review:review_timing();return
     if args.timing:render_timing();return
     if args.first_reflection:render_first_reflection();return
@@ -480,6 +481,51 @@ def review_timing() -> None:
     target=out/'reviewed.html';assert not target.exists();target.write_text(text)
     write(out/'review.json',{'status':'completed','source':file_record(root/'analysis/first_pulse_temporal.json'),'reviewed':file_record(target)})
     print('TIMING REVIEW COMPLETED',flush=True)
+
+
+def render_tradeoff() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TRADE_ROOT as root
+    source=root/'analysis/metrics.json';record=read_json(source);cases=mapping(record['cases'])
+    out=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1';out.mkdir(parents=True,exist_ok=False)
+    labels=('L100','P175_noabc','P250_noabc','P350_noabc');names={'L100':'100 м + ABC','P175_noabc':'175 м без ABC','P250_noabc':'250 м без ABC','P350_noabc':'350 м без ABC'}
+    colors=('#333333','#ad6a3c','#377ea5','#38875b')
+    fig,axes=plt.subplots(1,2,figsize=(14,6),layout='constrained')
+    for ax,kind,title in zip(axes,('boundary_error_same_dt','total_error'),('Ошибка поглощения: контроль с тем же dt','Полная ошибка: контроль с малым dt')):
+        for label,color in zip(labels,colors):
+            r=mapping(cases[label]);v=mapping(mapping(r['variants'])['native']);ratio=mapping(mapping(v[kind+'_ratio_to_baseline'])['outside20m_full']);seconds=number(v['median_run_seconds']);value=number(ratio['energy'])
+            ax.scatter(seconds,value,color=color,s=75);ax.annotate(names[label],(seconds,value),xytext=(5,8),textcoords='offset points',fontsize=9)
+        ax.axhline(1,color='gray',ls='--');ax.axvline(number(mapping(mapping(mapping(cases['L100'])['variants'])['native'])['median_run_seconds']),color='gray',ls=':')
+        ax.set(yscale='log',xlabel='Медиана времени run, с; левее — быстрее',ylabel='Энергия ошибки / энергия ошибки100 м+ABC',title=title);ax.grid(alpha=.25);ax.margins(x=.2,y=.25)
+    fig.suptitle('p4 / h5 м / двухслойная1400×700 м / Рикер30 Гц /1 с\nПоверхность основной области вне20 м от источника, вся секунда')
+    fig.savefig(out/'tradeoff.png',dpi=150);plt.close(fig)
+    with np.load(root/'analysis/curves.npz') as z:data={key:z[key] for key in z.files}
+    t=data['time_s'];x=data['x_m'];inside=(x>0)&(x<W);limit=float(np.abs(data['L100_boundary_error'][:,inside]).max())
+    fig,axes=plt.subplots(4,2,figsize=(14,13),layout='constrained')
+    for i,label in enumerate(labels):
+        for c,component in enumerate(('Vx','Vy')):
+            im=axes[i,c].pcolormesh(x[inside],t,data[label+'_boundary_error'][:,inside,c],cmap='RdBu_r',vmin=-limit,vmax=limit,shading='nearest',rasterized=True)
+            axes[i,c].set(title=f'{names[label]}: ошибка поглощения {component}',xlabel='x, м',ylabel='t, с',ylim=(1,0));fig.colorbar(im,ax=axes[i,c],label='м/с, общая линейная шкала')
+    fig.savefig(out/'boundary_seismograms.png',dpi=140);plt.close(fig)
+    fig,axes=plt.subplots(1,2,figsize=(13,5),layout='constrained')
+    for label,color in zip(labels,colors):
+        r=mapping(cases[label]);tt=np.asarray(r['field_time_s'],dtype=float);mask=tt>=.6
+        axes[0].semilogy(tt[mask],np.asarray(r['pml_peak_m_s'],dtype=float)[mask],color=color,label=names[label]);axes[0].semilogy(tt[mask],np.asarray(r['half_pml_peak_m_s'],dtype=float)[mask],color=color,ls='--',alpha=.7)
+        axes[1].semilogy(tt[mask],np.asarray(r['core_kinetic_j_per_m'],dtype=float)[mask],color=color,label=names[label])
+    axes[0].set(title='Максимум скорости внутри PML; пунктир — dt/2',xlabel='t, с',ylabel='м/с');axes[1].set(title='Кинетическая энергия основной области',xlabel='t, с',ylabel='Дж/м')
+    for ax in axes:ax.grid(alpha=.25);ax.legend()
+    fig.savefig(out/'field_checks.png',dpi=150);plt.close(fig)
+    native_rows=[];control_rows=[]
+    for label in labels:
+        row=mapping(cases[label]);variants=mapping(row['variants']);v=mapping(variants['native']);br=mapping(mapping(v['boundary_error_same_dt_ratio_to_baseline'])['outside20m_full']);tr=mapping(mapping(v['total_error_ratio_to_baseline'])['outside20m_full']);pp=mapping(mapping(v['total_error'])['first_PP'])
+        native_rows.append(f'<tr><td>{names[label]}</td><td>{number(v["dt_s"])*1e6:.3f}</td><td>{number(v["median_run_seconds"]):.3f}</td><td>{number(v["speedup_vs_baseline"]):.3f}</td><td>{number(br["energy"]):.5g}</td><td>{number(br["peak"]):.5g}</td><td>{number(tr["energy"]):.5g}</td><td>{number(tr["peak"]):.5g}</td><td>{100*number(pp["peak_delta_to_first"]):.5g}%</td></tr>')
+        for name,vv in variants.items():
+            if name=='native':continue
+            control=mapping(vv);rat=mapping(mapping(control['total_error_ratio_to_baseline'])['outside20m_full'])
+            control_rows.append(f'<tr><td>{names[label]}</td><td>{name}</td><td>{number(control["dt_s"])*1e6:.3f}</td><td>{number(control["single_run_seconds"]):.3f}</td><td>{number(rat["energy"]):.5g}</td><td>{number(rat["peak"]):.5g}</td></tr>')
+    page='''<!doctype html><html lang="ru"><meta charset="utf-8"><title>p4: толстый PML без ABC против100 м+ABC</title><style>body{font:16px system-ui;max-width:1500px;margin:30px auto;padding:0 24px;color:#20262c}img{max-width:100%}table{border-collapse:collapse;width:100%}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:right}td:first-child{text-align:left}</style><h1>p4: можно ли выиграть время без потери точности?</h1><p>Целевой вариант пользователя —100 м PML+ABC. Двухслойная1400×700 м, h5 м, центральная сила Рикера30 Гц вниз,1 Н/м,1 с, β1/27. Кандидаты175/250/350 м без ABC, свободный внешний край. Квадратичный максимум100 м+ABC302,905 с⁻¹; у кандидатов173,089 с⁻¹. Новая отдельная сборка seismic_pml_cfl_v1 разрешает native CFL0,8 при активном PML; спектр по-прежнему обычной упругости/статического демпфирования. Прежняя производственная очередь остановлена.</p><p>По одному полному прогреву и три повтора каждой конфигурации, последовательные процессы одной A100GPU0. Время model.run включает21 полный кадр и1001 поверхностный отсчёт. Для каждого варианта есть dt/2;250/350 м также рассчитаны при шаге базового100 м+ABC. Контрольные времена одиночные и не смешиваются с медианами.</p><p><b>100 м+ABC — цель сравнения, а не точное решение.</b> Поэтому добавлена расширенная p4-область5400×2700 м без PML/ABC, с тем же интерфейсом−350 м. Геометрически внешний возврат в основную область не раньше1,15 с. Контроли рассчитаны при шагах кандидатов, базового варианта и половине базового шага. Приёмники только строго внутри основной области; основная таблица исключает20 м возле точечного источника, JSON также содержит все внутренние приёмники и позднее окно0,5–1 с.</p><p><b>Ошибка поглощения</b> — кандидат минус расширенный контроль при одинаковом dt. <b>Полная ошибка</b> — кандидат минус расширенный контроль при половине базового dt; включает временную дискретизацию. Общая пространственная ошибка p4 этим сравнением не измеряется. Энергия сигнала —0,001ΣwGLL(Vx²+Vy²), пик — максимум sqrt(Vx²+Vy²). Для обеих мер знаменатель в таблице — ошибка100 м+ABC того же вида. Значение меньше1 лучше базового. Первое PP-отражение дополнительно проверяется в центральной полосе±200 м, окно±0,03 с по гиперболе; слабые поздние кратные не используются как требование к толщине.</p><img src="tradeoff.png"><table><tr><th>Вариант</th><th>dt, мкс</th><th>run, с</th><th>Ускорение</th><th>E поглощения / база</th><th>Пик поглощения / база</th><th>E полной ошибки / база</th><th>Пик полной ошибки / база</th><th>Δ первого PP / его пик</th></tr>'''+''.join(native_rows)+'''</table><h2>Контроли шага</h2><table><tr><th>Вариант</th><th>Контроль</th><th>dt, мкс</th><th>Одиночный run, с</th><th>E полной ошибки / база</th><th>Пик полной ошибки / база</th></tr>'''+''.join(control_rows)+'''</table><p>Выигрыш без ABC может включать уменьшение числа временных шагов. Хорошее поглощение само по себе не гарантирует такой же полной точности сейсмограммы. Половинный шаг и расширенные контроли позволяют увидеть эту разницу. Это секундный тест конкретного источника и двухслойной модели, не универсальная гарантия длительной устойчивости.</p><h2>Ошибка поглощения: одна абсолютная линейная шкала</h2><p>Сравнение с расширенным контролем того же dt. Значения за пределами шкалы насыщают цвет, численные значения не обрезаются.</p><img src="boundary_seismograms.png"><h2>Проверка поля</h2><img src="field_checks.png"><p><a href="../../../data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/analysis/metrics.json">Все метрики, проверки и происхождение результатов</a></p></html>'''
+    (out/'index.html').write_text(page)
+    write(out/'render.json',{'status':'completed','source_metrics':file_record(source),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
+    print('P4 TRADEOFF RENDER COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()

@@ -7,7 +7,7 @@ from numpy.typing import NDArray
 from scripts.dev_1_5_geometry_frequency.pml_setup import ROOT,THICK_ROOT,THICKNESSES,W,H,VP
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_3_point_source.run import file_record
-from scripts.reporting import read_json,mapping,number
+from scripts.reporting import read_json,mapping,number,sequence
 
 FloatArray=NDArray[np.float64]
 MODES=('old','pml','pml_abc','reference')
@@ -397,9 +397,88 @@ def timing_first_pulse() -> None:
     print('TIMING FIRST PULSE CHECK COMPLETED',flush=True)
 
 
+def analyze_tradeoff() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TRADE_ROOT as root,TRADE_CASES
+    from semgpu2.model import SGPETALineModel
+    out=root/'analysis';out.mkdir(exist_ok=False);done=read_json(root/'runs_completed.json')
+    fine_label=str(done['fine_reference']);t,x,rf=core_traces(root/'R2000'/fine_label)
+    reference_by_k:dict[int,FloatArray]={};reference_meta:dict[int,dict[str,object]]={}
+    for item in sequence(done['references']):
+        r=mapping(item);label=str(r['label']);tt,xx,v=core_traces(root/'R2000'/label)
+        np.testing.assert_array_equal(tt,t);np.testing.assert_allclose(xx,x,rtol=0,atol=1e-8)
+        k=int(round(.001/number(r['dt_s'])));reference_by_k[k]=v;reference_meta[k]=read_json(root/'R2000'/label/'result.json')
+    gll=SGPETALineModel('GLL',order=4).build_data(use_symmetry=False).weights
+    ids=np.arange(280)[:,None]*4+np.arange(5)[None,:];weights=np.bincount(ids.ravel(),weights=np.tile(2.5*gll,280),minlength=1121)
+    inside=(x[:,0]>1e-8)&(x[:,0]<W-1e-8);far=inside&(np.abs(x[:,0]-700)>=20)
+    masks={'all':inside,'outside20m':far};windows={'full':t>=0,'late':t>=.5}
+    central=np.abs(x[:,0]-700)<=200+1e-8
+    arrival=.05+np.sqrt(700**2+(x[:,0]-700)**2)/4087
+    gate=(np.abs(t[:,None]-arrival[None,:])<=.03)&central[None,:]
+    first_peak=float(np.sqrt(np.max(np.sum(np.where(gate[:,:,None],rf,0.)**2,axis=2))))
+    def measure(error: FloatArray) -> dict[str,object]:
+        result:dict[str,object]={}
+        for mask_name,mask in masks.items():
+            for window_name,window in windows.items():
+                z=error[window][:,mask];w=weights[mask]
+                result[mask_name+'_'+window_name]={'energy_proxy':float(.001*np.sum(z*z*w[None,:,None])),'peak_vector_m_s':float(np.sqrt(np.max(np.sum(z*z,axis=2)))),'relative_l2_to_fine_wavefield':float(np.sqrt(np.sum(z*z*w[None,:,None])/np.sum(rf[window][:,mask]**2*w[None,:,None])))}
+        pulse=np.where(gate[:,:,None],error,0.);refpulse=np.where(gate[:,:,None],rf,0.)
+        result['first_PP']={'relative_l2':float(np.sqrt(np.sum(pulse*pulse*weights[None,:,None])/np.sum(refpulse*refpulse*weights[None,:,None]))),'peak_delta_to_first':float(np.sqrt(np.max(np.sum(pulse*pulse,axis=2)))/first_peak)}
+        return result
+    records:dict[str,object]={};curves:dict[str,FloatArray]={'time_s':t,'x_m':x[:,0],'fine_reference':rf};verified=[]
+    baseline_dt=number(mapping(done['native_dt_s'])['L100']);baseline_k=int(round(.001/baseline_dt));_,_,baseline=core_traces(root/'L100/repeat0')
+    for spec in TRADE_CASES:
+        base=root/spec.label;rows=[read_json(base/f'repeat{i}/result.json') for i in range(3)];a=rows[0]
+        tt,xx,v=core_traces(base/'repeat0');np.testing.assert_array_equal(tt,t);np.testing.assert_allclose(xx,x,atol=1e-8,rtol=0)
+        k=int(number(a['steps_per_ms']));same=reference_by_k[k]
+        berror=v-same;terror=same-rf;total=v-rf
+        np.testing.assert_allclose(total,berror+terror,rtol=0,atol=1e-22)
+        early=t<=.1;early_ratio=float(np.linalg.norm(berror[early])/np.linalg.norm(same[early]));assert early_ratio<1e-9
+        _,xh,vh=core_traces(base/'half_dt');np.testing.assert_allclose(xh,x,atol=1e-8,rtol=0)
+        variants:dict[str,object]={'native':{'dt_s':a['dt_s'],'median_run_seconds':float(np.median([number(r['run_seconds']) for r in rows])),'run_seconds':[r['run_seconds'] for r in rows],'total_error':measure(total),'boundary_error_same_dt':measure(berror),'reference_time_error':measure(terror),'difference_to_baseline':measure(v-baseline)},'half_dt':{'dt_s':read_json(base/'half_dt/result.json')['dt_s'],'single_run_seconds':read_json(base/'half_dt/result.json')['run_seconds'],'total_error':measure(vh-rf),'difference_from_native':measure(v-vh)}}
+        if (base/'baseline_dt/result.json').exists():
+            _,xc,vc=core_traces(base/'baseline_dt');np.testing.assert_allclose(xc,x,atol=1e-8,rtol=0);meta=read_json(base/'baseline_dt/result.json')
+            variants['baseline_dt']={'dt_s':meta['dt_s'],'single_run_seconds':meta['run_seconds'],'total_error':measure(vc-rf),'boundary_error_same_dt':measure(vc-reference_by_k[baseline_k])}
+        nodes=np.load(base/'repeat0/nodes.npy');mass=np.load(base/'repeat0/core_mass.npy');pml=(nodes[:,0]<-1e-8)|(nodes[:,0]>W+1e-8)|(nodes[:,1]<-H-1e-8)
+        fields=np.load(base/'repeat0/velocity.npy',mmap_mode='r');half_fields=np.load(base/'half_dt/velocity.npy',mmap_mode='r')
+        pml_peaks=[];half_peaks=[];energy=[]
+        for frame,half in zip(fields,half_fields):
+            assert np.isfinite(frame).all() and np.isfinite(half).all()
+            pml_peaks.append(float(np.abs(frame[pml]).max()));half_peaks.append(float(np.abs(half[pml]).max()));energy.append(float(.5*np.sum(frame*frame*mass[:,None])))
+        repeat_l2=[]
+        for i in (1,2):
+            _,_,other=core_traces(base/f'repeat{i}');repeat_l2.append(float(np.linalg.norm(other-v)/np.linalg.norm(v)))
+        records[spec.label]={'order':4,'thickness_m':spec.thickness,'ABC':a['ABC'],'dmax_s_inv':a['dmax_or_alpha_s_inv'],'native_cfl_safety':a['cfl_safety'],'native_sha256':mapping(a['native'])['sha256'],'nodes':a['global_nodes'],'steps':a['steps'],'early_boundary_error_relative_l2':early_ratio,'repeat_relative_l2':repeat_l2,'variants':variants,'field_time_s':(np.arange(21)*.05).tolist(),'pml_peak_m_s':pml_peaks,'half_pml_peak_m_s':half_peaks,'core_kinetic_j_per_m':energy,'pml_growth_07_to_1':pml_peaks[-1]/pml_peaks[14],'half_pml_growth_07_to_1':half_peaks[-1]/half_peaks[14],'pml_monotone_after07':bool(np.all(np.diff(pml_peaks[14:])>0))}
+        curves[spec.label+'_boundary_error']=berror;curves[spec.label+'_total_error']=total;curves[spec.label+'_velocity']=v
+    base_native=mapping(mapping(mapping(records['L100'])['variants'])['native']);base_time=number(base_native['median_run_seconds'])
+    for value in records.values():
+        row=mapping(value)
+        for variant_name,vv in mapping(row['variants']).items():
+            variant=mapping(vv);variant['speedup_vs_baseline']=base_time/number(variant['median_run_seconds'] if variant_name=='native' else variant['single_run_seconds'])
+            for kind in ('total_error','boundary_error_same_dt'):
+                if kind not in variant:continue
+                ratios:dict[str,object]={}
+                for metric in ('all_full','outside20m_full','all_late','outside20m_late'):
+                    cur=mapping(mapping(variant[kind])[metric]);ref=mapping(mapping(base_native[kind])[metric])
+                    ratios[metric]={'energy':number(cur['energy_proxy'])/number(ref['energy_proxy']),'peak':number(cur['peak_vector_m_s'])/number(ref['peak_vector_m_s'])}
+                variant[kind+'_ratio_to_baseline']=ratios
+            if variant_name=='native':
+                for kind in ('total_error','boundary_error_same_dt'):
+                    rr=mapping(mapping(variant[kind+'_ratio_to_baseline'])['outside20m_full'])
+                    variant['faster_and_no_worse_'+kind]=bool(number(variant['speedup_vs_baseline'])>1 and number(rr['energy'])<=1 and number(rr['peak'])<=1)
+    for result in sorted(root.glob('*/*/result.json')):
+        row=read_json(result);assert row['status']=='completed' and row['order']==4 and row['surface_field_exact']
+        assert mapping(row['native'])['sha256']==mapping(reference_meta[baseline_k]['native'])['sha256']
+        for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy'),('surface','surface.npz')]:
+            assert file_record(result.parent/name)['sha256']==mapping(row[key])['sha256'];verified.append(str((result.parent/name).relative_to(root)))
+    np.savez(out/'curves.npz',allow_pickle=False,**curves)
+    write(out/'metrics.json',{'status':'completed','baseline':'p4 L100 PML+ABC at native CFL0.8','cases':records,'references':reference_meta,'fine_reference_label':fine_label,'baseline_dt_s':baseline_dt,'first_PP_fine_peak_m_s':first_peak,'first_PP_definition':'central |x-700|<=200m, +/-0.03s around .05+sqrt(700^2+(x-700)^2)/4087; diagnostic window, not pure mode decomposition','total_error':'candidate at its dt minus expanded p4 control at baseline dt/2, includes time error and absorbing-boundary error; same spatial discretization, not exact PDE truth','boundary_error_same_dt':'candidate minus expanded p4 control at exactly candidate dt; removes common time-discretization contribution','receivers':'all top GLL strictly inside0<x<1400; additional outside20m mask; full0..1 and late0.5..1 windows. No receivers in PML','energy':'0.001*sum(weights_GLL*(Vx^2+Vy^2)), signal energy proxy','criterion':'baseline is target, not truth; faster+no-worse requires both energy and peak errors <= baseline on full0..1 outside20m. All-receiver and late metrics also retained. No tolerances added to force success','verified_sha_files':verified,'reference_return_lower_bound_s':4700/VP,'native_CFL_note':'new generic solver accepts CFL with PML but spectral estimate is ordinary elasticity/static damping; dt/2 controls retained'})
+    print('P4 TRADEOFF ANALYSIS COMPLETED',flush=True)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-first-pulse',action='store_true');args=parser.parse_args()
-    if args.timing_first_pulse:timing_first_pulse()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-first-pulse',action='store_true');parser.add_argument('--tradeoff',action='store_true');args=parser.parse_args()
+    if args.tradeoff:analyze_tradeoff()
+    elif args.timing_first_pulse:timing_first_pulse()
     elif args.timing:analyze_timing()
     elif args.first_reflection:analyze_first_reflection()
     elif args.layered_spectrum:layered_tail_spectrum()
