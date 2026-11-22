@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-review',action='store_true');parser.add_argument('--tradeoff',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-review',action='store_true');parser.add_argument('--tradeoff',action='store_true');parser.add_argument('--tradeoff-review',action='store_true');args=parser.parse_args()
+    if args.tradeoff_review:review_tradeoff();return
     if args.tradeoff:render_tradeoff();return
     if args.timing_review:review_timing();return
     if args.timing:render_timing();return
@@ -526,6 +527,31 @@ def render_tradeoff() -> None:
     (out/'index.html').write_text(page)
     write(out/'render.json',{'status':'completed','source_metrics':file_record(source),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
     print('P4 TRADEOFF RENDER COMPLETED',flush=True)
+
+
+def review_tradeoff() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TRADE_ROOT as root
+    out=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1';record=read_json(root/'analysis/metrics.json');cases=mapping(record['cases'])
+    labels=('L100','P175_noabc','P250_noabc','P350_noabc');names={'L100':'100 м + ABC','P175_noabc':'175 м без ABC','P250_noabc':'250 м без ABC','P350_noabc':'350 м без ABC'}
+    fig,axes=plt.subplots(1,2,figsize=(14,6),layout='constrained')
+    for ax,kind,title in zip(axes,('boundary_error_same_dt','total_error'),('Ошибка поглощения: контроль с тем же dt','Полная ошибка: контроль с малым dt')):
+        for label,color in zip(labels,('#333333','#ad6a3c','#377ea5','#38875b')):
+            v=mapping(mapping(mapping(cases[label])['variants'])['native']);ratio=mapping(mapping(v[kind+'_ratio_to_baseline'])['outside20m_full']);seconds=number(v['median_run_seconds']);value=number(ratio['energy'])
+            ax.scatter(seconds,value,color=color,s=75)
+            offset=(-8,10) if label=='L100' else (5,-20) if kind=='total_error' and label=='P350_noabc' else (5,8)
+            ax.annotate(names[label],(seconds,value),xytext=offset,textcoords='offset points',ha='right' if label=='L100' else 'left',fontsize=9)
+        ax.axhline(1,color='gray',ls='--');ax.axvline(number(mapping(mapping(mapping(cases['L100'])['variants'])['native'])['median_run_seconds']),color='gray',ls=':')
+        ax.set(yscale='log',xlabel='Медиана времени run, с; левее — быстрее',ylabel='Энергия ошибки / энергия ошибки100 м+ABC',title=title);ax.grid(alpha=.25);ax.margins(x=.2,y=.25)
+    fig.suptitle('p4 / h5 м / двухслойная1400×700 м / Рикер30 Гц /1 с\nПоверхность основной области вне20 м от источника, вся секунда')
+    target=out/'tradeoff_reviewed.png';assert not target.exists();fig.savefig(target,dpi=150);plt.close(fig)
+    base=mapping(mapping(mapping(cases['L100'])['variants'])['native']);chosen=mapping(mapping(mapping(cases['P350_noabc'])['variants'])['native'])
+    boundary=mapping(mapping(chosen['boundary_error_same_dt_ratio_to_baseline'])['outside20m_full'])
+    brms=100*number(mapping(mapping(base['total_error'])['outside20m_full'])['relative_l2_to_fine_wavefield']);crms=100*number(mapping(mapping(chosen['total_error'])['outside20m_full'])['relative_l2_to_fine_wavefield'])
+    conclusion=f'<h2>Вывод</h2><p><b>Гипотеза подтверждается по качеству поглощения:</b>350 м без ABC быстрее базового100 м+ABC в{number(chosen["speedup_vs_baseline"]):.3f} раза; ошибка поглощения меньше в{1/number(boundary["energy"]):.2f} раза по энергии и в{1/number(boundary["peak"]):.2f} раза по пику.175 и250 м без ABC по обоим показателям хуже базы. Минимальная толщина между250 и350 м этим набором не определена.</p><p><b>Полная точность всей сейсмограммы при максимальном шаге не сохраняется:</b>относительная L2 полной ошибки вне20 м от источника за0–1 с увеличивается с{brms:.6f}% до{crms:.6f}%. Крупный шаг увеличивает ошибку прямой волны; эта часть почти не уменьшается при расширении PML250→350 м. В окне первого PP максимальная разность с малым шагом около0,0903% его пика против0,00514% у базы: абсолютный уровень мал, но это не одинаковая временная точность.</p><p>При шаге базы350 м без ABC занимает27,00 с вместо13,12 с; при половине своего большого шага —14,67 с. Следовательно, для строгой полной точности этой проверкой ускоренная замена не подтверждена. Если целевой критерий — паразитные отражения относительно первого яркого прихода,350 м без ABC даёт существенный выигрыш. Слабый рост100 м внутри PML сохраняется при обоих шагах; у трёх более толстых кандидатов такого роста в проверенной секунде нет. Эти выводы ограничены данной моделью и1 с.</p>'
+    page=(out/'index.html').read_text().replace('<img src="tradeoff.png">',conclusion+'<img src="tradeoff_reviewed.png">',1)
+    reviewed=out/'reviewed.html';assert not reviewed.exists();reviewed.write_text(page)
+    write(out/'review.json',{'status':'completed','source_metrics':file_record(root/'analysis/metrics.json'),'files':{p.name:file_record(p) for p in (target,reviewed)}})
+    print('P4 TRADEOFF REVIEW COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()
