@@ -257,6 +257,13 @@ def timing_series(root: Path,allow_surrogate: bool) -> None:
     write(root/'environment.json',{'hostname':platform.node(),'python':sys.executable,'gpu':subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version,memory.total','--format=csv'],text=True),'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'native':file_record(Path(_native.__file__)),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')),'surrogate_authorized':allow_surrogate,'timing':'single GPU0, sequential separate processes; full warmup per case, three rotated repeats; synchronous model.run includes 21 fields and 1001 surface samples; half-dt controls excluded from timings'})
     def launch(order: int,spec: Case,label: str,*,probe: bool=False,omit: bool=False,dt: float | None=None,expect_failure: bool=False) -> None:
         folder=root/f'p{order}'/spec.label/label;folder.parent.mkdir(parents=True,exist_ok=True)
+        completed=folder/('probe.json' if probe else 'result.json')
+        if completed.exists():
+            previous=read_json(completed)
+            assert previous['order']==order and mapping(previous['native'])['sha256']==file_record(Path(_native.__file__))['sha256']
+            assert previous['status']==('prepared' if probe else 'completed')
+            if dt is not None:assert np.isclose(number(previous['dt_s']),dt,rtol=1e-13,atol=0)
+            print('REUSE COMPLETED',order,spec.label,label,flush=True);return
         cmd=[sys.executable,'-m','scripts.dev_1_5_geometry_frequency.pml_layered','--timing-root',str(root),'--timing-case',spec.label,'--order',str(order),'--timing-label',label]
         if probe:cmd+=['--probe']
         if omit:cmd+=['--omit-pml']
