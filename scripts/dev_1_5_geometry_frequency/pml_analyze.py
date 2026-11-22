@@ -301,7 +301,8 @@ def analyze_first_reflection() -> None:
         old=mapping(previous[label]) if label in previous else {}
         strong=bool(old.get('strong_growth',False));late_growth=bool(old.get('monotone_late_pml_growth',False))
         if label=='abc_only':
-            assert meta['ABC'] and meta['pml_elements']==0 and meta['damping_nodes']==0 and meta['domain_bounds']==[0.,1400.,-700.,0.]
+            assert meta['ABC'] and meta['pml_elements']==0 and meta['damping_nodes']==0
+            np.testing.assert_allclose(np.asarray(meta['domain_bounds'],dtype=float),[0.,1400.,-700.,0.],rtol=0,atol=1e-8)
             for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy')]:
                 assert file_record(base/name)['sha256']==mapping(meta[key])['sha256']
         spec=cases[label]
