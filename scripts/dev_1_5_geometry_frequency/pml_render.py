@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');args=parser.parse_args()
+    if args.first_reflection:render_first_reflection();return
     if args.layered_review:review_layered();return
     if args.layered:render_layered();return
     if args.thickness_review:review_thickness();return
@@ -378,6 +379,55 @@ def review_layered() -> None:
     with target.open('x') as f:f.write(page.replace(anchor,anchor+verdict,1))
     write(out/'reviewed.json',{'status':'completed','source':file_record(source),'reviewed':file_record(target),'selected_plot':file_record(out/'selected_echo_windows.png'),'minimum_tested_four_windows_m':550,'threshold_bracket_four_windows_m':[500,550],'all_five_threshold_achieved':False,'max_tested_thickness_m':1200,'source_metrics':file_record(root/'analysis/metrics.json')})
     print('LAYERED REVIEW COMPLETED',flush=True)
+
+
+def render_first_reflection() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root
+    source=root/'first_reflection_v1';out=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_first_reflection_v1';out.mkdir(parents=True,exist_ok=False)
+    metrics=read_json(source/'metrics.json');cases=mapping(metrics['cases'])
+    names={'abc_only':'Только ABC, без добавленной полосы','old':'Массовый слой175 м + ABC','L100':'PML100 м + ABC','L125':'PML125 м + ABC','L150':'PML150 м + ABC','L175':'PML175 м + ABC','F250':'PML250 м, фикс. максимум + ABC','F350':'PML350 м, фикс. максимум + ABC'}
+    chosen=list(names)
+    fig,axes=plt.subplots(1,2,figsize=(15,6),layout='constrained');y=np.arange(len(chosen))
+    for ax,key,title in zip(axes,('energy_error_to_first','peak_vector_error_to_first'),('Энергия ошибки / энергия первого отражения','Пик ошибки / пик первого отражения')):
+        vals=[number(mapping(cases[label])[key]) for label in chosen]
+        ax.barh(y,vals,color=['#a54c3d' if label in ('abc_only','old') else '#376f9c' for label in chosen]);ax.set_yticks(y,[names[label] for label in chosen]);ax.invert_yaxis();ax.set_xscale('log');ax.set(xlabel='Безразмерное отношение; меньше — лучше',title=title);ax.axvline(1.,color='black',ls='--');ax.grid(axis='x',alpha=.25)
+        for yy,value in zip(y,vals):ax.text(value*1.12,yy,f'{value:.3g}',va='center',fontsize=9)
+        ax.set_xlim(min(vals)/3,max(vals)*8)
+    fig.suptitle('Первое отражение горизонта: p5 / 5 м / 30 Гц; приёмники внутри0<x<1400 м')
+    fig.savefig(out/'comparison.png',dpi=150);plt.close(fig)
+    with np.load(source/'curves.npz') as z:data={key:z[key] for key in z.files}
+    t=data['time_s'];x=data['x_m'];primary=data['first_reflection'];limit=float(np.abs(primary).max())
+    labels=('first','abc_only','old','L100','L150','L175','F250')
+    fig,axes=plt.subplots(len(labels),2,figsize=(14,3*len(labels)),layout='constrained')
+    for i,label in enumerate(labels):
+        values=primary if label=='first' else data[label+'_error']
+        title='Первое отражение горизонта' if label=='first' else names[label]+': искусственная ошибка'
+        for c,component in enumerate(('Vx','Vy')):
+            im=axes[i,c].pcolormesh(x,t,values[:,:,c],cmap='RdBu_r',vmin=-limit,vmax=limit,shading='nearest',rasterized=True)
+            axes[i,c].set(title=f'{title}, {component}',xlabel='x, м',ylabel='Время, с',ylim=(1,0));fig.colorbar(im,ax=axes[i,c],label='м/с; одна линейная шкала, без усиления')
+    fig.savefig(out/'seismograms.png',dpi=130);plt.close(fig)
+    fig,axes=plt.subplots(4,2,figsize=(14,11),layout='constrained')
+    for i,label in enumerate(('L100','L150','L175','F250')):
+        for c,component in enumerate(('Vx','Vy')):
+            im=axes[i,c].pcolormesh(x,t,100*data[label+'_error'][:,:,c],cmap='RdBu_r',vmin=-limit,vmax=limit,shading='nearest',rasterized=True)
+            axes[i,c].set(title=f'{names[label]}, {component}: ошибка ×100',xlabel='x, м',ylabel='Время, с',ylim=(1,0));fig.colorbar(im,ax=axes[i,c],label='м/с после усиления ×100')
+    fig.savefig(out/'pml_errors_x100.png',dpi=140);plt.close(fig)
+    fig,axes=plt.subplots(3,1,figsize=(12,9),layout='constrained');j=int(np.argmin(abs(x-700)))
+    for ax,label in zip(axes,('abc_only','old','L175')):
+        ax.plot(t,primary[:,j,1],color='black',lw=2,label='Первое отражение горизонта');ax.plot(t,data[label+'_error'][:,j,1],label='Искусственная ошибка',alpha=.8)
+        ax.set(title=names[label]+'; центральная Vy',xlabel='Время, с',ylabel='м/с',ylim=(-1.2*limit,1.2*limit));ax.grid(alpha=.3);ax.legend()
+    fig.savefig(out/'central_traces.png',dpi=150);plt.close(fig)
+    rows=[]
+    def sort_key(label: str) -> tuple[int,float]:
+        return (0 if label=='abc_only' else 1 if label=='old' else 2 if label.startswith('L') else 3,number(mapping(cases[label])['thickness_m']))
+    for label in sorted(cases,key=sort_key):
+        row=mapping(cases[label]);growth='сильный рост' if row['strong_growth'] else 'поздний рост' if row['late_growth_flag'] else 'нет флага роста'
+        rows.append(f'<tr><td>{names.get(label,label)}</td><td>{number(row["thickness_m"]):g}</td><td>{number(row["dmax_s_inv"]):.2f}</td><td>{number(row["energy_error_to_first"]):.5g}</td><td>{number(row["peak_vector_error_to_first"]):.5g}</td><td>{number(row["run_seconds"]):.2f}</td><td>{growth}</td></tr>')
+    old=mapping(cases['old']);pml=mapping(cases['L175']);abc=mapping(cases['abc_only'])
+    page=f'''<!doctype html><html lang="ru"><meta charset="utf-8"><title>Первое отражение: PML, массовый слой и ABC</title><style>body{{font:16px system-ui;max-width:1450px;margin:30px auto;padding:0 24px;color:#20262c}}img{{max-width:100%}}table{{border-collapse:collapse;width:100%}}td,th{{padding:9px;border-bottom:1px solid #ddd;text-align:right}}td:first-child,th:first-child{{text-align:left}}</style><h1>Гашение относительно первого отражения горизонта</h1><p><b>Исправление критерия по прямому уточнению пользователя:</b> сравнение ведётся с первым ярким отражением. Прежние рекомендации550 м и350 м, основанные на слабых поздних приходах, к этой задаче не относятся. Исторические результаты сохранены, но не используются как требование сохранять все кратные волны.</p><p>Двухслойная1400×700 м, интерфейс y−350 м, p5/h5 м, центральная сила Рикера вниз30 Гц/1 Н/м, β1/27,1 с, общий dt1/53000. Все PML имеют внешний ABC, верх свободный. Новый контроль: ABC прямо на боковых и нижней границах основной области, без дополнительной полосы, без массового демпфирования и PML. Старый контроль: массовый квадратичный слой175 м,k0,5,dmax173,088611+ABC.</p><p>Первый PP-приход выделяется из разности расширенных двухслойного и однородного контролей: t(x)=0,05+sqrt(700²+(x−700)²)/4087, окно±0,03 с. Последующие кратные приходы не входят в знаменатель. Числитель — разность кандидата и расширенного двухслойного контроля за всю секунду, включая все искусственные возвраты и численные ошибки. Использованы все{int(number(metrics['receiver_count']))} GLL-приёмников строго внутри основной области, без PML и узлов x0/1400; фильтрация не применялась.</p><p>Энергетическая мера:0,001·Σ wGLL(Vx²+Vy²), это сигнальная энергия, не полный механический поток. Пиковая мера: максимум sqrt(Vx²+Vy²). Пик первого отражения {number(metrics['first_peak_vector_m_s']):.6e} м/с. По отношению пиков: только ABC {number(abc['peak_vector_error_to_first']):.4g}; старый слой {number(old['peak_vector_error_to_first']):.4g}; PML175 м {number(pml['peak_vector_error_to_first']):.4g}. Общая норма, локальные отношения на отдельных приёмниках и диагностика роста сохранены в JSON.</p><img src="comparison.png"><table><tr><th>Вариант</th><th>Толщина, м</th><th>dmax, с⁻¹</th><th>Eош/Eперв</th><th>Aош/Aперв</th><th>run, с</th><th>Поле</th></tr>{''.join(rows)}</table><p>L: постоянный интеграл профиля,dmax=173,088611·175/L. F: фиксированный максимум173,088611. Варианты с численным ростом не являются допустимым способом поглощения независимо от поверхностных отношений. Отсутствие флага за1 с не доказывает длительную устойчивость. Тайминги одиночные, включают запись полей разного размера.</p><h2>Линейные сейсмограммы без усиления ошибки</h2><p>Верхний ряд — первый импульс горизонта. Остальные — искусственная ошибка. Шкала одинакова, значения за пределами насыщают цвет.</p><img src="seismograms.png"><h2>Детали PML</h2><p>Только на следующем изображении ошибка усилена100×; шкала остаётся той же.</p><img src="pml_errors_x100.png"><h2>Центральная трасса</h2><p>Первое отражение и искусственная ошибка без усиления. Пределы одинаковые; большие значения ABC выходят за рамку.</p><img src="central_traces.png"><p><a href="../../../data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/first_reflection_v1/metrics.json">Численные метрики</a></p></html>'''
+    (out/'index.html').write_text(page)
+    write(out/'render.json',{'status':'completed','source_metrics':file_record(source/'metrics.json'),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
+    print('FIRST REFLECTION RENDER COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()

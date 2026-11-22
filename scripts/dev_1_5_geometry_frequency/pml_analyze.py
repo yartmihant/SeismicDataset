@@ -264,9 +264,59 @@ def layered_tail_spectrum() -> None:
     write(out/'tail_spectrum.json',{'status':'completed','window_s':[.5,1.],'method':'Hann window, rFFT of sampled surface Vx/Vy, GLL spatial weights, summed components; one-sided power ratios; not an identification of the cause or a no-aliasing proof','sample_dt_s':.001,'cases':cases})
 
 
+def analyze_first_reflection() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import ROOT as root,study_cases,resolve_case
+    from semgpu2.model import SGPETALineModel
+    out=root/'first_reflection_v1';out.mkdir(exist_ok=False)
+    t,xy,reference=core_traces(root/'reference');th,xh,homogeneous=core_traces(root/'homogeneous_reference')
+    np.testing.assert_array_equal(t,th);np.testing.assert_allclose(xy,xh,rtol=0,atol=1e-8)
+    keep=(xy[:,0]>1e-8)&(xy[:,0]<1400-1e-8);x=xy[keep,0]
+    reference=reference[:,keep];interface=(core_traces(root/'reference')[2]-homogeneous)[:,keep]
+    gll=SGPETALineModel('GLL',order=5).build_data(use_symmetry=False).weights
+    ids=np.arange(280)[:,None]*5+np.arange(6)[None,:]
+    weights=np.bincount(ids.ravel(),weights=np.tile(2.5*gll,280),minlength=1401)[keep]
+    arrival=.05+np.sqrt(700.**2+(x-700.)**2)/4087.
+    gate=np.abs(t[:,None]-arrival[None,:])<=.03
+    primary=np.where(gate[:,:,None],interface,0.)
+    def norms(v: FloatArray) -> tuple[float,float,FloatArray]:
+        return float(.001*np.sum(v*v*weights[None,:,None])),float(np.sqrt(np.max(np.sum(v*v,axis=2)))),np.max(np.abs(v),axis=(0,1))
+    energy_first,peak_first,component_first=norms(primary)
+    trace_first=np.sqrt(np.max(np.sum(primary*primary,axis=2),axis=0));assert np.all(trace_first>0)
+    refmeta=read_json(root/'reference/result.json');native=mapping(refmeta['native'])['sha256']
+    source_metrics=read_json(root/'analysis/metrics.json');previous=mapping(source_metrics['cases'])
+    cases=study_cases();cases['abc_only']=resolve_case('abc_only')
+    curves:dict[str,FloatArray]={'time_s':t,'x_m':x,'arrival_s':arrival,'first_reflection':primary,'interface_all':interface,'reference':reference}
+    rows:dict[str,object]={};verified=[]
+    for label in ('reference','homogeneous_reference',*cases):
+        if label in verified:continue
+        base=root/label;meta=read_json(base/'result.json')
+        assert meta['status']=='completed' and meta['dt_s']==refmeta['dt_s'] and mapping(meta['native'])['sha256']==native
+        assert file_record(base/'surface.npz')['sha256']==mapping(meta['surface'])['sha256'];verified.append(label)
+        if label in ('reference','homogeneous_reference'):continue
+        tt,xx,values=core_traces(base);np.testing.assert_array_equal(tt,t);np.testing.assert_allclose(xx,xy,rtol=0,atol=1e-8)
+        error=values[:,keep]-reference;assert np.isfinite(error).all()
+        energy,peak,components=norms(error)
+        trace_error=np.sqrt(np.max(np.sum(error*error,axis=2),axis=0))
+        early=t<=.1;early_relative=float(np.linalg.norm(error[early])/np.linalg.norm(reference[early]));assert early_relative<1e-9
+        old=mapping(previous[label]) if label in previous else {}
+        strong=bool(old.get('strong_growth',False));late_growth=bool(old.get('monotone_late_pml_growth',False))
+        if label=='abc_only':
+            assert meta['ABC'] and meta['pml_elements']==0 and meta['damping_nodes']==0 and meta['domain_bounds']==[0.,1400.,-700.,0.]
+            for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy')]:
+                assert file_record(base/name)['sha256']==mapping(meta[key])['sha256']
+        spec=cases[label]
+        rows[label]={'thickness_m':spec.thickness,'mode':spec.mode,'fixed_strength':spec.fixed,'dmax_s_inv':meta['dmax_or_alpha_s_inv'],'run_seconds':meta['run_seconds'],'energy_error_to_first':energy/energy_first,'amplitude_l2_error_to_first':float(np.sqrt(energy/energy_first)),'peak_vector_error_to_first':peak/peak_first,'peak_component_error_to_first':(components/component_first).tolist(),'error_energy_proxy':energy,'error_peak_vector_m_s':peak,'error_peak_components_m_s':components.tolist(),'per_receiver_peak_ratio_percentiles_50_95_100':np.percentile(trace_error/trace_first,[50,95,100]).tolist(),'strong_growth':strong,'late_growth_flag':late_growth,'early_relative_l2':early_relative,'ABC':meta['ABC'],'pml_elements':meta['pml_elements'],'damping_nodes':meta['damping_nodes']}
+        if label in ('abc_only','old','L100','L150','L175','F250'):
+            curves[label+'_error']=error;curves[label+'_velocity']=values[:,keep]
+    np.savez(out/'curves.npz',allow_pickle=False,**curves)
+    write(out/'metrics.json',{'status':'completed','criterion_correction':'User means the first bright horizon reflection, not weak late multiples. Previous550/350m recommendations based on late waves are not applicable to this criterion.','reference_definition':'first PP reflection in expanded layered-minus-homogeneous field, offset-dependent arrival .05+sqrt(700^2+(x-700)^2)/4087, half-width .03s; subsequent multiples excluded','error_definition':'candidate minus expanded layered control over full0..1s; includes PML, external boundary and numerical effects','receivers':'all GLL top nodes strictly inside physical domain0<x<1400; no PML receivers and no edge endpoints','receiver_count':len(x),'receiver_bounds_m':[float(x.min()),float(x.max())],'dt_record_s':.001,'solver_dt_s':refmeta['dt_s'],'first_energy_proxy':energy_first,'first_peak_vector_m_s':peak_first,'first_peak_components_m_s':component_first.tolist(),'first_central_arrival_s':.05+700/4087,'first_half_window_s':.03,'energy_note':'dt_record*sum(weights_GLL*(Vx^2+Vy^2)); signal-energy proxy, not total mechanical energy/flux. Numerator full1s, denominator first pulse only.','cases':rows,'surface_sha_checks':verified,'new_control':'abc_only:1400x700 without extension, ABC at core sides/bottom, free top, no mass damping/PML','old_control':'reused old:175m mass layer,k0.5,dmax173.088611,externalABC','native_sha256':native,'historical_analysis':file_record(root/'analysis/metrics.json')})
+    print('FIRST REFLECTION ANALYSIS COMPLETED',flush=True)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');args=parser.parse_args()
-    if args.layered_spectrum:layered_tail_spectrum()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');args=parser.parse_args()
+    if args.first_reflection:analyze_first_reflection()
+    elif args.layered_spectrum:layered_tail_spectrum()
     elif args.layered:analyze_layered()
     elif args.thickness:analyze_thickness()
     else:analyze()
