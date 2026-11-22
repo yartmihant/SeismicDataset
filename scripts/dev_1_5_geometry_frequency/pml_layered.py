@@ -106,13 +106,12 @@ def prepare(out: Path,save: bool) -> None:
     write(out/'plan.json',{'status':'cpu_checked','cases':records,'order':5,'h_m':5,'duration_s':1,'source_hz':30,'reference_interface_y_m':-350,'physical_reflection_definition':'extended two-layer minus extended homogeneous surface; same mesh near source/receivers, dt and source','criterion':'boundary error <= 0.01 of physical reflected signal in weighted L2 and maximum amplitude; report echoes individually; reject field growth','profile':'quadratic dmax=173.0886108476381*175/L; ABC; no mass damping','dt':'explicit 1/53000 from earlier homogeneous native CFL0.8, checked against new two-layer old baseline','raw_budget_bytes':10000000000})
 
 
-def execute(spec: Case,dt: float | None) -> None:
-    space();order=5;mode=spec.mode;padding=spec.thickness
-    out=ROOT/spec.label;out.mkdir(parents=True,exist_ok=False)
+def execute(spec: Case,dt: float | None,*,order: int=5,root: Path=ROOT,output: Path | None=None,probe: bool=False,omit_pml: bool=False) -> dict[str,object]:
+    space();mode=spec.mode;padding=spec.thickness
+    out=output if output is not None else root/spec.label;out.mkdir(parents=True,exist_ok=False)
     start=perf_counter();reference=mode=='reference';has_pml=mode.startswith('pml');old=mode.startswith('old')
-    assert order==5
-    if mode!='old' and dt is None:raise ValueError('Explicit common dt required outside baseline CFL run')
-    path=ROOT/'meshes'/f'{spec.mesh_name}.npz'
+    assert order in (4,5)
+    path=root/'meshes'/f'{spec.mesh_name}.npz'
     frozen=load_frozen(path)
     case=build_sem(frozen,order);mesh=case.mesh;coords=mesh.nodes_coords
     selected,surface_ids=select(mesh,reference);view=coords[selected]
@@ -130,12 +129,17 @@ def execute(spec: Case,dt: float | None) -> None:
         model.add_physics(SGPhysicsModel.from_entity_values('abc',32000,mesh,2,outer,np.column_stack((RHO*case.boundary_vp[outer],RHO*case.boundary_vs[outer]))))
     if old:
         field=build_damping(frozen,mesh,W,H);model.add_physics(field);damping_nodes=len(field.entities)
-    if has_pml:
+    if has_pml and not omit_pml:
         field=pml_field(frozen,mesh,scale=padding/L if spec.fixed else 1.,thickness=padding);model.add_physics(field);pml_elements=len(field.entities)
     source=np.flatnonzero(np.all(np.abs(coords-[W/2,0])<1e-9,axis=1));assert len(source)==1
     times=np.linspace(0.,1.,1000001);phase=np.pi*30*(times-.05)
     force=np.zeros((len(times),1,2));force[:,0,1]=-(1-2*phase**2)*np.exp(-phase**2)
     model.add_physics(SGPhysicsModel('point_force',20200,mesh,0,source,force,time=SGPhysicsTimeData(0.,1.,len(times),3)))
+    if probe:
+        prep_start=perf_counter()
+        model.prepare();spectrum=solver.spectrum;assert isinstance(spectrum,SGSpectrumData)
+        record_probe:dict[str,object]={'status':'prepared','order':order,'mode':mode,'thickness_m':padding,'pml_omitted_for_cfl':omit_pml,'pml_elements':pml_elements,'ABC':abc,'dt_s':spectrum.step_dt,'steps':spectrum.steps_count,'steps_per_ms':spectrum.steps_per_tact,'lambda_max':spectrum.lambda_max,'lambda_max_damping':spectrum.lambda_max_damping,'cfl_safety':.8,'native':file_record(Path(_native.__file__)),'mesh':file_record(path),'prepare_seconds':perf_counter()-prep_start}
+        write(out/'probe.json',record_probe);return record_probe
     np.save(out/'nodes.npy',view);np.save(out/'core_mass.npy',field_mass)
     surface=np.empty((1001,len(surface_ids),2))
     fields=np.lib.format.open_memmap(out/'velocity.npy',mode='w+',dtype=np.float64,shape=(21,len(selected),2))
@@ -169,6 +173,7 @@ def execute(spec: Case,dt: float | None) -> None:
         record['pml_history_max_abs']=float(np.abs(history).max())
     record.update(status='completed',run_seconds=run_end-run_start,total_seconds=perf_counter()-start,frames=nf,surface_samples=ns,surface_field_exact=True,field_peak_m_s=peaks.tolist(),fields=file_record(out/'velocity.npy'),nodes=file_record(out/'nodes.npy'),surface=file_record(out/'surface.npz'),mass=file_record(out/'core_mass.npy'))
     write(out/'result.json',record);print('COMPLETED',order,mode,record['run_seconds'],flush=True)
+    return record
 
 
 def prepare_case(spec: Case) -> None:
@@ -220,8 +225,71 @@ def cfl_check() -> None:
     print('CFL CHECK PASSED',spectrum.step_dt,flush=True)
 
 
+TIMING_ROOT=ROOT.parent/'pml_timing_native_cfl_v1'
+TIMING_CASES=(resolve_case('abc_only'),resolve_case('L100'),resolve_case('L175'),resolve_case('F250'))
+
+
+def timing_prepare(root: Path) -> None:
+    root.mkdir(parents=True,exist_ok=False);(root/'meshes').mkdir();rows=[]
+    for spec in TIMING_CASES:
+        frozen=frozen_mesh(spec);path=root/'meshes'/f'{spec.mesh_name}.npz';save_frozen(frozen,path)
+        for order in (4,5):
+            case=build_sem(frozen,order);mesh=case.mesh;selected,surface=select(mesh,False)
+            assert len(selected)==(((W+2*spec.thickness)//5)*order+1)*(((H+spec.thickness)//5)*order+1)
+            mass=core_mass(frozen,mesh,order,selected);assert np.count_nonzero(mass)==(280*order+1)*(140*order+1)
+            assert len(surface)==(W+2*spec.thickness)//5*order+1
+            maximum=0.
+            if spec.thickness:
+                data=pml_field(frozen,mesh,scale=spec.thickness/L if spec.fixed else 1.,thickness=spec.thickness).build_data().values
+                maximum=ALPHA if spec.fixed else ALPHA*L/spec.thickness
+                assert np.all(data>=0) and np.isclose(data.max(),maximum)
+            rows.append({'order':order,'label':spec.label,'nodes':len(selected),'dmax_s_inv':maximum,'thickness_m':spec.thickness,'mesh':file_record(path)})
+    write(root/'plan.json',{'status':'cpu_checked','cases':rows,'repeats':3,'warmups_per_case':1,'half_step_controls_per_case':1,'runs_total':40,'CFL':.8,'requested_step':'native CFL; active PML unsupported, surrogate requires user authorization','profiles':'L100 integral-preserving; L175 base; F250 fixed maximum as in last comparison','physical_domain':[0,1400,-700,0],'order':[4,5],'element_m':5,'frequency_hz':30,'source':[700,0],'duration_s':1,'field_frames':21,'surface_samples':1001,'estimated_array_budget_bytes':sum(int(number(r['nodes']))*21*2*8*5 for r in rows),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json'))})
+    print('TIMING CPU CHECK PASSED',flush=True)
+
+
+def timing_series(root: Path,allow_surrogate: bool) -> None:
+    assert allow_surrogate,'Explicit authorization is required for PML-free CFL estimate'
+    assert (root/'plan.json').exists() and not (root/'environment.json').exists()
+    space();env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1')
+    gpu=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip()
+    if gpu:raise RuntimeError('GPU is occupied: '+gpu)
+    write(root/'environment.json',{'hostname':platform.node(),'python':sys.executable,'gpu':subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version,memory.total','--format=csv'],text=True),'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'native':file_record(Path(_native.__file__)),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')),'surrogate_authorized':allow_surrogate,'timing':'single GPU0, sequential separate processes; full warmup per case, three rotated repeats; synchronous model.run includes 21 fields and 1001 surface samples; half-dt controls excluded from timings'})
+    def launch(order: int,spec: Case,label: str,*,probe: bool=False,omit: bool=False,dt: float | None=None,expect_failure: bool=False) -> None:
+        folder=root/f'p{order}'/spec.label/label;folder.parent.mkdir(parents=True,exist_ok=True)
+        cmd=[sys.executable,'-m','scripts.dev_1_5_geometry_frequency.pml_layered','--timing-root',str(root),'--timing-case',spec.label,'--order',str(order),'--timing-label',label]
+        if probe:cmd+=['--probe']
+        if omit:cmd+=['--omit-pml']
+        if dt is not None:cmd+=['--dt',str(dt)]
+        print('TIMING LAUNCH',order,spec.label,label,flush=True)
+        with folder.with_suffix('.log').open('x') as log:result=subprocess.run(cmd,env=env,stdout=log,stderr=subprocess.STDOUT)
+        if expect_failure:
+            message=folder.with_suffix('.log').read_text()
+            assert result.returncode!=0 and 'PML requires explicit step_dt or steps_count' in message
+            write(folder/'expected_rejection.json',{'status':'expected_native_rejection','returncode':result.returncode,'reason':'PML requires explicit step_dt or steps_count'})
+        elif result.returncode:raise RuntimeError(f'Failed timing case: {folder}')
+    for order in (4,5):
+        steps:dict[str,float]={}
+        launch(order,TIMING_CASES[1],'native_pml_rejection',probe=True,expect_failure=True)
+        for spec in TIMING_CASES:
+            launch(order,spec,'cfl_probe',probe=True,omit=bool(spec.thickness))
+            steps[spec.label]=number(read_json(root/f'p{order}'/spec.label/'cfl_probe/probe.json')['dt_s'])
+            launch(order,spec,'warmup',dt=steps[spec.label] if spec.thickness else None)
+        for repeat in range(3):
+            rotated=TIMING_CASES[repeat:]+TIMING_CASES[:repeat]
+            for spec in rotated:launch(order,spec,f'repeat{repeat}',dt=steps[spec.label] if spec.thickness else None)
+        for spec in TIMING_CASES:launch(order,spec,'half_dt',dt=steps[spec.label]/2)
+    write(root/'runs_completed.json',{'status':'completed','runs':40,'orders':[4,5],'cases':[s.label for s in TIMING_CASES]})
+    print('TIMING SERIES COMPLETED',flush=True)
+
+
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');p.add_argument('--timing-prepare',action='store_true');p.add_argument('--timing-series',action='store_true');p.add_argument('--allow-cfl-surrogate',action='store_true');p.add_argument('--timing-root',type=Path,default=TIMING_ROOT);p.add_argument('--timing-case');p.add_argument('--timing-label');p.add_argument('--order',type=int,choices=(4,5),default=5);p.add_argument('--dt',type=float);p.add_argument('--probe',action='store_true');p.add_argument('--omit-pml',action='store_true');a=p.parse_args()
+    if a.timing_prepare:timing_prepare(a.timing_root);return
+    if a.timing_series:timing_series(a.timing_root,a.allow_cfl_surrogate);return
+    if a.timing_case:
+        assert a.timing_label
+        execute(resolve_case(a.timing_case),a.dt,order=a.order,root=a.timing_root,output=a.timing_root/f'p{a.order}'/a.timing_case/a.timing_label,probe=a.probe,omit_pml=a.omit_pml);return
     if a.check:prepare(a.check,False)
     if a.prepare:prepare(ROOT,True)
     if a.extra:prepare_extra()
