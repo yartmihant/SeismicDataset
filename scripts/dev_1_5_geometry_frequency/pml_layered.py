@@ -51,6 +51,12 @@ CASES={c.label:c for c in [*(Case(f'L{d}',d) for d in THICKNESSES),Case('old',17
 def resolve_case(label: str) -> Case:
     if label=='abc_only':return Case(label,0,'abc_only')
     if label=='P175_noabc':return Case(label,175,'pml')
+    if label=='R2000':return Case(label,2000,'reference')
+    noabc=re.fullmatch(r'P([0-9]+)_noabc',label)
+    if noabc:
+        thickness=int(noabc.group(1))
+        if thickness%5 or not 5<=thickness<=2500:raise ValueError(label)
+        return Case(label,thickness,'pml',fixed=True)
     if label in CASES:return CASES[label]
     if re.fullmatch(r'[LF][0-9]+',label) is None:raise ValueError(label)
     thickness=int(label[1:])
@@ -107,7 +113,7 @@ def prepare(out: Path,save: bool) -> None:
     write(out/'plan.json',{'status':'cpu_checked','cases':records,'order':5,'h_m':5,'duration_s':1,'source_hz':30,'reference_interface_y_m':-350,'physical_reflection_definition':'extended two-layer minus extended homogeneous surface; same mesh near source/receivers, dt and source','criterion':'boundary error <= 0.01 of physical reflected signal in weighted L2 and maximum amplitude; report echoes individually; reject field growth','profile':'quadratic dmax=173.0886108476381*175/L; ABC; no mass damping','dt':'explicit 1/53000 from earlier homogeneous native CFL0.8, checked against new two-layer old baseline','raw_budget_bytes':10000000000})
 
 
-def execute(spec: Case,dt: float | None,*,order: int=5,root: Path=ROOT,output: Path | None=None,probe: bool=False,omit_pml: bool=False) -> dict[str,object]:
+def execute(spec: Case,dt: float | None,*,order: int=5,root: Path=ROOT,output: Path | None=None,probe: bool=False,omit_pml: bool=False,snapshot: Path=Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')) -> dict[str,object]:
     space();mode=spec.mode;padding=spec.thickness
     out=output if output is not None else root/spec.label;out.mkdir(parents=True,exist_ok=False)
     start=perf_counter();reference=mode=='reference';has_pml=mode.startswith('pml');old=mode.startswith('old')
@@ -159,7 +165,7 @@ def execute(spec: Case,dt: float | None,*,order: int=5,root: Path=ROOT,output: P
     prep=perf_counter();model.prepare();s=solver.spectrum;assert isinstance(s,SGSpectrumData)
     prep_end=perf_counter();assert len(solver.pml_entity_ids)==pml_elements
     record:dict[str,object]={'status':'prepared','order':order,'mode':mode,'native':file_record(Path(_native.__file__)),'code':file_record(Path(__file__)),'setup_code':file_record(Path(__file__)),'mesh':file_record(path),'global_nodes':len(coords),'elements':len(frozen.cells),'field_nodes':len(view),'surface_nodes':len(surface_ids),'field_bounds':[-175,1575,-875,0],'domain_bounds':[float(coords[:,0].min()),float(coords[:,0].max()),float(coords[:,1].min()),0.],'pml_elements':pml_elements,'damping_nodes':damping_nodes,'ABC':abc,'dmax_or_alpha_s_inv':ALPHA,'dt_s':s.step_dt,'steps':s.steps_count,'steps_per_ms':s.steps_per_tact,'cfl_safety':.8 if dt is None else None,'explicit_dt_s':dt,'kim_beta':1/27,'kim_gamma':.5,'frequency_hz':30,'source_x_m':700,'source_y_m':0,'source_t0_s':.05,'force_peak_n_per_m':1.,'material':[[VP,VS,RHO],[3963.,2357.84473,RHO]] if not spec.homogeneous else [[VP,VS,RHO]],'interface_y_m':-350.,'homogeneous':spec.homogeneous,'assembly_seconds':prep-start,'prepare_seconds':prep_end-prep,'gpu_visible':os.environ.get('CUDA_VISIBLE_DEVICES')}
-    record.update(thickness_m=padding,fixed_strength=spec.fixed,dmax_or_alpha_s_inv=(ALPHA if spec.fixed else ALPHA*(L/padding)) if has_pml else ALPHA if old else 0.,field_bounds=[float(view[:,0].min()),float(view[:,0].max()),float(view[:,1].min()),0.],snapshot=file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')))
+    record.update(thickness_m=padding,fixed_strength=spec.fixed,dmax_or_alpha_s_inv=(ALPHA if spec.fixed else ALPHA*(L/padding)) if has_pml else ALPHA if old else 0.,field_bounds=[float(view[:,0].min()),float(view[:,0].max()),float(view[:,1].min()),0.],snapshot=file_record(snapshot))
     write(out/'started.json',record);print('STARTED',order,out.name,s.steps_count,len(coords),flush=True)
     run_start=perf_counter();result=cast(TimedResult,model.run(sync=True));run_end=perf_counter()
     assert int(result.code)==int(SGRunCodeEnum.TIME_END) and result.steps_count==s.steps_count and ns==1001 and nf==21
@@ -295,8 +301,72 @@ def timing_series(root: Path,allow_surrogate: bool,*,extra: bool=False) -> None:
     print('TIMING SERIES COMPLETED',flush=True)
 
 
+TRADE_ROOT=ROOT.parent/'pml_p4_noabc_tradeoff_v1'
+TRADE_SNAPSHOT=Path('docs/runtime_sources/seismic_pml_cfl_v1/provenance.json')
+TRADE_CASES=tuple(resolve_case(label) for label in ('L100','P175_noabc','P250_noabc','P350_noabc'))
+
+
+def trade_prepare(root: Path) -> None:
+    root.mkdir(parents=True,exist_ok=False);(root/'meshes').mkdir();records=[]
+    for spec in (*TRADE_CASES,resolve_case('R2000')):
+        frozen=frozen_mesh(spec);path=root/'meshes'/f'{spec.mesh_name}.npz';save_frozen(frozen,path)
+        if spec.mode=='reference':
+            records.append({'label':spec.label,'nodes':(1080*4+1)*(540*4+1),'saved_nodes':1121*561,'nominal_boundary_return_lower_bound_s':4700/VP,'mesh':file_record(path)});continue
+        case=build_sem(frozen,4);mesh=case.mesh;selected,surface=select(mesh,False)
+        assert len(selected)==((W+2*spec.thickness)//5*4+1)*((H+spec.thickness)//5*4+1)
+        assert np.count_nonzero(core_mass(frozen,mesh,4,selected))==1121*561
+        assert len(surface)==(W+2*spec.thickness)//5*4+1
+        values=pml_field(frozen,mesh,scale=spec.thickness/L if spec.fixed else 1.,thickness=spec.thickness).build_data().values
+        maximum=ALPHA if spec.fixed else ALPHA*L/spec.thickness
+        assert np.all(values>=0) and np.isclose(values.max(),maximum)
+        records.append({'label':spec.label,'thickness_m':spec.thickness,'nodes':len(selected),'dmax_s_inv':maximum,'ABC':spec.mode=='pml_abc','mesh':file_record(path)})
+    write(root/'plan.json',{'status':'cpu_checked','order':4,'cases':records,'baseline':'L100:100m PML + ABC','candidates':'175/250/350m no ABC; fixed maximum173.088611','native_CFL':.8,'source_hz':30,'duration_s':1,'kim_beta':1/27,'element_m':5,'timing':'one full warmup and three rotated repeats per case on one A100; native step; dt/2 control each;250/350 also baseline dt','accuracy':'baseline is comparison target, not exact truth; expanded p4 controls at baseline/2, baseline and candidate dt distinguish absorption from time discretization; whole1s and first PP window reported','reference_domain':[-2000,3400,-2700,0],'reference_return_bound_s':4700/VP,'estimated_new_data_bytes':12000000000,'snapshot':file_record(TRADE_SNAPSHOT)})
+    print('TRADEOFF CPU PREPARED',flush=True)
+
+
+def trade_series(root: Path) -> None:
+    assert (root/'plan.json').exists() and not (root/'environment.json').exists();space()
+    if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPU occupied')
+    env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1')
+    write(root/'environment.json',{'hostname':platform.node(),'python':sys.executable,'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'gpu':subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version,memory.total','--format=csv'],text=True),'native':file_record(Path(_native.__file__)),'snapshot':file_record(TRADE_SNAPSHOT),'solver':'generic seismic; native CFL accepted for full PML model; spectral estimator still ordinary elasticity/static damping'})
+    def launch(spec: Case,label: str,dt: float | None=None,probe: bool=False) -> dict[str,object]:
+        target=root/spec.label/label;target.parent.mkdir(parents=True,exist_ok=True)
+        cmd=[sys.executable,'-m','scripts.dev_1_5_geometry_frequency.pml_layered','--tradeoff-root',str(root),'--tradeoff-case',spec.label,'--timing-label',label]
+        if dt is not None:cmd+=['--dt',str(dt)]
+        if probe:cmd+=['--probe']
+        print('TRADEOFF LAUNCH',spec.label,label,flush=True)
+        with target.with_suffix('.log').open('x') as log:subprocess.run(cmd,env=env,stdout=log,stderr=subprocess.STDOUT,check=True)
+        return read_json(target/('probe.json' if probe else 'result.json'))
+    steps:dict[str,float]={}
+    for spec in TRADE_CASES:
+        probe=launch(spec,'cfl_probe',probe=True);assert number(probe['pml_elements'])>0
+        steps[spec.label]=number(probe['dt_s']);launch(spec,'warmup')
+    # The new upstream change removes a prepare guard only; verify the full baseline still agrees.
+    with np.load(root/'L100/warmup/surface.npz') as a,np.load(TIMING_ROOT/'p4/L100/repeat0/surface.npz') as b:
+        np.testing.assert_array_equal(a['coordinates_m'],b['coordinates_m'])
+        relative=float(np.linalg.norm(a['velocity_m_s']-b['velocity_m_s'])/np.linalg.norm(b['velocity_m_s']))
+        assert relative<1e-9
+    write(root/'baseline_version_check.json',{'status':'passed','surface_relative_l2_to_cached_native':relative,'previous_result':file_record(TIMING_ROOT/'p4/L100/repeat0/result.json')})
+    for repeat in range(3):
+        for spec in TRADE_CASES[repeat:]+TRADE_CASES[:repeat]:launch(spec,f'repeat{repeat}')
+    for spec in TRADE_CASES:launch(spec,'half_dt',steps[spec.label]/2)
+    baseline_dt=steps['L100']
+    for spec in TRADE_CASES[2:]:launch(spec,'baseline_dt',baseline_dt)
+    ref=resolve_case('R2000');reference_steps=sorted(set([baseline_dt/2,*steps.values()]))
+    refs=[]
+    for dt in reference_steps:
+        k=int(round(.001/dt));label=f'K{k}';launch(ref,label,dt);refs.append({'label':label,'dt_s':dt})
+    write(root/'runs_completed.json',{'status':'completed','cases':[s.label for s in TRADE_CASES],'native_dt_s':steps,'references':refs,'fine_reference':refs[0]['label'],'runs':22+len(refs)})
+    print('TRADEOFF SERIES COMPLETED',flush=True)
+
+
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');p.add_argument('--timing-prepare',action='store_true');p.add_argument('--timing-series',action='store_true');p.add_argument('--timing-extra',action='store_true');p.add_argument('--allow-cfl-surrogate',action='store_true');p.add_argument('--timing-root',type=Path,default=TIMING_ROOT);p.add_argument('--timing-case');p.add_argument('--timing-label');p.add_argument('--order',type=int,choices=(4,5),default=5);p.add_argument('--dt',type=float);p.add_argument('--probe',action='store_true');p.add_argument('--omit-pml',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');p.add_argument('--timing-prepare',action='store_true');p.add_argument('--timing-series',action='store_true');p.add_argument('--timing-extra',action='store_true');p.add_argument('--allow-cfl-surrogate',action='store_true');p.add_argument('--timing-root',type=Path,default=TIMING_ROOT);p.add_argument('--timing-case');p.add_argument('--timing-label');p.add_argument('--order',type=int,choices=(4,5),default=5);p.add_argument('--dt',type=float);p.add_argument('--probe',action='store_true');p.add_argument('--omit-pml',action='store_true');p.add_argument('--tradeoff-prepare',action='store_true');p.add_argument('--tradeoff-series',action='store_true');p.add_argument('--tradeoff-root',type=Path,default=TRADE_ROOT);p.add_argument('--tradeoff-case');a=p.parse_args()
+    if a.tradeoff_prepare:trade_prepare(a.tradeoff_root);return
+    if a.tradeoff_series:trade_series(a.tradeoff_root);return
+    if a.tradeoff_case:
+        assert a.timing_label
+        execute(resolve_case(a.tradeoff_case),a.dt,order=4,root=a.tradeoff_root,output=a.tradeoff_root/a.tradeoff_case/a.timing_label,probe=a.probe,snapshot=TRADE_SNAPSHOT);return
     if a.timing_prepare:timing_prepare(a.timing_root);return
     if a.timing_series or a.timing_extra:timing_series(a.timing_root,a.allow_cfl_surrogate,extra=a.timing_extra);return
     if a.timing_case:
