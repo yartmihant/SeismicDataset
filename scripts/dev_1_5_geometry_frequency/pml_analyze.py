@@ -314,9 +314,69 @@ def analyze_first_reflection() -> None:
     print('FIRST REFLECTION ANALYSIS COMPLETED',flush=True)
 
 
+def analyze_timing() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TIMING_ROOT as root,TIMING_CASES
+    from semgpu2.model import SGPETALineModel
+    out=root/'analysis';out.mkdir(exist_ok=False)
+    assert read_json(root/'runs_completed.json')['status']=='completed'
+    records:dict[str,object]={};verified=[]
+    first_peak=number(read_json(ROOT.parent/'pml_layered_cached_saturn_v1/first_reflection_v1/metrics.json')['first_peak_vector_m_s'])
+    for order in (4,5):
+        for spec in TIMING_CASES:
+            base=root/f'p{order}'/spec.label
+            probe=read_json(base/'cfl_probe/probe.json');runs=[read_json(base/f'repeat{i}/result.json') for i in range(3)]
+            coarse=base/'repeat0';fine=base/'half_dt';a=read_json(coarse/'result.json');b=read_json(fine/'result.json')
+            for label in ('warmup','repeat0','repeat1','repeat2','half_dt'):
+                run=base/label;meta=read_json(run/'result.json')
+                assert meta['status']=='completed' and meta['surface_field_exact'] and meta['frames']==21 and meta['surface_samples']==1001
+                assert meta['order']==order and meta['ABC'] and meta['damping_nodes']==0
+                assert mapping(meta['native'])['sha256']==mapping(a['native'])['sha256']
+                assert np.isclose(number(meta['dt_s']),number(probe['dt_s'])/(2 if label=='half_dt' else 1),rtol=1e-13,atol=0)
+                for key,name in [('fields','velocity.npy'),('nodes','nodes.npy'),('mass','core_mass.npy'),('surface','surface.npz')]:
+                    assert file_record(run/name)['sha256']==mapping(meta[key])['sha256'];verified.append(str((run/name).relative_to(root)))
+            t,x,v=traces(coarse);tf,xf,vf=traces(fine);np.testing.assert_array_equal(t,tf);np.testing.assert_array_equal(x,xf)
+            # Compare at identical nodes within each order. No p4/p5 interpolation.
+            receiver=(x[:,0]>1e-8)&(x[:,0]<W-1e-8)&(np.abs(x[:,0]-700)>=20)
+            origin=-spec.thickness;nx=(W+2*spec.thickness)//5
+            weights1=SGPETALineModel('GLL',order=order).build_data(use_symmetry=False).weights
+            ids=np.arange(nx)[:,None]*order+np.arange(order+1)[None,:]
+            weights=np.bincount(ids.ravel(),weights=np.tile(2.5*weights1,nx),minlength=nx*order+1)
+            assert np.isclose(x[0,0],origin)
+            difference=v-vf
+            temporal:dict[str,object]={}
+            for name,time_mask in [('full',t>=0),('after_015',t>=.15),('late',t>=.5)]:
+                d=difference[time_mask][:,receiver];f=vf[time_mask][:,receiver];w=weights[receiver]
+                temporal[name]={'relative_l2':float(np.sqrt(np.sum(d*d*w[None,:,None])/np.sum(f*f*w[None,:,None]))),'max_vector_delta_m_s':float(np.sqrt(np.max(np.sum(d*d,axis=2)))),'max_vector_delta_to_first_horizon':float(np.sqrt(np.max(np.sum(d*d,axis=2)))/first_peak),'max_vector_delta_to_fine_peak':float(np.sqrt(np.max(np.sum(d*d,axis=2))/np.max(np.sum(f*f,axis=2))))}
+            repeat_differences=[]
+            for i in (1,2):
+                tr,xr,vr=traces(base/f'repeat{i}');np.testing.assert_array_equal(tr,t);np.testing.assert_array_equal(xr,x)
+                repeat_differences.append(float(np.linalg.norm(vr-v)/np.linalg.norm(v)))
+            nodes=np.load(coarse/'nodes.npy');np.testing.assert_array_equal(nodes,np.load(fine/'nodes.npy'))
+            mass=np.load(coarse/'core_mass.npy');np.testing.assert_array_equal(mass,np.load(fine/'core_mass.npy'))
+            core=mass>0;pml=(nodes[:,0]<-1e-8)|(nodes[:,0]>W+1e-8)|(nodes[:,1]<-H-1e-8)
+            ac=np.load(coarse/'velocity.npy',mmap_mode='r');af=np.load(fine/'velocity.npy',mmap_mode='r')
+            full_peak=[];pml_peak=[];core_peak=[];kinetic=[];fine_pml_peak=[];field_sq=0.;reference_sq=0.;max_field_delta=0.;max_fine_field=0.
+            for frame,half in zip(ac,af):
+                assert np.isfinite(frame).all() and np.isfinite(half).all()
+                delta=frame-half;field_sq+=float(np.sum(delta*delta*mass[:,None]));reference_sq+=float(np.sum(half*half*mass[:,None]))
+                full_peak.append(float(np.abs(frame).max()));core_peak.append(float(np.abs(frame[core]).max()));kinetic.append(float(.5*np.sum(frame*frame*mass[:,None])))
+                pml_peak.append(float(np.abs(frame[pml]).max()) if np.any(pml) else 0.)
+                fine_pml_peak.append(float(np.abs(half[pml]).max()) if np.any(pml) else 0.)
+                max_field_delta=max(max_field_delta,float(np.abs(delta[core]).max()));max_fine_field=max(max_fine_field,float(np.abs(half[core]).max()))
+            late_pml=np.asarray(pml_peak)[12:];late_fine=np.asarray(fine_pml_peak)[12:]
+            monotone=bool(np.any(pml) and np.all(np.diff(late_pml)>0) and late_pml[-1]>10*max(late_pml[0],1e-30))
+            monotone_fine=bool(np.any(pml) and np.all(np.diff(late_fine)>0) and late_fine[-1]>10*max(late_fine[0],1e-30))
+            strong=bool(max(full_peak[10:])>10*max(full_peak[:10]))
+            record:dict[str,object]={'order':order,'label':spec.label,'thickness_m':spec.thickness,'profile_max_s_inv':a['dmax_or_alpha_s_inv'],'native_dt_s':probe['dt_s'],'steps':a['steps'],'half_dt_s':b['dt_s'],'cfl_safety':.8,'pml_omitted_for_cfl':probe['pml_omitted_for_cfl'],'native_lambda_max':probe['lambda_max'],'native_lambda_max_damping':probe['lambda_max_damping'],'nodes':a['global_nodes'],'pml_elements':a['pml_elements'],'native_sha256':mapping(a['native'])['sha256'],'run_seconds':[r['run_seconds'] for r in runs],'median_run_seconds':float(np.median([number(r['run_seconds']) for r in runs])),'min_run_seconds':min(number(r['run_seconds']) for r in runs),'max_run_seconds':max(number(r['run_seconds']) for r in runs),'median_total_seconds':float(np.median([number(r['total_seconds']) for r in runs])),'median_prepare_seconds':float(np.median([number(r['prepare_seconds']) for r in runs])),'probe_prepare_seconds':probe['prepare_seconds'],'half_run_seconds':b['run_seconds'],'repeat_relative_l2':repeat_differences,'temporal_surface':temporal,'temporal_core_fields_relative_l2':float(np.sqrt(field_sq/reference_sq)),'temporal_core_fields_max_delta_to_peak':max_field_delta/max_fine_field,'field_time_s':(np.arange(21)*.05).tolist(),'full_peak_m_s':full_peak,'core_peak_m_s':core_peak,'pml_peak_m_s':pml_peak,'half_dt_pml_peak_m_s':fine_pml_peak,'core_kinetic_j_per_m':kinetic,'strong_growth_flag':strong,'monotone_late_pml_growth_flag':monotone,'half_dt_monotone_late_pml_growth_flag':monotone_fine,'finite':True,'surface_field_exact':True}
+            records[f'p{order}_{spec.label}']=record
+    write(out/'metrics.json',{'status':'completed','cases':records,'verified_sha_files':verified,'method':'one full warmup and three rotated repeats per case on GPU0; synchronous run includes recording21 full fields and1001 surface samples; dt/2 controls separate','step_method':'ABC-only native CFL0.8; PML uses solver CFL0.8 on identical mesh/material/ABC with PML omitted, explicitly authorized; active PML native rejection recorded for both orders','surface_comparison':'same-order identical nodes, strictly inside0<x<1400, exclude source neighbourhood |x-700|<20m; GLL weighted L2','field_comparison':'all physical core nodes, core-mass weighted L2 of21 frames','first_horizon_peak_for_scale_m_s':first_peak,'criteria_note':'finite and exact receiver registration are necessary only; report time-step sensitivity and growth flags, not a mathematical stability proof','latest_native_source':'generic seismic is byte-identical to seismic_pml_cached_v1; current working tree audited before launch'})
+    print('TIMING ANALYSIS COMPLETED',flush=True)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');args=parser.parse_args()
-    if args.first_reflection:analyze_first_reflection()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');args=parser.parse_args()
+    if args.timing:analyze_timing()
+    elif args.first_reflection:analyze_first_reflection()
     elif args.layered_spectrum:layered_tail_spectrum()
     elif args.layered:analyze_layered()
     elif args.thickness:analyze_thickness()

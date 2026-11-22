@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');args=parser.parse_args()
+    if args.timing:render_timing();return
     if args.first_reflection:render_first_reflection();return
     if args.layered_review:review_layered();return
     if args.layered:render_layered();return
@@ -428,6 +429,42 @@ def render_first_reflection() -> None:
     (out/'index.html').write_text(page)
     write(out/'render.json',{'status':'completed','source_metrics':file_record(source/'metrics.json'),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
     print('FIRST REFLECTION RENDER COMPLETED',flush=True)
+
+
+def render_timing() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TIMING_ROOT as root
+    source=root/'analysis/metrics.json';metrics=read_json(source);cases=mapping(metrics['cases'])
+    out=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1';out.mkdir(parents=True,exist_ok=False)
+    labels=('abc_only','L100','L175','F250');names=('Без PML, ABC','PML100 м','PML175 м','PML250 м')
+    fig,ax=plt.subplots(figsize=(11,6),layout='constrained');x=np.arange(4)
+    for j,order in enumerate((4,5)):
+        timing_rows=[mapping(cases[f'p{order}_{label}']) for label in labels];values=np.array([number(r['median_run_seconds']) for r in timing_rows]);lo=values-np.array([number(r['min_run_seconds']) for r in timing_rows]);hi=np.array([number(r['max_run_seconds']) for r in timing_rows])-values
+        xpos=x+(j-.5)*.36;ax.bar(xpos,values,width=.34,label=f'p{order}',color=('#377ba3','#d18a43')[j],yerr=np.stack((lo,hi)),capsize=4)
+        for xx,value in zip(xpos,values):ax.text(xx,value+.6,f'{value:.2f}',ha='center')
+    ax.set(xticks=x,xticklabels=names,ylabel='Время model.run, с',title='Saturn A100 · двухслойная1400×700 м · h5 м ·30 Гц ·1 с');ax.legend();ax.grid(axis='y',alpha=.25)
+    ax.set_ylim(0,ax.get_ylim()[1]*1.12);fig.suptitle('Медиана трёх повторов; усики — минимум/максимум; запись полей включена')
+    fig.savefig(out/'timings.png',dpi=150);plt.close(fig)
+    fig,axes=plt.subplots(2,2,figsize=(13,9),layout='constrained')
+    for j,order in enumerate((4,5)):
+        for label,name in zip(labels[1:],names[1:]):
+            r=mapping(cases[f'p{order}_{label}']);t=np.asarray(r['field_time_s'],dtype=float)
+            axes[j,0].semilogy(t,np.maximum(np.asarray(r['pml_peak_m_s'],dtype=float),1e-30),label=name)
+            axes[j,0].semilogy(t,np.maximum(np.asarray(r['half_dt_pml_peak_m_s'],dtype=float),1e-30),ls='--',alpha=.7)
+            axes[j,1].semilogy(t,np.maximum(np.asarray(r['core_kinetic_j_per_m'],dtype=float),1e-40),label=name)
+        axes[j,0].set(title=f'p{order}: максимум |Vx,Vy| внутри PML',xlabel='t, с',ylabel='м/с',xlim=(.3,1),ylim=(1e-15,1e-8));axes[j,0].legend();axes[j,0].grid(alpha=.25)
+        axes[j,1].set(title=f'p{order}: кинетическая энергия основной области',xlabel='t, с',ylabel='Дж/м',xlim=(.3,1));axes[j,1].legend();axes[j,1].grid(alpha=.25)
+    fig.suptitle('Сплошная — шаг из оценки CFL0,8; пунктир на левом графике — dt/2')
+    fig.savefig(out/'field_diagnostics.png',dpi=150);plt.close(fig)
+    rows=[]
+    for order in (4,5):
+        for label,name in zip(labels,names):
+            r=mapping(cases[f'p{order}_{label}']);temporal=mapping(mapping(r['temporal_surface'])['after_015'])
+            growth='сильный рост' if r['strong_growth_flag'] else 'монотонный поздний рост PML' if r['monotone_late_pml_growth_flag'] else 'нет флага роста за1 с'
+            rows.append(f'<tr><td>p{order}</td><td>{name}</td><td>{number(r["native_dt_s"])*1e6:.6f}</td><td>{int(number(r["steps"]))}</td><td>{number(r["median_run_seconds"]):.3f}</td><td>{number(r["min_run_seconds"]):.3f}–{number(r["max_run_seconds"]):.3f}</td><td>{number(r["median_total_seconds"]):.3f}</td><td>{number(temporal["relative_l2"])*100:.6g}%</td><td>{number(temporal["max_vector_delta_to_first_horizon"])*100:.6g}%</td><td>{number(r["temporal_core_fields_relative_l2"])*100:.6g}%</td><td>{growth}</td></tr>')
+    page='''<!doctype html><html lang="ru"><meta charset="utf-8"><title>Время PML p4/p5 и проверка шага</title><style>body{font:16px system-ui;max-width:1500px;margin:30px auto;padding:0 20px;color:#20262c}img{max-width:100%}table{border-collapse:collapse;width:100%}td,th{padding:8px;border-bottom:1px solid #ddd;text-align:right}td:nth-child(2){text-align:left}</style><h1>Время исполнения и чувствительность к шагу</h1><p>Общий lin_elast_2d_seismic_newmark_kim_cu, текущие исходники побайтово совпадают со снимком seismic_pml_cached_v1. Двухслойная1400×700 м, интерфейс−350 м, p4/p5,h5 м, Рикер30 Гц вниз в(700,0),1 Н/м,1 с, β1/27. Верх свободный, боковые и нижняя границы ABC. Нет массового демпфирования. Без PML область не расширяется. Максимумы квадратичного PML:100 м302,905 с⁻¹;175 и250 м173,089 с⁻¹. Это варианты прежнего сравнения, а не серия с постоянным максимумом для всех толщин.</p><p><b>Выбор шага:</b> без PML — native CFL0,8. С активным PML решатель всё ещё отвергает cfl_safety; отказ воспроизведён при обоих порядках. С прямого разрешения пользователя шаг оценён решателем на каждой той же сетке с материалом и ABC, но без PML, затем передан явно в полную модель. Следовательно, это не спектральная оценка связанной системы с памятью. Такт0,001 с, длительность1 с.</p><p>Все40 полных запусков последовательно на одной A100 GPU0:8 прогревов,24 измерения,8 контролей половинного шага. Время run включает синхронное интегрирование и регистрацию21 полного поля/1001 сейсмограммы; исключает сборку, prepare и конечное SHA-хеширование. Показана медиана трёх повторов, диапазон — минимум/максимум. Полное время включает сборку/prepare и сохранение поверхности до конечного хеширования. CFL-probe для PML выполняется отдельно и не входит в run.</p><img src="timings.png"><table><tr><th>Порядок</th><th>Вариант</th><th>dt, мкс</th><th>Шагов</th><th>run, с</th><th>Диапазон, с</th><th>Полное, с</th><th>Δdt L2 поверхности</th><th>Пик Δdt / первое отражение</th><th>Δdt L2 полей</th><th>Диагностика</th></tr>'''+''.join(rows)+'''</table><p>Δdt означает разность расчёта с основным шагом и dt/2, не точную ошибку. Поверхностные нормы взвешены GLL, только0&lt;x&lt;1400 м и вне20 м от источника, время0,15–1 с; поля сравниваются по массе основной области на21 кадре за0–1 с. Масштаб первого отражения взят из прежнего расширенного двухслойного контроля. При каждом порядке сравниваются одинаковые узлы; p4 и p5 напрямую не вычитаются. Конечность данных, воспроизведение повторов, совпадение поверхности/полей и SHA проверены. Отсутствие флагов роста за1 с не доказывает длительной устойчивости PML.</p><img src="field_diagnostics.png"><p><a href="../../../data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/analysis/metrics.json">Все метрики, шаги, спектры, повторяемость и диагностика</a></p></html>'''
+    (out/'index.html').write_text(page)
+    write(out/'render.json',{'status':'completed','source_metrics':file_record(source),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
+    print('TIMING RENDER COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()
