@@ -374,9 +374,33 @@ def analyze_timing() -> None:
     print('TIMING ANALYSIS COMPLETED',flush=True)
 
 
+def timing_first_pulse() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TIMING_ROOT as root,TIMING_CASES
+    from semgpu2.model import SGPETALineModel
+    existing=read_json(root/'analysis/metrics.json');cases=mapping(existing['cases']);result:dict[str,object]={}
+    for order in (4,5):
+        for spec in TIMING_CASES:
+            base=root/f'p{order}'/spec.label;t,x,v=traces(base/'repeat0');tf,xf,fine=traces(base/'half_dt')
+            np.testing.assert_array_equal(t,tf);np.testing.assert_array_equal(x,xf)
+            center=np.abs(x[:,0]-700)<=200+1e-8;xx=x[center,0]
+            arrival=.05+np.sqrt(700**2+(xx-700)**2)/4087
+            gate=np.abs(t[:,None]-arrival[None,:])<=.03
+            delta=np.where(gate[:,:,None],(v-fine)[:,center],0.);ref=np.where(gate[:,:,None],fine[:,center],0.)
+            nx=(W+2*spec.thickness)//5;gll=SGPETALineModel('GLL',order=order).build_data(use_symmetry=False).weights
+            ids=np.arange(nx)[:,None]*order+np.arange(order+1)[None,:];w=np.bincount(ids.ravel(),weights=np.tile(2.5*gll,nx),minlength=nx*order+1)[center]
+            key=f'p{order}_{spec.label}';row=mapping(cases[key]);coarse_tail=np.asarray(row['pml_peak_m_s'],dtype=float)[14:];fine_tail=np.asarray(row['half_dt_pml_peak_m_s'],dtype=float)[14:]
+            absolute=float(np.sqrt(np.max(np.sum(delta*delta,axis=2))));peak=float(np.sqrt(np.max(np.sum(ref*ref,axis=2))))
+            after=t>=.15;space=(x[:,0]>0)&(x[:,0]<W)&(abs(x[:,0]-700)>=20);amplitudes=np.sum((v-fine)[after][:,space]**2,axis=2);it,ix=np.unravel_index(np.argmax(amplitudes),amplitudes.shape)
+            result[key]={'first_PP_relative_l2':float(np.sqrt(np.sum(delta*delta*w[None,:,None])/np.sum(ref*ref*w[None,:,None]))),'first_PP_peak_delta_to_fine_peak':absolute/peak,'first_PP_peak_delta_m_s':absolute,'first_PP_fine_peak_m_s':peak,'all_after015_max_delta_time_s':float(t[after][it]),'all_after015_max_delta_x_m':float(x[space,0][ix]),'coarse_pml_07_to_1_growth_factor':float(coarse_tail[-1]/max(coarse_tail[0],1e-300)),'half_pml_07_to_1_growth_factor':float(fine_tail[-1]/max(fine_tail[0],1e-300)),'coarse_pml_monotone_after07':bool(spec.thickness and np.all(np.diff(coarse_tail)>0)),'half_pml_monotone_after07':bool(spec.thickness and np.all(np.diff(fine_tail)>0))}
+    target=root/'analysis/first_pulse_temporal.json';assert not target.exists()
+    write(target,{'status':'completed','method':'first PP window .05+sqrt(700^2+(x-700)^2)/4087 +/-0.03s; central aperture |x-700|<=200m avoids direct Rayleigh overlap; coarse minus dt/2 normalized to dt/2 in same window; no claim of exact solution','tail_note':'additional visible-tail diagnostic0.7..1s; initial0.6..1 flag retained in metrics.json; growth factors alone are not proof of cause','cases':result,'source_metrics':file_record(root/'analysis/metrics.json')})
+    print('TIMING FIRST PULSE CHECK COMPLETED',flush=True)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');args=parser.parse_args()
-    if args.timing:analyze_timing()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-spectrum',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-first-pulse',action='store_true');args=parser.parse_args()
+    if args.timing_first_pulse:timing_first_pulse()
+    elif args.timing:analyze_timing()
     elif args.first_reflection:analyze_first_reflection()
     elif args.layered_spectrum:layered_tail_spectrum()
     elif args.layered:analyze_layered()

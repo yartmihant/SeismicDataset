@@ -127,7 +127,8 @@ def report() -> None:
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--thickness',action='store_true');parser.add_argument('--thickness-review',action='store_true');parser.add_argument('--layered',action='store_true');parser.add_argument('--layered-review',action='store_true');parser.add_argument('--first-reflection',action='store_true');parser.add_argument('--timing',action='store_true');parser.add_argument('--timing-review',action='store_true');args=parser.parse_args()
+    if args.timing_review:review_timing();return
     if args.timing:render_timing();return
     if args.first_reflection:render_first_reflection();return
     if args.layered_review:review_layered();return
@@ -465,6 +466,20 @@ def render_timing() -> None:
     (out/'index.html').write_text(page)
     write(out/'render.json',{'status':'completed','source_metrics':file_record(source),'files':{p.name:file_record(p) for p in out.iterdir() if p.is_file()}})
     print('TIMING RENDER COMPLETED',flush=True)
+
+
+def review_timing() -> None:
+    from scripts.dev_1_5_geometry_frequency.pml_layered import TIMING_ROOT as root
+    out=PROJECT_ROOT/'img/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1'
+    record=read_json(root/'analysis/first_pulse_temporal.json');rows=[]
+    for key,value in mapping(record['cases']).items():
+        r=mapping(value)
+        rows.append(f'<tr><td>{key}</td><td>{100*number(r["first_PP_relative_l2"]):.6g}%</td><td>{100*number(r["first_PP_peak_delta_to_fine_peak"]):.6g}%</td><td>{number(r["coarse_pml_07_to_1_growth_factor"]):.5g}</td><td>{number(r["half_pml_07_to_1_growth_factor"]):.5g}</td></tr>')
+    extra='<h2>Проверка первого отражения и слабого роста PML</h2><p>Большой максимум разности dt/dt2 за0,15–1 с, выраженный в единицах первого отражения, нельзя считать ошибкой самого отражения: в этом интервале есть намного более сильная прямая поверхностная волна. Поэтому ниже отдельно выделено первое PP-отражение в центральной полосе |x−700|≤200 м, окно±0,03 с по геометрической гиперболе. Нормировка — на соответствующее окно решения dt/2.</p><table><tr><th>Вариант</th><th>L2 разности первого PP</th><th>Пик разности / пик первого PP</th><th>Пик PML:1 с /0,7 с</th><th>То же при dt/2</th></tr>'+''.join(rows)+'</table><p><b>У PML100 м виден слабый рост внутри слоя после0,7 с при обоих шагах.</b> Первоначальный флаг требовал монотонности уже с0,6 с и его не отмечал; исходный JSON сохранён, добавлена явная диагностика видимого хвоста0,7–1 с. Сильного разгона поля за1 с нет, но это не подтверждает долгосрочную устойчивость100 м. Уменьшение dt вдвое этот рост не устраняет. Более крупные слои175/250 м за проверенную секунду такого монотонного роста не показывают.</p><p><a href="../../../data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/analysis/first_pulse_temporal.json">Числа проверки первого импульса и локализация максимальной временной разности</a></p>'
+    text=(out/'index.html').read_text();text=text.replace('<img src="timings.png">',extra+'<img src="timings.png">',1)
+    target=out/'reviewed.html';assert not target.exists();target.write_text(text)
+    write(out/'review.json',{'status':'completed','source':file_record(root/'analysis/first_pulse_temporal.json'),'reviewed':file_record(target)})
+    print('TIMING REVIEW COMPLETED',flush=True)
 
 
 if __name__=='__main__':main()
