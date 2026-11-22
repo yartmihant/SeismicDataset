@@ -49,6 +49,7 @@ CASES={c.label:c for c in [*(Case(f'L{d}',d) for d in THICKNESSES),Case('old',17
 
 
 def resolve_case(label: str) -> Case:
+    if label=='abc_only':return Case(label,0,'abc_only')
     if label in CASES:return CASES[label]
     if re.fullmatch(r'[LF][0-9]+',label) is None:raise ValueError(label)
     thickness=int(label[1:])
@@ -122,7 +123,7 @@ def execute(spec: Case,dt: float | None) -> None:
     model=SGModel(mesh,solver)
     ids=np.arange(len(frozen.cells),dtype=np.int64)
     model.add_physics(SGPhysicsModel.from_entity_values('material',11000,mesh,1,ids,plane_strain_parameters(case.element_vp,case.element_vs)))
-    abc=old or mode=='pml_abc';damping_nodes=0;pml_elements=0
+    abc=old or mode in ('pml_abc','abc_only');damping_nodes=0;pml_elements=0
     if abc:
         edges=mesh.strata[2].p_nodes.reshape(-1,order+1)
         outer=np.flatnonzero(~np.all(np.abs(coords[edges,1])<1e-8,axis=1))
@@ -171,7 +172,7 @@ def execute(spec: Case,dt: float | None) -> None:
 
 
 def prepare_case(spec: Case) -> None:
-    target=ROOT/f'case_plan_{spec.label}.json'
+    target=ROOT/(f'control_plan_{spec.label}.json' if spec.mode=='abc_only' else f'case_plan_{spec.label}.json')
     if target.exists():raise FileExistsError(target)
     path=ROOT/'meshes'/f'{spec.mesh_name}.npz'
     frozen=load_frozen(path) if path.exists() else frozen_mesh(spec)
@@ -179,9 +180,13 @@ def prepare_case(spec: Case) -> None:
     case=build_sem(frozen,5);mesh=case.mesh;selected,surface=select(mesh,False)
     assert len(surface)==W+2*spec.thickness+1
     assert np.count_nonzero(core_mass(frozen,mesh,5,selected))==1401*701
-    field=pml_field(frozen,mesh,scale=spec.thickness/175 if spec.fixed else 1.,thickness=spec.thickness).build_data().values
-    dmax=ALPHA if spec.fixed else ALPHA*175/spec.thickness
-    assert np.all(field>=0) and np.isclose(field.max(),dmax)
+    if spec.mode=='abc_only':
+        assert spec.thickness==0 and len(selected)==1401*701
+        dmax=0.
+    else:
+        field=pml_field(frozen,mesh,scale=spec.thickness/175 if spec.fixed else 1.,thickness=spec.thickness).build_data().values
+        dmax=ALPHA if spec.fixed else ALPHA*175/spec.thickness
+        assert np.all(field>=0) and np.isclose(field.max(),dmax)
     write(target,{'status':'cpu_checked','label':spec.label,'nodes':len(selected),'thickness_m':spec.thickness,'dmax_s_inv':dmax,'fixed_strength':spec.fixed,'mesh':file_record(path),'reason':'Refinement of thickness bracket for weak interface echoes; prior results preserved.'})
 
 
