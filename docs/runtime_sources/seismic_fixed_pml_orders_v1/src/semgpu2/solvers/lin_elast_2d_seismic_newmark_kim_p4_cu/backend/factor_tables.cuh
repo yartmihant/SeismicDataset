@@ -1,0 +1,24 @@
+#pragma once
+
+// Generated from the raw ALine order 4 DTO with singleton Q orbits.
+static_assert(PET_N == 5, "Selected factor table does not match SEMGPU2_SEISMIC_ORDER");
+
+static __constant__ const FactorTables factor = {
+    {
+        0x1.9999999999998p-4, 0x1.16c16c16c16c2p-1, 0x1.6c16c16c16c1ap-1, 0x1.16c16c16c16c0p-1, 0x1.9999999999998p-4,
+    },
+    {
+        0x1.0000000000000p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0,
+        -0x1.60ea0ea0ea0eap-54, 0x1.0000000000000p+0, 0x1.6f8af8af8af8bp-53, -0x1.9999999999998p-57, 0x1.57c57c57c57c6p-56,
+        0x1.e000000000000p-55, 0x1.8000000000000p-55, 0x1.0000000000000p+0, -0x1.0000000000000p-55, 0x1.8000000000000p-55,
+        0x1.1f15f15f15f16p-54, 0x1.5075075075075p-55, 0x1.6f8af8af8af8bp-53, 0x1.ffffffffffffep-1, -0x1.a83a83a83a83ap-56,
+        0x1.0000000000000p-55, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.0000000000000p+0,
+    },
+    {
+        -0x1.4000000000001p+2, 0x1.b06a896a1a723p+2, -0x1.5555555555550p+1, 0x1.6900850240e1ap+0, -0x1.0000000000000p-1,
+        -0x1.3db189876c3f2p+0, 0x1.2f747a448ca83p-50, 0x1.bee9056fb9c36p+0, -0x1.870be4c1c28b0p-1, 0x1.0939d9e24f042p-2,
+        0x1.8000000000006p-2, -0x1.562a68298a39cp+0, 0x0.0p+0, 0x1.562a68298a39bp+0, -0x1.8000000000004p-2,
+        -0x1.0939d9e24f043p-2, 0x1.870be4c1c28b1p-1, -0x1.bee9056fb9c36p+0, -0x1.1747a448ca830p-50, 0x1.3db189876c3f3p+0,
+        0x1.0000000000000p-1, -0x1.6900850240e1dp+0, 0x1.5555555555550p+1, -0x1.b06a896a1a722p+2, 0x1.4000000000001p+2,
+    },
+};
