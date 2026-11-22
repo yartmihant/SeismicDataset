@@ -50,6 +50,7 @@ CASES={c.label:c for c in [*(Case(f'L{d}',d) for d in THICKNESSES),Case('old',17
 
 def resolve_case(label: str) -> Case:
     if label=='abc_only':return Case(label,0,'abc_only')
+    if label=='P175_noabc':return Case(label,175,'pml')
     if label in CASES:return CASES[label]
     if re.fullmatch(r'[LF][0-9]+',label) is None:raise ValueError(label)
     thickness=int(label[1:])
@@ -226,7 +227,7 @@ def cfl_check() -> None:
 
 
 TIMING_ROOT=ROOT.parent/'pml_timing_native_cfl_v1'
-TIMING_CASES=(resolve_case('abc_only'),resolve_case('L100'),resolve_case('L175'),resolve_case('F250'))
+TIMING_CASES=(resolve_case('abc_only'),resolve_case('L100'),resolve_case('L175'),resolve_case('F250'),resolve_case('P175_noabc'))
 
 
 def timing_prepare(root: Path) -> None:
@@ -244,17 +245,21 @@ def timing_prepare(root: Path) -> None:
                 maximum=ALPHA if spec.fixed else ALPHA*L/spec.thickness
                 assert np.all(data>=0) and np.isclose(data.max(),maximum)
             rows.append({'order':order,'label':spec.label,'nodes':len(selected),'dmax_s_inv':maximum,'thickness_m':spec.thickness,'mesh':file_record(path)})
-    write(root/'plan.json',{'status':'cpu_checked','cases':rows,'repeats':3,'warmups_per_case':1,'half_step_controls_per_case':1,'runs_total':40,'CFL':.8,'requested_step':'native CFL; active PML unsupported, surrogate requires user authorization','profiles':'L100 integral-preserving; L175 base; F250 fixed maximum as in last comparison','physical_domain':[0,1400,-700,0],'order':[4,5],'element_m':5,'frequency_hz':30,'source':[700,0],'duration_s':1,'field_frames':21,'surface_samples':1001,'estimated_array_budget_bytes':sum(int(number(r['nodes']))*21*2*8*5 for r in rows),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json'))})
+    write(root/'plan.json',{'status':'cpu_checked','cases':rows,'repeats':3,'warmups_per_case':1,'half_step_controls_per_case':1,'runs_total':50,'CFL':.8,'requested_step':'native CFL; active PML unsupported, surrogate requires user authorization','profiles':'L100 integral-preserving; L175 base; F250 fixed maximum as in last comparison','physical_domain':[0,1400,-700,0],'order':[4,5],'element_m':5,'frequency_hz':30,'source':[700,0],'duration_s':1,'field_frames':21,'surface_samples':1001,'estimated_array_budget_bytes':sum(int(number(r['nodes']))*21*2*8*5 for r in rows),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json'))})
     print('TIMING CPU CHECK PASSED',flush=True)
 
 
-def timing_series(root: Path,allow_surrogate: bool) -> None:
+def timing_series(root: Path,allow_surrogate: bool,*,extra: bool=False) -> None:
     assert allow_surrogate,'Explicit authorization is required for PML-free CFL estimate'
-    assert (root/'plan.json').exists() and not (root/'environment.json').exists()
+    environment_name='extra_environment.json' if extra else 'environment.json'
+    active_cases=TIMING_CASES[-1:] if extra else TIMING_CASES[:4]
+    assert (root/'plan.json').exists() and not (root/environment_name).exists()
+    if extra:assert (root/'runs_completed.json').exists()
+    if extra:write(root/'extra_plan_noabc.json',{'status':'authorized','cases':['P175_noabc'],'orders':[4,5],'thickness_m':175,'dmax_s_inv':ALPHA,'ABC':False,'outer_boundary':'free','runs':10,'CFL_probe':'same mesh/material with no PML and no ABC','source':'user requested additional175m PML withoutABC'})
     space();env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1')
     gpu=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip()
     if gpu:raise RuntimeError('GPU is occupied: '+gpu)
-    write(root/'environment.json',{'hostname':platform.node(),'python':sys.executable,'gpu':subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version,memory.total','--format=csv'],text=True),'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'native':file_record(Path(_native.__file__)),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')),'surrogate_authorized':allow_surrogate,'timing':'single GPU0, sequential separate processes; full warmup per case, three rotated repeats; synchronous model.run includes 21 fields and 1001 surface samples; half-dt controls excluded from timings'})
+    write(root/environment_name,{'hostname':platform.node(),'python':sys.executable,'gpu':subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version,memory.total','--format=csv'],text=True),'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'native':file_record(Path(_native.__file__)),'native_snapshot':file_record(Path('docs/runtime_sources/seismic_pml_cached_v1/provenance.json')),'surrogate_authorized':allow_surrogate,'timing':'single GPU0, sequential separate processes; full warmup per case, three rotated repeats; synchronous model.run includes 21 fields and 1001 surface samples; half-dt controls excluded from timings'})
     def launch(order: int,spec: Case,label: str,*,probe: bool=False,omit: bool=False,dt: float | None=None,expect_failure: bool=False) -> None:
         folder=root/f'p{order}'/spec.label/label;folder.parent.mkdir(parents=True,exist_ok=True)
         completed=folder/('probe.json' if probe else 'result.json')
@@ -277,23 +282,23 @@ def timing_series(root: Path,allow_surrogate: bool) -> None:
         elif result.returncode:raise RuntimeError(f'Failed timing case: {folder}')
     for order in (4,5):
         steps:dict[str,float]={}
-        launch(order,TIMING_CASES[1],'native_pml_rejection',probe=True,expect_failure=True)
-        for spec in TIMING_CASES:
+        if not extra:launch(order,TIMING_CASES[1],'native_pml_rejection',probe=True,expect_failure=True)
+        for spec in active_cases:
             launch(order,spec,'cfl_probe',probe=True,omit=bool(spec.thickness))
             steps[spec.label]=number(read_json(root/f'p{order}'/spec.label/'cfl_probe/probe.json')['dt_s'])
             launch(order,spec,'warmup',dt=steps[spec.label] if spec.thickness else None)
         for repeat in range(3):
-            rotated=TIMING_CASES[repeat:]+TIMING_CASES[:repeat]
+            rotated=active_cases[repeat%len(active_cases):]+active_cases[:repeat%len(active_cases)]
             for spec in rotated:launch(order,spec,f'repeat{repeat}',dt=steps[spec.label] if spec.thickness else None)
-        for spec in TIMING_CASES:launch(order,spec,'half_dt',dt=steps[spec.label]/2)
-    write(root/'runs_completed.json',{'status':'completed','runs':40,'orders':[4,5],'cases':[s.label for s in TIMING_CASES]})
+        for spec in active_cases:launch(order,spec,'half_dt',dt=steps[spec.label]/2)
+    write(root/('extra_runs_completed.json' if extra else 'runs_completed.json'),{'status':'completed','runs':10 if extra else 40,'orders':[4,5],'cases':[s.label for s in active_cases]})
     print('TIMING SERIES COMPLETED',flush=True)
 
 
 def main() -> None:
-    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');p.add_argument('--timing-prepare',action='store_true');p.add_argument('--timing-series',action='store_true');p.add_argument('--allow-cfl-surrogate',action='store_true');p.add_argument('--timing-root',type=Path,default=TIMING_ROOT);p.add_argument('--timing-case');p.add_argument('--timing-label');p.add_argument('--order',type=int,choices=(4,5),default=5);p.add_argument('--dt',type=float);p.add_argument('--probe',action='store_true');p.add_argument('--omit-pml',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--check',type=Path);p.add_argument('--prepare',action='store_true');p.add_argument('--case');p.add_argument('--prepare-case');p.add_argument('--native-cfl',action='store_true');p.add_argument('--cfl-check',action='store_true');p.add_argument('--extra',action='store_true');p.add_argument('--timing-prepare',action='store_true');p.add_argument('--timing-series',action='store_true');p.add_argument('--timing-extra',action='store_true');p.add_argument('--allow-cfl-surrogate',action='store_true');p.add_argument('--timing-root',type=Path,default=TIMING_ROOT);p.add_argument('--timing-case');p.add_argument('--timing-label');p.add_argument('--order',type=int,choices=(4,5),default=5);p.add_argument('--dt',type=float);p.add_argument('--probe',action='store_true');p.add_argument('--omit-pml',action='store_true');a=p.parse_args()
     if a.timing_prepare:timing_prepare(a.timing_root);return
-    if a.timing_series:timing_series(a.timing_root,a.allow_cfl_surrogate);return
+    if a.timing_series or a.timing_extra:timing_series(a.timing_root,a.allow_cfl_surrogate,extra=a.timing_extra);return
     if a.timing_case:
         assert a.timing_label
         execute(resolve_case(a.timing_case),a.dt,order=a.order,root=a.timing_root,output=a.timing_root/f'p{a.order}'/a.timing_case/a.timing_label,probe=a.probe,omit_pml=a.omit_pml);return
