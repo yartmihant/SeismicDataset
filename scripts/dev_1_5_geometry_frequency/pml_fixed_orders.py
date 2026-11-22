@@ -161,7 +161,7 @@ def prepare(root: Path) -> None:
         'snapshot':file_record(SNAPSHOT)})
 
 
-def execute(root: Path, case: Case, backend: str, label: str, dt: float | None, probe: bool=False, *, source_positions:tuple[float,...]=(700.,)) -> dict[str, object]:
+def execute(root: Path, case: Case, backend: str, label: str, dt: float | None, probe: bool=False, *, source_positions:tuple[float,...]=(700.,), save_fields:bool=True) -> dict[str, object]:
     space(); out=root/case.label/backend/label; out.mkdir(parents=True, exist_ok=False)
     start=perf_counter(); base=grid(case); copies=len(source_positions); nodes_per_copy=len(base.mesh.nodes_coords); top_per_copy=len(base.top)
     g=pack_grid(base,copies); mesh=g.mesh; coords=mesh.nodes_coords
@@ -185,19 +185,21 @@ def execute(root: Path, case: Case, backend: str, label: str, dt: float | None, 
     force=np.zeros((len(times),copies,2)); force[:,:,1]=(-(1-2*phase**2)*np.exp(-phase**2))[:,None]
     model.add_physics(SGPhysicsModel('point_force',20200,mesh,0,source,force,time=SGPhysicsTimeData(0.,1.,len(times),3)))
     assert native.__file__ is not None
-    record:dict[str,object]={'status':'prepared','case':case.label,'order':case.order,'h_m':case.h,'backend':backend,'ABC':False,'boundary_elements':0,'strata':[1], 'nodes_count':len(coords),'elements':len(g.cells),'pml_elements':len(pf.entities),'native':file_record(Path(native.__file__)), 'snapshot':file_record(SNAPSHOT), 'runner':file_record(Path(__file__)), 'explicit_dt_s':dt,'cfl_safety':.8 if dt is None else None,'kim_beta':1/27,'dmax_s_inv':ALPHA,'duration_s':1,'source_hz':30,'source_xy_m':[[x,0.] for x in source_positions],'source_x_m':list(source_positions),'copies':copies,'nodes_per_copy':nodes_per_copy,'surface_nodes_per_copy':top_per_copy,'gpu':os.environ.get('CUDA_VISIBLE_DEVICES')}
+    record:dict[str,object]={'status':'prepared','case':case.label,'order':case.order,'h_m':case.h,'backend':backend,'ABC':False,'boundary_elements':0,'strata':[1], 'nodes_count':len(coords),'elements':len(g.cells),'pml_elements':len(pf.entities),'native':file_record(Path(native.__file__)), 'snapshot':file_record(SNAPSHOT), 'runner':file_record(Path(__file__)), 'explicit_dt_s':dt,'cfl_safety':.8 if dt is None else None,'kim_beta':1/27,'dmax_s_inv':ALPHA,'duration_s':1,'source_hz':30,'source_xy_m':[[x,0.] for x in source_positions],'source_x_m':list(source_positions),'copies':copies,'nodes_per_copy':nodes_per_copy,'surface_nodes_per_copy':top_per_copy,'gpu':os.environ.get('CUDA_VISIBLE_DEVICES'),'field_receiver_registered':save_fields,'output_mode':'fields_and_surface' if save_fields else 'surface_only'}
     if probe:
         model.prepare(); s=cast(Spectrum, solver.spectrum)
         record.update(dt_s=s.step_dt, steps=s.steps_count, steps_per_ms=s.steps_per_tact, lambda_max=s.lambda_max, lambda_max_damping=s.lambda_max_damping, total_seconds=perf_counter()-start)
         write(out/'probe.json',record); return record
     surface=np.empty((1001,len(g.top),2)); ns=0; nf=0
-    fields=np.lib.format.open_memmap(out/'velocity.npy',mode='w+',dtype=np.float64,shape=(21,len(coords),2))
+    fields=np.lib.format.open_memmap(out/'velocity.npy',mode='w+',dtype=np.float64,shape=(21,len(coords),2)) if save_fields else None
     peaks: list[float]=[]; core_energy: list[float]=[]; pml_peaks: list[float]=[]
-    core=(g.centers[:,0]>0)&(g.centers[:,0]<W)&(g.centers[:,1]>-H)
-    local=(1000*(case.h/2)**2*np.outer(g.weights,g.weights)).ravel()
-    mass=np.bincount(g.cells[core].ravel(), weights=np.tile(local,np.count_nonzero(core)), minlength=len(coords))
-    assert np.isclose(mass.sum(),copies*1000*W*H)
-    layer_nodes=(coords[:,0]<0)|(coords[:,0]>W)|(coords[:,1]<-H)
+    mass=np.empty(0,dtype=np.float64);layer_nodes=np.empty(0,dtype=np.bool_)
+    if save_fields:
+        core=(g.centers[:,0]>0)&(g.centers[:,0]<W)&(g.centers[:,1]>-H)
+        local=(1000*(case.h/2)**2*np.outer(g.weights,g.weights)).ravel()
+        mass=np.asarray(np.bincount(g.cells[core].ravel(), weights=np.tile(local,np.count_nonzero(core)), minlength=len(coords)),dtype=np.float64)
+        assert np.isclose(mass.sum(),copies*1000*W*H)
+        layer_nodes=(coords[:,0]<0)|(coords[:,0]>W)|(coords[:,1]<-H)
     def surface_handler(frame:FloatArray,event:SGBaseReceiverEventData,control:SGReceiverRunControl)->None:
         nonlocal ns
         checked_time(frame,event,ns*.001);assert ns<1001 and np.isfinite(frame).all()
@@ -205,29 +207,33 @@ def execute(root: Path, case: Case, backend: str, label: str, dt: float | None, 
     def field_handler(frame:FloatArray,event:SGBaseReceiverEventData,control:SGReceiverRunControl)->None:
         nonlocal nf
         space(20);checked_time(frame,event,nf*.05);assert nf<21 and np.isfinite(frame).all()
+        assert fields is not None
         fields[nf]=frame.reshape(2,-1).T;nf+=1
     components=np.array([4,5],dtype=np.int32)
     model.add_receiver(SGReceiverModel.from_positions('surface',mesh,0,g.top,components,begin_tact=0,end_tact=1000,stride=1,handler=surface_handler))
-    model.add_receiver(SGReceiverModel.from_positions('fields',mesh,0,np.arange(len(coords),dtype=np.int64),components,begin_tact=0,end_tact=1000,stride=50,handler=field_handler))
+    if save_fields:
+        model.add_receiver(SGReceiverModel.from_positions('fields',mesh,0,np.arange(len(coords),dtype=np.int64),components,begin_tact=0,end_tact=1000,stride=50,handler=field_handler))
     prep=perf_counter();model.prepare(); prep_end=perf_counter();s=cast(Spectrum, solver.spectrum)
     assert len(solver.pml_entity_ids)==len(pf.entities)
     record.update(dt_s=s.step_dt,steps=s.steps_count,steps_per_ms=s.steps_per_tact,lambda_max=s.lambda_max,lambda_max_damping=s.lambda_max_damping,assembly_seconds=prep-start,prepare_seconds=prep_end-prep)
     write(out/'started.json',record); print('STARTED',case.label,backend,label,s.steps_count,flush=True)
     run_start=perf_counter();result=cast(TimedResult,model.run(sync=True));run_end=perf_counter()
-    assert int(result.code)==int(constants.SGRunCodeEnum.TIME_END) and result.steps_count==s.steps_count and ns==1001 and nf==21
-    fields.flush(); np.testing.assert_array_equal(fields[:,g.top],surface[::50])
-    for frame in fields:
-        peaks.append(float(np.max(np.linalg.norm(frame,axis=1))))
-        pml_peaks.append(float(np.max(np.linalg.norm(frame[layer_nodes],axis=1))))
-        core_energy.append(float(.5*np.sum(mass*np.sum(frame**2,axis=1))))
+    assert int(result.code)==int(constants.SGRunCodeEnum.TIME_END) and result.steps_count==s.steps_count and ns==1001 and nf==(21 if save_fields else 0)
+    if fields is not None:
+        fields.flush(); np.testing.assert_array_equal(fields[:,g.top],surface[::50])
+        for frame in fields:
+            peaks.append(float(np.max(np.linalg.norm(frame,axis=1))))
+            pml_peaks.append(float(np.max(np.linalg.norm(frame[layer_nodes],axis=1))))
+            core_energy.append(float(.5*np.sum(mass*np.sum(frame**2,axis=1))))
     assert solver.pml_history is not None
     history=np.asarray(solver.pml_history[:,:]); assert np.isfinite(history).all()
-    np.save(out/'nodes.npy',coords)
+    if save_fields:np.save(out/'nodes.npy',coords)
     np.savez(out/'surface.npz',time_s=np.arange(1001)*.001,coordinates_m=coords[g.top],velocity_m_s=surface)
-    common=np.stack([interpolate_surface(surface[:,i*top_per_copy:(i+1)*top_per_copy],case) for i in range(copies)])
-    np.savez(out/'common_surface.npz',time_s=np.arange(1001)*.001,x_m=np.arange(W+1),velocity_m_s=common[0] if copies==1 else common,source_x_m=np.asarray(source_positions))
-    record.update(status='completed',solve_wall_seconds=run_end-start,run_seconds=run_end-run_start,total_seconds=perf_counter()-start,frames=nf,surface_samples=ns,surface_field_exact=True,pml_history_max_abs=float(np.max(abs(history))),field_peak_m_s=peaks,pml_peak_m_s=pml_peaks,core_kinetic_energy=core_energy)
-    for name in ('velocity.npy','nodes.npy','surface.npz','common_surface.npz'):
+    if save_fields:
+        common=np.stack([interpolate_surface(surface[:,i*top_per_copy:(i+1)*top_per_copy],case) for i in range(copies)])
+        np.savez(out/'common_surface.npz',time_s=np.arange(1001)*.001,x_m=np.arange(W+1),velocity_m_s=common[0] if copies==1 else common,source_x_m=np.asarray(source_positions))
+    record.update(status='completed',solve_wall_seconds=run_end-start,run_seconds=run_end-run_start,total_seconds=perf_counter()-start,frames=nf,surface_samples=ns,surface_field_exact=True if save_fields else None,pml_history_max_abs=float(np.max(abs(history))),field_peak_m_s=peaks,pml_peak_m_s=pml_peaks,core_kinetic_energy=core_energy)
+    for name in (('velocity.npy','nodes.npy','surface.npz','common_surface.npz') if save_fields else ('surface.npz',)):
         record[name]=file_record(out/name)
     write(out/'result.json',record);print('COMPLETED',case.label,backend,label,record['run_seconds'],flush=True)
     return record
@@ -267,6 +273,7 @@ def series(root:Path)->None:
 
 
 BATCH_ROOT=ROOT.parent/'pml_p6_sources7_v1'
+SURFACE_BATCH_ROOT=ROOT.parent/'pml_p6_sources7_surface_v1'
 SOURCE_POSITIONS=(175.,350.,525.,700.,875.,1050.,1225.)
 
 
@@ -284,7 +291,7 @@ def pack_grid(base:Grid,copies:int)->Grid:
     return Grid(mesh,cells,np.tile(base.centers,(copies,1)),np.concatenate([base.top+i*n for i in range(copies)]),base.axis_x,base.axis_y,base.weights)
 
 
-def batch_prepare(root:Path)->None:
+def batch_prepare(root:Path,save_fields:bool=True)->None:
     root.mkdir(parents=True,exist_ok=False)
     case=Case(6,10);base=grid(case);packed=pack_grid(base,7)
     n=len(base.mesh.nodes_coords);e=len(base.cells);ids=[]
@@ -299,17 +306,19 @@ def batch_prepare(root:Path)->None:
     for i in range(7):np.testing.assert_array_equal(values[:,i*single.shape[1]:(i+1)*single.shape[1]],single)
     vp,vs=material(packed);v0,s0=material(base)
     np.testing.assert_array_equal(vp,np.tile(v0,7));np.testing.assert_array_equal(vs,np.tile(s0,7))
-    raw_single=21*n*16+n*16+1001*len(base.top)*16+1001*1401*16
-    write(root/'plan.json',{'status':'cpu_checked','order':6,'h_m':10,'source_x_m':list(SOURCE_POSITIONS),'source_node_ids':ids,'nodes_per_copy':n,'nodes_batch':7*n,'elements_per_copy':e,'elements_batch':7*e,'pml_elements_per_copy':len(pml(base).entities),'boundary_elements':0,'copies':7,'copies_disconnected':True,'translation_m':0,'duration_s':1,'source_hz':30,'source_force_y_n_per_m':-1.,'source_t0_s':.05,'kim_beta':1/27,'PML_thickness_m':350,'PML_dmax_s_inv':ALPHA,'ABC':False,'CFL':.8,'field_frames_per_source':21,'surface_samples_per_source':1001,'runs':32,'probes':2,'estimated_array_bytes':raw_single*7*8,'timing':'7 singles versus one packed model; one full warmup of each source and package, then3 paired rounds; sequential on GPU0. Compare median of summed7 run times with median package run; also assembly+prepare+run.','dt':'native estimate for one copy and disconnected package; require same dt before timing','validation':'compare each of7 package components against corresponding single, fields and surface; same order, dt and point force','snapshot':file_record(SNAPSHOT)})
+    raw_single=(21*n*16+n*16+1001*1401*16 if save_fields else 0)+1001*len(base.top)*16
+    write(root/'plan.json',{'status':'cpu_checked','order':6,'h_m':10,'source_x_m':list(SOURCE_POSITIONS),'source_node_ids':ids,'nodes_per_copy':n,'nodes_batch':7*n,'elements_per_copy':e,'elements_batch':7*e,'pml_elements_per_copy':len(pml(base).entities),'boundary_elements':0,'copies':7,'copies_disconnected':True,'translation_m':0,'duration_s':1,'source_hz':30,'source_force_y_n_per_m':-1.,'source_t0_s':.05,'kim_beta':1/27,'PML_thickness_m':350,'PML_dmax_s_inv':ALPHA,'ABC':False,'CFL':.8,'field_frames_per_source':21 if save_fields else 0,'output_mode':'fields_and_surface' if save_fields else 'surface_only','surface_samples_per_source':1001,'runs':32,'probes':2,'estimated_array_bytes':raw_single*7*8,'timing':'7 singles versus one packed model; one full warmup of each source and package, then3 paired rounds; sequential on GPU0. Compare median of summed7 run times with median package run; also assembly+prepare+run.','dt':'native estimate for one copy and disconnected package; require same dt before timing','validation':'compare each of7 package components against corresponding single, fields and surface; same order, dt and point force','snapshot':file_record(SNAPSHOT)})
 
 
 def batch_series(root:Path)->None:
-    assert read_json(root/'plan.json')['status']=='cpu_checked'
+    plan=read_json(root/'plan.json');assert plan['status']=='cpu_checked'
+    save_fields=number(plan['field_frames_per_source'])>0
     if (root/'environment.json').exists():raise FileExistsError('Batch series already started; inspect before resuming')
     space();env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1')
     write(root/'environment.json',{'hostname':platform.node(),'python':sys.executable,'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'gpu':subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version,memory.total,utilization.gpu','--format=csv'],text=True),'snapshot':file_record(SNAPSHOT),'production':'stopped; not modified'})
     def launch(name:str,label:str,probe:bool=False)->dict[str,object]:
         cmd=[sys.executable,'-m','scripts.dev_1_5_geometry_frequency.pml_fixed_orders','--root',str(root),'--batch-run',name,'--label',label]
+        if not save_fields:cmd+=['--surface-only']
         if probe:cmd+=['--probe']
         with (root/f'{name}_{label}.log').open('x') as log:subprocess.run(cmd,env=env,stdout=log,stderr=subprocess.STDOUT,check=True)
         return read_json(root/'p6_h10/fixed'/f'{name}_{label}'/('probe.json' if probe else 'result.json'))
@@ -331,20 +340,20 @@ def batch_series(root:Path)->None:
     write(root/'runs_completed.json',{'status':'completed','runs':32,'probes':2,'rounds':rounds,'native_dt_s':single['dt_s'],'production_queue':'not modified'})
 
 def main()->None:
-    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=ROOT);parser.add_argument('--prepare',action='store_true');parser.add_argument('--series',action='store_true');parser.add_argument('--case',choices=[c.label for c in (*CASES,*CONTROLS)]);parser.add_argument('--backend',choices=('generic','fixed'),default='fixed');parser.add_argument('--label');parser.add_argument('--dt',type=float);parser.add_argument('--probe',action='store_true');parser.add_argument('--batch-prepare',action='store_true');parser.add_argument('--batch-series',action='store_true');parser.add_argument('--batch-run',choices=['batch7']+[f'x{int(x)}' for x in SOURCE_POSITIONS]);args=parser.parse_args()
-    if (args.batch_prepare or args.batch_series or args.batch_run) and args.root==ROOT:args.root=BATCH_ROOT
-    if args.batch_prepare:batch_prepare(args.root);return
+    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=ROOT);parser.add_argument('--prepare',action='store_true');parser.add_argument('--series',action='store_true');parser.add_argument('--case',choices=[c.label for c in (*CASES,*CONTROLS)]);parser.add_argument('--backend',choices=('generic','fixed'),default='fixed');parser.add_argument('--label');parser.add_argument('--dt',type=float);parser.add_argument('--probe',action='store_true');parser.add_argument('--surface-only',action='store_true');parser.add_argument('--batch-prepare',action='store_true');parser.add_argument('--batch-series',action='store_true');parser.add_argument('--batch-run',choices=['batch7']+[f'x{int(x)}' for x in SOURCE_POSITIONS]);args=parser.parse_args()
+    if (args.batch_prepare or args.batch_series or args.batch_run) and args.root==ROOT:args.root=SURFACE_BATCH_ROOT if args.surface_only else BATCH_ROOT
+    if args.batch_prepare:batch_prepare(args.root,save_fields=not args.surface_only);return
     if args.batch_series:batch_series(args.root);return
     if args.batch_run:
         assert args.label
         positions=SOURCE_POSITIONS if args.batch_run=='batch7' else (float(args.batch_run[1:]),)
-        execute(args.root,Case(6,10),'fixed',args.batch_run+'_'+args.label,args.dt,args.probe,source_positions=positions);return
+        execute(args.root,Case(6,10),'fixed',args.batch_run+'_'+args.label,args.dt,args.probe,source_positions=positions,save_fields=not args.surface_only);return
     if args.prepare:prepare(args.root)
     elif args.series:series(args.root)
     else:
         assert args.case and args.label
         case=next(c for c in (*CASES,*CONTROLS) if c.label==args.case)
-        execute(args.root,case,args.backend,args.label,args.dt,args.probe)
+        execute(args.root,case,args.backend,args.label,args.dt,args.probe,save_fields=not args.surface_only)
 
 
 if __name__=='__main__':main()

@@ -8,7 +8,7 @@ from numpy.typing import NDArray
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from scripts.dev_1_5_geometry_frequency.pml_fixed_orders import ROOT, CASES, CONTROLS, BATCH_ROOT, SOURCE_POSITIONS
+from scripts.dev_1_5_geometry_frequency.pml_fixed_orders import ROOT, CASES, CONTROLS, BATCH_ROOT, SOURCE_POSITIONS, SURFACE_BATCH_ROOT
 from scripts.dev_1_3_point_source.run import file_record
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.reporting import read_json, mapping, number
@@ -153,19 +153,26 @@ def review(root:Path,output:Path)->None:
 
 def batch_analyze(root:Path)->None:
     done=read_json(root/'runs_completed.json');assert done['status']=='completed'
+    save_fields=number(read_json(root/'plan.json')['field_frames_per_source'])>0
+    comparison_keys=('fields','surface') if save_fields else ('surface',)
     out=root/'analysis';out.mkdir(exist_ok=False)
     runroot=root/'p6_h10/fixed';verified=[]
     for path in sorted(runroot.glob('*/result.json')):
-        record=read_json(path);assert record['status']=='completed' and record['boundary_elements']==0 and record['surface_field_exact'] is True
-        for name in ('velocity.npy','nodes.npy','surface.npz','common_surface.npz'):
+        record=read_json(path);assert record['status']=='completed' and record['boundary_elements']==0
+        assert record['frames']==(21 if save_fields else 0)
+        if save_fields:assert record['surface_field_exact'] is True
+        else:
+            assert record['field_receiver_registered'] is False
+            assert not any((path.parent/name).exists() for name in ('velocity.npy','nodes.npy','common_surface.npz'))
+        for name in (('velocity.npy','nodes.npy','surface.npz','common_surface.npz') if save_fields else ('surface.npz',)):
             assert file_record(path.parent/name)['sha256']==mapping(record[name])['sha256']
             verified.append(str((path.parent/name).relative_to(root)))
-    assert len(verified)==128
+    assert len(verified)==(128 if save_fields else 32)
     comparisons=[];rounds=[]
     for repeat in range(3):
         label=f'repeat{repeat}';packed=runroot/f'batch7_{label}';pr=read_json(packed/'result.json');n=int(number(pr['nodes_per_copy']));top=int(number(pr['surface_nodes_per_copy']))
         assert pr['copies']==7 and pr['source_x_m']==list(SOURCE_POSITIONS)
-        pv=np.load(packed/'velocity.npy',mmap_mode='r');pn=np.load(packed/'nodes.npy',mmap_mode='r')
+        pv=np.load(packed/'velocity.npy',mmap_mode='r') if save_fields else None;pn=np.load(packed/'nodes.npy',mmap_mode='r') if save_fields else None
         with np.load(packed/'surface.npz') as pz:
             ps=pz['velocity_m_s'];pc=pz['coordinates_m'];pt=pz['time_s']
             singles=[]
@@ -173,24 +180,44 @@ def batch_analyze(root:Path)->None:
                 path=runroot/f'x{int(x)}_{label}';single=read_json(path/'result.json');singles.append(single)
                 assert single['copies']==1 and single['source_x_m']==[x] and single['dt_s']==pr['dt_s'] and single['steps']==pr['steps']
                 assert single['native']==pr['native'] and single['snapshot']==pr['snapshot'] and single['runner']==pr['runner']
-                np.testing.assert_array_equal(pn[i*n:(i+1)*n],np.load(path/'nodes.npy'))
-                fields=equivalence(pv[:,i*n:(i+1)*n],np.load(path/'velocity.npy',mmap_mode='r'))
+                fields:dict[str,object]={}
+                if save_fields:
+                    assert pv is not None and pn is not None
+                    np.testing.assert_array_equal(pn[i*n:(i+1)*n],np.load(path/'nodes.npy'))
+                    fields=equivalence(pv[:,i*n:(i+1)*n],np.load(path/'velocity.npy',mmap_mode='r'))
                 with np.load(path/'surface.npz') as sz:
                     np.testing.assert_array_equal(pc[i*top:(i+1)*top],sz['coordinates_m']);np.testing.assert_array_equal(pt,sz['time_s'])
                     surf=equivalence(ps[:,i*top:(i+1)*top],sz['velocity_m_s'])
-                comparisons.append({'repeat':repeat,'source_x_m':x,'fields':fields,'surface':surf})
+                comparisons.append({'repeat':repeat,'source_x_m':x,'surface':surf,**({'fields':fields} if save_fields else {})})
             sequential=sum(number(s['run_seconds']) for s in singles);packed_run=number(pr['run_seconds'])
             sequential_wall=sum(number(s['solve_wall_seconds']) for s in singles);packed_wall=number(pr['solve_wall_seconds'])
             rounds.append({'repeat':repeat,'single_sources_run_seconds':[s['run_seconds'] for s in singles],'single_sources_assembly_seconds':[s['assembly_seconds'] for s in singles],'single_sources_prepare_seconds':[s['prepare_seconds'] for s in singles],'sequential_sum_run_seconds':sequential,'batch_run_seconds':packed_run,'run_speedup':sequential/packed_run,'sequential_sum_solve_wall_seconds':sequential_wall,'batch_solve_wall_seconds':packed_wall,'solve_wall_speedup':sequential_wall/packed_wall,'batch_assembly_seconds':pr['assembly_seconds'],'batch_prepare_seconds':pr['prepare_seconds']})
-    agree=all(mapping(c[key])['within_tolerance'] for c in comparisons for key in ('fields','surface'))
+    agree=all(mapping(c[key])['within_tolerance'] for c in comparisons for key in comparison_keys)
     seq=float(np.median([number(r['sequential_sum_run_seconds']) for r in rounds]));packed_time=float(np.median([number(r['batch_run_seconds']) for r in rounds]))
     seq_wall=float(np.median([number(r['sequential_sum_solve_wall_seconds']) for r in rounds]));pack_wall=float(np.median([number(r['batch_solve_wall_seconds']) for r in rounds]))
-    write(out/'metrics.json',{'status':'completed','source_x_m':list(SOURCE_POSITIONS),'copies':7,'order':6,'h_m':10,'boundary_elements':0,'ABC':False,'PML_thickness_m':350,'step_plan':read_json(root/'step_plan.json'),'rounds':rounds,'median_sequential_run_seconds':seq,'median_batch_run_seconds':packed_time,'run_speedup':seq/packed_time,'run_time_reduction_fraction':1-packed_time/seq,'equivalent_batch_seconds_per_source':packed_time/7,'median_sequential_solve_wall_seconds':seq_wall,'median_batch_solve_wall_seconds':pack_wall,'solve_wall_speedup':seq_wall/pack_wall,'comparisons':comparisons,'all_agree':agree,'verified_array_files':verified,'sampling':'1001 full-top nodal samples and21 full fields per source; no mixing between copies','timing':'median3 sums of7 sequential run times vs median3 package run times; 8 complete warmup launches excluded. Solve wall includes assembly/preparation/run, excludes process startup and postprocessing/hashing.','physical_interpretation':'7 independent disconnected meshes in one SGModel; not7 sources superposed in one physical field','native_reference':'same frozen fixed-p6 snapshot as prior single-source study; production stopped'})
+    prior_comparisons=[];prior_sha=[];prior_metrics:dict[str,object]={}
+    if not save_fields:
+        oldroot=BATCH_ROOT/'p6_h10/fixed'
+        prior_metrics=read_json(BATCH_ROOT/'analysis/metrics.json')
+        for path in sorted(runroot.glob('*/result.json')):
+            previous=oldroot/path.parent.name
+            old=read_json(previous/'result.json');new=read_json(path)
+            assert old['dt_s']==new['dt_s'] and old['source_x_m']==new['source_x_m'] and old['native']==new['native'] and old['snapshot']==new['snapshot']
+            assert file_record(previous/'surface.npz')['sha256']==mapping(old['surface.npz'])['sha256']
+            prior_sha.append(str(previous/'surface.npz'))
+            with np.load(path.parent/'surface.npz') as av,np.load(previous/'surface.npz') as bv:
+                np.testing.assert_array_equal(av['time_s'],bv['time_s']);np.testing.assert_array_equal(av['coordinates_m'],bv['coordinates_m'])
+                diff=equivalence(av['velocity_m_s'],bv['velocity_m_s'])
+            prior_comparisons.append({'run':path.parent.name,'surface':diff})
+        agree=agree and all(mapping(c['surface'])['within_tolerance'] for c in prior_comparisons)
+    write(out/'metrics.json',{'status':'completed','source_x_m':list(SOURCE_POSITIONS),'copies':7,'order':6,'h_m':10,'boundary_elements':0,'ABC':False,'PML_thickness_m':350,'step_plan':read_json(root/'step_plan.json'),'rounds':rounds,'median_sequential_run_seconds':seq,'median_batch_run_seconds':packed_time,'run_speedup':seq/packed_time,'run_time_reduction_fraction':1-packed_time/seq,'equivalent_batch_seconds_per_source':packed_time/7,'median_sequential_solve_wall_seconds':seq_wall,'median_batch_solve_wall_seconds':pack_wall,'solve_wall_speedup':seq_wall/pack_wall,'comparisons':comparisons,'all_agree':agree,'verified_array_files':verified,'output_mode':'fields_and_surface' if save_fields else 'surface_only','field_frames_per_source':21 if save_fields else 0,'with_fields_baseline':{k:prior_metrics[k] for k in ('median_sequential_run_seconds','median_batch_run_seconds','median_sequential_solve_wall_seconds','median_batch_solve_wall_seconds')} if prior_metrics else None,'with_fields_baseline_metrics':file_record(BATCH_ROOT/'analysis/metrics.json') if prior_metrics else None,'vs_with_fields':prior_comparisons,'verified_prior_surface_files':prior_sha,'sampling':'1001 full-top nodal samples per source; no mixing between copies; full fields optional as explicitly recorded' ,'timing':'median3 sums of7 sequential run times vs median3 package run times; 8 complete warmup launches excluded. Solve wall includes assembly/preparation/run, excludes process startup and postprocessing/hashing.','physical_interpretation':'7 independent disconnected meshes in one SGModel; not7 sources superposed in one physical field','native_reference':'same frozen fixed-p6 snapshot as prior single-source study; production stopped'})
     assert agree,'Packed and single-source results differ beyond tolerance'
 
 
 def batch_render(root:Path,output:Path)->None:
-    m=read_json(root/'analysis/metrics.json');output.mkdir(parents=True,exist_ok=False)
+    m=read_json(root/'analysis/metrics.json')
+    if m.get('output_mode')=='surface_only':surface_batch_render(root,output);return
+    output.mkdir(parents=True,exist_ok=False)
     seq=number(m['median_sequential_run_seconds']);packed=number(m['median_batch_run_seconds'])
     fig,ax=plt.subplots(figsize=(9,5));bars=ax.bar(['7 источников последовательно','7 независимых копий в одной модели'],[seq,packed],color=['#777777','#287ba5'])
     ax.set(ylabel='Медиана времени run всей серии, с',title='A100 · p6/10 м · PML350 без ABC · 1400×700 м · 30 Гц · 1 с',ylim=(0,max(seq,packed)*1.2))
@@ -205,9 +232,30 @@ def batch_render(root:Path,output:Path)->None:
     (output/'index.html').write_text(body)
     write(output/'render.json',{'status':'completed','source_metrics':file_record(root/'analysis/metrics.json'),'files':{n:file_record(output/n) for n in ('timings.png','index.html')}})
 
+def surface_batch_render(root:Path,output:Path)->None:
+    m=read_json(root/'analysis/metrics.json');output.mkdir(parents=True,exist_ok=False)
+    old=mapping(m['with_fields_baseline'])
+    keys=('median_sequential_run_seconds','median_batch_run_seconds')
+    before=[number(old[k]) for k in keys];after=[number(m[k]) for k in keys]
+    fig,ax=plt.subplots(figsize=(10,5));x=np.arange(2)
+    ax.bar(x-.18,before,.36,label='Сейсмограммы +21 кадр',color='#888888')
+    ax.bar(x+.18,after,.36,label='Только сейсмограммы',color='#287ba5')
+    for i in range(2):
+        ax.text(i-.18,before[i]+.3,f'{before[i]:.3f}',ha='center');ax.text(i+.18,after[i]+.3,f'{after[i]:.3f}',ha='center')
+    ax.set(xticks=x,xticklabels=['7 источников последовательно','Пакет7 в одной модели'],ylabel='Медиана run всей серии, с',ylim=(0,max(*before,*after)*1.25),title='A100 · p6/10 м · 1400×700 м · 30 Гц · 1 с · PML350 без ABC')
+    ax.legend();fig.tight_layout();fig.savefig(output/'timings.png',dpi=150);plt.close(fig)
+    maximum=max(number(v) for c in cast_list(m['comparisons']) for v in cast_list(mapping(mapping(c)['surface'])['relative_l2_components']))
+    prior_max=max(number(v) for c in cast_list(m['vs_with_fields']) for v in cast_list(mapping(mapping(c)['surface'])['relative_l2_components']))
+    rows=[]
+    for row in cast_list(m['rounds']):
+        r=mapping(row);rows.append(f'<tr><td>{r["repeat"]}</td><td>{number(r["sequential_sum_run_seconds"]):.4f}</td><td>{number(r["batch_run_seconds"]):.4f}</td><td>{number(r["run_speedup"]):.3f}</td></tr>')
+    body=f'''<!doctype html><html lang="ru"><meta charset="utf-8"><title>p6: только сейсмограммы</title><style>body{{font:17px sans-serif;max-width:1100px;margin:35px auto;padding:15px}}td,th{{padding:9px;border-bottom:1px solid #ccc}}table{{border-collapse:collapse;width:100%}}img{{max-width:100%}}</style><h1>Семь источников: только сейсмограммы</h1><p>Двухслойная1400×700 м, p6/h10 м, PML350 м без ABC и без граничных элементов, β=1/27,30 Гц,1 с. Источники x=175,350,525,700,875,1050,1225 м. Native CFL0,8, dt={number(mapping(m['step_plan'])['batch_dt_s'])*1e6:.6f} мкс в одиночной и пакетной модели. Пакет содержит7 несвязанных копий, поля не суммируются.</p><p>Полный полевой приёмник не зарегистрирован: отсутствуют GPU→CPU-передачи кадров, обработчик полей и velocity.npy. Сохраняется только surface.npz:1001×1261×2 float64 на источник, все узлы верхней грани, включая PML. Число приёмников не уменьшалось. Изменён только режим регистрации.</p><p>Медианы трёх повторов после прогрева: сумма семи одиночных <b>{after[0]:.4f} с</b>, один пакет <b>{after[1]:.4f} с</b>, ускорение пакета <b>{number(m['run_speedup']):.3f} раза</b>, эквивалентно <b>{number(m['equivalent_batch_seconds_per_source']):.4f} с/источник</b>.</p><p>По сравнению с предыдущей серией с кадрами: сумма одиночных {before[0]:.4f}→{after[0]:.4f} с ({100*(1-after[0]/before[0]):.2f}% экономии); пакет {before[1]:.4f}→{after[1]:.4f} с ({100*(1-after[1]/before[1]):.2f}% экономии). Режимы с/без кадров измерены в отдельных последовательных сериях, а не в чередующихся парах; небольшие различия включают вариацию времени между сериями.</p><img src="timings.png"><table><tr><th>Повтор</th><th>Сумма7 одиночных run, с</th><th>Пакет run, с</th><th>Ускорение</th></tr>{''.join(rows)}</table><p>С построением модели и prepare, до окончания run: {number(m['median_sequential_solve_wall_seconds']):.4f} с последовательно и {number(m['median_batch_solve_wall_seconds']):.4f} с пакетом. Run включает регистрацию сейсмограмм в память; сериализация surface.npz, хеширование и запуск Python измерениями run не охватываются.</p><p>Проверена21 пара «источник×повтор» пакета и одиночных, максимальная относительная L2 компонент <b>{maximum:.3g}</b>. Все32 новые сейсмограммы также сравнивались с соответствующими сохранёнными запусками с кадрами: максимум <b>{prior_max:.3g}</b>. Проверены32 новых и32 прежних SHA поверхностных файлов. Полный полевой приёмник отсутствовал; прежние поля сохранены неизменными. Новые сейсмограммы и конечная память PML конечны; новых наблюдений поля во всех узлах нет.</p><p><a href="../../../data/dev_1_5_geometry_frequency/pml_p6_sources7_surface_v1/analysis/metrics.json">Все метрики и проверки</a></p></html>'''
+    (output/'index.html').write_text(body)
+    write(output/'render.json',{'status':'completed','source_metrics':file_record(root/'analysis/metrics.json'),'files':{n:file_record(output/n) for n in ('timings.png','index.html')}})
+
 def main()->None:
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--analyze',action='store_true');p.add_argument('--render',type=Path);p.add_argument('--review',type=Path);p.add_argument('--batch-analyze',action='store_true');p.add_argument('--batch-render',type=Path);a=p.parse_args()
-    if (a.batch_analyze or a.batch_render) and a.root==ROOT:a.root=BATCH_ROOT
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--analyze',action='store_true');p.add_argument('--render',type=Path);p.add_argument('--review',type=Path);p.add_argument('--surface-only',action='store_true');p.add_argument('--batch-analyze',action='store_true');p.add_argument('--batch-render',type=Path);a=p.parse_args()
+    if (a.batch_analyze or a.batch_render) and a.root==ROOT:a.root=SURFACE_BATCH_ROOT if a.surface_only else BATCH_ROOT
     if a.batch_analyze:batch_analyze(a.root)
     if a.batch_render:batch_render(a.root,a.batch_render)
     if a.analyze:analyze(a.root)
