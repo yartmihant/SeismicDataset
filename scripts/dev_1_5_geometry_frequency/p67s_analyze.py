@@ -8,11 +8,17 @@ import numpy as np
 from numpy.typing import NDArray
 from scripts.dev_1_3_point_source.run import file_record
 from scripts.dev_1_5_geometry_frequency.p67s_run import ROOT,MODES,REPEATS
-from scripts.dev_1_5_geometry_frequency.profile_analysis import union_ns
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.reporting import read_json,number,mapping,sequence
 
 FloatArray=NDArray[np.float64]
+
+
+def union_ns(intervals:list[tuple[int,int]])->int:
+    total=0;end=0
+    for begin,finish in sorted(intervals):
+        total+=max(0,finish-max(begin,end));end=max(end,finish)
+    return total
 
 
 def compare(a:FloatArray,b:FloatArray)->dict[str,object]:
