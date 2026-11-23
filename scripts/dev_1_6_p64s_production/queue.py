@@ -11,6 +11,7 @@ import traceback
 import shutil
 import hashlib
 import tarfile
+from time import perf_counter
 import numpy as np
 from scripts.dev_1_4_server_preparation.production_plan import DiskGuard,GuardConfig,GIB,build_chunks
 from scripts.dev_1_4_server_preparation.production_worker import directory_bytes,progress_counts
@@ -55,6 +56,8 @@ def worker(root:Path,gpu:int)->None:
 
 def launch(root:Path)->None:
     assert (root/'plan.json').exists() and not (root/'launcher.json').exists()
+    assert read_json(Path('data/dev_1_6_p64s_production/dual_gpu_pilot_v1/completed.json'))['status']=='completed'
+    assert read_json(CLEANUP/'completed.json')['status']=='completed'
     guard=DiskGuard(root/'queue.sqlite',root,CONFIG);assert not guard.status()['progress']
     (root/'logs').mkdir(exist_ok=False)
     workers=[]
@@ -64,6 +67,24 @@ def launch(root:Path)->None:
             child=subprocess.Popen([sys.executable,'-m','scripts.dev_1_6_p64s_production.queue','--root',str(root),'--worker',str(gpu)],env=env,stdout=log,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True)
         workers.append({'gpu':gpu,'pid':child.pid})
     write(root/'launcher.json',{'workers':workers,'only_first_chunk':True})
+
+def pilot_worker(root:Path,gpu:int)->None:
+    begin=perf_counter();rss=[]
+    for model in range(gpu,6,2):
+        execute(model,'p64s',root/f'{model:05d}')
+        rss.append(next(line.strip() for line in Path('/proc/self/status').read_text().splitlines() if line.startswith('VmRSS:')))
+    write(root/f'gpu{gpu}.json',{'status':'completed','gpu':gpu,'models':list(range(gpu,6,2)),'wall_seconds':perf_counter()-begin,'rss_after_each_model':rss})
+
+
+def pilot(root:Path)->None:
+    root.mkdir(parents=True,exist_ok=False);workers=[];begin=perf_counter()
+    for gpu in (0,1):
+        env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES=str(gpu),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1')
+        with (root/f'gpu{gpu}.log').open('xb') as log:
+            workers.append(subprocess.Popen([sys.executable,'-m','scripts.dev_1_6_p64s_production.queue','--root',str(root),'--pilot-worker',str(gpu)],env=env,stdout=log,stderr=subprocess.STDOUT))
+    codes=[child.wait() for child in workers];assert codes==[0,0],codes
+    write(root/'completed.json',{'status':'completed','models':6,'wall_seconds':perf_counter()-begin,'gpu_workers':[read_json(root/f'gpu{gpu}.json') for gpu in (0,1)]})
+
 
 CLEANUP=Path('data/dev_1_6_p64s_production/cleanup_v1')
 OLD_QUEUES=tuple(Path('data/dev_1_4_server_preparation')/name for name in ('efvb_chunk01_saturn_v3','efvb_chunk01_saturn_v4','production_smoke_saturn_v3'))
@@ -118,8 +139,10 @@ def cleanup_apply()->None:
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--prepare',action='store_true');p.add_argument('--launch',action='store_true');p.add_argument('--worker',type=int,choices=(0,1));p.add_argument('--status',action='store_true');p.add_argument('--cleanup-plan',action='store_true');p.add_argument('--cleanup-apply',action='store_true');a=p.parse_args()
-    if a.cleanup_plan:cleanup_plan()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--prepare',action='store_true');p.add_argument('--launch',action='store_true');p.add_argument('--worker',type=int,choices=(0,1));p.add_argument('--status',action='store_true');p.add_argument('--cleanup-plan',action='store_true');p.add_argument('--cleanup-apply',action='store_true');p.add_argument('--pilot',action='store_true');p.add_argument('--pilot-worker',type=int,choices=(0,1));a=p.parse_args()
+    if a.pilot:pilot(a.root)
+    elif a.pilot_worker is not None:pilot_worker(a.root,a.pilot_worker)
+    elif a.cleanup_plan:cleanup_plan()
     elif a.cleanup_apply:cleanup_apply()
     elif a.prepare:prepare(a.root)
     elif a.launch:launch(a.root)
