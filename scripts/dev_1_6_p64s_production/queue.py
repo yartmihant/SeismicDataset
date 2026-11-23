@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 from dataclasses import asdict
+from datetime import datetime,timezone
 import json
 import os
 from pathlib import Path
@@ -62,11 +63,11 @@ def launch(root:Path)->None:
     (root/'logs').mkdir(exist_ok=False)
     workers=[]
     for gpu in (0,1):
-        env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES=str(gpu),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1',TMPDIR=str(Path('.runtime_ch16_p64s_v1/tmp').resolve()),XDG_CACHE_HOME=str(Path('.runtime_ch16_p64s_v1/cache').resolve()),MPLCONFIGDIR=str(Path('.runtime_ch16_p64s_v1/cache').resolve()))
+        env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES=str(gpu),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1',TMPDIR=str(Path('.runtime_ch16_p64s_v1/tmp').resolve()),XDG_CACHE_HOME=str(Path('.runtime_ch16_p64s_v1/cache').resolve()),MPLCONFIGDIR=str(Path('.runtime_ch16_p64s_v1/cache').resolve()),CUDA_CACHE_PATH=str(Path('.runtime_ch16_p64s_v1/cache').resolve()))
         with (root/'logs'/f'gpu{gpu}.log').open('xb') as log:
             child=subprocess.Popen([sys.executable,'-m','scripts.dev_1_6_p64s_production.queue','--root',str(root),'--worker',str(gpu)],env=env,stdout=log,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True)
         workers.append({'gpu':gpu,'pid':child.pid})
-    write(root/'launcher.json',{'workers':workers,'only_first_chunk':True})
+    write(root/'launcher.json',{'workers':workers,'only_first_chunk':True,'started_utc':datetime.now(timezone.utc).isoformat()})
 
 def pilot_worker(root:Path,gpu:int)->None:
     begin=perf_counter();rss=[]
