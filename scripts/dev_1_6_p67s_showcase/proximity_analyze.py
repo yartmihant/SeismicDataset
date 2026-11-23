@@ -62,6 +62,7 @@ def analyze(root:Path,out:Path)->None:
     rows:list[dict[str,object]]=[];curves:list[list[float]]=[]
     fig,axes=plt.subplots(2,3,figsize=(15,8),sharex=True,sharey=True,layout='constrained')
     image_handle=None
+    fig_trace,trace_axes=plt.subplots(2,1,figsize=(11,7),sharex=True,layout='constrained')
     for d in DISTANCES:
         name=f'P{d:g}';s=load(root,name);phase=int(d%10);shift=700+phase-d;r=aligned(refs[phase],s.x,shift);h=aligned(homes[phase],s.x,shift);e=s.v-r
         offsets=s.x-d;aperture=(offsets>=20)&(offsets<=200)
@@ -101,7 +102,18 @@ def analyze(root:Path,out:Path)->None:
             ax=axes.flat[(0,5,35,100,175,700).index(int(d))]
             image_handle=ax.pcolormesh(s.x,s.t,e[:,:,1]/hp,cmap='RdBu_r',vmin=-.01,vmax=.01,rasterized=True,shading='auto')
             ax.set_title(f'Источник {d:g} м');ax.set_xlabel('x, м');ax.set_ylabel('t, с');ax.invert_yaxis() if not ax.yaxis_inverted() else None
+        if d in (0,5,35,175,700):
+            ix=int(np.argmin(abs(s.x-(d+100))));assert abs(s.x[ix]-(d+100))<1e-8
+            trace_axes[0].plot(s.t,e[:,ix,1]/hp,label=f'd={d:g} м')
+            if d==175:
+                trace_axes[1].plot(s.t,r[:,ix,1]/hp,label='Полная запись эталона')
+                trace_axes[1].plot(s.t,(r-h)[:,ix,1]/hp,label='Эталон − однородная среда')
+                trace_axes[1].axvspan(float(arrival[ix]-.025),float(arrival[ix]+.025),alpha=.2,color='gray',label='Окно первого PP')
         rows.append(entry)
+    trace_axes[0].set(ylabel='ΔVy / пик первого отражения',title='Приёмник в 100 м справа от источника: влияние всех PML')
+    trace_axes[1].set(xlabel='t, с',ylabel='Vy / пик первого отражения',title='Проверка выделения первого отражения (d=175 м)')
+    for ax_trace in trace_axes:ax_trace.legend(fontsize=8);ax_trace.grid(alpha=.2)
+    fig_trace.savefig(out/'relative_offset_traces.png',dpi=150);plt.close(fig_trace)
     if image_handle is not None:fig.colorbar(image_handle,ax=axes.ravel().tolist(),label='ΔVy / пик первого отражения; насыщение ±1%')
     fig.suptitle('Ошибка сейсмограммы: PML350 − расширенный эталон, EFVB00001')
     fig.savefig(out/'difference_seismograms.png',dpi=150);plt.close(fig)
@@ -123,7 +135,7 @@ def analyze(root:Path,out:Path)->None:
                 if number(m['error_to_horizon_peak'])<=peak and number(m['error_to_horizon_energy'])<=energy:valid.append(row['distance_m'])
             thresholds[f'margin{margin}_peak{peak}_energy{energy}']=valid
     write(metrics_out/'analysis.json',{'status':'completed','controls':controls,'rows':rows,'passing_distances_m':thresholds,'definition':'error = PML - translated layered reference, first reflection = layered - homogeneous in first PP gate; energy = sum(dt*w*(Vx²+Vy²)), not mechanical energy','inputs':[file_record(p) for p in sorted(root.glob('*/surface.npz'))]})
-    lines=['# Источник у PML350: p6, EFVB00001','','Параметры и ограничения: [постановка](../../../docs/dev_1_6_pml_proximity_spec.txt). Все значения относятся к Vx/Vy внутри основной области за 0–1 с. Энергия — интеграл квадрата скорости по времени и координате, а не поток механической энергии. Нормировка — первое отражение от горизонта в фиксированной правой апертуре 20–200 м.','','![Зависимость от расстояния](distance_errors.png)','','![Разности сейсмограмм](difference_seismograms.png)','','| Источник–PML, м | Пик ошибки / первое отражение, % | Энергия ошибки / первое отражение, % | L2 ошибки / полной записи, % |','|---:|---:|---:|---:|']
+    lines=['# Источник у PML350: p6, EFVB00001','','Параметры и ограничения: [постановка](../../../docs/dev_1_6_pml_proximity_spec.txt). Все значения относятся к Vx/Vy внутри основной области за 0–1 с. Энергия — интеграл квадрата скорости по времени и координате, а не поток механической энергии. Нормировка — первое отражение от горизонта в фиксированной правой апертуре 20–200 м.','','![Зависимость от расстояния](distance_errors.png)','','![Разности сейсмограмм](difference_seismograms.png)','','![Трассы и первое отражение](relative_offset_traces.png)','','| Источник–PML, м | Пик ошибки / первое отражение, % | Энергия ошибки / первое отражение, % | L2 ошибки / полной записи, % |','|---:|---:|---:|---:|']
     lines.extend(f'| {r[0]:g} | {100*r[1]:.6g} | {100*r[2]:.6g} | {100*r[3]:.6g} |' for r in curves)
     lines+=['','Метрики всей основной поверхности включают вклад боковых и нижнего PML. Контроли left_only отделяют левую границу; проверки большей области, прямого переноса источника и dt/2 находятся в analysis.json. Это не универсальный предел для других материалов и частот.']
     (out/'README.md').write_text('\n'.join(lines)+'\n')
