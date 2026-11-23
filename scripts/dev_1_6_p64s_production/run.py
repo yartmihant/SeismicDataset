@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import importlib
+from functools import lru_cache
 import os
 from pathlib import Path
 from time import perf_counter
@@ -18,15 +19,23 @@ from scripts.dev_1_5_geometry_frequency.p6_7s_compare import leading_grid
 from scripts.dev_1_5_geometry_frequency.pml_fixed_orders import FloatArray,SeismicSolver,Spectrum,pml
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_5_geometry_frequency.run import space
+from scripts.reporting import read_json,mapping,sequence,number
 
 SNAPSHOT=Path('docs/runtime_sources/seismic_p64s_v1/provenance.json')
 SOURCES=(100.,300.,500.,700.)
 RECEIVERS=np.arange(5,1400,10,dtype=np.float64)
 
 
+@lru_cache(maxsize=1)
+def audited_inputs()->dict[int,list[object]]:
+    audit=read_json(Path('data/dev_1_6_p64s_production/cpu_v1/check.json'));assert audit['status']=='passed'
+    return {int(number(mapping(r)['id'])):sequence(mapping(r)['raw_sha256']) for r in sequence(audit['models'])}
+
+
 def execute(model_id:int,variant:str,out:Path,save_state:bool=False,before_write:Callable[[int],None]|None=None)->dict[str,object]:
     space(20);out.mkdir(parents=True,exist_ok=False);begin=perf_counter();g=leading_grid();mesh=g.mesh;n=len(mesh.nodes_coords)
     source=read_model('EFVB',model_id)
+    raw=mapping(source.provenance['raw_sha256']);assert [raw[f'{c}_{model_id:05d}.txt'] for c in ('vp','vs')]==audited_inputs()[model_id],'Source differs from audited first chunk'
     assert np.all(source.vp==source.vp[:,:1]) and np.all(source.vs==source.vs[:,:1]),'Flat model required'
     row=np.clip((-g.centers[:,1]/10).astype(np.int64),0,69);vp,vs=source.vp[row,0],source.vs[row,0]
     nodes=np.array([int(np.argmin(abs(mesh.nodes_coords[g.top,0]-x))) for x in RECEIVERS],dtype=np.int64)
@@ -73,7 +82,7 @@ def execute(model_id:int,variant:str,out:Path,save_state:bool=False,before_write
     if save_state:
         np.save(out/'state.npy',np.concatenate(states));np.save(out/'pml_history.npy',np.concatenate(histories))
     assert native.__file__ is not None
-    record:dict[str,object]={'status':'completed','model_id':model_id,'variant':variant,'shots':shots,'source_x_m':np.arange(100,1400,200).tolist() if shots==7 else list(SOURCES),'receiver_x_m':RECEIVERS.tolist(),'components':['Vx','Vy'],'surface_shape':list(surface.shape),'samples':1001,'duration_s':1.,'tact_dt_s':.001,'p':6,'h_m':10,'core_m':[1400,700],'PML_m':350,'ABC':False,'dmax_s_inv':173.0886108476381,'cfl_safety':.8,'beta':1/27,'gamma':.5,'nodes':n,'elements':len(g.cells),'boundary_elements':0,'source':'Ricker30Hz Fy=-1N/m t0=.05s','source_input':source.provenance,'solver_records':records,'native':file_record(Path(native.__file__)),'snapshot':file_record(SNAPSHOT),'runner':file_record(Path(__file__)),'gpu':os.environ.get('CUDA_VISIBLE_DEVICES'),'setup_seconds':setup_done-begin,'prepare_seconds':prepare_seconds,'run_seconds':run_seconds,'total_seconds':perf_counter()-begin,'surface':file_record(out/'velocity.npy'),'input':file_record(out/'input.npz'),'terminal_state_finite':True,'surface_terminal_exact':True}
+    record:dict[str,object]={'status':'completed','dataset':'EFVB','rho_kg_m3':1000,'velocity_unit':'m/s','array_axes':['time','source','receiver','component'],'model_id':model_id,'variant':variant,'shots':shots,'source_x_m':np.arange(100,1400,200).tolist() if shots==7 else list(SOURCES),'receiver_x_m':RECEIVERS.tolist(),'components':['Vx','Vy'],'surface_shape':list(surface.shape),'samples':1001,'duration_s':1.,'tact_dt_s':.001,'p':6,'h_m':10,'core_m':[1400,700],'PML_m':350,'ABC':False,'dmax_s_inv':173.0886108476381,'cfl_safety':.8,'beta':1/27,'gamma':.5,'nodes':n,'elements':len(g.cells),'boundary_elements':0,'source':'Ricker30Hz Fy=-1N/m t0=.05s','source_input':source.provenance,'solver_records':records,'native':file_record(Path(native.__file__)),'snapshot':file_record(SNAPSHOT),'runner':file_record(Path(__file__)),'gpu':os.environ.get('CUDA_VISIBLE_DEVICES'),'setup_seconds':setup_done-begin,'prepare_seconds':prepare_seconds,'run_seconds':run_seconds,'total_seconds':perf_counter()-begin,'surface':file_record(out/'velocity.npy'),'input':file_record(out/'input.npz'),'terminal_state_finite':True,'surface_terminal_exact':True}
     if save_state:
         record['state']=file_record(out/'state.npy');record['pml_history']=file_record(out/'pml_history.npy')
     reserve(100000+surface.nbytes+30000);write(out/'result.json',record)
