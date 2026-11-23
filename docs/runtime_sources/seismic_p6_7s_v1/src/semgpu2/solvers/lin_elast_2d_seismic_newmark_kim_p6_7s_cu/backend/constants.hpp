@@ -1,0 +1,206 @@
+#pragma once
+
+#include <cstdint>
+#include <limits>
+
+// Single source of numeric solver codes and AOT execution capacities.
+#define SEMGPU2_CU_THREADS_MIN 32
+#define SEMGPU2_CU_THREADS_MAX 512
+#define SEMGPU2_CU_THREADS_PER_BLOCK 128
+#define SEMGPU2_CU_LANCZOS_STEPS 16
+#define SEMGPU2_CU_LANCZOS_MAX_BLOCKS 1024
+#define SEMGPU2_CU_SPECTRUM_BISECTION_STEPS 32
+#define SEMGPU2_CU_LANCZOS_BREAKDOWN_TOL 1.0e-12
+#define SEMGPU2_CU_SPECTRUM_STURM_TOL 1.0e-20
+#define SEMGPU2_CU_DEFAULT_T_BEGIN 0.0
+#define SEMGPU2_CU_DEFAULT_T_END 0.0
+#define SEMGPU2_CU_DEFAULT_KIM_BETA 0.0
+#define SEMGPU2_CU_DEFAULT_KIM_GAMMA 0.5
+
+#ifndef SEMGPU2_SEISMIC_ORDER
+#error "SEMGPU2_SEISMIC_ORDER must be defined by the native target"
+#endif
+#ifndef SEMGPU2_SEISMIC_NAMESPACE
+#error "SEMGPU2_SEISMIC_NAMESPACE must be defined by the native target"
+#endif
+#ifndef SEMGPU2_SEISMIC_SOLVER_ID
+#error "SEMGPU2_SEISMIC_SOLVER_ID must be defined by the native target"
+#endif
+#ifndef SEMGPU2_SEISMIC_CONSTANTS_MODULE
+#error "SEMGPU2_SEISMIC_CONSTANTS_MODULE must be defined by the native target"
+#endif
+
+namespace SEMGPU2_SEISMIC_NAMESPACE {
+
+using Real = double;
+using Index = std::int64_t;
+using Code = std::int32_t;
+inline constexpr const char* SOLVER_ID = SEMGPU2_SEISMIC_SOLVER_ID;
+
+inline constexpr int SHOT_COUNT = 7;
+inline constexpr int PET_N = SEMGPU2_SEISMIC_ORDER + 1;
+static_assert(PET_N * PET_N <= SEMGPU2_CU_THREADS_MAX);
+
+// Fixed source profile for the p6/h10 surface acquisition. Rebuild this
+// solver after changing its nodes, signed vertical force or wavelet parameters.
+namespace source_profile {
+inline constexpr Real frequency_hz = 30.0;
+inline constexpr Real peak_time = 1.5 / frequency_hz;
+inline constexpr Real amplitude_y = -1.0;
+
+inline constexpr int surface_elements = 210;
+inline constexpr int surface_nodes = surface_elements * (PET_N - 1) + 1;
+inline constexpr Real surface_x0 = -350.0, surface_y = 0.0, element_width = 10.0;
+inline constexpr Real coordinate_tolerance = 1.e-9;
+
+#ifdef __CUDACC__
+__host__ __device__
+#endif
+constexpr Index node(int shot) {
+    constexpr Index nodes[SHOT_COUNT]{315, 420, 525, 630, 735, 840, 945};
+    return nodes[shot];
+}
+
+static_assert(PET_N == 7 && SHOT_COUNT == 7);
+static_assert(frequency_hz > 0. && frequency_hz <= std::numeric_limits<Real>::max());
+static_assert(peak_time >= -std::numeric_limits<Real>::max() && peak_time <= std::numeric_limits<Real>::max());
+static_assert(amplitude_y >= -std::numeric_limits<Real>::max() && amplitude_y <= std::numeric_limits<Real>::max());
+static_assert([] {
+    for (int shot = 0; shot < SHOT_COUNT; ++shot) {
+        if (node(shot) < 0 || node(shot) >= surface_nodes) return false;
+    }
+    return true;
+}(), "Source nodes must lie on the fixed upper surface");
+}  // namespace source_profile
+
+inline constexpr int THREADS_MIN = SEMGPU2_CU_THREADS_MIN;
+inline constexpr int THREADS_MAX = SEMGPU2_CU_THREADS_MAX;
+inline constexpr int THREADS_PER_BLOCK = SEMGPU2_CU_THREADS_PER_BLOCK;
+inline constexpr int LANCZOS_STEPS = SEMGPU2_CU_LANCZOS_STEPS;
+inline constexpr int LANCZOS_MAX_BLOCKS = SEMGPU2_CU_LANCZOS_MAX_BLOCKS;
+inline constexpr int SPECTRUM_BISECTION_STEPS = SEMGPU2_CU_SPECTRUM_BISECTION_STEPS;
+inline constexpr double LANCZOS_BREAKDOWN_TOL = SEMGPU2_CU_LANCZOS_BREAKDOWN_TOL;
+inline constexpr double SPECTRUM_STURM_TOL = SEMGPU2_CU_SPECTRUM_STURM_TOL;
+inline constexpr double DEFAULT_T_BEGIN = SEMGPU2_CU_DEFAULT_T_BEGIN;
+inline constexpr double DEFAULT_T_END = SEMGPU2_CU_DEFAULT_T_END;
+inline constexpr double DEFAULT_KIM_BETA = SEMGPU2_CU_DEFAULT_KIM_BETA;
+inline constexpr double DEFAULT_KIM_GAMMA = SEMGPU2_CU_DEFAULT_KIM_GAMMA;
+
+static_assert(THREADS_MAX <= 1024 && THREADS_MAX > 0);
+
+#define SEMGPU2_CU_SGSpaceEnum_N 0
+#define SEMGPU2_CU_SGSpaceEnum_MAIN 1
+enum class SGSpaceEnum : Code {
+    N = SEMGPU2_CU_SGSpaceEnum_N,
+    MAIN = SEMGPU2_CU_SGSpaceEnum_MAIN,
+};
+
+enum class SGPhysicsTypeEnum : Code {
+    MATERIAL_ISO_PLANE_STRAIN = 11000,
+    PML = 31100,
+};
+
+enum class SGSecondaryPhysicsTypeEnum : Code { PML = 31340 };
+namespace pml {
+enum Row : Index { DX, DY, AX, AY, BX, BY, ROW_COUNT };
+}
+
+
+enum class SGReceiverComponentEnum : Code {
+    VX = 4,
+    VY = 5,
+};
+
+#define SEMGPU2_CU_SGNSolutionComponentEnum_UX 0
+#define SEMGPU2_CU_SGNSolutionComponentEnum_UY 1
+#define SEMGPU2_CU_SGNSolutionComponentEnum_VX 2
+#define SEMGPU2_CU_SGNSolutionComponentEnum_VY 3
+#define SEMGPU2_CU_SGNSolutionComponentEnum_AX 4
+#define SEMGPU2_CU_SGNSolutionComponentEnum_AY 5
+enum class SGNSolutionComponentEnum : Code {
+    UX = SEMGPU2_CU_SGNSolutionComponentEnum_UX,
+    UY = SEMGPU2_CU_SGNSolutionComponentEnum_UY,
+    VX = SEMGPU2_CU_SGNSolutionComponentEnum_VX,
+    VY = SEMGPU2_CU_SGNSolutionComponentEnum_VY,
+    AX = SEMGPU2_CU_SGNSolutionComponentEnum_AX,
+    AY = SEMGPU2_CU_SGNSolutionComponentEnum_AY,
+};
+
+#define SEMGPU2_CU_SGNGeometryComponentEnum_X 0
+#define SEMGPU2_CU_SGNGeometryComponentEnum_Y 1
+#define SEMGPU2_CU_SGNGeometryComponentEnum_SIZE 2
+enum class SGNGeometryComponentEnum : Code {
+    X = SEMGPU2_CU_SGNGeometryComponentEnum_X,
+    Y = SEMGPU2_CU_SGNGeometryComponentEnum_Y,
+    SIZE = SEMGPU2_CU_SGNGeometryComponentEnum_SIZE,
+};
+
+#define SEMGPU2_CU_SGNMaterialsComponentEnum_MASS 0
+enum class SGNMaterialsComponentEnum : Code {
+    MASS = SEMGPU2_CU_SGNMaterialsComponentEnum_MASS,
+};
+
+enum class SGNResponseComponentEnum : Code {
+    FORCE_X = 0,
+    FORCE_Y = 1,
+};
+
+#define SEMGPU2_CU_SGQMainGeometryComponentEnum_SIZE 0
+#define SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_XX 1
+#define SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_XY 2
+#define SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_YX 3
+#define SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_YY 4
+enum class SGQMainGeometryComponentEnum : Code {
+    SIZE = SEMGPU2_CU_SGQMainGeometryComponentEnum_SIZE,
+    DIFGEOMETRY_XX = SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_XX,
+    DIFGEOMETRY_XY = SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_XY,
+    DIFGEOMETRY_YX = SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_YX,
+    DIFGEOMETRY_YY = SEMGPU2_CU_SGQMainGeometryComponentEnum_DIFGEOMETRY_YY,
+};
+
+enum class SGQMainMaterialsComponentEnum : Code {
+    DENSITY = 0,
+    LAMBDA = 1,
+    MU = 2,
+};
+
+
+#define SEMGPU2_CU_SGCompileErrorCodeEnum_STRUCTURE_FAILURE 0
+#define SEMGPU2_CU_SGCompileErrorCodeEnum_DEVICE_FAILURE 1
+enum class SGCompileErrorCodeEnum : Code {
+    STRUCTURE_FAILURE = SEMGPU2_CU_SGCompileErrorCodeEnum_STRUCTURE_FAILURE,
+    DEVICE_FAILURE = SEMGPU2_CU_SGCompileErrorCodeEnum_DEVICE_FAILURE,
+};
+
+#define SEMGPU2_CU_SGMeshErrorCodeEnum_GEOMETRY_FAILURE 0
+#define SEMGPU2_CU_SGMeshErrorCodeEnum_DEVICE_FAILURE 1
+enum class SGMeshErrorCodeEnum : Code {
+    GEOMETRY_FAILURE = SEMGPU2_CU_SGMeshErrorCodeEnum_GEOMETRY_FAILURE,
+    DEVICE_FAILURE = SEMGPU2_CU_SGMeshErrorCodeEnum_DEVICE_FAILURE,
+};
+
+#define SEMGPU2_CU_SGPrepareErrorCodeEnum_PHYSICS_FAILURE 0
+#define SEMGPU2_CU_SGPrepareErrorCodeEnum_SPECTRUM_FAILURE 1
+#define SEMGPU2_CU_SGPrepareErrorCodeEnum_DEVICE_FAILURE 2
+enum class SGPrepareErrorCodeEnum : Code {
+    PHYSICS_FAILURE = SEMGPU2_CU_SGPrepareErrorCodeEnum_PHYSICS_FAILURE,
+    SPECTRUM_FAILURE = SEMGPU2_CU_SGPrepareErrorCodeEnum_SPECTRUM_FAILURE,
+    DEVICE_FAILURE = SEMGPU2_CU_SGPrepareErrorCodeEnum_DEVICE_FAILURE,
+};
+
+#define SEMGPU2_CU_SGRunCodeEnum_TIME_END 0
+#define SEMGPU2_CU_SGRunCodeEnum_UNDERCONFIGURED 1
+#define SEMGPU2_CU_SGRunCodeEnum_NUMERICAL_DIVERGENCE 2
+#define SEMGPU2_CU_SGRunCodeEnum_DEVICE_FAILURE 3
+#define SEMGPU2_CU_SGRunCodeEnum_HANDLER_FAILURE 4
+#define SEMGPU2_CU_SGRunCodeEnum_STEP_LIMIT 5
+enum class SGRunCodeEnum : Code {
+    TIME_END = SEMGPU2_CU_SGRunCodeEnum_TIME_END,
+    UNDERCONFIGURED = SEMGPU2_CU_SGRunCodeEnum_UNDERCONFIGURED,
+    NUMERICAL_DIVERGENCE = SEMGPU2_CU_SGRunCodeEnum_NUMERICAL_DIVERGENCE,
+    DEVICE_FAILURE = SEMGPU2_CU_SGRunCodeEnum_DEVICE_FAILURE,
+    HANDLER_FAILURE = SEMGPU2_CU_SGRunCodeEnum_HANDLER_FAILURE,
+    STEP_LIMIT = SEMGPU2_CU_SGRunCodeEnum_STEP_LIMIT,
+};
+
+}  // namespace SEMGPU2_SEISMIC_NAMESPACE
