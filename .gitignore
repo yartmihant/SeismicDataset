@@ -58,3 +58,11 @@ dist/
 *.gz
 *.7z
 *.mp4
+
+# Explicitly approved publication of the chapter 1.5 geometry/frequency galleries.
+!/img/dev_1_5_geometry_frequency/series_v1/index.html
+!/img/dev_1_5_geometry_frequency/series_v1/*/velocity.mp4
+!/img/dev_1_5_geometry_frequency/linear_v1/index.html
+!/img/dev_1_5_geometry_frequency/linear_v1/*/velocity.mp4
+!/img/dev_1_5_geometry_frequency/linear_limit_1e-10_v1/index.html
+!/img/dev_1_5_geometry_frequency/linear_limit_1e-10_v1/*/velocity.mp4

@@ -1,0 +1,42 @@
+{
+  "spec": {
+    "width": 1400,
+    "height": 700,
+    "material": "two_layer",
+    "frequency": 30
+  },
+  "frames": 21,
+  "fps": 5,
+  "source": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/series_v1/runs/1400x700_two_layer_30Hz/velocity.npy",
+    "sha256": "20548fac0c3579b54fe10f57ae85e12efb2a23b41f6f6cd7e002380f265b59e2"
+  },
+  "all_input_sha_verified": true,
+  "video": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/linear_v1/1400x700_two_layer_30Hz/velocity.mp4",
+    "sha256": "d6378fe4e27f86d658fa72ce1787e47c803f76c63a36abaf63da87e4d6d37bea"
+  },
+  "seismogram": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/linear_v1/1400x700_two_layer_30Hz/seismogram.png",
+    "sha256": "a84e815a8302551e6242c657d093b1e6f27d75209a13fb9311b857d2eb39ec11"
+  },
+  "field_raster": [
+    901,
+    601
+  ],
+  "global_field_peaks_m_s": [
+    4.333768084801222e-09,
+    1.4072205312363646e-08
+  ],
+  "global_surface_peaks_m_s": [
+    4.8412082063582225e-09,
+    4.1914490262927105e-08
+  ],
+  "ffmpeg": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_ffmpeg/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+    "sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99"
+  },
+  "scale": "linear",
+  "sign_preserved": true,
+  "normalization_scope": "fixed global per component; separate field and surface peaks; same limits as original symlog series"
+}
