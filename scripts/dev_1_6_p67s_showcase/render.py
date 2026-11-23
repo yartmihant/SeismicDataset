@@ -90,6 +90,11 @@ def render_case(root:Path,images:Path,name:str)->None:
                     writer.grab_frame()
                     if k in (5,10):fig.savefig(dest/f'frame_{k*.05:.2f}.png',dpi=140)
             plt.close(fig);print('RENDERED',name,scale,x,flush=True)
+    fig,axes=plt.subplots(7,1,figsize=(13,35),layout='constrained')
+    for ax,x in zip(axes,SOURCE_POSITIONS,strict=True):
+        ax.imshow(plt.imread(target/'linear'/f'x{int(x):04d}'/'seismogram.png'));ax.axis('off')
+    fig.suptitle(LABELS[name]+' · все семь источников · линейная ±1e−10 м/с')
+    fig.savefig(target/'all_sources_seismograms.png',dpi=130);plt.close(fig)
     files=[file_record(p) for p in target.rglob('*') if p.is_file()]
     write(target/'render.json',{'case':name,'files':files,'videos':14,'seismograms':14,'interpolation':'linear on GLL subtriangles, visualization only'})
 
@@ -104,13 +109,19 @@ def gallery(root:Path,images:Path)->None:
     body='<h1>Глава1.6 · p67s · 42 независимых опыта</h1><p>Шесть геометрий, семь источников. 1400×700 м, p6/h≈10 м, Рикер30Гц вниз1Н/м, t0=0.05с, 1с. PML350м по трём сторонам, квадратичный максимум173.08861с⁻¹, без ABC и массового демпфирования. Полная область2100×1050м. β=1/27, γ=0.5, native CFL0.8, tact_dt0.001с.</p><p>Источники x175,350,525,700,875,1050,1225м считаются раздельно на общей геометрии; их поля не складываются. ECVB — сглаженные границы, x растянут вдвое. Материалы плоскопараллельно продолжены в PML. Регистрируются Vx/Vy:21 полный кадр через0.05с и1001 отсчёт во всех1261 узле верха, включая PML. Пунктир отмечает основную область. Видео5fps, замедление4×.</p><p><a href="../../../docs/dev_1_6_p67s_showcase_spec.txt">Полная постановка</a> · <a href="../../../dev_1_6_p67s_showcase_summary.md">Реферат и ограничения</a></p>'+table
     body+='<p>Run включает приёмники и ожидание асинхронных очередей; один запуск на геометрию, это не медианный бенчмарк. Проверены конечность состояния/PML и точное совпадение поверхности с полями. Эта серия не доказывает сеточную сходимость для всех материалов датасета.</p><h2>Модели и галереи</h2>'
     for name in CASES:
-        body+=f'<article><h2>{LABELS[name]}</h2><img loading="lazy" src="{name}/material.png"><p><a href="{name}/linear.html">Линейная ±1e−10 м/с</a> · <a href="{name}/symlog.html">Знаковая логарифмическая</a></p></article>'
+        body+=f'<article><h2>{LABELS[name]}</h2><img loading="lazy" src="{name}/material.png"><p><a href="{name}/linear.html">Линейная ±1e−10 м/с</a> · <a href="{name}/symlog.html">Знаковая логарифмическая</a> · <a href="{name}/all_sources_seismograms.png">Сейсмограммы всех семи источников одним PNG</a></p></article>'
         for scale in ('linear','symlog'):
             page=f'<h1>{LABELS[name]} · {scale}</h1><a href="../index.html">Все модели и постановка</a><p>Общая фиксированная шкала для обоих компонентов, всех источников и времени. Линейная ±1e−10 м/с насыщается выше предела; symlog имеет порог1e−13 м/с. Данные не обрезаны.</p>'
             for x in SOURCE_POSITIONS:
                 prefix=f'{scale}/x{int(x):04d}'
                 page+=f'<article><h2>Источник x={x:g} м</h2><video controls preload="none" poster="{prefix}/frame_0.25.png" src="{prefix}/velocity.mp4"></video><p><a href="{prefix}/velocity.mp4">MP4</a> · <a href="{prefix}/seismogram.png">Сейсмограмма</a> · <a href="{prefix}/frame_0.50.png">Поле t=0.5с</a></p><img loading="lazy" src="{prefix}/seismogram.png"></article>'
             (images/name/f'{scale}.html').write_text(header+page+'</html>')
+    for kind,filename in (('fields','frame_0.25.png'),('seismograms','seismogram.png')):
+        fig,axes=plt.subplots(3,2,figsize=(18,15),layout='constrained')
+        for ax,name in zip(axes.ravel(),CASES,strict=True):
+            ax.imshow(plt.imread(images/name/'linear/x0700'/filename));ax.axis('off');ax.set_title(LABELS[name])
+        fig.suptitle('Центральный источник x=700 м · линейная ±1e−10 м/с')
+        fig.savefig(images/f'overview_{kind}.png',dpi=140);plt.close(fig)
     (images/'index.html').write_text(header+body+'</html>')
     write(images/'summary.json',{'status':'completed','cases':rows,'scales':scale_meta,'videos':84,'seismograms':84,'independent_sources':42})
 
