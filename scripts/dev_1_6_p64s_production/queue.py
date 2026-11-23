@@ -8,13 +8,16 @@ from pathlib import Path
 import subprocess
 import sys
 import traceback
+import shutil
+import hashlib
+import tarfile
 import numpy as np
 from scripts.dev_1_4_server_preparation.production_plan import DiskGuard,GuardConfig,GIB,build_chunks
 from scripts.dev_1_4_server_preparation.production_worker import directory_bytes,progress_counts
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_6_p64s_production.run import execute,SOURCES,RECEIVERS,SNAPSHOT
 from scripts.dev_1_3_point_source.run import file_record
-from scripts.reporting import read_json,number
+from scripts.reporting import read_json,number,sequence,mapping
 ROOT=Path('data/dev_1_6_p64s_production/chunk01_v1')
 CONFIG=GuardConfig(model_budget_bytes=10*1024**2,execution_chunk_limit=1)
 
@@ -62,9 +65,63 @@ def launch(root:Path)->None:
         workers.append({'gpu':gpu,'pid':child.pid})
     write(root/'launcher.json',{'workers':workers,'only_first_chunk':True})
 
+CLEANUP=Path('data/dev_1_6_p64s_production/cleanup_v1')
+OLD_QUEUES=tuple(Path('data/dev_1_4_server_preparation')/name for name in ('efvb_chunk01_saturn_v3','efvb_chunk01_saturn_v4','production_smoke_saturn_v3'))
+
+
+def cleanup_plan()->None:
+    CLEANUP.mkdir(parents=True,exist_ok=False);paths:set[Path]=set()
+    old=Path('data/dev_1_5_geometry_frequency')
+    for folder in old.iterdir():
+        if not folder.is_dir() or folder.name=='series_v1':continue
+        for path in folder.rglob('*'):
+            if path.is_file() and (path.suffix in ('.npy','.npz','.nsys-rep') or (path.suffix=='.sqlite' and path.name.startswith('trace'))):paths.add(path)
+    for folder in OLD_QUEUES:
+        if folder.exists():paths.update(p for p in folder.rglob('*') if p.is_file())
+    entries=[]
+    for path in sorted(paths):
+        assert not path.is_symlink() and path.resolve().is_relative_to(Path.cwd())
+        st=path.stat();entries.append({'path':str(path),'size':st.st_size,'blocks_bytes':st.st_blocks*512,'inode':st.st_ino,'mtime_ns':st.st_mtime_ns})
+    write(CLEANUP/'plan.json',{'status':'prepared_not_deleted','entries':entries,'allocated_bytes':sum(int(number(e['blocks_bytes'])) for e in entries),'apparent_bytes':sum(int(number(e['size'])) for e in entries),'available_before_bytes':shutil.disk_usage('.').free,'preserved':'src,Git,code,JSON and galleries; original30-case series1.5; all1.6 fields; current comparison and new queue; installed runtimes'})
+
+
+def cleanup_apply()->None:
+    assert read_json(Path('data/dev_1_6_p64s_production/comparison_v1/analysis/metrics.json'))['status']=='completed'
+    assert not (CLEANUP/'completed.json').exists()
+    processes=subprocess.check_output(['ps','-u',str(os.getuid()),'-o','args='],text=True)
+    assert not any(str(folder) in processes for folder in OLD_QUEUES),'Old queue still active'
+    plan=read_json(CLEANUP/'plan.json');entries=[mapping(e) for e in sequence(plan['entries'])]
+    # Prevalidate every path before any deletion. No wildcard deletion and no source files.
+    for entry in entries:
+        path=Path(str(entry['path']));assert not path.is_symlink() and path.resolve().is_relative_to(Path.cwd())
+        assert path.is_relative_to('data/dev_1_5_geometry_frequency') or any(path.is_relative_to(p) for p in OLD_QUEUES)
+        st=path.stat();assert (st.st_size,st.st_ino,st.st_mtime_ns)==(entry['size'],entry['inode'],entry['mtime_ns'])
+    archive=CLEANUP/'old_queue_metadata.tar.gz'
+    with tarfile.open(archive,'x:gz') as stream:
+        for folder in OLD_QUEUES:
+            if folder.exists():
+                for path in sorted(folder.rglob('*')):
+                    if path.is_file() and path.suffix not in ('.npy','.npz','.msh'):stream.add(path,arcname=str(path),recursive=False)
+    with tarfile.open(archive,'r:gz') as stream:
+        for member in stream.getmembers():
+            if member.isfile():
+                extracted=stream.extractfile(member);assert extracted is not None
+                assert hashlib.sha256(extracted.read()).hexdigest()==hashlib.sha256(Path(member.name).read_bytes()).hexdigest()
+    # Metadata is retained and verified before the old queues are removed.
+    for entry in entries:Path(str(entry['path'])).unlink()
+    for folder in OLD_QUEUES:
+        if folder.exists():
+            for path in sorted(folder.rglob('*'),key=lambda p:len(p.parts),reverse=True):
+                if path.is_dir():path.rmdir()
+            folder.rmdir()
+    write(CLEANUP/'completed.json',{'status':'completed','files_deleted':len(entries),'planned_allocated_bytes':plan['allocated_bytes'],'available_before_bytes':plan['available_before_bytes'],'available_after_bytes':shutil.disk_usage('.').free,'old_queue_metadata':file_record(archive),'preserved':plan['preserved']})
+
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--prepare',action='store_true');p.add_argument('--launch',action='store_true');p.add_argument('--worker',type=int,choices=(0,1));p.add_argument('--status',action='store_true');a=p.parse_args()
-    if a.prepare:prepare(a.root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--prepare',action='store_true');p.add_argument('--launch',action='store_true');p.add_argument('--worker',type=int,choices=(0,1));p.add_argument('--status',action='store_true');p.add_argument('--cleanup-plan',action='store_true');p.add_argument('--cleanup-apply',action='store_true');a=p.parse_args()
+    if a.cleanup_plan:cleanup_plan()
+    elif a.cleanup_apply:cleanup_apply()
+    elif a.prepare:prepare(a.root)
     elif a.launch:launch(a.root)
     elif a.status:print(json.dumps(DiskGuard(a.root/'queue.sqlite',a.root,CONFIG).status(),indent=2))
     else:assert a.worker is not None;worker(a.root,a.worker)
