@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "cells": 16,
+  "executed_saved_data_only": true,
+  "roundtrip": true,
+  "mypy_sources": 153,
+  "source": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/dev_1_6_p67s_showcase.py",
+    "sha256": "73654dfb696b74340cf127bc836dd1e25cffd8a0da78d0ed9a7c2123adf711f6"
+  },
+  "notebook": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/dev_1_6_p67s_showcase.ipynb",
+    "sha256": "cb753292fe0c72fb9cdab3d405857bc1c067e7eb4d82ebf6eac22703779ad423"
+  }
+}

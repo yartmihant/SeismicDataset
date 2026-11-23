@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "cases": {
+    "homogeneous": {
+      "surface_fields_exact": true,
+      "finite": true,
+      "shape": [
+        21,
+        7,
+        795691,
+        2
+      ],
+      "mirror_relative_l2": 1.2872562500133576e-13
+    },
+    "two_layer": {
+      "surface_fields_exact": true,
+      "finite": true,
+      "shape": [
+        21,
+        7,
+        795691,
+        2
+      ],
+      "mirror_relative_l2": 1.2878910010731097e-13,
+      "chapter15_repeat_relative_l2": 4.050925585582357e-14,
+      "chapter15_surface": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_sync/repeat0/surface.npz",
+        "sha256": "b545eebc7e20f5bc8b9c2df3f35d9e525dfd761f9a8f672baf47fff1ec18b76b"
+      }
+    },
+    "EFVB00000": {
+      "surface_fields_exact": true,
+      "finite": true,
+      "shape": [
+        21,
+        7,
+        795691,
+        2
+      ],
+      "mirror_relative_l2": 1.2957664232064157e-13
+    },
+    "EFVB00001": {
+      "surface_fields_exact": true,
+      "finite": true,
+      "shape": [
+        21,
+        7,
+        795691,
+        2
+      ],
+      "mirror_relative_l2": 1.852718744446975e-13
+    },
+    "ECVB12404": {
+      "surface_fields_exact": true,
+      "finite": true,
+      "shape": [
+        21,
+        7,
+        795691,
+        2
+      ]
+    },
+    "ECVB00065": {
+      "surface_fields_exact": true,
+      "finite": true,
+      "shape": [
+        21,
+        7,
+        1099615,
+        2
+      ]
+    }
+  },
+  "verified_sha_files": 24,
+  "limitation": "not an independent spatial convergence or long-time PML proof"
+}

@@ -1,0 +1,35 @@
+{
+  "status": "completed",
+  "chapter": "1.6",
+  "geometries": 6,
+  "independent_sources": 42,
+  "native": "p67s, seismic_p67s_v1",
+  "duration_s": 1,
+  "frames_per_source": 21,
+  "surface_samples": 1001,
+  "surface_nodes": 1261,
+  "numerical_validation": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_6_p67s_showcase/series_v1/numerical_validation.json",
+    "sha256": "70ce9e3087e8a9530c9192ee0921fcd83d6f17d0ddf9defae1bd4aa11324cf3c"
+  },
+  "artifact_validation": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_6_p67s_showcase/series_v1/artifact_validation.json",
+    "sha256": "e60ffdd7270aaa3044ffc909e21826d48e136918140f05bc62340b8eb287d33a"
+  },
+  "gallery": "img/dev_1_6_p67s_showcase/render_v2/index.html",
+  "github_report": "img/dev_1_6_p67s_showcase/render_v2/README.md",
+  "videos": 84,
+  "seismograms": 84,
+  "pngs": 266,
+  "artifact_bytes": 209340462,
+  "raw_data_location": "Saturn:/home/antonov/SeismicDataset/data/dev_1_6_p67s_showcase/series_v1",
+  "saturn_free_bytes_after_work": 45194579968,
+  "gpu0_utilization_percent": 0,
+  "gpu1_utilization_percent": 0,
+  "production": "stopped, unchanged",
+  "notes": [
+    "initial odd-height video failure retained separately; no wave reruns",
+    "initial interrupted transfer resumed; complete local artifact validation passed",
+    "mypy153 files passed; notebook check recorded separately"
+  ]
+}

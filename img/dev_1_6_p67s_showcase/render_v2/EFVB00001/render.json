@@ -1,0 +1,240 @@
+{
+  "case": "EFVB00001",
+  "files": [
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/material.png",
+      "sha256": "d4a5de7ffed0884c7230c828cef4e31b54bd7e088815f9c13ecfa816385eb0ff"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/all_sources_seismograms.png",
+      "sha256": "bdcc4b58520e80983e88bfb9353db697a38cfb5f8769bd3aa32989525ec014be"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1225/frame_0.50.png",
+      "sha256": "d057d103508eb5c592367d88688fba92d51029ca9c2d269855b9f91386e898a5"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1225/frame_0.25.png",
+      "sha256": "9a94a211618ee315736c6725d74bf1e0d87f23fa66b6329df07416d3c77d102d"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1225/seismogram.png",
+      "sha256": "82526a04ad8fc651b1277f5883e53b93dd600bf1b5a56c99896d2482fe10fc83"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1225/velocity.mp4",
+      "sha256": "a618d66517883b5ea81896d6ea2475a120d58c3052cea4a1e4eaf7f596851649"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0350/frame_0.50.png",
+      "sha256": "fcfc1a86e88b345e3570be4dcf312ed0eb1ea3264e31d8dd5a4399991237268f"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0350/frame_0.25.png",
+      "sha256": "31f6d5c64d55a834f840dc3107b3aea9f358440b6de1b95a51a8b607091fa64c"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0350/seismogram.png",
+      "sha256": "4b89c9b6f10db89174579e4bf7bf5ac077a6d67052a0632d2fb5b0da0c7c170e"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0350/velocity.mp4",
+      "sha256": "c3afc40ad99f206d61ace2fc6b06628a709a81b44cc3376543e8c5976ad2ca41"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0700/frame_0.50.png",
+      "sha256": "0e26e66acf4e471315ae215708e6136d638a3922e0085bc649a9a6cdf6f9cc7a"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0700/frame_0.25.png",
+      "sha256": "18c91d65d1306efaf9b12a3a17b314fda1d3cd2e3d92c56921942c8f436b7dd7"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0700/seismogram.png",
+      "sha256": "c68ceefc4db075dd05e8b4c93b1794ab666ca0a591714ff4c77776f9506c40e1"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0700/velocity.mp4",
+      "sha256": "99b315655755cba7b68131ceff67f5cbb2562d641500ee4237aa6cba72e83c1a"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1050/frame_0.50.png",
+      "sha256": "affe0fc882fe5372ff217a6662e234fcbccc1019ec9f81a9be13a023c566830a"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1050/frame_0.25.png",
+      "sha256": "06ac00a7d7a2df71a0d55d03f97a0f5abce017a376f2a66ccb442bf2b924727c"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1050/seismogram.png",
+      "sha256": "4dadfc5902f5b195a2f75310513f06d2eacc5ada6354a8871707c0033ab96215"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x1050/velocity.mp4",
+      "sha256": "3e3a6cb830ddd76189170c4a2a73d5e4a50c1cabfc6eafd452c35687b84fd041"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0175/frame_0.50.png",
+      "sha256": "7cbf548efe39e1b491aafd77f46355f2d58bef6008f3322746793c21a60d27db"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0175/frame_0.25.png",
+      "sha256": "17b17a78402a4c2a24c18e22a33689aa7c553dedbc391aa6b735fc38278accc8"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0175/seismogram.png",
+      "sha256": "c68b5d8a8b4937bc0e3465f4667b44abf42ef613002877782708b02dff6fbe67"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0175/velocity.mp4",
+      "sha256": "32513d9b506fefe368691a2bed685538c9bd52cf8a140793c90dc645f5aebe7c"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0875/frame_0.50.png",
+      "sha256": "916209823bc984ad855eb6a2f41a1f29a7356df84a64d7943f449c418b22d43e"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0875/frame_0.25.png",
+      "sha256": "ed54ad9d2d81381ac9cc22e5b748bfa1a3735956598def62a4fa09a4c055c08d"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0875/seismogram.png",
+      "sha256": "41b79249b7e221d665d897e5d6f89fa9d02074b89129aee001068d06665a7e9d"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0875/velocity.mp4",
+      "sha256": "71286337d70d9780bb0a76a5bebe33627b7c4ce9aacd0c1f6cd975609510f13f"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0525/frame_0.50.png",
+      "sha256": "ed4ec77a0db3741d5a60a346ee26b3d1c0b93986055b1c027a36bc5995057d74"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0525/frame_0.25.png",
+      "sha256": "1baa0bf654422f48c19b7fc6fd14b1a7f14d526bd42d655391cbbf6158e79ded"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0525/seismogram.png",
+      "sha256": "97ac3fe0e6dec5c438b709f622c50c8d16fb54da5ce9619f5d38d2b32ec81f75"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/linear/x0525/velocity.mp4",
+      "sha256": "35e0bd0a6951f504cd5bc537787d9ec4d36c2707a5cfb929ff4bd4e25656b9e6"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1225/frame_0.50.png",
+      "sha256": "e73cc4be151b8a98ba04e62499f41e6aa37ea882a3fae43aefb71b5118463c31"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1225/frame_0.25.png",
+      "sha256": "a33d3ebbf10121ab98cff92252b4f6b3bd702ce7486a991c26336427ba55746a"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1225/seismogram.png",
+      "sha256": "cb661bca1c3a360db63aa75f8883071cf7f3dc8f505ba42eccb68fc3cf087ba5"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1225/velocity.mp4",
+      "sha256": "93ff82b95ad940f0307db0f2e4f49ab7a98c83bbbbeb54b3c326197d5a9923c9"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0350/frame_0.50.png",
+      "sha256": "72ac75a7b5385f3f41ebc647a1ac161af409b6400e6729514e8c4755c198afef"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0350/frame_0.25.png",
+      "sha256": "cf48338c3b24131c6158c8139e8cc40804b0b35769d543541e5ea2e5e4d66969"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0350/seismogram.png",
+      "sha256": "035275af9e089ed0ac5637b8c0fd1e7c07ad122a44f7281db19dbb5258c0e551"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0350/velocity.mp4",
+      "sha256": "c925a7005bbceea130132782dd39a4b4faae473aae267a13e3aaf61289c9e31f"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0700/frame_0.50.png",
+      "sha256": "610f1778bfed67f012afc5be93eed077eee317cdc7549ba71b043fa29e3d5bfb"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0700/frame_0.25.png",
+      "sha256": "0bcc7b53fdba11461dbae06cee07bd46fef613e3abfab1c23ca2dde0e387c2ed"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0700/seismogram.png",
+      "sha256": "fa7141a7ca6de589d96d38f3dc6408513d82d86149d6db51a6f060338f5e3296"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0700/velocity.mp4",
+      "sha256": "48296a5f72032ea445eda754806a718acaf8b0d5885ea394013b6fa2a5a27076"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1050/frame_0.50.png",
+      "sha256": "679570c890994c05e4428092d3d12783c6197ea5ddbfbd929776d8d2e8462c5f"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1050/frame_0.25.png",
+      "sha256": "afa394b1578cc6741589cd5b474be5f75ae0921c3c4b745ce3dcb5ba390bf5b0"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1050/seismogram.png",
+      "sha256": "2fde5d2f3bc657cdedbfd38f53e98c88776a84d16a92b6e613f8e70c9a50d52a"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x1050/velocity.mp4",
+      "sha256": "7b72272d18538158b40a6f7a62d3503e9767d2d6a1df9758dae3da088bb4ae9e"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0175/frame_0.50.png",
+      "sha256": "d8d49b1b7b9ba35fde6152aa0451d2ea5ca5c56c6fadd926ca4018d3ef9a6bf2"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0175/frame_0.25.png",
+      "sha256": "644cc2de67e8c39def6703fe45247a78f0d2cf6a49bcc6ef061927ef8f3550e2"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0175/seismogram.png",
+      "sha256": "581353982d66250accf2246fde2ad11cd8a5629006c2ea9dd0f8f101801c9520"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0175/velocity.mp4",
+      "sha256": "472e56c9bb6cadb7fc6b2a73dcfc9db53be5251e3780612dceabab7b8f567a48"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0875/frame_0.50.png",
+      "sha256": "86ad4a3fc401bb102cebcbc9e5f016c83f3b859ba487164f6728029ef6adf6b9"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0875/frame_0.25.png",
+      "sha256": "3ef995b8ee42b93cce55f2caf57e601fd88bee6a4aa1500fff9fac4c41864e22"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0875/seismogram.png",
+      "sha256": "4f06b68188fa078cbb4b5021dc038df97ab7c28de05fd8767eff0a24d9cd813d"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0875/velocity.mp4",
+      "sha256": "302886870c1a5e8a8da108ec62d2df32a7f84130885ddf378b9781544ad2c750"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0525/frame_0.50.png",
+      "sha256": "31d20014d282ce5437c563ff44e27f5a87e67f69575e934a276a358c0f2e68a4"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0525/frame_0.25.png",
+      "sha256": "2e9deac2a484a6d47a1deb73177d92858183ae5ad022545b0a528c68c4ffaf35"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0525/seismogram.png",
+      "sha256": "feeabf00a0cfcfe3e1ea9c7dfc9000cce4c37dfd5736ef2a35cf730c00b63f63"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_6_p67s_showcase/render_v2/EFVB00001/symlog/x0525/velocity.mp4",
+      "sha256": "147e0f2f7f691b1b89e16ec8e2fa8a315d34c464b1edf6828b25d208e7eccbfa"
+    }
+  ],
+  "videos": 14,
+  "seismograms": 14,
+  "interpolation": "linear on GLL subtriangles, visualization only"
+}

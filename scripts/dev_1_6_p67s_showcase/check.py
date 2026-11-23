@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from html.parser import HTMLParser
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -13,7 +14,7 @@ from scripts.dev_1_3_point_source.run import file_record
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_6_p67s_showcase.mesh import ROOT, CASES
 from scripts.dev_1_6_p67s_showcase.render import IMAGES
-from scripts.reporting import read_json,mapping,number
+from scripts.reporting import read_json,mapping,number,sequence
 
 
 class Links(HTMLParser):
@@ -65,8 +66,20 @@ def artifacts(images:Path,output:Path)->None:
             if parsed.scheme:continue
             assert (p.parent/unquote(parsed.path)).exists(),(p,link)
             links+=1
+    for p in images.rglob('*.md'):
+        for link in re.findall(r'\]\(([^)]+)\)',p.read_text()):
+            parsed=urlsplit(link)
+            if parsed.scheme:continue
+            assert (p.parent/unquote(parsed.path)).exists(),(p,link)
+            links+=1
+    verified_render_sha=0
+    for name in CASES:
+        record=read_json(images/name/'render.json')
+        for item in sequence(record['files']):
+            original=mapping(item);path=Path(str(original['path']));relative=path.relative_to('/home/antonov/SeismicDataset') if path.is_absolute() else path
+            assert file_record(relative)['sha256']==original['sha256'];verified_render_sha+=1
     files=[file_record(p) for p in sorted(images.rglob('*')) if p.is_file()]
-    write(output,{'status':'passed','videos':len(videos),'pngs':len(pngs),'html':len(pages),'links':links,'files':files,'bytes':sum(p.stat().st_size for p in images.rglob('*') if p.is_file())})
+    write(output,{'status':'passed','videos':len(videos),'pngs':len(pngs),'html':len(pages),'links':links,'verified_render_sha':verified_render_sha,'files':files,'bytes':sum(p.stat().st_size for p in images.rglob('*') if p.is_file())})
 
 
 if __name__=='__main__':

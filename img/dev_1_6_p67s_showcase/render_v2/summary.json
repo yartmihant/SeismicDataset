@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "cases": [
+    {
+      "case": "homogeneous",
+      "dt_s": 0.00011111111111111112,
+      "steps": 9000,
+      "run_seconds": 17.08657313324511,
+      "nodes": 795691,
+      "elements": 22050
+    },
+    {
+      "case": "two_layer",
+      "dt_s": 0.00011111111111111112,
+      "steps": 9000,
+      "run_seconds": 17.050881834700704,
+      "nodes": 795691,
+      "elements": 22050
+    },
+    {
+      "case": "EFVB00000",
+      "dt_s": 0.0001,
+      "steps": 10000,
+      "run_seconds": 19.066886015236378,
+      "nodes": 795691,
+      "elements": 22050
+    },
+    {
+      "case": "EFVB00001",
+      "dt_s": 0.00011111111111111112,
+      "steps": 9000,
+      "run_seconds": 17.073443678207695,
+      "nodes": 795691,
+      "elements": 22050
+    },
+    {
+      "case": "ECVB12404",
+      "dt_s": 0.00014285714285714287,
+      "steps": 7000,
+      "run_seconds": 13.555076641961932,
+      "nodes": 795691,
+      "elements": 22050
+    },
+    {
+      "case": "ECVB00065",
+      "dt_s": 2.5e-05,
+      "steps": 40000,
+      "run_seconds": 93.18782470189035,
+      "nodes": 1099615,
+      "elements": 30492
+    }
+  ],
+  "scales": {
+    "linear_limit_m_s": 1e-10,
+    "symlog_limit_m_s": 1.0592220588798866e-07,
+    "symlog_linthresh_m_s": 1e-13,
+    "note": "fixed for all cases, components, sources and frames; linear saturation is display only"
+  },
+  "videos": 84,
+  "seismograms": 84,
+  "independent_sources": 42
+}

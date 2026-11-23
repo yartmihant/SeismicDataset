@@ -1,0 +1,6 @@
+{
+  "linear_limit_m_s": 1e-10,
+  "symlog_limit_m_s": 1.0592220588798866e-07,
+  "symlog_linthresh_m_s": 1e-13,
+  "note": "fixed for all cases, components, sources and frames; linear saturation is display only"
+}
