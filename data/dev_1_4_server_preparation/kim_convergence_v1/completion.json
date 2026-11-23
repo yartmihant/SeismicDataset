@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-19T15:19:40.659694+00:00",
+  "completed_runs": 28,
+  "by_model": {
+    "12404": 14,
+    "65": 14
+  },
+  "gpu_processes": "pid, process_name, used_gpu_memory [MiB]\n",
+  "production_launcher": "interrupted"
+}

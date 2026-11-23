@@ -1,0 +1,93 @@
+{
+  "status": "cpu_checked",
+  "cases": [
+    {
+      "case": "p4_h5",
+      "order": 4,
+      "h_m": 5,
+      "nodes": 1413721,
+      "elements": 88200,
+      "pml_elements": 49000,
+      "boundary_elements": 0,
+      "raw_run_bytes": 524552688
+    },
+    {
+      "case": "p5_h5",
+      "order": 5,
+      "h_m": 5,
+      "nodes": 2208151,
+      "elements": 88200,
+      "pml_elements": 49000,
+      "boundary_elements": 0,
+      "raw_run_bytes": 810918768
+    },
+    {
+      "case": "p6_h10",
+      "order": 6,
+      "h_m": 10,
+      "nodes": 795691,
+      "elements": 22050,
+      "pml_elements": 12250,
+      "boundary_elements": 0,
+      "raw_run_bytes": 300279408
+    },
+    {
+      "case": "p7_h10",
+      "order": 7,
+      "h_m": 10,
+      "nodes": 1082656,
+      "elements": 22050,
+      "pml_elements": 12250,
+      "boundary_elements": 0,
+      "raw_run_bytes": 404654448
+    },
+    {
+      "case": "p8_h5",
+      "order": 8,
+      "h_m": 5,
+      "nodes": 5649841,
+      "elements": 88200,
+      "pml_elements": 49000,
+      "boundary_elements": 0,
+      "raw_run_bytes": 2042573808
+    },
+    {
+      "case": "p9_h5",
+      "order": 9,
+      "h_m": 5,
+      "nodes": 7149871,
+      "elements": 88200,
+      "pml_elements": 49000,
+      "boundary_elements": 0,
+      "raw_run_bytes": 2577311088
+    }
+  ],
+  "runs": 43,
+  "probes": 9,
+  "estimated_raw_bytes": 27601249104,
+  "physical_domain_m": [
+    0,
+    1400,
+    -700,
+    0
+  ],
+  "full_domain_m": [
+    -350,
+    1750,
+    -1050,
+    0
+  ],
+  "source": "central downward Ricker30Hz,1N/m,t0=.05s",
+  "PML": "quadratic fixed dmax173.0886108476381,350m; no ABC, no boundary stratum",
+  "CFL": 0.8,
+  "kim_beta": 0.037037037037037035,
+  "duration_s": 1,
+  "timing": "generic and fixed, each one full warmup and three repeats; same GPU, sequential; native dt, assert dt agrees within each pair",
+  "accuracy": "same physical receivers x0..1400/1m using SEM interpolation, internal receivers only; native, half-native and common dt; p8/p9 h5 controls and p9 common_dt/2",
+  "common_dt": "min(all native steps including p9/h5)/2",
+  "reference_limit": "same PML350, no exact PDE solution; p8/p9 and p9 half-step discrepancies quantify control uncertainty",
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_fixed_pml_orders_v1/provenance.json",
+    "sha256": "2acb875eed70fff1987781f49e3dc7bfa643bb5c56cc4c1127f7277e48ac2e55"
+  }
+}

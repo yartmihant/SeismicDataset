@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "parent_geometry_mesh_hash_verified": true,
+  "mypy_files": 98,
+  "notebook_cells": 113,
+  "embedded_images": 25,
+  "new_figure_embedded_exact": true,
+  "notebook_roundtrip": "passed",
+  "completed_variants": 3
+}

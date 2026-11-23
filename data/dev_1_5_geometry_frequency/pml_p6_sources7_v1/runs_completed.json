@@ -1,0 +1,54 @@
+{
+  "status": "completed",
+  "runs": 32,
+  "probes": 2,
+  "rounds": [
+    {
+      "repeat": 0,
+      "singles_source_order": [
+        175.0,
+        350.0,
+        525.0,
+        700.0,
+        875.0,
+        1050.0,
+        1225.0
+      ],
+      "batch_first": false,
+      "singles_wall_seconds_with_process_and_hashing": 64.8050086228177,
+      "round_wall_seconds": 122.25978199206293
+    },
+    {
+      "repeat": 1,
+      "singles_source_order": [
+        350.0,
+        525.0,
+        700.0,
+        875.0,
+        1050.0,
+        1225.0,
+        175.0
+      ],
+      "batch_first": true,
+      "singles_wall_seconds_with_process_and_hashing": 65.23917192686349,
+      "round_wall_seconds": 123.26572447642684
+    },
+    {
+      "repeat": 2,
+      "singles_source_order": [
+        525.0,
+        700.0,
+        875.0,
+        1050.0,
+        1225.0,
+        175.0,
+        350.0
+      ],
+      "batch_first": false,
+      "singles_wall_seconds_with_process_and_hashing": 64.44189713895321,
+      "round_wall_seconds": 122.4744214322418
+    }
+  ],
+  "native_dt_s": 0.00011111111111111112,
+  "production_queue": "not modified"
+}

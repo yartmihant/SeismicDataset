@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "orders": [
+    {
+      "order": 4,
+      "runs": 12,
+      "steps": 35000,
+      "native_sha256": {
+        "tenzor": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56",
+        "seismic": "35a20ad18934cf3ac3254505cec6a6bce941c9962351a503b105769cd47e011d",
+        "seismic_p4": "d5302741a4d9aab37dc5967f0e5414b06a3d006e3e62aee7a499893e1a906c06"
+      }
+    },
+    {
+      "order": 5,
+      "runs": 12,
+      "steps": 52000,
+      "native_sha256": {
+        "tenzor": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56",
+        "seismic_p5": "74366dd35da57825c8c79f23aaee468374415b7e76dad6fd7b751b05ce37dd9a",
+        "seismic": "35a20ad18934cf3ac3254505cec6a6bce941c9962351a503b105769cd47e011d"
+      }
+    }
+  ],
+  "completed_runs": 24,
+  "measured_runs": 18,
+  "array_files_sha_verified_on_saturn": 72,
+  "solver_comparisons": 24,
+  "historical_before_after_comparisons": 6,
+  "source_code_sha256": "c86126c5fbf979fb5115245e6bc93d96a2f1d7ae1d796555c1db26d6c1ec32ac",
+  "setup_code_sha256": "bee246a2092cf363c7c8f967a5d3cf773feaa1db0502175716db1095a1504087",
+  "html_links": 5,
+  "png_verified": true,
+  "raw_bytes_saturn": 11235032968,
+  "free_bytes_saturn_after": 177109864448,
+  "gpu_compute_processes_after": [],
+  "local_gpu_runs": 0
+}

@@ -1,0 +1,42 @@
+{
+  "status": "already_stopped_verified",
+  "observed_utc": "2026-11-18T11:07:56.821455+00:00",
+  "requested_action": "Stop active dataset computation on saturn",
+  "action_taken": "Read-only checks; no termination signal was needed because launcher and workers were already stopped; no restart",
+  "historical_stop_utc": "2026-11-17T20:16:47.883813+00:00",
+  "historical_stop_signal": 15,
+  "completed_models": 45,
+  "verified_output_bytes_from_queue": 513515520,
+  "unfinished_reserved_models": [
+    45,
+    46
+  ],
+  "preservation": "Completed outputs, unfinished files and reservations unchanged; no cleanup or retry",
+  "status_snapshot_sha256": "36e428d76c8edb19d74d4c648c104e1e06cd021828cd5cfc5f2e729bb016abcb",
+  "checks": {
+    "unit": {
+      "command": "systemctl --user show seismic14-efvb-chunk01-v1.service -p ActiveState -p SubState -p MainPID -p Restart",
+      "returncode": 0,
+      "stdout": "Restart=no\nMainPID=0\nActiveState=inactive\nSubState=dead\n",
+      "stderr": ""
+    },
+    "project_processes": {
+      "command": "ps -u antonov -o pid,ppid,etimes,args | grep '[s]cripts.dev_1_4_server_preparation' || true",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "gpu_processes": {
+      "command": "nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv,noheader",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "journal": {
+      "command": "journalctl --user -u seismic14-efvb-chunk01-v1.service --since 2026-11-17 --no-pager -n 35",
+      "returncode": 0,
+      "stdout": "-- Logs begin at Tue 2026-11-17 16:55:47 UTC, end at Wed 2026-11-18 11:08:35 UTC. --\nNov 17 18:27:44 saturn systemd[1728860]: Started /home/antonov/SeismicDataset/.venv/bin/python -m scripts.dev_1_4_server_preparation.launcher --root data/dev_1_4_server_preparation/efvb_chunk01_saturn_v1.\nNov 17 20:16:47 saturn systemd[1728860]: Stopping /home/antonov/SeismicDataset/.venv/bin/python -m scripts.dev_1_4_server_preparation.launcher --root data/dev_1_4_server_preparation/efvb_chunk01_saturn_v1...\nNov 17 20:16:47 saturn systemd[1728860]: seismic14-efvb-chunk01-v1.service: Main process exited, code=exited, status=143/n/a\nNov 17 20:16:47 saturn systemd[1728860]: seismic14-efvb-chunk01-v1.service: Failed with result 'exit-code'.\nNov 17 20:16:47 saturn systemd[1728860]: Stopped /home/antonov/SeismicDataset/.venv/bin/python -m scripts.dev_1_4_server_preparation.launcher --root data/dev_1_4_server_preparation/efvb_chunk01_saturn_v1.\n",
+      "stderr": ""
+    }
+  }
+}

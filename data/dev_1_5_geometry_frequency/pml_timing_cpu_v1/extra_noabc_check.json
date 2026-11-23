@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "order": 4,
+      "nodes": 982101,
+      "dmax": 173.08861084763834,
+      "ABC": false
+    },
+    {
+      "order": 5,
+      "nodes": 1533876,
+      "dmax": 173.08861084763834,
+      "ABC": false
+    }
+  ]
+}

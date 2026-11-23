@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "sha_files": [
+    "seismograms.png",
+    "central_traces.png",
+    "index.html",
+    "pml_errors_x100.png",
+    "comparison.png"
+  ],
+  "png_count": 4,
+  "links": [
+    "comparison.png",
+    "seismograms.png",
+    "pml_errors_x100.png",
+    "central_traces.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/first_reflection_v1/metrics.json"
+  ],
+  "gpu_compute_processes": [],
+  "server_available_bytes": 144844374016,
+  "production": "not resumed",
+  "mypy": "passed: diary and three PML utilities",
+  "visual_review": "comparison, central traces and seismograms inspected"
+}

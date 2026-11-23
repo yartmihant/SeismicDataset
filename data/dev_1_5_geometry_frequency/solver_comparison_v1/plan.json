@@ -1,0 +1,13 @@
+{
+  "native_dt_s": [
+    1.923076923076923e-05,
+    1.923076923076923e-05
+  ],
+  "explicit_common_dt_s": null,
+  "frequencies_hz": [
+    15,
+    30
+  ],
+  "repeats": 3,
+  "warmup_runs": 2
+}

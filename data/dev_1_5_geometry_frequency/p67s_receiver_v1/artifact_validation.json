@@ -1,0 +1,19 @@
+{
+  "status": "verified",
+  "files": [
+    "img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed_v2/index.html",
+    "img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed_v2/timings.png",
+    "img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed_v2/kernels.png"
+  ],
+  "local_trace_sha256": [
+    "data/dev_1_5_geometry_frequency/p67s_receiver_v1/profiles/new_async/trace.nsys-rep",
+    "data/dev_1_5_geometry_frequency/p67s_receiver_v1/profiles/new_discard/trace.nsys-rep",
+    "data/dev_1_5_geometry_frequency/p67s_receiver_v1/profiles/new_none/trace.nsys-rep",
+    "data/dev_1_5_geometry_frequency/p67s_receiver_v1/profiles/new_sync/trace.nsys-rep",
+    "data/dev_1_5_geometry_frequency/p67s_receiver_v1/profiles/old_sync/trace.nsys-rep"
+  ],
+  "png_count": 2,
+  "html_links": 2,
+  "visual_review": "axes, labels, negative paired sample, template names checked",
+  "diagnostics": "all Nsight messages severity1; expected kernel counts verified"
+}

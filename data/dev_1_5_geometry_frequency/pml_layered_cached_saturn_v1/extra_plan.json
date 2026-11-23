@@ -1,0 +1,62 @@
+{
+  "status": "cpu_checked",
+  "cases": [
+    {
+      "label": "L700",
+      "nodes": 3924201,
+      "thickness_m": 700,
+      "dmax_s_inv": 43.27215271190953,
+      "fixed_strength": false,
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_700.npz",
+        "sha256": "23a9dd2321cf3a507f309fc8ba5e738fb286b3daf68efc609c17038025c090f6"
+      }
+    },
+    {
+      "label": "F250",
+      "nodes": 1807851,
+      "thickness_m": 250,
+      "dmax_s_inv": 173.0886108476381,
+      "fixed_strength": true,
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_250.npz",
+        "sha256": "899f610fda702c3efcd6e94865aa62ea0c971cc0627564631e55120f6047ad21"
+      }
+    },
+    {
+      "label": "F350",
+      "nodes": 2208151,
+      "thickness_m": 350,
+      "dmax_s_inv": 173.0886108476381,
+      "fixed_strength": true,
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_350.npz",
+        "sha256": "a4907d81c7b7b32dff1de612aa551ff3c90a72cd99c95fc19c8f96ecd1104a0d"
+      }
+    },
+    {
+      "label": "F500",
+      "nodes": 2883601,
+      "thickness_m": 500,
+      "dmax_s_inv": 173.0886108476381,
+      "fixed_strength": true,
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_500.npz",
+        "sha256": "1476874d3447b5800ef1ad5ff06562cf0e197fcc0184e1470dcc0fbbd61a99a8"
+      }
+    },
+    {
+      "label": "F700",
+      "nodes": 3924201,
+      "thickness_m": 700,
+      "dmax_s_inv": 173.0886108476381,
+      "fixed_strength": true,
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_700.npz",
+        "sha256": "23a9dd2321cf3a507f309fc8ba5e738fb286b3daf68efc609c17038025c090f6"
+      }
+    }
+  ],
+  "reason": "Constant-integral 175/250/350m leaves boundary errors larger than weak multiples. Add constant maximum profiles and 700m constant-integral delay control.",
+  "original_plan_preserved": true
+}

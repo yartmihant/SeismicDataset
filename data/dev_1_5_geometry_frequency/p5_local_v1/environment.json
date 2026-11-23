@@ -1,0 +1,10 @@
+{
+  "hostname": "antonov-fidesys-office",
+  "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.runtime_ch15_p5_v1/venv/bin/python",
+  "gpu": "name, uuid, driver_version, memory.total [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 3060, GPU-c328e235-51a4-903e-0c20-5623f3d92896, 580.196.07, 12288 MiB, 0 %\n",
+  "git_head": "5023aa97ab7c8d7b2daafd7ac38c564d91b59910",
+  "source": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/docs/runtime_sources/seismic_p5_v1/provenance.json",
+    "sha256": "1b9d007375f20ec0a0751c1a9afb4bfb9e3698266817cb5effba92d29b8e6358"
+  }
+}

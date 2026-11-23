@@ -1,0 +1,10 @@
+{
+  "note": "Profile validation used correct fixed maximum for F cases. Initial plan display field dmax_s_inv retained inherited scaled formula for F cases; corrected in code. Original CPU plan preserved; authoritative added profiles will be in Saturn extra_plan.json.",
+  "fixed_dmax_s_inv": 173.0886108476381,
+  "fixed_cases": [
+    "F250",
+    "F350",
+    "F500",
+    "F700"
+  ]
+}

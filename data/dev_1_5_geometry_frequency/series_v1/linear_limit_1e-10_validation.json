@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "animations": 30,
+  "seismograms": 30,
+  "png_files": 90,
+  "frames_per_video": 21,
+  "fps": 5,
+  "video_dimensions": [
+    1540,
+    616
+  ],
+  "scale": "linear",
+  "display_limits_m_s": [
+    [
+      -1e-10,
+      1e-10
+    ],
+    [
+      -1e-10,
+      1e-10
+    ]
+  ],
+  "local_links": 182,
+  "all_media_sha_verified": true,
+  "same_source_fields": true,
+  "previous_media_unchanged": true,
+  "wave_simulations_rerun": false,
+  "artifact_bytes": 50122400
+}

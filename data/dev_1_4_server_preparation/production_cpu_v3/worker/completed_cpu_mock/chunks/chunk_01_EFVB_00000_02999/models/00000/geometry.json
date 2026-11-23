@@ -1,0 +1,46 @@
+{
+  "schema": "CPU_MOCK_ONLY",
+  "dataset": "EFVB",
+  "model_id": 0,
+  "input": {
+    "fixture": "CPU mock only"
+  },
+  "certificate": {
+    "scope": "not a scientific mesh"
+  },
+  "construction": {
+    "construction": "mock",
+    "settings": {
+      "mock": true
+    },
+    "splines_max_sample_depth_error_m": 0.125
+  },
+  "fallback": "none",
+  "algorithm_evidence": "CPU mock",
+  "implementation": {
+    "project_git_head": "9f49cf919a10bc02f91c815d566db7ceac47942f",
+    "code_sha256": {
+      "scripts/dev_1_4_server_preparation/curved_mesh.py": "83c6a079d6ed89b39ee2e325ebc970e7f16f88d146d2f4f214aab8abb4744436",
+      "scripts/dev_1_4_server_preparation/model_input.py": "d333e164556bf7814606418ed7a0dfbc4229e8578542c4294befc6c69f93f034",
+      "scripts/dev_1_4_server_preparation/production_surface.py": "1f34a1c624676c150bda18b9ee7234c4ce5f4569ba2b7a121a0416a139252d27",
+      "scripts/dev_1_4_server_preparation/production_worker.py": "07d8666a9865ae614ac2be8ee707674b9056b0cf06aa8b364a90fff14aa4e247",
+      "scripts/dev_1_3_point_source/mesh.py": "6f0bbbe48c48376cebffbeff26e4c960552c0b21478c697e65e6e02b990d368f",
+      "scripts/dev_1_3_point_source/stability.py": "d135a8c5c25fce497a5308a04e36038140eba8e0d56f8685671c6061957c0b0e",
+      "scripts/dev_1_3_point_source/physics.py": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec",
+      "scripts/dev_1_2_smoothing/model65_geometry.py": "eabc3a12ffd7f207599975c1f80e29dd851983061f921ccbd378da705eb4c7b8",
+      "scripts/dev_1_2_smoothing/pilot_mesh.py": "2b36023f72ccc21b910cfde7ac3f16e0efa71d97abe86022b83c9955a6b18340",
+      "scripts/dev_1_1_preprocessing/prepare_data.py": "10bc27ee4e1c77bcb812d7fcc57513b655b4c62598cb93137d6f7f3b24db34e9"
+    },
+    "package_versions": {
+      "numpy": "2.4.6",
+      "scipy": "1.18.0",
+      "gmsh": "4.15.2",
+      "semgpu2": "0.1.0"
+    },
+    "rebuild": "Use original VP/VS and these exact algorithm files/package versions; no raster fallback"
+  },
+  "mesh_sha256": "29d9431b93b57d177b7395643f6eb92347c5be85fe89c236746dec7b8194c3c6",
+  "full_geometry_report_sha256": "187e4128dcfc58878582b31b0fe9d0583c8ae9080183a529e57e8c6a14a59f1a",
+  "full_geometry_report_sha256_format": "json.dumps(report, sort_keys=True, allow_nan=False).encode()",
+  "full_geometry_report_retention": "temporary work only; deleted after five verified sources"
+}

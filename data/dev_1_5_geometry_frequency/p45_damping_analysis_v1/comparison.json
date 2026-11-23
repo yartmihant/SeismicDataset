@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "results": {
+    "p4": {
+      "order": 4,
+      "median_run_seconds": {
+        "tenzor": 20.560991710051894,
+        "seismic": 13.458236958831549,
+        "seismic_p4": 12.414333024993539
+      },
+      "median_total_seconds": {
+        "tenzor": 25.53504106309265,
+        "seismic": 18.276112456806004,
+        "seismic_p4": 17.090416654013097
+      },
+      "specialized_speedup_vs_tenzor": 1.6562300744354805,
+      "specialized_speedup_vs_seismic": 1.084088604014113,
+      "steps": 35000,
+      "dt_s": 2.857142857142857e-05,
+      "nodes": 982101,
+      "receivers": 1401,
+      "damping_nodes": 355461,
+      "max_component_relative_l2": 1.747254510900468e-12,
+      "max_abs_difference_m_s": 2.5523484980936222e-20
+    },
+    "p5": {
+      "order": 5,
+      "median_run_seconds": {
+        "tenzor": 45.42450562398881,
+        "seismic": 29.400207142345607,
+        "seismic_p5": 27.5231999931857
+      },
+      "median_total_seconds": {
+        "tenzor": 50.61337736342102,
+        "seismic": 34.44181943126023,
+        "seismic_p5": 32.247216146439314
+      },
+      "specialized_speedup_vs_tenzor": 1.6504078608314143,
+      "specialized_speedup_vs_seismic": 1.0681972717425527,
+      "steps": 52000,
+      "dt_s": 1.923076923076923e-05,
+      "nodes": 1533876,
+      "receivers": 1751,
+      "damping_nodes": 554576,
+      "max_component_relative_l2": 8.286051763501248e-13,
+      "max_abs_difference_m_s": 1.1629745822189293e-20
+    },
+    "p5_before_after": {
+      "before_run_seconds": {
+        "tenzor": 45.328337233513594,
+        "seismic": 33.42377908248454,
+        "seismic_p5": 31.455316920764744
+      },
+      "after_run_seconds": {
+        "tenzor": 45.42450562398881,
+        "seismic": 29.400207142345607,
+        "seismic_p5": 27.5231999931857
+      },
+      "tenzor_max_component_relative_l2": 3.3792539414916475e-13
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T12:14:33.819407+00:00",
+  "scope": "CPU mocks only; no native/GPU calculation",
+  "factor": 0.5684038628158912,
+  "checks": [
+    "Selected result/source-prefix/native/mesh identity validated against immutable golden evidence",
+    "Actual selected alpha and both receiver cadences/component orders checked on historical589541-node mesh",
+    "Nonuniform mock all-node values match surface at common times; complete two-frame recording",
+    "Exact saved surface copy accepted; single changed velocity sample rejected"
+  ],
+  "code": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_profile_golden_fields.py",
+      "sha256": "bd173d2db9b9f03dad37efc309e4a29b5d45c7faab30887956e72914fb13e11f"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_golden_fields_run.py",
+      "sha256": "147d5745f79b618dc3551d05eee6c8d1d6cd237ae23357e29205db0f37cffa08"
+    }
+  ]
+}

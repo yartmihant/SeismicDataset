@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "window_s": [
+    0.5,
+    1.0
+  ],
+  "method": "Hann window, rFFT of sampled surface Vx/Vy, GLL spatial weights, summed components; one-sided power ratios; not an identification of the cause or a no-aliasing proof",
+  "sample_dt_s": 0.001,
+  "cases": {
+    "physical": {
+      "peak_frequency_hz": 41.91616766467066,
+      "fraction_power_above100hz": 1.0024620535676525e-07
+    },
+    "L175_error": {
+      "peak_frequency_hz": 13.972055888223553,
+      "fraction_power_above100hz": 5.783064042248823e-08
+    },
+    "F550_error": {
+      "peak_frequency_hz": 447.1057884231537,
+      "fraction_power_above100hz": 0.5497153168396751
+    },
+    "F1200_error": {
+      "peak_frequency_hz": 447.1057884231537,
+      "fraction_power_above100hz": 0.9315248926480885
+    }
+  }
+}

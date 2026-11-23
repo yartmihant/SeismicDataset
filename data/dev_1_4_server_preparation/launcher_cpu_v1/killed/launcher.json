@@ -1,0 +1,35 @@
+{
+  "schema": "chapter14.launcher.v1",
+  "status": "failed",
+  "launcher_pid": 2,
+  "started_utc": "2026-11-17T18:15:58.074537+00:00",
+  "root": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/launcher_cpu_v1/killed",
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 7,
+      "command": [
+        "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+        "-c",
+        "import os,signal; os.kill(os.getpid(),signal.SIGKILL)"
+      ],
+      "log": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/launcher_cpu_v1/killed/logs/gpu0.log",
+      "returncode": -9
+    },
+    {
+      "gpu": 1,
+      "pid": 8,
+      "command": [
+        "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+        "-c",
+        "import time; time.sleep(60)"
+      ],
+      "log": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/launcher_cpu_v1/killed/logs/gpu1.log",
+      "returncode": -15
+    }
+  ],
+  "failure_policy": "stop both; keep outputs, temporary work and SQLite reservations; no retry or release",
+  "reason": "worker exited with nonzero status or signal",
+  "finished_utc": "2026-11-17T18:15:58.429472+00:00",
+  "exit_code": 1
+}

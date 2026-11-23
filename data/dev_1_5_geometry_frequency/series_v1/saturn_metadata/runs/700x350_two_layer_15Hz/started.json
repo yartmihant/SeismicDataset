@@ -1,0 +1,96 @@
+{
+  "spec": {
+    "width": 700,
+    "height": 350,
+    "material": "two_layer",
+    "frequency": 15
+  },
+  "status": "prepared",
+  "geometry": {
+    "mesh_id": "700x350_two_layer",
+    "width_m": 700,
+    "height_m": 350,
+    "padding_m": 175,
+    "order": 5,
+    "nx": 210,
+    "ny": 105,
+    "sem_nodes": 552826,
+    "surface_nodes": 1051,
+    "elements": 22050,
+    "depths_m": [
+      0.0,
+      175.0,
+      350.0
+    ],
+    "materials_vp_vs": [
+      [
+        4087.0,
+        2431.62036
+      ],
+      [
+        3963.0,
+        2357.84473
+      ]
+    ],
+    "density_kg_m3": 1000.0,
+    "dx_m": 5.0,
+    "dy_min_m": 5.0,
+    "dy_max_m": 5.0,
+    "jacobian_min_m2": 6.25,
+    "area_m2": 551250.0,
+    "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+    "source": {
+      "source": "/home/antonov/SeismicDataset/src/data_EFVB_out.zip",
+      "members": [
+        "data_EFVB_out/vp_00000.txt",
+        "data_EFVB_out/vs_00000.txt"
+      ],
+      "raw_sha256": {
+        "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+        "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+      },
+      "array_sha256": {
+        "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+        "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+      },
+      "axes": "row top to bottom; column left to right",
+      "shape": [
+        70,
+        70
+      ],
+      "dtype": "float64"
+    },
+    "output_bytes_estimate": 211427568
+  },
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+  },
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/series_v1/meshes/700x350_two_layer/mesh_q2.npz",
+    "sha256": "d72b0ec288ecee805210fad8ae734e06089b16367ac17272495bb0b6e4c478f3"
+  },
+  "code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/run.py",
+    "sha256": "9a5f68de108ef758885052d75ca86387029c037911e1a9f2c51bc0db4d97fb40"
+  },
+  "dt_s": 1.923076923076923e-05,
+  "steps": 52000,
+  "steps_per_ms": 52,
+  "source_node": 22260,
+  "source_x_m": 350.0,
+  "source_t0_s": 0.1,
+  "force_peak_n_per_m": 1.0,
+  "alpha_max_s_inv": 173.0886108476381,
+  "kim_beta": 0.037037037037037035,
+  "kim_gamma": 0.5,
+  "cfl_safety": 0.8,
+  "tact_dt_s": 0.001,
+  "lambda_max": 423854820.0300799,
+  "lambda_max_damping": 38271.24560720156,
+  "source_table_dt_s": 1e-06,
+  "surface_nodes": 1051,
+  "field_nodes": 552826,
+  "frame_interval_s": 0.05,
+  "surface_interval_s": 0.001
+}

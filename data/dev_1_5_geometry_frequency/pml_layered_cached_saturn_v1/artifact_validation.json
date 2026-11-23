@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "sha256_verified_files": [
+    "decay.png",
+    "echo_windows.png",
+    "index.html",
+    "reviewed.html",
+    "seismograms.png",
+    "selected_echo_windows.png",
+    "traces.png",
+    "tradeoff.png"
+  ],
+  "pngs": [
+    {
+      "file": "tradeoff.png",
+      "size": [
+        2550,
+        750
+      ]
+    },
+    {
+      "file": "decay.png",
+      "size": [
+        2100,
+        750
+      ]
+    },
+    {
+      "file": "traces.png",
+      "size": [
+        2100,
+        1800
+      ]
+    },
+    {
+      "file": "echo_windows.png",
+      "size": [
+        1800,
+        2100
+      ]
+    },
+    {
+      "file": "selected_echo_windows.png",
+      "size": [
+        1800,
+        2100
+      ]
+    },
+    {
+      "file": "seismograms.png",
+      "size": [
+        1820,
+        2730
+      ]
+    }
+  ],
+  "links_checked": [
+    {
+      "page": "index.html",
+      "target": "tradeoff.png"
+    },
+    {
+      "page": "index.html",
+      "target": "decay.png"
+    },
+    {
+      "page": "index.html",
+      "target": "seismograms.png"
+    },
+    {
+      "page": "index.html",
+      "target": "traces.png"
+    },
+    {
+      "page": "index.html",
+      "target": "echo_windows.png"
+    },
+    {
+      "page": "index.html",
+      "target": "../../../data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "selected_echo_windows.png"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "tradeoff.png"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "decay.png"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "seismograms.png"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "traces.png"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "echo_windows.png"
+    },
+    {
+      "page": "reviewed.html",
+      "target": "../../../data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json"
+    }
+  ],
+  "artifact_bytes": 2853821
+}

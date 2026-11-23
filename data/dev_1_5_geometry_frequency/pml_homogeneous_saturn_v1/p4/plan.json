@@ -1,0 +1,12 @@
+{
+  "order": 4,
+  "native_baseline_dt_s": 2.777777777777778e-05,
+  "common_dt_modes": [
+    "old",
+    "pml",
+    "pml_abc",
+    "reference"
+  ],
+  "half_dt_modes": [],
+  "reference_min_geometric_boundary_return_s": 1.3518473207731834
+}

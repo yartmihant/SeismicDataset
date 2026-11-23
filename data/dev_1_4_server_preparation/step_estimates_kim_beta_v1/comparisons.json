@@ -1,0 +1,178 @@
+{
+  "0": {
+    "status": "prepared_only",
+    "model_id": 0,
+    "no_time_integration": true,
+    "external_certificate": {
+      "mesh": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "mesh_sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9",
+      "order": 4,
+      "nodes": 589541,
+      "elements": 36750,
+      "alpha_max_s_inv": 196.76847003046814,
+      "stiffness_bound_s_minus_2": 1103716897.6006315,
+      "damping_bound_s_minus_1": 34673.53694005504,
+      "dt_start_s": 1.8244679911441232e-05,
+      "substeps_per_ms": 55,
+      "min_mass_kg_per_m": 62.499999999993356,
+      "quadrature_jacobian_min_m2": 6.249999999993377,
+      "abc_edge_count": 560,
+      "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+      "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately",
+      "dataset": "EFVB",
+      "selected_substeps_per_ms": 88,
+      "selection_rule": "ECVB12404=64, ECVB65=224; otherwise ceil(1.6*Kmin/8)*8"
+    },
+    "old_selected_k": 88,
+    "old_dt_s": 1.1363636363636365e-05,
+    "native_lambda_max": 211883859.66645437,
+    "native_lambda_max_damping": 27731.23030023257,
+    "kim_beta": 0.037037037037037035,
+    "kim_gamma": 0.5,
+    "native_cfl1_raw_dt_s": 3.386923888838588e-05,
+    "native_cfl1_actual_dt_s": 3.3333333333333335e-05,
+    "native_cfl1_steps_per_tact": 30,
+    "native_cfl1_steps_count": 30000,
+    "native_cfl1_tact_dt_s": 0.001,
+    "old_dt_over_native_raw_bound": 0.3355149609675189,
+    "policies": [
+      {
+        "cfl_safety": 1.0,
+        "raw_dt_s": 3.386923888838588e-05,
+        "substeps_per_ms": 30,
+        "aligned_dt_s": 3.3333333333333335e-05,
+        "step_count_ratio_old_over_new": 2.933333333333333
+      },
+      {
+        "cfl_safety": 0.9,
+        "raw_dt_s": 3.0482314999547297e-05,
+        "substeps_per_ms": 33,
+        "aligned_dt_s": 3.0303030303030302e-05,
+        "step_count_ratio_old_over_new": 2.6666666666666665
+      },
+      {
+        "cfl_safety": 0.8,
+        "raw_dt_s": 2.7095391110708707e-05,
+        "substeps_per_ms": 37,
+        "aligned_dt_s": 2.7027027027027027e-05,
+        "step_count_ratio_old_over_new": 2.3783783783783785
+      },
+      {
+        "cfl_safety": 0.625,
+        "raw_dt_s": 2.1168274305241178e-05,
+        "substeps_per_ms": 48,
+        "aligned_dt_s": 2.0833333333333333e-05,
+        "step_count_ratio_old_over_new": 1.8333333333333333
+      },
+      {
+        "cfl_safety": 0.5,
+        "raw_dt_s": 1.693461944419294e-05,
+        "substeps_per_ms": 60,
+        "aligned_dt_s": 1.6666666666666667e-05,
+        "step_count_ratio_old_over_new": 1.4666666666666666
+      }
+    ],
+    "prepare_seconds": 0.22951038740575314,
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/compare_step_estimates.py",
+      "sha256": "45cd5e27b44fee235cd71a20d3720716fffee4a78b743be8490d7b8facf0b87b"
+    },
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "limitation": "Estimates only; no convergence or stability experiment at proposed steps; speed ratios count steps, not measured wall time"
+  },
+  "1": {
+    "status": "prepared_only",
+    "model_id": 1,
+    "no_time_integration": true,
+    "external_certificate": {
+      "mesh": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00001/mesh_q2.npz",
+      "mesh_sha256": "cf93f2a4381e3e32c209e2cf7ef103e2b63c2974339fc356a5704c95216d155e",
+      "order": 4,
+      "nodes": 589541,
+      "elements": 36750,
+      "alpha_max_s_inv": 196.76847003046814,
+      "stiffness_bound_s_minus_2": 953613018.3166622,
+      "damping_bound_s_minus_1": 16968.768470035502,
+      "dt_start_s": 2.468566506068042e-05,
+      "substeps_per_ms": 41,
+      "min_mass_kg_per_m": 62.499999999993356,
+      "quadrature_jacobian_min_m2": 6.249999999993377,
+      "abc_edge_count": 560,
+      "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+      "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately",
+      "dataset": "EFVB",
+      "selected_substeps_per_ms": 72,
+      "selection_rule": "ECVB12404=64, ECVB65=224; otherwise ceil(1.6*Kmin/8)*8"
+    },
+    "old_selected_k": 72,
+    "old_dt_s": 1.388888888888889e-05,
+    "native_lambda_max": 187325906.54293895,
+    "native_lambda_max_damping": 16968.768472462627,
+    "kim_beta": 0.037037037037037035,
+    "kim_gamma": 0.5,
+    "native_cfl1_raw_dt_s": 5.15871534627265e-05,
+    "native_cfl1_actual_dt_s": 5e-05,
+    "native_cfl1_steps_per_tact": 20,
+    "native_cfl1_steps_count": 20000,
+    "native_cfl1_tact_dt_s": 0.001,
+    "old_dt_over_native_raw_bound": 0.26923154228550505,
+    "policies": [
+      {
+        "cfl_safety": 1.0,
+        "raw_dt_s": 5.15871534627265e-05,
+        "substeps_per_ms": 20,
+        "aligned_dt_s": 5e-05,
+        "step_count_ratio_old_over_new": 3.6
+      },
+      {
+        "cfl_safety": 0.9,
+        "raw_dt_s": 4.642843811645385e-05,
+        "substeps_per_ms": 22,
+        "aligned_dt_s": 4.545454545454546e-05,
+        "step_count_ratio_old_over_new": 3.272727272727273
+      },
+      {
+        "cfl_safety": 0.8,
+        "raw_dt_s": 4.12697227701812e-05,
+        "substeps_per_ms": 25,
+        "aligned_dt_s": 4e-05,
+        "step_count_ratio_old_over_new": 2.88
+      },
+      {
+        "cfl_safety": 0.625,
+        "raw_dt_s": 3.224197091420406e-05,
+        "substeps_per_ms": 32,
+        "aligned_dt_s": 3.125e-05,
+        "step_count_ratio_old_over_new": 2.25
+      },
+      {
+        "cfl_safety": 0.5,
+        "raw_dt_s": 2.579357673136325e-05,
+        "substeps_per_ms": 39,
+        "aligned_dt_s": 2.5641025641025643e-05,
+        "step_count_ratio_old_over_new": 1.8461538461538463
+      }
+    ],
+    "prepare_seconds": 0.23482034634798765,
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00001/mesh_q2.npz",
+      "sha256": "cf93f2a4381e3e32c209e2cf7ef103e2b63c2974339fc356a5704c95216d155e"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/compare_step_estimates.py",
+      "sha256": "45cd5e27b44fee235cd71a20d3720716fffee4a78b743be8490d7b8facf0b87b"
+    },
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "limitation": "Estimates only; no convergence or stability experiment at proposed steps; speed ratios count steps, not measured wall time"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-18T14:56:42.501842+00:00",
+  "authorization": "User explicitly requested deleting old saturn calculation attempts and restarting with k0.5684,1s,3000model chunks",
+  "directories": [
+    {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v1",
+      "entries": 1186,
+      "allocated_bytes": 541483008
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/pilot_saturn_v1",
+      "entries": 64,
+      "allocated_bytes": 22933504
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/smoke_saturn_v1",
+      "entries": 35,
+      "allocated_bytes": 12087296
+    }
+  ],
+  "free_before_bytes": 219698212864,
+  "preserved": "src, environment, code, runtime audit, benchmark reference and other users/projects",
+  "status": "completed",
+  "free_after_bytes": 220274712576,
+  "all_requested_directories_removed": true
+}

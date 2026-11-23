@@ -1,0 +1,131 @@
+{
+  "status": "completed",
+  "method": "first PP window .05+sqrt(700^2+(x-700)^2)/4087 +/-0.03s; central aperture |x-700|<=200m avoids direct Rayleigh overlap; coarse minus dt/2 normalized to dt/2 in same window; no claim of exact solution",
+  "tail_note": "additional visible-tail diagnostic0.7..1s; initial0.6..1 flag retained in metrics.json; growth factors alone are not proof of cause",
+  "cases": {
+    "p4_abc_only": {
+      "first_PP_relative_l2": 4.804975556272071e-05,
+      "first_PP_peak_delta_to_fine_peak": 5.14441047814773e-05,
+      "first_PP_peak_delta_m_s": 1.2695636879153469e-15,
+      "first_PP_fine_peak_m_s": 2.467850676589982e-11,
+      "all_after015_max_delta_time_s": 0.365,
+      "all_after015_max_delta_x_m": 1392.5,
+      "coarse_pml_07_to_1_growth_factor": 0.0,
+      "half_pml_07_to_1_growth_factor": 0.0,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p4_L100": {
+      "first_PP_relative_l2": 4.804975550289273e-05,
+      "first_PP_peak_delta_to_fine_peak": 5.1444107274350695e-05,
+      "first_PP_peak_delta_m_s": 1.2695637494170122e-15,
+      "first_PP_fine_peak_m_s": 2.4678506765535785e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 0.863365823230057,
+      "coarse_pml_07_to_1_growth_factor": 11.759669582994206,
+      "half_pml_07_to_1_growth_factor": 11.760320002996455,
+      "coarse_pml_monotone_after07": true,
+      "half_pml_monotone_after07": true
+    },
+    "p4_L175": {
+      "first_PP_relative_l2": 4.8049755581134986e-05,
+      "first_PP_peak_delta_to_fine_peak": 5.144409828439083e-05,
+      "first_PP_peak_delta_m_s": 1.2695635275452165e-15,
+      "first_PP_fine_peak_m_s": 2.467850676528288e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 1399.13663417677,
+      "coarse_pml_07_to_1_growth_factor": 0.06465984371743277,
+      "half_pml_07_to_1_growth_factor": 0.06465704490129201,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p4_F250": {
+      "first_PP_relative_l2": 4.804975556777888e-05,
+      "first_PP_peak_delta_to_fine_peak": 5.1444095782960655e-05,
+      "first_PP_peak_delta_m_s": 1.2695634658221193e-15,
+      "first_PP_fine_peak_m_s": 2.4678506765447415e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 1399.13663417677,
+      "coarse_pml_07_to_1_growth_factor": 0.008181808991561384,
+      "half_pml_07_to_1_growth_factor": 0.008181328459395537,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p4_P175_noabc": {
+      "first_PP_relative_l2": 0.0006868230442537357,
+      "first_PP_peak_delta_to_fine_peak": 0.0006869147230443038,
+      "first_PP_peak_delta_m_s": 1.6951609984119517e-14,
+      "first_PP_fine_peak_m_s": 2.4677895836898798e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 0.863365823230057,
+      "coarse_pml_07_to_1_growth_factor": 0.00569808945427555,
+      "half_pml_07_to_1_growth_factor": 0.005705922356056281,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p5_abc_only": {
+      "first_PP_relative_l2": 2.1584993932020986e-05,
+      "first_PP_peak_delta_to_fine_peak": 3.1528077830165564e-05,
+      "first_PP_peak_delta_m_s": 7.780677866459843e-16,
+      "first_PP_fine_peak_m_s": 2.4678567175495278e-11,
+      "all_after015_max_delta_time_s": 0.365,
+      "all_after015_max_delta_x_m": 1393.2130787912015,
+      "coarse_pml_07_to_1_growth_factor": 0.0,
+      "half_pml_07_to_1_growth_factor": 0.0,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p5_L100": {
+      "first_PP_relative_l2": 2.158499436553506e-05,
+      "first_PP_peak_delta_to_fine_peak": 3.152806473941808e-05,
+      "first_PP_peak_delta_m_s": 7.780674636532214e-16,
+      "first_PP_fine_peak_m_s": 2.4678567177656154e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 1399.4126383098237,
+      "coarse_pml_07_to_1_growth_factor": 35.20688418029465,
+      "half_pml_07_to_1_growth_factor": 35.208254222355414,
+      "coarse_pml_monotone_after07": true,
+      "half_pml_monotone_after07": true
+    },
+    "p5_L175": {
+      "first_PP_relative_l2": 2.158499424446558e-05,
+      "first_PP_peak_delta_to_fine_peak": 3.152809533536003e-05,
+      "first_PP_peak_delta_m_s": 7.780682187069195e-16,
+      "first_PP_fine_peak_m_s": 2.4678567177329124e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 1399.4126383098237,
+      "coarse_pml_07_to_1_growth_factor": 0.17272623227966,
+      "half_pml_07_to_1_growth_factor": 0.1727235248077644,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p5_F250": {
+      "first_PP_relative_l2": 2.1584993869724223e-05,
+      "first_PP_peak_delta_to_fine_peak": 3.1528012624816205e-05,
+      "first_PP_peak_delta_m_s": 7.780661774610013e-16,
+      "first_PP_fine_peak_m_s": 2.4678567175165775e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 1399.4126383098237,
+      "coarse_pml_07_to_1_growth_factor": 0.019140089868748197,
+      "half_pml_07_to_1_growth_factor": 0.019139623794096547,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    },
+    "p5_P175_noabc": {
+      "first_PP_relative_l2": 0.0003287743477732441,
+      "first_PP_peak_delta_to_fine_peak": 0.0003287498841191563,
+      "first_PP_peak_delta_m_s": 8.112957021402081e-15,
+      "first_PP_fine_peak_m_s": 2.4678204961622187e-11,
+      "all_after015_max_delta_time_s": 0.368,
+      "all_after015_max_delta_x_m": 1399.4126383098237,
+      "coarse_pml_07_to_1_growth_factor": 0.005709724841209512,
+      "half_pml_07_to_1_growth_factor": 0.005713198862004008,
+      "coarse_pml_monotone_after07": false,
+      "half_pml_monotone_after07": false
+    }
+  },
+  "source_metrics": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/analysis/metrics.json",
+    "sha256": "eca464fefe8542834e39857cd929fcc3a541bc58d806bdcb3caf81c9928fb97b"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "all_node_surface_values_exact": true,
+  "field_shape": [
+    2,
+    589541,
+    2
+  ],
+  "recorded_counts": {
+    "surface": 11,
+    "fields": 2,
+    "source_history": 0
+  },
+  "metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/cpu_checks_v1/padded/metadata.json",
+    "sha256": "f2a9d619b319e2fcc1b5459f2b606dd23cdd9f08808598919871ba9bceb80505"
+  },
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/mesh_q2.npz",
+    "sha256": "10ba932d3a2214e98b41c0b63585c3ce08ae2985ca4d3c946a04a410b69318ef"
+  },
+  "scope": "Finite complete field/surface recording and requested uniform material/boundary configuration; not independent solver accuracy validation"
+}

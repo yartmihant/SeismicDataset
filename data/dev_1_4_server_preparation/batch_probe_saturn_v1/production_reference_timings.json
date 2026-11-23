@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "source": "x000",
+      "wall_seconds": 32.58462186716497
+    },
+    {
+      "source": "x175",
+      "wall_seconds": 32.136920786462724
+    },
+    {
+      "source": "x350",
+      "wall_seconds": 32.27311054524034
+    },
+    {
+      "source": "x525",
+      "wall_seconds": 32.31726569496095
+    },
+    {
+      "source": "x700",
+      "wall_seconds": 32.35212922189385
+    }
+  ],
+  "sum_seconds": 161.66404811572284,
+  "note": "Historical production per-source timings; different time and includes source preparation, not whole model preparation"
+}

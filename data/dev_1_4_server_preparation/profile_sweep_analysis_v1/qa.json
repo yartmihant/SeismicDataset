@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T11:26:37.723283+00:00",
+  "scope": "Numerical postprocessing/provenance and visual artifact checks; not independent validation of the wave solver",
+  "analysis_sha256": "a0f77506167720f4aea97b610a0d0f44256faee5dc956b5deba5f1ac35cb6775",
+  "analysis_code_sha256": "2e5bee10ebc7d07befae9ef93bc92cf13f7076fa06bc05329ba41847f9bcbe92",
+  "cpu_validation": {
+    "path": "data/dev_1_4_server_preparation/profile_sweep_analysis_cpu_v3/validation.json",
+    "sha256": "95264f96c9309d4a536dd1cc9c851bdc7cc32b0dfb8f25fed40b9af69d2deb0d"
+  },
+  "checks": [
+    "All four input surface hashes, dtypes and time/receiver grids validated by analysis",
+    "Identical force, native binary, initial state and time step validated; candidates retain mesh/node coordinates and ABC edges",
+    "Selected minimum of actual surface L2 over 0.3–2s among three fixed175m profiles; all additional total-window guards pass",
+    "Four PNGs opened and visually inspected; PNG decoding verified; source code matches CPU-validation evidence"
+  ],
+  "figures": [
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_tail_rms.png",
+      "sha256": "31cf826a22879727e7060fc9c8b61ecf6a946f15bf643ed3bba682554989d1bc",
+      "size_px": [
+        2400,
+        928
+      ],
+      "visual_review": "passed: readable labels, aligned axes, shared units, complete legends"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_seismograms.png",
+      "sha256": "9911a5f8b32d2396d83628ba0cd7695bd468bbe017c78a4bd9e83fd9ef2e034d",
+      "size_px": [
+        2400,
+        1600
+      ],
+      "visual_review": "passed: readable labels, aligned axes, shared units, complete legends"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/return_traces.png",
+      "sha256": "2df6be7385031f4b38bd64428e13e9abdbf680fd1c3c0ed6e43a50121f16a832",
+      "size_px": [
+        2400,
+        1440
+      ],
+      "visual_review": "passed: readable labels, aligned axes, shared units, complete legends"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/incoming_returns.png",
+      "sha256": "0b64816b6d68834daab0d8d8ae02be51bf34335a81f69bad4c963528a44c8fab",
+      "size_px": [
+        2400,
+        1440
+      ],
+      "visual_review": "passed: readable labels, aligned axes, shared units, complete legends"
+    }
+  ],
+  "interpretation_limits": [
+    "Half strength improves overall late L2 but increases local return peaks at x5 and x175 and the late incoming-beam window",
+    "Quarter strength increases L2 over 0.3–2s despite a smaller tail after0.8s",
+    "Wider350 result is context and matched-inner-profile control, not exact solution",
+    "Best of three coefficients on one homogeneous model only"
+  ]
+}

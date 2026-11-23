@@ -1,0 +1,13 @@
+{
+  "status": "cpu_checked",
+  "label": "abc_only",
+  "nodes": 982101,
+  "thickness_m": 0,
+  "dmax_s_inv": 0.0,
+  "fixed_strength": false,
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/first_reflection_abc_cpu_v1/meshes/layered_0.npz",
+    "sha256": "cba73b07141ab5d238d69a4fe052dc9de22426e04080fd018f483ea598b5cc41"
+  },
+  "reason": "Refinement of thickness bracket for weak interface echoes; prior results preserved."
+}

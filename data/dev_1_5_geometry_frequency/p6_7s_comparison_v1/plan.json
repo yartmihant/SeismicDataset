@@ -1,0 +1,46 @@
+{
+  "status": "cpu_checked",
+  "variants": [
+    "frozen_p6",
+    "current_p6",
+    "p6_7s"
+  ],
+  "runs": 12,
+  "probes": 3,
+  "geometry_m": [
+    1400,
+    700
+  ],
+  "PML_m": 350,
+  "dmax_s_inv": 173.0886108476381,
+  "order": 6,
+  "h_m": 10,
+  "duration_s": 1,
+  "cfl_safety": 0.8,
+  "beta": 0.037037037037037035,
+  "gamma": 0.5,
+  "source_x_m": [
+    175.0,
+    350.0,
+    525.0,
+    700.0,
+    875.0,
+    1050.0,
+    1225.0
+  ],
+  "surface_shape": [
+    1001,
+    8827,
+    2
+  ],
+  "frames": 0,
+  "new_solver": "one mesh, seven state blocks; built-in analytic Ricker30Hz, t0=.05, Fy=-1N/m",
+  "references": "seven disconnected copies, cubic interpolation of 1us Ricker table",
+  "protocol": "one warmup per variant, three alternating repeats, same GPU0; compare all seven shots separately",
+  "estimated_surface_bytes": 1696478784,
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p6_7s_v1/provenance.json",
+    "sha256": "29bdc1bb1b2f006cfe39033d08b2a7b91cda3c056d097bc83b1c3d5f5f8b1ded"
+  },
+  "acceptance": "component relative L2<1e-8 and peak-relative difference<1e-7; full time and full top"
+}

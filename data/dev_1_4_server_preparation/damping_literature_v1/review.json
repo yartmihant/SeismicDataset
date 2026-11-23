@@ -1,0 +1,70 @@
+{
+  "status": "completed_literature_review",
+  "created_utc": "2026-11-18T11:21:01.701803+00:00",
+  "sources": [
+    {
+      "authors": "Rodrigues & Dimitrovová",
+      "year": 2015,
+      "url": "https://www.scielo.br/j/lajss/a/Kg3PFf3YfNRtmqQhwMFHpzf/?lang=en",
+      "doi": "10.1590/1679-78251713",
+      "read": "Full publisher text, sections2.2,3.3,4",
+      "supports": "Tradeoff transition/round-trip; tuned quadratic vs cubic; detuned-frequency tolerance",
+      "limits": "1D rod, mass+stiffness Rayleigh damping, Dirichlet outer boundary; numerical optima not transferred"
+    },
+    {
+      "authors": "Festa & Vilotte",
+      "year": 2005,
+      "url": "https://academic.oup.com/gji/article/161/3/789/558432",
+      "doi": "10.1111/j.1365-246X.2005.02601.x",
+      "read": "Full publisher text, section6.1 Figure4 and conclusions",
+      "supports": "Quadratic outperformed cubic in tested homogeneous SEM-PML incidence range",
+      "limits": "PML, not scalar mass damping"
+    },
+    {
+      "authors": "Komatitsch & Tromp",
+      "year": 2003,
+      "url": "https://specfem.org/komatitsch.free.fr/published_papers/pml_2nd_order_GJI_typos_fixed.pdf",
+      "doi": "10.1046/j.1365-246X.2003.01950.x",
+      "read": "Author corrected PDF, abstract, surface-wave benchmark and eq24",
+      "supports": "Second-order SEM PML; surface-wave comparison with paraxial ABC; quadratic empirical damping",
+      "limits": "PML equations and damping parameter distinct from C=alpha*M"
+    },
+    {
+      "authors": "Komatitsch & Martin",
+      "year": 2007,
+      "url": "https://specfem.org/komatitsch.free.fr/published_papers/geophysics_CPML_2007_elastic_typos_fixed.pdf",
+      "doi": "10.1190/1.2757586",
+      "read": "Author corrected PDF, abstract, introduction and CPML equations",
+      "supports": "CPML improvement at grazing incidence",
+      "limits": "Requires changed equations and memory variables; no automatic guarantee for current solver"
+    },
+    {
+      "authors": "Badry & Ramancharla",
+      "year": 2018,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0045794917314785",
+      "read": "Publisher abstract/highlights in search index; direct page returned403",
+      "supports": "Elastic local ABC can reflect in mass-damped medium even at normal incidence",
+      "limits": "Special viscoelastic boundary has restricted applicability; full derivation not read and not implemented"
+    },
+    {
+      "authors": "Badry, Kotti & Ramancharla",
+      "year": 2018,
+      "url": "https://www.sciencepubco.com/index.php/IJET/article/view/29141",
+      "author_pdf": "https://web2py.iiit.ac.in/research_centres/publications/download/inproceedings.pdf.9af4b779ddf537cf.564a49545f436f6e666572656e63655f50617065722e706466.pdf",
+      "doi": "10.14419/ijet.v7i3.35.29141",
+      "read": "Indexed author PDF section2.1–2.3; direct full PDF unavailable",
+      "supports": "ALID mass-only cubic profile, maximumalpha=omega, length1.5wavelength; combined with VABC displacement term matched to end alpha",
+      "limits": "Reported FE/LS-DYNA setup and cited guidelines, not an established optimum for current SEM mass sponge+elasticABC"
+    }
+  ],
+  "own_derivations": {
+    "alpha_profile": "A_m*(s/L)^m",
+    "integral": "A_m*L/(m+1)",
+    "cubic_to_quadratic_integral_same_peak": 0.75,
+    "cubic_to_quadratic_peak_same_integral": 1.3333333333333333,
+    "one_way_weak_damping": "exp(-I/(2*c))",
+    "round_trip_weak_damping": "R_ABC*exp(-I/c)",
+    "assumptions": "Normal plane wave, slowly varying weak mass damping; does not include transition reflection or modal conversion"
+  },
+  "scope": "Chapter1.4 section21; no cubic/PML/ABC modification was run"
+}

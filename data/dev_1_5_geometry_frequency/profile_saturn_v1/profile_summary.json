@@ -1,0 +1,819 @@
+{
+  "status": "completed",
+  "sqlite": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/profile_saturn_v1/trace.sqlite",
+    "sha256": "ea02db0415da457fd40016bdb01c9d214e323a8f7754130cfd5aa8b0acbfae36"
+  },
+  "report": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/profile_saturn_v1/trace.nsys-rep",
+    "sha256": "313744211b7d751bf41472abb8ce792e8b90659cb42d7c1ea8c4ba8e4988b09c"
+  },
+  "stages": {
+    "all_events": {
+      "nvtx_start_ns": null,
+      "nvtx_end_ns": null,
+      "wall_seconds": null,
+      "kernel_total_seconds": 32.623679194,
+      "kernel_calls": 314295,
+      "kernels": [
+        {
+          "name": "material_response_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::material_response_kernel(semgpu2_seismic_cu::ResponseLaunchData, const double *, const double *, const double *, double *)",
+          "calls": 52016,
+          "total_seconds": 14.442480014,
+          "percent_kernel_time": 44.2699302188338,
+          "mean_us": 277.6545680944325,
+          "median_us": 276.898,
+          "p95_us": 281.091,
+          "min_us": 263.523,
+          "max_us": 401.411
+        },
+        {
+          "name": "correct_nodal_state_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::correct_nodal_state_kernel(double *, const double *, const double *, long, double, double, double)",
+          "calls": 52000,
+          "total_seconds": 7.453163131,
+          "percent_kernel_time": 22.845869365864633,
+          "mean_us": 143.33006021153847,
+          "median_us": 143.265,
+          "p95_us": 144.577,
+          "min_us": 138.081,
+          "max_us": 152.993
+        },
+        {
+          "name": "nodal_damping_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::nodal_damping_kernel(const long *, const double *, long, long, const double *, const double *, double *)",
+          "calls": 52016,
+          "total_seconds": 5.327658112,
+          "percent_kernel_time": 16.33064768789119,
+          "mean_us": 102.42344878498923,
+          "median_us": 102.273,
+          "p95_us": 103.681,
+          "min_us": 101.569,
+          "max_us": 113.185
+        },
+        {
+          "name": "predict_nodal_state_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::predict_nodal_state_kernel(double *, long, double)",
+          "calls": 52000,
+          "total_seconds": 4.932354847,
+          "percent_kernel_time": 15.11894111534525,
+          "mean_us": 94.85297782692308,
+          "median_us": 94.849,
+          "p95_us": 96.129,
+          "min_us": 77.953,
+          "max_us": 100.769
+        },
+        {
+          "name": "boundary_damping_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::boundary_damping_kernel(semgpu2_seismic_cu::ResponseLaunchData, const double *, const double *, const double *, double *)",
+          "calls": 52016,
+          "total_seconds": 0.325798914,
+          "percent_kernel_time": 0.9986577910560115,
+          "mean_us": 6.263436519532451,
+          "median_us": 6.208,
+          "p95_us": 6.56,
+          "min_us": 5.824,
+          "max_us": 10.432
+        },
+        {
+          "name": "nodal_force_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::nodal_force_kernel(const long *, const double *, long, long, double *)",
+          "calls": 52000,
+          "total_seconds": 0.12224375,
+          "percent_kernel_time": 0.3747086564733095,
+          "mean_us": 2.350841346153846,
+          "median_us": 2.304,
+          "p95_us": 2.496,
+          "min_us": 2.24,
+          "max_us": 3.904
+        },
+        {
+          "name": "velocity_frame_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::velocity_frame_kernel(semgpu2_seismic_cu::VelocityFrame, long)",
+          "calls": 1022,
+          "total_seconds": 0.0058165,
+          "percent_kernel_time": 0.017829074291135574,
+          "mean_us": 5.6912915851272015,
+          "median_us": 3.392,
+          "p95_us": 3.616,
+          "min_us": 3.168,
+          "max_us": 114.945
+        },
+        {
+          "name": "action_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::action_kernel(const double *, const double *, const double *, const double *, double *, double, int, double *, long)",
+          "calls": 32,
+          "total_seconds": 0.003783999,
+          "percent_kernel_time": 0.011598933944568507,
+          "mean_us": 118.24996875,
+          "median_us": 118.113,
+          "p95_us": 122.8538,
+          "min_us": 113.633,
+          "max_us": 123.137
+        },
+        {
+          "name": "advance_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::advance_kernel(double *, double *, const double *, double, long)",
+          "calls": 32,
+          "total_seconds": 0.002643028,
+          "percent_kernel_time": 0.008101563236577233,
+          "mean_us": 82.594625,
+          "median_us": 83.665,
+          "p95_us": 84.4272,
+          "min_us": 65.664,
+          "max_us": 84.737
+        },
+        {
+          "name": "flag_observation_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::flag_observation_kernel(const double *, long, int *)",
+          "calls": 1022,
+          "total_seconds": 0.002576695,
+          "percent_kernel_time": 0.007898235464729233,
+          "mean_us": 2.5212279843444225,
+          "median_us": 2.048,
+          "p95_us": 2.144,
+          "min_us": 1.984,
+          "max_us": 35.264
+        },
+        {
+          "name": "load_probe_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::load_probe_kernel(const double *, const double *, double *, int, long)",
+          "calls": 32,
+          "total_seconds": 0.002157075,
+          "percent_kernel_time": 0.006611991820949243,
+          "mean_us": 67.40859375,
+          "median_us": 67.2485,
+          "p95_us": 68.44525,
+          "min_us": 66.945,
+          "max_us": 69.569
+        },
+        {
+          "name": "subtract_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::subtract_kernel(double *, const double *, double, double *, long)",
+          "calls": 32,
+          "total_seconds": 0.001776623,
+          "percent_kernel_time": 0.005445808210150462,
+          "mean_us": 55.51946875,
+          "median_us": 55.52,
+          "p95_us": 56.19735,
+          "min_us": 54.977,
+          "max_us": 56.865
+        },
+        {
+          "name": "sum_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::sum_kernel(const double *, long, double *)",
+          "calls": 66,
+          "total_seconds": 0.000493157,
+          "percent_kernel_time": 0.001511653535664669,
+          "mean_us": 7.472075757575758,
+          "median_us": 7.456,
+          "p95_us": 7.584,
+          "min_us": 7.392,
+          "max_us": 7.712
+        },
+        {
+          "name": "assemble_q_geometry_kernel",
+          "full_name": "void semgpu2_seismic_cu::<unnamed>::assemble_q_geometry_kernel<(int)2>(semgpu2_seismic_cu::GeometryLaunchData, const double *, long, double *, double *)",
+          "calls": 2,
+          "total_seconds": 0.000387875,
+          "percent_kernel_time": 0.001188937022380162,
+          "mean_us": 193.9375,
+          "median_us": 193.9375,
+          "p95_us": 194.06664999999998,
+          "min_us": 193.794,
+          "max_us": 194.081
+        },
+        {
+          "name": "assemble_nodal_measure_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::assemble_nodal_measure_kernel(semgpu2_seismic_cu::GeometryLaunchData, const double *, double *)",
+          "calls": 2,
+          "total_seconds": 0.000162336,
+          "percent_kernel_time": 0.0004976017543412335,
+          "mean_us": 81.168,
+          "median_us": 81.168,
+          "p95_us": 81.4704,
+          "min_us": 80.832,
+          "max_us": 81.504
+        },
+        {
+          "name": "initialize_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::initialize_kernel(double *, double *, double *, long)",
+          "calls": 2,
+          "total_seconds": 9.9073e-05,
+          "percent_kernel_time": 0.00030368432515183956,
+          "mean_us": 49.5365,
+          "median_us": 49.5365,
+          "p95_us": 49.82405,
+          "min_us": 49.217,
+          "max_us": 49.856
+        },
+        {
+          "name": "mass_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::mass_kernel(const long *, const double *, const double *, long, double *)",
+          "calls": 1,
+          "total_seconds": 6.2113e-05,
+          "percent_kernel_time": 0.00019039238226516015,
+          "mean_us": 62.113,
+          "median_us": 62.113,
+          "p95_us": 62.113,
+          "min_us": 62.113,
+          "max_us": 62.113
+        },
+        {
+          "name": "assemble_q_geometry_kernel",
+          "full_name": "void semgpu2_seismic_cu::<unnamed>::assemble_q_geometry_kernel<(int)1>(semgpu2_seismic_cu::GeometryLaunchData, const double *, long, double *, double *)",
+          "calls": 2,
+          "total_seconds": 2.1952e-05,
+          "percent_kernel_time": 6.728854789633081e-05,
+          "mean_us": 10.976,
+          "median_us": 10.976,
+          "p95_us": 11.0912,
+          "min_us": 10.848,
+          "max_us": 11.104
+        }
+      ],
+      "memcpy": [
+        {
+          "kind": "Host-to-Device",
+          "total_seconds": 0.247497335,
+          "calls": 52095,
+          "bytes": 818400872
+        },
+        {
+          "kind": "Device-to-Host",
+          "total_seconds": 0.130054209,
+          "calls": 2122,
+          "bytes": 830774040
+        }
+      ],
+      "memset": {
+        "total_seconds": 0.931313575,
+        "calls": 54081,
+        "bytes": 1277599504008
+      },
+      "gpu_active_union_seconds": 33.932544313,
+      "no_captured_gpu_activity_seconds": null,
+      "cuda_runtime_api": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "total_host_seconds": 33.064336542,
+          "calls": 54110,
+          "mean_us": 611.0577812234338
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "total_host_seconds": 0.973870283,
+          "calls": 314295,
+          "mean_us": 3.0985866240315625
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "total_host_seconds": 0.481883306,
+          "calls": 54217,
+          "mean_us": 8.888048139882326
+        },
+        {
+          "name": "cudaFree_v3020",
+          "total_host_seconds": 0.212244217,
+          "calls": 125,
+          "mean_us": 1697.953736
+        },
+        {
+          "name": "cudaMemsetAsync_v3020",
+          "total_host_seconds": 0.183102899,
+          "calls": 54081,
+          "mean_us": 3.3857158521477047
+        },
+        {
+          "name": "cudaEventSynchronize_v3020",
+          "total_host_seconds": 0.049347353,
+          "calls": 1022,
+          "mean_us": 48.28508121330724
+        },
+        {
+          "name": "cudaHostAlloc_v3020",
+          "total_host_seconds": 0.010270454,
+          "calls": 2,
+          "mean_us": 5135.227
+        },
+        {
+          "name": "cudaMalloc_v3020",
+          "total_host_seconds": 0.010078799,
+          "calls": 124,
+          "mean_us": 81.2806370967742
+        },
+        {
+          "name": "cudaFreeHost_v3020",
+          "total_host_seconds": 0.002802998,
+          "calls": 2,
+          "mean_us": 1401.499
+        },
+        {
+          "name": "cudaEventRecord_v3020",
+          "total_host_seconds": 0.002487968,
+          "calls": 3045,
+          "mean_us": 0.8170666666666667
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "total_host_seconds": 0.001584638,
+          "calls": 2044,
+          "mean_us": 0.7752632093933464
+        },
+        {
+          "name": "cuLibraryLoadData",
+          "total_host_seconds": 0.000485205,
+          "calls": 12,
+          "mean_us": 40.43375
+        },
+        {
+          "name": "cudaStreamCreateWithFlags_v5000",
+          "total_host_seconds": 0.00015646,
+          "calls": 7,
+          "mean_us": 22.351428571428574
+        },
+        {
+          "name": "cudaStreamDestroy_v5050",
+          "total_host_seconds": 5.0709e-05,
+          "calls": 7,
+          "mean_us": 7.244142857142857
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "total_host_seconds": 7.245e-06,
+          "calls": 5,
+          "mean_us": 1.449
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "total_host_seconds": 6.399e-06,
+          "calls": 5,
+          "mean_us": 1.2798
+        },
+        {
+          "name": "cuModuleGetLoadingMode",
+          "total_host_seconds": 1.998e-06,
+          "calls": 1,
+          "mean_us": 1.998
+        }
+      ]
+    },
+    "semgpu_prepare": {
+      "nvtx_start_ns": 3666444389,
+      "nvtx_end_ns": 4150637084,
+      "wall_seconds": 0.484192695,
+      "kernel_total_seconds": 0.019615841,
+      "kernel_calls": 248,
+      "kernels": [
+        {
+          "name": "material_response_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::material_response_kernel(semgpu2_seismic_cu::ResponseLaunchData, const double *, const double *, const double *, double *)",
+          "calls": 16,
+          "total_seconds": 0.006365267,
+          "percent_kernel_time": 32.44962578968702,
+          "mean_us": 397.8291875,
+          "median_us": 397.9395,
+          "p95_us": 399.587,
+          "min_us": 396.067,
+          "max_us": 401.411
+        },
+        {
+          "name": "action_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::action_kernel(const double *, const double *, const double *, const double *, double *, double, int, double *, long)",
+          "calls": 32,
+          "total_seconds": 0.003783999,
+          "percent_kernel_time": 19.290526467868492,
+          "mean_us": 118.24996875,
+          "median_us": 118.113,
+          "p95_us": 122.8538,
+          "min_us": 113.633,
+          "max_us": 123.137
+        },
+        {
+          "name": "advance_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::advance_kernel(double *, double *, const double *, double, long)",
+          "calls": 32,
+          "total_seconds": 0.002643028,
+          "percent_kernel_time": 13.473946898325694,
+          "mean_us": 82.594625,
+          "median_us": 83.665,
+          "p95_us": 84.4272,
+          "min_us": 65.664,
+          "max_us": 84.737
+        },
+        {
+          "name": "load_probe_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::load_probe_kernel(const double *, const double *, double *, int, long)",
+          "calls": 32,
+          "total_seconds": 0.002157075,
+          "percent_kernel_time": 10.996597087017578,
+          "mean_us": 67.40859375,
+          "median_us": 67.2485,
+          "p95_us": 68.44525,
+          "min_us": 66.945,
+          "max_us": 69.569
+        },
+        {
+          "name": "nodal_damping_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::nodal_damping_kernel(const long *, const double *, long, long, const double *, const double *, double *)",
+          "calls": 16,
+          "total_seconds": 0.001788816,
+          "percent_kernel_time": 9.119241943284512,
+          "mean_us": 111.801,
+          "median_us": 111.809,
+          "p95_us": 112.585,
+          "min_us": 110.913,
+          "max_us": 113.185
+        },
+        {
+          "name": "subtract_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::subtract_kernel(double *, const double *, double, double *, long)",
+          "calls": 32,
+          "total_seconds": 0.001776623,
+          "percent_kernel_time": 9.057082997359124,
+          "mean_us": 55.51946875,
+          "median_us": 55.52,
+          "p95_us": 56.19735,
+          "min_us": 54.977,
+          "max_us": 56.865
+        },
+        {
+          "name": "sum_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::sum_kernel(const double *, long, double *)",
+          "calls": 66,
+          "total_seconds": 0.000493157,
+          "percent_kernel_time": 2.5140752313398136,
+          "mean_us": 7.472075757575758,
+          "median_us": 7.456,
+          "p95_us": 7.584,
+          "min_us": 7.392,
+          "max_us": 7.712
+        },
+        {
+          "name": "assemble_q_geometry_kernel",
+          "full_name": "void semgpu2_seismic_cu::<unnamed>::assemble_q_geometry_kernel<(int)2>(semgpu2_seismic_cu::GeometryLaunchData, const double *, long, double *, double *)",
+          "calls": 1,
+          "total_seconds": 0.000193794,
+          "percent_kernel_time": 0.9879464255445383,
+          "mean_us": 193.794,
+          "median_us": 193.794,
+          "p95_us": 193.794,
+          "min_us": 193.794,
+          "max_us": 193.794
+        },
+        {
+          "name": "boundary_damping_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::boundary_damping_kernel(semgpu2_seismic_cu::ResponseLaunchData, const double *, const double *, const double *, double *)",
+          "calls": 16,
+          "total_seconds": 0.000160288,
+          "percent_kernel_time": 0.8171354977846731,
+          "mean_us": 10.018,
+          "median_us": 10.016,
+          "p95_us": 10.288,
+          "min_us": 9.728,
+          "max_us": 10.432
+        },
+        {
+          "name": "initialize_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::initialize_kernel(double *, double *, double *, long)",
+          "calls": 2,
+          "total_seconds": 9.9073e-05,
+          "percent_kernel_time": 0.5050662880067187,
+          "mean_us": 49.5365,
+          "median_us": 49.5365,
+          "p95_us": 49.82405,
+          "min_us": 49.217,
+          "max_us": 49.856
+        },
+        {
+          "name": "assemble_nodal_measure_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::assemble_nodal_measure_kernel(semgpu2_seismic_cu::GeometryLaunchData, const double *, double *)",
+          "calls": 1,
+          "total_seconds": 8.1504e-05,
+          "percent_kernel_time": 0.41550092091386753,
+          "mean_us": 81.504,
+          "median_us": 81.504,
+          "p95_us": 81.504,
+          "min_us": 81.504,
+          "max_us": 81.504
+        },
+        {
+          "name": "mass_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::mass_kernel(const long *, const double *, const double *, long, double *)",
+          "calls": 1,
+          "total_seconds": 6.2113e-05,
+          "percent_kernel_time": 0.31664714248040654,
+          "mean_us": 62.113,
+          "median_us": 62.113,
+          "p95_us": 62.113,
+          "min_us": 62.113,
+          "max_us": 62.113
+        },
+        {
+          "name": "assemble_q_geometry_kernel",
+          "full_name": "void semgpu2_seismic_cu::<unnamed>::assemble_q_geometry_kernel<(int)1>(semgpu2_seismic_cu::GeometryLaunchData, const double *, long, double *, double *)",
+          "calls": 1,
+          "total_seconds": 1.1104e-05,
+          "percent_kernel_time": 0.05660731038755871,
+          "mean_us": 11.104,
+          "median_us": 11.104,
+          "p95_us": 11.104,
+          "min_us": 11.104,
+          "max_us": 11.104
+        }
+      ],
+      "memcpy": [
+        {
+          "kind": "Host-to-Device",
+          "total_seconds": 0.097342077,
+          "calls": 45,
+          "bytes": 416816904
+        },
+        {
+          "kind": "Device-to-Host",
+          "total_seconds": 0.027199485,
+          "calls": 72,
+          "bytes": 112994544
+        }
+      ],
+      "memset": {
+        "total_seconds": 0.000759046,
+        "calls": 35,
+        "bytes": 834428544
+      },
+      "gpu_active_union_seconds": 0.144916449,
+      "no_captured_gpu_activity_seconds": 0.339276246,
+      "cuda_runtime_api": [
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "total_host_seconds": 0.151172636,
+          "calls": 117,
+          "mean_us": 1292.073811965812
+        },
+        {
+          "name": "cudaMalloc_v3020",
+          "total_host_seconds": 0.006807503,
+          "calls": 63,
+          "mean_us": 108.05560317460318
+        },
+        {
+          "name": "cudaFree_v3020",
+          "total_host_seconds": 0.002472417,
+          "calls": 63,
+          "mean_us": 39.24471428571428
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "total_host_seconds": 0.000856399,
+          "calls": 248,
+          "mean_us": 3.4532217741935485
+        },
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "total_host_seconds": 0.000238145,
+          "calls": 75,
+          "mean_us": 3.175266666666667
+        },
+        {
+          "name": "cudaMemsetAsync_v3020",
+          "total_host_seconds": 0.000203663,
+          "calls": 35,
+          "mean_us": 5.818942857142857
+        },
+        {
+          "name": "cudaStreamCreateWithFlags_v5000",
+          "total_host_seconds": 5.9729e-05,
+          "calls": 3,
+          "mean_us": 19.909666666666666
+        },
+        {
+          "name": "cudaStreamDestroy_v5050",
+          "total_host_seconds": 1.9312e-05,
+          "calls": 3,
+          "mean_us": 6.437333333333333
+        }
+      ]
+    },
+    "semgpu_run": {
+      "nvtx_start_ns": 4156238836,
+      "nvtx_end_ns": 39798094367,
+      "wall_seconds": 35.641855531,
+      "kernel_total_seconds": 32.603777592,
+      "kernel_calls": 314044,
+      "kernels": [
+        {
+          "name": "material_response_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::material_response_kernel(semgpu2_seismic_cu::ResponseLaunchData, const double *, const double *, const double *, double *)",
+          "calls": 52000,
+          "total_seconds": 14.436114747,
+          "percent_kernel_time": 44.27742983543783,
+          "mean_us": 277.61759128846154,
+          "median_us": 276.898,
+          "p95_us": 281.059,
+          "min_us": 263.523,
+          "max_us": 389.283
+        },
+        {
+          "name": "correct_nodal_state_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::correct_nodal_state_kernel(double *, const double *, const double *, long, double, double, double)",
+          "calls": 52000,
+          "total_seconds": 7.453163131,
+          "percent_kernel_time": 22.85981466401852,
+          "mean_us": 143.33006021153847,
+          "median_us": 143.265,
+          "p95_us": 144.577,
+          "min_us": 138.081,
+          "max_us": 152.993
+        },
+        {
+          "name": "nodal_damping_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::nodal_damping_kernel(const long *, const double *, long, long, const double *, const double *, double *)",
+          "calls": 52000,
+          "total_seconds": 5.325869296,
+          "percent_kernel_time": 16.335129513663503,
+          "mean_us": 102.42056338461538,
+          "median_us": 102.273,
+          "p95_us": 103.68,
+          "min_us": 101.569,
+          "max_us": 105.441
+        },
+        {
+          "name": "predict_nodal_state_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::predict_nodal_state_kernel(double *, long, double)",
+          "calls": 52000,
+          "total_seconds": 4.932354847,
+          "percent_kernel_time": 15.128169835786922,
+          "mean_us": 94.85297782692308,
+          "median_us": 94.849,
+          "p95_us": 96.129,
+          "min_us": 77.953,
+          "max_us": 100.769
+        },
+        {
+          "name": "boundary_damping_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::boundary_damping_kernel(semgpu2_seismic_cu::ResponseLaunchData, const double *, const double *, const double *, double *)",
+          "calls": 52000,
+          "total_seconds": 0.325638626,
+          "percent_kernel_time": 0.9987757556041668,
+          "mean_us": 6.262281269230769,
+          "median_us": 6.208,
+          "p95_us": 6.56,
+          "min_us": 5.824,
+          "max_us": 9.76
+        },
+        {
+          "name": "nodal_force_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::nodal_force_kernel(const long *, const double *, long, long, double *)",
+          "calls": 52000,
+          "total_seconds": 0.12224375,
+          "percent_kernel_time": 0.37493738158119133,
+          "mean_us": 2.350841346153846,
+          "median_us": 2.304,
+          "p95_us": 2.496,
+          "min_us": 2.24,
+          "max_us": 3.904
+        },
+        {
+          "name": "velocity_frame_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::velocity_frame_kernel(semgpu2_seismic_cu::VelocityFrame, long)",
+          "calls": 1022,
+          "total_seconds": 0.0058165,
+          "percent_kernel_time": 0.017839957298160434,
+          "mean_us": 5.6912915851272015,
+          "median_us": 3.392,
+          "p95_us": 3.616,
+          "min_us": 3.168,
+          "max_us": 114.945
+        },
+        {
+          "name": "flag_observation_kernel",
+          "full_name": "semgpu2_seismic_cu::<unnamed>::flag_observation_kernel(const double *, long, int *)",
+          "calls": 1022,
+          "total_seconds": 0.002576695,
+          "percent_kernel_time": 0.007903056609710909,
+          "mean_us": 2.5212279843444225,
+          "median_us": 2.048,
+          "p95_us": 2.144,
+          "min_us": 1.984,
+          "max_us": 35.264
+        }
+      ],
+      "memcpy": [
+        {
+          "kind": "Host-to-Device",
+          "total_seconds": 0.136020966,
+          "calls": 52035,
+          "bytes": 339383456
+        },
+        {
+          "kind": "Device-to-Host",
+          "total_seconds": 0.078856896,
+          "calls": 2045,
+          "bytes": 617056488
+        }
+      ],
+      "memset": {
+        "total_seconds": 0.93054064,
+        "calls": 54045,
+        "bytes": 1276752804456
+      },
+      "gpu_active_union_seconds": 33.749196094,
+      "no_captured_gpu_activity_seconds": 1.892659436999999,
+      "cuda_runtime_api": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "total_host_seconds": 33.064007593,
+          "calls": 54031,
+          "mean_us": 611.9451350706076
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "total_host_seconds": 0.972966631,
+          "calls": 314044,
+          "mean_us": 3.098185703277248
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "total_host_seconds": 0.290095342,
+          "calls": 54080,
+          "mean_us": 5.3641890162721895
+        },
+        {
+          "name": "cudaMemsetAsync_v3020",
+          "total_host_seconds": 0.182854025,
+          "calls": 54045,
+          "mean_us": 3.3833661763345364
+        },
+        {
+          "name": "cudaEventSynchronize_v3020",
+          "total_host_seconds": 0.049347353,
+          "calls": 1022,
+          "mean_us": 48.28508121330724
+        },
+        {
+          "name": "cudaHostAlloc_v3020",
+          "total_host_seconds": 0.010270454,
+          "calls": 2,
+          "mean_us": 5135.227
+        },
+        {
+          "name": "cudaFreeHost_v3020",
+          "total_host_seconds": 0.002802998,
+          "calls": 2,
+          "mean_us": 1401.499
+        },
+        {
+          "name": "cudaEventRecord_v3020",
+          "total_host_seconds": 0.002487968,
+          "calls": 3045,
+          "mean_us": 0.8170666666666667
+        },
+        {
+          "name": "cudaMalloc_v3020",
+          "total_host_seconds": 0.002141921,
+          "calls": 41,
+          "mean_us": 52.241975609756096
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "total_host_seconds": 0.001584638,
+          "calls": 2044,
+          "mean_us": 0.7752632093933464
+        },
+        {
+          "name": "cudaFree_v3020",
+          "total_host_seconds": 0.001245425,
+          "calls": 41,
+          "mean_us": 30.376219512195124
+        },
+        {
+          "name": "cudaStreamCreateWithFlags_v5000",
+          "total_host_seconds": 4.5971e-05,
+          "calls": 3,
+          "mean_us": 15.323666666666666
+        },
+        {
+          "name": "cudaStreamDestroy_v5050",
+          "total_host_seconds": 2.43e-05,
+          "calls": 3,
+          "mean_us": 8.1
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "total_host_seconds": 7.245e-06,
+          "calls": 5,
+          "mean_us": 1.449
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "total_host_seconds": 6.399e-06,
+          "calls": 5,
+          "mean_us": 1.2798
+        }
+      ]
+    }
+  },
+  "method": "CUDA event durations in NVTX wall intervals across all threads; fractions relative to summed kernel duration; host API and GPU durations overlap and must not be added; GPU union merges kernels/memcpy/memset intervals",
+  "trace_count_check": "52000 material/predict/correct calls in run; no CPU sampling or hardware counter replay"
+}

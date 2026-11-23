@@ -1,0 +1,479 @@
+{
+  "single4": {
+    "status": "passed",
+    "copies": 1,
+    "source_x_m": [
+      700.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 1.62668448779732,
+    "prepare_seconds": 0.1837454130873084,
+    "run_seconds": 3.2358935717493296,
+    "total_seconds": 5.046323472633958,
+    "per_source_seconds": 5.046323472633958,
+    "nodes": 589541,
+    "comparisons": [],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "single1": {
+    "status": "passed",
+    "copies": 1,
+    "source_x_m": [
+      175.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 1.581982054747641,
+    "prepare_seconds": 0.17712999414652586,
+    "run_seconds": 3.225800160318613,
+    "total_seconds": 4.98491220921278,
+    "per_source_seconds": 4.98491220921278,
+    "nodes": 589541,
+    "comparisons": [],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "single0": {
+    "status": "passed",
+    "copies": 1,
+    "source_x_m": [
+      0.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 1.6215603668242693,
+    "prepare_seconds": 0.17861599754542112,
+    "run_seconds": 3.2068734848871827,
+    "total_seconds": 5.007049849256873,
+    "per_source_seconds": 5.007049849256873,
+    "nodes": 589541,
+    "comparisons": [],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "single2": {
+    "status": "passed",
+    "copies": 1,
+    "source_x_m": [
+      350.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 1.623578724451363,
+    "prepare_seconds": 0.18037507496774197,
+    "run_seconds": 3.2535604648292065,
+    "total_seconds": 5.0575142642483115,
+    "per_source_seconds": 5.0575142642483115,
+    "nodes": 589541,
+    "comparisons": [],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "batch10": {
+    "status": "passed",
+    "copies": 10,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0,
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 3.436403598636389,
+    "prepare_seconds": 1.8574347961694002,
+    "run_seconds": 29.270240645855665,
+    "total_seconds": 34.564079040661454,
+    "per_source_seconds": 3.4564079040661455,
+    "nodes": 5895410,
+    "comparisons": [
+      {
+        "copy": 0,
+        "scale": 1.0,
+        "relative_l2": 2.932878976629812e-13,
+        "max_abs": 5.6628784735380275e-21
+      },
+      {
+        "copy": 1,
+        "scale": 1.0,
+        "relative_l2": 2.147308785743652e-13,
+        "max_abs": 5.323734422391286e-21
+      },
+      {
+        "copy": 2,
+        "scale": 1.0,
+        "relative_l2": 2.8054317846921477e-13,
+        "max_abs": 4.757736088251877e-21
+      },
+      {
+        "copy": 3,
+        "scale": 1.0,
+        "relative_l2": 1.8398754349048938e-13,
+        "max_abs": 3.1217796317751264e-21
+      },
+      {
+        "copy": 4,
+        "scale": 1.0,
+        "relative_l2": 2.604243637160171e-13,
+        "max_abs": 4.58775047237223e-21
+      },
+      {
+        "copy": 5,
+        "scale": 1.0,
+        "relative_l2": 2.622041338974117e-13,
+        "max_abs": 3.653191476552162e-21
+      },
+      {
+        "copy": 6,
+        "scale": 1.0,
+        "relative_l2": 1.8809123558484133e-13,
+        "max_abs": 4.404943556998011e-21
+      },
+      {
+        "copy": 7,
+        "scale": 1.0,
+        "relative_l2": 2.7061059599037955e-13,
+        "max_abs": 5.059346819104025e-21
+      },
+      {
+        "copy": 8,
+        "scale": 1.0,
+        "relative_l2": 1.935266164106133e-13,
+        "max_abs": 4.9465400630671055e-21
+      },
+      {
+        "copy": 9,
+        "scale": 1.0,
+        "relative_l2": 2.872332987763631e-13,
+        "max_abs": 4.188842621968532e-21
+      }
+    ],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "batch20": {
+    "status": "passed",
+    "copies": 20,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0,
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0,
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0,
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 5.189054139889777,
+    "prepare_seconds": 3.741486217826605,
+    "run_seconds": 58.1501011941582,
+    "total_seconds": 67.08064155187458,
+    "per_source_seconds": 3.354032077593729,
+    "nodes": 11790820,
+    "comparisons": [
+      {
+        "copy": 0,
+        "scale": 1.0,
+        "relative_l2": 2.6185647187350093e-13,
+        "max_abs": 3.665237294222466e-21
+      },
+      {
+        "copy": 1,
+        "scale": 1.0,
+        "relative_l2": 1.9177042121769034e-13,
+        "max_abs": 3.961161158363311e-21
+      },
+      {
+        "copy": 2,
+        "scale": 1.0,
+        "relative_l2": 2.743034699835307e-13,
+        "max_abs": 3.857246593911337e-21
+      },
+      {
+        "copy": 3,
+        "scale": 1.0,
+        "relative_l2": 2.1765147752194823e-13,
+        "max_abs": 4.665298654799076e-21
+      },
+      {
+        "copy": 4,
+        "scale": 1.0,
+        "relative_l2": 2.8951150768754853e-13,
+        "max_abs": 3.594926942155458e-21
+      },
+      {
+        "copy": 5,
+        "scale": 1.0,
+        "relative_l2": 2.930687888330701e-13,
+        "max_abs": 4.541221562916122e-21
+      },
+      {
+        "copy": 6,
+        "scale": 1.0,
+        "relative_l2": 2.1034499463116886e-13,
+        "max_abs": 4.208165044089888e-21
+      },
+      {
+        "copy": 7,
+        "scale": 1.0,
+        "relative_l2": 2.845048651464528e-13,
+        "max_abs": 4.295755716141011e-21
+      },
+      {
+        "copy": 8,
+        "scale": 1.0,
+        "relative_l2": 1.8636096775416787e-13,
+        "max_abs": 4.3162284363016984e-21
+      },
+      {
+        "copy": 9,
+        "scale": 1.0,
+        "relative_l2": 2.949672628849646e-13,
+        "max_abs": 3.8028594686359756e-21
+      },
+      {
+        "copy": 10,
+        "scale": 1.0,
+        "relative_l2": 3.021560485435274e-13,
+        "max_abs": 3.9307622708519875e-21
+      },
+      {
+        "copy": 11,
+        "scale": 1.0,
+        "relative_l2": 1.9818111390241993e-13,
+        "max_abs": 3.409741882520149e-21
+      },
+      {
+        "copy": 12,
+        "scale": 1.0,
+        "relative_l2": 2.945727821628752e-13,
+        "max_abs": 4.075312082895629e-21
+      },
+      {
+        "copy": 13,
+        "scale": 1.0,
+        "relative_l2": 2.1480715754460725e-13,
+        "max_abs": 5.2426707223610894e-21
+      },
+      {
+        "copy": 14,
+        "scale": 1.0,
+        "relative_l2": 2.657210320432215e-13,
+        "max_abs": 3.2999720263981647e-21
+      },
+      {
+        "copy": 15,
+        "scale": 1.0,
+        "relative_l2": 2.8292055425422244e-13,
+        "max_abs": 4.453540417985501e-21
+      },
+      {
+        "copy": 16,
+        "scale": 1.0,
+        "relative_l2": 2.0344906061283557e-13,
+        "max_abs": 5.280721030538529e-21
+      },
+      {
+        "copy": 17,
+        "scale": 1.0,
+        "relative_l2": 2.8339033090123907e-13,
+        "max_abs": 4.2107629082011874e-21
+      },
+      {
+        "copy": 18,
+        "scale": 1.0,
+        "relative_l2": 2.258491226270876e-13,
+        "max_abs": 6.6505321249263425e-21
+      },
+      {
+        "copy": 19,
+        "scale": 1.0,
+        "relative_l2": 2.728040375833641e-13,
+        "max_abs": 3.6505548383496494e-21
+      }
+    ],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "single3": {
+    "status": "passed",
+    "copies": 1,
+    "source_x_m": [
+      525.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 1.5953520005568862,
+    "prepare_seconds": 0.1846959413960576,
+    "run_seconds": 3.228430500254035,
+    "total_seconds": 5.008478442206979,
+    "per_source_seconds": 5.008478442206979,
+    "nodes": 589541,
+    "comparisons": [],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  },
+  "batch5": {
+    "status": "passed",
+    "copies": 5,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "end_s": 0.1,
+    "substeps": 88,
+    "assembly_seconds": 2.403148513287306,
+    "prepare_seconds": 0.9285746412351727,
+    "run_seconds": 14.809873134829104,
+    "total_seconds": 18.141596289351583,
+    "per_source_seconds": 3.6283192578703165,
+    "nodes": 2947705,
+    "comparisons": [
+      {
+        "copy": 0,
+        "scale": 1.0,
+        "relative_l2": 2.6606761720589395e-13,
+        "max_abs": 4.067247071923237e-21
+      },
+      {
+        "copy": 1,
+        "scale": 1.0,
+        "relative_l2": 2.1111868582185714e-13,
+        "max_abs": 4.390312799913479e-21
+      },
+      {
+        "copy": 2,
+        "scale": 1.0,
+        "relative_l2": 2.7119391336307993e-13,
+        "max_abs": 3.921094597442774e-21
+      },
+      {
+        "copy": 3,
+        "scale": 1.0,
+        "relative_l2": 1.8640657546181652e-13,
+        "max_abs": 3.984115420361658e-21
+      },
+      {
+        "copy": 4,
+        "scale": 1.0,
+        "relative_l2": 2.7847753311488013e-13,
+        "max_abs": 3.854454859343971e-21
+      }
+    ],
+    "native": {
+      "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+    },
+    "code": {
+      "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/batch_probe.py",
+      "sha256": "626ee483b84624944eccf4749a5b95d9d42b96f82d8eef7ca0c15723a3ae2a4d"
+    },
+    "mesh": {
+      "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/production_smoke_saturn_v3/EFVB_00000/mesh_q2.npz",
+      "sha256": "5d96d15a2262b684769326546c360bf029f7565557054ad5f5ae179ebb85d4c9"
+    },
+    "scope": "Identical EFVB0 geometry, cyclic five independent sources; disjoint node IDs, no geometry translation"
+  }
+}

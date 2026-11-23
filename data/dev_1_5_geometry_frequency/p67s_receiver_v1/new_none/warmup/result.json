@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "mode": "new_none",
+  "label": "warmup",
+  "profiled": false,
+  "dt_s": 0.00011111111111111112,
+  "steps": 9000,
+  "steps_per_tact": 9,
+  "lambda_max": 205196656.66780484,
+  "lambda_max_damping": 0.0,
+  "assembly_seconds": 1.0587833849713206,
+  "prepare_seconds": 0.24628023151308298,
+  "nodes_count": 795691,
+  "elements": 22050,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_p67s_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p67s_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "a3552262e1cafa76ad7bf89eea739f3b568713151ad9580cdf7eb4146b14e1f9"
+  },
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  },
+  "runner": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/p67s_run.py",
+    "sha256": "764655c10063b2f430ea2ed946c3f7798c59189cdc60f60a9864ff5ea9c574cd"
+  },
+  "receiver_registered": false,
+  "frame_buf_size": 0,
+  "source_x_m": [
+    175.0,
+    350.0,
+    525.0,
+    700.0,
+    875.0,
+    1050.0,
+    1225.0
+  ],
+  "run_seconds": 16.602625022642314,
+  "solve_wall_seconds": 17.90992941521108,
+  "callback_wall_seconds": 0.0,
+  "callback_thread_cpu_seconds": 0.0,
+  "surface_samples": 0,
+  "output_npz_seconds": 3.824010491371155e-05,
+  "validation_after_run_seconds": 0.38030052464455366,
+  "total_seconds": 18.29026817996055,
+  "pml_history_max_abs": 3.1788323534839965e-18,
+  "final_velocity_max_abs": 5.320006037134667e-13,
+  "terminal_state_finite": true,
+  "final_top.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_none/warmup/final_top.npy",
+    "sha256": "8aca86542428e0f02e40055a6a1334013da4574aa75f21df6982b750b321d736"
+  },
+  "final_velocity.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_none/warmup/final_velocity.npy",
+    "sha256": "be454a8362a03885816c15f3c5b28058d9584e58daad5e95385e8a1ded5fb3a8"
+  }
+}

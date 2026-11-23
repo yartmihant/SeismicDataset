@@ -1,0 +1,125 @@
+{
+  "spec": {
+    "width": 1400,
+    "height": 700,
+    "material": "two_layer",
+    "frequency": 15
+  },
+  "status": "completed",
+  "geometry": {
+    "mesh_id": "1400x700_two_layer",
+    "width_m": 1400,
+    "height_m": 700,
+    "padding_m": 175,
+    "order": 5,
+    "nx": 350,
+    "ny": 175,
+    "sem_nodes": 1533876,
+    "surface_nodes": 1751,
+    "elements": 61250,
+    "depths_m": [
+      0.0,
+      350.0,
+      700.0
+    ],
+    "materials_vp_vs": [
+      [
+        4087.0,
+        2431.62036
+      ],
+      [
+        3963.0,
+        2357.84473
+      ]
+    ],
+    "density_kg_m3": 1000.0,
+    "dx_m": 5.0,
+    "dy_min_m": 5.0,
+    "dy_max_m": 5.0,
+    "jacobian_min_m2": 6.25,
+    "area_m2": 1531250.0,
+    "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+    "source": {
+      "source": "/home/antonov/SeismicDataset/src/data_EFVB_out.zip",
+      "members": [
+        "data_EFVB_out/vp_00000.txt",
+        "data_EFVB_out/vs_00000.txt"
+      ],
+      "raw_sha256": {
+        "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+        "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+      },
+      "array_sha256": {
+        "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+        "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+      },
+      "axes": "row top to bottom; column left to right",
+      "shape": [
+        70,
+        70
+      ],
+      "dtype": "float64"
+    },
+    "output_bytes_estimate": 567968368
+  },
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_comparison_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "5279c269b725264661a04eac1bea1e892bb8c323c528c218d12d1d5c8c829b3a"
+  },
+  "backend": "seismic",
+  "explicit_dt_s": null,
+  "assembly_seconds": 2.9379175398498774,
+  "prepare_seconds": 0.47092926502227783,
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/series_v1/meshes/1400x700_two_layer/mesh_q2.npz",
+    "sha256": "17dcd9cb919f83b3e421c71bb52474672143f34cc93d181457af6cce0db13fd3"
+  },
+  "code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/run.py",
+    "sha256": "37e42c9c57e5a4608eec707797519d70cadaa579d7ea0a9944c47c2156c77d85"
+  },
+  "dt_s": 1.923076923076923e-05,
+  "steps": 52000,
+  "steps_per_ms": 52,
+  "source_node": 61600,
+  "source_x_m": 700.0,
+  "source_t0_s": 0.1,
+  "force_peak_n_per_m": 1.0,
+  "alpha_max_s_inv": 173.0886108476381,
+  "kim_beta": 0.037037037037037035,
+  "kim_gamma": 0.5,
+  "cfl_safety": 0.8,
+  "tact_dt_s": 0.001,
+  "lambda_max": 423984793.63389033,
+  "lambda_max_damping": 38271.24560632964,
+  "source_table_dt_s": 1e-06,
+  "surface_nodes": 1751,
+  "field_nodes": 1533876,
+  "frame_interval_s": 0.05,
+  "surface_interval_s": 0.001,
+  "run_seconds": 35.320712237618864,
+  "total_seconds": 40.3541546119377,
+  "fields": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/solver_comparison_v1/seismic_15_0/1400x700_two_layer_15Hz/velocity.npy",
+    "sha256": "73e5cfb103538efbaea38425f69564a9668e19882bf792c88f2810973d1200cd"
+  },
+  "nodes": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/solver_comparison_v1/seismic_15_0/1400x700_two_layer_15Hz/nodes.npy",
+    "sha256": "4980df47968e927b0c88e5e33dbe98667140b5aa13b856b9de66fb2cf7d41a12"
+  },
+  "surface": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/solver_comparison_v1/seismic_15_0/1400x700_two_layer_15Hz/surface.npz",
+    "sha256": "64eefb3caed0f386a981eefc1e7ea1f9e3449ad4248764884b66cc44c3c02b5d"
+  },
+  "field_peak_m_s": [
+    2.2933249656121536e-09,
+    7.0346892497916895e-09
+  ],
+  "surface_peak_m_s": [
+    2.4228968005494342e-09,
+    2.3639276701146566e-08
+  ],
+  "surface_field_exact": true,
+  "frames": 21,
+  "surface_samples": 1001
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "chapter14.double_layer_geometry.v1",
+  "padding_m": 350.0,
+  "material_model": "homogeneous_reference_toplayer",
+  "physical_model": {
+    "vp_m_s": 4087.0,
+    "vs_m_s": 2431.62036,
+    "density_kg_m3": 1000.0,
+    "homogeneous": true
+  },
+  "is_original_dataset_model": false,
+  "geometry_parent": {
+    "mesh": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/core/mesh_q2.npz",
+      "sha256": "4bf3851888429b4d7049488e9e76d840c8dfcd98bc9bee08f0b81f5e12ebede6"
+    },
+    "core_coordinates_exact": true,
+    "core_connectivity_exact": true,
+    "old175_mesh": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/mesh_q2.npz",
+      "sha256": "10ba932d3a2214e98b41c0b63585c3ce08ae2985ca4d3c946a04a410b69318ef"
+    },
+    "old175_q2_cell_coordinates_exact": true
+  },
+  "mesh_sha256": "1cb7af41e190e308f7bc33e58cf322f30ec84175bcc8e45e9f91e72ab52395c4",
+  "certificate": {
+    "model_id": 0,
+    "kind": "curved",
+    "elements": 58800,
+    "q2_nodes": 236181,
+    "area_m2": 1470000.0000000005,
+    "det_jacobian_certified_min_m2": 6.2499999999909,
+    "bernstein_max_depth": 0,
+    "euler_characteristic": 1,
+    "conforming": true,
+    "core_top_edges": 140,
+    "core_top_edge_m": 5,
+    "external_edges": 980,
+    "area_by_region_m2": {
+      "0": 1470000.0000000005
+    },
+    "sqrt_area_quantiles_m": [
+      4.999999999999877,
+      4.99999999999995,
+      5.0,
+      5.000000000000065,
+      5.000000000000115
+    ]
+  },
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/double_layer_run.py",
+    "sha256": "63819bc8b6fc4891a5809c812c694fd52dbdf9f1fa7f8ae0fcd1fe8601aa1487"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "orders": [
+    {
+      "order": 4,
+      "nodes": 982101,
+      "surface_nodes": 1401,
+      "pml_elements": 22050,
+      "old_damping_nodes": 355461,
+      "core_mass_kg_per_m": 980000000.0,
+      "observation_nodes": 982101
+    },
+    {
+      "order": 5,
+      "nodes": 1533876,
+      "surface_nodes": 1751,
+      "pml_elements": 22050,
+      "old_damping_nodes": 554576,
+      "core_mass_kg_per_m": 980000000.0,
+      "observation_nodes": 1533876
+    }
+  ],
+  "material": [
+    4087.0,
+    2431.62036,
+    1000.0
+  ],
+  "pml_dmax_s_inv": 173.0886108476381,
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/series_v1/meshes/1400x700_homogeneous/mesh_q2.npz",
+    "sha256": "0ec61113ef25e374cd8f4d69b683d4c94f8c550f8841c0891e16de389a7c3b8e"
+  },
+  "reference_domain": [
+    -2500,
+    3900,
+    -3200,
+    0
+  ],
+  "minimum_geometric_boundary_return_s": 1.3518473207731834,
+  "duration_s": 1.0,
+  "reference_note": "geometric continuum travel-time bound; common local SEM mesh, verify early direct arrivals numerically"
+}

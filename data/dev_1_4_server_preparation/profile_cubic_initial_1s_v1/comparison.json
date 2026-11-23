@@ -1,0 +1,39 @@
+{
+  "status": "completed",
+  "window_s": [
+    0.5,
+    1.0
+  ],
+  "quadratic_reference": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/result.json",
+    "sha256": "d0e96cefe11c20333241a7b694a82aae2fbbc0fbb9731492d820a96f90f1abd7"
+  },
+  "quadratic_objective": 5.454252099882376e-10,
+  "evaluations": [
+    {
+      "factor": 0.5,
+      "alpha_max_s_inv": 173.0886108476381,
+      "objective": 1.256564544277939e-09,
+      "ratio_best_quadratic": 2.303825568137999,
+      "change_percent": 130.3825568137999,
+      "wall_seconds": 181.78121037804522,
+      "surface": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_cubic_initial_1s_v1/runs/eval_01/surface.npz",
+        "sha256": "ecf48be9dcda7ce255b1ec04aa3d2c27a32230585ab64bd14ec271c24449d4a0"
+      }
+    },
+    {
+      "factor": 1.0,
+      "alpha_max_s_inv": 346.1772216952762,
+      "objective": 8.945589461290987e-10,
+      "ratio_best_quadratic": 1.6401129426129575,
+      "change_percent": 64.01129426129575,
+      "wall_seconds": 183.89129770500585,
+      "surface": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_cubic_initial_1s_v1/runs/eval_02/surface.npz",
+        "sha256": "633d0f3963f93d66d17b9b7a0acfd9ca0067afe00f1b9edb997c90e09fc3dd96"
+      }
+    }
+  ],
+  "search_status": "initial_two_points_only"
+}

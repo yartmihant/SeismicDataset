@@ -1,0 +1,20 @@
+{
+  "12404": {
+    "nodes": false,
+    "cells": true,
+    "vp": true,
+    "vs": true,
+    "regions": true,
+    "model_id": true,
+    "kind": true
+  },
+  "65": {
+    "nodes": false,
+    "cells": false,
+    "vp": true,
+    "vs": true,
+    "regions": true,
+    "model_id": true,
+    "kind": true
+  }
+}

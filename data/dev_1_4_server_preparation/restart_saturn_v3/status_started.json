@@ -1,0 +1,403 @@
+{
+  "schema": "chapter14.status.v1",
+  "snapshot_utc": "2026-11-18T15:02:06.042670+00:00",
+  "root": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4",
+  "read_only": true,
+  "database_mode": "ro",
+  "config": {
+    "execution_chunk_limit": 1,
+    "max_in_flight": 2,
+    "model_budget_bytes": 5994584,
+    "reserve_bytes": 21474836480,
+    "working_floor_bytes": 21474836480
+  },
+  "execution_chunk_limit": 1,
+  "chunk_progress": [
+    {
+      "chunk_number": 1,
+      "dataset": "EFVB",
+      "authorized": true,
+      "first_id": 0,
+      "last_id": 2999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 2,
+      "failed": 0
+    },
+    {
+      "chunk_number": 2,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 0,
+      "last_id": 2999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 3,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 3000,
+      "last_id": 5999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 4,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 3000,
+      "last_id": 5999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 5,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 6000,
+      "last_id": 8999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 6,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 6000,
+      "last_id": 8999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 7,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 9000,
+      "last_id": 11999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 8,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 9000,
+      "last_id": 11999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 9,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 12000,
+      "last_id": 14999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 10,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 12000,
+      "last_id": 14999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 11,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 15000,
+      "last_id": 17999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 12,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 15000,
+      "last_id": 17999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 13,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 18000,
+      "last_id": 20999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 14,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 18000,
+      "last_id": 20999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 15,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 21000,
+      "last_id": 23999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 16,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 21000,
+      "last_id": 23999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 17,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 24000,
+      "last_id": 26999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 18,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 24000,
+      "last_id": 26999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 19,
+      "dataset": "EFVB",
+      "authorized": false,
+      "first_id": 27000,
+      "last_id": 29999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    },
+    {
+      "chunk_number": 20,
+      "dataset": "ECVB",
+      "authorized": false,
+      "first_id": 27000,
+      "last_id": 29999,
+      "target_models": 3000,
+      "completed": 0,
+      "reserved": 0,
+      "failed": 0
+    }
+  ],
+  "completed_models": 0,
+  "verified_output_bytes": 0,
+  "active": [
+    {
+      "job_id": "EFVB/00000",
+      "chunk_number": 1,
+      "dataset": "EFVB",
+      "model_id": 0,
+      "gpu": 0,
+      "budget_bytes": 5994584,
+      "status": "reserved",
+      "reason": null,
+      "output": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00000",
+      "geometry_record_exists": true,
+      "stability_record_exists": true,
+      "sources": [
+        {
+          "source_x_m": 0,
+          "status": "completed",
+          "wall_seconds": 32.58462186716497,
+          "recorded_counts": {
+            "surface": 1001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "metadata_file": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00000/x000/metadata.json"
+        },
+        {
+          "source_x_m": 175,
+          "status": "started",
+          "metadata_file": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00000/x175/metadata.started.json"
+        },
+        {
+          "source_x_m": 350,
+          "status": "not_started"
+        },
+        {
+          "source_x_m": 525,
+          "status": "not_started"
+        },
+        {
+          "source_x_m": 700,
+          "status": "not_started"
+        }
+      ],
+      "last_log_event": {
+        "stage": "surface",
+        "time_s": 0.5
+      }
+    },
+    {
+      "job_id": "EFVB/00001",
+      "chunk_number": 1,
+      "dataset": "EFVB",
+      "model_id": 1,
+      "gpu": 1,
+      "budget_bytes": 5994584,
+      "status": "reserved",
+      "reason": null,
+      "output": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00001",
+      "geometry_record_exists": true,
+      "stability_record_exists": true,
+      "sources": [
+        {
+          "source_x_m": 0,
+          "status": "completed",
+          "wall_seconds": 26.779614496976137,
+          "recorded_counts": {
+            "surface": 1001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "metadata_file": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00001/x000/metadata.json"
+        },
+        {
+          "source_x_m": 175,
+          "status": "completed",
+          "wall_seconds": 26.36373898293823,
+          "recorded_counts": {
+            "surface": 1001,
+            "source_history": 0,
+            "fields": 0
+          },
+          "metadata_file": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00001/x175/metadata.json"
+        },
+        {
+          "source_x_m": 350,
+          "status": "started",
+          "metadata_file": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00001/x350/metadata.started.json"
+        },
+        {
+          "source_x_m": 525,
+          "status": "not_started"
+        },
+        {
+          "source_x_m": 700,
+          "status": "not_started"
+        }
+      ],
+      "last_log_event": {
+        "stage": "surface",
+        "time_s": 0.0
+      }
+    }
+  ],
+  "failed": [],
+  "outstanding_reservation_bytes": 11989168,
+  "launcher": {
+    "schema": "chapter14.launcher.v1",
+    "status": "running",
+    "launcher_pid": 2295722,
+    "started_utc": "2026-11-18T15:00:57.318015+00:00",
+    "root": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4",
+    "workers": [
+      {
+        "gpu": 0,
+        "pid": 2295724,
+        "command": [
+          "/home/antonov/SeismicDataset/.venv/bin/python",
+          "-m",
+          "scripts.dev_1_4_server_preparation.production_worker",
+          "--gpu",
+          "0",
+          "--root",
+          "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4",
+          "--source",
+          "/home/antonov/SeismicDataset/src"
+        ],
+        "log": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/logs/gpu0.log",
+        "returncode": null
+      },
+      {
+        "gpu": 1,
+        "pid": 2295725,
+        "command": [
+          "/home/antonov/SeismicDataset/.venv/bin/python",
+          "-m",
+          "scripts.dev_1_4_server_preparation.production_worker",
+          "--gpu",
+          "1",
+          "--root",
+          "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4",
+          "--source",
+          "/home/antonov/SeismicDataset/src"
+        ],
+        "log": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/logs/gpu1.log",
+        "returncode": null
+      }
+    ],
+    "failure_policy": "stop both; keep outputs, temporary work and SQLite reservations; no retry or release"
+  },
+  "launcher_started_utc": "2026-11-18T15:00:57.318015+00:00",
+  "elapsed_seconds": 68.724655,
+  "completed_models_per_hour": null,
+  "first_3000_remaining_models": 3000,
+  "rough_first_3000_remaining_seconds": null,
+  "rough_first_3000_eta_utc_if_continued": null,
+  "eta_caveat": "Linear extrapolation from launcher wall time; a small or heterogeneous sample is unreliable. Includes startup and idle time; after a stop assumes explicit continuation. No ETA before the first completed model.",
+  "disk": {
+    "total_bytes": 1887976378368,
+    "used_bytes": 1571762307072,
+    "free_bytes": 220234608640,
+    "guard_required_free_bytes": 42961662128,
+    "guard_threshold_met_now": true
+  },
+  "snapshot_caveat": "Queue rows form one read snapshot; launcher, metadata, logs and disk can change separately. Stored completion is not a fresh revalidation of arrays; no process-liveness claim."
+}

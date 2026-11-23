@@ -1,0 +1,13 @@
+{
+  "status": "cpu_checked",
+  "label": "F1200",
+  "nodes": 7225701,
+  "thickness_m": 1200,
+  "dmax_s_inv": 173.0886108476381,
+  "fixed_strength": true,
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_1200.npz",
+    "sha256": "8971b9bfd010bde68bdbd4bf50542836d49089a2de2f79ef0ce32b930949f06d"
+  },
+  "reason": "Refinement of thickness bracket for weak interface echoes; prior results preserved."
+}

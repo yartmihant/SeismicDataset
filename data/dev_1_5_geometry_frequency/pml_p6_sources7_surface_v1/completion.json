@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "checked_utc": "2026-11-22T23:25:10.493893+00:00",
+  "runs": 32,
+  "probes": 2,
+  "new_surface_sha_files": 32,
+  "prior_surface_sha_files": 32,
+  "frames": 0,
+  "field_receiver_registered": false,
+  "surface_npz_bytes_on_saturn": 1132396928,
+  "code_commit": "fd4874e",
+  "notebook": {
+    "file": "dev_1_5_geometry_frequency.ipynb",
+    "cells": 69,
+    "executed": true,
+    "syntax_format_roundtrip": "OK"
+  },
+  "artifact_validation": "artifact_validation.json",
+  "saturn_compute_processes": [],
+  "saturn_free_bytes": 64137068544,
+  "production_queue": "stopped; unchanged",
+  "large_arrays": "Saturn only",
+  "report": "img/dev_1_5_geometry_frequency/pml_p6_sources7_surface_v1/index.html"
+}

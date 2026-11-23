@@ -1,0 +1,2595 @@
+{
+  "status": "completed",
+  "orders": {
+    "p4": {
+      "cases": {
+        "old": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 4.802950518964245e-09,
+              "relative_l2_to_full_reference": 0.004787861829635396,
+              "relative_l2_components_to_full_reference": [
+                0.0045520693023739355,
+                0.004893235825483122
+              ],
+              "max_abs_error_m_s": [
+                1.5229936095407394e-11,
+                2.5283755296548268e-11
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0031442333472722515,
+                0.0006508924246755234
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 4.802950518941064e-09,
+              "relative_l2_to_full_reference": 0.004787861829612288,
+              "relative_l2_components_to_full_reference": [
+                0.004552069302301912,
+                0.004893235825481074
+              ],
+              "max_abs_error_m_s": [
+                1.5229936095407394e-11,
+                2.5283755296548268e-11
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0031442333472722515,
+                0.0006508924246755234
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 3.6419860714524128e-09,
+              "relative_l2_to_full_reference": 0.0036305446051797204,
+              "relative_l2_components_to_full_reference": [
+                0.003912616597030697,
+                0.0034921713793138313
+              ],
+              "max_abs_error_m_s": [
+                1.4458145574331521e-11,
+                2.053840388064953e-11
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0029848965333635472,
+                0.00052873045732515
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.276369301916105e-20,
+              "relative_l2_to_full_reference": 4.262934891630747e-14,
+              "relative_l2_components_to_full_reference": [
+                4.0990610844770155e-14,
+                4.336745961814444e-14
+              ],
+              "max_abs_error_m_s": [
+                1.8918578449315065e-21,
+                3.3616620094155045e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                3.905756719574167e-13,
+                8.654095527284138e-14
+              ]
+            }
+          },
+          "thickness_m": 175,
+          "rows": 35,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 13.674829718656838,
+          "prepare_seconds": 0.3974930113181472,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 61250,
+          "global_nodes": 982101,
+          "pml_elements": 0,
+          "surface_nodes": 1401,
+          "kinetic_final_j_per_m": 1.1883080274907714e-15,
+          "error_kinetic_final_j_per_m": 1.1883119143115907e-15,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            8.486873084794064e-22,
+            1.5531866964331632e-21,
+            1.1756304455909906e-21,
+            3.410878986617705e-14,
+            4.316917039424617e-12,
+            5.9194421852015814e-12,
+            1.4252772738221855e-11,
+            1.2886915442902874e-11,
+            1.9503362765188543e-11,
+            1.971673238086114e-11,
+            1.2283536906172546e-11,
+            1.3468771072410983e-11,
+            1.1343832147676896e-11,
+            1.0138853537075606e-11,
+            1.0542711380748909e-11,
+            1.3653220583197416e-11,
+            1.351475679491678e-11,
+            8.68181837281387e-12,
+            8.556041978666621e-12,
+            8.677830428282283e-12
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p4/old/result.json",
+            "sha256": "053477232ccbb2e94c7bda0ab741ae06e87675d69b5c868061d22af8d8e52463"
+          },
+          "late_full_peak_m_s": 4.2456958693111345e-10,
+          "late_full_peak_over_reference_peak": 0.03020056574987741,
+          "strong_growth": false,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 157.63895871816754,
+          "full_error_reduction_vs_old": 1.0,
+          "wide_error_ratio_to_L175": 157.6389587174068,
+          "wide_error_reduction_vs_old": 1.0,
+          "late_error_ratio_to_L175": 124.05867314487806,
+          "late_error_reduction_vs_old": 1.0
+        },
+        "L175": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 3.046804265911911e-11,
+              "relative_l2_to_full_reference": 3.037232590577627e-05,
+              "relative_l2_components_to_full_reference": [
+                3.7240944760870985e-05,
+                2.659616039764339e-05
+              ],
+              "max_abs_error_m_s": [
+                1.9795187786370378e-13,
+                1.9745484352020772e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                4.0867334677911666e-05,
+                5.08317931238402e-06
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 3.046804265911909e-11,
+              "relative_l2_to_full_reference": 3.037232590577625e-05,
+              "relative_l2_components_to_full_reference": [
+                3.724094476087094e-05,
+                2.6596160397643387e-05
+              ],
+              "max_abs_error_m_s": [
+                1.9795187786370378e-13,
+                1.9745484352020772e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                4.0867334677911666e-05,
+                5.08317931238402e-06
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 2.935696456465589e-11,
+              "relative_l2_to_full_reference": 2.9264738314103214e-05,
+              "relative_l2_components_to_full_reference": [
+                3.59802365236466e-05,
+                2.556296710192471e-05
+              ],
+              "max_abs_error_m_s": [
+                1.9795187786370378e-13,
+                1.9745484352020772e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                4.0867334677911666e-05,
+                5.08317931238402e-06
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.3454271021824084e-20,
+              "relative_l2_to_full_reference": 4.331775743650377e-14,
+              "relative_l2_components_to_full_reference": [
+                4.2294742211771875e-14,
+                4.3783535479222964e-14
+              ],
+              "max_abs_error_m_s": [
+                2.1986460681659476e-21,
+                2.348779349344322e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                4.539123633263985e-13,
+                6.046580770109081e-14
+              ]
+            }
+          },
+          "thickness_m": 175,
+          "rows": 35,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 17.304886273108423,
+          "prepare_seconds": 0.26557528879493475,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 61250,
+          "global_nodes": 982101,
+          "pml_elements": 22050,
+          "surface_nodes": 1401,
+          "kinetic_final_j_per_m": 2.4674921255385593e-20,
+          "error_kinetic_final_j_per_m": 2.4612562663298912e-20,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            1.4690727678941772e-21,
+            1.125728190199315e-21,
+            1.1417160404763164e-21,
+            1.8486281591805255e-18,
+            2.4024571197461577e-17,
+            1.4439356886407458e-14,
+            1.7905287123690152e-13,
+            1.5929124181282372e-13,
+            1.8267917612522682e-13,
+            1.9895525349468501e-13,
+            1.7095865920336958e-13,
+            2.0924531183410064e-13,
+            1.9107096050322764e-13,
+            1.6770964657247714e-13,
+            1.1469577594912517e-13,
+            9.121755001952382e-14,
+            9.65585971180237e-14,
+            9.410591359506971e-14,
+            8.968132575698196e-14,
+            9.175110511277747e-14
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p4/pml_abc/result.json",
+            "sha256": "267640de45ba1f0321c8a760b572f8dc7449bcf75acc8228967ca9cdfd9e61a7"
+          },
+          "late_full_peak_m_s": 4.3162124503669236e-10,
+          "late_full_peak_over_reference_peak": 0.030702165654389046,
+          "strong_growth": false,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 1.0,
+          "full_error_reduction_vs_old": 157.63895871816754,
+          "wide_error_ratio_to_L175": 1.0,
+          "wide_error_reduction_vs_old": 157.6389587174068,
+          "late_error_ratio_to_L175": 1.0,
+          "late_error_reduction_vs_old": 124.05867314487806
+        },
+        "L100": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 6.366674201132748e-11,
+              "relative_l2_to_full_reference": 6.346673002140675e-05,
+              "relative_l2_components_to_full_reference": [
+                7.776493212952748e-05,
+                5.561137290364903e-05
+              ],
+              "max_abs_error_m_s": [
+                2.960281486364814e-13,
+                3.5193455098781253e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                6.111526475510097e-05,
+                9.060028090479966e-06
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 6.366674201132721e-11,
+              "relative_l2_to_full_reference": 6.346673002140648e-05,
+              "relative_l2_components_to_full_reference": [
+                7.776493212952684e-05,
+                5.561137290364899e-05
+              ],
+              "max_abs_error_m_s": [
+                2.960281486364814e-13,
+                3.5193455098781253e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                6.111526475510097e-05,
+                9.060028090479966e-06
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 6.069038488940631e-11,
+              "relative_l2_to_full_reference": 6.049972326188616e-05,
+              "relative_l2_components_to_full_reference": [
+                7.374002748447045e-05,
+                5.326261748216897e-05
+              ],
+              "max_abs_error_m_s": [
+                2.952909726132906e-13,
+                3.5193455098781253e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                6.0963074133918716e-05,
+                9.060028090479966e-06
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.2428006036884236e-20,
+              "relative_l2_to_full_reference": 4.22947165100808e-14,
+              "relative_l2_components_to_full_reference": [
+                4.1628210081306633e-14,
+                4.259991968721147e-14
+              ],
+              "max_abs_error_m_s": [
+                1.95752291960674e-21,
+                2.5245552295118405e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                4.0413228284872916e-13,
+                6.499089456021453e-14
+              ]
+            }
+          },
+          "thickness_m": 100,
+          "rows": 20,
+          "dmax_s_inv": 302.9050689833667,
+          "run_seconds": 13.589006500318646,
+          "prepare_seconds": 0.212978919968009,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 51200,
+          "global_nodes": 821121,
+          "pml_elements": 12000,
+          "surface_nodes": 1281,
+          "kinetic_final_j_per_m": 2.4462974819048925e-20,
+          "error_kinetic_final_j_per_m": 2.4504614328870956e-20,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            9.60244348098886e-22,
+            1.7191785809178278e-21,
+            1.1725285182939167e-21,
+            9.59889248824972e-18,
+            2.744876814539049e-15,
+            1.6840334573431065e-13,
+            3.0374049371419966e-13,
+            2.702213838023185e-13,
+            2.372030567606877e-13,
+            1.4390822654145354e-12,
+            3.2491997526144156e-13,
+            2.489391189653722e-13,
+            2.315547092210346e-13,
+            2.425558331376041e-13,
+            2.0449429600109782e-13,
+            2.0109340485306189e-13,
+            1.821717807571601e-13,
+            1.4104964335821624e-13,
+            1.194407586258229e-13,
+            9.275815140618182e-14
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L100/result.json",
+            "sha256": "90956c553b5a80f15f8cc64935fbe051f6053c5e4a5084c12501a89420672ed6"
+          },
+          "late_full_peak_m_s": 1.7066419333688072e-10,
+          "late_full_peak_over_reference_peak": 0.012139718318675802,
+          "strong_growth": false,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 2.0896236336426415,
+          "full_error_reduction_vs_old": 75.43892411064024,
+          "wide_error_ratio_to_L175": 2.089623633642634,
+          "wide_error_reduction_vs_old": 75.43892411027646,
+          "late_error_ratio_to_L175": 2.0673249359872194,
+          "late_error_reduction_vs_old": 60.00927623196096
+        },
+        "L50": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 1.3617366153479976e-10,
+              "relative_l2_to_full_reference": 0.00013574586573187456,
+              "relative_l2_components_to_full_reference": [
+                0.00016274341847732877,
+                0.00012121929029354835
+              ],
+              "max_abs_error_m_s": [
+                7.743294107482768e-13,
+                8.771061113067012e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0001598609698554535,
+                2.2579783611656674e-05
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 1.361736615347939e-10,
+              "relative_l2_to_full_reference": 0.0001357458657318687,
+              "relative_l2_components_to_full_reference": [
+                0.00016274341847731443,
+                0.00012121929029354768
+              ],
+              "max_abs_error_m_s": [
+                7.743294107482768e-13,
+                8.771061113067012e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0001598609698554535,
+                2.2579783611656674e-05
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 1.1949857984808364e-10,
+              "relative_l2_to_full_reference": 0.00011912316957903192,
+              "relative_l2_components_to_full_reference": [
+                0.00015656052746829886,
+                9.700272732373987e-05
+              ],
+              "max_abs_error_m_s": [
+                7.743294107482768e-13,
+                8.771061113067012e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0001598609698554535,
+                2.2579783611656674e-05
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.335900710546152e-20,
+              "relative_l2_to_full_reference": 4.322279279610346e-14,
+              "relative_l2_components_to_full_reference": [
+                4.1242750047812664e-14,
+                4.4109870731732815e-14
+              ],
+              "max_abs_error_m_s": [
+                2.197301899670549e-21,
+                2.6833739071220218e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                4.536348585896019e-13,
+                6.907944362822279e-14
+              ]
+            }
+          },
+          "thickness_m": 50,
+          "rows": 10,
+          "dmax_s_inv": 605.8101379667334,
+          "run_seconds": 11.191039390861988,
+          "prepare_seconds": 0.18434094171971083,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 45000,
+          "global_nodes": 721801,
+          "pml_elements": 5800,
+          "surface_nodes": 1201,
+          "kinetic_final_j_per_m": 8.296270265290677e-20,
+          "error_kinetic_final_j_per_m": 8.285055006943754e-20,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            8.486873084794064e-22,
+            1.3349661110840175e-21,
+            1.0939463601013791e-21,
+            6.13524982129536e-17,
+            7.765468840676772e-14,
+            6.653311288437869e-13,
+            1.0828632051897252e-12,
+            7.903124129156666e-13,
+            1.199667888109523e-12,
+            8.124393130923739e-13,
+            5.6874971989826e-13,
+            5.816838645308092e-13,
+            5.912290068112387e-13,
+            5.42810240370931e-13,
+            4.974007073712751e-13,
+            4.381678251891274e-13,
+            3.443121772610942e-13,
+            2.95494203445396e-13,
+            2.887245580355698e-13,
+            9.691147464641078e-14
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L50/result.json",
+            "sha256": "02235e8719c304ecb6f790ff3b6bab6a36849ff82285083e8dfd215378da8a86"
+          },
+          "late_full_peak_m_s": 2.2308686449943418e-07,
+          "late_full_peak_over_reference_peak": 15.868657875257306,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 4.46939316247947,
+          "full_error_reduction_vs_old": 35.270774574397635,
+          "wide_error_ratio_to_L175": 4.469393162479281,
+          "wide_error_reduction_vs_old": 35.27077457422892,
+          "late_error_ratio_to_L175": 4.070535956975371,
+          "late_error_reduction_vs_old": 30.477233085802386
+        },
+        "L25": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 2.0106158296459868e-10,
+              "relative_l2_to_full_reference": 0.0002004299387806037,
+              "relative_l2_components_to_full_reference": [
+                0.0002382480448488968,
+                0.00018024263273743062
+              ],
+              "max_abs_error_m_s": [
+                1.2090910676848235e-12,
+                1.378609969440383e-12
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0002496178861873248,
+                3.5490249575916554e-05
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 2.01061582964546e-10,
+              "relative_l2_to_full_reference": 0.0002004299387805512,
+              "relative_l2_components_to_full_reference": [
+                0.0002382480448487667,
+                0.00018024263273742487
+              ],
+              "max_abs_error_m_s": [
+                1.2090910676848235e-12,
+                1.378609969440383e-12
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0002496178861873248,
+                3.5490249575916554e-05
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 1.631154303228064e-10,
+              "relative_l2_to_full_reference": 0.00016260299571762687,
+              "relative_l2_components_to_full_reference": [
+                0.00022506319656132173,
+                0.00012338369756917974
+              ],
+              "max_abs_error_m_s": [
+                1.2090910676848235e-12,
+                1.378609969440383e-12
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0002496178861873248,
+                3.5490249575916554e-05
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.207688129398528e-20,
+              "relative_l2_to_full_reference": 4.194469484166499e-14,
+              "relative_l2_components_to_full_reference": [
+                4.128051882797247e-14,
+                4.224881403868617e-14
+              ],
+              "max_abs_error_m_s": [
+                1.8381811655995572e-21,
+                2.177966552852122e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                3.7949407554958625e-13,
+                5.6068488000342355e-14
+              ]
+            }
+          },
+          "thickness_m": 25,
+          "rows": 5,
+          "dmax_s_inv": 1211.6202759334667,
+          "run_seconds": 9.817867094650865,
+          "prepare_seconds": 0.16901936661452055,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 42050,
+          "global_nodes": 674541,
+          "pml_elements": 2850,
+          "surface_nodes": 1161,
+          "kinetic_final_j_per_m": 0.011872660363375304,
+          "error_kinetic_final_j_per_m": 0.011872660363375299,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            8.602678370551488e-22,
+            1.3977025906673362e-21,
+            9.87653651388315e-22,
+            2.0616264139200788e-16,
+            4.118234026762533e-13,
+            1.6516019009022647e-12,
+            2.082542496281069e-12,
+            2.0853511209394964e-12,
+            4.985167550811462e-12,
+            5.192911645277949e-12,
+            2.934439763317309e-11,
+            1.6803295305768388e-10,
+            1.014633031337162e-09,
+            6.3628153851987034e-09,
+            4.6478727248563054e-08,
+            2.33935380689296e-07,
+            1.437095503651804e-06,
+            9.309859308830652e-06,
+            5.625622552915844e-05,
+            0.0003613944637820959
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L25/result.json",
+            "sha256": "696625cfe4798cb2c8ece874b0d028519eeb5b2c938724b0c493d2d4347b697d"
+          },
+          "late_full_peak_m_s": 0.695036735060496,
+          "late_full_peak_over_reference_peak": 49439487.09915567,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 6.599097461366485,
+          "full_error_reduction_vs_old": 23.887957351902028,
+          "wide_error_ratio_to_L175": 6.59909746136476,
+          "wide_error_reduction_vs_old": 23.887957351792995,
+          "late_error_ratio_to_L175": 5.5562771131722535,
+          "late_error_reduction_vs_old": 22.32766124115236
+        },
+        "L15": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 1176.6520393402643,
+              "relative_l2_to_full_reference": 1172955532.9949126,
+              "relative_l2_components_to_full_reference": [
+                1592969723.4588096,
+                915255579.7636334
+              ],
+              "max_abs_error_m_s": [
+                103.2749832567528,
+                90.99575920602541
+              ],
+              "max_error_over_global_reference_peak": [
+                21321208720.815678,
+                2342549579.7645936
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 1176.6520393402643,
+              "relative_l2_to_full_reference": 1172955532.9949126,
+              "relative_l2_components_to_full_reference": [
+                1592969723.4588096,
+                915255579.7636334
+              ],
+              "max_abs_error_m_s": [
+                103.2749832567528,
+                90.99575920602541
+              ],
+              "max_error_over_global_reference_peak": [
+                21321208720.815678,
+                2342549579.7645936
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 1176.6520393402643,
+              "relative_l2_to_full_reference": 1172955532.9949126,
+              "relative_l2_components_to_full_reference": [
+                1592969723.4588096,
+                915255579.7636334
+              ],
+              "max_abs_error_m_s": [
+                103.2749832567528,
+                90.99575920602541
+              ],
+              "max_error_over_global_reference_peak": [
+                21321208720.815678,
+                2342549579.7645936
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.2037719176310594e-20,
+              "relative_l2_to_full_reference": 4.190565575357904e-14,
+              "relative_l2_components_to_full_reference": [
+                4.1305103517966324e-14,
+                4.2180944095503594e-14
+              ],
+              "max_abs_error_m_s": [
+                2.658558488745431e-21,
+                2.8024879153296578e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                5.488616763472704e-13,
+                7.214585542922898e-14
+              ]
+            }
+          },
+          "thickness_m": 15,
+          "rows": 3,
+          "dmax_s_inv": 2019.3671265557778,
+          "run_seconds": 9.400420371443033,
+          "prepare_seconds": 0.16461942344903946,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 40898,
+          "global_nodes": 656085,
+          "pml_elements": 1698,
+          "surface_nodes": 1145,
+          "kinetic_final_j_per_m": 49336364225.060555,
+          "error_kinetic_final_j_per_m": 49336364225.060555,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            1.0257039595657543e-21,
+            1.6650887236751024e-21,
+            1.1241384524595646e-21,
+            2.481111115149851e-16,
+            9.21974575117051e-13,
+            2.4761963141059617e-12,
+            6.113367364581203e-12,
+            6.141311348123977e-11,
+            7.054024759437103e-10,
+            8.721908474925553e-09,
+            1.0692797978847026e-07,
+            1.4522057186241763e-06,
+            1.9017546036061443e-05,
+            0.00025448884209393655,
+            0.0035714714984954052,
+            0.04817386577380987,
+            0.6923817346802069,
+            3.810597478606688,
+            86.97769560834891,
+            677.7741889166942
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L15/result.json",
+            "sha256": "9d1fce0b2a6d6ff8f345b54197c5eb3e52af413fcc60952623bbe77d8b8e3145"
+          },
+          "late_full_peak_m_s": 22860.665323317506,
+          "late_full_peak_over_reference_peak": 1626129255213.9663,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 38619219898856.59,
+          "full_error_reduction_vs_old": 4.081878378978722e-12,
+          "wide_error_ratio_to_L175": 38619219898856.62,
+          "wide_error_reduction_vs_old": 4.08187837895902e-12,
+          "late_error_ratio_to_L175": 40080848166328.69,
+          "late_error_reduction_vs_old": 3.0952107757314847e-12
+        },
+        "L10": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 105.25755540074191,
+              "relative_l2_to_full_reference": 104926883.96311519,
+              "relative_l2_components_to_full_reference": [
+                141872542.1102864,
+                82376952.94571695
+              ],
+              "max_abs_error_m_s": [
+                9.967954512297462,
+                8.45121426589959
+              ],
+              "max_error_over_global_reference_peak": [
+                2057892743.9564033,
+                217563857.9184766
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 105.25755540074191,
+              "relative_l2_to_full_reference": 104926883.96311519,
+              "relative_l2_components_to_full_reference": [
+                141872542.1102864,
+                82376952.94571695
+              ],
+              "max_abs_error_m_s": [
+                9.967954512297462,
+                8.45121426589959
+              ],
+              "max_error_over_global_reference_peak": [
+                2057892743.9564033,
+                217563857.9184766
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 105.25755540074191,
+              "relative_l2_to_full_reference": 104926883.96311519,
+              "relative_l2_components_to_full_reference": [
+                141872542.1102864,
+                82376952.94571695
+              ],
+              "max_abs_error_m_s": [
+                9.967954512297462,
+                8.45121426589959
+              ],
+              "max_error_over_global_reference_peak": [
+                2057892743.9564033,
+                217563857.9184766
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 4.211171458292602e-20,
+              "relative_l2_to_full_reference": 4.1979418700230987e-14,
+              "relative_l2_components_to_full_reference": [
+                4.0459073929633716e-14,
+                4.266531196486653e-14
+              ],
+              "max_abs_error_m_s": [
+                2.2218071253174323e-21,
+                2.6511138632324537e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                4.586939834065863e-13,
+                6.824895709878362e-14
+              ]
+            }
+          },
+          "thickness_m": 10,
+          "rows": 2,
+          "dmax_s_inv": 3029.050689833667,
+          "run_seconds": 9.225218519568443,
+          "prepare_seconds": 0.16559875383973122,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 40328,
+          "global_nodes": 646953,
+          "pml_elements": 1128,
+          "surface_nodes": 1137,
+          "kinetic_final_j_per_m": 6.076712189233887e+17,
+          "error_kinetic_final_j_per_m": 6.076712189233887e+17,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            1.0223952371155422e-21,
+            1.1678368532570925e-21,
+            9.835177483255499e-22,
+            5.380179225485575e-16,
+            1.3251410240904801e-12,
+            3.943522715971548e-12,
+            5.1983756523866705e-11,
+            7.505889542981032e-10,
+            1.3102598160671404e-08,
+            2.5495990501334186e-07,
+            5.3061854675289145e-06,
+            0.0001244671983652317,
+            0.0029544568698762342,
+            0.07205152296747934,
+            0.2401532246476264,
+            9.025913089561728,
+            104.9773124754784,
+            2683.3836446979117,
+            74794.91948395772,
+            2292907.093922507
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L10/result.json",
+            "sha256": "a107186bbe876b022001099a8ed358a3e70e74d57d4127ce2faa89f10cc1cc6c"
+          },
+          "late_full_peak_m_s": 31381623.790145267,
+          "late_full_peak_over_reference_peak": 2232243716425149.5,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 3454687148051.4434,
+          "full_error_reduction_vs_old": 4.5630458551675535e-11,
+          "wide_error_ratio_to_L175": 3454687148051.4453,
+          "wide_error_reduction_vs_old": 4.5630458551455305e-11,
+          "late_error_ratio_to_L175": 3585437287595.666,
+          "late_error_reduction_vs_old": 3.4600709256323294e-11
+        },
+        "reference": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "thickness_m": 0,
+          "rows": 0,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 159.45229268446565,
+          "prepare_seconds": 2.7748710308223963,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "elements": 819200,
+          "global_nodes": 13114881,
+          "pml_elements": 0,
+          "surface_nodes": 1401,
+          "kinetic_final_j_per_m": 1.4654369099943688e-22,
+          "error_kinetic_final_j_per_m": 0.0,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p4/reference/result.json",
+            "sha256": "d87f50779a9f139aaabc34d4664d8b27220f7eb2c4d3790bc74c3109c3979a35"
+          },
+          "late_full_peak_m_s": 7.980400751138461e-10,
+          "late_full_peak_over_reference_peak": 0.05676634055143298,
+          "strong_growth": false,
+          "fixed_strength": false
+        }
+      },
+      "time_step_check_L10": {}
+    },
+    "p5": {
+      "cases": {
+        "old": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 4.802917016942794e-09,
+              "relative_l2_to_full_reference": 0.004787174649887084,
+              "relative_l2_components_to_full_reference": [
+                0.004551510865823401,
+                0.00489248592858454
+              ],
+              "max_abs_error_m_s": [
+                1.5230687013736534e-11,
+                2.5284286742853948e-11
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0031460516265470204,
+                0.0006032351617324888
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 4.802917016919606e-09,
+              "relative_l2_to_full_reference": 0.004787174649863972,
+              "relative_l2_components_to_full_reference": [
+                0.004551510865751363,
+                0.0048924859285824915
+              ],
+              "max_abs_error_m_s": [
+                1.5230687013736534e-11,
+                2.5284286742853948e-11
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0031460516265470204,
+                0.0006032351617324888
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 3.6419281760034605e-09,
+              "relative_l2_to_full_reference": 0.0036299911448336667,
+              "relative_l2_components_to_full_reference": [
+                0.003912122097313653,
+                0.0034915951700414906
+              ],
+              "max_abs_error_m_s": [
+                1.4458976466954241e-11,
+                2.0540434090109598e-11
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0029866470495415144,
+                0.0004900558282074044
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.882959505656495e-20,
+              "relative_l2_to_full_reference": 7.85712178212607e-14,
+              "relative_l2_components_to_full_reference": [
+                6.829240310329521e-14,
+                8.290148382085785e-14
+              ],
+              "max_abs_error_m_s": [
+                4.480010197587198e-21,
+                5.401489399971271e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                9.253911761402998e-13,
+                1.2886929993027783e-13
+              ]
+            }
+          },
+          "thickness_m": 175,
+          "rows": 35,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 29.602391513995826,
+          "prepare_seconds": 0.42289958242326975,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 61250,
+          "global_nodes": 1533876,
+          "pml_elements": 0,
+          "surface_nodes": 1751,
+          "kinetic_final_j_per_m": 1.1883032932574637e-15,
+          "error_kinetic_final_j_per_m": 1.1883071800179088e-15,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            3.1019272970738538e-21,
+            2.19776718876511e-21,
+            1.7702699084400484e-21,
+            3.4111890360280317e-14,
+            4.317106709159959e-12,
+            5.917891233974231e-12,
+            1.4252936811179113e-11,
+            1.288714897287765e-11,
+            1.95056603022589e-11,
+            1.9719280487613325e-11,
+            1.2288634555415408e-11,
+            1.3469335882073892e-11,
+            1.1344469778541704e-11,
+            1.0138519314499977e-11,
+            1.0542691492109204e-11,
+            1.3672542582464243e-11,
+            1.352085843502284e-11,
+            8.703931534657024e-12,
+            8.551188146199748e-12,
+            8.671062708557276e-12
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/old/result.json",
+            "sha256": "7bc3c3d2368da061aa78d745ebe2d478bde6d8727a0e3581b0b35dcaa46f7d42"
+          },
+          "late_full_peak_m_s": 4.245508402083317e-10,
+          "late_full_peak_over_reference_peak": 0.03016947063473206,
+          "strong_growth": false,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 157.64640622517578,
+          "full_error_reduction_vs_old": 1.0,
+          "wide_error_ratio_to_L175": 157.64640622441468,
+          "wide_error_reduction_vs_old": 1.0,
+          "late_error_ratio_to_L175": 124.06192829384473,
+          "late_error_reduction_vs_old": 1.0
+        },
+        "L175": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 3.046639077888335e-11,
+              "relative_l2_to_full_reference": 3.0366532067018875e-05,
+              "relative_l2_components_to_full_reference": [
+                3.723611848569663e-05,
+                2.6589869447162977e-05
+              ],
+              "max_abs_error_m_s": [
+                1.979512309024935e-13,
+                1.9741057613597282e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                4.088881817321201e-05,
+                4.709842204931651e-06
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 3.046639077888335e-11,
+              "relative_l2_to_full_reference": 3.0366532067018872e-05,
+              "relative_l2_components_to_full_reference": [
+                3.7236118485696624e-05,
+                2.6589869447162977e-05
+              ],
+              "max_abs_error_m_s": [
+                1.979512309024935e-13,
+                1.9741057613597282e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                4.088881817321201e-05,
+                4.709842204931651e-06
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 2.93557276280394e-11,
+              "relative_l2_to_full_reference": 2.9259509301160577e-05,
+              "relative_l2_components_to_full_reference": [
+                3.597556113258261e-05,
+                2.5557511436451284e-05
+              ],
+              "max_abs_error_m_s": [
+                1.979512309024935e-13,
+                1.9741057613597282e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                4.088881817321201e-05,
+                4.709842204931651e-06
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.847760753819032e-20,
+              "relative_l2_to_full_reference": 7.822038400108525e-14,
+              "relative_l2_components_to_full_reference": [
+                6.781395789139556e-14,
+                8.25974079732434e-14
+              ],
+              "max_abs_error_m_s": [
+                3.652415994727894e-21,
+                6.339512214606404e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.544432677709552e-13,
+                1.5124874650316222e-13
+              ]
+            }
+          },
+          "thickness_m": 175,
+          "rows": 35,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 37.175556912086904,
+          "prepare_seconds": 0.37552563287317753,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 61250,
+          "global_nodes": 1533876,
+          "pml_elements": 22050,
+          "surface_nodes": 1751,
+          "kinetic_final_j_per_m": 2.467441477720356e-20,
+          "error_kinetic_final_j_per_m": 2.4612069510261288e-20,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            1.9868878313523725e-21,
+            2.895519884847731e-21,
+            2.4393556264188786e-21,
+            8.71682102327768e-19,
+            1.107412436099392e-17,
+            1.4427414988749165e-14,
+            1.790349821587357e-13,
+            1.593213306920666e-13,
+            1.8257265581620447e-13,
+            1.989614575706803e-13,
+            1.708879149709237e-13,
+            2.0923036138417515e-13,
+            1.9088347066161381e-13,
+            1.6780459986245548e-13,
+            1.1469450480183926e-13,
+            9.133262411860224e-14,
+            9.648375526352522e-14,
+            9.420873751866835e-14,
+            8.997952676530433e-14,
+            9.203433138357967e-14
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/pml_abc/result.json",
+            "sha256": "c2bcd6fc8414b723486e0a267b8edad0f05ac65bbf965a7a307bb2ed57174eea"
+          },
+          "late_full_peak_m_s": 4.315873279311254e-10,
+          "late_full_peak_over_reference_peak": 0.030669498168820333,
+          "strong_growth": false,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 1.0,
+          "full_error_reduction_vs_old": 157.64640622517578,
+          "wide_error_ratio_to_L175": 1.0,
+          "wide_error_reduction_vs_old": 157.64640622441468,
+          "late_error_ratio_to_L175": 1.0,
+          "late_error_reduction_vs_old": 124.06192829384473
+        },
+        "L100": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 6.367037340954502e-11,
+              "relative_l2_to_full_reference": 6.346168306881013e-05,
+              "relative_l2_components_to_full_reference": [
+                7.776079560309817e-05,
+                5.560616510222193e-05
+              ],
+              "max_abs_error_m_s": [
+                2.961425290357702e-13,
+                3.5203845037602977e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                6.117121862739695e-05,
+                8.398970226386098e-06
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 6.367037340954495e-11,
+              "relative_l2_to_full_reference": 6.346168306881006e-05,
+              "relative_l2_components_to_full_reference": [
+                7.776079560309804e-05,
+                5.560616510222192e-05
+              ],
+              "max_abs_error_m_s": [
+                2.961425290357702e-13,
+                3.5203845037602977e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                6.117121862739695e-05,
+                8.398970226386098e-06
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 6.069274547156953e-11,
+              "relative_l2_to_full_reference": 6.049381480642129e-05,
+              "relative_l2_components_to_full_reference": [
+                7.373564793597339e-05,
+                5.325610295959222e-05
+              ],
+              "max_abs_error_m_s": [
+                2.953450726129435e-13,
+                3.5203845037602977e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                6.100649598068563e-05,
+                8.398970226386098e-06
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.716523245563725e-20,
+              "relative_l2_to_full_reference": 7.69123104482466e-14,
+              "relative_l2_components_to_full_reference": [
+                7.129507781863964e-14,
+                7.937955560429451e-14
+              ],
+              "max_abs_error_m_s": [
+                3.68012654524842e-21,
+                8.000490884612884e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.601671607548364e-13,
+                1.9087654960576525e-13
+              ]
+            }
+          },
+          "thickness_m": 100,
+          "rows": 20,
+          "dmax_s_inv": 302.9050689833667,
+          "run_seconds": 28.725121839903295,
+          "prepare_seconds": 0.31891509518027306,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 51200,
+          "global_nodes": 1282401,
+          "pml_elements": 12000,
+          "surface_nodes": 1601,
+          "kinetic_final_j_per_m": 2.4464103067511232e-20,
+          "error_kinetic_final_j_per_m": 2.4505841677878083e-20,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            2.2251158477676444e-21,
+            3.3314957664514612e-21,
+            2.0906989982277774e-21,
+            4.498809660615661e-18,
+            2.7044647086046783e-15,
+            1.6850508445015322e-13,
+            3.03722685041514e-13,
+            2.702024018271224e-13,
+            2.372198661549589e-13,
+            1.4393277525452452e-12,
+            3.2466245803114943e-13,
+            2.4893213959547755e-13,
+            2.3171130502943137e-13,
+            2.425961608816536e-13,
+            2.0452870893173444e-13,
+            2.0115101768654019e-13,
+            1.821867454499189e-13,
+            1.4106948756083875e-13,
+            1.194360056099754e-13,
+            9.303620515292733e-14
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L100/result.json",
+            "sha256": "c675b4b8576318e0ade12ac91a84287dbc24fbd5282abdbc97931ab7bf0c4e9e"
+          },
+          "late_full_peak_m_s": 1.7069126500398048e-10,
+          "late_full_peak_over_reference_peak": 0.012129678284503832,
+          "strong_growth": false,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 2.0898561261045656,
+          "full_error_reduction_vs_old": 75.43409532168339,
+          "wide_error_ratio_to_L175": 2.089856126104564,
+          "wide_error_reduction_vs_old": 75.43409532131926,
+          "late_error_ratio_to_L175": 2.067492458050956,
+          "late_error_reduction_vs_old": 60.00598832210448
+        },
+        "L50": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 1.3615883973537283e-10,
+              "relative_l2_to_full_reference": 0.00013571255627358646,
+              "relative_l2_components_to_full_reference": [
+                0.0001627092567735575,
+                0.0001211869452937286
+              ],
+              "max_abs_error_m_s": [
+                7.742939105225394e-13,
+                8.772185935590097e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                0.00015993819677522698,
+                2.0928773096985765e-05
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 1.3615883973537153e-10,
+              "relative_l2_to_full_reference": 0.00013571255627358518,
+              "relative_l2_components_to_full_reference": [
+                0.00016270925677355433,
+                0.00012118694529372847
+              ],
+              "max_abs_error_m_s": [
+                7.742939105225394e-13,
+                8.772185935590097e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                0.00015993819677522698,
+                2.0928773096985765e-05
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 1.194859866185575e-10,
+              "relative_l2_to_full_reference": 0.00011909435123266022,
+              "relative_l2_components_to_full_reference": [
+                0.00015654092234039334,
+                9.696718443062162e-05
+              ],
+              "max_abs_error_m_s": [
+                7.742939105225394e-13,
+                8.772185935590097e-13
+              ],
+              "max_error_over_global_reference_peak": [
+                0.00015993819677522698,
+                2.0928773096985765e-05
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.746073277247708e-20,
+              "relative_l2_to_full_reference": 7.720684221317593e-14,
+              "relative_l2_components_to_full_reference": [
+                7.170753742343847e-14,
+                7.962544949330304e-14
+              ],
+              "max_abs_error_m_s": [
+                3.657593774630289e-21,
+                5.8448582082996936e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.555127902993311e-13,
+                1.3944723940388103e-13
+              ]
+            }
+          },
+          "thickness_m": 50,
+          "rows": 10,
+          "dmax_s_inv": 605.8101379667334,
+          "run_seconds": 23.630275283940136,
+          "prepare_seconds": 0.28038526978343725,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 45000,
+          "global_nodes": 1127251,
+          "pml_elements": 5800,
+          "surface_nodes": 1501,
+          "kinetic_final_j_per_m": 2.5330476120778895e-19,
+          "error_kinetic_final_j_per_m": 2.5318342941683796e-19,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            3.609816193181413e-21,
+            2.2767112384756395e-21,
+            2.230285726596101e-21,
+            2.8416680333166314e-17,
+            7.755617419609368e-14,
+            6.650608118287228e-13,
+            1.0833426119583017e-12,
+            7.905515340597722e-13,
+            1.1996219352273584e-12,
+            8.108771258692995e-13,
+            5.688978315946916e-13,
+            5.817042576618531e-13,
+            5.911213113549744e-13,
+            5.4298103486394e-13,
+            4.976038674684671e-13,
+            4.381329586177957e-13,
+            3.443435339968254e-13,
+            2.967579936028766e-13,
+            2.8871309156833734e-13,
+            3.328525535502598e-13
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L50/result.json",
+            "sha256": "496eb82a093d54c9955c68225f82b515cdb82efe63dc8fb19dd514eef73a254b"
+          },
+          "late_full_peak_m_s": 1.2019242561299506e-05,
+          "late_full_peak_over_reference_peak": 854.1125141264789,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 4.469148995152596,
+          "full_error_reduction_vs_old": 35.274367982845256,
+          "wide_error_ratio_to_L175": 4.469148995152553,
+          "wide_error_reduction_vs_old": 35.27436798267529,
+          "late_error_ratio_to_L175": 4.070278486452141,
+          "late_error_reduction_vs_old": 30.479960697230652
+        },
+        "L25": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 4.197674815233391e-05,
+              "relative_l2_to_full_reference": 41.83916231129438,
+              "relative_l2_components_to_full_reference": [
+                63.4867979601404,
+                26.351890579975763
+              ],
+              "max_abs_error_m_s": [
+                1.703439470164294e-06,
+                1.2379192351761683e-06
+              ],
+              "max_error_over_global_reference_peak": [
+                351.8625595156279,
+                29.534406789398915
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 4.197674815233391e-05,
+              "relative_l2_to_full_reference": 41.83916231129438,
+              "relative_l2_components_to_full_reference": [
+                63.4867979601404,
+                26.351890579975763
+              ],
+              "max_abs_error_m_s": [
+                1.703439470164294e-06,
+                1.2379192351761683e-06
+              ],
+              "max_error_over_global_reference_peak": [
+                351.8625595156279,
+                29.534406789398915
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 4.197674815216939e-05,
+              "relative_l2_to_full_reference": 41.8391623111304,
+              "relative_l2_components_to_full_reference": [
+                63.486797960092424,
+                26.35189057964837
+              ],
+              "max_abs_error_m_s": [
+                1.703439470164294e-06,
+                1.2379192351761683e-06
+              ],
+              "max_error_over_global_reference_peak": [
+                351.8625595156279,
+                29.534406789398915
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.58622799711032e-20,
+              "relative_l2_to_full_reference": 7.56136286092797e-14,
+              "relative_l2_components_to_full_reference": [
+                6.984775993928146e-14,
+                7.814026513228038e-14
+              ],
+              "max_abs_error_m_s": [
+                3.788487205492867e-21,
+                4.144174868890669e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.825501452589684e-13,
+                9.887215813946277e-14
+              ]
+            }
+          },
+          "thickness_m": 25,
+          "rows": 5,
+          "dmax_s_inv": 1211.6202759334667,
+          "run_seconds": 20.997056037187576,
+          "prepare_seconds": 0.24322290532290936,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 42050,
+          "global_nodes": 1053426,
+          "pml_elements": 2850,
+          "surface_nodes": 1451,
+          "kinetic_final_j_per_m": 0.8412265305475741,
+          "error_kinetic_final_j_per_m": 0.8412265305475741,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            2.180448094689781e-21,
+            2.7527795303940493e-21,
+            2.1680403855014855e-21,
+            1.024661440575299e-16,
+            4.1112493882906154e-13,
+            1.6530177807966015e-12,
+            2.0817368680861306e-12,
+            2.0942292378453625e-12,
+            4.974898662297622e-12,
+            1.2070606098505157e-12,
+            6.765784857833565e-12,
+            6.359711705291658e-11,
+            5.546684973195424e-10,
+            5.336268552000782e-09,
+            5.067567246283952e-08,
+            4.887907047865956e-07,
+            4.8419848024541106e-06,
+            4.690981062066468e-05,
+            0.0004481782029139505,
+            0.004777772072764909
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L25/result.json",
+            "sha256": "ff8f61975e625bbedebc5bd1d41131939552a0771e9779f4b94134d91d9e41b8"
+          },
+          "late_full_peak_m_s": 793.5354442552624,
+          "late_full_peak_over_reference_peak": 56390288313.48046,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 1377805.0855117547,
+          "full_error_reduction_vs_old": 0.00011441851092211754,
+          "wide_error_ratio_to_L175": 1377805.0855117547,
+          "wide_error_reduction_vs_old": 0.00011441851092156512,
+          "late_error_ratio_to_L175": 1429933.8338346928,
+          "late_error_reduction_vs_old": 8.676060762975615e-05
+        },
+        "L15": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 438.81660164813485,
+              "relative_l2_to_full_reference": 437378306.54769576,
+              "relative_l2_components_to_full_reference": [
+                653193882.1012797,
+                286850022.13836074
+              ],
+              "max_abs_error_m_s": [
+                45.20855017961628,
+                34.866634004882066
+              ],
+              "max_error_over_global_reference_peak": [
+                9338280846.959745,
+                831851806.4958657
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 438.81660164813485,
+              "relative_l2_to_full_reference": 437378306.54769576,
+              "relative_l2_components_to_full_reference": [
+                653193882.1012797,
+                286850022.13836074
+              ],
+              "max_abs_error_m_s": [
+                45.20855017961628,
+                34.866634004882066
+              ],
+              "max_error_over_global_reference_peak": [
+                9338280846.959745,
+                831851806.4958657
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 438.81660164813485,
+              "relative_l2_to_full_reference": 437378306.54769576,
+              "relative_l2_components_to_full_reference": [
+                653193882.1012797,
+                286850022.13836074
+              ],
+              "max_abs_error_m_s": [
+                45.20855017961628,
+                34.866634004882066
+              ],
+              "max_error_over_global_reference_peak": [
+                9338280846.959745,
+                831851806.4958657
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.583690345604605e-20,
+              "relative_l2_to_full_reference": 7.5588335270012e-14,
+              "relative_l2_components_to_full_reference": [
+                6.914501589165243e-14,
+                7.839354334384794e-14
+              ],
+              "max_abs_error_m_s": [
+                3.1001695382721786e-21,
+                5.242257132054813e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                6.403712064765189e-13,
+                1.2507031980216475e-13
+              ]
+            }
+          },
+          "thickness_m": 15,
+          "rows": 3,
+          "dmax_s_inv": 2019.3671265557778,
+          "run_seconds": 20.50012743100524,
+          "prepare_seconds": 0.24224270321428776,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 40898,
+          "global_nodes": 1024596,
+          "pml_elements": 1698,
+          "surface_nodes": 1431,
+          "kinetic_final_j_per_m": 3.6228906608674294e+18,
+          "error_kinetic_final_j_per_m": 3.6228906608674294e+18,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            2.385588886602932e-21,
+            2.1207747683123227e-21,
+            1.7941030498392325e-21,
+            2.0778031483050174e-16,
+            9.2537269072994e-13,
+            2.475774887416697e-12,
+            4.1739549231039425e-12,
+            5.862794316399444e-11,
+            1.267372070644768e-09,
+            2.8927682755610945e-08,
+            7.647834919260837e-07,
+            1.9738647714858443e-05,
+            0.0005437938734570812,
+            0.015143244127944296,
+            0.42524815041325115,
+            12.426194595300089,
+            362.3491629088629,
+            10803.2400156259,
+            319360.93836193404,
+            9706554.993856119
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L15/result.json",
+            "sha256": "bfacec8210e0bb2f2e326014573f1f96630529ee614e4bf35cbc6923975eff81"
+          },
+          "late_full_peak_m_s": 8828938854.981243,
+          "late_full_peak_over_reference_peak": 6.274028603747282e+17,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 14403301160053.535,
+          "full_error_reduction_vs_old": 1.09451579518726e-11,
+          "wide_error_ratio_to_L175": 14403301160053.535,
+          "wide_error_reduction_vs_old": 1.0945157951819757e-11,
+          "late_error_ratio_to_L175": 14948244758511.625,
+          "late_error_reduction_vs_old": 8.299431157173358e-12
+        },
+        "L10": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 87475185370.6838,
+              "relative_l2_to_full_reference": 8.718847076130917e+16,
+              "relative_l2_components_to_full_reference": [
+                1.182854743095272e+17,
+                6.8133973049898936e+16
+              ],
+              "max_abs_error_m_s": [
+                9999749536.281164,
+                8672224790.98264
+              ],
+              "max_error_over_global_reference_peak": [
+                2.0655488662662876e+18,
+                2.0690284751051754e+17
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 87475185370.6838,
+              "relative_l2_to_full_reference": 8.718847076130917e+16,
+              "relative_l2_components_to_full_reference": [
+                1.182854743095272e+17,
+                6.8133973049898936e+16
+              ],
+              "max_abs_error_m_s": [
+                9999749536.281164,
+                8672224790.98264
+              ],
+              "max_error_over_global_reference_peak": [
+                2.0655488662662876e+18,
+                2.0690284751051754e+17
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 87475185370.6838,
+              "relative_l2_to_full_reference": 8.718847076130917e+16,
+              "relative_l2_components_to_full_reference": [
+                1.182854743095272e+17,
+                6.8133973049898936e+16
+              ],
+              "max_abs_error_m_s": [
+                9999749536.281164,
+                8672224790.98264
+              ],
+              "max_error_over_global_reference_peak": [
+                2.0655488662662876e+18,
+                2.0690284751051754e+17
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.602578380416538e-20,
+              "relative_l2_to_full_reference": 7.577659653107252e-14,
+              "relative_l2_components_to_full_reference": [
+                7.30918507537557e-14,
+                7.698841715849259e-14
+              ],
+              "max_abs_error_m_s": [
+                3.6966390231711764e-21,
+                4.837352222210106e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.63577979188723e-13,
+                1.1541005604782002e-13
+              ]
+            }
+          },
+          "thickness_m": 10,
+          "rows": 2,
+          "dmax_s_inv": 3029.050689833667,
+          "run_seconds": 20.178411240689456,
+          "prepare_seconds": 0.2680340511724353,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 40328,
+          "global_nodes": 1010331,
+          "pml_elements": 1128,
+          "surface_nodes": 1421,
+          "kinetic_final_j_per_m": 1.5737575632187422e+28,
+          "error_kinetic_final_j_per_m": 1.5737575632187422e+28,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            3.202843331805323e-21,
+            2.095248491596819e-21,
+            2.1883580092973193e-21,
+            4.3994187481842105e-16,
+            1.3495783862795191e-12,
+            3.98700966013739e-12,
+            9.946032077616876e-11,
+            3.744592295124973e-09,
+            1.5869871958184382e-07,
+            8.65268106589146e-06,
+            0.0004930449440470914,
+            0.0311191580503704,
+            2.076740519754041,
+            142.54450662877326,
+            10110.437552814352,
+            781047.7429992934,
+            61641120.45971075,
+            274656104.9485604,
+            19286981205.169266,
+            433968953629.3247
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L10/result.json",
+            "sha256": "43edc892fb45b6d3a7d87939f1c868d174e00d87248ff07a51945c97b808f3a7"
+          },
+          "late_full_peak_m_s": 30621630932415.184,
+          "late_full_peak_over_reference_peak": 2.1760371378602506e+21,
+          "strong_growth": true,
+          "fixed_strength": false,
+          "full_error_ratio_to_L175": 2.8712027625968087e+21,
+          "full_error_reduction_vs_old": 5.490605131718224e-20,
+          "wide_error_ratio_to_L175": 2.8712027625968087e+21,
+          "wide_error_reduction_vs_old": 5.490605131691715e-20,
+          "late_error_ratio_to_L175": 2.979833662413841e+21,
+          "late_error_reduction_vs_old": 4.163384347881595e-20
+        },
+        "F100": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 8.991340253597151e-10,
+              "relative_l2_to_full_reference": 0.0008961869626039858,
+              "relative_l2_components_to_full_reference": [
+                0.0010277339188405467,
+                0.0008282058569563697
+              ],
+              "max_abs_error_m_s": [
+                6.279017263395225e-12,
+                8.455798796365162e-12
+              ],
+              "max_error_over_global_reference_peak": [
+                0.001296994183965908,
+                0.00020173933345951956
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 8.991340253597151e-10,
+              "relative_l2_to_full_reference": 0.0008961869626039858,
+              "relative_l2_components_to_full_reference": [
+                0.0010277339188405467,
+                0.0008282058569563697
+              ],
+              "max_abs_error_m_s": [
+                6.279017263395225e-12,
+                8.455798796365162e-12
+              ],
+              "max_error_over_global_reference_peak": [
+                0.001296994183965908,
+                0.00020173933345951956
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 8.281510997414912e-10,
+              "relative_l2_to_full_reference": 0.0008254366954443253,
+              "relative_l2_components_to_full_reference": [
+                0.0008895759702540782,
+                0.0007939743793923376
+              ],
+              "max_abs_error_m_s": [
+                5.079145879090958e-12,
+                8.455798796365162e-12
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0010491486785837066,
+                0.00020173933345951956
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.885565534924004e-20,
+              "relative_l2_to_full_reference": 7.859719269695034e-14,
+              "relative_l2_components_to_full_reference": [
+                6.861189358668025e-14,
+                8.281527487371184e-14
+              ],
+              "max_abs_error_m_s": [
+                3.467320889361809e-21,
+                6.355228646244912e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.162100116625688e-13,
+                1.516237107755474e-13
+              ]
+            }
+          },
+          "thickness_m": 100,
+          "rows": 20,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 29.539097082801163,
+          "prepare_seconds": 0.631511427462101,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 51200,
+          "global_nodes": 1282401,
+          "pml_elements": 12000,
+          "surface_nodes": 1601,
+          "kinetic_final_j_per_m": 1.897064470198622e-17,
+          "error_kinetic_final_j_per_m": 1.8971628652877207e-17,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            1.6940658945086007e-21,
+            3.1500330195726408e-21,
+            2.058852544644486e-21,
+            2.6208982220762046e-18,
+            2.3229853747275604e-14,
+            1.0387694183964694e-12,
+            1.2940660000872801e-12,
+            1.336863110169569e-12,
+            4.4027908177412245e-12,
+            9.155315407227488e-12,
+            4.642586725718886e-12,
+            4.585725066414936e-12,
+            4.097684454635528e-12,
+            4.494232515343852e-12,
+            4.615741375023767e-12,
+            4.435312280558555e-12,
+            4.5353852584477385e-12,
+            4.456401954847083e-12,
+            4.460965387965447e-12,
+            4.45827786840673e-12
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L100_fixed/result.json",
+            "sha256": "db191447f5cf13937ce22add533f3e50fb4039fe40a09b60f67d161e0abd1d5d"
+          },
+          "late_full_peak_m_s": 2.788467465161763e-10,
+          "late_full_peak_over_reference_peak": 0.019815433003223294,
+          "strong_growth": false,
+          "fixed_strength": true,
+          "full_error_ratio_to_L175": 29.512324970994484,
+          "full_error_reduction_vs_old": 5.341714228889623,
+          "wide_error_ratio_to_L175": 29.512324970994484,
+          "wide_error_reduction_vs_old": 5.341714228863834,
+          "late_error_ratio_to_L175": 28.21088648303423,
+          "late_error_reduction_vs_old": 4.397661461948544
+        },
+        "F50": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 1.1630536175692268e-08,
+              "relative_l2_to_full_reference": 0.011592415140311773,
+              "relative_l2_components_to_full_reference": [
+                0.012403545633226553,
+                0.01119681574368729
+              ],
+              "max_abs_error_m_s": [
+                6.833404494846201e-11,
+                1.1372642354892405e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.014115084438722544,
+                0.0027132969262888963
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 1.1630536175692268e-08,
+              "relative_l2_to_full_reference": 0.011592415140311773,
+              "relative_l2_components_to_full_reference": [
+                0.012403545633226553,
+                0.01119681574368729
+              ],
+              "max_abs_error_m_s": [
+                6.833404494846201e-11,
+                1.1372642354892405e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.014115084438722544,
+                0.0027132969262888963
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 1.0510788567852953e-08,
+              "relative_l2_to_full_reference": 0.01047633769329143,
+              "relative_l2_components_to_full_reference": [
+                0.010802680109284798,
+                0.010321684288097125
+              ],
+              "max_abs_error_m_s": [
+                6.833404494846201e-11,
+                1.1372642354892405e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.014115084438722544,
+                0.0027132969262888963
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.583656795417321e-20,
+              "relative_l2_to_full_reference": 7.558800086780289e-14,
+              "relative_l2_components_to_full_reference": [
+                6.850629175057463e-14,
+                7.865238481250967e-14
+              ],
+              "max_abs_error_m_s": [
+                3.445468993610623e-21,
+                4.6454463200978034e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.116962827605732e-13,
+                1.1083154493237983e-13
+              ]
+            }
+          },
+          "thickness_m": 50,
+          "rows": 10,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 24.07266162056476,
+          "prepare_seconds": 0.3205156670883298,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 45000,
+          "global_nodes": 1127251,
+          "pml_elements": 5800,
+          "surface_nodes": 1501,
+          "kinetic_final_j_per_m": 2.8160449234216102e-15,
+          "error_kinetic_final_j_per_m": 2.816040725859176e-15,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            2.7263872989747792e-21,
+            1.7792654976015625e-21,
+            1.8863853869271796e-21,
+            9.914143789294385e-18,
+            2.4466442974818233e-12,
+            7.1253472600553785e-12,
+            7.108338120742622e-12,
+            5.254944277647932e-11,
+            5.3249019264604886e-11,
+            5.306298072451119e-11,
+            5.882567636805717e-11,
+            6.074382469855373e-11,
+            5.735850433818698e-11,
+            5.979486726425027e-11,
+            5.928607905661152e-11,
+            6.020457586194066e-11,
+            6.026087409422741e-11,
+            5.955451188510646e-11,
+            5.957959496123962e-11,
+            5.958499121286904e-11
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L50_fixed/result.json",
+            "sha256": "f7307952aa909d09312bb708cf03efa7d6802d1684f44bcaf4cae44e13b4c656"
+          },
+          "late_full_peak_m_s": 6.073981241172164e-11,
+          "late_full_peak_over_reference_peak": 0.004316298104640066,
+          "strong_growth": false,
+          "fixed_strength": true,
+          "full_error_ratio_to_L175": 381.74972086793895,
+          "full_error_reduction_vs_old": 0.4129574891810108,
+          "wide_error_ratio_to_L175": 381.74972086793895,
+          "wide_error_reduction_vs_old": 0.412957489179017,
+          "late_error_ratio_to_L175": 358.0489879533245,
+          "late_error_reduction_vs_old": 0.3464942856088104
+        },
+        "F25": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 4.271768326138124e-08,
+              "relative_l2_to_full_reference": 0.04257766888109984,
+              "relative_l2_components_to_full_reference": [
+                0.04453215113578612,
+                0.04164130354624986
+              ],
+              "max_abs_error_m_s": [
+                2.5216060484179617e-10,
+                4.197772781593963e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.052086309717882584,
+                0.010015090275531529
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 4.271768326138121e-08,
+              "relative_l2_to_full_reference": 0.04257766888109981,
+              "relative_l2_components_to_full_reference": [
+                0.04453215113578605,
+                0.041641303546249855
+              ],
+              "max_abs_error_m_s": [
+                2.5216060484179617e-10,
+                4.197772781593963e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.052086309717882584,
+                0.010015090275531529
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 3.819722919433177e-08,
+              "relative_l2_to_full_reference": 0.03807203136135505,
+              "relative_l2_components_to_full_reference": [
+                0.038934057168831256,
+                0.03766606752301307
+              ],
+              "max_abs_error_m_s": [
+                2.5216060484179617e-10,
+                4.197772781593963e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.052086309717882584,
+                0.010015090275531529
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.791588708422525e-20,
+              "relative_l2_to_full_reference": 7.766050468023529e-14,
+              "relative_l2_components_to_full_reference": [
+                7.019890444586844e-14,
+                8.088370265959204e-14
+              ],
+              "max_abs_error_m_s": [
+                3.570286007189328e-21,
+                6.154223757394526e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.374784926002125e-13,
+                1.468281150813579e-13
+              ]
+            }
+          },
+          "thickness_m": 25,
+          "rows": 5,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 22.884508120827377,
+          "prepare_seconds": 0.47699430491775274,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 42050,
+          "global_nodes": 1053426,
+          "pml_elements": 2850,
+          "surface_nodes": 1451,
+          "kinetic_final_j_per_m": 3.316803670732838e-14,
+          "error_kinetic_final_j_per_m": 3.316807936545351e-14,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            1.9868878313523725e-21,
+            3.1471637368228475e-21,
+            2.421984833555265e-21,
+            1.009960110457157e-15,
+            1.2072558602338511e-11,
+            1.911861658766541e-11,
+            1.8119530249090595e-11,
+            2.514713279844917e-10,
+            1.9899723485837249e-10,
+            2.126830728069025e-10,
+            2.1876033272382927e-10,
+            2.2056094256431497e-10,
+            2.1865818781787723e-10,
+            3.7008708535191567e-10,
+            2.167262396615346e-10,
+            2.1829008830456136e-10,
+            2.1753401932067864e-10,
+            2.1777980079003918e-10,
+            2.1740858806405262e-10,
+            2.179996633146323e-10
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L25_fixed/result.json",
+            "sha256": "6acd6e8f0c42b840e85e969e9ba24e09e4fd8d8d94473565ba2866a24df850e0"
+          },
+          "late_full_peak_m_s": 3.7008560368150246e-10,
+          "late_full_peak_over_reference_peak": 0.02629905701547369,
+          "strong_growth": false,
+          "fixed_strength": true,
+          "full_error_ratio_to_L175": 1402.1248388565086,
+          "full_error_reduction_vs_old": 0.11243393017253941,
+          "wide_error_ratio_to_L175": 1402.124838856508,
+          "wide_error_reduction_vs_old": 0.11243393017199665,
+          "late_error_ratio_to_L175": 1301.1848889702644,
+          "late_error_reduction_vs_old": 0.09534534972353177
+        },
+        "F15": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 7.220722485167596e-08,
+              "relative_l2_to_full_reference": 0.07197055354678365,
+              "relative_l2_components_to_full_reference": [
+                0.07543467707951237,
+                0.07030820295645894
+              ],
+              "max_abs_error_m_s": [
+                5.933928692923742e-10,
+                7.05251502763178e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.12257126680726699,
+                0.016825964230597314
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 7.220722485167429e-08,
+              "relative_l2_to_full_reference": 0.07197055354678199,
+              "relative_l2_components_to_full_reference": [
+                0.07543467707950811,
+                0.07030820295645857
+              ],
+              "max_abs_error_m_s": [
+                5.933928692923742e-10,
+                7.05251502763178e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.12257126680726699,
+                0.016825964230597314
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 6.402856346563147e-08,
+              "relative_l2_to_full_reference": 0.06381869909683849,
+              "relative_l2_components_to_full_reference": [
+                0.06515147094491308,
+                0.06319185188219252
+              ],
+              "max_abs_error_m_s": [
+                4.2295128403914055e-10,
+                7.05251502763178e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.08736484269563144,
+                0.016825964230597314
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 8.110916558745116e-20,
+              "relative_l2_to_full_reference": 8.08433166769337e-14,
+              "relative_l2_components_to_full_reference": [
+                7.196350734554021e-14,
+                8.464123268294329e-14
+              ],
+              "max_abs_error_m_s": [
+                3.7818697605924425e-21,
+                6.2427320829377e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.811832454419222e-13,
+                1.4893975598373764e-13
+              ]
+            }
+          },
+          "thickness_m": 15,
+          "rows": 3,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 21.261271678842604,
+          "prepare_seconds": 0.4809843134135008,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 40898,
+          "global_nodes": 1024596,
+          "pml_elements": 1698,
+          "surface_nodes": 1431,
+          "kinetic_final_j_per_m": 7.49417217291114e-14,
+          "error_kinetic_final_j_per_m": 7.49419610876939e-14,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            2.1026931171097963e-21,
+            3.2354911166070255e-21,
+            1.7424559603429528e-21,
+            2.036314618764242e-14,
+            1.7359296660144586e-11,
+            2.79454195941545e-11,
+            8.183591100980015e-11,
+            4.053037021836408e-10,
+            3.373791980730816e-10,
+            3.591568883596439e-10,
+            3.652891331847874e-10,
+            3.612668493350247e-10,
+            3.6616895554577484e-10,
+            2.222640551910016e-10,
+            3.6507669549236096e-10,
+            3.6675916117359534e-10,
+            3.652223129549518e-10,
+            3.657942845911662e-10,
+            3.6576793696531897e-10,
+            3.6589627416649404e-10
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L15_fixed/result.json",
+            "sha256": "e07e4b8cf7ac7cc467bb0dc7a5dba180360900853cd281b00c3e354c9a799644"
+          },
+          "late_full_peak_m_s": 3.667582071146106e-10,
+          "late_full_peak_over_reference_peak": 0.026062605256325852,
+          "strong_growth": false,
+          "fixed_strength": true,
+          "full_error_ratio_to_L175": 2370.061664860011,
+          "full_error_reduction_vs_old": 0.06651574031281049,
+          "wide_error_ratio_to_L175": 2370.061664859956,
+          "wide_error_reduction_vs_old": 0.0665157403124909,
+          "late_error_ratio_to_L175": 2181.126772837134,
+          "late_error_reduction_vs_old": 0.056879742085082605
+        },
+        "F10": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 9.404456177044853e-08,
+              "relative_l2_to_full_reference": 0.09373631492675724,
+              "relative_l2_components_to_full_reference": [
+                0.09854378871197529,
+                0.09142393100648662
+              ],
+              "max_abs_error_m_s": [
+                9.120135760952436e-10,
+                9.09440653321038e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.18838557918757315,
+                0.021697530374166805
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 9.404456177042237e-08,
+              "relative_l2_to_full_reference": 0.09373631492673117,
+              "relative_l2_components_to_full_reference": [
+                0.0985437887119366,
+                0.09142393100646681
+              ],
+              "max_abs_error_m_s": [
+                9.120135760952436e-10,
+                9.09440653321038e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.18838557918757315,
+                0.021697530374166805
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 8.284839893498403e-08,
+              "relative_l2_to_full_reference": 0.08257684939510825,
+              "relative_l2_components_to_full_reference": [
+                0.08419867393015128,
+                0.08181474760599164
+              ],
+              "max_abs_error_m_s": [
+                5.449711542250537e-10,
+                9.09440653321038e-10
+              ],
+              "max_error_over_global_reference_peak": [
+                0.11256927442764897,
+                0.021697530374166805
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 7.586222784954879e-20,
+              "relative_l2_to_full_reference": 7.561357665856243e-14,
+              "relative_l2_components_to_full_reference": [
+                7.006081957927183e-14,
+                7.805179341979327e-14
+              ],
+              "max_abs_error_m_s": [
+                3.50693560449513e-21,
+                5.025949401872196e-21
+              ],
+              "max_error_over_global_reference_peak": [
+                7.243928296055795e-13,
+                1.199096273164423e-13
+              ]
+            }
+          },
+          "thickness_m": 10,
+          "rows": 2,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 20.5114185186103,
+          "prepare_seconds": 0.4342435756698251,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 40328,
+          "global_nodes": 1010331,
+          "pml_elements": 1128,
+          "surface_nodes": 1421,
+          "kinetic_final_j_per_m": 1.1620463380992303e-13,
+          "error_kinetic_final_j_per_m": 1.162048469363744e-13,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            2.3243775212740078e-21,
+            2.2196099268153384e-21,
+            1.8057352772032594e-21,
+            8.132238345503275e-14,
+            2.2272813890363983e-11,
+            3.1550314873947605e-11,
+            1.9532359399438773e-10,
+            5.123464309792778e-10,
+            4.385433902132241e-10,
+            4.6552820093968047e-10,
+            4.733437937254203e-10,
+            4.682273547843886e-10,
+            4.73976162108321e-10,
+            4.888791402317862e-10,
+            4.744142758763627e-10,
+            4.66210186124995e-10,
+            4.74973664506595e-10,
+            4.739576112539015e-10,
+            4.739079505730971e-10,
+            4.818316368829489e-10
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L10_fixed/result.json",
+            "sha256": "711a0bbb81f5935bc474508823d9470b3845091bc66c14affc3b54b64cf17129"
+          },
+          "late_full_peak_m_s": 4.888776520709566e-10,
+          "late_full_peak_over_reference_peak": 0.0347406684224059,
+          "strong_growth": false,
+          "fixed_strength": true,
+          "full_error_ratio_to_L175": 3086.829761129173,
+          "full_error_reduction_vs_old": 0.0510706512585612,
+          "wide_error_ratio_to_L175": 3086.829761128314,
+          "wide_error_reduction_vs_old": 0.051070651258328846,
+          "late_error_ratio_to_L175": 2822.222633509197,
+          "late_error_reduction_vs_old": 0.043958944564052395
+        },
+        "reference": {
+          "surface": {
+            "full": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            },
+            "wide": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            },
+            "late": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            },
+            "early": {
+              "error_weighted_l2": 0.0,
+              "relative_l2_to_full_reference": 0.0,
+              "relative_l2_components_to_full_reference": [
+                0.0,
+                0.0
+              ],
+              "max_abs_error_m_s": [
+                0.0,
+                0.0
+              ],
+              "max_error_over_global_reference_peak": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "thickness_m": 0,
+          "rows": 0,
+          "dmax_s_inv": 173.0886108476381,
+          "run_seconds": 356.7353245727718,
+          "prepare_seconds": 4.156299989670515,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "elements": 819200,
+          "global_nodes": 20489601,
+          "pml_elements": 0,
+          "surface_nodes": 1751,
+          "kinetic_final_j_per_m": 1.465436788227971e-22,
+          "error_kinetic_final_j_per_m": 0.0,
+          "core_error_peak_by_frame_m_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "source_result": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/reference/result.json",
+            "sha256": "f28451e068bbcb4353f71e861317f24bb62f2e65e1c4ae428a79384f944f9224"
+          },
+          "late_full_peak_m_s": 7.980269294224699e-10,
+          "late_full_peak_over_reference_peak": 0.056709462643207156,
+          "strong_growth": false,
+          "fixed_strength": false
+        }
+      },
+      "time_step_check_L10": {
+        "full": {
+          "error_weighted_l2": 2148478005.289411,
+          "relative_l2_to_full_reference": 2141436007842635.2,
+          "relative_l2_components_to_full_reference": [
+            2910327852617181.5,
+            1669313988722461.5
+          ],
+          "max_abs_error_m_s": [
+            246988732.13835144,
+            214284258.83302164
+          ],
+          "max_error_over_global_reference_peak": [
+            5.101800738087758e+16,
+            5112416294297797.0
+          ]
+        },
+        "wide": {
+          "error_weighted_l2": 2148478005.289411,
+          "relative_l2_to_full_reference": 2141436007842635.2,
+          "relative_l2_components_to_full_reference": [
+            2910327852617181.5,
+            1669313988722461.5
+          ],
+          "max_abs_error_m_s": [
+            246988732.13835144,
+            214284258.83302164
+          ],
+          "max_error_over_global_reference_peak": [
+            5.101800738087758e+16,
+            5112416294297797.0
+          ]
+        },
+        "late": {
+          "error_weighted_l2": 2148478005.289411,
+          "relative_l2_to_full_reference": 2141436007842635.2,
+          "relative_l2_components_to_full_reference": [
+            2910327852617181.5,
+            1669313988722461.5
+          ],
+          "max_abs_error_m_s": [
+            246988732.13835144,
+            214284258.83302164
+          ],
+          "max_error_over_global_reference_peak": [
+            5.101800738087758e+16,
+            5112416294297797.0
+          ]
+        },
+        "early": {
+          "error_weighted_l2": 1.8107747864026873e-12,
+          "relative_l2_to_full_reference": 1.8048396679648257e-06,
+          "relative_l2_components_to_full_reference": [
+            1.8274883823259972e-06,
+            1.7942522001228786e-06
+          ],
+          "max_abs_error_m_s": [
+            3.268047990475057e-14,
+            9.689351714676748e-14
+          ],
+          "max_error_over_global_reference_peak": [
+            6.750481896709551e-06,
+            2.311695682037756e-06
+          ]
+        },
+        "full_difference_over_L10_error": 0.024560999741641543,
+        "late_full_peak_fine_m_s": 31142289252881.953,
+        "late_full_peak_coarse_m_s": 30621630932415.184,
+        "strong_growth_fine": true
+      }
+    }
+  },
+  "verified_runs": [
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p4/old",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p4/pml_abc",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L100",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L50",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L25",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L15",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p4/L10",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p4/reference",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/old",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/pml_abc",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L100",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L50",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L25",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L15",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L10",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L100_fixed",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L50_fixed",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L25_fixed",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L15_fixed",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L10_fixed",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/reference",
+    "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/p5/L10_half"
+  ],
+  "new_runs": 16,
+  "reused_runs": 6,
+  "primary_window_s": [
+    0.0,
+    1.0
+  ],
+  "secondary_windows_s": [
+    [
+      0.2,
+      1.0
+    ],
+    [
+      0.5,
+      1.0
+    ]
+  ],
+  "metric": "GLL weighted L2 of Vx/Vy minus expanded reference, physical top x=0..1400; common sample dt omitted",
+  "profile": "L labels: dmax*L constant; F labels p5: fixed dmax173.0886108476381; quadratic, ABC at three outer edges; no mass damping",
+  "growth_diagnostic": "strong_growth means late full-domain peak exceeds 10 times the full-time reference peak; includes PML and is a conservative gross-growth indicator, not a proof of long-time stability",
+  "reference": "reused 6400x3200 homogeneous domain, same local h/p/dt",
+  "timing_note": "single runs including full-domain output; output size decreases with thickness; historical L175 and old timings reused, not statistical kernel benchmarks"
+}

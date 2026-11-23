@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "notebook_cells": 105,
+  "executed_code_cells": 30,
+  "embedded_pngs": 24,
+  "new_preview_embedded_exact": true,
+  "all_media_sha_verified": true,
+  "mypy_source_files": 95,
+  "roundtrip": "passed",
+  "git_diff_check": "passed",
+  "diary_sha256": "07c6e766a9ba7787357815ecc9fee5f53f50544acce39b3c43951f1f19725309",
+  "notebook_sha256": "f5e74bb10bef3231b55951dc6993575031459496a893c541a4de78b211edd98b",
+  "animation_report_sha256": "75cad8257bae70a29ce90453bb7392e6f10a41d3475053e1e9305e159e529509",
+  "scope": "Report and media consistency; solver/repeat checks recorded separately"
+}

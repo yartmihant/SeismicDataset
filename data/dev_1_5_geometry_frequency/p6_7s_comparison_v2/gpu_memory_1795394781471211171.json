@@ -1,0 +1,8 @@
+{
+  "time_unix": 1795394781.4376168,
+  "active_started_without_result": [
+    "data/dev_1_5_geometry_frequency/p6_7s_comparison_v2/p6_7s/p6_h10/fixed/batch7_repeat0/started.json"
+  ],
+  "gpu": "pid, used_gpu_memory [MiB]\n852633, 1004 MiB\n",
+  "meaning": "instantaneous allocation, not peak"
+}

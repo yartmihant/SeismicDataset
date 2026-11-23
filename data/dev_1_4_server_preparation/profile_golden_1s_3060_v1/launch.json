@@ -1,0 +1,31 @@
+{
+  "status": "started",
+  "utc": "2026-11-18T11:37:54Z",
+  "unit": "seismic14-profile-golden-1s-3060-v1.service",
+  "pid": 3185340,
+  "invocation_id": "0daffc34d83a4f218ca6da39d380e27d",
+  "manifest": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/manifest.json",
+    "sha256": "d9427d9a525c854b3946c5faff65eb71382f4042208bf12e178ffe14314c9225"
+  },
+  "t_end_s": 1.0,
+  "time_window_s": [
+    0.5,
+    1.0
+  ],
+  "tolerance": 0.02,
+  "max_evaluations": 9,
+  "first_factor": 0.5364745084375788,
+  "first_actual_source_matches_validated_1s_prefix": true,
+  "actual_native_sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f",
+  "environment": {
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "0"
+  },
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "available_disk_bytes_before_start": 80550682624,
+  "scope": "One local sequential1s golden search; saturn not used; no all-node output"
+}

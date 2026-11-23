@@ -1,0 +1,38 @@
+{
+  "status": "completed",
+  "utc": "2026-11-21T14:13:25.249087+00:00",
+  "runs": 22,
+  "array_sha_checks": 88,
+  "max_early_relative_l2": 1.9317507969175808e-13,
+  "report": "img/dev_1_5_geometry_frequency/pml_layered_cached_v1/reviewed.html",
+  "minimum_tested_thickness_first_four_windows_m": 550,
+  "threshold_bracket_first_four_m": [
+    500,
+    550
+  ],
+  "all_five_100x_achieved": false,
+  "max_tested_thickness_m": 1200,
+  "notebook_cells": 48,
+  "tests": [
+    "mypy",
+    "CPU geometry/material/PML checks",
+    "native CFL baseline K52 vs common K53",
+    "22 completed runs",
+    "surface matches field snapshots exactly",
+    "88 array SHA256",
+    "6 PNG verified",
+    "8 visualization SHA256",
+    "13 HTML links",
+    "notebook execution and roundtrip"
+  ],
+  "primary_files_sha256": {
+    "data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json": "403bddedcfeaf33008c87700e68d0bf9a2d362e56525dff7dc130f73b40e3fab",
+    "data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/tail_spectrum.json": "17af9cdd25615f572b370448f1cee328bfb118ee4ee32aeaf2ece9b8f8e511c3",
+    "data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/artifact_validation.json": "c7a9839b292c5f68a580a38e6ad5e080ad9f0243129b3f6101d67c840e0322f1",
+    "dev_1_5_geometry_frequency.py": "1f40d53b1c6b1793ab03fe3fe2b8e8270027d39a40bc6dccc46b8e6aa3c4cefe",
+    "dev_1_5_geometry_frequency.ipynb": "235820157b649024ab7f42206478bbf60a097fa6d86d3ce76f391dc284ed48b2",
+    "dev_1_5_geometry_frequency_summary.md": "f15eba889c548dc0b219e7f44c4170fda19314cd983677b06aa6ee5fa325c40b"
+  },
+  "production": "not resumed",
+  "limitations": "Specific two-layer geometry, source30Hz, p5/h5, common dt1/53000,1s; windows can contain mixed phases; no long-time stability proof or cause isolation for residual error."
+}

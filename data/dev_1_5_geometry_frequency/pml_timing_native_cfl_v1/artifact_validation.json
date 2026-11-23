@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "runs": 50,
+  "verified_source_array_sha_count": 200,
+  "artifact_sha_files": [
+    "timings.png",
+    "index.html",
+    "field_diagnostics.png",
+    "reviewed.html"
+  ],
+  "png_count": 2,
+  "html_links_checked": 7,
+  "mypy": "passed",
+  "visual_review": "timing bars and field diagnostics inspected",
+  "gpu_compute_processes": [],
+  "server_available_bytes": 122485796864,
+  "production": "remains stopped",
+  "latest_source_check": "../pml_timing_cpu_v1/latest_source_check.json",
+  "notebook": {
+    "cells": 54,
+    "executed_report_only": true,
+    "roundtrip": "passed"
+  }
+}

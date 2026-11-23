@@ -1,0 +1,32 @@
+{
+  "status": "launched",
+  "recorded_utc": "2026-11-21T13:35:21.763072+00:00",
+  "commit": "cda43ce",
+  "runtime": ".runtime_ch15_pml_cached_v1",
+  "snapshot": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/docs/runtime_sources/seismic_pml_cached_v1/provenance.json",
+    "sha256": "4d4a0a638241d1aaef3c8e111c39735b259ea008ed02be9fc22df45c067012ef"
+  },
+  "smoke_completed": "L175",
+  "workers": {
+    "gpu0": [
+      "reference",
+      "old",
+      "L350",
+      "L150",
+      "L75",
+      "L25"
+    ],
+    "gpu1": [
+      "homogeneous_reference",
+      "L250",
+      "L125",
+      "L100",
+      "L50",
+      "L10"
+    ]
+  },
+  "runs_total": 13,
+  "production": "remains stopped",
+  "note": "mesh preparation plan lists unique mesh preparations; old reuses L175 mesh and is included in this run manifest"
+}

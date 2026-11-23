@@ -1,0 +1,15 @@
+{
+  "hostname": "saturn",
+  "python": "/home/antonov/SeismicDataset/.runtime_ch15_pml_v1/venv/bin/python",
+  "git_head": "1240516b34e12261b596a2cf43b16a3a806e9a4f",
+  "gpu_visible": "0",
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "7d1afca9b8820523671ad772406b4849ec0d47a98b157cc292dd0b077047a4e4"
+  },
+  "baseline_dt_s": 1.8867924528301888e-05,
+  "source_baseline": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/p5/old/result.json",
+    "sha256": "7bc3c3d2368da061aa78d745ebe2d478bde6d8727a0e3581b0b35dcaa46f7d42"
+  }
+}

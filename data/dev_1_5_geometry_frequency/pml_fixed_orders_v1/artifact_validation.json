@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "artifacts_sha256_verified": [
+    "timings.png",
+    "accuracy.png",
+    "index.html",
+    "accuracy_reviewed.png",
+    "reviewed.html"
+  ],
+  "verified_html_links": [
+    "timings.png",
+    "accuracy.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/analysis/metrics.json",
+    "timings.png",
+    "accuracy_reviewed.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/analysis/metrics.json"
+  ],
+  "png_count": 3,
+  "array_sha256_verified_on_saturn": 172,
+  "runs": 43,
+  "probes": 9,
+  "boundary_elements": 0,
+  "fixed_generic_agree": true,
+  "mypy": "3 source files passed",
+  "notebook": "61 cells, executed, syntax/format/roundtrip OK",
+  "visual_review": "timings.png and accuracy_reviewed.png inspected; labels readable; native error axis starts at zero",
+  "metrics_sha256": "db51f8faa3a166eeae7b2be160bbbd31d9837cf7f18ae87a36d46954eaa0fd41"
+}

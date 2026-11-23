@@ -1,0 +1,10 @@
+{
+  "status": "failed_before_gpu",
+  "reason": "Bitwise equality of embedded ALine tables and standard tables constructed on Saturn failed; numerical differences subsequently measured",
+  "max_abs_difference_by_order": {
+    "4": 1.7763568394002505e-15,
+    "5": 1.1102230246251565e-15
+  },
+  "replacement_validation": "../p45_damping_cpu_saturn_v2/validation.json",
+  "wave_solution_tolerance_unchanged": true
+}

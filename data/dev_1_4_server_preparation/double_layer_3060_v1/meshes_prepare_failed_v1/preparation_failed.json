@@ -1,0 +1,6 @@
+{
+  "status": "failed_before_solver",
+  "reason": "The historical175m stability helper rejected350m coordinates; no GPU/native calculation began. Its350m counterpart now explicitly bounds fixed175plateau>=stretched350.",
+  "outputs": "Only frozen mesh and geometry; no stability certificate and no simulation fields",
+  "historical_results_modified": false
+}

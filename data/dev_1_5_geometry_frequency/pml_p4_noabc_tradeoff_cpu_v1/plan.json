@@ -1,0 +1,81 @@
+{
+  "status": "cpu_checked",
+  "order": 4,
+  "cases": [
+    {
+      "label": "L100",
+      "thickness_m": 100,
+      "nodes": 821121,
+      "dmax_s_inv": 302.9050689833667,
+      "ABC": true,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_cpu_v1/meshes/layered_100.npz",
+        "sha256": "2c5700ae54859b909f46cc020e17535ee8dcaf9d614bf967fa671ebed5fe6576"
+      }
+    },
+    {
+      "label": "P175_noabc",
+      "thickness_m": 175,
+      "nodes": 982101,
+      "dmax_s_inv": 173.0886108476381,
+      "ABC": false,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_cpu_v1/meshes/layered_175.npz",
+        "sha256": "9ae64bfbf5f07c4263418f08e923967b23803039263237bf8bfc3b5378607278"
+      }
+    },
+    {
+      "label": "P250_noabc",
+      "thickness_m": 250,
+      "nodes": 1157481,
+      "dmax_s_inv": 173.0886108476381,
+      "ABC": false,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_cpu_v1/meshes/layered_250.npz",
+        "sha256": "899f610fda702c3efcd6e94865aa62ea0c971cc0627564631e55120f6047ad21"
+      }
+    },
+    {
+      "label": "P350_noabc",
+      "thickness_m": 350,
+      "nodes": 1413721,
+      "dmax_s_inv": 173.0886108476381,
+      "ABC": false,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_cpu_v1/meshes/layered_350.npz",
+        "sha256": "a4907d81c7b7b32dff1de612aa551ff3c90a72cd99c95fc19c8f96ecd1104a0d"
+      }
+    },
+    {
+      "label": "R2000",
+      "nodes": 9337681,
+      "saved_nodes": 628881,
+      "nominal_boundary_return_lower_bound_s": 1.1499877660875948,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_cpu_v1/meshes/layered_2000.npz",
+        "sha256": "df82d450cc7f3e5f05c2132dd3f99c2871a92d17607e9aee314738c6240ed6fd"
+      }
+    }
+  ],
+  "baseline": "L100:100m PML + ABC",
+  "candidates": "175/250/350m no ABC; fixed maximum173.088611",
+  "native_CFL": 0.8,
+  "source_hz": 30,
+  "duration_s": 1,
+  "kim_beta": 0.037037037037037035,
+  "element_m": 5,
+  "timing": "one full warmup and three rotated repeats per case on one A100; native step; dt/2 control each;250/350 also baseline dt",
+  "accuracy": "baseline is comparison target, not exact truth; expanded p4 controls at baseline/2, baseline and candidate dt distinguish absorption from time discretization; whole1s and first PP window reported",
+  "reference_domain": [
+    -2000,
+    3400,
+    -2700,
+    0
+  ],
+  "reference_return_bound_s": 1.1499877660875948,
+  "estimated_new_data_bytes": 12000000000,
+  "snapshot": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/docs/runtime_sources/seismic_pml_cfl_v1/provenance.json",
+    "sha256": "ccf416e9b2d4b53242593a8a694f92a364ae1ce6b7e50668800e6a2ed541c22b"
+  }
+}

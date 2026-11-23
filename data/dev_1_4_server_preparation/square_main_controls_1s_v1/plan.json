@@ -1,0 +1,21 @@
+{
+  "factor": 0.5684038628158912,
+  "variants": [
+    "main_abc",
+    "zero_abc"
+  ],
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/square_boundaries_1s_v1/mesh_q2.npz",
+    "sha256": "4c4f7484f643fb781a0dac8ee662f472e14e50d435d25b16f40284d304775a6e"
+  },
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/square_main_controls_run.py",
+    "sha256": "e8694ce74e0493486520de745c4611b85b334406521f487877dbf540d47d1cb0"
+  },
+  "duration_s": 1.0,
+  "window_s": [
+    0.5,
+    1.0
+  ],
+  "note": "Main factor retained from earlier geometry, not reoptimized on square1050"
+}

@@ -1,0 +1,19 @@
+{
+  "native": {
+    "tenzor": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.runtime_ch15_p5_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "3abb2a5ef173772a66f9223e726c9bf5c2085aca429d6c31fdfa9eb07780587f"
+    },
+    "seismic": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.runtime_ch15_p5_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "2e63afcc2e9438197e2b6339c6e1dc53a2a409fe1a2c1b7e8202af7a5a284c9c"
+    },
+    "seismic_p5": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.runtime_ch15_p5_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/_native.cpython-313-x86_64-linux-gnu.so",
+      "sha256": "ab349dce74d6c639c3a4e148855e62bcf1da5b7933e727baf813921084834d4e"
+    }
+  },
+  "python": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+  "cuda": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:23:50_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0\n",
+  "tenzor_unchanged": true
+}

@@ -1,0 +1,13 @@
+{
+  "changed_p6_backend_files_since_frozen": [
+    "src/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/backend/kernels/global_spectrum.cu",
+    "src/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/backend/kernels/preparation.cu",
+    "src/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/backend/materials.cpp",
+    "src/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/backend/run_control.cpp",
+    "src/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/backend/runtime.cpp",
+    "src/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p5_cu/backend/runtime.hpp"
+  ],
+  "ricker_table_vs_analytic_max_abs_N_per_m": 1.6930901125533637e-15,
+  "ricker_relative_l2": 8.321228103151015e-16,
+  "interpretation": "CPU interpolation estimate; not a substitute for complete solver equivalence"
+}

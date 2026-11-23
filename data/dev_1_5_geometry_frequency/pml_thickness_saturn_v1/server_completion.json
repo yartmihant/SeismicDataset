@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "utc": "2026-11-21T13:07:50.219751+00:00",
+  "new_runs_completed": 16,
+  "data_bytes": 5950119921,
+  "disk_free_bytes": 165902069760,
+  "git_head": "d13928e0713441ab505ec4a721d95b50edb294f9",
+  "gpu_status": "index, utilization.gpu [%], memory.used [MiB]\n0, 0 %, 5 MiB\n1, 0 %, 4 MiB\n",
+  "compute_processes": "pid, gpu_uuid, used_gpu_memory [MiB]\n",
+  "production_resumed": false,
+  "physical_acceptance": "Numerical completion is not stability: scaled L50/L25/L15/L10 show strong growth; p5 L10 dt/2 also grows. See analysis/metrics.json."
+}

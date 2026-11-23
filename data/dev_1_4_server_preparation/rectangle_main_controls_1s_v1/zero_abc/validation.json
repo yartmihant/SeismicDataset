@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/rectangle_main_controls_1s_v1/zero_abc/metadata.json",
+    "sha256": "de30a1aa7808339e274a2cb8ab44edf127f02b123631a54db3b0a4f36c8c4333"
+  },
+  "physics_ids": [
+    11000,
+    32000,
+    20200
+  ],
+  "same_source_native": true,
+  "scope": "Complete finite surface and configured physics; no independent solver validation"
+}

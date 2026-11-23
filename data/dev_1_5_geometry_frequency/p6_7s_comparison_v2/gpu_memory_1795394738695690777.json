@@ -1,0 +1,11 @@
+{
+  "time_unix": 1795394738.6956718,
+  "observations": [
+    {
+      "pid": 852311,
+      "used_gpu_memory_MiB": 416,
+      "cmdline": ".runtime_ch15_p6_7s_v1/venv/bin/python -m scripts.dev_1_5_geometry_frequency.p6_7s_compare --root data/dev_1_5_geometry_frequency/p6_7s_comparison_v2 --variant current_p6 --label repeat0 "
+    }
+  ],
+  "meaning": "instantaneous nvidia-smi process allocation, not peak"
+}

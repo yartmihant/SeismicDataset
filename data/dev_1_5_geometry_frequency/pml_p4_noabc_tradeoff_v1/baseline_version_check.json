@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "surface_relative_l2_to_cached_native": 1.4555272948025448e-13,
+  "previous_result": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/p4/L100/repeat0/result.json",
+    "sha256": "acb07b5410921a845fbdf752317e161fbf052017b12da08b4929f8ddaea61f62"
+  }
+}

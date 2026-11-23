@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T11:13:25.212962+00:00",
+  "scope": "CPU methods and figure construction only; no numerical solver",
+  "checks": [
+    "Historical surface SHA and axes load",
+    "Synthetic amplitude ratios1/.7/.2/.25 recovered",
+    "Winner and order recover minimum0.2",
+    "Four PNG/SVG pairs constructed including2x3fixed175surfaceview0.2–0.8s"
+  ],
+  "code_sha256": "99e99223c63ac12980a6b9ce4aa7d77be6313ea195447214795f18dad7aeb027"
+}

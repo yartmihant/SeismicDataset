@@ -1,0 +1,3382 @@
+{
+  "models": {
+    "12404": {
+      "common_k": 62,
+      "pairs": {
+        "p5/reference": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.144776170609563,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00023942248660421394,
+            "relative_l2": 0.057433439587182916,
+            "component_relative_l2": [
+              0.0020902323577612035,
+              0.06762492172972914
+            ],
+            "max_abs_difference": 1.579178412074686e-08,
+            "max_difference_over_reference_peak": 0.13942003754277477,
+            "reference_l2": 1.004824799681168e-06,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.14477697750555665,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00023529559424721082,
+            "relative_l2": 0.0574404069716347,
+            "component_relative_l2": [
+              0.0020900492036830085,
+              0.06763129763810041
+            ],
+            "max_abs_difference": 1.579178412074686e-08,
+            "max_difference_over_reference_peak": 0.13942003754277477,
+            "reference_l2": 1.0047026736325438e-06,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.004038884880514892,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.003994413269392648,
+            "relative_l2": 0.002563161413343654,
+            "component_relative_l2": [
+              0.0025221614946184714,
+              0.0025949514474798035
+            ],
+            "max_abs_difference": 4.600453302455226e-13,
+            "max_difference_over_reference_peak": 0.0011762592182385269,
+            "reference_l2": 1.567267732466887e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.00023942248660421394,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00023706741207106617,
+            "relative_l2": 0.00017886647133004148,
+            "component_relative_l2": [
+              0.00014386713623750803,
+              0.00019422047221917375
+            ],
+            "max_abs_difference": 5.3301870391403325e-12,
+            "max_difference_over_reference_peak": 0.0002583911951643179,
+            "reference_l2": 8.926625415130893e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00023529559424721082,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0002330720479981041,
+            "relative_l2": 0.00017339457356163466,
+            "component_relative_l2": [
+              0.00013513772016004083,
+              0.00018987066821792587
+            ],
+            "max_abs_difference": 5.3301870391403325e-12,
+            "max_difference_over_reference_peak": 0.0002583911951643179,
+            "reference_l2": 8.92533653668484e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.004038884880514892,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.003995380332556924,
+            "relative_l2": 0.0025894138641712515,
+            "component_relative_l2": [
+              0.0025360924376269713,
+              0.002630974486668644
+            ],
+            "max_abs_difference": 4.600453302455226e-13,
+            "max_difference_over_reference_peak": 0.0011762592182385269,
+            "reference_l2": 1.5175874898703836e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.03060408645773724,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 0.00026893370778476836,
+            "relative_l2": 0.007355761975491756,
+            "component_relative_l2": [
+              0.002904288792376143,
+              0.008735194315450579
+            ],
+            "max_abs_difference": 9.122846013731114e-10,
+            "max_difference_over_reference_peak": 0.030063455346305647,
+            "reference_l2": 6.564008992168467e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.030606565321592134,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 0.0002661755326329326,
+            "relative_l2": 0.007356692518565019,
+            "component_relative_l2": [
+              0.002904339080601153,
+              0.008736165990698427
+            ],
+            "max_abs_difference": 9.122846013731114e-10,
+            "max_difference_over_reference_peak": 0.030063455346305647,
+            "reference_l2": 6.563076978226361e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.004021068120927194,
+            "max_trace_x_m": 25.0,
+            "p95_trace_relative_l2": 0.0039630227943876556,
+            "relative_l2": 0.0024308011017433453,
+            "component_relative_l2": [
+              0.002767835300307175,
+              0.0021289102664253786
+            ],
+            "max_abs_difference": 4.600453302455226e-13,
+            "max_difference_over_reference_peak": 0.0012158180492075968,
+            "reference_l2": 1.1065927664331196e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.00023942248660421394,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0002377138337385427,
+            "relative_l2": 0.00022828455146892482,
+            "component_relative_l2": [
+              0.0001898893086879653,
+              0.0002454567627453195
+            ],
+            "max_abs_difference": 5.3301870391403325e-12,
+            "max_difference_over_reference_peak": 0.0002583911951643179,
+            "reference_l2": 6.26214621522879e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.00023529559424721082,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0002335958088812987,
+            "relative_l2": 0.00022441123487070827,
+            "component_relative_l2": [
+              0.000182081280762425,
+              0.00024305875899454356
+            ],
+            "max_abs_difference": 5.3301870391403325e-12,
+            "max_difference_over_reference_peak": 0.0002583911951643179,
+            "reference_l2": 6.26124137472935e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.004021068120927194,
+            "max_trace_x_m": 25.0,
+            "p95_trace_relative_l2": 0.003967096383440694,
+            "relative_l2": 0.002473730186175601,
+            "component_relative_l2": [
+              0.0027741522742559415,
+              0.002208194208799022
+            ],
+            "max_abs_difference": 4.600453302455226e-13,
+            "max_difference_over_reference_peak": 0.0012158180492075968,
+            "reference_l2": 1.0650122811253153e-08,
+            "receivers": 66
+          }
+        },
+        "p6/reference": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.07332114813070684,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 1.922153638273543e-05,
+            "relative_l2": 0.029049342943123103,
+            "component_relative_l2": [
+              0.0032460971574776562,
+              0.03415079232747887
+            ],
+            "max_abs_difference": 7.996758681935464e-09,
+            "max_difference_over_reference_peak": 0.07060053424813559,
+            "reference_l2": 1.004824799681168e-06,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.07332155692806162,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 1.919579106012187e-05,
+            "relative_l2": 0.0290528739942038,
+            "component_relative_l2": [
+              0.0032467188033439374,
+              0.034154016918810426
+            ],
+            "max_abs_difference": 7.996758681935464e-09,
+            "max_difference_over_reference_peak": 0.07060053424813559,
+            "reference_l2": 1.0047026736325438e-06,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.00012626694825778142,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00011768020299023409,
+            "relative_l2": 7.714329450055525e-05,
+            "component_relative_l2": [
+              0.000101170655370501,
+              5.080885272081804e-05
+            ],
+            "max_abs_difference": 1.8168120683085182e-14,
+            "max_difference_over_reference_peak": 4.645285589605651e-05,
+            "reference_l2": 1.567267732466887e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 1.922153638273543e-05,
+            "max_trace_x_m": 370.0,
+            "p95_trace_relative_l2": 1.859110362893608e-05,
+            "relative_l2": 1.3755233428745435e-05,
+            "component_relative_l2": [
+              2.173622705366098e-05,
+              6.749482236390929e-06
+            ],
+            "max_abs_difference": 4.560281773183899e-13,
+            "max_difference_over_reference_peak": 2.2106853830950893e-05,
+            "reference_l2": 8.926625415130893e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 1.919579106012187e-05,
+            "max_trace_x_m": 370.0,
+            "p95_trace_relative_l2": 1.857167408830204e-05,
+            "relative_l2": 1.3692721165183076e-05,
+            "component_relative_l2": [
+              2.164817883474823e-05,
+              6.70270355544084e-06
+            ],
+            "max_abs_difference": 4.560281773183899e-13,
+            "max_difference_over_reference_peak": 2.2106853830950893e-05,
+            "reference_l2": 8.92533653668484e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.00012626694825778142,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00011813419191242182,
+            "relative_l2": 7.830467273184594e-05,
+            "component_relative_l2": [
+              0.00010261979079576867,
+              5.1373668075188816e-05
+            ],
+            "max_abs_difference": 1.8168120683085182e-14,
+            "max_difference_over_reference_peak": 4.645285589605651e-05,
+            "reference_l2": 1.5175874898703836e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.011962172308922237,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 4.803765426498616e-05,
+            "relative_l2": 0.002873881707376854,
+            "component_relative_l2": [
+              0.004569640883246153,
+              0.001457670045030831
+            ],
+            "max_abs_difference": 3.3411133351229173e-10,
+            "max_difference_over_reference_peak": 0.011010315356220006,
+            "reference_l2": 6.564008992168467e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.011963145253420873,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 4.8017506526616154e-05,
+            "relative_l2": 0.0028742895396742726,
+            "component_relative_l2": [
+              0.0045705128034126945,
+              0.0014578422587728527
+            ],
+            "max_abs_difference": 3.3411133351229173e-10,
+            "max_difference_over_reference_peak": 0.011010315356220006,
+            "reference_l2": 6.563076978226361e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.00012626694825778142,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00011615031321806122,
+            "relative_l2": 7.581521775727729e-05,
+            "component_relative_l2": [
+              0.00010322717785110538,
+              4.349827395737824e-05
+            ],
+            "max_abs_difference": 1.8168120683085182e-14,
+            "max_difference_over_reference_peak": 4.801511415165984e-05,
+            "reference_l2": 1.1065927664331196e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 1.8727618006671732e-05,
+            "max_trace_x_m": 245.0,
+            "p95_trace_relative_l2": 1.864869263008991e-05,
+            "relative_l2": 1.796943371754362e-05,
+            "component_relative_l2": [
+              3.0834514655534095e-05,
+              2.1848223681358138e-06
+            ],
+            "max_abs_difference": 4.288217588679307e-13,
+            "max_difference_over_reference_peak": 2.0787969722769856e-05,
+            "reference_l2": 6.26214621522879e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 1.8672935692207767e-05,
+            "max_trace_x_m": 245.0,
+            "p95_trace_relative_l2": 1.860339953060039e-05,
+            "relative_l2": 1.7923822887596064e-05,
+            "component_relative_l2": [
+              3.077238651404591e-05,
+              2.070976672590702e-06
+            ],
+            "max_abs_difference": 4.288217588679307e-13,
+            "max_difference_over_reference_peak": 2.0787969722769856e-05,
+            "reference_l2": 6.26124137472935e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.00012626694825778142,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00011683026422791584,
+            "relative_l2": 7.738738473157644e-05,
+            "component_relative_l2": [
+              0.00010512569380999702,
+              4.468408151968713e-05
+            ],
+            "max_abs_difference": 1.8168120683085182e-14,
+            "max_difference_over_reference_peak": 4.801511415165984e-05,
+            "reference_l2": 1.0650122811253153e-08,
+            "receivers": 66
+          }
+        },
+        "p7/reference": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.028463807332122948,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 1.2972814842168726e-05,
+            "relative_l2": 0.006687758566236609,
+            "component_relative_l2": [
+              0.001734257569989226,
+              0.007801723465704309
+            ],
+            "max_abs_difference": 1.3662737097537333e-09,
+            "max_difference_over_reference_peak": 0.012062343966399332,
+            "reference_l2": 1.004824799681168e-06,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.02846612249992895,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 1.2974410523344736e-05,
+            "relative_l2": 0.006688571492151008,
+            "component_relative_l2": [
+              0.0017345900058023276,
+              0.007802460122669795
+            ],
+            "max_abs_difference": 1.3662737097537333e-09,
+            "max_difference_over_reference_peak": 0.012062343966399332,
+            "reference_l2": 1.0047026736325438e-06,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 1.0849358722401937e-05,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 9.384491224166727e-06,
+            "relative_l2": 6.142150078942888e-06,
+            "component_relative_l2": [
+              8.111515649013415e-06,
+              3.955926624112263e-06
+            ],
+            "max_abs_difference": 1.536925924814838e-15,
+            "max_difference_over_reference_peak": 3.929663378711844e-06,
+            "reference_l2": 1.567267732466887e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 1.2972814842168726e-05,
+            "max_trace_x_m": 370.0,
+            "p95_trace_relative_l2": 3.9877784736697425e-06,
+            "relative_l2": 3.317435867301195e-06,
+            "component_relative_l2": [
+              2.0046480785689427e-06,
+              3.81426895933682e-06
+            ],
+            "max_abs_difference": 2.943316516884608e-13,
+            "max_difference_over_reference_peak": 1.4268299910679138e-05,
+            "reference_l2": 8.926625415130893e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 1.2974410523344736e-05,
+            "max_trace_x_m": 370.0,
+            "p95_trace_relative_l2": 3.986727935871463e-06,
+            "relative_l2": 3.316296297344136e-06,
+            "component_relative_l2": [
+              1.9986069133428736e-06,
+              3.8143195454307206e-06
+            ],
+            "max_abs_difference": 2.943316516884608e-13,
+            "max_difference_over_reference_peak": 1.4268299910679138e-05,
+            "reference_l2": 8.92533653668484e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 1.0035913126402576e-05,
+            "max_trace_x_m": 580.0,
+            "p95_trace_relative_l2": 9.310073328413382e-06,
+            "relative_l2": 6.099099737238358e-06,
+            "component_relative_l2": [
+              8.228326386690998e-06,
+              3.602932477009822e-06
+            ],
+            "max_abs_difference": 1.536925924814838e-15,
+            "max_difference_over_reference_peak": 3.929663378711844e-06,
+            "reference_l2": 1.5175874898703836e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.028463807332122948,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 5.8125074237223746e-05,
+            "relative_l2": 0.006838192811831613,
+            "component_relative_l2": [
+              0.002428823052568824,
+              0.008162066768245295
+            ],
+            "max_abs_difference": 8.528993990432463e-10,
+            "max_difference_over_reference_peak": 0.028106473527487186,
+            "reference_l2": 6.564008992168467e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.02846612249992895,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 5.813577044820325e-05,
+            "relative_l2": 0.006839163893970403,
+            "component_relative_l2": [
+              0.002429286721269017,
+              0.008163031918304722
+            ],
+            "max_abs_difference": 8.528993990432463e-10,
+            "max_difference_over_reference_peak": 0.028106473527487186,
+            "reference_l2": 6.563076978226361e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 1.0014211925042655e-05,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 9.134935896692658e-06,
+            "relative_l2": 5.5599391271682284e-06,
+            "component_relative_l2": [
+              7.825855932715716e-06,
+              2.661500307568669e-06
+            ],
+            "max_abs_difference": 1.2919508397040406e-15,
+            "max_difference_over_reference_peak": 3.4143964655891013e-06,
+            "reference_l2": 1.1065927664331196e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 4.011499191380558e-06,
+            "max_trace_x_m": 285.0,
+            "p95_trace_relative_l2": 3.993903155136149e-06,
+            "relative_l2": 3.838514053419781e-06,
+            "component_relative_l2": [
+              2.8454329802946143e-06,
+              4.2541010980649065e-06
+            ],
+            "max_abs_difference": 8.688263919243782e-14,
+            "max_difference_over_reference_peak": 4.211805104607543e-06,
+            "reference_l2": 6.26214621522879e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 4.011178185535443e-06,
+            "max_trace_x_m": 285.0,
+            "p95_trace_relative_l2": 3.99386709653519e-06,
+            "relative_l2": 3.837862254217074e-06,
+            "component_relative_l2": [
+              2.841719324796637e-06,
+              4.254419310365263e-06
+            ],
+            "max_abs_difference": 8.688263919243782e-14,
+            "max_difference_over_reference_peak": 4.211805104607543e-06,
+            "reference_l2": 6.26124137472935e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 1.0014211925042655e-05,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 9.194965344285684e-06,
+            "relative_l2": 5.66194614136159e-06,
+            "component_relative_l2": [
+              7.989942775688544e-06,
+              2.6450223574620008e-06
+            ],
+            "max_abs_difference": 1.2919508397040406e-15,
+            "max_difference_over_reference_peak": 3.4143964655891013e-06,
+            "reference_l2": 1.0650122811253153e-08,
+            "receivers": 66
+          }
+        },
+        "p5/dt": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.0005110813573716578,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.0004862881356892235,
+            "relative_l2": 0.00027994211822843543,
+            "component_relative_l2": [
+              0.00029605849353348207,
+              0.00027307115379338027
+            ],
+            "max_abs_difference": 9.7093677297981e-12,
+            "max_difference_over_reference_peak": 9.827571986976946e-05,
+            "reference_l2": 9.846176143980369e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.0005110305012742361,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00048616438821113124,
+            "relative_l2": 0.0002796171462459207,
+            "component_relative_l2": [
+              0.0002955601164379149,
+              0.000272824045182518
+            ],
+            "max_abs_difference": 9.7093677297981e-12,
+            "max_difference_over_reference_peak": 9.827571986976946e-05,
+            "reference_l2": 9.84492980811449e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.0011957970779825865,
+            "max_trace_x_m": 150.0,
+            "p95_trace_relative_l2": 0.0011456788303235224,
+            "relative_l2": 0.0008923162885262366,
+            "component_relative_l2": [
+              0.0009250725147505424,
+              0.0008656835667493529
+            ],
+            "max_abs_difference": 3.5122168559193056e-13,
+            "max_difference_over_reference_peak": 0.0008981300848507366,
+            "reference_l2": 1.567272884728639e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.0005110813573716578,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00048629802849859245,
+            "relative_l2": 0.0003084208533949709,
+            "component_relative_l2": [
+              0.00030324656217225045,
+              0.0003110120382980927
+            ],
+            "max_abs_difference": 9.7093677297981e-12,
+            "max_difference_over_reference_peak": 0.00047078711760510346,
+            "reference_l2": 8.926292127368534e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.0005110305012742361,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.0004861858844507161,
+            "relative_l2": 0.00030808897440195586,
+            "component_relative_l2": [
+              0.000302765069688708,
+              0.00031075371249495153
+            ],
+            "max_abs_difference": 9.7093677297981e-12,
+            "max_difference_over_reference_peak": 0.00047078711760510346,
+            "reference_l2": 8.925003192400393e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.0011957970779825865,
+            "max_trace_x_m": 150.0,
+            "p95_trace_relative_l2": 0.0011502146661298517,
+            "relative_l2": 0.0008961828932333675,
+            "component_relative_l2": [
+              0.0009273250369342889,
+              0.0008706664909038774
+            ],
+            "max_abs_difference": 3.1333689263937914e-13,
+            "max_difference_over_reference_peak": 0.0008012526034626416,
+            "reference_l2": 1.5175922554336065e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.0005023718333583343,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00047915924595780913,
+            "relative_l2": 0.0002936665905709408,
+            "component_relative_l2": [
+              0.00029289989928966975,
+              0.0002940385088763872
+            ],
+            "max_abs_difference": 9.536317898199096e-12,
+            "max_difference_over_reference_peak": 0.00031698935441341376,
+            "reference_l2": 6.561468316546194e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.0005023159299424056,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0004790654703780489,
+            "relative_l2": 0.00029332296638190814,
+            "component_relative_l2": [
+              0.0002923972268796369,
+              0.0002937717912293955
+            ],
+            "max_abs_difference": 9.536317898199096e-12,
+            "max_difference_over_reference_peak": 0.00031698935441341376,
+            "reference_l2": 6.560535939298364e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.0011949755039465555,
+            "max_trace_x_m": 155.0,
+            "p95_trace_relative_l2": 0.0011514600678308577,
+            "relative_l2": 0.0008919277183850743,
+            "component_relative_l2": [
+              0.0009247220460391515,
+              0.0008652908807059966
+            ],
+            "max_abs_difference": 3.100217765597982e-13,
+            "max_difference_over_reference_peak": 0.0008199687319037234,
+            "reference_l2": 1.1065940542990671e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.0005023718333583343,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0004823276413939933,
+            "relative_l2": 0.00030752605438744715,
+            "component_relative_l2": [
+              0.00030248283682364024,
+              0.00031005021847740373
+            ],
+            "max_abs_difference": 9.536317898199096e-12,
+            "max_difference_over_reference_peak": 0.0004624010100073487,
+            "reference_l2": 6.261527850627765e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.0005023159299424056,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00048222054497052997,
+            "relative_l2": 0.00030719145496734007,
+            "component_relative_l2": [
+              0.0003019982818256262,
+              0.0003097893370061758
+            ],
+            "max_abs_difference": 9.536317898199096e-12,
+            "max_difference_over_reference_peak": 0.0004624010100073487,
+            "reference_l2": 6.260622915899426e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.0011949755039465555,
+            "max_trace_x_m": 155.0,
+            "p95_trace_relative_l2": 0.0011546504204388093,
+            "relative_l2": 0.000897606617244485,
+            "component_relative_l2": [
+              0.0009296193089703073,
+              0.0008715327588886504
+            ],
+            "max_abs_difference": 3.0638821751055977e-13,
+            "max_difference_over_reference_peak": 0.0008103584237538807,
+            "reference_l2": 1.0650150179908358e-08,
+            "receivers": 66
+          }
+        },
+        "p6/dt": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.00025304630889909146,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00024087415743404957,
+            "relative_l2": 0.00013729383756289727,
+            "component_relative_l2": [
+              0.00014661703015021916,
+              0.00013340063581836165
+            ],
+            "max_abs_difference": 4.80901249771078e-12,
+            "max_difference_over_reference_peak": 4.539346803235174e-05,
+            "reference_l2": 9.943073631738284e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.00025302109010529045,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.0002408130306819902,
+            "relative_l2": 0.00013713415619880667,
+            "component_relative_l2": [
+              0.0001463702483647467,
+              0.00013327957837459484
+            ],
+            "max_abs_difference": 4.80901249771078e-12,
+            "max_difference_over_reference_peak": 4.539346803235174e-05,
+            "reference_l2": 9.941839450049166e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.0005915898023572257,
+            "max_trace_x_m": 150.0,
+            "p95_trace_relative_l2": 0.0005675867029139205,
+            "relative_l2": 0.000441890415504507,
+            "component_relative_l2": [
+              0.0004580751126801308,
+              0.0004287326694243917
+            ],
+            "max_abs_difference": 1.7422172340686087e-13,
+            "max_difference_over_reference_peak": 0.0004454601351620234,
+            "reference_l2": 1.567268711989522e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.00025304630889909146,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.0002408791350048772,
+            "relative_l2": 0.00015272479514010588,
+            "component_relative_l2": [
+              0.00015016192603819825,
+              0.00015400821982615098
+            ],
+            "max_abs_difference": 4.80901249771078e-12,
+            "max_difference_over_reference_peak": 0.00023312650208430865,
+            "reference_l2": 8.926592950109975e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00025302109010529045,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.0002408236382369762,
+            "relative_l2": 0.0001525604444101851,
+            "component_relative_l2": [
+              0.00014992353983018746,
+              0.0001538802659535491
+            ],
+            "max_abs_difference": 4.80901249771078e-12,
+            "max_difference_over_reference_peak": 0.00023312650208430865,
+            "reference_l2": 8.925304065282957e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.0005915898023572257,
+            "max_trace_x_m": 150.0,
+            "p95_trace_relative_l2": 0.0005696482245602495,
+            "relative_l2": 0.00044380055903322173,
+            "component_relative_l2": [
+              0.00045917789888298737,
+              0.0004312027164861684
+            ],
+            "max_abs_difference": 1.5502036574174353e-13,
+            "max_difference_over_reference_peak": 0.0003963649981519122,
+            "reference_l2": 1.5175884881245676e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.0002488424799757194,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00023734271489600882,
+            "relative_l2": 0.00014543574889742643,
+            "component_relative_l2": [
+              0.00014507581736054214,
+              0.00014561021506137437
+            ],
+            "max_abs_difference": 4.7271765547365974e-12,
+            "max_difference_over_reference_peak": 0.00015600311851487976,
+            "reference_l2": 6.562811341163172e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.0002488146695683356,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00023729636441446772,
+            "relative_l2": 0.0001452656607745509,
+            "component_relative_l2": [
+              0.00014482695095537429,
+              0.0001454781954056869
+            ],
+            "max_abs_difference": 4.7271765547365974e-12,
+            "max_difference_over_reference_peak": 0.00015600311851487976,
+            "reference_l2": 6.561879155959152e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.0005912034720734182,
+            "max_trace_x_m": 155.0,
+            "p95_trace_relative_l2": 0.0005696800984968532,
+            "relative_l2": 0.00044169735500052936,
+            "component_relative_l2": [
+              0.00045789706899794486,
+              0.00042854084431231373
+            ],
+            "max_abs_difference": 1.5297320664563824e-13,
+            "max_difference_over_reference_peak": 0.0004042742418553198,
+            "reference_l2": 1.1065934527546575e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.0002488424799757194,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00023891224491291583,
+            "relative_l2": 0.00015231518296464442,
+            "component_relative_l2": [
+              0.00014979961521826687,
+              0.00015357401295839002
+            ],
+            "max_abs_difference": 4.7271765547365974e-12,
+            "max_difference_over_reference_peak": 0.00022915934102173626,
+            "reference_l2": 6.262118054595923e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.0002488146695683356,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00023885932720003327,
+            "relative_l2": 0.0001521495570633775,
+            "component_relative_l2": [
+              0.0001495597757233365,
+              0.00015344485898278066
+            ],
+            "max_abs_difference": 4.7271765547365974e-12,
+            "max_difference_over_reference_peak": 0.00022915934102173626,
+            "reference_l2": 6.261213208886408e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.0005912034720734182,
+            "max_trace_x_m": 155.0,
+            "p95_trace_relative_l2": 0.0005713675057251739,
+            "relative_l2": 0.00044449842269474367,
+            "component_relative_l2": [
+              0.000460300256755129,
+              0.0004316300284170358
+            ],
+            "max_abs_difference": 1.5188679726950693e-13,
+            "max_difference_over_reference_peak": 0.00040140310293817973,
+            "reference_l2": 1.0650129535888454e-08,
+            "receivers": 66
+          }
+        },
+        "p7/dt": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.00013013443700412067,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00012387476115838272,
+            "relative_l2": 6.999431705044365e-05,
+            "component_relative_l2": [
+              7.537178164398036e-05,
+              6.778784646998214e-05
+            ],
+            "max_abs_difference": 2.4734056925537238e-12,
+            "max_difference_over_reference_peak": 2.208080056147487e-05,
+            "reference_l2": 1.0030761141906715e-06,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.00013012146651646665,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00012384327967191266,
+            "relative_l2": 6.991275539382379e-05,
+            "component_relative_l2": [
+              7.524489041033319e-05,
+              6.7726171239368e-05
+            ],
+            "max_abs_difference": 2.4734056925537238e-12,
+            "max_difference_over_reference_peak": 2.208080056147487e-05,
+            "reference_l2": 1.0029537752145567e-06,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.00030430747236338866,
+            "max_trace_x_m": 150.0,
+            "p95_trace_relative_l2": 0.00029188048613684357,
+            "relative_l2": 0.00022727227579322446,
+            "component_relative_l2": [
+              0.00023558356850621363,
+              0.00022051577056620585
+            ],
+            "max_abs_difference": 8.875421104041316e-14,
+            "max_difference_over_reference_peak": 0.00022692966609305434,
+            "reference_l2": 1.567267709325952e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.00013013443700412067,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00012387730509376117,
+            "relative_l2": 7.853825416637993e-05,
+            "component_relative_l2": [
+              7.722150261591159e-05,
+              7.919766554673875e-05
+            ],
+            "max_abs_difference": 2.4734056925537238e-12,
+            "max_difference_over_reference_peak": 0.00011990365472542394,
+            "reference_l2": 8.926619294434526e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00013012146651646665,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00012384874984400882,
+            "relative_l2": 7.845371402363883e-05,
+            "component_relative_l2": [
+              7.70988946107241e-05,
+              7.913184076314899e-05
+            ],
+            "max_abs_difference": 2.4734056925537238e-12,
+            "max_difference_over_reference_peak": 0.00011990365472542394,
+            "reference_l2": 8.925330415146191e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.00030430747236338866,
+            "max_trace_x_m": 150.0,
+            "p95_trace_relative_l2": 0.0002929390095831217,
+            "relative_l2": 0.0002282514664356235,
+            "component_relative_l2": [
+              0.0002361503323974828,
+              0.00022178061443165224
+            ],
+            "max_abs_difference": 7.966754508324975e-14,
+            "max_difference_over_reference_peak": 0.00020369658174261947,
+            "reference_l2": 1.5175874652527156e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.00012797309703748875,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00012205841560980345,
+            "relative_l2": 7.475417618736203e-05,
+            "component_relative_l2": [
+              7.455753960501823e-05,
+              7.484953270549205e-05
+            ],
+            "max_abs_difference": 2.4309381075629708e-12,
+            "max_difference_over_reference_peak": 7.946855091965396e-05,
+            "reference_l2": 6.566060271373867e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.00012795879070711793,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00012203455386293534,
+            "relative_l2": 7.466672680255875e-05,
+            "component_relative_l2": [
+              7.442962087448597e-05,
+              7.47816452313511e-05
+            ],
+            "max_abs_difference": 2.4309381075629708e-12,
+            "max_difference_over_reference_peak": 7.946855091965396e-05,
+            "reference_l2": 6.565128548681415e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.00030405051708553676,
+            "max_trace_x_m": 155.0,
+            "p95_trace_relative_l2": 0.0002929359275770635,
+            "relative_l2": 0.000227161067556819,
+            "component_relative_l2": [
+              0.0002354857921101567,
+              0.00022040038298585496
+            ],
+            "max_abs_difference": 7.870228835984189e-14,
+            "max_difference_over_reference_peak": 0.00020799629225316194,
+            "reference_l2": 1.1065927420074932e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.00012797309703748875,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0001228656802980609,
+            "relative_l2": 7.832772701998741e-05,
+            "component_relative_l2": [
+              7.703693844985758e-05,
+              7.897369090829923e-05
+            ],
+            "max_abs_difference": 2.4309381075629708e-12,
+            "max_difference_over_reference_peak": 0.0001178449473071126,
+            "reference_l2": 6.262139316570099e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.00012795879070711793,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0001228384320002586,
+            "relative_l2": 7.824253866813477e-05,
+            "component_relative_l2": [
+              7.691359558142185e-05,
+              7.890725509497351e-05
+            ],
+            "max_abs_difference": 2.4309381075629708e-12,
+            "max_difference_over_reference_peak": 0.0001178449473071126,
+            "reference_l2": 6.261234475116207e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.00030405051708553676,
+            "max_trace_x_m": 155.0,
+            "p95_trace_relative_l2": 0.00029381099924969995,
+            "relative_l2": 0.00022860161002168515,
+            "component_relative_l2": [
+              0.00023672094695077547,
+              0.00022198975068981382
+            ],
+            "max_abs_difference": 7.820465440016512e-14,
+            "max_difference_over_reference_peak": 0.00020668113330837018,
+            "reference_l2": 1.0650122561769962e-08,
+            "receivers": 66
+          }
+        },
+        "p5-p6": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.07673532241765459,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00023153534323353065,
+            "relative_l2": 0.028856986273212693,
+            "component_relative_l2": [
+              0.0013777076889317963,
+              0.0341103247368826
+            ],
+            "max_abs_difference": 7.795214029695804e-09,
+            "max_difference_over_reference_peak": 0.07358096886435195,
+            "reference_l2": 9.943073631738284e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.07673581514892562,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00022711627228640162,
+            "relative_l2": 0.028860539039165675,
+            "component_relative_l2": [
+              0.001377034295502874,
+              0.03411362082308686
+            ],
+            "max_abs_difference": 7.795214029695804e-09,
+            "max_difference_over_reference_peak": 0.07358096886435195,
+            "reference_l2": 9.941839450049166e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.004108158770047484,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.0040646872300656375,
+            "relative_l2": 0.0026207567353395893,
+            "component_relative_l2": [
+              0.0025940438097564558,
+              0.002641575842064793
+            ],
+            "max_abs_difference": 4.777479761343832e-13,
+            "max_difference_over_reference_peak": 0.0012215335370389562,
+            "reference_l2": 1.567268711989522e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.00023153534323353065,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00022917783703153008,
+            "relative_l2": 0.0001754312173700741,
+            "component_relative_l2": [
+              0.00012828209187351408,
+              0.00019503385235164296
+            ],
+            "max_abs_difference": 5.284184102651038e-12,
+            "max_difference_over_reference_peak": 0.0002561613962964242,
+            "reference_l2": 8.926592950109975e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00022711627228640162,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.0002248766810728025,
+            "relative_l2": 0.00016958764048752116,
+            "component_relative_l2": [
+              0.00011779975131257945,
+              0.00019054325560481563
+            ],
+            "max_abs_difference": 5.284184102651038e-12,
+            "max_difference_over_reference_peak": 0.0002561613962964242,
+            "reference_l2": 8.925304065282957e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.004108158770047484,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.004065846345204548,
+            "relative_l2": 0.002647750070547009,
+            "component_relative_l2": [
+              0.0026089137785044684,
+              0.002678179917181341
+            ],
+            "max_abs_difference": 4.777479761343832e-13,
+            "max_difference_over_reference_peak": 0.0012215335370389562,
+            "reference_l2": 1.5175884881245676e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.025237141526920092,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 0.0002706830897908154,
+            "relative_l2": 0.0060493141870303045,
+            "component_relative_l2": [
+              0.001690016815033514,
+              0.0072785852915530184
+            ],
+            "max_abs_difference": 7.601191351425431e-10,
+            "max_difference_over_reference_peak": 0.025084943232393717,
+            "reference_l2": 6.562811341163172e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.025239193658199436,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 0.0002677850895467467,
+            "relative_l2": 0.006050028376382777,
+            "component_relative_l2": [
+              0.001689425511500156,
+              0.007279369863735442
+            ],
+            "max_abs_difference": 7.601191351425431e-10,
+            "max_difference_over_reference_peak": 0.025084943232393717,
+            "reference_l2": 6.561879155959152e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.004089223188813173,
+            "max_trace_x_m": 25.0,
+            "p95_trace_relative_l2": 0.0040311216092681805,
+            "relative_l2": 0.0024867748182322165,
+            "component_relative_l2": [
+              0.0028417112293176823,
+              0.0021675296284096985
+            ],
+            "max_abs_difference": 4.777479761343832e-13,
+            "max_difference_over_reference_peak": 0.0012625818931615385,
+            "reference_l2": 1.1065934527546575e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.00023153534323353065,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00022982597847114657,
+            "relative_l2": 0.0002207303421561888,
+            "component_relative_l2": [
+              0.00016563266279043284,
+              0.00024394195229081317
+            ],
+            "max_abs_difference": 5.284184102651038e-12,
+            "max_difference_over_reference_peak": 0.0002561613962964242,
+            "reference_l2": 6.262118054595923e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.00022711627228640162,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 0.00022536497938415419,
+            "relative_l2": 0.00021652932004982255,
+            "component_relative_l2": [
+              0.0001560977946223138,
+              0.00024143894603612708
+            ],
+            "max_abs_difference": 5.284184102651038e-12,
+            "max_difference_over_reference_peak": 0.0002561613962964242,
+            "reference_l2": 6.261213208886408e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.004089223188813173,
+            "max_trace_x_m": 25.0,
+            "p95_trace_relative_l2": 0.004035333589379154,
+            "relative_l2": 0.0025307779881763148,
+            "component_relative_l2": [
+              0.002849192068335071,
+              0.0022481090793391167
+            ],
+            "max_abs_difference": 4.777479761343832e-13,
+            "max_difference_over_reference_peak": 0.0012625818931615385,
+            "reference_l2": 1.0650129535888454e-08,
+            "receivers": 66
+          }
+        },
+        "p6-p7": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.0615188787274453,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 1.7287625867337993e-05,
+            "relative_l2": 0.024783535013455395,
+            "component_relative_l2": [
+              0.004978237149859312,
+              0.02904244686858888
+            ],
+            "max_abs_difference": 6.63048497218173e-09,
+            "max_difference_over_reference_peak": 0.05919223713981204,
+            "reference_l2": 1.0030761141906715e-06,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.061519229965199415,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 1.7219045755260914e-05,
+            "relative_l2": 0.024786558043514727,
+            "component_relative_l2": [
+              0.004979190742176703,
+              0.02904520268297072
+            ],
+            "max_abs_difference": 6.63048497218173e-09,
+            "max_difference_over_reference_peak": 0.05919223713981204,
+            "reference_l2": 1.0029537752145567e-06,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.0001358568392102255,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.0001264137631594053,
+            "relative_l2": 8.164279817167913e-05,
+            "component_relative_l2": [
+              0.00010815313580192199,
+              5.204226262343922e-05
+            ],
+            "max_abs_difference": 1.9187405474282663e-14,
+            "max_difference_over_reference_peak": 4.9058985105375776e-05,
+            "reference_l2": 1.567267709325952e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 1.7287625867337993e-05,
+            "max_trace_x_m": 245.0,
+            "p95_trace_relative_l2": 1.708744869427856e-05,
+            "relative_l2": 1.2398415880886792e-05,
+            "component_relative_l2": [
+              1.9834104466725994e-05,
+              5.672208795046999e-06
+            ],
+            "max_abs_difference": 3.9044320165687703e-13,
+            "max_difference_over_reference_peak": 1.8927573014930464e-05,
+            "reference_l2": 8.926619294434526e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 1.7219045755260914e-05,
+            "max_trace_x_m": 245.0,
+            "p95_trace_relative_l2": 1.705038677530458e-05,
+            "relative_l2": 1.2319971759676826e-05,
+            "component_relative_l2": [
+              1.9722296833880513e-05,
+              5.61346296428001e-06
+            ],
+            "max_abs_difference": 3.9044320165687703e-13,
+            "max_difference_over_reference_peak": 1.8927573014930464e-05,
+            "reference_l2": 8.925330415146191e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.0001358568392102255,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00012692529681000085,
+            "relative_l2": 8.287984099358727e-05,
+            "component_relative_l2": [
+              0.00010972265068359551,
+              5.258132409582146e-05
+            ],
+            "max_abs_difference": 1.9187405474282663e-14,
+            "max_difference_over_reference_peak": 4.9058985105375776e-05,
+            "reference_l2": 1.5175874652527156e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.03663274354224167,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 7.143426512026707e-05,
+            "relative_l2": 0.008845398966326917,
+            "component_relative_l2": [
+              0.006996285333566606,
+              0.009616349761542287
+            ],
+            "max_abs_difference": 1.0050679723339277e-09,
+            "max_difference_over_reference_peak": 0.03285616161458077,
+            "reference_l2": 6.566060271373867e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.03663569126650986,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 7.141348771427298e-05,
+            "relative_l2": 0.008846654201417942,
+            "component_relative_l2": [
+              0.0069976199865165265,
+              0.009617486062326465
+            ],
+            "max_abs_difference": 1.0050679723339277e-09,
+            "max_difference_over_reference_peak": 0.03285616161458077,
+            "reference_l2": 6.565128548681415e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.0001358568392102255,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00012479244491188745,
+            "relative_l2": 8.032289586641711e-05,
+            "component_relative_l2": [
+              0.00011012464403604492,
+              4.464002421550411e-05
+            ],
+            "max_abs_difference": 1.9187405474282663e-14,
+            "max_difference_over_reference_peak": 5.0708934641920664e-05,
+            "reference_l2": 1.1065927420074932e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 1.7287625867337993e-05,
+            "max_trace_x_m": 245.0,
+            "p95_trace_relative_l2": 1.718680391980535e-05,
+            "relative_l2": 1.6558981202891154e-05,
+            "component_relative_l2": [
+              2.809508025753651e-05,
+              3.6320899662203524e-06
+            ],
+            "max_abs_difference": 3.9044320165687703e-13,
+            "max_difference_over_reference_peak": 1.8927573014930464e-05,
+            "reference_l2": 6.262139316570099e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 1.7219045755260914e-05,
+            "max_trace_x_m": 245.0,
+            "p95_trace_relative_l2": 1.7128611684185822e-05,
+            "relative_l2": 1.650261466377805e-05,
+            "component_relative_l2": [
+              2.801539594484271e-05,
+              3.5615662752668443e-06
+            ],
+            "max_abs_difference": 3.9044320165687703e-13,
+            "max_difference_over_reference_peak": 1.8927573014930464e-05,
+            "reference_l2": 6.261234475116207e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.0001358568392102255,
+            "max_trace_x_m": 585.0,
+            "p95_trace_relative_l2": 0.00012551303079967317,
+            "relative_l2": 8.199882612732319e-05,
+            "component_relative_l2": [
+              0.00011219980860098191,
+              4.581421942272616e-05
+            ],
+            "max_abs_difference": 1.9187405474282663e-14,
+            "max_difference_over_reference_peak": 5.0708934641920664e-05,
+            "reference_l2": 1.0650122561769962e-08,
+            "receivers": 66
+          }
+        }
+      },
+      "adjacent_common_normalization": {
+        "all141/full": {
+          "p5_p6_over_ref": 0.02855494205513807,
+          "p6_p7_over_ref": 0.024740404501454705,
+          "contraction_ratio": 0.8664141028086243
+        },
+        "all141/early": {
+          "p5_p6_over_ref": 0.028558383798449105,
+          "p6_p7_over_ref": 0.024743411774188182,
+          "contraction_ratio": 0.866414988635733
+        },
+        "all141/late": {
+          "p5_p6_over_ref": 0.0026207583732796107,
+          "p6_p7_over_ref": 8.164279696621138e-05,
+          "contraction_ratio": 0.031152355668731025
+        },
+        "far20/full": {
+          "p5_p6_over_ref": 0.00017543057934866325,
+          "p6_p7_over_ref": 1.2398407379696756e-05,
+          "contraction_ratio": 0.07067415171134604
+        },
+        "far20/early": {
+          "p5_p6_over_ref": 0.00016958702350816066,
+          "p6_p7_over_ref": 1.2319963309890876e-05,
+          "contraction_ratio": 0.07264685148093321
+        },
+        "far20/late": {
+          "p5_p6_over_ref": 0.002647751812211067,
+          "p6_p7_over_ref": 8.287983964914523e-05,
+          "contraction_ratio": 0.03130196692413346
+        },
+        "dataset70/full": {
+          "p5_p6_over_ref": 0.006048210445821832,
+          "p6_p7_over_ref": 0.008848163189073218,
+          "contraction_ratio": 1.4629390409498109
+        },
+        "dataset70/early": {
+          "p5_p6_over_ref": 0.006048924190231903,
+          "p6_p7_over_ref": 0.008849419601617562,
+          "contraction_ratio": 1.4629741295002565
+        },
+        "dataset70/late": {
+          "p5_p6_over_ref": 0.002486776360558508,
+          "p6_p7_over_ref": 8.032289409346403e-05,
+          "contraction_ratio": 0.03230000709650634
+        },
+        "dataset70_far20/full": {
+          "p5_p6_over_ref": 0.0002207293495402526,
+          "p6_p7_over_ref": 1.6558962960781233e-05,
+          "contraction_ratio": 0.07501930756046336
+        },
+        "dataset70_far20/early": {
+          "p5_p6_over_ref": 0.00021652834600482796,
+          "p6_p7_over_ref": 1.6502596478621106e-05,
+          "contraction_ratio": 0.07621448546165473
+        },
+        "dataset70_far20/late": {
+          "p5_p6_over_ref": 0.0025307795861446484,
+          "p6_p7_over_ref": 8.19988242064694e-05,
+          "contraction_ratio": 0.03240061862968682
+        }
+      },
+      "runs": {
+        "p5/native": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 12404,
+          "order": 5,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": 0.8,
+          "dt_s": 6.25e-05,
+          "steps": 16000,
+          "steps_per_ms": 16,
+          "lambda_max": 59572178.66970441,
+          "lambda_max_damping": 11264.959255988375,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+            "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 234171,
+          "status": "completed",
+          "run_seconds": 2.6147006135433912,
+          "total_seconds": 3.558468415401876,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p5_beta0.03703704_cfl0.8/surface.npz",
+            "sha256": "f8e4e2fb8de6035d23b0cb7134750f62657e5c17e04cee5919154231367e228b"
+          }
+        },
+        "p6/native": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 12404,
+          "order": 6,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": 0.8,
+          "dt_s": 4.545454545454545e-05,
+          "steps": 22000,
+          "steps_per_ms": 22,
+          "lambda_max": 111579433.0804529,
+          "lambda_max_damping": 15613.528178720448,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+            "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ede1c2423781b61ca6f7ed0364491925033c70347f65be990ca820e15af058d3"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 336973,
+          "status": "completed",
+          "run_seconds": 4.730596013367176,
+          "total_seconds": 5.801409022882581,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p6_beta0.03703704_cfl0.8/surface.npz",
+            "sha256": "124f53bd360061b88c9f1a7cf94ef9c909bf173ddac3cad3f60c2eba666323d4"
+          }
+        },
+        "p7/native": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 12404,
+          "order": 7,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": 0.8,
+          "dt_s": 3.4482758620689657e-05,
+          "steps": 29000,
+          "steps_per_ms": 29,
+          "lambda_max": 200700989.2756263,
+          "lambda_max_damping": 20686.858593961904,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+            "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ede1c2423781b61ca6f7ed0364491925033c70347f65be990ca820e15af058d3"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 458431,
+          "status": "completed",
+          "run_seconds": 8.076084041036665,
+          "total_seconds": 9.167258387431502,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p7_beta0.03703704_cfl0.8/surface.npz",
+            "sha256": "ca7d52ba0f03887cd251ad60298a62a74b826eb4492eb4dfe8cb315bf0ff8cd7"
+          }
+        },
+        "p5/fixed": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 12404,
+          "order": 5,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": null,
+          "dt_s": 1.6129032258064517e-05,
+          "steps": 62000,
+          "steps_per_ms": 62,
+          "lambda_max": 0.0,
+          "lambda_max_damping": 0.0,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+            "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 234171,
+          "status": "completed",
+          "run_seconds": 9.691869802772999,
+          "total_seconds": 10.591496440581977,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p5_beta0.03703704_fixedk62/surface.npz",
+            "sha256": "53d22b79015030271e662c0dc0e45f9f04c6653f0965c13d246e4ae9fec1e8a9"
+          }
+        },
+        "p6/fixed": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 12404,
+          "order": 6,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": null,
+          "dt_s": 1.6129032258064517e-05,
+          "steps": 62000,
+          "steps_per_ms": 62,
+          "lambda_max": 0.0,
+          "lambda_max_damping": 0.0,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+            "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 336973,
+          "status": "completed",
+          "run_seconds": 12.994047888554633,
+          "total_seconds": 13.928586016409099,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p6_beta0.03703704_fixedk62/surface.npz",
+            "sha256": "72b76fbb362b307cf0bf3b853fa39a20127f92531d83d85cf135e758fa028819"
+          }
+        },
+        "p7/fixed": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 12404,
+          "order": 7,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": null,
+          "dt_s": 1.6129032258064517e-05,
+          "steps": 62000,
+          "steps_per_ms": 62,
+          "lambda_max": 0.0,
+          "lambda_max_damping": 0.0,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+            "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 458431,
+          "status": "completed",
+          "run_seconds": 17.20136463548988,
+          "total_seconds": 18.25644433684647,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p7_beta0.03703704_fixedk62/surface.npz",
+            "sha256": "833c9f6f77edf4dfbd52e1da982b9bfea49b8cc2be3b803b8a24aa06e5126b9c"
+          }
+        }
+      },
+      "reference": {
+        "grid": "refined",
+        "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+        "model": 12404,
+        "order": 5,
+        "beta": 0.037037037037037035,
+        "gamma": 0.5,
+        "safety": null,
+        "dt_s": 1.6129032258064517e-05,
+        "steps": 62000,
+        "steps_per_ms": 62,
+        "lambda_max": 0.0,
+        "lambda_max_damping": 0.0,
+        "mesh": {
+          "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/refined/mesh_q2.npz",
+          "sha256": "756f5be61c6319aa1c5e3dcbe100eed345b7448e657287aec747f6bf33c3918c"
+        },
+        "native": {
+          "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+          "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        "code": {
+          "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+          "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+        },
+        "alpha_max_s_inv": 196.76847003046814,
+        "source_table_step_s": 1e-06,
+        "source_x_m": 350.0,
+        "nodes": 934741,
+        "status": "completed",
+        "run_seconds": 33.577512751333416,
+        "total_seconds": 35.917012301273644,
+        "surface": {
+          "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/refined/p5_beta0.03703704_fixedk62/surface.npz",
+          "sha256": "d324736ca91b32716187596200a3a33ca2ef50a2f696ca030101d1254ef570f5"
+        }
+      }
+    },
+    "65": {
+      "common_k": 140,
+      "pairs": {
+        "p5/reference": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.13919456115990042,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00027511903828456925,
+            "relative_l2": 0.058533888995978965,
+            "component_relative_l2": [
+              0.001262431905890485,
+              0.06720188050654544
+            ],
+            "max_abs_difference": 1.2161799790042783e-08,
+            "max_difference_over_reference_peak": 0.1342128416084381,
+            "reference_l2": 7.602260007621536e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.13919559341305418,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00022043585750155506,
+            "relative_l2": 0.05854659918704601,
+            "component_relative_l2": [
+              0.001254659197974959,
+              0.06720717193441472
+            ],
+            "max_abs_difference": 1.2161799790042783e-08,
+            "max_difference_over_reference_peak": 0.1342128416084381,
+            "reference_l2": 7.600602623509884e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.008561734964275773,
+            "max_trace_x_m": 420.0,
+            "p95_trace_relative_l2": 0.006918902497074268,
+            "relative_l2": 0.003794291373754555,
+            "component_relative_l2": [
+              0.004060010458304008,
+              0.002978920827133211
+            ],
+            "max_abs_difference": 1.48411820306599e-12,
+            "max_difference_over_reference_peak": 0.0031488416544156383,
+            "reference_l2": 1.588832856860427e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.00027511903828456925,
+            "max_trace_x_m": 420.0,
+            "p95_trace_relative_l2": 0.0002102795379195072,
+            "relative_l2": 0.0001551142691268686,
+            "component_relative_l2": [
+              0.00019451192271982285,
+              0.00013436784622120827
+            ],
+            "max_abs_difference": 3.329222808096683e-12,
+            "max_difference_over_reference_peak": 0.00016305856456326972,
+            "reference_l2": 6.662861377421315e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00022043585750155506,
+            "max_trace_x_m": 320.0,
+            "p95_trace_relative_l2": 0.0001840319421207915,
+            "relative_l2": 0.00012981593154768215,
+            "component_relative_l2": [
+              0.00013564179267912897,
+              0.00012719525137719768
+            ],
+            "max_abs_difference": 3.329222808096683e-12,
+            "max_difference_over_reference_peak": 0.00016305856456326972,
+            "reference_l2": 6.661056835058546e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.008561734964275773,
+            "max_trace_x_m": 420.0,
+            "p95_trace_relative_l2": 0.006637785265296772,
+            "relative_l2": 0.0036480758179622246,
+            "component_relative_l2": [
+              0.0038496668240097106,
+              0.0030188846160776953
+            ],
+            "max_abs_difference": 1.48411820306599e-12,
+            "max_difference_over_reference_peak": 0.0031488416544156383,
+            "reference_l2": 1.5521004705178343e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.037579973618384985,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 0.00027125390953186627,
+            "relative_l2": 0.008786672856837183,
+            "component_relative_l2": [
+              0.0016588234414385322,
+              0.010359564374985928
+            ],
+            "max_abs_difference": 8.697750754512456e-10,
+            "max_difference_over_reference_peak": 0.03564320623015545,
+            "reference_l2": 4.915315134786529e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.037583852235510765,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 0.00021862683996314058,
+            "relative_l2": 0.008788513590315208,
+            "component_relative_l2": [
+              0.0016533671614570155,
+              0.01036051894245409
+            ],
+            "max_abs_difference": 8.697750754512456e-10,
+            "max_difference_over_reference_peak": 0.03564320623015545,
+            "reference_l2": 4.914048819443207e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.008405211898786706,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.006668648027157545,
+            "relative_l2": 0.0037983181448264396,
+            "component_relative_l2": [
+              0.004083682995014142,
+              0.00292211544092133
+            ],
+            "max_abs_difference": 1.48411820306599e-12,
+            "max_difference_over_reference_peak": 0.0031488416544156383,
+            "reference_l2": 1.1167011082306819e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.00023545256999561455,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.00018433632875115773,
+            "relative_l2": 0.00013873637139621942,
+            "component_relative_l2": [
+              0.0001858289622360107,
+              0.00011216745250956928
+            ],
+            "max_abs_difference": 1.9490991840236533e-12,
+            "max_difference_over_reference_peak": 9.679909861994414e-05,
+            "reference_l2": 4.6748041795897786e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.0001378372702851276,
+            "max_trace_x_m": 695.0,
+            "p95_trace_relative_l2": 0.00012803020654557037,
+            "relative_l2": 0.00011014356434111546,
+            "component_relative_l2": [
+              0.00012371870554333834,
+              0.0001036749955420621
+            ],
+            "max_abs_difference": 1.9490991840236533e-12,
+            "max_difference_over_reference_peak": 9.679909861994414e-05,
+            "reference_l2": 4.67354355468219e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.008405211898786706,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.006248295020572883,
+            "relative_l2": 0.0036318477723898588,
+            "component_relative_l2": [
+              0.003838345618332341,
+              0.0029865017788459408
+            ],
+            "max_abs_difference": 1.48411820306599e-12,
+            "max_difference_over_reference_peak": 0.0031488416544156383,
+            "reference_l2": 1.0866336611360375e-08,
+            "receivers": 66
+          }
+        },
+        "p6/reference": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.07041430497613897,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 2.8830973171273713e-05,
+            "relative_l2": 0.029723679418352734,
+            "component_relative_l2": [
+              0.007695211685646056,
+              0.03384999566160062
+            ],
+            "max_abs_difference": 6.1513471353476475e-09,
+            "max_difference_over_reference_peak": 0.06788384885523832,
+            "reference_l2": 7.602260007621536e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.07041482826239621,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 2.4832721941267132e-05,
+            "relative_l2": 0.029730159601960134,
+            "component_relative_l2": [
+              0.007700239181487941,
+              0.03385266600577465
+            ],
+            "max_abs_difference": 6.1513471353476475e-09,
+            "max_difference_over_reference_peak": 0.06788384885523832,
+            "reference_l2": 7.600602623509884e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.0009151100892905463,
+            "max_trace_x_m": 410.0,
+            "p95_trace_relative_l2": 0.0007455777611435839,
+            "relative_l2": 0.00042862168869004007,
+            "component_relative_l2": [
+              0.0004649425181086229,
+              0.0003127855516858565
+            ],
+            "max_abs_difference": 2.008386256282358e-13,
+            "max_difference_over_reference_peak": 0.0004261176966142618,
+            "reference_l2": 1.588832856860427e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 2.8830973171273713e-05,
+            "max_trace_x_m": 330.0,
+            "p95_trace_relative_l2": 2.1421186906758768e-05,
+            "relative_l2": 1.3340998679107984e-05,
+            "component_relative_l2": [
+              2.0631697932149566e-05,
+              8.366043073731125e-06
+            ],
+            "max_abs_difference": 3.642174714682732e-13,
+            "max_difference_over_reference_peak": 1.7838631269149825e-05,
+            "reference_l2": 6.662861377421315e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 2.4832721941267132e-05,
+            "max_trace_x_m": 330.0,
+            "p95_trace_relative_l2": 1.1837576964549447e-05,
+            "relative_l2": 9.174257600753151e-06,
+            "component_relative_l2": [
+              1.2806677726016336e-05,
+              7.0280261432661496e-06
+            ],
+            "max_abs_difference": 3.642174714682732e-13,
+            "max_difference_over_reference_peak": 1.7838631269149825e-05,
+            "reference_l2": 6.661056835058546e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.0009151100892905463,
+            "max_trace_x_m": 410.0,
+            "p95_trace_relative_l2": 0.0007482377940322952,
+            "relative_l2": 0.00041603439369734325,
+            "component_relative_l2": [
+              0.0004465440241677719,
+              0.000316302661213432
+            ],
+            "max_abs_difference": 2.008386256282358e-13,
+            "max_difference_over_reference_peak": 0.0004261176966142618,
+            "reference_l2": 1.5521004705178343e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.027246260361248192,
+            "max_trace_x_m": 345.0,
+            "p95_trace_relative_l2": 4.58902490210357e-05,
+            "relative_l2": 0.005925325222036786,
+            "component_relative_l2": [
+              0.010890265350281118,
+              0.0011577049028237373
+            ],
+            "max_abs_difference": 6.194657521254677e-10,
+            "max_difference_over_reference_peak": 0.025385580914779913,
+            "reference_l2": 4.915315134786529e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.027249425175526486,
+            "max_trace_x_m": 345.0,
+            "p95_trace_relative_l2": 4.018308950871055e-05,
+            "relative_l2": 0.005926844121790515,
+            "component_relative_l2": [
+              0.010897305008759923,
+              0.0011578124996826124
+            ],
+            "max_abs_difference": 6.194657521254677e-10,
+            "max_difference_over_reference_peak": 0.025385580914779913,
+            "reference_l2": 4.914048819443207e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.0009032437439540003,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.0007449926886608867,
+            "relative_l2": 0.0004290843422939989,
+            "component_relative_l2": [
+              0.0004666123974612883,
+              0.0003100217999609291
+            ],
+            "max_abs_difference": 2.008386256282358e-13,
+            "max_difference_over_reference_peak": 0.0004261176966142618,
+            "reference_l2": 1.1167011082306819e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 2.3969001662592312e-05,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 2.0586309819301818e-05,
+            "relative_l2": 1.3446759775664681e-05,
+            "component_relative_l2": [
+              2.188425179447932e-05,
+              7.127385197978109e-06
+            ],
+            "max_abs_difference": 2.008386256282358e-13,
+            "max_difference_over_reference_peak": 9.974350247660721e-06,
+            "reference_l2": 4.6748041795897786e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 1.2889550614626748e-05,
+            "max_trace_x_m": 695.0,
+            "p95_trace_relative_l2": 1.2079552770604498e-05,
+            "relative_l2": 9.411930369518222e-06,
+            "component_relative_l2": [
+              1.4901488680529621e-05,
+              5.516949849985453e-06
+            ],
+            "max_abs_difference": 1.4908214025857427e-13,
+            "max_difference_over_reference_peak": 7.403941736598125e-06,
+            "reference_l2": 4.67354355468219e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.0009032437439540003,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.0007452527208754188,
+            "relative_l2": 0.00041340771767508545,
+            "component_relative_l2": [
+              0.0004436497665609541,
+              0.0003148656468715881
+            ],
+            "max_abs_difference": 2.008386256282358e-13,
+            "max_difference_over_reference_peak": 0.0004261176966142618,
+            "reference_l2": 1.0866336611360375e-08,
+            "receivers": 66
+          }
+        },
+        "p7/reference": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.03667454638717207,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 1.8626555636323377e-05,
+            "relative_l2": 0.00741450171097836,
+            "component_relative_l2": [
+              0.0027668068138661903,
+              0.008368642182624755
+            ],
+            "max_abs_difference": 1.0096621752714839e-09,
+            "max_difference_over_reference_peak": 0.011142234862202583,
+            "reference_l2": 7.602260007621536e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.03667841060975094,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 1.8533812252082932e-05,
+            "relative_l2": 0.007416118425797196,
+            "component_relative_l2": [
+              0.0027686202364267842,
+              0.008369302406244332
+            ],
+            "max_abs_difference": 1.0096621752714839e-09,
+            "max_difference_over_reference_peak": 0.011142234862202583,
+            "reference_l2": 7.600602623509884e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.00011056647984443666,
+            "max_trace_x_m": 410.0,
+            "p95_trace_relative_l2": 0.00010087182109911671,
+            "relative_l2": 5.472854068932354e-05,
+            "component_relative_l2": [
+              5.951370554643066e-05,
+              3.935265349398545e-05
+            ],
+            "max_abs_difference": 2.5690117154461426e-14,
+            "max_difference_over_reference_peak": 5.450651493639082e-05,
+            "reference_l2": 1.588832856860427e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 1.8626555636323377e-05,
+            "max_trace_x_m": 330.0,
+            "p95_trace_relative_l2": 5.860636720715398e-06,
+            "relative_l2": 5.022446898364337e-06,
+            "component_relative_l2": [
+              4.9871919031413785e-06,
+              5.0377409876590405e-06
+            ],
+            "max_abs_difference": 3.0791215143800995e-13,
+            "max_difference_over_reference_peak": 1.5080911167304476e-05,
+            "reference_l2": 6.662861377421315e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 1.8533812252082932e-05,
+            "max_trace_x_m": 330.0,
+            "p95_trace_relative_l2": 5.78208708819746e-06,
+            "relative_l2": 4.868020788582736e-06,
+            "component_relative_l2": [
+              4.532077027272475e-06,
+              5.007291142289566e-06
+            ],
+            "max_abs_difference": 3.0791215143800995e-13,
+            "max_difference_over_reference_peak": 1.5080911167304476e-05,
+            "reference_l2": 6.661056835058546e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.00011056647984443666,
+            "max_trace_x_m": 410.0,
+            "p95_trace_relative_l2": 0.00010178113318736906,
+            "relative_l2": 5.328195719980596e-05,
+            "component_relative_l2": [
+              5.760874736070247e-05,
+              3.882498092820086e-05
+            ],
+            "max_abs_difference": 2.5690117154461426e-14,
+            "max_difference_over_reference_peak": 5.450651493639082e-05,
+            "reference_l2": 1.5521004705178343e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.03667454638717207,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 9.13893893188898e-05,
+            "relative_l2": 0.008645786527046924,
+            "component_relative_l2": [
+              0.003914913290991458,
+              0.009939061141396303
+            ],
+            "max_abs_difference": 8.376784711884761e-10,
+            "max_difference_over_reference_peak": 0.03432789389560499,
+            "reference_l2": 4.915315134786529e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.03667841060975094,
+            "max_trace_x_m": 355.0,
+            "p95_trace_relative_l2": 9.11586320223613e-05,
+            "relative_l2": 0.008648014395672187,
+            "component_relative_l2": [
+              0.0039174480300005225,
+              0.009940056129273254
+            ],
+            "max_abs_difference": 8.376784711884761e-10,
+            "max_difference_over_reference_peak": 0.03432789389560499,
+            "reference_l2": 4.914048819443207e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.00010903904627922165,
+            "max_trace_x_m": 405.0,
+            "p95_trace_relative_l2": 0.00010296480680708392,
+            "relative_l2": 5.458212206870861e-05,
+            "component_relative_l2": [
+              5.967712922601063e-05,
+              3.8146447966124865e-05
+            ],
+            "max_abs_difference": 2.5690117154461426e-14,
+            "max_difference_over_reference_peak": 5.450651493639082e-05,
+            "reference_l2": 1.1167011082306819e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 5.834825543687971e-06,
+            "max_trace_x_m": 695.0,
+            "p95_trace_relative_l2": 5.009211683692602e-06,
+            "relative_l2": 4.310144298910618e-06,
+            "component_relative_l2": [
+              4.1326227692636305e-06,
+              4.385318631027631e-06
+            ],
+            "max_abs_difference": 7.203851630182036e-14,
+            "max_difference_over_reference_peak": 3.5776852717874506e-06,
+            "reference_l2": 4.6748041795897786e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 5.288852538637766e-06,
+            "max_trace_x_m": 695.0,
+            "p95_trace_relative_l2": 4.604447493115831e-06,
+            "relative_l2": 4.1323257391489165e-06,
+            "component_relative_l2": [
+              3.581287586850684e-06,
+              4.350619809957538e-06
+            ],
+            "max_abs_difference": 7.203851630182036e-14,
+            "max_difference_over_reference_peak": 3.5776852717874506e-06,
+            "reference_l2": 4.67354355468219e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.00010903904627922165,
+            "max_trace_x_m": 405.0,
+            "p95_trace_relative_l2": 0.00010372589251907201,
+            "relative_l2": 5.28791595770668e-05,
+            "component_relative_l2": [
+              5.716088946235328e-05,
+              3.862179073369691e-05
+            ],
+            "max_abs_difference": 2.5690117154461426e-14,
+            "max_difference_over_reference_peak": 5.450651493639082e-05,
+            "reference_l2": 1.0866336611360375e-08,
+            "receivers": 66
+          }
+        },
+        "p5/dt": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.00011333225769014035,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 9.981249554169662e-05,
+            "relative_l2": 5.565989376136362e-05,
+            "component_relative_l2": [
+              5.8450346628298064e-05,
+              5.4686287567734434e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 2.0729711060830697e-05,
+            "reference_l2": 7.437155902080171e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.00011324799912922461,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 9.976501129666817e-05,
+            "relative_l2": 5.552650775338602e-05,
+            "component_relative_l2": [
+              5.811289150948765e-05,
+              5.462728544746423e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 2.0729711060830697e-05,
+            "reference_l2": 7.43546163530959e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.000277697275409172,
+            "max_trace_x_m": 510.0,
+            "p95_trace_relative_l2": 0.0002536570176584045,
+            "relative_l2": 0.00018873666614877338,
+            "component_relative_l2": [
+              0.00018270327653491767,
+              0.00020384190174060576
+            ],
+            "max_abs_difference": 9.728781703919343e-14,
+            "max_difference_over_reference_peak": 0.00020637384738433516,
+            "reference_l2": 1.588870780554987e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.00011333225769014035,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00010085888090761709,
+            "relative_l2": 6.203111469042524e-05,
+            "component_relative_l2": [
+              5.942598021112324e-05,
+              6.31332857532124e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 8.068161781050074e-05,
+            "reference_l2": 6.662898664008878e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00011324799912922461,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 0.00010081336876480135,
+            "relative_l2": 6.189088822681654e-05,
+            "component_relative_l2": [
+              5.90936097385146e-05,
+              6.307035783741087e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 8.068161781050074e-05,
+            "reference_l2": 6.661094043307921e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.000277697275409172,
+            "max_trace_x_m": 510.0,
+            "p95_trace_relative_l2": 0.00025674056642859797,
+            "relative_l2": 0.00018946544500199116,
+            "component_relative_l2": [
+              0.00018308299184656147,
+              0.00020614528775720042
+            ],
+            "max_abs_difference": 9.728781703919343e-14,
+            "max_difference_over_reference_peak": 0.00020637384738433516,
+            "reference_l2": 1.552138783970061e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.0001104496472358902,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 9.80044606036036e-05,
+            "relative_l2": 5.8955267195755424e-05,
+            "component_relative_l2": [
+              5.808019840326714e-05,
+              5.9305818697442504e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 6.814924001153101e-05,
+            "reference_l2": 4.913996910488521e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.0001103476512099896,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 9.795089985746233e-05,
+            "relative_l2": 5.881387507841563e-05,
+            "component_relative_l2": [
+              5.774221917287112e-05,
+              5.92416965339073e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 6.814924001153101e-05,
+            "reference_l2": 4.912730198963529e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.00027757231641787635,
+            "max_trace_x_m": 505.0,
+            "p95_trace_relative_l2": 0.0002531645315697273,
+            "relative_l2": 0.00018906736298427088,
+            "component_relative_l2": [
+              0.00018320593046057667,
+              0.00020361443390518407
+            ],
+            "max_abs_difference": 9.596946825768207e-14,
+            "max_difference_over_reference_peak": 0.00020357727204206653,
+            "reference_l2": 1.116726032599859e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.0001104496472358902,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 9.88080316872005e-05,
+            "relative_l2": 6.192034052483486e-05,
+            "component_relative_l2": [
+              5.941391922957203e-05,
+              6.298225227415355e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 8.182488318137122e-05,
+            "reference_l2": 4.674582678936174e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.0001103476512099896,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 9.875717160822049e-05,
+            "relative_l2": 6.177941883375977e-05,
+            "component_relative_l2": [
+              5.908087743834048e-05,
+              6.291887381272774e-05
+            ],
+            "max_abs_difference": 1.6474777860935172e-12,
+            "max_difference_over_reference_peak": 8.182488318137122e-05,
+            "reference_l2": 4.6733219364810795e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.00027757231641787635,
+            "max_trace_x_m": 505.0,
+            "p95_trace_relative_l2": 0.0002533834142758061,
+            "relative_l2": 0.0001900561120703661,
+            "component_relative_l2": [
+              0.0001836458948030863,
+              0.00020676991453581086
+            ],
+            "max_abs_difference": 9.596946825768207e-14,
+            "max_difference_over_reference_peak": 0.00020357727204206653,
+            "reference_l2": 1.0866587508340857e-08,
+            "receivers": 66
+          }
+        },
+        "p6/dt": {
+          "all141/full": {
+            "max_trace_relative_l2": 5.410683665482005e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 4.7667269865988954e-05,
+            "relative_l2": 2.6300121839973575e-05,
+            "component_relative_l2": [
+              2.7917355384360927e-05,
+              2.5747991413686406e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 9.259531275694565e-06,
+            "reference_l2": 7.516355003610847e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 5.406632878881256e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 4.764468845616961e-05,
+            "relative_l2": 2.623686920963738e-05,
+            "component_relative_l2": [
+              2.7756347722365885e-05,
+              2.5719945059213313e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 9.259531275694565e-06,
+            "reference_l2": 7.514678659331615e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.0001325814722481544,
+            "max_trace_x_m": 510.0,
+            "p95_trace_relative_l2": 0.00012118485625243531,
+            "relative_l2": 9.0198465996002e-05,
+            "component_relative_l2": [
+              8.720043304401585e-05,
+              9.768893167934728e-05
+            ],
+            "max_abs_difference": 4.645736985199974e-14,
+            "max_difference_over_reference_peak": 9.856991719020682e-05,
+            "reference_l2": 1.588839384523975e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 5.410683665482005e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 4.816096774326888e-05,
+            "relative_l2": 2.961775542661008e-05,
+            "component_relative_l2": [
+              2.8374810030090837e-05,
+              3.0143643131060986e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 3.853992080218196e-05,
+            "reference_l2": 6.662844185492535e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 5.406632878881256e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 4.813931909840133e-05,
+            "relative_l2": 2.955086325516114e-05,
+            "component_relative_l2": [
+              2.821625712458244e-05,
+              3.011362838661168e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 3.853992080218196e-05,
+            "reference_l2": 6.66103962359315e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.0001325814722481544,
+            "max_trace_x_m": 510.0,
+            "p95_trace_relative_l2": 0.00012262960159988617,
+            "relative_l2": 9.042743864324828e-05,
+            "component_relative_l2": [
+              8.738373841008968e-05,
+              9.838252441211807e-05
+            ],
+            "max_abs_difference": 4.645736985199974e-14,
+            "max_difference_over_reference_peak": 9.856991719020682e-05,
+            "reference_l2": 1.5521069406481515e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 5.2748332212214807e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 4.6804393277505317e-05,
+            "relative_l2": 2.815301077912356e-05,
+            "component_relative_l2": [
+              2.775132833748617e-05,
+              2.831372469000867e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 3.226467334339248e-05,
+            "reference_l2": 4.914501281888777e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 5.2699447951000835e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 4.677892442570945e-05,
+            "relative_l2": 2.8085590036470556e-05,
+            "component_relative_l2": [
+              2.7590090097369803e-05,
+              2.8283156234001278e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 3.226467334339248e-05,
+            "reference_l2": 4.913234746705302e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.00013250355275066215,
+            "max_trace_x_m": 505.0,
+            "p95_trace_relative_l2": 0.00012089448920848513,
+            "relative_l2": 9.023617342422013e-05,
+            "component_relative_l2": [
+              8.743947044037706e-05,
+              9.717742971008043e-05
+            ],
+            "max_abs_difference": 4.5838307767866494e-14,
+            "max_difference_over_reference_peak": 9.725643563576225e-05,
+            "reference_l2": 1.1167056173028977e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 5.2748332212214807e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 4.718789398349805e-05,
+            "relative_l2": 2.9570256609266655e-05,
+            "component_relative_l2": [
+              2.837349827256538e-05,
+              3.0077298841147988e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 3.9079289493617585e-05,
+            "reference_l2": 4.674791012361178e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 5.2699447951000835e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 4.71637084392473e-05,
+            "relative_l2": 2.950305523530488e-05,
+            "component_relative_l2": [
+              2.8214673370654464e-05,
+              3.004707842132552e-05
+            ],
+            "max_abs_difference": 7.86878865972306e-13,
+            "max_difference_over_reference_peak": 3.9079289493617585e-05,
+            "reference_l2": 4.6735303736878943e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.00013250355275066215,
+            "max_trace_x_m": 505.0,
+            "p95_trace_relative_l2": 0.00012102354122801855,
+            "relative_l2": 9.070907576636457e-05,
+            "component_relative_l2": [
+              8.765141429051081e-05,
+              9.868210752294305e-05
+            ],
+            "max_abs_difference": 4.5838307767866494e-14,
+            "max_difference_over_reference_peak": 9.725643563576225e-05,
+            "reference_l2": 1.0866381172279108e-08,
+            "receivers": 66
+          }
+        },
+        "p7/dt": {
+          "all141/full": {
+            "max_trace_relative_l2": 2.7485169908242226e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 2.421421053516003e-05,
+            "relative_l2": 1.3236019308357606e-05,
+            "component_relative_l2": [
+              1.4179051434003552e-05,
+              1.2919983739189543e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 4.456423376312254e-06,
+            "reference_l2": 7.58818642484801e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 2.746460210750947e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 2.4202734554294323e-05,
+            "relative_l2": 1.3204034594804568e-05,
+            "component_relative_l2": [
+              1.4097247286431136e-05,
+              1.2905753690589922e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 4.456423376312254e-06,
+            "reference_l2": 7.586525965203116e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 6.735746431467148e-05,
+            "max_trace_x_m": 510.0,
+            "p95_trace_relative_l2": 6.359661328750295e-05,
+            "relative_l2": 4.589143354960446e-05,
+            "component_relative_l2": [
+              4.430252239078748e-05,
+              4.985226186893341e-05
+            ],
+            "max_abs_difference": 2.361100420131567e-14,
+            "max_difference_over_reference_peak": 5.009521977212708e-05,
+            "reference_l2": 1.5888333135886164e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 2.7485169908242226e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 2.4465043215697504e-05,
+            "relative_l2": 1.5045005093389448e-05,
+            "component_relative_l2": [
+              1.4413767125299662e-05,
+              1.531208333774176e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 1.957660914605167e-05,
+            "reference_l2": 6.662851843725965e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 2.746460210750947e-05,
+            "max_trace_x_m": 0.0,
+            "p95_trace_relative_l2": 2.4454041827827507e-05,
+            "relative_l2": 1.5011015188434068e-05,
+            "component_relative_l2": [
+              1.4333204043699647e-05,
+              1.529683146380877e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 1.957660914605167e-05,
+            "reference_l2": 6.661047297707776e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 6.735746431467148e-05,
+            "max_trace_x_m": 510.0,
+            "p95_trace_relative_l2": 6.229941209159079e-05,
+            "relative_l2": 4.5941223804207235e-05,
+            "component_relative_l2": [
+              4.4394626331804924e-05,
+              4.9983406146846534e-05
+            ],
+            "max_abs_difference": 2.361100420131567e-14,
+            "max_difference_over_reference_peak": 5.009521977212708e-05,
+            "reference_l2": 1.5521009310658452e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 2.6795388761321295e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 2.3775853617300738e-05,
+            "relative_l2": 1.4295301257271781e-05,
+            "component_relative_l2": [
+              1.4092971106909091e-05,
+              1.4376233411588654e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 1.6221523380290878e-05,
+            "reference_l2": 4.916548085772643e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 2.6770562059530936e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 2.376290975362035e-05,
+            "relative_l2": 1.4261056772238152e-05,
+            "component_relative_l2": [
+              1.4011070832218009e-05,
+              1.436070613424458e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 1.6221523380290878e-05,
+            "reference_l2": 4.915282087174052e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 6.731149777744442e-05,
+            "max_trace_x_m": 505.0,
+            "p95_trace_relative_l2": 6.14154558685555e-05,
+            "relative_l2": 4.584286220132128e-05,
+            "component_relative_l2": [
+              4.4421024126591404e-05,
+              4.9371651640079e-05
+            ],
+            "max_abs_difference": 2.3292509159281484e-14,
+            "max_difference_over_reference_peak": 4.941947218464639e-05,
+            "reference_l2": 1.1167015029543462e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 2.6795388761321295e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 2.397067891412709e-05,
+            "relative_l2": 1.5020912208373532e-05,
+            "component_relative_l2": [
+              1.441317711909795e-05,
+              1.5278401286244314e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 1.985062676770486e-05,
+            "reference_l2": 4.6747981871172804e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 2.6770562059530936e-05,
+            "max_trace_x_m": 5.0,
+            "p95_trace_relative_l2": 2.3958387442808783e-05,
+            "relative_l2": 1.498676965844592e-05,
+            "component_relative_l2": [
+              1.433248746244107e-05,
+              1.5263046603599902e-05
+            ],
+            "max_abs_difference": 3.9970127196558115e-13,
+            "max_difference_over_reference_peak": 1.985062676770486e-05,
+            "reference_l2": 4.673537559682084e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 6.731149777744442e-05,
+            "max_trace_x_m": 505.0,
+            "p95_trace_relative_l2": 6.148144651156744e-05,
+            "relative_l2": 4.608169404276496e-05,
+            "component_relative_l2": [
+              4.4527939754143436e-05,
+              5.0133134385383276e-05
+            ],
+            "max_abs_difference": 2.3292509159281484e-14,
+            "max_difference_over_reference_peak": 4.941947218464639e-05,
+            "reference_l2": 1.0866340533453266e-08,
+            "receivers": 66
+          }
+        },
+        "p5-p6": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.07366121279088596,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00026048107329419587,
+            "relative_l2": 0.029911066483736985,
+            "component_relative_l2": [
+              0.008727623806363381,
+              0.03410176597554266
+            ],
+            "max_abs_difference": 6.010552580362917e-09,
+            "max_difference_over_reference_peak": 0.07072867503349094,
+            "reference_l2": 7.516355003610847e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.07366183491284636,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 0.00021869965879763248,
+            "relative_l2": 0.029917609259538982,
+            "component_relative_l2": [
+              0.008731846014707638,
+              0.034104513178678596
+            ],
+            "max_abs_difference": 6.010552580362917e-09,
+            "max_difference_over_reference_peak": 0.07072867503349094,
+            "reference_l2": 7.514678659331615e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.00937609011711535,
+            "max_trace_x_m": 420.0,
+            "p95_trace_relative_l2": 0.0075338935709374,
+            "relative_l2": 0.0041676344261262115,
+            "component_relative_l2": [
+              0.004469790795930537,
+              0.003234662192916539
+            ],
+            "max_abs_difference": 1.6837058359068058e-12,
+            "max_difference_over_reference_peak": 0.003572366351059325,
+            "reference_l2": 1.588839384523975e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 0.0002888345195314466,
+            "max_trace_x_m": 420.0,
+            "p95_trace_relative_l2": 0.00022139005104264062,
+            "relative_l2": 0.00015855082427549663,
+            "component_relative_l2": [
+              0.0002018370796864796,
+              0.0001354133924018214
+            ],
+            "max_abs_difference": 3.3158205887999154e-12,
+            "max_difference_over_reference_peak": 0.00016240296748685416,
+            "reference_l2": 6.662844185492535e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 0.00021869965879763248,
+            "max_trace_x_m": 320.0,
+            "p95_trace_relative_l2": 0.00018306938841602114,
+            "relative_l2": 0.00012818602997021348,
+            "component_relative_l2": [
+              0.00013090641495446963,
+              0.000126983027831622
+            ],
+            "max_abs_difference": 3.3158205887999154e-12,
+            "max_difference_over_reference_peak": 0.00016240296748685416,
+            "reference_l2": 6.66103962359315e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.00937609011711535,
+            "max_trace_x_m": 420.0,
+            "p95_trace_relative_l2": 0.007268802507517955,
+            "relative_l2": 0.004008787643324687,
+            "component_relative_l2": [
+              0.004241490972107339,
+              0.003277527133533606
+            ],
+            "max_abs_difference": 1.6837058359068058e-12,
+            "max_difference_over_reference_peak": 0.003572366351059325,
+            "reference_l2": 1.5521069406481515e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.04316736521212968,
+            "max_trace_x_m": 345.0,
+            "p95_trace_relative_l2": 0.000251288280545538,
+            "relative_l2": 0.010304958523786446,
+            "component_relative_l2": [
+              0.012318389044397719,
+              0.009369310072299538
+            ],
+            "max_abs_difference": 8.290075226598505e-10,
+            "max_difference_over_reference_peak": 0.03399208960172592,
+            "reference_l2": 4.914501281888777e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.043172261230149396,
+            "max_trace_x_m": 345.0,
+            "p95_trace_relative_l2": 0.00018353129616230878,
+            "relative_l2": 0.010307178961710042,
+            "component_relative_l2": [
+              0.012325309805501205,
+              0.00937014013771701
+            ],
+            "max_abs_difference": 8.290075226598505e-10,
+            "max_difference_over_reference_peak": 0.03399208960172592,
+            "reference_l2": 4.913234746705302e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.009249836359320255,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.007282086506857883,
+            "relative_l2": 0.0041726791619092094,
+            "component_relative_l2": [
+              0.004494761510067165,
+              0.003178497129583274
+            ],
+            "max_abs_difference": 1.6837058359068058e-12,
+            "max_difference_over_reference_peak": 0.003572366351059325,
+            "reference_l2": 1.1167056173028977e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 0.00024913042852329136,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.00018806793041462456,
+            "relative_l2": 0.00013900494106635155,
+            "component_relative_l2": [
+              0.000189247993511417,
+              0.00011013356644255878
+            ],
+            "max_abs_difference": 1.902527973010932e-12,
+            "max_difference_over_reference_peak": 9.448651456044619e-05,
+            "reference_l2": 4.674791012361178e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 0.00012792088019344226,
+            "max_trace_x_m": 35.0,
+            "p95_trace_relative_l2": 0.00012002481072414788,
+            "relative_l2": 0.00010357723546138338,
+            "component_relative_l2": [
+              0.00011173712752197366,
+              9.981391079846867e-05
+            ],
+            "max_abs_difference": 1.902527973010932e-12,
+            "max_difference_over_reference_peak": 9.448651456044619e-05,
+            "reference_l2": 4.6735303736878943e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.009249836359320255,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.00684969595240152,
+            "relative_l2": 0.003990646242184425,
+            "component_relative_l2": [
+              0.004227359588444928,
+              0.0032463878044150128
+            ],
+            "max_abs_difference": 1.6837058359068058e-12,
+            "max_difference_over_reference_peak": 0.003572366351059325,
+            "reference_l2": 1.0866381172279108e-08,
+            "receivers": 66
+          }
+        },
+        "p6-p7": {
+          "all141/full": {
+            "max_trace_relative_l2": 0.0595052938951955,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 2.5553150852005347e-05,
+            "relative_l2": 0.025540282721208618,
+            "component_relative_l2": [
+              0.0049913672676537325,
+              0.029204553066392976
+            ],
+            "max_abs_difference": 5.141684960076164e-09,
+            "max_difference_over_reference_peak": 0.05732662529953037,
+            "reference_l2": 7.58818642484801e-07,
+            "receivers": 141
+          },
+          "all141/early": {
+            "max_trace_relative_l2": 0.059505745901951845,
+            "max_trace_x_m": 350.0,
+            "p95_trace_relative_l2": 1.2441290698669927e-05,
+            "relative_l2": 0.0255458707295208,
+            "component_relative_l2": [
+              0.004994604924554593,
+              0.029206867979815695
+            ],
+            "max_abs_difference": 5.141684960076164e-09,
+            "max_difference_over_reference_peak": 0.05732662529953037,
+            "reference_l2": 7.586525965203116e-07,
+            "receivers": 141
+          },
+          "all141/late": {
+            "max_trace_relative_l2": 0.0010224373719589278,
+            "max_trace_x_m": 410.0,
+            "p95_trace_relative_l2": 0.0008481372898469581,
+            "relative_l2": 0.0004807122084879144,
+            "component_relative_l2": [
+              0.0005220489532673069,
+              0.0003484218559766565
+            ],
+            "max_abs_difference": 2.2652874278269722e-13,
+            "max_difference_over_reference_peak": 0.0004806236557177234,
+            "reference_l2": 1.5888333135886164e-08,
+            "receivers": 141
+          },
+          "far20/full": {
+            "max_trace_relative_l2": 2.5553150852005347e-05,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 2.1913186888217794e-05,
+            "relative_l2": 1.3548439962832001e-05,
+            "component_relative_l2": [
+              2.1099104986920395e-05,
+              8.336440461673703e-06
+            ],
+            "max_abs_difference": 2.2652874278269722e-13,
+            "max_difference_over_reference_peak": 1.1094947574210402e-05,
+            "reference_l2": 6.662851843725965e-07,
+            "receivers": 134
+          },
+          "far20/early": {
+            "max_trace_relative_l2": 1.2441290698669927e-05,
+            "max_trace_x_m": 320.0,
+            "p95_trace_relative_l2": 1.0991082351893132e-05,
+            "relative_l2": 8.085883434920099e-06,
+            "component_relative_l2": [
+              1.0706015707698114e-05,
+              6.62854184894815e-06
+            ],
+            "max_abs_difference": 1.4354976892074312e-13,
+            "max_difference_over_reference_peak": 7.030795036872976e-06,
+            "reference_l2": 6.661047297707776e-07,
+            "receivers": 134
+          },
+          "far20/late": {
+            "max_trace_relative_l2": 0.0010224373719589278,
+            "max_trace_x_m": 410.0,
+            "p95_trace_relative_l2": 0.0008510363033042923,
+            "relative_l2": 0.0004668787764511762,
+            "component_relative_l2": [
+              0.0005018029624954662,
+              0.0003522591550036378
+            ],
+            "max_abs_difference": 2.2652874278269722e-13,
+            "max_difference_over_reference_peak": 0.0004806236557177234,
+            "reference_l2": 1.5521009310658452e-08,
+            "receivers": 134
+          },
+          "dataset70/full": {
+            "max_trace_relative_l2": 0.04133260640916028,
+            "max_trace_x_m": 345.0,
+            "p95_trace_relative_l2": 0.0001353200441238797,
+            "relative_l2": 0.00998891135362895,
+            "component_relative_l2": [
+              0.0070484395894881225,
+              0.010955248366931883
+            ],
+            "max_abs_difference": 8.857804882348232e-10,
+            "max_difference_over_reference_peak": 0.03594861940030044,
+            "reference_l2": 4.916548085772643e-07,
+            "receivers": 70
+          },
+          "dataset70/early": {
+            "max_trace_relative_l2": 0.04133737324971472,
+            "max_trace_x_m": 345.0,
+            "p95_trace_relative_l2": 0.00012855327298854128,
+            "relative_l2": 0.009991478158635062,
+            "component_relative_l2": [
+              0.0070529805798570724,
+              0.010956343083675263
+            ],
+            "max_abs_difference": 8.857804882348232e-10,
+            "max_difference_over_reference_peak": 0.03594861940030044,
+            "reference_l2": 4.915282087174052e-07,
+            "receivers": 70
+          },
+          "dataset70/late": {
+            "max_trace_relative_l2": 0.0010063505670860097,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.0008471781126711403,
+            "relative_l2": 0.0004812104802372869,
+            "component_relative_l2": [
+              0.0005238767084100606,
+              0.0003453930667215646
+            ],
+            "max_abs_difference": 2.2652874278269722e-13,
+            "max_difference_over_reference_peak": 0.0004806236557177234,
+            "reference_l2": 1.1167015029543462e-08,
+            "receivers": 70
+          },
+          "dataset70_far20/full": {
+            "max_trace_relative_l2": 2.5553150852005347e-05,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 2.1573490593282637e-05,
+            "relative_l2": 1.330544139646921e-05,
+            "component_relative_l2": [
+              2.16950156303908e-05,
+              6.997632530214079e-06
+            ],
+            "max_abs_difference": 2.2652874278269722e-13,
+            "max_difference_over_reference_peak": 1.125024572232024e-05,
+            "reference_l2": 4.6747981871172804e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/early": {
+            "max_trace_relative_l2": 1.1053923303517406e-05,
+            "max_trace_x_m": 295.0,
+            "p95_trace_relative_l2": 1.0541196346189273e-05,
+            "relative_l2": 7.802604053647328e-06,
+            "component_relative_l2": [
+              1.2092631101316687e-05,
+              4.867898025625428e-06
+            ],
+            "max_abs_difference": 1.2125178085728362e-13,
+            "max_difference_over_reference_peak": 6.021806823083469e-06,
+            "reference_l2": 4.673537559682084e-07,
+            "receivers": 66
+          },
+          "dataset70_far20/late": {
+            "max_trace_relative_l2": 0.0010063505670860097,
+            "max_trace_x_m": 415.0,
+            "p95_trace_relative_l2": 0.0008476044136381704,
+            "relative_l2": 0.0004638618510685811,
+            "component_relative_l2": [
+              0.0004984610311095861,
+              0.00035068267369885517
+            ],
+            "max_abs_difference": 2.2652874278269722e-13,
+            "max_difference_over_reference_peak": 0.0004806236557177234,
+            "reference_l2": 1.0866340533453266e-08,
+            "receivers": 66
+          }
+        }
+      },
+      "adjacent_common_normalization": {
+        "all141/full": {
+          "p5_p6_over_ref": 0.02957307353378876,
+          "p6_p7_over_ref": 0.025493001612357326,
+          "contraction_ratio": 0.8620342279685693
+        },
+        "all141/early": {
+          "p5_p6_over_ref": 0.029579394026661963,
+          "p6_p7_over_ref": 0.02549855862662306,
+          "contraction_ratio": 0.8620378971807008
+        },
+        "all141/late": {
+          "p5_p6_over_ref": 0.004167651548704718,
+          "p6_p7_over_ref": 0.0004807123466741406,
+          "contraction_ratio": 0.11534369921677912
+        },
+        "far20/full": {
+          "p5_p6_over_ref": 0.0001585504151728117,
+          "p6_p7_over_ref": 1.3548420576761698e-05,
+          "contraction_ratio": 0.08545181393561553
+        },
+        "far20/early": {
+          "p5_p6_over_ref": 0.00012818569875108808,
+          "p6_p7_over_ref": 8.085871857491996e-06,
+          "contraction_ratio": 0.06307936014916297
+        },
+        "far20/late": {
+          "p5_p6_over_ref": 0.004008804354471265,
+          "p6_p7_over_ref": 0.0004668789149860816,
+          "contraction_ratio": 0.11646338252086134
+        },
+        "dataset70/full": {
+          "p5_p6_over_ref": 0.0103032522811294,
+          "p6_p7_over_ref": 0.009991416958613768,
+          "contraction_ratio": 0.9697342825345775
+        },
+        "dataset70/early": {
+          "p5_p6_over_ref": 0.01030547145050986,
+          "p6_p7_over_ref": 0.009993985697336697,
+          "contraction_ratio": 0.9697747206744479
+        },
+        "dataset70/late": {
+          "p5_p6_over_ref": 0.004172696010564177,
+          "p6_p7_over_ref": 0.0004812106503321875,
+          "contraction_ratio": 0.11532367781259112
+        },
+        "dataset70_far20/full": {
+          "p5_p6_over_ref": 0.0001390045495398265,
+          "p6_p7_over_ref": 1.330542434067637e-05,
+          "contraction_ratio": 0.09571934432882863
+        },
+        "dataset70_far20/early": {
+          "p5_p6_over_ref": 0.00010357694333808683,
+          "p6_p7_over_ref": 7.802594044836758e-06,
+          "contraction_ratio": 0.07533137968136606
+        },
+        "dataset70_far20/late": {
+          "p5_p6_over_ref": 0.003990662607116715,
+          "p6_p7_over_ref": 0.0004638620184947647,
+          "contraction_ratio": 0.11623684188874804
+        }
+      },
+      "runs": {
+        "p5/native": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 65,
+          "order": 5,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": 0.8,
+          "dt_s": 2.857142857142857e-05,
+          "steps": 35000,
+          "steps_per_ms": 35,
+          "lambda_max": 1570249307.7420807,
+          "lambda_max_damping": 13727.625613023816,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/mesh_q2.npz",
+            "sha256": "8976c2b7d6b78b650b1681c8bc9a798e63f1b141fe7c93a27dcc7ef9d45c54d7"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 282381,
+          "status": "completed",
+          "run_seconds": 6.38171786442399,
+          "total_seconds": 7.418905335478485,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/p5_beta0.03703704_cfl0.8/surface.npz",
+            "sha256": "d055e817448db9d15f82c7d0abb5815cc2b0fc3faafe1f4fd208c474d33c540d"
+          }
+        },
+        "p6/native": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 65,
+          "order": 6,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": 0.8,
+          "dt_s": 2.0408163265306123e-05,
+          "steps": 49000,
+          "steps_per_ms": 49,
+          "lambda_max": 3041194201.9482136,
+          "lambda_max_damping": 19139.968474200236,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/mesh_q2.npz",
+            "sha256": "8976c2b7d6b78b650b1681c8bc9a798e63f1b141fe7c93a27dcc7ef9d45c54d7"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ede1c2423781b61ca6f7ed0364491925033c70347f65be990ca820e15af058d3"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 406393,
+          "status": "completed",
+          "run_seconds": 12.38969883415848,
+          "total_seconds": 13.728907124139369,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/p6_beta0.03703704_cfl0.8/surface.npz",
+            "sha256": "d5a9bbe0fc024b7d51d716b78da47aa2aac576c1c06ec424806ddf3ddb1bb5c4"
+          }
+        },
+        "p7/native": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 65,
+          "order": 7,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": 0.8,
+          "dt_s": 1.5384615384615384e-05,
+          "steps": 65000,
+          "steps_per_ms": 65,
+          "lambda_max": 5368510122.299026,
+          "lambda_max_damping": 25454.368471143327,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/mesh_q2.npz",
+            "sha256": "8976c2b7d6b78b650b1681c8bc9a798e63f1b141fe7c93a27dcc7ef9d45c54d7"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ede1c2423781b61ca6f7ed0364491925033c70347f65be990ca820e15af058d3"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 552917,
+          "status": "completed",
+          "run_seconds": 21.28659545071423,
+          "total_seconds": 22.583281786181033,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/p7_beta0.03703704_cfl0.8/surface.npz",
+            "sha256": "c347b45ceb9545d1d964ed6b836bbbc7543d9ad1faf9c92fe5843ef3083350fc"
+          }
+        },
+        "p5/fixed": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 65,
+          "order": 5,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": null,
+          "dt_s": 7.142857142857143e-06,
+          "steps": 140000,
+          "steps_per_ms": 140,
+          "lambda_max": 0.0,
+          "lambda_max_damping": 0.0,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/mesh_q2.npz",
+            "sha256": "8976c2b7d6b78b650b1681c8bc9a798e63f1b141fe7c93a27dcc7ef9d45c54d7"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 282381,
+          "status": "completed",
+          "run_seconds": 24.65102146845311,
+          "total_seconds": 25.528582667931914,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/p5_beta0.03703704_fixedk140/surface.npz",
+            "sha256": "596601325356d23ce098c72e3eda1a79d2b56f48d4a6528dd73259c215e5828b"
+          }
+        },
+        "p6/fixed": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 65,
+          "order": 6,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": null,
+          "dt_s": 7.142857142857143e-06,
+          "steps": 140000,
+          "steps_per_ms": 140,
+          "lambda_max": 0.0,
+          "lambda_max_damping": 0.0,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/mesh_q2.npz",
+            "sha256": "8976c2b7d6b78b650b1681c8bc9a798e63f1b141fe7c93a27dcc7ef9d45c54d7"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 406393,
+          "status": "completed",
+          "run_seconds": 35.13536286074668,
+          "total_seconds": 36.195067189633846,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/p6_beta0.03703704_fixedk140/surface.npz",
+            "sha256": "dc10255ca584db2fcf631632e40e19eb9cb9e59e4860eb7b777bb1966052b95c"
+          }
+        },
+        "p7/fixed": {
+          "grid": "coarse",
+          "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+          "model": 65,
+          "order": 7,
+          "beta": 0.037037037037037035,
+          "gamma": 0.5,
+          "safety": null,
+          "dt_s": 7.142857142857143e-06,
+          "steps": 140000,
+          "steps_per_ms": 140,
+          "lambda_max": 0.0,
+          "lambda_max_damping": 0.0,
+          "mesh": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/mesh_q2.npz",
+            "sha256": "8976c2b7d6b78b650b1681c8bc9a798e63f1b141fe7c93a27dcc7ef9d45c54d7"
+          },
+          "native": {
+            "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+            "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+          },
+          "code": {
+            "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+            "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+          },
+          "alpha_max_s_inv": 196.76847003046814,
+          "source_table_step_s": 1e-06,
+          "source_x_m": 350.0,
+          "nodes": 552917,
+          "status": "completed",
+          "run_seconds": 46.09078709408641,
+          "total_seconds": 47.325653470121324,
+          "surface": {
+            "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/coarse/p7_beta0.03703704_fixedk140/surface.npz",
+            "sha256": "676842c63c74c797b89e89f8836c220160b4cdbce31de176e109903c10c472c4"
+          }
+        }
+      },
+      "reference": {
+        "grid": "refined",
+        "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+        "model": 65,
+        "order": 5,
+        "beta": 0.037037037037037035,
+        "gamma": 0.5,
+        "safety": null,
+        "dt_s": 7.142857142857143e-06,
+        "steps": 140000,
+        "steps_per_ms": 140,
+        "lambda_max": 0.0,
+        "lambda_max_damping": 0.0,
+        "mesh": {
+          "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/refined/mesh_q2.npz",
+          "sha256": "c18c3099ca50a1e7e92953e3384c91cbee7e867a3117124f41f0c28feb56694e"
+        },
+        "native": {
+          "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+          "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+        },
+        "code": {
+          "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+          "sha256": "ad87a88e5b5e6aba3dd52dc97e294db06d06265006a3235ba368282331407f35"
+        },
+        "alpha_max_s_inv": 196.76847003046814,
+        "source_table_step_s": 1e-06,
+        "source_x_m": 350.0,
+        "nodes": 1127561,
+        "status": "completed",
+        "run_seconds": 91.23230347596109,
+        "total_seconds": 94.02188698481768,
+        "surface": {
+          "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/00065/refined/p5_beta0.03703704_fixedk140/surface.npz",
+          "sha256": "7dfeeae22ec309329da34e6fcff7df9058c84a0d739562fb8f6871a8bc99df73"
+        }
+      }
+    }
+  },
+  "scope": "Four added p5/coarse runs; existing p6/p7 and p5/refined reused with SHA verification; no solver run",
+  "adjacent_note": "Both adjacent differences normalized to the same refined p5 norm; contraction is descriptive, not proof of convergence"
+}

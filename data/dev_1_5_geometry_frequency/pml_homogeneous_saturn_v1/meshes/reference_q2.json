@@ -1,0 +1,19 @@
+{
+  "file": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/meshes/reference_q2.npz",
+    "sha256": "7935070e74fccb136df2ff4100d2b5124376a967ae2343fc74f286b3b1b0b889"
+  },
+  "elements": 819200,
+  "bounds": [
+    -2500,
+    3900,
+    -3200,
+    0
+  ],
+  "h_m": 5,
+  "material": [
+    4087.0,
+    2431.62036,
+    1000.0
+  ]
+}

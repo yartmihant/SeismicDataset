@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-11-20T11:58:31.073761+00:00",
+  "completed_runs": 30,
+  "completed_animations": 30,
+  "completed_seismograms": 30,
+  "gpu_processes": "pid, used_gpu_memory [MiB]\n",
+  "free_gib": 189.91394805908203,
+  "data_bytes_before_snapshot": 9643953870,
+  "artifact_bytes": 73366699,
+  "production_queue_not_modified": true
+}

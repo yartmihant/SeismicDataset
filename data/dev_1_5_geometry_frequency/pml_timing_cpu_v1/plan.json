@@ -1,0 +1,124 @@
+{
+  "status": "cpu_checked",
+  "cases": [
+    {
+      "order": 4,
+      "label": "abc_only",
+      "nodes": 628881,
+      "dmax_s_inv": 0.0,
+      "thickness_m": 0,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_0.npz",
+        "sha256": "cba73b07141ab5d238d69a4fe052dc9de22426e04080fd018f483ea598b5cc41"
+      }
+    },
+    {
+      "order": 5,
+      "label": "abc_only",
+      "nodes": 982101,
+      "dmax_s_inv": 0.0,
+      "thickness_m": 0,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_0.npz",
+        "sha256": "cba73b07141ab5d238d69a4fe052dc9de22426e04080fd018f483ea598b5cc41"
+      }
+    },
+    {
+      "order": 4,
+      "label": "L100",
+      "nodes": 821121,
+      "dmax_s_inv": 302.9050689833667,
+      "thickness_m": 100,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_100.npz",
+        "sha256": "2c5700ae54859b909f46cc020e17535ee8dcaf9d614bf967fa671ebed5fe6576"
+      }
+    },
+    {
+      "order": 5,
+      "label": "L100",
+      "nodes": 1282401,
+      "dmax_s_inv": 302.9050689833667,
+      "thickness_m": 100,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_100.npz",
+        "sha256": "2c5700ae54859b909f46cc020e17535ee8dcaf9d614bf967fa671ebed5fe6576"
+      }
+    },
+    {
+      "order": 4,
+      "label": "L175",
+      "nodes": 982101,
+      "dmax_s_inv": 173.0886108476381,
+      "thickness_m": 175,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_175.npz",
+        "sha256": "9ae64bfbf5f07c4263418f08e923967b23803039263237bf8bfc3b5378607278"
+      }
+    },
+    {
+      "order": 5,
+      "label": "L175",
+      "nodes": 1533876,
+      "dmax_s_inv": 173.0886108476381,
+      "thickness_m": 175,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_175.npz",
+        "sha256": "9ae64bfbf5f07c4263418f08e923967b23803039263237bf8bfc3b5378607278"
+      }
+    },
+    {
+      "order": 4,
+      "label": "F250",
+      "nodes": 1157481,
+      "dmax_s_inv": 173.0886108476381,
+      "thickness_m": 250,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_250.npz",
+        "sha256": "899f610fda702c3efcd6e94865aa62ea0c971cc0627564631e55120f6047ad21"
+      }
+    },
+    {
+      "order": 5,
+      "label": "F250",
+      "nodes": 1807851,
+      "dmax_s_inv": 173.0886108476381,
+      "thickness_m": 250,
+      "mesh": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_cpu_v1/meshes/layered_250.npz",
+        "sha256": "899f610fda702c3efcd6e94865aa62ea0c971cc0627564631e55120f6047ad21"
+      }
+    }
+  ],
+  "repeats": 3,
+  "warmups_per_case": 1,
+  "half_step_controls_per_case": 1,
+  "runs_total": 40,
+  "CFL": 0.8,
+  "requested_step": "native CFL; active PML unsupported, surrogate requires user authorization",
+  "profiles": "L100 integral-preserving; L175 base; F250 fixed maximum as in last comparison",
+  "physical_domain": [
+    0,
+    1400,
+    -700,
+    0
+  ],
+  "order": [
+    4,
+    5
+  ],
+  "element_m": 5,
+  "frequency_hz": 30,
+  "source": [
+    700,
+    0
+  ],
+  "duration_s": 1,
+  "field_frames": 21,
+  "surface_samples": 1001,
+  "estimated_array_budget_bytes": 15448965840,
+  "native_snapshot": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/docs/runtime_sources/seismic_pml_cached_v1/provenance.json",
+    "sha256": "4d4a0a638241d1aaef3c8e111c39735b259ea008ed02be9fc22df45c067012ef"
+  }
+}

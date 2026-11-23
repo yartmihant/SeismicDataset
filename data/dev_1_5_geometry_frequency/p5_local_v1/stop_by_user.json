@@ -1,0 +1,32 @@
+{
+  "reason": "User authorized omitting local comparison; incomplete series stopped, data retained",
+  "signals": [
+    {
+      "pid": 92993,
+      "argv": [
+        ".runtime_ch15_p5_v1/venv/bin/python",
+        "-m",
+        "scripts.dev_1_5_geometry_frequency.compare_p5",
+        "--out",
+        "data/dev_1_5_geometry_frequency/p5_local_v1"
+      ],
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 98499,
+      "argv": [
+        "/home/antonov/Work/Areas/Seismic/SeismicDataset/.runtime_ch15_p5_v1/venv/bin/python",
+        "-m",
+        "scripts.dev_1_5_geometry_frequency.compare_p5",
+        "--out",
+        "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/p5_local_v1",
+        "--backend",
+        "seismic_p5",
+        "--label",
+        "seismic_p5_0"
+      ],
+      "signal": "SIGTERM"
+    }
+  ],
+  "remaining_pids": []
+}

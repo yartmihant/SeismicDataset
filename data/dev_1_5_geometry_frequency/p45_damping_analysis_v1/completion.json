@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "scope": "Saturn A1000, full 1400x700 two-layer 30Hz central-source task, h=5m, p4 and p5, corrected damping support",
+  "code_commits": [
+    "a0135e7",
+    "bd1c5d5"
+  ],
+  "completed_runs": 24,
+  "measured_runs": 18,
+  "all_solver_comparisons_passed": true,
+  "historical_tenzor_damping_support_control_passed": true,
+  "local_gpu_runs": 0,
+  "notebook_cells": 37,
+  "notebook_execution_and_roundtrip": "passed",
+  "mypy": "passed for all changed Python files",
+  "report": "img/dev_1_5_geometry_frequency/p45_damping_v1/index.html",
+  "chapter": "dev_1_5_geometry_frequency.py §9",
+  "production_queue": "remains stopped"
+}

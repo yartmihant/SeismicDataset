@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "render_sha_count": 30,
+  "review_sha_checked": true,
+  "png_count": 23,
+  "movies": [
+    {
+      "file": "p4_linear.mp4",
+      "codec_name": "h264",
+      "width": 1800,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p4_symlog.mp4",
+      "codec_name": "h264",
+      "width": 1800,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p5_fixed_linear.mp4",
+      "codec_name": "h264",
+      "width": 1800,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p5_fixed_symlog.mp4",
+      "codec_name": "h264",
+      "width": 1800,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p5_linear.mp4",
+      "codec_name": "h264",
+      "width": 1800,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p5_symlog.mp4",
+      "codec_name": "h264",
+      "width": 1800,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    }
+  ],
+  "html_links": 34,
+  "artifact_bytes": 29933481,
+  "reviewed_gallery": "img/dev_1_5_geometry_frequency/pml_thickness_v1/reviewed.html",
+  "source_render_preserved": true
+}

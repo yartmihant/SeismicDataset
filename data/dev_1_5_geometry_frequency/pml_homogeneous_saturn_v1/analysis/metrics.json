@@ -1,0 +1,788 @@
+{
+  "status": "completed",
+  "orders": {
+    "p4": {
+      "modes": {
+        "old": {
+          "late_surface": {
+            "error_weighted_l2": 3.6419860714524128e-09,
+            "relative_l2_to_full_reference": 0.003630544605181434,
+            "relative_l2_components_to_full_reference": [
+              0.003912616597030604,
+              0.003492171379316281
+            ],
+            "max_abs_error_m_s": [
+              1.4458145574331521e-11,
+              2.053840388064953e-11
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0029848965333635472,
+              0.00052873045732515
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 3.580226129299999e-09,
+            "relative_l2_to_full_reference": 0.003725293356503362,
+            "relative_l2_components_to_full_reference": [
+              0.0039505704084943525,
+              0.003606646176589638
+            ],
+            "max_abs_error_m_s": [
+              1.4458145574331521e-11,
+              2.053840388064953e-11
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0029848965333635472,
+              0.0027400192727842334
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 4.276369301916105e-20,
+            "relative_l2_to_full_reference": 4.262934891632759e-14,
+            "relative_l2_components_to_full_reference": [
+              4.099061084476917e-14,
+              4.336745961817486e-14
+            ],
+            "max_abs_error_m_s": [
+              1.8918578449315065e-21,
+              3.3616620094155045e-21
+            ],
+            "max_error_over_global_reference_peak": [
+              3.905756719574167e-13,
+              8.654095527284138e-14
+            ]
+          },
+          "kinetic_final_j_per_m": 1.1883080274907714e-15,
+          "kinetic_final_over_reference_peak": 1.8156309835950435e-05,
+          "error_kinetic_final_j_per_m": 1.1883119143115909e-15,
+          "error_kinetic_mean_late_j_per_m": 3.884986119057772e-15,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            8.486873084794064e-22,
+            1.5531866964331632e-21,
+            1.1756304455909906e-21,
+            3.410878986617705e-14,
+            4.316917039424617e-12,
+            5.9194421852015814e-12,
+            1.4252772738221855e-11,
+            1.2886915442902874e-11,
+            1.9503362765188543e-11,
+            1.971673238086114e-11,
+            1.2283536906172546e-11,
+            1.3468771072410983e-11,
+            1.1343832147676896e-11,
+            1.0138853537075606e-11,
+            1.0542711380748909e-11,
+            1.3653220583197416e-11,
+            1.351475679491678e-11,
+            8.68181837281387e-12,
+            8.556041978666621e-12,
+            8.677830428282283e-12
+          ],
+          "run_seconds": 13.674829718656838,
+          "prepare_seconds": 0.3974930113181472,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "pml_elements": 0,
+          "ABC": true,
+          "global_nodes": 982101
+        },
+        "pml": {
+          "late_surface": {
+            "error_weighted_l2": 4.356796631906619e-10,
+            "relative_l2_to_full_reference": 0.0004343109555477577,
+            "relative_l2_components_to_full_reference": [
+              0.0003679260217876975,
+              0.0004618390302843538
+            ],
+            "max_abs_error_m_s": [
+              3.3198893577940975e-12,
+              6.599727012897493e-12
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0006853940005157478,
+              0.0001699000906802736
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 4.354711166455353e-10,
+            "relative_l2_to_full_reference": 0.0004531159762542415,
+            "relative_l2_components_to_full_reference": [
+              0.00037333052532524495,
+              0.0004883502861926353
+            ],
+            "max_abs_error_m_s": [
+              3.3198893577940975e-12,
+              6.599727012897493e-12
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0006853940005157478,
+              0.0008804666280562966
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 4.2876074454316007e-20,
+            "relative_l2_to_full_reference": 4.274137730005001e-14,
+            "relative_l2_components_to_full_reference": [
+              4.130410928063344e-14,
+              4.33910131694542e-14
+            ],
+            "max_abs_error_m_s": [
+              1.962486003282058e-21,
+              2.8785885316845363e-21
+            ],
+            "max_error_over_global_reference_peak": [
+              4.051569157230551e-13,
+              7.410495185764961e-14
+            ]
+          },
+          "kinetic_final_j_per_m": 3.733463180137744e-19,
+          "kinetic_final_over_reference_peak": 5.704405986622028e-09,
+          "error_kinetic_final_j_per_m": 3.73173590730889e-19,
+          "error_kinetic_mean_late_j_per_m": 1.5559002554366294e-16,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            1.2043749718772083e-21,
+            1.1418194380528856e-21,
+            1.0273583207908604e-21,
+            1.8486336134026896e-18,
+            2.4024575536524722e-17,
+            2.739611213792628e-12,
+            4.2475059929332196e-12,
+            4.067575107915407e-12,
+            3.854801003049038e-12,
+            6.576470075121703e-12,
+            3.4906482903698814e-12,
+            3.6591675294950556e-12,
+            3.5299798191307147e-12,
+            2.4560690216570343e-12,
+            2.4240983943236706e-12,
+            1.3936633490477474e-12,
+            5.085889464208021e-13,
+            3.999069902823944e-13,
+            2.4028092807420947e-13,
+            2.386252440828148e-13
+          ],
+          "run_seconds": 17.243130742572248,
+          "prepare_seconds": 0.27645703312009573,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "pml_elements": 22050,
+          "ABC": false,
+          "global_nodes": 982101,
+          "late_surface_error_ratio_to_old": 0.11962694382763364,
+          "late_surface_error_reduction_factor_vs_old": 8.359320801849337
+        },
+        "pml_abc": {
+          "late_surface": {
+            "error_weighted_l2": 2.935696456465589e-11,
+            "relative_l2_to_full_reference": 2.926473831411702e-05,
+            "relative_l2_components_to_full_reference": [
+              3.598023652364573e-05,
+              2.5562967101942643e-05
+            ],
+            "max_abs_error_m_s": [
+              1.9795187786370378e-13,
+              1.9745484352020772e-13
+            ],
+            "max_error_over_global_reference_peak": [
+              4.0867334677911666e-05,
+              5.08317931238402e-06
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 2.9049997007415594e-11,
+            "relative_l2_to_full_reference": 3.0227074198614054e-05,
+            "relative_l2_components_to_full_reference": [
+              3.634159357377467e-05,
+              2.6625307216898402e-05
+            ],
+            "max_abs_error_m_s": [
+              1.9795187786370378e-13,
+              1.9745484352020772e-13
+            ],
+            "max_error_over_global_reference_peak": [
+              4.0867334677911666e-05,
+              2.6342362332240494e-05
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 4.3454271021824084e-20,
+            "relative_l2_to_full_reference": 4.331775743652421e-14,
+            "relative_l2_components_to_full_reference": [
+              4.229474221177086e-14,
+              4.378353547925368e-14
+            ],
+            "max_abs_error_m_s": [
+              2.1986460681659476e-21,
+              2.348779349344322e-21
+            ],
+            "max_error_over_global_reference_peak": [
+              4.539123633263985e-13,
+              6.046580770109081e-14
+            ]
+          },
+          "kinetic_final_j_per_m": 2.467492125538559e-20,
+          "kinetic_final_over_reference_peak": 3.770112673870152e-10,
+          "error_kinetic_final_j_per_m": 2.4612562663298912e-20,
+          "error_kinetic_mean_late_j_per_m": 3.7749063827262774e-19,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            1.4690727678941772e-21,
+            1.125728190199315e-21,
+            1.1417160404763164e-21,
+            1.8486281591805255e-18,
+            2.4024571197461577e-17,
+            1.4439356886407458e-14,
+            1.7905287123690152e-13,
+            1.5929124181282372e-13,
+            1.8267917612522682e-13,
+            1.9895525349468501e-13,
+            1.7095865920336958e-13,
+            2.0924531183410064e-13,
+            1.9107096050322764e-13,
+            1.6770964657247714e-13,
+            1.1469577594912517e-13,
+            9.121755001952382e-14,
+            9.65585971180237e-14,
+            9.410591359506971e-14,
+            8.968132575698196e-14,
+            9.175110511277747e-14
+          ],
+          "run_seconds": 17.304886273108423,
+          "prepare_seconds": 0.26557528879493475,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "pml_elements": 22050,
+          "ABC": true,
+          "global_nodes": 982101,
+          "late_surface_error_ratio_to_old": 0.0080607020424294,
+          "late_surface_error_reduction_factor_vs_old": 124.05867314487806
+        },
+        "reference": {
+          "late_surface": {
+            "error_weighted_l2": 0.0,
+            "relative_l2_to_full_reference": 0.0,
+            "relative_l2_components_to_full_reference": [
+              0.0,
+              0.0
+            ],
+            "max_abs_error_m_s": [
+              0.0,
+              0.0
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0,
+              0.0
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 0.0,
+            "relative_l2_to_full_reference": 0.0,
+            "relative_l2_components_to_full_reference": [
+              0.0,
+              0.0
+            ],
+            "max_abs_error_m_s": [
+              0.0,
+              0.0
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0,
+              0.0
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 0.0,
+            "relative_l2_to_full_reference": 0.0,
+            "relative_l2_components_to_full_reference": [
+              0.0,
+              0.0
+            ],
+            "max_abs_error_m_s": [
+              0.0,
+              0.0
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0,
+              0.0
+            ]
+          },
+          "kinetic_final_j_per_m": 1.4654369099943688e-22,
+          "kinetic_final_over_reference_peak": 2.23905973597424e-12,
+          "error_kinetic_final_j_per_m": 0.0,
+          "error_kinetic_mean_late_j_per_m": 0.0,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "run_seconds": 159.45229268446565,
+          "prepare_seconds": 2.7748710308223963,
+          "steps": 36000,
+          "dt_s": 2.777777777777778e-05,
+          "pml_elements": 0,
+          "ABC": false,
+          "global_nodes": 13114881
+        }
+      },
+      "time_step_check": {},
+      "reference_surface_peak_m_s": [
+        4.8437677529945334e-09,
+        3.8844752739521406e-08
+      ],
+      "station_x_m": [
+        0,
+        350,
+        700,
+        1050,
+        1400
+      ],
+      "reference_min_geometric_boundary_return_s": 1.3518473207731834
+    },
+    "p5": {
+      "modes": {
+        "old": {
+          "late_surface": {
+            "error_weighted_l2": 3.6419281760034605e-09,
+            "relative_l2_to_full_reference": 0.0036299911448358442,
+            "relative_l2_components_to_full_reference": [
+              0.003912122097313659,
+              0.0034915951700445523
+            ],
+            "max_abs_error_m_s": [
+              1.4458976466954241e-11,
+              2.0540434090109598e-11
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0029866470495415144,
+              0.0004900558282074044
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 3.5799320700191335e-09,
+            "relative_l2_to_full_reference": 0.003725264434024832,
+            "relative_l2_components_to_full_reference": [
+              0.0039506160231652186,
+              0.0036065731790809984
+            ],
+            "max_abs_error_m_s": [
+              1.4458976466954241e-11,
+              2.0540434090109598e-11
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0029866470495415144,
+              0.0027402882067377736
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 7.882959505656495e-20,
+            "relative_l2_to_full_reference": 7.857121782130783e-14,
+            "relative_l2_components_to_full_reference": [
+              6.829240310329531e-14,
+              8.290148382093055e-14
+            ],
+            "max_abs_error_m_s": [
+              4.480010197587198e-21,
+              5.401489399971271e-21
+            ],
+            "max_error_over_global_reference_peak": [
+              9.253911761402998e-13,
+              1.2886929993027783e-13
+            ]
+          },
+          "kinetic_final_j_per_m": 1.1883032932574637e-15,
+          "kinetic_final_over_reference_peak": 1.815617777096559e-05,
+          "error_kinetic_final_j_per_m": 1.188307180017909e-15,
+          "error_kinetic_mean_late_j_per_m": 3.885044965414805e-15,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            3.1019272970738538e-21,
+            2.19776718876511e-21,
+            1.7702699084400484e-21,
+            3.4111890360280317e-14,
+            4.317106709159959e-12,
+            5.917891233974231e-12,
+            1.4252936811179113e-11,
+            1.288714897287765e-11,
+            1.95056603022589e-11,
+            1.9719280487613325e-11,
+            1.2288634555415408e-11,
+            1.3469335882073892e-11,
+            1.1344469778541704e-11,
+            1.0138519314499977e-11,
+            1.0542691492109204e-11,
+            1.3672542582464243e-11,
+            1.352085843502284e-11,
+            8.703931534657024e-12,
+            8.551188146199748e-12,
+            8.671062708557276e-12
+          ],
+          "run_seconds": 29.602391513995826,
+          "prepare_seconds": 0.42289958242326975,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "pml_elements": 0,
+          "ABC": true,
+          "global_nodes": 1533876
+        },
+        "pml": {
+          "late_surface": {
+            "error_weighted_l2": 4.3569909897226627e-10,
+            "relative_l2_to_full_reference": 0.00043427102201061633,
+            "relative_l2_components_to_full_reference": [
+              0.00036789617870248477,
+              0.00046179337770868004
+            ],
+            "max_abs_error_m_s": [
+              3.3204497324301574e-12,
+              6.5997428904192245e-12
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0006858722966441373,
+              0.00015745735722681923
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 4.354896508022869e-10,
+            "relative_l2_to_full_reference": 0.00045316896404433237,
+            "relative_l2_components_to_full_reference": [
+              0.00037336656424549454,
+              0.0004884111573134514
+            ],
+            "max_abs_error_m_s": [
+              3.3204497324301574e-12,
+              6.5997428904192245e-12
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0006858722966441373,
+              0.0008804681308476071
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 7.996977918733148e-20,
+            "relative_l2_to_full_reference": 7.970766480712036e-14,
+            "relative_l2_components_to_full_reference": [
+              6.940154066490805e-14,
+              8.405420260741623e-14
+            ],
+            "max_abs_error_m_s": [
+              4.025888041295586e-21,
+              6.094666753290708e-21
+            ],
+            "max_error_over_global_reference_peak": [
+              8.31587676195502e-13,
+              1.4540719783863508e-13
+            ]
+          },
+          "kinetic_final_j_per_m": 3.73379360758203e-19,
+          "kinetic_final_over_reference_peak": 5.704892083023643e-09,
+          "error_kinetic_final_j_per_m": 3.7320664529065607e-19,
+          "error_kinetic_mean_late_j_per_m": 1.5559734914326692e-16,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            2.4401828070314316e-21,
+            2.3887942114765748e-21,
+            2.23752355695594e-21,
+            8.716881510859973e-19,
+            1.107412582754314e-17,
+            2.739452891970395e-12,
+            4.2479209876237924e-12,
+            4.067454241446324e-12,
+            3.856289073023137e-12,
+            6.576792015191738e-12,
+            3.4916634011119416e-12,
+            3.6578365349423944e-12,
+            3.530635075099831e-12,
+            2.4612978142970406e-12,
+            2.4252709529966863e-12,
+            1.394424921137202e-12,
+            5.089254821903869e-13,
+            3.998720699396835e-13,
+            2.4032363268452794e-13,
+            2.396605442719029e-13
+          ],
+          "run_seconds": 36.74996741767973,
+          "prepare_seconds": 0.37698039785027504,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "pml_elements": 22050,
+          "ABC": false,
+          "global_nodes": 1533876,
+          "late_surface_error_ratio_to_old": 0.11963418220136043,
+          "late_surface_error_reduction_factor_vs_old": 8.358815027605282
+        },
+        "pml_abc": {
+          "late_surface": {
+            "error_weighted_l2": 2.93557276280394e-11,
+            "relative_l2_to_full_reference": 2.9259509301178127e-05,
+            "relative_l2_components_to_full_reference": [
+              3.597556113258267e-05,
+              2.5557511436473696e-05
+            ],
+            "max_abs_error_m_s": [
+              1.979512309024935e-13,
+              1.9741057613597282e-13
+            ],
+            "max_error_over_global_reference_peak": [
+              4.088881817321201e-05,
+              4.709842204931651e-06
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 2.9047439057336936e-11,
+            "relative_l2_to_full_reference": 3.022666059113874e-05,
+            "relative_l2_components_to_full_reference": [
+              3.634232674667392e-05,
+              2.662400365043133e-05
+            ],
+            "max_abs_error_m_s": [
+              1.979512309024935e-13,
+              1.9741057613597282e-13
+            ],
+            "max_error_over_global_reference_peak": [
+              4.088881817321201e-05,
+              2.6336438231906387e-05
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 7.847760753819032e-20,
+            "relative_l2_to_full_reference": 7.822038400113217e-14,
+            "relative_l2_components_to_full_reference": [
+              6.781395789139566e-14,
+              8.259740797331584e-14
+            ],
+            "max_abs_error_m_s": [
+              3.652415994727894e-21,
+              6.339512214606404e-21
+            ],
+            "max_error_over_global_reference_peak": [
+              7.544432677709552e-13,
+              1.5124874650316222e-13
+            ]
+          },
+          "kinetic_final_j_per_m": 2.4674414777203563e-20,
+          "kinetic_final_over_reference_peak": 3.7700228858356265e-10,
+          "error_kinetic_final_j_per_m": 2.4612069510261285e-20,
+          "error_kinetic_mean_late_j_per_m": 3.7750781152464288e-19,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            1.9868878313523725e-21,
+            2.895519884847731e-21,
+            2.4393556264188786e-21,
+            8.71682102327768e-19,
+            1.107412436099392e-17,
+            1.4427414988749165e-14,
+            1.790349821587357e-13,
+            1.593213306920666e-13,
+            1.8257265581620447e-13,
+            1.989614575706803e-13,
+            1.708879149709237e-13,
+            2.0923036138417515e-13,
+            1.9088347066161381e-13,
+            1.6780459986245548e-13,
+            1.1469450480183926e-13,
+            9.133262411860224e-14,
+            9.648375526352522e-14,
+            9.420873751866835e-14,
+            8.997952676530433e-14,
+            9.203433138357967e-14
+          ],
+          "run_seconds": 37.175556912086904,
+          "prepare_seconds": 0.37552563287317753,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "pml_elements": 22050,
+          "ABC": true,
+          "global_nodes": 1533876,
+          "late_surface_error_ratio_to_old": 0.008060490544943549,
+          "late_surface_error_reduction_factor_vs_old": 124.06192829384473
+        },
+        "reference": {
+          "late_surface": {
+            "error_weighted_l2": 0.0,
+            "relative_l2_to_full_reference": 0.0,
+            "relative_l2_components_to_full_reference": [
+              0.0,
+              0.0
+            ],
+            "max_abs_error_m_s": [
+              0.0,
+              0.0
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0,
+              0.0
+            ]
+          },
+          "late_surface_outside_20m": {
+            "error_weighted_l2": 0.0,
+            "relative_l2_to_full_reference": 0.0,
+            "relative_l2_components_to_full_reference": [
+              0.0,
+              0.0
+            ],
+            "max_abs_error_m_s": [
+              0.0,
+              0.0
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0,
+              0.0
+            ]
+          },
+          "early_surface": {
+            "error_weighted_l2": 0.0,
+            "relative_l2_to_full_reference": 0.0,
+            "relative_l2_components_to_full_reference": [
+              0.0,
+              0.0
+            ],
+            "max_abs_error_m_s": [
+              0.0,
+              0.0
+            ],
+            "max_error_over_global_reference_peak": [
+              0.0,
+              0.0
+            ]
+          },
+          "kinetic_final_j_per_m": 1.465436788227971e-22,
+          "kinetic_final_over_reference_peak": 2.239052183912037e-12,
+          "error_kinetic_final_j_per_m": 0.0,
+          "error_kinetic_mean_late_j_per_m": 0.0,
+          "core_field_max_error_by_frame_m_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "run_seconds": 356.7353245727718,
+          "prepare_seconds": 4.156299989670515,
+          "steps": 53000,
+          "dt_s": 1.8867924528301888e-05,
+          "pml_elements": 0,
+          "ABC": false,
+          "global_nodes": 20489601
+        }
+      },
+      "time_step_check": {
+        "old": {
+          "late_coarse_fine": {
+            "error_weighted_l2": 1.2460745781436326e-13,
+            "relative_l2_to_full_reference": 1.2419903594667015e-07,
+            "relative_l2_components_to_full_reference": [
+              1.302866061167895e-07,
+              1.212758488191444e-07
+            ],
+            "max_abs_error_m_s": [
+              9.514617877340274e-16,
+              1.51040792405573e-15
+            ],
+            "max_error_over_global_reference_peak": [
+              1.9653400415872748e-07,
+              3.603547047287391e-08
+            ]
+          },
+          "full_relative_l2_components": [
+            2.8080393504750813e-05,
+            2.7405372592067838e-05
+          ],
+          "dt_coarse_s": 1.8867924528301888e-05,
+          "dt_fine_s": 9.433962264150944e-06
+        },
+        "pml": {
+          "late_coarse_fine": {
+            "error_weighted_l2": 2.564889502270972e-14,
+            "relative_l2_to_full_reference": 2.5564826462182262e-08,
+            "relative_l2_components_to_full_reference": [
+              2.3339830118534517e-08,
+              2.6532262969242857e-08
+            ],
+            "max_abs_error_m_s": [
+              1.8206685918011713e-16,
+              3.778677719613397e-16
+            ],
+            "max_error_over_global_reference_peak": [
+              3.7607741393892133e-08,
+              9.015208886484294e-09
+            ]
+          },
+          "full_relative_l2_components": [
+            2.7391056491970474e-05,
+            2.6734520788399708e-05
+          ],
+          "dt_coarse_s": 1.8867924528301888e-05,
+          "dt_fine_s": 9.433962264150944e-06
+        }
+      },
+      "reference_surface_peak_m_s": [
+        4.8412069545257665e-09,
+        4.19144777141929e-08
+      ],
+      "station_x_m": [
+        0,
+        350,
+        700,
+        1050,
+        1400
+      ],
+      "reference_min_geometric_boundary_return_s": 1.3518473207731834
+    }
+  },
+  "verified_runs": [
+    "p4/old/result.json",
+    "p4/pml/result.json",
+    "p4/pml_abc/result.json",
+    "p4/reference/result.json",
+    "p5/old/result.json",
+    "p5/old_half/result.json",
+    "p5/pml/result.json",
+    "p5/pml_abc/result.json",
+    "p5/pml_half/result.json",
+    "p5/reference/result.json"
+  ],
+  "primary_window_s": [
+    0.5,
+    1.0
+  ],
+  "surface_metric": "sqrt(sum_t,i,c(dx_GLL_i * (v-v_reference)^2)); common dt=0.001, reported L2 omits common time factor; x in [0,1400]",
+  "kinetic_metric": "0.5 sum_i m_core_i |v_i|^2, physical core only, J per metre out of plane; not total elastic energy",
+  "reference_note": "expanded homogeneous domain, same local h/order/dt; finite-box discretized reference, not an analytical exact solution; field comparison uses 21 saved snapshots",
+  "half_step_note": "p5 coarse/fine compared to each other; reference computed at common coarse dt only"
+}

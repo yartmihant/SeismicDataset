@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T12:17:48.425614+00:00",
+  "scope": "CPU rendering/encoding checks; no wave solver",
+  "checks": [
+    "Mapped component signs and vector magnitude agree exactly with source arrays",
+    "Color scales remain fixed across frames",
+    "MP4 andGIF retain three synthetic frames at10fps; codec/frame count/duration verified",
+    "Temporary previews removed"
+  ],
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_golden_animate.py",
+    "sha256": "c3e710e325dfe4a0148986604007f87d2e8bcc0fcf962d7ef27edb97beec137c"
+  }
+}

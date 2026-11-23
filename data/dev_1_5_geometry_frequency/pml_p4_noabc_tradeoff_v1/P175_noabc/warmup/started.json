@@ -1,0 +1,76 @@
+{
+  "status": "prepared",
+  "order": 4,
+  "mode": "pml",
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cfl_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583"
+  },
+  "code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+    "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+  },
+  "setup_code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+    "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+  },
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/meshes/layered_175.npz",
+    "sha256": "9ae64bfbf5f07c4263418f08e923967b23803039263237bf8bfc3b5378607278"
+  },
+  "global_nodes": 982101,
+  "elements": 61250,
+  "field_nodes": 982101,
+  "surface_nodes": 1401,
+  "field_bounds": [
+    -175.0,
+    1575.0,
+    -875.0000000000001,
+    0.0
+  ],
+  "domain_bounds": [
+    -175.0,
+    1575.0,
+    -875.0000000000001,
+    0.0
+  ],
+  "pml_elements": 22050,
+  "damping_nodes": 0,
+  "ABC": false,
+  "dmax_or_alpha_s_inv": 173.0886108476381,
+  "dt_s": 0.00011111111111111112,
+  "steps": 9000,
+  "steps_per_ms": 9,
+  "cfl_safety": 0.8,
+  "explicit_dt_s": null,
+  "kim_beta": 0.037037037037037035,
+  "kim_gamma": 0.5,
+  "frequency_hz": 30,
+  "source_x_m": 700,
+  "source_y_m": 0,
+  "source_t0_s": 0.05,
+  "force_peak_n_per_m": 1.0,
+  "material": [
+    [
+      4087.0,
+      2431.62036,
+      1000.0
+    ],
+    [
+      3963.0,
+      2357.84473,
+      1000.0
+    ]
+  ],
+  "interface_y_m": -350.0,
+  "homogeneous": false,
+  "assembly_seconds": 2.4885872304439545,
+  "prepare_seconds": 0.33941095508635044,
+  "gpu_visible": "0",
+  "thickness_m": 175,
+  "fixed_strength": false,
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_pml_cfl_v1/provenance.json",
+    "sha256": "ccf416e9b2d4b53242593a8a694f92a364ae1ce6b7e50668800e6a2ed541c22b"
+  }
+}

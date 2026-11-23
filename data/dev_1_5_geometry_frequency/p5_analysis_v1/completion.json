@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "scope": "Saturn A1000 only; local series stopped and excluded per user",
+  "code_commit": "9acca52",
+  "analysis": "data/dev_1_5_geometry_frequency/p5_saturn_v1/analysis.json",
+  "report": "img/dev_1_5_geometry_frequency/p5_comparison_v1/index.html",
+  "diary": "dev_1_5_geometry_frequency.py §8",
+  "notebook_cells": 33,
+  "notebook_executed": true,
+  "roundtrip_passed": true,
+  "mypy": "passed for changed Python files",
+  "production_queue": "remains stopped"
+}

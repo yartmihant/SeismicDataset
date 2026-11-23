@@ -1,0 +1,24 @@
+{
+  "status": "evaluating",
+  "utc": "2026-11-18T11:35:45.375096+00:00",
+  "config": {
+    "lower": 0.25,
+    "upper": 1.0,
+    "tolerance": 0.02,
+    "max_evaluations": 9
+  },
+  "t_end_s": 1.0,
+  "time_window_s": [
+    0.5,
+    1.0
+  ],
+  "evaluations": [],
+  "history": [],
+  "pending": {
+    "index": 2,
+    "factor": 0.7135254915624212,
+    "lower": 0.25,
+    "upper": 1.0,
+    "role": "initial_right"
+  }
+}

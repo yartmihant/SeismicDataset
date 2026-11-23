@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "verified_artifacts": [
+    "p5_symlog_final.png",
+    "p4_surface_error.png",
+    "p5_surface.png",
+    "p4_symlog_final.png",
+    "p4_linear_final.png",
+    "p5_linear.mp4",
+    "index.html",
+    "p5_surface_error_linear.png",
+    "p4_linear.mp4",
+    "p5_surface_linear.png",
+    "p5_decay.png",
+    "p5_symlog.mp4",
+    "p4_surface_error_linear.png",
+    "p5_surface_error.png",
+    "p4_symlog.mp4",
+    "p4_decay.png",
+    "p5_linear_final.png",
+    "p4_surface_linear.png",
+    "p4_surface.png"
+  ],
+  "png_count": 14,
+  "movies": [
+    {
+      "file": "p4_linear.mp4",
+      "codec_name": "h264",
+      "width": 1400,
+      "height": 1400,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p4_symlog.mp4",
+      "codec_name": "h264",
+      "width": 1400,
+      "height": 1400,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p5_linear.mp4",
+      "codec_name": "h264",
+      "width": 1400,
+      "height": 1400,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    },
+    {
+      "file": "p5_symlog.mp4",
+      "codec_name": "h264",
+      "width": 1400,
+      "height": 1400,
+      "r_frame_rate": "5/1",
+      "duration": "4.200000",
+      "nb_read_frames": "21"
+    }
+  ],
+  "html_links_checked": 23,
+  "artifact_bytes": 20843222,
+  "metrics_sha256": "716226b827791a4a48beeb9dec432418406d1a186430395ac9e99358a3914602",
+  "no_solver_rerun": true
+}

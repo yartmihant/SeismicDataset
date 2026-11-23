@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "utc": "2026-11-21T13:16:13.047229+00:00",
+  "new_runs": 16,
+  "reused_runs": 6,
+  "verified_array_sha": 88,
+  "render_sha_checked": 30,
+  "review_sha_checked": true,
+  "png_count": 23,
+  "movies": 6,
+  "frames_per_movie": 21,
+  "html_links": 34,
+  "notebook_cells": 45,
+  "notebook_roundtrip_passed": true,
+  "notebook_executed_saved_results_only": true,
+  "mypy_files_passed": 5,
+  "files": {
+    "data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/analysis/metrics.json": "214429936c3828d42b2fc568bf67847cd734e1e3b72f376518de8a02b2c4ff1d",
+    "data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/analysis/artifact_validation.json": "28a1a14b15ae22f380aabb21b9d95089a1642810aa41a1892bfb1bd0e6627db2",
+    "data/dev_1_5_geometry_frequency/pml_thickness_saturn_v1/server_completion.json": "b8d498bca23ddb90034bc0e88d1eec6b332a8812653e125c76bd7699151e7183",
+    "dev_1_5_geometry_frequency.py": "9e7bf7b6301f49ceddd97388ad72d388c680507c8964a207370dc5dd02413ba3",
+    "dev_1_5_geometry_frequency.ipynb": "8b7c4d027427c62e37eb952c10a01023e04f025af5c4042462741e572d593f51",
+    "dev_1_5_geometry_frequency_summary.md": "febb870c7c4c3ff39071bca10946852bb912dac93823239e000c4d970ff65808",
+    "img/dev_1_5_geometry_frequency/pml_thickness_v1/reviewed.json": "313bb112765036592842996cdeecdeb09ecd2567104c3d12d27dda3add25fdec"
+  },
+  "gallery": "img/dev_1_5_geometry_frequency/pml_thickness_v1/reviewed.html",
+  "production_parameters_changed": false,
+  "production_resumed": false,
+  "interpretation": "Scaled layers50m and thinner grow strongly;100m has weak monotone late full-field growth and is not validated as a stable replacement. Fixed-strength controls reflect substantially more."
+}

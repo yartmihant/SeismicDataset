@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T12:25:39.686880+00:00",
+  "scope": "Animation provenance, encoding and visual checks; not independent physical validation",
+  "animations_sha256": "75cad8257bae70a29ce90453bb7392e6f10a41d3475053e1e9305e159e529509",
+  "code_sha256": "4d4907d54d5bcacc94f3dbf52facba054d6b17a77c027a9b95ee5f3f4a7852d3",
+  "cpu_validation": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_animation_cpu_v4/validation.json",
+    "sha256": "4495fdff5c4ff26cc2d717044a31b9bc12d9fac49b6b9cfce6a2dce90e39498c"
+  },
+  "checks": [
+    "101 full-field frames finite, time grid0..1 every0.01s and all input SHA checked by animator",
+    "Repeated surface is numerically equivalent within pre-existing global tolerances; strict failure evidence preserved; bitwise=false explicitly recorded",
+    "All-node velocities at surface nodes match this repeat surface bitwise",
+    "MP4 all frames decoded with ffmpeg -xerror;101 frames10fps10.1s confirmed by ffprobe",
+    "All101 GIF frames decoded with100ms duration each;7.13MB within15MB budget",
+    "Preview t0.5s and encoded-video frames0,5,20,50,80,100 visually inspected: axes, core outline, units, signs, scales and labels readable",
+    "Read-only independent review completed without blockers"
+  ],
+  "visual_samples_physical_times_s": [
+    0.0,
+    0.05,
+    0.2,
+    0.5,
+    0.8,
+    1.0
+  ],
+  "visual_contact_sheet": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_golden_fields_1s_v1/qa_contact_sheet.png",
+    "sha256": "d692714bb598212d712a6af7cb6ae505967d2d3018cb2d21326f254ecadebca8"
+  },
+  "video_bytes": 2424487,
+  "gif_bytes": 7130400,
+  "limits": [
+    "Fixed nonlinear color scales emphasize weak fields; no temporal amplitude normalization",
+    "Tenfold slowdown between physical frames; last frame adds0.1s encoded hold",
+    "Nearest SEM-node display, reduced-palette GIF preview; full-resolution MP4 is primary"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "factors": [
+    0.5,
+    1.0
+  ],
+  "exponent": 3,
+  "duration_s": 1.0,
+  "objective_window_s": [
+    0.5,
+    1.0
+  ],
+  "alpha_reference_s_inv": 346.1772216952762,
+  "code": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_cubic_run.py",
+      "sha256": "3b4b6d837ca6f0fb28b790bd872c075faf84473a4d98e947e46aa9cd77ccd1fb"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_golden_run.py",
+      "sha256": "44f69f659b8e8dce5471ddbce449cea9ede990b9e90afc868bd46c445925a0ef"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_profile_golden.py",
+      "sha256": "f7bcc7ebe9fe1bdf89032eb40422433c68db5f4769479180a5b1e32e0dab20f2"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_sweep_run.py",
+      "sha256": "b11dbf87d134232c4828baa8f18f2ed47f3f369d14767620916c6c222062da91"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/homogeneous_run.py",
+      "sha256": "777de1ab7b833917057007e33eb940bc8981dbb5429abc2c1675b7b5a8ebc0a8"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/velocity_fields_run.py",
+      "sha256": "ef712b43e4ee0e2f0d212f78f91ceed0fabc4d46700bb6c89457672674ddce94"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py",
+      "sha256": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+      "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_2_smoothing/pilot_run.py",
+      "sha256": "ed6ccc2579c9b3fa22571d9a6d07314abdafdbe6c37eaa3fd1ea45f16b9265d9"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_2_smoothing/pilot_mesh.py",
+      "sha256": "2b36023f72ccc21b910cfde7ac3f16e0efa71d97abe86022b83c9955a6b18340"
+    }
+  ],
+  "golden_search_status": "pending_initial_comparison"
+}

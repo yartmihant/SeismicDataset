@@ -1,0 +1,1021 @@
+{
+  "runs": {
+    "baseline": {
+      "label": "175 м · α₀",
+      "surface_windows": {
+        "0.3_2": {
+          "l2_samples_m_s": 1.5282919701394924e-09,
+          "rms_component_m_s": 3.131772142059675e-12,
+          "max_vector_m_s": 4.2073442138672176e-11,
+          "l2_relative_baseline": 1.0,
+          "amplitude_db_relative_baseline": 0.0
+        },
+        "0.3_0.8": {
+          "l2_samples_m_s": 1.5096468767715985e-09,
+          "rms_component_m_s": 5.700231477881329e-12,
+          "max_vector_m_s": 4.2073442138672176e-11,
+          "l2_relative_baseline": 1.0,
+          "amplitude_db_relative_baseline": 0.0
+        },
+        "0.8_2": {
+          "l2_samples_m_s": 2.389582209302259e-10,
+          "rms_component_m_s": 5.827555988261607e-13,
+          "max_vector_m_s": 3.800761890206923e-12,
+          "l2_relative_baseline": 1.0,
+          "amplitude_db_relative_baseline": 0.0
+        },
+        "1_2": {
+          "l2_samples_m_s": 1.0307439311660573e-10,
+          "rms_component_m_s": 2.7534026740376827e-13,
+          "max_vector_m_s": 2.358888336430895e-12,
+          "l2_relative_baseline": 1.0,
+          "amplitude_db_relative_baseline": 0.0
+        }
+      },
+      "receiver_gates": [
+        {
+          "x_m": 5.0,
+          "direct_rayleigh_peak_estimate_s": 0.20498984154071687,
+          "gate_s": [
+            0.2849898415407169,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 1.5913148021522573e-10,
+            "rms_component_m_s": 2.7163295797144947e-12,
+            "max_vector_m_s": 1.5729524488895085e-11,
+            "peak_time_s": 0.435
+          }
+        },
+        {
+          "x_m": 175.0,
+          "direct_rayleigh_peak_estimate_s": 0.12861803556413173,
+          "gate_s": [
+            0.20861803556413172,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 2.102542995440992e-10,
+            "rms_component_m_s": 3.5120515758489275e-12,
+            "max_vector_m_s": 2.5291818196409174e-11,
+            "peak_time_s": 0.431
+          }
+        },
+        {
+          "x_m": 345.0,
+          "direct_rayleigh_peak_estimate_s": 0.05224622958754662,
+          "gate_s": [
+            0.13224622958754662,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 2.7849647698109977e-10,
+            "rms_component_m_s": 4.556341549013257e-12,
+            "max_vector_m_s": 4.2073442137804244e-11,
+            "peak_time_s": 0.428
+          }
+        }
+      ],
+      "causal_changes": {
+        "before_old175_outer_P_path": {
+          "l2_samples_m_s": 0.0,
+          "rms_component_m_s": 0.0,
+          "max_vector_m_s": 0.0
+        },
+        "before_layer_interface_P_path": {
+          "l2_samples_m_s": 0.0,
+          "rms_component_m_s": 0.0,
+          "max_vector_m_s": 0.0
+        },
+        "pre_layer_max_abs_relative_baseline_global_peak": 0.0,
+        "margin_s": 0.003,
+        "meaning": "Changes from the baseline before paths from the layer interface or outer ABC; not an objective error norm"
+      },
+      "incoming_beams": [
+        {
+          "receiver_range_m": [
+            65.0,
+            175.0
+          ],
+          "receiver_count": 12,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 1.0824261293071325e-10,
+                "rms_component_m_s": 6.958098692423457e-12,
+                "max_vector_m_s": 2.1932414553500963e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 0.0,
+                "rms_component_m_s": 0.0,
+                "max_vector_m_s": 0.0
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 5.441464780101861e-11,
+                "rms_component_m_s": 3.0324097664469006e-12,
+                "max_vector_m_s": 7.008182131534655e-12,
+                "peak_tau_s": 0.322
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 0.0,
+                "rms_component_m_s": 0.0,
+                "max_vector_m_s": 0.0
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 1.2622234778080892e-10,
+                "rms_component_m_s": 3.91398885155485e-12,
+                "max_vector_m_s": 2.1932414553500963e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 0.0,
+                "rms_component_m_s": 0.0,
+                "max_vector_m_s": 0.0
+              }
+            }
+          }
+        },
+        {
+          "receiver_range_m": [
+            65.0,
+            315.0
+          ],
+          "receiver_count": 26,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 9.248016578758963e-11,
+                "rms_component_m_s": 5.944850213969162e-12,
+                "max_vector_m_s": 1.0388243427413775e-11,
+                "peak_tau_s": 0.241
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 0.0,
+                "rms_component_m_s": 0.0,
+                "max_vector_m_s": 0.0
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 2.8004578234575154e-11,
+                "rms_component_m_s": 1.5606341302490672e-12,
+                "max_vector_m_s": 5.960532947024154e-12,
+                "peak_tau_s": 0.3
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 0.0,
+                "rms_component_m_s": 0.0,
+                "max_vector_m_s": 0.0
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 9.916301391891503e-11,
+                "rms_component_m_s": 3.0749145281246522e-12,
+                "max_vector_m_s": 1.0388243427413775e-11,
+                "peak_tau_s": 0.241
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 0.0,
+                "rms_component_m_s": 0.0,
+                "max_vector_m_s": 0.0
+              }
+            }
+          }
+        }
+      ],
+      "wall_seconds": 354.7000109469518,
+      "recording_mode": "all-node fields + surface",
+      "inputs": {
+        "metadata": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.json",
+          "sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95"
+        },
+        "surface": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/surface.npz",
+          "sha256": "128de76566e111e0443b0334c1cebf72d195f60dc2cf12c5dbb57f52bdf09489"
+        }
+      }
+    },
+    "q2_half": {
+      "label": "175 м · 0,5α₀",
+      "surface_windows": {
+        "0.3_2": {
+          "l2_samples_m_s": 1.119168334554566e-09,
+          "rms_component_m_s": 2.2933969954140313e-12,
+          "max_vector_m_s": 2.937966575342276e-11,
+          "l2_relative_baseline": 0.732300081673802,
+          "amplitude_db_relative_baseline": -2.706218348521219
+        },
+        "0.3_0.8": {
+          "l2_samples_m_s": 1.105507361164316e-09,
+          "rms_component_m_s": 4.174252903841011e-12,
+          "max_vector_m_s": 2.937966575342276e-11,
+          "l2_relative_baseline": 0.7322953322226317,
+          "amplitude_db_relative_baseline": -2.7062746824525092
+        },
+        "0.8_2": {
+          "l2_samples_m_s": 1.7524708414398403e-10,
+          "rms_component_m_s": 4.2738106713928917e-13,
+          "max_vector_m_s": 2.9681517326975968e-12,
+          "l2_relative_baseline": 0.733379598583281,
+          "amplitude_db_relative_baseline": -2.69342351134092
+        },
+        "1_2": {
+          "l2_samples_m_s": 6.929717532858605e-11,
+          "rms_component_m_s": 1.8511195854157093e-13,
+          "max_vector_m_s": 1.8386015947290747e-12,
+          "l2_relative_baseline": 0.6723025305634516,
+          "amplitude_db_relative_baseline": -3.4487050809392983
+        }
+      },
+      "receiver_gates": [
+        {
+          "x_m": 5.0,
+          "direct_rayleigh_peak_estimate_s": 0.20498984154071687,
+          "gate_s": [
+            0.2849898415407169,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 1.3055442314086406e-10,
+            "rms_component_m_s": 2.228527258468627e-12,
+            "max_vector_m_s": 2.086875261876633e-11,
+            "peak_time_s": 0.489
+          }
+        },
+        {
+          "x_m": 175.0,
+          "direct_rayleigh_peak_estimate_s": 0.12861803556413173,
+          "gate_s": [
+            0.20861803556413172,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 1.4320757216883334e-10,
+            "rms_component_m_s": 2.392114599319097e-12,
+            "max_vector_m_s": 2.585937500406719e-11,
+            "peak_time_s": 0.483
+          }
+        },
+        {
+          "x_m": 345.0,
+          "direct_rayleigh_peak_estimate_s": 0.05224622958754662,
+          "gate_s": [
+            0.13224622958754662,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 1.7543869753694342e-10,
+            "rms_component_m_s": 2.870264771595634e-12,
+            "max_vector_m_s": 2.9379665753060267e-11,
+            "peak_time_s": 0.482
+          }
+        }
+      ],
+      "causal_changes": {
+        "before_old175_outer_P_path": {
+          "l2_samples_m_s": 9.98523549342354e-11,
+          "rms_component_m_s": 5.801840491793078e-13,
+          "max_vector_m_s": 4.061724130783711e-12
+        },
+        "before_layer_interface_P_path": {
+          "l2_samples_m_s": 5.845525123716521e-20,
+          "rms_component_m_s": 4.40173087901023e-22,
+          "max_vector_m_s": 4.517229674023544e-21
+        },
+        "pre_layer_max_abs_relative_baseline_global_peak": 3.3511681176967845e-13,
+        "margin_s": 0.003,
+        "meaning": "Changes from the baseline before paths from the layer interface or outer ABC; not an objective error norm"
+      },
+      "incoming_beams": [
+        {
+          "receiver_range_m": [
+            65.0,
+            175.0
+          ],
+          "receiver_count": 12,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 6.775275086860154e-11,
+                "rms_component_m_s": 4.355311780293717e-12,
+                "max_vector_m_s": 2.1348578509925514e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 7.028278701728941e-11,
+                "rms_component_m_s": 4.517948663692289e-12,
+                "max_vector_m_s": 8.876824805531598e-12
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 5.595044697010653e-11,
+                "rms_component_m_s": 3.117996508029303e-12,
+                "max_vector_m_s": 1.0423036789506677e-11,
+                "peak_tau_s": 0.363
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 5.2484090102903296e-11,
+                "rms_component_m_s": 2.9248239921189716e-12,
+                "max_vector_m_s": 1.0224802251739911e-11
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 9.000469541725282e-11,
+                "rms_component_m_s": 2.7909271269653747e-12,
+                "max_vector_m_s": 2.1348578509925514e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 9.35410079168225e-11,
+                "rms_component_m_s": 2.9005835225425314e-12,
+                "max_vector_m_s": 1.0224802251739911e-11
+              }
+            }
+          }
+        },
+        {
+          "receiver_range_m": [
+            65.0,
+            315.0
+          ],
+          "receiver_count": 26,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 4.659436804740585e-11,
+                "rms_component_m_s": 2.995199419220225e-12,
+                "max_vector_m_s": 9.69851794760026e-12,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 6.518525971384652e-11,
+                "rms_component_m_s": 4.190267197915195e-12,
+                "max_vector_m_s": 8.271855983996168e-12
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 4.3562648198079655e-11,
+                "rms_component_m_s": 2.427651472287474e-12,
+                "max_vector_m_s": 8.435488854387507e-12,
+                "peak_tau_s": 0.373
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 4.580554257830079e-11,
+                "rms_component_m_s": 2.552643089407968e-12,
+                "max_vector_m_s": 8.898023156039994e-12
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 6.542775102420605e-11,
+                "rms_component_m_s": 2.0288284332640524e-12,
+                "max_vector_m_s": 9.69851794760026e-12,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 8.211281556714166e-11,
+                "rms_component_m_s": 2.54621032131076e-12,
+                "max_vector_m_s": 8.898023156039994e-12
+              }
+            }
+          }
+        }
+      ],
+      "wall_seconds": 356.70913978200406,
+      "recording_mode": "surface only",
+      "inputs": {
+        "metadata": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_sweep_3060_v1/runs/q2_half/metadata.json",
+          "sha256": "db2d66eee48930883225a86b12fca2975130e3399e8a997509287e708f0ec55d"
+        },
+        "surface": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_sweep_3060_v1/runs/q2_half/surface.npz",
+          "sha256": "9420fca1e2cf1da5fbeb627b70d8eeddaf783d7b30daf2b45565eedf79f7e472"
+        }
+      }
+    },
+    "q2_quarter": {
+      "label": "175 м · 0,25α₀",
+      "surface_windows": {
+        "0.3_2": {
+          "l2_samples_m_s": 3.5993990198817086e-09,
+          "rms_component_m_s": 7.375879608654573e-12,
+          "max_vector_m_s": 1.237834473550461e-10,
+          "l2_relative_baseline": 2.3551776036310517,
+          "amplitude_db_relative_baseline": 7.440473255783151
+        },
+        "0.3_0.8": {
+          "l2_samples_m_s": 3.5966403286612724e-09,
+          "rms_component_m_s": 1.3580448998705967e-11,
+          "max_vector_m_s": 1.237834473550461e-10,
+          "l2_relative_baseline": 2.382438160871594,
+          "amplitude_db_relative_baseline": 7.540432736127323
+        },
+        "0.8_2": {
+          "l2_samples_m_s": 1.4116928227135443e-10,
+          "rms_component_m_s": 3.442743643874209e-13,
+          "max_vector_m_s": 2.6778926213997993e-12,
+          "l2_relative_baseline": 0.5907697241877895,
+          "amplitude_db_relative_baseline": -4.571635390935449
+        },
+        "1_2": {
+          "l2_samples_m_s": 5.787079652883677e-11,
+          "rms_component_m_s": 1.5458893435436513e-13,
+          "max_vector_m_s": 2.529160389619105e-12,
+          "l2_relative_baseline": 0.5614468810247454,
+          "amplitude_db_relative_baseline": -5.013826528713165
+        }
+      },
+      "receiver_gates": [
+        {
+          "x_m": 5.0,
+          "direct_rayleigh_peak_estimate_s": 0.20498984154071687,
+          "gate_s": [
+            0.2849898415407169,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 4.525524873197285e-10,
+            "rms_component_m_s": 7.724943587637979e-12,
+            "max_vector_m_s": 6.990562266249694e-11,
+            "peak_time_s": 0.366
+          }
+        },
+        {
+          "x_m": 175.0,
+          "direct_rayleigh_peak_estimate_s": 0.12861803556413173,
+          "gate_s": [
+            0.20861803556413172,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 4.3668828108631e-10,
+            "rms_component_m_s": 7.294365770733067e-12,
+            "max_vector_m_s": 7.331173502507292e-11,
+            "peak_time_s": 0.443
+          }
+        },
+        {
+          "x_m": 345.0,
+          "direct_rayleigh_peak_estimate_s": 0.05224622958754662,
+          "gate_s": [
+            0.13224622958754662,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 4.5002334621200367e-10,
+            "rms_component_m_s": 7.36260685448773e-12,
+            "max_vector_m_s": 1.2378344735483486e-10,
+            "peak_time_s": 0.521
+          }
+        }
+      ],
+      "causal_changes": {
+        "before_old175_outer_P_path": {
+          "l2_samples_m_s": 1.3926364202712446e-10,
+          "rms_component_m_s": 8.091801519149957e-13,
+          "max_vector_m_s": 5.88177060287597e-12
+        },
+        "before_layer_interface_P_path": {
+          "l2_samples_m_s": 5.97566365682493e-20,
+          "rms_component_m_s": 4.499726317847412e-22,
+          "max_vector_m_s": 4.432110689525139e-21
+        },
+        "pre_layer_max_abs_relative_baseline_global_peak": 3.4180417453946296e-13,
+        "margin_s": 0.003,
+        "meaning": "Changes from the baseline before paths from the layer interface or outer ABC; not an objective error norm"
+      },
+      "incoming_beams": [
+        {
+          "receiver_range_m": [
+            65.0,
+            175.0
+          ],
+          "receiver_count": 12,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 6.654261025850762e-11,
+                "rms_component_m_s": 4.277520995604024e-12,
+                "max_vector_m_s": 2.1229049333786264e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 1.0596712029345557e-10,
+                "rms_component_m_s": 6.811824485664823e-12,
+                "max_vector_m_s": 1.6733800863882868e-11
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 2.747685793223711e-10,
+                "rms_component_m_s": 1.5312254275664003e-11,
+                "max_vector_m_s": 6.771958162200328e-11,
+                "peak_tau_s": 0.364
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 2.7514407940900786e-10,
+                "rms_component_m_s": 1.5333180077374285e-11,
+                "max_vector_m_s": 6.176986633505134e-11
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 2.84137042815193e-10,
+                "rms_component_m_s": 8.810715673136256e-12,
+                "max_vector_m_s": 6.771958162200328e-11,
+                "peak_tau_s": 0.364
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 2.989088565242183e-10,
+                "rms_component_m_s": 9.268770171336303e-12,
+                "max_vector_m_s": 6.176986633505134e-11
+              }
+            }
+          }
+        },
+        {
+          "receiver_range_m": [
+            65.0,
+            315.0
+          ],
+          "receiver_count": 26,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 3.549401366085482e-11,
+                "rms_component_m_s": 2.2816416137380362e-12,
+                "max_vector_m_s": 9.903141523682739e-12,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 8.945821989397252e-11,
+                "rms_component_m_s": 5.750592174536844e-12,
+                "max_vector_m_s": 1.0865940606951517e-11
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 2.7530697030874e-10,
+                "rms_component_m_s": 1.534225763231904e-11,
+                "max_vector_m_s": 6.803285412210424e-11,
+                "peak_tau_s": 0.364
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 2.7588480196223905e-10,
+                "rms_component_m_s": 1.5374458931422177e-11,
+                "max_vector_m_s": 6.77942486255599e-11
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 2.7793784242870807e-10,
+                "rms_component_m_s": 8.618486629485511e-12,
+                "max_vector_m_s": 6.803285412210424e-11,
+                "peak_tau_s": 0.364
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 2.9147039091435176e-10,
+                "rms_component_m_s": 9.038113144418613e-12,
+                "max_vector_m_s": 6.77942486255599e-11
+              }
+            }
+          }
+        }
+      ],
+      "wall_seconds": 351.42223054985516,
+      "recording_mode": "surface only",
+      "inputs": {
+        "metadata": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_sweep_3060_v1/runs/q2_quarter/metadata.json",
+          "sha256": "1d39b2f81e72cd42dd4085189ab2f38a93194b09867788d1a875338a3531ce24"
+        },
+        "surface": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_sweep_3060_v1/runs/q2_quarter/surface.npz",
+          "sha256": "287402238fde516e872650338f9e55dd3479c56d6baf45c422e8c8ac76235b4c"
+        }
+      }
+    },
+    "wide350": {
+      "label": "350 м · прежний плавный профиль",
+      "surface_windows": {
+        "0.3_2": {
+          "l2_samples_m_s": 3.7334449673139045e-10,
+          "rms_component_m_s": 7.650566234068065e-13,
+          "max_vector_m_s": 7.516792819815206e-12,
+          "l2_relative_baseline": 0.2442887249465258,
+          "amplitude_db_relative_baseline": -12.241931545222858
+        },
+        "0.3_0.8": {
+          "l2_samples_m_s": 3.655208577862913e-10,
+          "rms_component_m_s": 1.380159513747554e-12,
+          "max_vector_m_s": 7.516792819815206e-12,
+          "l2_relative_baseline": 0.24212341535655205,
+          "amplitude_db_relative_baseline": -12.319264172470163
+        },
+        "0.8_2": {
+          "l2_samples_m_s": 7.623959941593001e-11,
+          "rms_component_m_s": 1.859281226606967e-13,
+          "max_vector_m_s": 1.04625424615328e-12,
+          "l2_relative_baseline": 0.319049912236296,
+          "amplitude_db_relative_baseline": -9.922827410131129
+        },
+        "1_2": {
+          "l2_samples_m_s": 3.260964302396718e-11,
+          "rms_component_m_s": 8.710939311573827e-14,
+          "max_vector_m_s": 5.182028954181052e-13,
+          "l2_relative_baseline": 0.3163699735498479,
+          "amplitude_db_relative_baseline": -9.996094836004064
+        }
+      },
+      "receiver_gates": [
+        {
+          "x_m": 5.0,
+          "direct_rayleigh_peak_estimate_s": 0.20498984154071687,
+          "gate_s": [
+            0.2849898415407169,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 4.139589022374521e-11,
+            "rms_component_m_s": 7.066161952449083e-13,
+            "max_vector_m_s": 3.786721780131274e-12,
+            "peak_time_s": 0.457
+          }
+        },
+        {
+          "x_m": 175.0,
+          "direct_rayleigh_peak_estimate_s": 0.12861803556413173,
+          "gate_s": [
+            0.20861803556413172,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 4.2704264401524615e-11,
+            "rms_component_m_s": 7.133246711817503e-13,
+            "max_vector_m_s": 4.120890516386077e-12,
+            "peak_time_s": 0.437
+          }
+        },
+        {
+          "x_m": 345.0,
+          "direct_rayleigh_peak_estimate_s": 0.05224622958754662,
+          "gate_s": [
+            0.13224622958754662,
+            2.0
+          ],
+          "after_direct_plus80ms": {
+            "l2_samples_m_s": 6.472755426993012e-11,
+            "rms_component_m_s": 1.0589751370754605e-12,
+            "max_vector_m_s": 7.51679281931964e-12,
+            "peak_time_s": 0.457
+          }
+        }
+      ],
+      "causal_changes": {
+        "before_old175_outer_P_path": {
+          "l2_samples_m_s": 1.3926364202544574e-10,
+          "rms_component_m_s": 8.091801519052418e-13,
+          "max_vector_m_s": 5.881770602650845e-12
+        },
+        "before_layer_interface_P_path": {
+          "l2_samples_m_s": 5.739176732239424e-20,
+          "rms_component_m_s": 4.321649622187201e-22,
+          "max_vector_m_s": 4.298551685828295e-21
+        },
+        "pre_layer_max_abs_relative_baseline_global_peak": 3.1918881333247974e-13,
+        "margin_s": 0.003,
+        "meaning": "Changes from the baseline before paths from the layer interface or outer ABC; not an objective error norm"
+      },
+      "incoming_beams": [
+        {
+          "receiver_range_m": [
+            65.0,
+            175.0
+          ],
+          "receiver_count": 12,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 4.845580160679191e-11,
+                "rms_component_m_s": 3.1148569003629608e-12,
+                "max_vector_m_s": 2.135878797339641e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 9.142293632468327e-11,
+                "rms_component_m_s": 5.876888930106317e-12,
+                "max_vector_m_s": 1.0796140892311149e-11
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 1.505311497363701e-11,
+                "rms_component_m_s": 8.388773006199714e-13,
+                "max_vector_m_s": 1.878802906911393e-12,
+                "peak_tau_s": 0.395
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 5.81386119686166e-11,
+                "rms_component_m_s": 3.239938175948267e-12,
+                "max_vector_m_s": 7.423069254880493e-12
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 5.160484562697909e-11,
+                "rms_component_m_s": 1.6001983327148565e-12,
+                "max_vector_m_s": 2.135878797339641e-11,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 1.1395302043906014e-10,
+                "rms_component_m_s": 3.533533161449368e-12,
+                "max_vector_m_s": 1.0796140892311149e-11
+              }
+            }
+          }
+        },
+        {
+          "receiver_range_m": [
+            65.0,
+            315.0
+          ],
+          "receiver_count": 26,
+          "windows": {
+            "early": {
+              "tau_interval_s": [
+                0.18,
+                0.3
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 2.7121286754111188e-11,
+                "rms_component_m_s": 1.7434223434851736e-12,
+                "max_vector_m_s": 9.763653695066239e-12,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 8.52546990514002e-11,
+                "rms_component_m_s": 5.480379620660309e-12,
+                "max_vector_m_s": 9.987056146483015e-12
+              }
+            },
+            "outer": {
+              "tau_interval_s": [
+                0.3,
+                0.46
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 1.2544144277678105e-11,
+                "rms_component_m_s": 6.990578301351795e-13,
+                "max_vector_m_s": 1.8966632035822005e-12,
+                "peak_tau_s": 0.324
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 3.564340175458764e-11,
+                "rms_component_m_s": 1.9863291219901793e-12,
+                "max_vector_m_s": 6.6238322921071744e-12
+              }
+            },
+            "all_return": {
+              "tau_interval_s": [
+                0.18,
+                0.7
+              ],
+              "actual_velocity": {
+                "l2_samples_m_s": 3.0432883589200726e-11,
+                "rms_component_m_s": 9.436836596926974e-13,
+                "max_vector_m_s": 9.763653695066239e-12,
+                "peak_tau_s": 0.18
+              },
+              "difference_from_baseline": {
+                "l2_samples_m_s": 9.529652844084787e-11,
+                "rms_component_m_s": 2.95501990310838e-12,
+                "max_vector_m_s": 9.987056146483015e-12
+              }
+            }
+          }
+        }
+      ],
+      "wall_seconds": 582.7645434751175,
+      "recording_mode": "all-node fields + surface",
+      "inputs": {
+        "metadata": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/metadata.json",
+          "sha256": "73f218acd8d19cc54732b8a1f01ce7a134fc56e6d86c5c5d643ba5acfec021f3"
+        },
+        "surface": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/padded350/surface.npz",
+          "sha256": "54bebb74ea55943f5aa69cf9cf8d6d000d225095d9463ba5f9ebad9613dc93ca"
+        }
+      }
+    }
+  },
+  "ranking_175m": [
+    {
+      "rank": 1,
+      "name": "q2_half",
+      "label": "175 м · 0,5α₀",
+      "l2_relative_baseline": 0.732300081673802
+    },
+    {
+      "rank": 2,
+      "name": "baseline",
+      "label": "175 м · α₀",
+      "l2_relative_baseline": 1.0
+    },
+    {
+      "rank": 3,
+      "name": "q2_quarter",
+      "label": "175 м · 0,25α₀",
+      "l2_relative_baseline": 2.3551776036310517
+    }
+  ],
+  "selected_name": "q2_half",
+  "selection": {
+    "primary_objective": "minimum unweighted L2 of Vx/Vy surface samples, inclusive0.3–2.0s, among baseline/q2_half/q2_quarter",
+    "wide350_eligible": false,
+    "guards": {
+      "0.3_2": {
+        "l2_ratio": 0.732300081673802,
+        "no_worse_than_baseline": true
+      },
+      "0.3_0.8": {
+        "l2_ratio": 0.7322953322226317,
+        "no_worse_than_baseline": true
+      },
+      "0.8_2": {
+        "l2_ratio": 0.733379598583281,
+        "no_worse_than_baseline": true
+      },
+      "1_2": {
+        "l2_ratio": 0.6723025305634516,
+        "no_worse_than_baseline": true
+      }
+    },
+    "decision_scope": "Best of these three coefficients for this one homogeneous central-source test; no global optimization or heterogeneous-model validation"
+  },
+  "quarter_vs_wide350": {
+    "profile_identity": "alpha0*(s/350)^2 == (alpha0/4)*(s/175)^2 on the old175m domain",
+    "pre_old175_outer_P_path_difference": {
+      "l2_samples_m_s": 8.861495070908982e-20,
+      "rms_component_m_s": 5.148900189092796e-22,
+      "max_vector_m_s": 4.7609345090951225e-21
+    },
+    "full_difference": {
+      "l2_samples_m_s": 3.5734411216014234e-09,
+      "rms_component_m_s": 6.751481292385888e-12,
+      "max_vector_m_s": 1.2643563257707823e-10
+    },
+    "margin_s": 0.003,
+    "meaning": "Quarter-strength175 and smooth350 have identical damping coefficients within175m; their difference diagnoses the truncation/continuation beyond that boundary, not exact solution error"
+  },
+  "rayleigh_speed_m_s": 2225.9523370721445,
+  "method": {
+    "amplitude_metrics": "L2/RMS/peaks of recorded velocity samples; not elastic energy, reflection coefficients or accuracy relative to an infinite domain",
+    "receiver_gate": "Times after t0+abs(x-350)/cR+80ms; near the edge this excludes some early returns along with the direct wave",
+    "beam": "Mean after t=tau+x/cR over65..175 and65..315; not modal decomposition, direct-wave tails and other paths can remain",
+    "pre_boundary_changes": "Difference from baseline is used only to locate coefficient effects in time; its minimization would incorrectly favor the baseline",
+    "reference350": "Historical wider-domain result used only as context and a matched-inner-profile control for q2_quarter; not an exact reference",
+    "timing": "Candidate surface-only times are not directly comparable to historical runs with all-node output"
+  },
+  "status": "completed",
+  "schema": "chapter14.profile_sweep_analysis.v1",
+  "utc": "2026-11-18T11:25:04.769610+00:00",
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_sweep_analysis.py",
+    "sha256": "2e5bee10ebc7d07befae9ef93bc92cf13f7076fa06bc05329ba41847f9bcbe92"
+  },
+  "figures": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_tail_rms.png",
+      "sha256": "31cf826a22879727e7060fc9c8b61ecf6a946f15bf643ed3bba682554989d1bc"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_tail_rms.svg",
+      "sha256": "4b9fe5d28d4c46add011c1b072a96d0f07594004dec199e564e6f60c7fa6c3a2"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_seismograms.png",
+      "sha256": "9911a5f8b32d2396d83628ba0cd7695bd468bbe017c78a4bd9e83fd9ef2e034d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_seismograms.svg",
+      "sha256": "6d44a10df6e042afca9e42c895c595954698f5b874936b50b74823d72c51ff67"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/return_traces.png",
+      "sha256": "2df6be7385031f4b38bd64428e13e9abdbf680fd1c3c0ed6e43a50121f16a832"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/return_traces.svg",
+      "sha256": "853ce2821a6ef45d89ac751f04922aa896f8c6c250b6c1d1b0ee5fb8b3a7517a"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/incoming_returns.png",
+      "sha256": "0b64816b6d68834daab0d8d8ae02be51bf34335a81f69bad4c963528a44c8fab"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_comparison_v1/incoming_returns.svg",
+      "sha256": "d2301b606dd4807a65ed24f6d0f6713c06f03058c7534949795100801676d6c7"
+    }
+  ],
+  "profile_plot": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_sweep_plan_v1/profile_plot.json",
+    "sha256": "fdab3fcc2c30a2cab068adf707fa4d0a4ee6b3af14d8af58606439ae93f0c3f6"
+  }
+}

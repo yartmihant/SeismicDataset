@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "modes": [
+    "old_sync",
+    "new_none",
+    "new_discard",
+    "new_sync",
+    "new_async"
+  ],
+  "timing_warning": "profiled wall times excluded from performance medians"
+}

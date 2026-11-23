@@ -1,0 +1,53 @@
+{
+  "status": "cpu_checked",
+  "order": 6,
+  "h_m": 10,
+  "source_x_m": [
+    175.0,
+    350.0,
+    525.0,
+    700.0,
+    875.0,
+    1050.0,
+    1225.0
+  ],
+  "source_node_ids": [
+    794745,
+    1590541,
+    2386337,
+    3182133,
+    3977929,
+    4773725,
+    5569521
+  ],
+  "nodes_per_copy": 795691,
+  "nodes_batch": 5569837,
+  "elements_per_copy": 22050,
+  "elements_batch": 154350,
+  "pml_elements_per_copy": 12250,
+  "boundary_elements": 0,
+  "copies": 7,
+  "copies_disconnected": true,
+  "translation_m": 0,
+  "duration_s": 1,
+  "source_hz": 30,
+  "source_force_y_n_per_m": -1.0,
+  "source_t0_s": 0.05,
+  "kim_beta": 0.037037037037037035,
+  "PML_thickness_m": 350,
+  "PML_dmax_s_inv": 173.0886108476381,
+  "ABC": false,
+  "CFL": 0.8,
+  "field_frames_per_source": 21,
+  "surface_samples_per_source": 1001,
+  "runs": 32,
+  "probes": 2,
+  "estimated_array_bytes": 18072198144,
+  "timing": "7 singles versus one packed model; one full warmup of each source and package, then3 paired rounds; sequential on GPU0. Compare median of summed7 run times with median package run; also assembly+prepare+run.",
+  "dt": "native estimate for one copy and disconnected package; require same dt before timing",
+  "validation": "compare each of7 package components against corresponding single, fields and surface; same order, dt and point force",
+  "snapshot": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/docs/runtime_sources/seismic_fixed_pml_orders_v1/provenance.json",
+    "sha256": "2acb875eed70fff1987781f49e3dc7bfa643bb5c56cc4c1127f7277e48ac2e55"
+  }
+}

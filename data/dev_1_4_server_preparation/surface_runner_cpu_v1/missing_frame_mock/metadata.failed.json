@@ -1,0 +1,91 @@
+{
+  "status": "failed",
+  "run_spec": {
+    "dataset": "EFVB",
+    "model_id": 0,
+    "source_x_m": 350.0,
+    "substeps": 24,
+    "t_end_s": 0.003,
+    "order": 4,
+    "kind": "curved",
+    "backend": "cu",
+    "alpha_max_s_inv": 346.1772216952762
+  },
+  "experiment_spec": {
+    "size_m": 700.0,
+    "padding_m": 175.0,
+    "frequency_hz": 30.0,
+    "center_s": 0.05,
+    "end_s": 2.0,
+    "output_interval_s": 0.001,
+    "field_interval_s": 0.01,
+    "source_x_m": [
+      0.0,
+      175.0,
+      350.0,
+      525.0,
+      700.0
+    ],
+    "density_kg_m3": 1000.0,
+    "force_amplitude_n_per_m": 1.0
+  },
+  "dt_s": 4.1666666666666665e-05,
+  "steps_count": 72,
+  "mesh": {
+    "synthetic_smoke_only": true,
+    "physical_model_id": null,
+    "geometry": "rectangle_210_by_2_not_a_scientific_mesh",
+    "order": 4,
+    "model_id": 0,
+    "dataset": "EFVB",
+    "kind": "curved"
+  },
+  "mesh_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/surface_runner_cpu_v1/mock_mesh.dat",
+    "sha256": "323555a6dc512077a234739b8055293cef14f668e86a56fe2a97c48a5236d38b"
+  },
+  "stability_evidence": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/surface_runner_cpu_v1/mock_stability.json",
+    "sha256": "982c7d51165228579e80a09e790bbec2d86506fb815411adaca5dda1c7e8eab0"
+  },
+  "short_test": true,
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "receiver_count": 70,
+  "initial_state": "native U0=V0=A0=0; first force assembly at dt; same convention as chapter 1.3",
+  "storage": "uncompressed NPZ; float64 velocity; no displacements, source history, energy or all-node fields",
+  "provenance": {
+    "python": "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+    "python_version": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+    "numpy": "2.4.6",
+    "semgpu2": "0.1.0",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+    "files": [
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py",
+        "sha256": "31a54d9241f7661b100f3d92b174b84cd7c0490c02cd50e00a15aee9320b7001"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/physics.py",
+        "sha256": "729df09e6e19e38c8eafe0c2b3fae4896c62f347a19f89e5736c3510865a22ec"
+      },
+      {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_3_point_source/run.py",
+        "sha256": "8365b4063dd7b3a03c7ce35bf3db1f18b6d8df8bc292d443847d3536aae03057"
+      }
+    ]
+  },
+  "source_node_id": 5888,
+  "source_input_sha256": "80c704526642801df5ea69bc7fd3d28dbdadf4215f0c173f18188c51d535f0ec",
+  "source_input_first_force_y_n_per_m": 9.84949251974796e-09,
+  "native": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/surface_runner_cpu_v1/mock_native.txt",
+    "sha256": "967b700d97e72916a78152d9f658e83a7192334981b3aa18cff9fbe487911e5f"
+  },
+  "nodes_sha256": "eab891b272c63eb32e07b5831ccad77ff74ef80417673ae64f28517133939d81",
+  "wall_seconds": 0.007600660203024745,
+  "error": "ValueError: Неполная запись: 3/4",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py\", line 258, in run_case\n    metadata.update(_execute(case, spec, out, metadata, before_write))\n                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py\", line 219, in _execute\n    recorder.finish()\n    ~~~~~~~~~~~~~~~^^\n  File \"/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/surface_runner.py\", line 147, in finish\n    raise ValueError(f\"Неполная запись: {self.count}/{self.times.size}\")\nValueError: Неполная запись: 3/4\n"
+}

@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T12:07:41.298514+00:00",
+  "scope": "Postprocessing/provenance and visual checks; not independent physical solver validation",
+  "analysis_sha256": "771345bddcd81568eb5e5dad601aae855e5587fe41a3bf68d0c55cb87d107653",
+  "key_metrics_sha256": "2fac9cc2e05426f04cb3cb8435639fbe4891b8f0c07db45de7d0b1508d097579",
+  "analysis_code_sha256": "9e8ed1782ff6c807bdceebf29bc8bf83994cda25f445518f96df048a28cef6d1",
+  "cpu_validation": {
+    "path": "data/dev_1_4_server_preparation/profile_golden_1s_analysis_cpu_v3/validation.json",
+    "sha256": "0ceeeef008f2cd96e9735c51477927752d198041e43e20479e782f4e6c696f92"
+  },
+  "checks": [
+    "Nine new1s results and three historical2s control prefixes passed input/hash/time/source/native/mesh/ABC checks",
+    "Eight contractions reach first width<=0.02; selected factor is an evaluated minimum inside final interval",
+    "501 time samples0.5–1s and70 receivers retained for objective; all70 peak diagnostics are separate from selection",
+    "All six PNGs visually inspected and decoded; twelve PNG/SVG hashes match analysis evidence",
+    "Code SHA equals the testedCPUv3 version"
+  ],
+  "figures": [
+    {
+      "path": "img/dev_1_4_server_preparation/profile_golden_1s_comparison_v1/objective_and_convergence.png",
+      "sha256": "647cd1ece457b8fc8167e410519d1363c17a908275ac1d541cd40549638893ff",
+      "size_px": [
+        2320,
+        848
+      ],
+      "visual_review": "passed: readable labels and units, complete legends, shared seismogram scale, objective boundary0.5s shown"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_golden_1s_comparison_v1/selected_profiles.png",
+      "sha256": "15e7dcf6172fee86fa914f1a79eda638f18519e4e786f442bc544606b1c0482b",
+      "size_px": [
+        2320,
+        848
+      ],
+      "visual_review": "passed: readable labels and units, complete legends, shared seismogram scale, objective boundary0.5s shown"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_golden_1s_comparison_v1/surface_seismograms.png",
+      "sha256": "dc18c62c46b97da7aba828bff010c5af67f52835849c53b4a020f5ba1c9f6804",
+      "size_px": [
+        2880,
+        1600
+      ],
+      "visual_review": "passed: readable labels and units, complete legends, shared seismogram scale, objective boundary0.5s shown"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_golden_1s_comparison_v1/surface_tail_rms.png",
+      "sha256": "a30121f47a278f56c17e218f34365d0ec0d1084baf487206923e99a450c4bc33",
+      "size_px": [
+        2160,
+        960
+      ],
+      "visual_review": "passed: readable labels and units, complete legends, shared seismogram scale, objective boundary0.5s shown"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_golden_1s_comparison_v1/return_traces.png",
+      "sha256": "a1d1edefb319f693c7c2017ad9b3aa3179741f9482fa48d5475cc2cf8b3fbdbc",
+      "size_px": [
+        2400,
+        1920
+      ],
+      "visual_review": "passed: readable labels and units, complete legends, shared seismogram scale, objective boundary0.5s shown"
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_golden_1s_comparison_v1/all_receiver_peak_guards.png",
+      "sha256": "70f5642703544ba1a1c5732dc0fdb73b8277a09339e7da8730056d84efc36f1b",
+      "size_px": [
+        2400,
+        1440
+      ],
+      "visual_review": "passed: readable labels and units, complete legends, shared seismogram scale, objective boundary0.5s shown"
+    }
+  ],
+  "interpretation_limits": [
+    "Sampled curve is consistent with a single minimum but does not prove unimodality",
+    "Two receiver peaks increase within objective window;40 increase in the earlier after-direct gate",
+    "Historical2s and new1s wall times are not a direct timing comparison",
+    "No all-node field simulation or production-setting change follows from this analysis"
+  ]
+}

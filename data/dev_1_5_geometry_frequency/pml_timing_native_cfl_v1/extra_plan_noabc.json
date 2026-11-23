@@ -1,0 +1,17 @@
+{
+  "status": "authorized",
+  "cases": [
+    "P175_noabc"
+  ],
+  "orders": [
+    4,
+    5
+  ],
+  "thickness_m": 175,
+  "dmax_s_inv": 173.0886108476381,
+  "ABC": false,
+  "outer_boundary": "free",
+  "runs": 10,
+  "CFL_probe": "same mesh/material with no PML and no ABC",
+  "source": "user requested additional175m PML withoutABC"
+}

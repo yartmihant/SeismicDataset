@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "orders": [
+    4,
+    5
+  ],
+  "compared": "new direct volume-only tensor grid vs historical Q2/GLL volume coordinates",
+  "atol_m": 3e-12,
+  "boundary_elements": 0
+}

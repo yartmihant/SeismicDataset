@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "verified_artifact_sha256": [
+    "field_checks.png",
+    "boundary_seismograms.png",
+    "index.html",
+    "tradeoff.png",
+    "tradeoff_reviewed.png",
+    "reviewed.html"
+  ],
+  "png_count": 4,
+  "verified_html_links": [
+    "tradeoff.png",
+    "boundary_seismograms.png",
+    "field_checks.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/analysis/metrics.json",
+    "tradeoff_reviewed.png",
+    "boundary_seismograms.png",
+    "field_checks.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/analysis/metrics.json"
+  ],
+  "verified_array_sha_count_on_saturn": 100,
+  "local_run_results": 25,
+  "metrics_sha256": "7e9e038269c1a2e558122272179ba9d67493ce8ea05e14124aa45ec21a3de105",
+  "visual_review": "tradeoff_reviewed.png: labels readable, no overlap; field_checks inspected",
+  "mypy": "Success: no issues found in 4 source files"
+}

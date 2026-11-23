@@ -1,0 +1,7 @@
+{
+  "single_dt_s": 0.00011111111111111112,
+  "batch_dt_s": 0.00011111111111111112,
+  "single_lambda_max": 205048790.0282754,
+  "batch_lambda_max": 205243720.18277526,
+  "native_dt_equal": true
+}

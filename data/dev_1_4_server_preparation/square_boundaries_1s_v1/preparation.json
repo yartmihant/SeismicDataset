@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "parent": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/mesh_q2.npz",
+    "sha256": "1cb7af41e190e308f7bc33e58cf322f30ec84175bcc8e45e9f91e72ab52395c4"
+  },
+  "parent_geometry": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/double_layer_3060_v1/meshes/padded/geometry.json",
+    "sha256": "e96eebdf5305fa74ad2dd594228592ad8606a2e32f51ea9837cf9c0ae9d0e7eb"
+  },
+  "retained_element_maps_exact": true,
+  "geometry_certificate": "Exact subset of previously whole-cell-certified parent; exterior rectangle checked",
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/square_boundaries_1s_v1/mesh_q2.npz",
+    "sha256": "4c4f7484f643fb781a0dac8ee662f472e14e50d435d25b16f40284d304775a6e"
+  },
+  "nodes": 707281,
+  "elements": 44100,
+  "extent_m": [
+    -175.0,
+    875.0,
+    -1050.0,
+    0.0
+  ],
+  "layer_bottom_start_m": -875.0,
+  "layer_width_m": 175.0,
+  "profile_exponent": 2,
+  "alpha_max_s_inv": 346.1772216952762,
+  "stability_upper_bound": {
+    "mesh": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/square_boundaries_1s_v1/mesh_q2.npz",
+    "mesh_sha256": "4c4f7484f643fb781a0dac8ee662f472e14e50d435d25b16f40284d304775a6e",
+    "order": 4,
+    "nodes": 707281,
+    "elements": 44100,
+    "alpha_max_s_inv": 346.1772216952762,
+    "stiffness_bound_s_minus_2": 937192597.904434,
+    "damping_bound_s_minus_1": 33388.35444340555,
+    "dt_start_s": 1.939346361202389e-05,
+    "substeps_per_ms": 52,
+    "min_mass_kg_per_m": 62.49999999994266,
+    "quadrature_jacobian_min_m2": 6.2499999999901865,
+    "abc_edge_count": 630,
+    "profile_bound": "fixed175plateau >= stretched350 pointwise; same outer ABC",
+    "method": "GLL mass; absolute-factor bound sum_q |B|^T |D| |B| wJ; ABC rhoVp edge quadrature and nodal alpha; half scalar damped central-difference limit",
+    "limitation": "Conservative starting bound, not the solver spectrum or a convergence result; full-cell geometry certified separately"
+  },
+  "stability_note": "Parent fixed175plateau damping bounds new shifted-bottom quadratic pointwise, ABC included conservatively",
+  "variants": [
+    "reflecting",
+    "layer_no_abc",
+    "layer_abc"
+  ],
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/square_boundaries_run.py",
+    "sha256": "f3e13879beee119962503a9d0a76170f83f966fd1a27aaad4e89b7b567c325f4"
+  }
+}

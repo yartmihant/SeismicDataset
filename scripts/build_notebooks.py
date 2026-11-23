@@ -16,7 +16,7 @@ from nbclient import NotebookClient
 
 from scripts.project_paths import PROJECT_ROOT
 
-DIARIES: Final = ("dev_1_1_dataset_preprocessing", "dev_1_2_smoothing_pilot", "dev_1_3_point_source", "dev_1_4_server_preparation")
+DIARIES: Final = ("dev_1_1_dataset_preprocessing", "dev_1_2_smoothing_pilot", "dev_1_3_point_source", "dev_1_4_server_preparation", "dev_1_5_geometry_frequency")
 
 
 def semantic_tree(path: Path) -> str:

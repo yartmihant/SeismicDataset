@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-18T11:27:52.065525+00:00",
+  "scope": "Report-only chapter and visual evidence; no independent solver validation",
+  "mypy": {
+    "status": "passed",
+    "source_file_count": 87
+  },
+  "notebook": {
+    "cells": 94,
+    "embedded_png_count": 17,
+    "error_outputs": 0,
+    "all_code_cells_executed": true,
+    "syntax_format_roundtrip": "passed by scripts.build_notebooks",
+    "evidence": {
+      "path": "dev_1_4_server_preparation.ipynb",
+      "sha256": "b57ea26216adfcbdade042ee76e6e90584ba180c7518e5a7364a4beb317aca60",
+      "bytes": 13215084
+    }
+  },
+  "new_figures_embedded_exactly": [
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_plan_v1/profiles.png",
+      "sha256": "1775cc2648d3ef75581ac486f5db9c56dcf507285bc3c66cb38b2830f99ba3a5",
+      "bytes": 227111
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/return_traces.png",
+      "sha256": "2df6be7385031f4b38bd64428e13e9abdbf680fd1c3c0ed6e43a50121f16a832",
+      "bytes": 862037
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/incoming_returns.png",
+      "sha256": "0b64816b6d68834daab0d8d8ae02be51bf34335a81f69bad4c963528a44c8fab",
+      "bytes": 547738
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_tail_rms.png",
+      "sha256": "31cf826a22879727e7060fc9c8b61ecf6a946f15bf643ed3bba682554989d1bc",
+      "bytes": 267557
+    },
+    {
+      "path": "img/dev_1_4_server_preparation/profile_sweep_comparison_v1/surface_seismograms.png",
+      "sha256": "9911a5f8b32d2396d83628ba0cd7695bd468bbe017c78a4bd9e83fd9ef2e034d",
+      "bytes": 662838
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/dev_1_4_server_preparation/profile_sweep_analysis_v1/analysis.json",
+      "sha256": "a0f77506167720f4aea97b610a0d0f44256faee5dc956b5deba5f1ac35cb6775",
+      "bytes": 37432
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/damping_literature_v1/review.json",
+      "sha256": "c54a444a98e802390cc4331b31d84dd35b719bbf61df2245c2dbb5249a31dbcb",
+      "bytes": 3701
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/profile_sweep_3060_v1/completion_validation.json",
+      "sha256": "4b0bcf07f851289587840ff7ba6c563e5d915d1a293e8a6dc58e54955c26fb7d",
+      "bytes": 20412
+    },
+    {
+      "path": "data/dev_1_4_server_preparation/saturn_stop_20261118_v1/verification.json",
+      "sha256": "bb7b5f0f51d40bc4a90f6b14057be6e46b44e92c4ba8498c639632b7f25007df",
+      "bytes": 2549
+    }
+  ],
+  "chapter": {
+    "path": "dev_1_4_server_preparation.py",
+    "sha256": "be3a97c5f53f43ef54219ad82e7784784c319a38ec490b28d31993ff1e84f6e2",
+    "bytes": 133082
+  },
+  "summary": {
+    "path": "dev_1_4_server_preparation_summary.md",
+    "sha256": "3b22a93e4a13a91db97b2456f73cda999b5425ebcb7d8aa30a9428c48655e25e",
+    "bytes": 75417
+  }
+}

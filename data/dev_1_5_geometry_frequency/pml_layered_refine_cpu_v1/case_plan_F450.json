@@ -1,0 +1,13 @@
+{
+  "status": "cpu_checked",
+  "label": "F450",
+  "nodes": 2648451,
+  "thickness_m": 450,
+  "dmax_s_inv": 173.0886108476381,
+  "fixed_strength": true,
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_refine_cpu_v1/meshes/layered_450.npz",
+    "sha256": "4df54907ccd93cd59822f0c8673ba9c96dd10da48b8153fcc94f640136155850"
+  },
+  "reason": "Refinement of thickness bracket for weak interface echoes; prior results preserved."
+}

@@ -1,0 +1,144 @@
+{
+  "12404": {
+    "nodes": {
+      "shape": [
+        147771,
+        2
+      ],
+      "sha256": "f4ef3bc6fabfaa385a944399b8ea3cb715af2b9ed66a7184c167d4439731954a"
+    },
+    "cells": {
+      "shape": [
+        36750,
+        9
+      ],
+      "sha256": "932c0413ada179d0fa30dde03b98782212eb907349bfbc2f2bd5955efae5a4e6"
+    },
+    "vp": {
+      "shape": [
+        36750
+      ],
+      "sha256": "eeea4aa2ce3cbe17273bee35ea07b99b86a121a22f83e62f5ef06dca6063360f"
+    },
+    "vs": {
+      "shape": [
+        36750
+      ],
+      "sha256": "e5ab80aeea6473df8470b69d1e924e7bd0c2a3986de13c63c7874ed38dbca0b3"
+    },
+    "regions": {
+      "shape": [
+        36750
+      ],
+      "sha256": "e04cd7b400c55b75894c412649731ef5fb9c7cab98dff0d35ba7aa17844f084b"
+    },
+    "model_id": {
+      "shape": [],
+      "sha256": "e512871fd408124362c7f977e8b7e952e235bf5e6d155033ea0c931a9be97386"
+    },
+    "kind": {
+      "shape": [],
+      "sha256": "c5d2d0ca8cfe3d4a1920ee76c0431e04078443941883654fcd45510aaf9e4f61"
+    },
+    "audit": {
+      "model_id": 12404,
+      "kind": "curved",
+      "elements": 36750,
+      "q2_nodes": 147771,
+      "area_m2": 918750.0,
+      "det_jacobian_certified_min_m2": 4.386461145217804,
+      "bernstein_max_depth": 0,
+      "euler_characteristic": 1,
+      "conforming": true,
+      "core_top_edges": 140,
+      "core_top_edge_m": 5,
+      "external_edges": 770,
+      "area_by_region_m2": {
+        "0": 84000.0,
+        "1": 224634.00747002603,
+        "2": 238213.85153356366,
+        "3": 371902.1409964104
+      },
+      "sqrt_area_quantiles_m": [
+        4.1893551078227675,
+        4.2117975312970675,
+        4.999999999999995,
+        5.815799980378009,
+        5.8157999803780935
+      ]
+    }
+  },
+  "65": {
+    "nodes": {
+      "shape": [
+        171539,
+        2
+      ],
+      "sha256": "039b1eb11a8ab0c8893fbda5ec955e7ee2e012d3c5924a3c68414bbd06441f5a"
+    },
+    "cells": {
+      "shape": [
+        42692,
+        9
+      ],
+      "sha256": "eb77b803059af4fe910ca8c69c4ef9bcc2d5f7cdf336a74af552dda05135cbd4"
+    },
+    "vp": {
+      "shape": [
+        42692
+      ],
+      "sha256": "f20f87891ee9fedd71fa8ef25c50be4c952470a5cf0f4fb3e61d9b913f01b804"
+    },
+    "vs": {
+      "shape": [
+        42692
+      ],
+      "sha256": "8ec3d7697f496c44ba90a398a4445560d0d3e4a274bb5cd914dd7e1002006563"
+    },
+    "regions": {
+      "shape": [
+        42692
+      ],
+      "sha256": "805d16f66c350a16da62bd867a809df9f9b57b0a2d08486361b6d9084cb60231"
+    },
+    "model_id": {
+      "shape": [],
+      "sha256": "14e4b8ac16877a5d25661d84f8558c1481bf795a165d92feee46191b3224cde5"
+    },
+    "kind": {
+      "shape": [],
+      "sha256": "c5d2d0ca8cfe3d4a1920ee76c0431e04078443941883654fcd45510aaf9e4f61"
+    },
+    "audit": {
+      "model_id": 65,
+      "kind": "curved",
+      "elements": 42692,
+      "q2_nodes": 171539,
+      "area_m2": 918750.0000000001,
+      "det_jacobian_certified_min_m2": 0.9620395469557532,
+      "bernstein_max_depth": 0,
+      "euler_characteristic": 1,
+      "conforming": true,
+      "core_top_edges": 140,
+      "core_top_edge_m": 5,
+      "external_edges": 770,
+      "area_by_region_m2": {
+        "1": 78559.43888275801,
+        "2": 34651.73824123133,
+        "3": 31159.76410704403,
+        "4": 238553.18435235464,
+        "5": 74510.54089526884,
+        "6": 50412.2979050133,
+        "7": 348364.023376163,
+        "8": 62539.012240166965
+      },
+      "sqrt_area_quantiles_m": [
+        2.774223562665458,
+        3.3356789939070275,
+        4.732694906203154,
+        5.071660416877581,
+        5.603908170220121
+      ]
+    }
+  }
+}

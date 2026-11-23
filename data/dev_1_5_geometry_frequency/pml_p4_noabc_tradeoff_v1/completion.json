@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "checked_utc": "2026-11-22T21:42:26.816861+00:00",
+  "runs": 25,
+  "verified_array_files": 100,
+  "artifacts": "artifact_validation.json",
+  "notebook": {
+    "name": "dev_1_5_geometry_frequency.ipynb",
+    "cells": 57,
+    "executed": true,
+    "syntax_format_roundtrip": "OK"
+  },
+  "saturn": {
+    "compute_processes": [],
+    "available_bytes": 112155340800,
+    "production_queue": "stopped"
+  },
+  "conclusion": "350m noABC is faster and absorbs better than100m+ABC; same whole-record temporal accuracy at native CFL is not achieved.",
+  "report": "img/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/reviewed.html",
+  "code_commits": [
+    "a82e66f",
+    "2439c79",
+    "a88f068"
+  ],
+  "large_arrays": "Saturn only"
+}

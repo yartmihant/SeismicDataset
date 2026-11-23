@@ -1,0 +1,190 @@
+{
+  "status": "passed",
+  "animations": 30,
+  "seismograms": 30,
+  "pngs_verified": 90,
+  "local_video_image_sha256_verified": true,
+  "gallery_local_links_checked": 180,
+  "videos": {
+    "350x350_efvb_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "350x350_efvb_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "350x350_homogeneous_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "350x350_homogeneous_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "350x350_two_layer_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "350x350_two_layer_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x350_efvb_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x350_efvb_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x350_homogeneous_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x350_homogeneous_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x350_two_layer_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x350_two_layer_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x700_efvb_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x700_efvb_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x700_homogeneous_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x700_homogeneous_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x700_two_layer_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "700x700_two_layer_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1400x700_efvb_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1400x700_efvb_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1400x700_homogeneous_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1400x700_homogeneous_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1400x700_two_layer_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1400x700_two_layer_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1000x500_efvb_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1000x500_efvb_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1000x500_homogeneous_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1000x500_homogeneous_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1000x500_two_layer_15Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    },
+    "1000x500_two_layer_30Hz": {
+      "width": 1540,
+      "height": 616,
+      "r_frame_rate": "5/1",
+      "nb_read_frames": "21"
+    }
+  }
+}

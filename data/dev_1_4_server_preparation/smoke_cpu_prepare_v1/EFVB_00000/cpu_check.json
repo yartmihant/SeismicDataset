@@ -1,0 +1,10 @@
+{
+  "status": "CPU preparation passed",
+  "dataset_field": "EFVB",
+  "selected_substeps_per_ms": 96,
+  "source_x_m": 350,
+  "t_end_s": 0.06,
+  "environment_set_before_semgpu_import": true,
+  "gpu_solver_invoked": false,
+  "invalid_external_and_root_output_paths_rejected": true
+}

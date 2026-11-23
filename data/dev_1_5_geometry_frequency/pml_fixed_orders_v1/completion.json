@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "checked_utc": "2026-11-22T22:52:38.665968+00:00",
+  "runs": 43,
+  "probes": 9,
+  "verified_array_files": 172,
+  "cpu_validation": "../pml_fixed_orders_cpu_v1",
+  "artifact_validation": "artifact_validation.json",
+  "notebook_cells": 61,
+  "notebook_executed": true,
+  "saturn_compute_processes": [],
+  "saturn_free_bytes": 83385262080,
+  "production_queue": "stopped, not modified",
+  "large_arrays": "Saturn only",
+  "report": "img/dev_1_5_geometry_frequency/pml_fixed_orders_v1/reviewed.html",
+  "code_commits": [
+    "bb1fdcd",
+    "d76cef9",
+    "e2760c4"
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "status": "cpu_checked",
+  "cases": [
+    {
+      "order": 4,
+      "thickness_m": 100,
+      "rows": 20,
+      "elements": 51200,
+      "nodes": 821121,
+      "surface_nodes": 1281,
+      "pml_elements": 12000,
+      "dmax_s_inv": 302.9050689833667,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 296413152
+    },
+    {
+      "order": 5,
+      "thickness_m": 100,
+      "rows": 20,
+      "elements": 51200,
+      "nodes": 1282401,
+      "surface_nodes": 1601,
+      "pml_elements": 12000,
+      "dmax_s_inv": 302.9050689833667,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 456528352
+    },
+    {
+      "order": 4,
+      "thickness_m": 50,
+      "rows": 10,
+      "elements": 45000,
+      "nodes": 721801,
+      "surface_nodes": 1201,
+      "pml_elements": 5800,
+      "dmax_s_inv": 605.8101379667334,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 261760352
+    },
+    {
+      "order": 5,
+      "thickness_m": 50,
+      "rows": 10,
+      "elements": 45000,
+      "nodes": 1127251,
+      "surface_nodes": 1501,
+      "pml_elements": 5800,
+      "dmax_s_inv": 605.8101379667334,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 402796352
+    },
+    {
+      "order": 4,
+      "thickness_m": 25,
+      "rows": 5,
+      "elements": 42050,
+      "nodes": 674541,
+      "surface_nodes": 1161,
+      "pml_elements": 2850,
+      "dmax_s_inv": 1211.6202759334667,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 245240352
+    },
+    {
+      "order": 5,
+      "thickness_m": 25,
+      "rows": 5,
+      "elements": 42050,
+      "nodes": 1053426,
+      "surface_nodes": 1451,
+      "pml_elements": 2850,
+      "dmax_s_inv": 1211.6202759334667,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 377190352
+    },
+    {
+      "order": 4,
+      "thickness_m": 15,
+      "rows": 3,
+      "elements": 40898,
+      "nodes": 656085,
+      "surface_nodes": 1145,
+      "pml_elements": 1698,
+      "dmax_s_inv": 2019.367126555778,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 238782880
+    },
+    {
+      "order": 5,
+      "thickness_m": 15,
+      "rows": 3,
+      "elements": 40898,
+      "nodes": 1024596,
+      "surface_nodes": 1431,
+      "pml_elements": 1698,
+      "dmax_s_inv": 2019.367126555778,
+      "profile_integral_m_per_s": 10096.83563277889,
+      "raw_velocity_bytes": 367183152
+    },
+    {
+      "order": 4,
+      "thickness_m": 10,
+      "rows": 2,
+      "elements": 40328,
+      "nodes": 646953,
+      "surface_nodes": 1137,
+      "pml_elements": 1128,
+      "dmax_s_inv": 3029.050689833667,
+      "profile_integral_m_per_s": 10096.835632778892,
+      "raw_velocity_bytes": 235586400
+    },
+    {
+      "order": 5,
+      "thickness_m": 10,
+      "rows": 2,
+      "elements": 40328,
+      "nodes": 1010331,
+      "surface_nodes": 1421,
+      "pml_elements": 1128,
+      "dmax_s_inv": 3029.050689833667,
+      "profile_integral_m_per_s": 10096.835632778892,
+      "raw_velocity_bytes": 362229952
+    }
+  ],
+  "new_runs": 11,
+  "reference_root": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1",
+  "profile": "quadratic, dmax=173.0886108476381*175/L",
+  "boundary": "ABC on sides and bottom, free top",
+  "common_dt": "p4=1/36000, p5=1/53000, inherited from validated baseline; p5 L10 also dt/2",
+  "raw_bytes_estimate": 3605941248
+}

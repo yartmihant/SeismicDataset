@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "timing_runs": 30,
+  "profile_runs": 5,
+  "probes": 2,
+  "numerical_checks": 161,
+  "arrays_sha256_verified_on_saturn": 61,
+  "nsight_sha256_verified_locally": 5,
+  "gpu_free": true,
+  "saturn_free_bytes": 58569900032,
+  "production": "stopped, unchanged",
+  "segy": "not requested after clarification; no SEG-Y files",
+  "native_snapshot": "docs/runtime_sources/seismic_p67s_v1",
+  "report": "img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed_v2/index.html",
+  "local_checks": "mypy passed; 79 notebook cells executed from saved data, roundtrip passed; artifacts and local Nsight SHA verified"
+}

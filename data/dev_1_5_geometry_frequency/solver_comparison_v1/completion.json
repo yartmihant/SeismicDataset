@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "runs": 14,
+  "warmups": 2,
+  "measured_runs": 12,
+  "output_hashes_checked": 42,
+  "free_gib": 182.48921966552734,
+  "gpu_after": "0, 0 %, 5 MiB\n1, 0 %, 4 MiB\n",
+  "production_queue_resumed": false
+}

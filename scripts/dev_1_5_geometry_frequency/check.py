@@ -2,8 +2,9 @@
 from __future__ import annotations
 import argparse
 import numpy as np
-from scripts.dev_1_5_geometry_frequency.setup import ROOT,ALPHA,Spec,specs,damping,write
-from scripts.dev_1_3_point_source.mesh import load_frozen,build_sem,jacobians
+from semgpu2.model.mesh import SGMeshModel
+from scripts.dev_1_5_geometry_frequency.setup import ROOT,ALPHA,Spec,specs,build_damping,damping,write
+from scripts.dev_1_3_point_source.mesh import FrozenMesh,load_frozen,build_sem,jacobians
 from scripts.reporting import read_json,number,mapping
 
 
@@ -47,6 +48,20 @@ def results() -> None:
     print('Results validation passed',flush=True)
 
 
+def check_damping_domain(frozen: FrozenMesh, mesh: SGMeshModel, width: int, height: int) -> int:
+    dto = build_damping(frozen, mesh, width, height).build_data()
+    coords = mesh.nodes_coords
+    x, y = coords.T
+    # Include the shared interface despite roundoff in the mapped GLL coordinates.
+    tol = 1e-8
+    expected = (x <= tol) | (x >= width - tol) | (y <= -height + tol)
+    np.testing.assert_array_equal(dto.entity_ids, np.flatnonzero(expected))
+    dense = np.zeros(len(coords), dtype=np.float64)
+    dense[dto.entity_ids] = dto.values[0]
+    np.testing.assert_array_equal(dense, damping(coords, width, height))
+    return len(dto.entity_ids)
+
+
 def main() -> None:
     plan=read_json(ROOT/'plan.json');assert len(specs())==30
     checks=[]
@@ -65,14 +80,15 @@ def main() -> None:
             assert np.all(mesh.vp[upper]==4087) and np.all(mesh.vp[~upper]==3963)
         checks.append(spec.mesh_id)
     sem_checks=[]
-    for mesh_id,width in (('350x350_efvb',350),('1400x700_homogeneous',1400)):
-        base=ROOT/'meshes'/mesh_id;case=build_sem(load_frozen(base/'mesh_q2.npz'),5)
+    for mesh_id,width,height in (('350x350_efvb',350,350),('1400x700_homogeneous',1400,700)):
+        base=ROOT/'meshes'/mesh_id;frozen=load_frozen(base/'mesh_q2.npz');case=build_sem(frozen,5)
         coords=case.mesh.nodes_coords;meta=read_json(base/'geometry.json')
         assert len(coords)==meta['sem_nodes']
         top=np.flatnonzero(np.abs(coords[:,1])<1e-9)
         assert len(top)==meta['surface_nodes']
         assert np.count_nonzero(np.all(np.abs(coords-[width/2,0])<1e-9,axis=1))==1
-        sem_checks.append({'mesh':mesh_id,'nodes':len(coords),'top_nodes':len(top)})
+        damping_count=check_damping_domain(frozen,case.mesh,width,height)
+        sem_checks.append({'mesh':mesh_id,'nodes':len(coords),'top_nodes':len(top),'damping_nodes':damping_count})
     assert number(plan['estimated_raw_bytes'])<20*2**30
     write(ROOT/'cpu_validation.json',{'status':'passed','meshes':checks,'sem_checks':sem_checks,'estimated_raw_bytes':plan['estimated_raw_bytes'],
         'solver_run':False,'checks':'positive rectangular Q2 Jacobians, dimensions, interface materials, corner damping, full top and exact central source'})

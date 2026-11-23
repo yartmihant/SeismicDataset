@@ -1,0 +1,102 @@
+{
+  "status": "completed",
+  "order": 5,
+  "mode": "pml_abc",
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cached_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "7de2a009645e541daaa373b3dcb1c3e4617d2f98dbe06847c9bf7389f6ac2ae0"
+  },
+  "code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+    "sha256": "bfe547fb85dd7172d3f75ac5b69bd67b7af3f600ba7af524c50d6102f2f1ee40"
+  },
+  "setup_code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+    "sha256": "bfe547fb85dd7172d3f75ac5b69bd67b7af3f600ba7af524c50d6102f2f1ee40"
+  },
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/meshes/layered_1200.npz",
+    "sha256": "8971b9bfd010bde68bdbd4bf50542836d49089a2de2f79ef0ce32b930949f06d"
+  },
+  "global_nodes": 7225701,
+  "elements": 288800,
+  "field_nodes": 7225701,
+  "surface_nodes": 3801,
+  "field_bounds": [
+    -1200.0,
+    2600.0,
+    -1900.0000000000005,
+    0.0
+  ],
+  "domain_bounds": [
+    -1200.0,
+    2600.0,
+    -1900.0000000000005,
+    0.0
+  ],
+  "pml_elements": 249600,
+  "damping_nodes": 0,
+  "ABC": true,
+  "dmax_or_alpha_s_inv": 173.0886108476381,
+  "dt_s": 1.8867924528301888e-05,
+  "steps": 53000,
+  "steps_per_ms": 53,
+  "cfl_safety": null,
+  "explicit_dt_s": 1.8867924528301888e-05,
+  "kim_beta": 0.037037037037037035,
+  "kim_gamma": 0.5,
+  "frequency_hz": 30,
+  "source_x_m": 700,
+  "source_y_m": 0,
+  "source_t0_s": 0.05,
+  "force_peak_n_per_m": 1.0,
+  "material": [
+    [
+      4087.0,
+      2431.62036,
+      1000.0
+    ],
+    [
+      3963.0,
+      2357.84473,
+      1000.0
+    ]
+  ],
+  "interface_y_m": -350.0,
+  "homogeneous": false,
+  "assembly_seconds": 13.879392115399241,
+  "prepare_seconds": 2.4972244249656796,
+  "gpu_visible": "0",
+  "thickness_m": 1200,
+  "fixed_strength": true,
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_pml_cached_v1/provenance.json",
+    "sha256": "4d4a0a638241d1aaef3c8e111c39735b259ea008ed02be9fc22df45c067012ef"
+  },
+  "pml_history_max_abs": 1.7048638092346632e-19,
+  "run_seconds": 231.8057155366987,
+  "total_seconds": 255.22934132628143,
+  "frames": 21,
+  "surface_samples": 1001,
+  "surface_field_exact": true,
+  "field_peak_m_s": [
+    4.333766669110041e-09,
+    1.407220051516454e-08
+  ],
+  "fields": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/F1200/velocity.npy",
+    "sha256": "608e4cbe7f2df9e5e8567cafead1c8591a5f2ff643b42d2a7985542127c7d887"
+  },
+  "nodes": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/F1200/nodes.npy",
+    "sha256": "3ccbfa946403026cb72e5832c6c8c207b0ce7cc118f5a070bf604f2e12c78e31"
+  },
+  "surface": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/F1200/surface.npz",
+    "sha256": "bc35b38ad087f987c9b6ce6ce63169468ba9822a155757c2cf56b83137a4c30f"
+  },
+  "mass": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/F1200/core_mass.npy",
+    "sha256": "cc63b11c8bcb10cf87752d8e8be41abf41091a72badfb448c1fb90027944ece1"
+  }
+}

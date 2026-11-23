@@ -1,0 +1,19 @@
+{
+  "scope": "CPU MOCK ONLY",
+  "source_node_id": 19810,
+  "source_input_sha256": "dff0f648562eb25b732415fa390d41ad06cbc9b8e9baa75bf4b4b02102f004a5",
+  "source_input_first_force_y_n_per_m": 9.84949251974796e-09,
+  "native": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/cpu_checks_v1/mock_native.txt",
+    "sha256": "8c7a6af7735fa292114f4d724ee253bda6e25a0607edee05f2512fa62cf468d4"
+  },
+  "nodes_sha256": "7265be9af4ad64bceea5d6b6873796f7a2a83b37cbc4171a09af3e37ebe557b6",
+  "physics_ids": [
+    11000,
+    32000,
+    30001,
+    20200
+  ],
+  "abc_edge_count": 560,
+  "nodal_alpha_sha256": "9dc5e19f6f987b4ce88563dff85703ffb85aa3dc04d056a79f4a06f371ab744f"
+}

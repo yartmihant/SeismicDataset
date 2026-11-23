@@ -1,0 +1,61 @@
+{
+  "status": "completed",
+  "mode": "new_async",
+  "label": "warmup",
+  "profiled": false,
+  "dt_s": 0.00011111111111111112,
+  "steps": 9000,
+  "steps_per_tact": 9,
+  "lambda_max": 205196656.66780484,
+  "lambda_max_damping": 0.0,
+  "assembly_seconds": 1.0416969545185566,
+  "prepare_seconds": 0.24190910905599594,
+  "nodes_count": 795691,
+  "elements": 22050,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_p67s_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p67s_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "a3552262e1cafa76ad7bf89eea739f3b568713151ad9580cdf7eb4146b14e1f9"
+  },
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  },
+  "runner": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/p67s_run.py",
+    "sha256": "764655c10063b2f430ea2ed946c3f7798c59189cdc60f60a9864ff5ea9c574cd"
+  },
+  "receiver_registered": true,
+  "frame_buf_size": 4,
+  "source_x_m": [
+    175.0,
+    350.0,
+    525.0,
+    700.0,
+    875.0,
+    1050.0,
+    1225.0
+  ],
+  "run_seconds": 16.749393948353827,
+  "solve_wall_seconds": 18.035355906933546,
+  "callback_wall_seconds": 0.5144604258239269,
+  "callback_thread_cpu_seconds": 0.5090086339999996,
+  "surface_samples": 1001,
+  "output_npz_seconds": 0.21792154666036367,
+  "validation_after_run_seconds": 0.3719980726018548,
+  "total_seconds": 18.625275526195765,
+  "pml_history_max_abs": 3.1788323534801882e-18,
+  "final_velocity_max_abs": 5.320006037134591e-13,
+  "terminal_state_finite": true,
+  "final_top.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_async/warmup/final_top.npy",
+    "sha256": "b06f350fafdf0589a5e7a14436f6172e813158978dc345dddd559b4d29df9795"
+  },
+  "final_velocity.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_async/warmup/final_velocity.npy",
+    "sha256": "9c39f7fb8bf136f87846a31e5f442ed95b2f18beebc676ac1beb34376630d95b"
+  },
+  "surface.npz": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_async/warmup/surface.npz",
+    "sha256": "ccd9d4cc2af07eaddab5e76e487a6c81bcde67493f715162f64cf0fb67cc5870"
+  }
+}

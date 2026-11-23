@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "synthetic_only": true,
+  "checks": [
+    {
+      "order": 4,
+      "surface_integral_m": 1400.0,
+      "constant_error_norm": 187.26985876070714,
+      "analytical_norm": 187.26985876002576
+    },
+    {
+      "order": 5,
+      "surface_integral_m": 1400.0,
+      "constant_error_norm": 187.26985876050355,
+      "analytical_norm": 187.26985876002576
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "index": 1,
+  "factor": 0.5364745084375788,
+  "lower": 0.25,
+  "upper": 1.0,
+  "role": "initial_left",
+  "directory": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_01",
+  "objective": 5.502375103604716e-10,
+  "relative_baseline": 0.6833201714114485,
+  "wall_seconds": 184.12622739491053,
+  "metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_01/metadata.json",
+    "sha256": "960f181b9d22c30c5219c65d13af4e7a52e079d45770257147cf2d1ad0c941cb"
+  },
+  "surface": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_01/surface.npz",
+    "sha256": "47f36bfddd3a996b704af137b81f62edfb039093e5ae7a7ad63ee1b3ff515695"
+  },
+  "validation": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_01/validation.json",
+    "sha256": "417316419e2c9fb5b23e5c6927ba11ca04f76f6dab6db0ba34de97c6af118e64"
+  }
+}

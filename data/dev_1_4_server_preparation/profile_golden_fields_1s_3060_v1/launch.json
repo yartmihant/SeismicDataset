@@ -1,0 +1,24 @@
+{
+  "status": "started",
+  "utc": "2026-11-18T12:15:12Z",
+  "unit": "seismic14-golden-fields-1s-3060-v1.service",
+  "pid": 3227829,
+  "invocation_id": "446450e24ae44a8698f8006edda12e8f",
+  "factor": 0.5684038628158912,
+  "t_end_s": 1.0,
+  "field_shape": [
+    101,
+    589541,
+    2
+  ],
+  "available_disk_bytes_before_start": 80462974976,
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_golden_fields_run.py",
+    "sha256": "147d5745f79b618dc3551d05eee6c8d1d6cd237ae23357e29205db0f37cffa08"
+  },
+  "selected_result": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/result.json",
+    "sha256": "d0e96cefe11c20333241a7b694a82aae2fbbc0fbb9731492d820a96f90f1abd7"
+  },
+  "scope": "One local full-field repeat for animation; no saturn actions"
+}

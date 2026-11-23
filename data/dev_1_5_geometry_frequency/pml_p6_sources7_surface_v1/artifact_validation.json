@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "runs": 32,
+  "probes": 2,
+  "new_surface_sha_files": 32,
+  "prior_surface_sha_files": 32,
+  "batch_single_pairs": 21,
+  "new_previous_pairs": 32,
+  "frames": 0,
+  "field_receiver_registered": false,
+  "server_absence_of_velocity_nodes_common_arrays_verified": true,
+  "artifact_sha_files": [
+    "timings.png",
+    "index.html"
+  ],
+  "html_links": [
+    "timings.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_p6_sources7_surface_v1/analysis/metrics.json"
+  ],
+  "visual_review": "timings.png inspected, complete labels and zero baseline",
+  "mypy": "3 source files passed",
+  "metrics_sha256": "d53a452b24db64c841440a7c1628d0a7564d82ef9b9dc4028803d37afacd9537"
+}

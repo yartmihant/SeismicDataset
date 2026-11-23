@@ -1,0 +1,137 @@
+{
+  "status": "cpu_checked",
+  "cases": [
+    {
+      "label": "L10",
+      "elements": 40328,
+      "nodes": 1010331,
+      "pml_rows": 2,
+      "dmax_s_inv": 3029.050689833667
+    },
+    {
+      "label": "L25",
+      "elements": 42050,
+      "nodes": 1053426,
+      "pml_rows": 5,
+      "dmax_s_inv": 1211.6202759334667
+    },
+    {
+      "label": "L50",
+      "elements": 45000,
+      "nodes": 1127251,
+      "pml_rows": 10,
+      "dmax_s_inv": 605.8101379667334
+    },
+    {
+      "label": "L75",
+      "elements": 48050,
+      "nodes": 1203576,
+      "pml_rows": 15,
+      "dmax_s_inv": 403.8734253111556
+    },
+    {
+      "label": "L100",
+      "elements": 51200,
+      "nodes": 1282401,
+      "pml_rows": 20,
+      "dmax_s_inv": 302.9050689833667
+    },
+    {
+      "label": "L125",
+      "elements": 54450,
+      "nodes": 1363726,
+      "pml_rows": 25,
+      "dmax_s_inv": 242.32405518669336
+    },
+    {
+      "label": "L150",
+      "elements": 57800,
+      "nodes": 1447551,
+      "pml_rows": 30,
+      "dmax_s_inv": 201.9367126555778
+    },
+    {
+      "label": "L175",
+      "elements": 61250,
+      "nodes": 1533876,
+      "pml_rows": 35,
+      "dmax_s_inv": 173.0886108476381
+    },
+    {
+      "label": "L250",
+      "elements": 72200,
+      "nodes": 1807851,
+      "pml_rows": 50,
+      "dmax_s_inv": 121.16202759334668
+    },
+    {
+      "label": "L350",
+      "elements": 88200,
+      "nodes": 2208151,
+      "pml_rows": 70,
+      "dmax_s_inv": 86.54430542381905
+    },
+    {
+      "label": "old",
+      "elements": 61250,
+      "nodes": 1533876,
+      "pml_rows": 35,
+      "dmax_s_inv": 173.0886108476381
+    },
+    {
+      "label": "reference",
+      "elements": 819200,
+      "boundary_return_lower_bound_s": 1.3946660141913383
+    },
+    {
+      "label": "homogeneous_reference",
+      "elements": 819200,
+      "boundary_return_lower_bound_s": 1.3946660141913383
+    },
+    {
+      "label": "L700",
+      "elements": 156800,
+      "nodes": 3924201,
+      "pml_rows": 140,
+      "dmax_s_inv": 43.27215271190953
+    },
+    {
+      "label": "F250",
+      "elements": 72200,
+      "nodes": 1807851,
+      "pml_rows": 50,
+      "dmax_s_inv": 121.16202759334668
+    },
+    {
+      "label": "F350",
+      "elements": 88200,
+      "nodes": 2208151,
+      "pml_rows": 70,
+      "dmax_s_inv": 86.54430542381905
+    },
+    {
+      "label": "F500",
+      "elements": 115200,
+      "nodes": 2883601,
+      "pml_rows": 100,
+      "dmax_s_inv": 60.58101379667334
+    },
+    {
+      "label": "F700",
+      "elements": 156800,
+      "nodes": 3924201,
+      "pml_rows": 140,
+      "dmax_s_inv": 43.27215271190953
+    }
+  ],
+  "order": 5,
+  "h_m": 5,
+  "duration_s": 1,
+  "source_hz": 30,
+  "reference_interface_y_m": -350,
+  "physical_reflection_definition": "extended two-layer minus extended homogeneous surface; same mesh near source/receivers, dt and source",
+  "criterion": "boundary error <= 0.01 of physical reflected signal in weighted L2 and maximum amplitude; report echoes individually; reject field growth",
+  "profile": "quadratic dmax=173.0886108476381*175/L; ABC; no mass damping",
+  "dt": "explicit 1/53000 from earlier homogeneous native CFL0.8, checked against new two-layer old baseline",
+  "raw_budget_bytes": 10000000000
+}

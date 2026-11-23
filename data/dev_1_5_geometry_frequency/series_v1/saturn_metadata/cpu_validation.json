@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "meshes": [
+    "350x350_efvb",
+    "350x350_homogeneous",
+    "350x350_two_layer",
+    "700x350_efvb",
+    "700x350_homogeneous",
+    "700x350_two_layer",
+    "700x700_efvb",
+    "700x700_homogeneous",
+    "700x700_two_layer",
+    "1400x700_efvb",
+    "1400x700_homogeneous",
+    "1400x700_two_layer",
+    "1000x500_efvb",
+    "1000x500_homogeneous",
+    "1000x500_two_layer"
+  ],
+  "sem_checks": [
+    {
+      "mesh": "350x350_efvb",
+      "nodes": 368726,
+      "top_nodes": 701
+    },
+    {
+      "mesh": "1400x700_homogeneous",
+      "nodes": 1533876,
+      "top_nodes": 1751
+    }
+  ],
+  "estimated_raw_bytes": 9631372960,
+  "solver_run": false,
+  "checks": "positive rectangular Q2 Jacobians, dimensions, interface materials, corner damping, full top and exact central source"
+}

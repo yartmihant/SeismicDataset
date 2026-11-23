@@ -1,0 +1,76 @@
+{
+  "status": "completed",
+  "validation": "passed",
+  "observed_utc": "2026-11-18T12:23:11.770304+00:00",
+  "metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/metadata.json",
+    "sha256": "013f2c20678ee56a121a341f0294e93d8de1c2c32e664a16d7e05e397986fe16"
+  },
+  "validation_file": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/validation.json",
+    "sha256": "bdce4ab1067203f99f744956dcce4c70fbd134c6bde9c178ccf079d8277c5044"
+  },
+  "field_shape": [
+    101,
+    589541,
+    2
+  ],
+  "recorded_counts": {
+    "surface": 1001,
+    "fields": 101,
+    "source_history": 0
+  },
+  "wall_seconds": 187.10000858199783,
+  "surface_match": {
+    "exact_values": false,
+    "numerically_equivalent": true,
+    "exact_axes_and_node_ids": true,
+    "relative_l2": 7.674591076741784e-13,
+    "max_abs_m_s": 3.9903192749558055e-21,
+    "max_relative_to_global_peak": 3.1620026527179505e-13,
+    "max_difference_location": {
+      "time_s": 0.058,
+      "x_m": 345.0,
+      "component": "Vy"
+    },
+    "thresholds": {
+      "relative_l2_max": 1e-10,
+      "absolute_max_m_s": 1e-18
+    },
+    "threshold_source_file": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/verify_velocity_repeat.py",
+      "sha256": "263d32ed83172c865844a53c6068e674468d58ff608f608e396cad0f94cc459d"
+    },
+    "threshold_scope": "Both thresholds apply to the full0–1s record; late-window metrics are separate diagnostics",
+    "late_window": {
+      "interval_s": [
+        0.5,
+        1.0
+      ],
+      "relative_l2": 1.8596682917282272e-10,
+      "max_abs_m_s": 1.9158126614800287e-21,
+      "repeat_objective": 5.454252099881121e-10,
+      "selected_objective": 5.454252099882376e-10,
+      "relative_delta_objective": -2.3014091695106826e-13,
+      "thresholds_applied": false
+    },
+    "symmetry": {
+      "vx_odd_relative_l2": 9.254131013317272e-13,
+      "vy_even_relative_l2": 7.138190579988148e-13
+    },
+    "reference_surface": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_09/surface.npz",
+      "sha256": "ae30efca1498c8346d6ec70dea6f03784f932ca515f2c5ea0ae6d4cde48f74b7"
+    },
+    "repeat_surface": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/surface.npz",
+      "sha256": "7afb7063ad904d21a40fbbe64459482abb728d66cbb0faa83018203ded7f461b"
+    },
+    "interpretation": "Difference compatible with rounding-level repeat variability; its causal mechanism was not established"
+  },
+  "strict_failure_preserved": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/metadata.failed.json",
+    "sha256": "70dd5550090bf9dd9807c4274d79d41ab0fad61725bc4946a0544e441058c88f"
+  },
+  "additional_gpu_runs": 0
+}

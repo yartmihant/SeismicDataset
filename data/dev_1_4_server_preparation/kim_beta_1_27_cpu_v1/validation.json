@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "utc": "2026-11-19T14:59:16.692311+00:00",
+  "checks": [
+    "receiver coordinates and K policy exact; mesh SHA/group/order/alpha/dt/K mismatches rejected",
+    "recorder rejects wrong time, nonfinite values, missing and extra frames",
+    "mock run registers only [4,5], preserves Ricker exactly, writes uncompressed velocity-only NPZ and rejects overwritten/tampered outputs",
+    "missing final frame yields failed metadata and never a completed surface file"
+  ],
+  "scope": "CPU mocks only, no solver/native/GPU; intentionally corrupted fixture tests checksum rejection",
+  "sha256": {
+    "production_surface.py": "7798a654f4efaac37af1db0a10c3b29ebf6a6271014ad2b9fb0ac201c4649093",
+    "check_production_surface.py": "775b61d92e4ec64182f38f51ba506696c270953efa6f89c61b2eb3aac58f6922"
+  }
+}

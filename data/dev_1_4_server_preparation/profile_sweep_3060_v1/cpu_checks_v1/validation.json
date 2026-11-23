@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T11:12:00.983510+00:00",
+  "scope": "CPU mocks on actual historical mesh; no native/GPU solution",
+  "checks": [
+    "Both nodal arrays exactly equal reference alpha times0.5/0.25",
+    "Actual constant material and rhoVp/rhoVs ABC coefficients unchanged;560 edges",
+    "Same downward Ricker force and exact 70 receiver positions/component order",
+    "Surface-only mode emits no all-node arrays; optional dual mode agrees for nonuniform node-dependent data",
+    "Missing final output fails; invalid profile parameters/domain rejected",
+    "Both profiles pointwise dominated by reference; K96 conservative bound unchanged"
+  ],
+  "code": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_profile_sweep.py",
+      "sha256": "dbf94e084cecba1b2cc05f3299a19e58822297cfe40472fec751c4555c64c45d"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_sweep_run.py",
+      "sha256": "b11dbf87d134232c4828baa8f18f2ed47f3f369d14767620916c6c222062da91"
+    }
+  ]
+}

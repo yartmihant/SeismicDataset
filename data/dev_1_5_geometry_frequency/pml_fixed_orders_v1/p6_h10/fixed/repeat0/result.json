@@ -1,0 +1,136 @@
+{
+  "status": "completed",
+  "case": "p6_h10",
+  "order": 6,
+  "h_m": 10,
+  "backend": "fixed",
+  "ABC": false,
+  "boundary_elements": 0,
+  "strata": [
+    1
+  ],
+  "nodes_count": 795691,
+  "elements": 22050,
+  "pml_elements": 12250,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_fixed_pml_orders_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p6_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "8cf3f995777fda5ea6ba49b61cec179f229ed6ab4eefcf64a35af1bd13d7e656"
+  },
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_fixed_pml_orders_v1/provenance.json",
+    "sha256": "2acb875eed70fff1987781f49e3dc7bfa643bb5c56cc4c1127f7277e48ac2e55"
+  },
+  "runner": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_fixed_orders.py",
+    "sha256": "e5a6657e89eb360ddba73d922f011e9d23a56083198a858f715ea6bddd7c6de7"
+  },
+  "explicit_dt_s": null,
+  "cfl_safety": 0.8,
+  "kim_beta": 0.037037037037037035,
+  "dmax_s_inv": 173.0886108476381,
+  "duration_s": 1,
+  "source_hz": 30,
+  "source_xy_m": [
+    700,
+    0
+  ],
+  "gpu": "0",
+  "dt_s": 0.00011111111111111112,
+  "steps": 9000,
+  "steps_per_ms": 9,
+  "lambda_max": 205048790.0282754,
+  "lambda_max_damping": 0.0,
+  "assembly_seconds": 0.9034576369449496,
+  "prepare_seconds": 0.27083943504840136,
+  "run_seconds": 4.114631935022771,
+  "total_seconds": 7.531088509596884,
+  "frames": 21,
+  "surface_samples": 1001,
+  "surface_field_exact": true,
+  "pml_history_max_abs": 1.85442024463041e-19,
+  "field_peak_m_s": [
+    0.0,
+    1.4048677893577188e-08,
+    6.548991335920442e-09,
+    6.9353266103980735e-09,
+    7.057264536724303e-09,
+    7.169814700494557e-09,
+    7.130890608741704e-09,
+    7.145341663888338e-09,
+    6.437856831742747e-09,
+    1.6904731161122014e-09,
+    9.948243848329125e-10,
+    4.1425665152444475e-10,
+    4.544258495994751e-11,
+    3.948161374293927e-12,
+    1.8774037364535917e-12,
+    1.0062604391376791e-12,
+    5.450938127847399e-13,
+    5.424649365247368e-13,
+    3.541071609431919e-13,
+    4.699079518623176e-14,
+    9.9895156920164e-15
+  ],
+  "pml_peak_m_s": [
+    0.0,
+    3.698515347187655e-60,
+    6.588588446668671e-32,
+    3.111014152671127e-21,
+    5.887101058028151e-11,
+    6.723210637084596e-10,
+    4.608669312035765e-10,
+    2.7401526233922317e-09,
+    6.437856831742747e-09,
+    1.6904731161122014e-09,
+    9.948243848329125e-10,
+    4.1425665152444475e-10,
+    4.544258495994751e-11,
+    3.948161374293927e-12,
+    1.8774037364535917e-12,
+    1.0062604391376791e-12,
+    5.450938127847399e-13,
+    5.424649365247368e-13,
+    3.541071609431919e-13,
+    4.699079518623176e-14,
+    9.9895156920164e-15
+  ],
+  "core_kinetic_energy": [
+    0.0,
+    3.272097828565429e-11,
+    6.543958998523066e-11,
+    6.544928445866458e-11,
+    6.54391681969904e-11,
+    5.546641133981393e-11,
+    5.097145100290283e-11,
+    4.796570893837053e-11,
+    9.586125402644282e-12,
+    1.8898319789083623e-12,
+    1.0388658408983775e-15,
+    3.4874004084279544e-16,
+    7.798642645976584e-17,
+    1.6008444640396052e-17,
+    4.759191378276164e-19,
+    5.160531543354481e-20,
+    2.5164283072208607e-20,
+    1.2452108976084266e-20,
+    5.404957135048571e-21,
+    6.507820880141669e-22,
+    2.036153341637929e-22
+  ],
+  "velocity.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/p6_h10/fixed/repeat0/velocity.npy",
+    "sha256": "8820b0020b9f53d4a83dc7e07382ca9d2eeec167f9d66c2f0b296308ecdb9d08"
+  },
+  "nodes.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/p6_h10/fixed/repeat0/nodes.npy",
+    "sha256": "8c8242b7ae083db02efbac55dbf2f438bd4c724d7acc1775710fdc8a04f1ad51"
+  },
+  "surface.npz": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/p6_h10/fixed/repeat0/surface.npz",
+    "sha256": "d2cc806cc50b5d15f8357b3e9ab0c003df18cbaef0d664eebb32cbf90d814034"
+  },
+  "common_surface.npz": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_fixed_orders_v1/p6_h10/fixed/repeat0/common_surface.npz",
+    "sha256": "b72f8e49a845f1265ebdc6f020ee370956c4955d2aefe9a3439c397560ced806"
+  }
+}

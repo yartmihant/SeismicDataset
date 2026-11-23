@@ -1,0 +1,12 @@
+{
+  "status": "verified",
+  "artifact_sha256_matches": [
+    "img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/index.html",
+    "img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/timing.png",
+    "img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/central_seismograms.png"
+  ],
+  "png_count": 2,
+  "html_local_links": 2,
+  "visual_review": "axes, labels and independent difference scales checked",
+  "metrics_sha256": "1304bdb8b1630e5717bb5d8710f983f6350cc64c99533b0cd60a63aee5b03825"
+}

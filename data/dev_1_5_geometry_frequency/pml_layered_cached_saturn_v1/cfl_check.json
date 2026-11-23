@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cached_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "7de2a009645e541daaa373b3dcb1c3e4617d2f98dbe06847c9bf7389f6ac2ae0"
+  },
+  "native_mass_abc_dt_s": 1.923076923076923e-05,
+  "native_steps_per_ms": 52,
+  "common_explicit_dt_s": 1.8867924528301888e-05,
+  "note": "Baseline elastic/mass/ABC CFL0.8; not a PML stability proof."
+}

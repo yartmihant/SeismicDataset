@@ -1,0 +1,24 @@
+{
+  "status": "prepared",
+  "order": 5,
+  "mode": "pml_abc",
+  "thickness_m": 175,
+  "pml_omitted_for_cfl": true,
+  "pml_elements": 0,
+  "ABC": true,
+  "dt_s": 1.9607843137254903e-05,
+  "steps": 51000,
+  "steps_per_ms": 51,
+  "lambda_max": 423984793.63389045,
+  "lambda_max_damping": 37925.068388327796,
+  "cfl_safety": 0.8,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cached_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "7de2a009645e541daaa373b3dcb1c3e4617d2f98dbe06847c9bf7389f6ac2ae0"
+  },
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/meshes/layered_175.npz",
+    "sha256": "9ae64bfbf5f07c4263418f08e923967b23803039263237bf8bfc3b5378607278"
+  },
+  "prepare_seconds": 0.4138870304450393
+}

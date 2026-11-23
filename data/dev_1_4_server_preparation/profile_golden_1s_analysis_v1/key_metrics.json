@@ -1,0 +1,282 @@
+{
+  "status": "completed",
+  "schema": "chapter14.profile_golden_1s_key_metrics.v1",
+  "analysis_sha256": "771345bddcd81568eb5e5dad601aae855e5587fe41a3bf68d0c55cb87d107653",
+  "selected_factor": 0.5684038628158912,
+  "alpha_peak_per_direction_s_inv": 196.76847003046814,
+  "objective_window_s": [
+    0.5,
+    1.0
+  ],
+  "objective_samples": 501,
+  "receivers": 70,
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "objective_l2_samples_m_s": 5.454252099882376e-10,
+  "ratio_baseline": 0.6773439486834055,
+  "reduction_percent_baseline": 32.26560513165945,
+  "ratio_half": 0.9501276503439213,
+  "new_evaluations": 9,
+  "historical_controls": 3,
+  "convergence": {
+    "status": "passed",
+    "initial_interval": [
+      0.25,
+      1.0
+    ],
+    "final_interval": [
+      0.5623058987490537,
+      0.5782705759382099
+    ],
+    "final_width": 0.015964677189156173,
+    "tolerance": 0.02,
+    "contractions": 8,
+    "expected_contraction_factor": 0.6180339887498949,
+    "unimodality": "Assumed by golden-section search; a finite sampled curve and interval contraction do not prove unimodality or a global optimum"
+  },
+  "selection": {
+    "objective": "Minimum observed unweighted L2 of all Vx/Vy surface samples over inclusive0.5–1s; peak checks do not alter selection",
+    "selected_inside_final_interval": true,
+    "sampled_curve_decreases_after_an_increase": false,
+    "window_guards": {
+      "0.5_1": {
+        "l2_ratio_baseline": 0.6773439486834055,
+        "no_worse_than_baseline": true
+      },
+      "0.5_0.8": {
+        "l2_ratio_baseline": 0.6687786968161946,
+        "no_worse_than_baseline": true
+      },
+      "0.8_1": {
+        "l2_ratio_baseline": 0.7818700264486476,
+        "no_worse_than_baseline": true
+      }
+    },
+    "decision_scope": "Best evaluated coefficient in this golden-section search on one homogeneous central-source model; no independent proof of global optimum or solver convergence"
+  },
+  "peak_guards": {
+    "after_direct": {
+      "maximum_peak_ratio": 1.5870200094211895,
+      "worst_ratio_receiver": {
+        "x_m": 465.0,
+        "gate_s": [
+          0.18166328051357228,
+          1.0
+        ],
+        "peak_vector_m_s": 2.1062636420423202e-11,
+        "peak_time_s": 0.482,
+        "baseline_peak_vector_m_s": 1.3271815286125516e-11,
+        "peak_ratio_baseline": 1.5870200094211895,
+        "l2_ratio_baseline": 0.7763404203160843
+      },
+      "receivers_above_baseline": 40,
+      "maximum_vector_peak_m_s": 2.7788538801148432e-11,
+      "maximum_vector_peak_receiver": {
+        "x_m": 355.0,
+        "gate_s": [
+          0.13224622958754662,
+          1.0
+        ],
+        "peak_vector_m_s": 2.7788538801148432e-11,
+        "peak_time_s": 0.482,
+        "baseline_peak_vector_m_s": 4.2073442138672176e-11,
+        "peak_ratio_baseline": 0.6604769514592758,
+        "l2_ratio_baseline": 0.652905184674188
+      },
+      "no_receiver_worse_than_baseline": false,
+      "selected_receivers": [
+        {
+          "x_m": 5.0,
+          "gate_s": [
+            0.2849898415407169,
+            1.0
+          ],
+          "peak_vector_m_s": 1.709462680532585e-11,
+          "peak_time_s": 0.489,
+          "baseline_peak_vector_m_s": 1.5729524488895085e-11,
+          "peak_ratio_baseline": 1.0867859875480987,
+          "l2_ratio_baseline": 0.7424382421077229
+        },
+        {
+          "x_m": 175.0,
+          "gate_s": [
+            0.20861803556413172,
+            1.0
+          ],
+          "peak_vector_m_s": 2.220882179009523e-11,
+          "peak_time_s": 0.483,
+          "baseline_peak_vector_m_s": 2.5291818196409174e-11,
+          "peak_ratio_baseline": 0.8781030140904755,
+          "l2_ratio_baseline": 0.6632851550040576
+        },
+        {
+          "x_m": 345.0,
+          "gate_s": [
+            0.13224622958754662,
+            1.0
+          ],
+          "peak_vector_m_s": 2.7788538800017828e-11,
+          "peak_time_s": 0.482,
+          "baseline_peak_vector_m_s": 4.2073442137804244e-11,
+          "peak_ratio_baseline": 0.6604769514460286,
+          "l2_ratio_baseline": 0.6529051846711412
+        }
+      ]
+    },
+    "late_0.5_1": {
+      "maximum_peak_ratio": 1.02947954697849,
+      "worst_ratio_receiver": {
+        "x_m": 275.0,
+        "gate_s": [
+          0.5,
+          1.0
+        ],
+        "peak_vector_m_s": 7.53057813549114e-12,
+        "peak_time_s": 0.553,
+        "baseline_peak_vector_m_s": 7.314937103503703e-12,
+        "peak_ratio_baseline": 1.02947954697849,
+        "l2_ratio_baseline": 0.8684459926078302
+      },
+      "receivers_above_baseline": 2,
+      "maximum_vector_peak_m_s": 1.2279581945184658e-11,
+      "maximum_vector_peak_receiver": {
+        "x_m": 355.0,
+        "gate_s": [
+          0.5,
+          1.0
+        ],
+        "peak_vector_m_s": 1.2279581945184658e-11,
+        "peak_time_s": 0.52,
+        "baseline_peak_vector_m_s": 1.3016427869975614e-11,
+        "peak_ratio_baseline": 0.943391079937484,
+        "l2_ratio_baseline": 0.8067584296493572
+      },
+      "no_receiver_worse_than_baseline": false,
+      "selected_receivers": [
+        {
+          "x_m": 5.0,
+          "gate_s": [
+            0.5,
+            1.0
+          ],
+          "peak_vector_m_s": 7.748474692771772e-12,
+          "peak_time_s": 0.505,
+          "baseline_peak_vector_m_s": 1.485302056106849e-11,
+          "peak_ratio_baseline": 0.5216766960574628,
+          "l2_ratio_baseline": 0.6007686512789986
+        },
+        {
+          "x_m": 175.0,
+          "gate_s": [
+            0.5,
+            1.0
+          ],
+          "peak_vector_m_s": 9.244592344490387e-12,
+          "peak_time_s": 0.513,
+          "baseline_peak_vector_m_s": 1.3006464634482399e-11,
+          "peak_ratio_baseline": 0.7107690371126191,
+          "l2_ratio_baseline": 0.757418825236636
+        },
+        {
+          "x_m": 345.0,
+          "gate_s": [
+            0.5,
+            1.0
+          ],
+          "peak_vector_m_s": 1.2279581944572806e-11,
+          "peak_time_s": 0.52,
+          "baseline_peak_vector_m_s": 1.3016427869509885e-11,
+          "peak_ratio_baseline": 0.9433910799242324,
+          "l2_ratio_baseline": 0.8067584296593052
+        }
+      ]
+    }
+  },
+  "incoming_beams": [
+    {
+      "receiver_range_m": [
+        65.0,
+        175.0
+      ],
+      "windows": {
+        "early": {
+          "tau_interval_s": [
+            0.18,
+            0.3
+          ],
+          "l2_samples_m_s": 7.18366588255615e-11,
+          "rms_component_m_s": 4.61783532666718e-12,
+          "max_vector_m_s": 2.141369880347967e-11,
+          "l2_relative_baseline": 0.6636633843229983,
+          "peak_tau_s": 0.18
+        },
+        "outer": {
+          "tau_interval_s": [
+            0.3,
+            0.46
+          ],
+          "l2_samples_m_s": 5.0143175401467314e-11,
+          "rms_component_m_s": 2.7943699160582106e-12,
+          "max_vector_m_s": 7.865980161424295e-12,
+          "l2_relative_baseline": 0.9215014233819715,
+          "peak_tau_s": 0.363
+        },
+        "all": {
+          "tau_interval_s": [
+            0.18,
+            0.7
+          ],
+          "l2_samples_m_s": 9.005068920369677e-11,
+          "rms_component_m_s": 2.792353333738957e-12,
+          "max_vector_m_s": 2.141369880347967e-11,
+          "l2_relative_baseline": 0.7134290463371357,
+          "peak_tau_s": 0.18
+        }
+      }
+    },
+    {
+      "receiver_range_m": [
+        65.0,
+        315.0
+      ],
+      "windows": {
+        "early": {
+          "tau_interval_s": [
+            0.18,
+            0.3
+          ],
+          "l2_samples_m_s": 5.205858634942549e-11,
+          "rms_component_m_s": 3.3464526751512913e-12,
+          "max_vector_m_s": 9.628512230817818e-12,
+          "l2_relative_baseline": 0.5629162308055842,
+          "peak_tau_s": 0.18
+        },
+        "outer": {
+          "tau_interval_s": [
+            0.3,
+            0.46
+          ],
+          "l2_samples_m_s": 3.338478938251441e-11,
+          "rms_component_m_s": 1.8604615754292244e-12,
+          "max_vector_m_s": 5.0028819755611396e-12,
+          "l2_relative_baseline": 1.1921189850771154,
+          "peak_tau_s": 0.373
+        },
+        "all": {
+          "tau_interval_s": [
+            0.18,
+            0.7
+          ],
+          "l2_samples_m_s": 6.373424843100545e-11,
+          "rms_component_m_s": 1.976315147095609e-12,
+          "max_vector_m_s": 9.628512230817818e-12,
+          "l2_relative_baseline": 0.6427219778043509,
+          "peak_tau_s": 0.18
+        }
+      }
+    }
+  ],
+  "interpretation": "Minimum observed L2 on one homogeneous1s test, assuming unimodality; does not minimize each receiver peak or prove a global optimum"
+}

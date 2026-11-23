@@ -1,0 +1,1 @@
+{"mesh": "/old/location/is/portable.npz", "mesh_sha256": "323555a6dc512077a234739b8055293cef14f668e86a56fe2a97c48a5236d38b", "dataset": "EFVB", "order": 4, "nodes": 7569, "elements": 420, "alpha_max_s_inv": 346.1772216952762, "dt_start_s": 6.666666666666667e-05, "substeps_per_ms": 15}

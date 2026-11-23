@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T11:15:39.473116+00:00",
+  "scope": "CPU method and figure-construction checks; no numerical solver",
+  "checks": [
+    "Historical surface hash/axes loaded",
+    "Known synthetic amplitude ratio0.2 and winner recovered",
+    "Four PNG/SVG pairs constructed; trace axes use only the shown0.18–0.8s data, surface map2x3 uses one shared0.2–0.8s scale"
+  ],
+  "code_sha256": "2e5bee10ebc7d07befae9ef93bc92cf13f7076fa06bc05329ba41847f9bcbe92"
+}

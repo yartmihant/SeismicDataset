@@ -1,0 +1,31 @@
+{
+  "status": "cpu_checked",
+  "modes": [
+    "old_sync",
+    "new_none",
+    "new_discard",
+    "new_sync",
+    "new_async"
+  ],
+  "repeats": 5,
+  "runs": 30,
+  "probes": 2,
+  "profiles": [
+    "old_sync",
+    "new_none",
+    "new_discard",
+    "new_sync",
+    "new_async"
+  ],
+  "case": "p6/h10, 1400x700, two layers, 350m quadratic PML/no ABC,30Hz Ricker,7 shots,1s,beta1/27,gamma.5,CFL.8",
+  "receivers": "1001 times; all1261 top GLL nodes per shot; Vx,Vy; no field frames",
+  "async": "frame_buf_size4, run(sync=False).wait(); framework queue fully drained before timing ends",
+  "output": "NPZ after timed run; no SEG-Y requested after clarification",
+  "protocol": "one warmup then five rotated rounds on GPU0; profiling separate from timing",
+  "none": "no receivers; still1000 tacts and native terminal SAVE; final full velocity checked",
+  "discard": "same sync receiver, time/finite checks, no persistent surface copy",
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  }
+}

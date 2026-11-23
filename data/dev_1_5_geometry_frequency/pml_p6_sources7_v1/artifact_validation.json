@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "runs": 32,
+  "CFL_probes": 2,
+  "verified_array_sha256_count": 128,
+  "verified_artifact_sha256": [
+    "timings.png",
+    "index.html"
+  ],
+  "html_links": [
+    "timings.png",
+    "../../../data/dev_1_5_geometry_frequency/pml_p6_sources7_v1/analysis/metrics.json"
+  ],
+  "source_repeat_pairs": 21,
+  "all_agree": true,
+  "mypy": "3 source files passed",
+  "visual_review": "timings.png inspected; labels readable, zero baseline",
+  "metrics_sha256": "4eb8235d02f3c977ada42370e641899b094754b3537d29fa7299c0212cd5722d"
+}

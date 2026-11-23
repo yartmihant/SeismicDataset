@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "mode": "new_async",
+  "label": "repeat3",
+  "profiled": false,
+  "dt_s": 0.00011111111111111112,
+  "steps": 9000,
+  "steps_per_tact": 9,
+  "lambda_max": 205196656.66780484,
+  "lambda_max_damping": 0.0,
+  "assembly_seconds": 1.0601889081299305,
+  "prepare_seconds": 0.24581660144031048,
+  "nodes_count": 795691,
+  "elements": 22050,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_p67s_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p67s_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "a3552262e1cafa76ad7bf89eea739f3b568713151ad9580cdf7eb4146b14e1f9"
+  },
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  },
+  "runner": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/p67s_run.py",
+    "sha256": "764655c10063b2f430ea2ed946c3f7798c59189cdc60f60a9864ff5ea9c574cd"
+  },
+  "receiver_registered": true,
+  "frame_buf_size": 4,
+  "source_x_m": [
+    175.0,
+    350.0,
+    525.0,
+    700.0,
+    875.0,
+    1050.0,
+    1225.0
+  ],
+  "run_seconds": 16.807734868489206,
+  "solve_wall_seconds": 18.115971851162612,
+  "callback_wall_seconds": 0.5269110277295113,
+  "callback_thread_cpu_seconds": 0.5215821260000006,
+  "surface_samples": 1001,
+  "output_npz_seconds": 0.2158747985959053,
+  "validation_after_run_seconds": 0.3306510401889682,
+  "total_seconds": 18.662497689947486,
+  "pml_history_max_abs": 3.178832353483076e-18,
+  "final_velocity_max_abs": 5.320006037134794e-13,
+  "terminal_state_finite": true,
+  "final_top.npy": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_async/repeat3/final_top.npy",
+    "sha256": "956b90adba4c2375de506d22f37d557d018d89ff23948f75f3516457980431df"
+  },
+  "surface.npz": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/new_async/repeat3/surface.npz",
+    "sha256": "f1765357b2add7fe9b0c1f0a16610dc6b915f21890c6a86150a3ffdb9406bd3c"
+  }
+}

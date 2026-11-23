@@ -1,0 +1,1 @@
+{"schema": "CPU_MOCK_ONLY", "dataset": "EFVB", "model_id": 0, "input": {"fixture": "CPU mock only"}, "construction": {"construction": "mock", "settings": {"mock": true}, "splines": [{"max_sample_depth_error_m": 0.125}]}, "certificate": {"scope": "not a scientific mesh"}, "fallback": "none", "algorithm_evidence": "CPU mock"}

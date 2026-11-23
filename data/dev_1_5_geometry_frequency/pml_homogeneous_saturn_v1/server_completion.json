@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "captured_utc": "2026-11-21T12:36:05.901300+00:00",
+  "runs": 10,
+  "raw_and_analysis_bytes": 5004651651,
+  "free_bytes": 172016599040,
+  "git_head": "1eb6e8f528bf019fd9bde363eb843d7348322c9a",
+  "gpu_status": "index, name, utilization.gpu [%], memory.used [MiB]\n0, NVIDIA A100-PCIE-40GB, 0 %, 5 MiB\n1, NVIDIA A100-PCIE-40GB, 0 %, 5 MiB\n",
+  "compute_processes": "pid, gpu_uuid, used_gpu_memory [MiB]\n",
+  "production_queue_resumed": false,
+  "note": "All 10 requested GPU experiments completed; rendering is a separate CPU stage. Full arrays remain on Saturn."
+}

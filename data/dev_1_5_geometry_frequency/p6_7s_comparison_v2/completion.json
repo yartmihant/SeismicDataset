@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "runs": 12,
+  "probes": 3,
+  "sha256_surfaces_verified_on_saturn": 13,
+  "max_component_relative_l2": 2.93727357526489e-14,
+  "gpu_free_after": true,
+  "saturn_free_bytes_after": 62406307840,
+  "production_queue": "unchanged, stopped",
+  "code_commits": [
+    "2a9eaa9",
+    "bb81271"
+  ],
+  "arrays": "Saturn only; no new fields",
+  "report": "img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/index.html",
+  "limitation": "complete seismograms checked, no new full-field stability validation; all dt=1/9000s",
+  "comparisons_by_shot": 84,
+  "local_checks": {
+    "mypy": "passed: runner, renderer, diary",
+    "notebook": "74 cells executed from saved data; roundtrip passed",
+    "artifacts": "3 SHA, 2 PNG decoded and visually checked, 2 HTML links"
+  }
+}

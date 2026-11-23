@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "utc": "2026-11-18T11:08:27.073131+00:00",
+  "padding_m": 175.0,
+  "alpha_reference_s_inv": 346.1772216952762,
+  "amplitude_factors": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "profile_formula": "alpha=k*alpha0*((max(-x,x-700,0)/175)^2+(max(-y-700,0)/175)^2)",
+  "peak_per_direction_s_inv": [
+    346.1772216952762,
+    173.0886108476381,
+    86.54430542381905
+  ],
+  "integral_normal_s_m_per_s": [
+    20193.67126555778,
+    10096.83563277889,
+    5048.417816389445
+  ],
+  "top_surface": "y=0 is traction-free; mass damping remains active in x<0 and x>700 extensions; alpha=0 on0<=x<=700",
+  "figures": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_plan_v1/profiles.png",
+      "sha256": "1775cc2648d3ef75581ac486f5db9c56dcf507285bc3c66cb38b2830f99ba3a5"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_sweep_plan_v1/profiles.svg",
+      "sha256": "5c775ad0f8851ee1ee3fda56b7217fdddc1a209863802c1eb7ad4caf27d7d88d"
+    }
+  ],
+  "baseline_metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/padded/metadata.json",
+    "sha256": "bfef057f2397a0a1c71190d4c8b318e18de4e7b298ee5e16f84e26ddd09e4b95"
+  },
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_sweep_profiles.py",
+    "sha256": "5a5aef0aa5990c1ccd1cf910578bbb8e09c4ef62f9add85d452f36a881704886"
+  },
+  "solver_run": false,
+  "meaning": "Approved coefficient profiles, not a measured wave attenuation or reflection"
+}

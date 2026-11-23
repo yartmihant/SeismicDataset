@@ -1,0 +1,708 @@
+{
+  "status": "completed",
+  "criterion_correction": "User means the first bright horizon reflection, not weak late multiples. Previous550/350m recommendations based on late waves are not applicable to this criterion.",
+  "reference_definition": "first PP reflection in expanded layered-minus-homogeneous field, offset-dependent arrival .05+sqrt(700^2+(x-700)^2)/4087, half-width .03s; subsequent multiples excluded",
+  "error_definition": "candidate minus expanded layered control over full0..1s; includes PML, external boundary and numerical effects",
+  "receivers": "all GLL top nodes strictly inside physical domain0<x<1400; no PML receivers and no edge endpoints",
+  "receiver_count": 1399,
+  "receiver_bounds_m": [
+    0.5873616901763381,
+    1399.4126383098237
+  ],
+  "dt_record_s": 0.001,
+  "solver_dt_s": 1.8867924528301888e-05,
+  "first_energy_proxy": 3.840315333867158e-21,
+  "first_peak_vector_m_s": 2.434742999271207e-11,
+  "first_peak_components_m_s": [
+    7.145701278264144e-12,
+    2.434742999271207e-11
+  ],
+  "first_central_arrival_s": 0.2212747736726205,
+  "first_half_window_s": 0.03,
+  "energy_note": "dt_record*sum(weights_GLL*(Vx^2+Vy^2)); signal-energy proxy, not total mechanical energy/flux. Numerator full1s, denominator first pulse only.",
+  "cases": {
+    "L10": {
+      "thickness_m": 10,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 3029.050689833667,
+      "run_seconds": 19.837587036192417,
+      "energy_error_to_first": 2.422710570508299e+39,
+      "amplitude_l2_error_to_first": 4.922103788532195e+19,
+      "peak_vector_error_to_first": 3.920950326560663e+20,
+      "peak_component_error_to_first": [
+        1.295377904401317e+21,
+        3.299743282786655e+20
+      ],
+      "error_energy_proxy": 9.30397255344507e+18,
+      "error_peak_vector_m_s": 9546506358.083727,
+      "error_peak_components_m_s": [
+        9256383547.315619,
+        8034026857.156999
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        8.749883859059688e+16,
+        4.280372452391179e+19,
+        1.2765905052405942e+21
+      ],
+      "strong_growth": true,
+      "late_growth_flag": true,
+      "early_relative_l2": 1.9157272222279965e-13,
+      "ABC": true,
+      "pml_elements": 1128,
+      "damping_nodes": 0
+    },
+    "L25": {
+      "thickness_m": 25,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 1211.6202759334667,
+      "run_seconds": 21.227751648053527,
+      "energy_error_to_first": 1175584188643834.5,
+      "amplitude_l2_error_to_first": 34286793.210270256,
+      "peak_vector_error_to_first": 40945558.18733144,
+      "peak_component_error_to_first": [
+        98101235.92040376,
+        40030472.90344016
+      ],
+      "error_energy_proxy": 4.514613985900699e-06,
+      "error_peak_vector_m_s": 0.0009969191114785707,
+      "error_peak_components_m_s": [
+        0.0007010021269157215,
+        0.0009746391365916667
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        7289505.128479296,
+        118427607.99803096,
+        130820635.31569591
+      ],
+      "strong_growth": true,
+      "late_growth_flag": true,
+      "early_relative_l2": 1.775971410364427e-13,
+      "ABC": true,
+      "pml_elements": 2850,
+      "damping_nodes": 0
+    },
+    "L50": {
+      "thickness_m": 50,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 605.8101379667334,
+      "run_seconds": 23.99760822299868,
+      "energy_error_to_first": 0.0035887360837708396,
+      "amplitude_l2_error_to_first": 0.05990606049283194,
+      "peak_vector_error_to_first": 0.033362316364107976,
+      "peak_component_error_to_first": [
+        0.10314584369150703,
+        0.033362316364107976
+      ],
+      "error_energy_proxy": 1.3781878211707527e-23,
+      "error_peak_vector_m_s": 8.122866620698312e-13,
+      "error_peak_components_m_s": [
+        7.370493871140353e-13,
+        8.122866620698312e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.049094223779649164,
+        0.09144361890843081,
+        0.09499888998120899
+      ],
+      "strong_growth": true,
+      "late_growth_flag": true,
+      "early_relative_l2": 1.8350015312704116e-13,
+      "ABC": true,
+      "pml_elements": 5800,
+      "damping_nodes": 0
+    },
+    "L75": {
+      "thickness_m": 75,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 403.8734253111556,
+      "run_seconds": 26.60097376536578,
+      "energy_error_to_first": 0.0016123153218275269,
+      "amplitude_l2_error_to_first": 0.040153646432516274,
+      "peak_vector_error_to_first": 0.020238043770301473,
+      "peak_component_error_to_first": [
+        0.06573355809638315,
+        0.020192136551260863
+      ],
+      "error_energy_proxy": 6.191799253443213e-24,
+      "error_peak_vector_m_s": 4.927443538868577e-13,
+      "error_peak_components_m_s": [
+        4.697123701141754e-13,
+        4.916266310851064e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.029854394921473546,
+        0.05518608811801294,
+        0.05782965328887979
+      ],
+      "strong_growth": false,
+      "late_growth_flag": true,
+      "early_relative_l2": 1.84875017800738e-13,
+      "ABC": true,
+      "pml_elements": 8850,
+      "damping_nodes": 0
+    },
+    "L100": {
+      "thickness_m": 100,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 302.9050689833667,
+      "run_seconds": 29.466620851308107,
+      "energy_error_to_first": 0.000783913735151215,
+      "amplitude_l2_error_to_first": 0.027998459513894958,
+      "peak_vector_error_to_first": 0.012935253412566692,
+      "peak_component_error_to_first": [
+        0.04234790203655838,
+        0.012249512008860845
+      ],
+      "error_energy_proxy": 3.010475937530289e-24,
+      "error_peak_vector_m_s": 3.149401769004574e-13,
+      "error_peak_components_m_s": [
+        3.0260545771443993e-13,
+        2.982441360806252e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.018146207345915284,
+        0.03540170493701189,
+        0.04108996275277714
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8494034503208442e-13,
+      "ABC": true,
+      "pml_elements": 12000,
+      "damping_nodes": 0
+    },
+    "L125": {
+      "thickness_m": 125,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 242.32405518669333,
+      "run_seconds": 32.65549388714135,
+      "energy_error_to_first": 0.0004332762101013099,
+      "amplitude_l2_error_to_first": 0.020815287893788784,
+      "peak_vector_error_to_first": 0.010315277345712052,
+      "peak_component_error_to_first": [
+        0.03437940470522008,
+        0.00896899683559114
+      ],
+      "error_energy_proxy": 1.6639172734519086e-24,
+      "error_peak_vector_m_s": 2.5115049303013297e-13,
+      "error_peak_components_m_s": [
+        2.456649561480514e-13,
+        2.1837202255941134e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.011143764854576983,
+        0.02717106289659416,
+        0.03358467723821002
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.747732759489067e-13,
+      "ABC": true,
+      "pml_elements": 15250,
+      "damping_nodes": 0
+    },
+    "L150": {
+      "thickness_m": 150,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 201.9367126555778,
+      "run_seconds": 35.351838080212474,
+      "energy_error_to_first": 0.00027644401015211806,
+      "amplitude_l2_error_to_first": 0.016626605490962912,
+      "peak_vector_error_to_first": 0.00974743048963348,
+      "peak_component_error_to_first": [
+        0.029534424807199196,
+        0.009375843749565486
+      ],
+      "error_energy_proxy": 1.0616321711429073e-24,
+      "error_peak_vector_m_s": 2.3732488145517824e-13,
+      "error_peak_components_m_s": [
+        2.1104417709759954e-13,
+        2.282776993151527e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.007960574951825557,
+        0.024588984309483135,
+        0.03163794952993144
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.764991443757582e-13,
+      "ABC": true,
+      "pml_elements": 18600,
+      "damping_nodes": 0
+    },
+    "L175": {
+      "thickness_m": 175,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 37.81492576561868,
+      "energy_error_to_first": 0.00019719092077510864,
+      "amplitude_l2_error_to_first": 0.014042468471572533,
+      "peak_vector_error_to_first": 0.007998859659879466,
+      "peak_component_error_to_first": [
+        0.02640591306788871,
+        0.007131914291765885
+      ],
+      "error_energy_proxy": 7.572753167520335e-25,
+      "error_peak_vector_m_s": 1.9475167559044397e-13,
+      "error_peak_components_m_s": [
+        1.8868876676294422e-13,
+        1.7364378393279257e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.007181793844488711,
+        0.02307172217332397,
+        0.02604284024049118
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8494471821138629e-13,
+      "ABC": true,
+      "pml_elements": 22050,
+      "damping_nodes": 0
+    },
+    "L250": {
+      "thickness_m": 250,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 121.16202759334666,
+      "run_seconds": 47.667804145254195,
+      "energy_error_to_first": 0.00011318121874989328,
+      "amplitude_l2_error_to_first": 0.010638666211038547,
+      "peak_vector_error_to_first": 0.007264999145568866,
+      "peak_component_error_to_first": [
+        0.022671206330601497,
+        0.007187667606807753
+      ],
+      "error_energy_proxy": 4.346515698709882e-25,
+      "error_peak_vector_m_s": 1.7688405809385096e-13,
+      "error_peak_components_m_s": [
+        1.6200166805636927e-13,
+        1.7500123386763606e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.006369834797804959,
+        0.01831773361101122,
+        0.023507515651482014
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.7983817630657941e-13,
+      "ABC": true,
+      "pml_elements": 33000,
+      "damping_nodes": 0
+    },
+    "L350": {
+      "thickness_m": 350,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 86.54430542381905,
+      "run_seconds": 61.47512280009687,
+      "energy_error_to_first": 7.748046099446815e-05,
+      "amplitude_l2_error_to_first": 0.008802298619932645,
+      "peak_vector_error_to_first": 0.007253961173220492,
+      "peak_component_error_to_first": [
+        0.01479646602188169,
+        0.007253961173220492
+      ],
+      "error_energy_proxy": 2.9754940243215224e-25,
+      "error_peak_vector_m_s": 1.7661531183483744e-13,
+      "error_peak_components_m_s": [
+        1.0573112616635197e-13,
+        1.7661531183483744e-13
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.006471228234488928,
+        0.01345807385861176,
+        0.015630453321270475
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.9317507969175806e-13,
+      "ABC": true,
+      "pml_elements": 49000,
+      "damping_nodes": 0
+    },
+    "old": {
+      "thickness_m": 175,
+      "mode": "old",
+      "fixed_strength": false,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 29.929682933725417,
+      "energy_error_to_first": 5.474953146307872,
+      "amplitude_l2_error_to_first": 2.339861779316862,
+      "peak_vector_error_to_first": 0.9953439635345273,
+      "peak_component_error_to_first": [
+        2.087160792126772,
+        0.964133894678801
+      ],
+      "error_energy_proxy": 2.1025546519970358e-20,
+      "error_peak_vector_m_s": 2.4234067470825455e-11,
+      "error_peak_components_m_s": [
+        1.4914227540243078e-11,
+        2.3474182504292936e-11
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        1.3289058263843503,
+        2.429258914791729,
+        2.6653704575081383
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8209473328221377e-13,
+      "ABC": true,
+      "pml_elements": 0,
+      "damping_nodes": 554576
+    },
+    "L700": {
+      "thickness_m": 700,
+      "mode": "pml_abc",
+      "fixed_strength": false,
+      "dmax_s_inv": 43.27215271190953,
+      "run_seconds": 119.48236248549074,
+      "energy_error_to_first": 1.0476803560099526e-05,
+      "amplitude_l2_error_to_first": 0.003236789081806154,
+      "peak_vector_error_to_first": 0.0037669574455388623,
+      "peak_component_error_to_first": [
+        0.00848704121451181,
+        0.003752890543614692
+      ],
+      "error_energy_proxy": 4.0234229361764234e-26,
+      "error_peak_vector_m_s": 9.171573269078294e-14,
+      "error_peak_components_m_s": [
+        6.064586125521751e-14,
+        9.137323978096984e-14
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.0029163477539662056,
+        0.007467491628454729,
+        0.01221259480456554
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8271340184124513e-13,
+      "ABC": true,
+      "pml_elements": 117600,
+      "damping_nodes": 0
+    },
+    "F250": {
+      "thickness_m": 250,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 46.95330481603742,
+      "energy_error_to_first": 1.0381815367858137e-06,
+      "amplitude_l2_error_to_first": 0.0010189119376991388,
+      "peak_vector_error_to_first": 0.0006484855541995312,
+      "peak_component_error_to_first": [
+        0.00139093195652577,
+        0.0005995432460460257
+      ],
+      "error_energy_proxy": 3.9869444750563304e-27,
+      "error_peak_vector_m_s": 1.5788956632158173e-14,
+      "error_peak_components_m_s": [
+        9.939184259724642e-15,
+        1.4597337210708956e-14
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        0.000599806068459717,
+        0.001976836352041252,
+        0.002100604661950956
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.838619386118887e-13,
+      "ABC": true,
+      "pml_elements": 33000,
+      "damping_nodes": 0
+    },
+    "F350": {
+      "thickness_m": 350,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 60.85023953951895,
+      "energy_error_to_first": 2.432932108676344e-09,
+      "amplitude_l2_error_to_first": 4.93247616180387e-05,
+      "peak_vector_error_to_first": 3.2343437435082546e-05,
+      "peak_component_error_to_first": [
+        4.9524300657160425e-05,
+        3.23223330170452e-05
+      ],
+      "error_energy_proxy": 9.343226483207521e-30,
+      "error_peak_vector_m_s": 7.87479578674335e-16,
+      "error_peak_components_m_s": [
+        3.5388585851100904e-16,
+        7.86965740333634e-16
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        1.9688625897941472e-05,
+        9.22018294139789e-05,
+        0.0001053043820952644
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8219138001336152e-13,
+      "ABC": true,
+      "pml_elements": 49000,
+      "damping_nodes": 0
+    },
+    "F500": {
+      "thickness_m": 500,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 84.12115905527025,
+      "energy_error_to_first": 4.847183686851149e-13,
+      "amplitude_l2_error_to_first": 6.96217184996977e-07,
+      "peak_vector_error_to_first": 3.412661197312143e-07,
+      "peak_component_error_to_first": [
+        6.931868386475411e-07,
+        3.4092741172250947e-07
+      ],
+      "error_energy_proxy": 1.8614713838685212e-33,
+      "error_peak_vector_m_s": 8.308952959040235e-18,
+      "error_peak_components_m_s": [
+        4.9533060789996154e-18,
+        8.300706289510323e-18
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        2.739835132403533e-07,
+        9.656204427925676e-07,
+        1.1025622767360784e-06
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.7742034909297802e-13,
+      "ABC": true,
+      "pml_elements": 76000,
+      "damping_nodes": 0
+    },
+    "F700": {
+      "thickness_m": 700,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 119.638915929012,
+      "energy_error_to_first": 5.899861798703062e-14,
+      "amplitude_l2_error_to_first": 2.4289631118448594e-07,
+      "peak_vector_error_to_first": 1.0577922421516387e-07,
+      "peak_component_error_to_first": [
+        2.7075426963792967e-07,
+        1.0548269521770738e-07
+      ],
+      "error_energy_proxy": 2.265732973325644e-34,
+      "error_peak_vector_m_s": 2.5754522562620954e-18,
+      "error_peak_components_m_s": [
+        1.9347291306472288e-18,
+        2.5682325372557145e-18
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        1.1070080658599515e-07,
+        2.6736909662766554e-07,
+        3.367343446875552e-07
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.7877255034316433e-13,
+      "ABC": true,
+      "pml_elements": 117600,
+      "damping_nodes": 0
+    },
+    "F550": {
+      "thickness_m": 550,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 92.20625625923276,
+      "energy_error_to_first": 1.1886634799507468e-13,
+      "amplitude_l2_error_to_first": 3.447699928866703e-07,
+      "peak_vector_error_to_first": 1.6804160293816303e-07,
+      "peak_component_error_to_first": [
+        4.396314203220025e-07,
+        1.4502039677561144e-07
+      ],
+      "error_energy_proxy": 4.56484258886275e-34,
+      "error_peak_vector_m_s": 4.091381163400043e-18,
+      "error_peak_components_m_s": [
+        3.141474802160014e-18,
+        3.530873958009526e-18
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        1.6819526808012233e-07,
+        3.734664170902355e-07,
+        5.471130642565341e-07
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.7800267604884101e-13,
+      "ABC": true,
+      "pml_elements": 85800,
+      "damping_nodes": 0
+    },
+    "F1200": {
+      "thickness_m": 1200,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 231.8057155366987,
+      "energy_error_to_first": 1.8677939250560005e-14,
+      "amplitude_l2_error_to_first": 1.366672574194712e-07,
+      "peak_vector_error_to_first": 7.235391098124017e-08,
+      "peak_component_error_to_first": [
+        1.5585331148576085e-07,
+        7.200566095379342e-08
+      ],
+      "error_energy_proxy": 7.172917650896484e-35,
+      "error_peak_vector_m_s": 1.761631782314666e-18,
+      "error_peak_components_m_s": [
+        1.113681207105501e-18,
+        1.753152789151446e-18
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        5.854122288067674e-08,
+        1.6557843195847342e-07,
+        2.2623680621671552e-07
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.7747979259773072e-13,
+      "ABC": true,
+      "pml_elements": 249600,
+      "damping_nodes": 0
+    },
+    "F1000": {
+      "thickness_m": 1000,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 182.53292552474886,
+      "energy_error_to_first": 2.812441187138815e-14,
+      "amplitude_l2_error_to_first": 1.6770334484257655e-07,
+      "peak_vector_error_to_first": 8.242357487167258e-08,
+      "peak_component_error_to_first": [
+        1.847212987630246e-07,
+        8.207163240709152e-08
+      ],
+      "error_energy_proxy": 1.0800661016568743e-34,
+      "error_peak_vector_m_s": 2.0068022189371097e-18,
+      "error_peak_components_m_s": [
+        1.3199632206935575e-18,
+        1.99823332441926e-18
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        7.146367184782408e-08,
+        1.929042963460256e-07,
+        2.5772271440525837e-07
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8215803267604832e-13,
+      "ABC": true,
+      "pml_elements": 192000,
+      "damping_nodes": 0
+    },
+    "F600": {
+      "thickness_m": 600,
+      "mode": "pml_abc",
+      "fixed_strength": true,
+      "dmax_s_inv": 173.0886108476381,
+      "run_seconds": 100.74234015960246,
+      "energy_error_to_first": 8.33209641520558e-14,
+      "amplitude_l2_error_to_first": 2.886537097493393e-07,
+      "peak_vector_error_to_first": 1.4128452270476481e-07,
+      "peak_component_error_to_first": [
+        3.700960307492688e-07,
+        1.2401889101101076e-07
+      ],
+      "error_energy_proxy": 3.1997877626573565e-34,
+      "error_peak_vector_m_s": 3.439915025608e-18,
+      "error_peak_components_m_s": [
+        2.644595680005536e-18,
+        3.0195412666643726e-18
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        1.3673817340732288e-07,
+        3.270010572503498e-07,
+        4.5999685076490204e-07
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.9157712160060258e-13,
+      "ABC": true,
+      "pml_elements": 96000,
+      "damping_nodes": 0
+    },
+    "abc_only": {
+      "thickness_m": 0,
+      "mode": "abc_only",
+      "fixed_strength": false,
+      "dmax_s_inv": 0.0,
+      "run_seconds": 18.21415127441287,
+      "energy_error_to_first": 6786.403919850609,
+      "amplitude_l2_error_to_first": 82.37963291888722,
+      "peak_vector_error_to_first": 149.2251824048165,
+      "peak_component_error_to_first": [
+        296.86445339683496,
+        126.80964435938459
+      ],
+      "error_energy_proxy": 2.6061931035218477e-17,
+      "error_peak_vector_m_s": 3.6332496817509584e-09,
+      "error_peak_components_m_s": [
+        2.1213047041089497e-09,
+        3.087488938440831e-09
+      ],
+      "per_receiver_peak_ratio_percentiles_50_95_100": [
+        56.382423002612086,
+        124.77228532296515,
+        485.8502024631793
+      ],
+      "strong_growth": false,
+      "late_growth_flag": false,
+      "early_relative_l2": 1.8361595644036955e-13,
+      "ABC": true,
+      "pml_elements": 0,
+      "damping_nodes": 0
+    }
+  },
+  "surface_sha_checks": [
+    "reference",
+    "homogeneous_reference",
+    "L10",
+    "L25",
+    "L50",
+    "L75",
+    "L100",
+    "L125",
+    "L150",
+    "L175",
+    "L250",
+    "L350",
+    "old",
+    "L700",
+    "F250",
+    "F350",
+    "F500",
+    "F700",
+    "F550",
+    "F1200",
+    "F1000",
+    "F600",
+    "abc_only"
+  ],
+  "new_control": "abc_only:1400x700 without extension, ABC at core sides/bottom, free top, no mass damping/PML",
+  "old_control": "reused old:175m mass layer,k0.5,dmax173.088611,externalABC",
+  "native_sha256": "7de2a009645e541daaa373b3dcb1c3e4617d2f98dbe06847c9bf7389f6ac2ae0",
+  "historical_analysis": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json",
+    "sha256": "403bddedcfeaf33008c87700e68d0bf9a2d362e56525dff7dc130f73b40e3fab"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "proposed_for_full_dataset_active_for_local_golden_test",
+  "created_utc": "2026-11-18T11:32:44.405963+00:00",
+  "t_end_s": 1.0,
+  "record_interval_s": 0.001,
+  "samples_including_both_ends": 1001,
+  "receivers": 70,
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "dtype": "float64",
+  "golden_objective_interval_s": [
+    0.5,
+    1.0
+  ],
+  "bytes_per_receiver_per_source": 16016,
+  "bytes_per_source_signals": 1121120,
+  "bytes_per_source_arrays_with_axes": 1130808,
+  "chunk_models": 5000,
+  "sources_per_model": 5,
+  "chunk_signals_bytes": 28028000000,
+  "chunk_arrays_with_repeated_axes_bytes": 28270200000,
+  "all60000_signals_bytes": 336336000000,
+  "all60000_arrays_with_repeated_axes_bytes": 339242400000,
+  "exclusions": "Compression, NPZ headers, metadata, models, geometry, environment, reserve; not RAM/VRAM",
+  "execution": "Local homogeneous golden test only; Saturn remains stopped, production launcher and historical2s arrays unchanged",
+  "caution": "Shorter acquisition excludes late physical arrivals as well as artificial returns; adequacy for all heterogeneous700m models is not established by this homogeneous central-source test"
+}

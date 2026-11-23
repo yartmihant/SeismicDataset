@@ -1,0 +1,5 @@
+{
+  "status": "expected_native_rejection",
+  "returncode": 1,
+  "reason": "PML requires explicit step_dt or steps_count"
+}

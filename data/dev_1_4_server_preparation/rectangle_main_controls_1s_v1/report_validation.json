@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "mypy_files": 102,
+  "notebook_cells": 117,
+  "embedded_figures": 26,
+  "new_figure_embedded_exact": true,
+  "five_input_hashes_verified": true,
+  "roundtrip": "passed",
+  "scope": "Report/figure/source consistency; numerical run validation separate"
+}

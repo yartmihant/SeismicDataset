@@ -1,0 +1,20 @@
+{
+  "host": "antonov-fidesys-office",
+  "gpu": "NVIDIA GeForce RTX 3060, GPU-c328e235-51a4-903e-0c20-5623f3d92896, 580.196.07, 12288 MiB",
+  "nsys": "NVIDIA Nsight Systems version 2026.5.2.323-265239015215v0",
+  "python": "3.13.5 (main, Aug 27 2025, 13:31:01) [GCC 13.3.0]",
+  "cuda_build": "12.8 / SM86 / Release",
+  "source_snapshot": "docs/runtime_sources/seismic_cu_v1/provenance.json",
+  "trace_flags": [
+    "--trace=cuda,nvtx",
+    "--sample=none",
+    "--cpuctxsw=none"
+  ],
+  "cpu_sampling": false,
+  "nvtx_stages": [
+    "semgpu_prepare",
+    "semgpu_run"
+  ],
+  "git_commit": "5023aa97ab7c8d7b2daafd7ac38c564d91b59910",
+  "supersedes": "profile_local_v1 (older profiler driver warning; retained)"
+}

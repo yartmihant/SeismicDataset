@@ -1,0 +1,829 @@
+{
+  "status": "completed",
+  "schema": "chapter14.profile_golden_fields_1s_animations.v1",
+  "utc": "2026-11-18T12:24:14.107004+00:00",
+  "selected_factor": 0.5684038628158912,
+  "alpha_peak_per_direction_s_inv": 196.76847003046814,
+  "frame_count": 101,
+  "physical_end_s": 1.0,
+  "physical_cadence_s": 0.01,
+  "playback_fps": 10,
+  "playback_duration_s": 10.1,
+  "playback_slowdown_between_frames": 10.0,
+  "timing_note": "First-to-last physical interval1s is shown over10s; the last frame is held0.1s, total encoded duration10.1s",
+  "components": [
+    "Vx",
+    "Vy"
+  ],
+  "panels": [
+    "hypot(Vx,Vy)",
+    "Vx",
+    "Vy"
+  ],
+  "color_scales": {
+    "display_units": "nm/s; source arrays remainm/s",
+    "speed_log_limits_m_s": [
+      2.609811403452111e-14,
+      2.6098114034521112e-08
+    ],
+    "component_symlog_limits_m_s": [
+      -2.6098114034521112e-08,
+      2.6098114034521112e-08
+    ],
+    "component_linear_threshold_m_s": 2.609811403452111e-13,
+    "fixed_all_frames": true,
+    "policy": "One physical scale per quantity across all101 frames; no per-frame amplification. Speed zero/below floor black; signed zero white"
+  },
+  "rendering": {
+    "method": "Nearest SEM node at regular pixel centers; origin lower; no temporal interpolation",
+    "physical_extent_m": [
+      -175.0,
+      875.0,
+      -875.0,
+      0.0
+    ],
+    "pixel_shape": [
+      525,
+      630
+    ],
+    "pixel_spacing_m": 1.6666666666666667,
+    "maximum_pixel_to_node_distance_m": 0.04247235452454674,
+    "core_box_m": [
+      0.0,
+      700.0,
+      -700.0,
+      0.0
+    ]
+  },
+  "field_diagnostics": {
+    "speed_max_m_s": 2.6098114034521112e-08,
+    "component_abs_max_m_s": 2.6098114034521112e-08,
+    "per_frame": [
+      {
+        "time_s": 0.0,
+        "speed_max_m_s": 0.0,
+        "component_abs_max_m_s": 0.0,
+        "rms_vector_m_s": 0.0
+      },
+      {
+        "time_s": 0.01,
+        "speed_max_m_s": 1.8399377826847493e-12,
+        "component_abs_max_m_s": 1.8399377826847493e-12,
+        "rms_vector_m_s": 3.91196758564691e-15
+      },
+      {
+        "time_s": 0.02,
+        "speed_max_m_s": 3.901340630834887e-10,
+        "component_abs_max_m_s": 3.901340630834887e-10,
+        "rms_vector_m_s": 9.76474998268625e-13
+      },
+      {
+        "time_s": 0.03,
+        "speed_max_m_s": 8.371800934380726e-09,
+        "component_abs_max_m_s": 8.371800934380726e-09,
+        "rms_vector_m_s": 3.071758790333281e-11
+      },
+      {
+        "time_s": 0.04,
+        "speed_max_m_s": 1.1845226616983918e-08,
+        "component_abs_max_m_s": 1.1845226616983918e-08,
+        "rms_vector_m_s": 9.432392866736387e-11
+      },
+      {
+        "time_s": 0.05,
+        "speed_max_m_s": 1.4058413522043523e-08,
+        "component_abs_max_m_s": 1.4058413522043523e-08,
+        "rms_vector_m_s": 2.7184042288720974e-10
+      },
+      {
+        "time_s": 0.06,
+        "speed_max_m_s": 2.6098114034521112e-08,
+        "component_abs_max_m_s": 2.6098114034521112e-08,
+        "rms_vector_m_s": 3.5038043269822287e-10
+      },
+      {
+        "time_s": 0.07,
+        "speed_max_m_s": 7.630417674585602e-09,
+        "component_abs_max_m_s": 7.630417674585602e-09,
+        "rms_vector_m_s": 3.7774217209941725e-10
+      },
+      {
+        "time_s": 0.08,
+        "speed_max_m_s": 6.489016560004161e-09,
+        "component_abs_max_m_s": 6.488790882809817e-09,
+        "rms_vector_m_s": 3.79530744790619e-10
+      },
+      {
+        "time_s": 0.09,
+        "speed_max_m_s": 6.490571730240568e-09,
+        "component_abs_max_m_s": 6.475582114034827e-09,
+        "rms_vector_m_s": 3.7948401914296043e-10
+      },
+      {
+        "time_s": 0.1,
+        "speed_max_m_s": 6.556605895679426e-09,
+        "component_abs_max_m_s": 6.54099466422854e-09,
+        "rms_vector_m_s": 3.7946598609270304e-10
+      },
+      {
+        "time_s": 0.11,
+        "speed_max_m_s": 6.646311323109507e-09,
+        "component_abs_max_m_s": 6.645780641939212e-09,
+        "rms_vector_m_s": 3.7951832715944565e-10
+      },
+      {
+        "time_s": 0.12,
+        "speed_max_m_s": 6.7445138136582134e-09,
+        "component_abs_max_m_s": 6.743720953704533e-09,
+        "rms_vector_m_s": 3.795750976064148e-10
+      },
+      {
+        "time_s": 0.13,
+        "speed_max_m_s": 6.808887230409357e-09,
+        "component_abs_max_m_s": 6.806322995513085e-09,
+        "rms_vector_m_s": 3.7962025882089074e-10
+      },
+      {
+        "time_s": 0.14,
+        "speed_max_m_s": 6.88359781636217e-09,
+        "component_abs_max_m_s": 6.88283714411596e-09,
+        "rms_vector_m_s": 3.796355021639668e-10
+      },
+      {
+        "time_s": 0.15,
+        "speed_max_m_s": 6.944401799725181e-09,
+        "component_abs_max_m_s": 6.944343763625429e-09,
+        "rms_vector_m_s": 3.794441346378326e-10
+      },
+      {
+        "time_s": 0.16,
+        "speed_max_m_s": 6.992189527299789e-09,
+        "component_abs_max_m_s": 6.9920866757679865e-09,
+        "rms_vector_m_s": 3.7879016614923584e-10
+      },
+      {
+        "time_s": 0.17,
+        "speed_max_m_s": 7.026672215853224e-09,
+        "component_abs_max_m_s": 7.025926865295365e-09,
+        "rms_vector_m_s": 3.7755095964589286e-10
+      },
+      {
+        "time_s": 0.18,
+        "speed_max_m_s": 7.0730886837344735e-09,
+        "component_abs_max_m_s": 7.0730236396768e-09,
+        "rms_vector_m_s": 3.7586256562932287e-10
+      },
+      {
+        "time_s": 0.19,
+        "speed_max_m_s": 7.08010110384999e-09,
+        "component_abs_max_m_s": 7.0785490861841195e-09,
+        "rms_vector_m_s": 3.7401706680504316e-10
+      },
+      {
+        "time_s": 0.2,
+        "speed_max_m_s": 7.1193116037852455e-09,
+        "component_abs_max_m_s": 7.118831694998422e-09,
+        "rms_vector_m_s": 3.720630254726693e-10
+      },
+      {
+        "time_s": 0.21,
+        "speed_max_m_s": 7.1497140764835614e-09,
+        "component_abs_max_m_s": 7.149539951436806e-09,
+        "rms_vector_m_s": 3.6938440974941036e-10
+      },
+      {
+        "time_s": 0.22,
+        "speed_max_m_s": 7.052112969815554e-09,
+        "component_abs_max_m_s": 7.0484893833405255e-09,
+        "rms_vector_m_s": 3.631989463957166e-10
+      },
+      {
+        "time_s": 0.23,
+        "speed_max_m_s": 6.68123433252469e-09,
+        "component_abs_max_m_s": 6.679447962216916e-09,
+        "rms_vector_m_s": 3.490119027459579e-10
+      },
+      {
+        "time_s": 0.24,
+        "speed_max_m_s": 5.847555149998639e-09,
+        "component_abs_max_m_s": 5.844598465840336e-09,
+        "rms_vector_m_s": 3.2252259387653696e-10
+      },
+      {
+        "time_s": 0.25,
+        "speed_max_m_s": 4.60286331405661e-09,
+        "component_abs_max_m_s": 4.593947299375258e-09,
+        "rms_vector_m_s": 2.837495283961509e-10
+      },
+      {
+        "time_s": 0.26,
+        "speed_max_m_s": 3.1885642748690074e-09,
+        "component_abs_max_m_s": 3.17608716614238e-09,
+        "rms_vector_m_s": 2.38744353567088e-10
+      },
+      {
+        "time_s": 0.27,
+        "speed_max_m_s": 1.9109686573942854e-09,
+        "component_abs_max_m_s": 1.8979258245076015e-09,
+        "rms_vector_m_s": 1.9749368531409843e-10
+      },
+      {
+        "time_s": 0.28,
+        "speed_max_m_s": 1.2489493586234324e-09,
+        "component_abs_max_m_s": 1.1067362784735844e-09,
+        "rms_vector_m_s": 1.6803332202847327e-10
+      },
+      {
+        "time_s": 0.29,
+        "speed_max_m_s": 1.183861254712026e-09,
+        "component_abs_max_m_s": 9.381598295494414e-10,
+        "rms_vector_m_s": 1.5043136313137304e-10
+      },
+      {
+        "time_s": 0.3,
+        "speed_max_m_s": 1.125967656621704e-09,
+        "component_abs_max_m_s": 9.182981377429614e-10,
+        "rms_vector_m_s": 1.393965367842646e-10
+      },
+      {
+        "time_s": 0.31,
+        "speed_max_m_s": 1.0664814336821128e-09,
+        "component_abs_max_m_s": 8.929081283285108e-10,
+        "rms_vector_m_s": 1.3085378425553592e-10
+      },
+      {
+        "time_s": 0.32,
+        "speed_max_m_s": 1.0166396220663676e-09,
+        "component_abs_max_m_s": 8.699400167908958e-10,
+        "rms_vector_m_s": 1.2335853003411881e-10
+      },
+      {
+        "time_s": 0.33,
+        "speed_max_m_s": 9.77586704835602e-10,
+        "component_abs_max_m_s": 8.500651923225031e-10,
+        "rms_vector_m_s": 1.1658960849267303e-10
+      },
+      {
+        "time_s": 0.34,
+        "speed_max_m_s": 9.376171343182008e-10,
+        "component_abs_max_m_s": 8.266131231133197e-10,
+        "rms_vector_m_s": 1.1027739016325173e-10
+      },
+      {
+        "time_s": 0.35000000000000003,
+        "speed_max_m_s": 8.984177082220034e-10,
+        "component_abs_max_m_s": 8.015856803998158e-10,
+        "rms_vector_m_s": 1.0454003798455073e-10
+      },
+      {
+        "time_s": 0.36,
+        "speed_max_m_s": 8.606565720500602e-10,
+        "component_abs_max_m_s": 7.762423208565278e-10,
+        "rms_vector_m_s": 9.891228863627128e-11
+      },
+      {
+        "time_s": 0.37,
+        "speed_max_m_s": 8.300755552502842e-10,
+        "component_abs_max_m_s": 7.550850894041625e-10,
+        "rms_vector_m_s": 9.270006661525142e-11
+      },
+      {
+        "time_s": 0.38,
+        "speed_max_m_s": 7.962471335651913e-10,
+        "component_abs_max_m_s": 7.269062426403455e-10,
+        "rms_vector_m_s": 8.498530087889904e-11
+      },
+      {
+        "time_s": 0.39,
+        "speed_max_m_s": 7.281005028243699e-10,
+        "component_abs_max_m_s": 6.622686688935871e-10,
+        "rms_vector_m_s": 7.496787948194446e-11
+      },
+      {
+        "time_s": 0.4,
+        "speed_max_m_s": 6.083864727996751e-10,
+        "component_abs_max_m_s": 5.491881807432319e-10,
+        "rms_vector_m_s": 6.249775664562724e-11
+      },
+      {
+        "time_s": 0.41000000000000003,
+        "speed_max_m_s": 5.131224688883426e-10,
+        "component_abs_max_m_s": 4.748058598409317e-10,
+        "rms_vector_m_s": 4.81627455762719e-11
+      },
+      {
+        "time_s": 0.42,
+        "speed_max_m_s": 4.004635573866813e-10,
+        "component_abs_max_m_s": 3.705062955082815e-10,
+        "rms_vector_m_s": 3.353566436814439e-11
+      },
+      {
+        "time_s": 0.43,
+        "speed_max_m_s": 2.6438036996081326e-10,
+        "component_abs_max_m_s": 2.437460720476609e-10,
+        "rms_vector_m_s": 2.0848601585888313e-11
+      },
+      {
+        "time_s": 0.44,
+        "speed_max_m_s": 1.4448545050539534e-10,
+        "component_abs_max_m_s": 1.323753701256774e-10,
+        "rms_vector_m_s": 1.1821426386124794e-11
+      },
+      {
+        "time_s": 0.45,
+        "speed_max_m_s": 6.454058323611114e-11,
+        "component_abs_max_m_s": 5.894414382713059e-11,
+        "rms_vector_m_s": 6.6139526306555235e-12
+      },
+      {
+        "time_s": 0.46,
+        "speed_max_m_s": 2.119725163084643e-11,
+        "component_abs_max_m_s": 2.0071338019728253e-11,
+        "rms_vector_m_s": 4.30280147864798e-12
+      },
+      {
+        "time_s": 0.47000000000000003,
+        "speed_max_m_s": 1.442300655248919e-11,
+        "component_abs_max_m_s": 1.44229730772741e-11,
+        "rms_vector_m_s": 4.205051295842647e-12
+      },
+      {
+        "time_s": 0.48,
+        "speed_max_m_s": 2.626325030692825e-11,
+        "component_abs_max_m_s": 2.626325030692825e-11,
+        "rms_vector_m_s": 4.29651547882782e-12
+      },
+      {
+        "time_s": 0.49,
+        "speed_max_m_s": 2.072398822047075e-11,
+        "component_abs_max_m_s": 2.030983850650805e-11,
+        "rms_vector_m_s": 4.097123660631227e-12
+      },
+      {
+        "time_s": 0.5,
+        "speed_max_m_s": 1.4382374259694575e-11,
+        "component_abs_max_m_s": 1.4382374259694575e-11,
+        "rms_vector_m_s": 3.744101995906306e-12
+      },
+      {
+        "time_s": 0.51,
+        "speed_max_m_s": 1.4279837023494215e-11,
+        "component_abs_max_m_s": 1.4251335485427205e-11,
+        "rms_vector_m_s": 3.6333349940370297e-12
+      },
+      {
+        "time_s": 0.52,
+        "speed_max_m_s": 1.3632544703297607e-11,
+        "component_abs_max_m_s": 1.3632544703297607e-11,
+        "rms_vector_m_s": 3.4629425125302495e-12
+      },
+      {
+        "time_s": 0.53,
+        "speed_max_m_s": 1.3729959684444361e-11,
+        "component_abs_max_m_s": 1.370513741348797e-11,
+        "rms_vector_m_s": 3.464735277332204e-12
+      },
+      {
+        "time_s": 0.54,
+        "speed_max_m_s": 1.4521230625027546e-11,
+        "component_abs_max_m_s": 1.4520968026606076e-11,
+        "rms_vector_m_s": 3.502671238462604e-12
+      },
+      {
+        "time_s": 0.55,
+        "speed_max_m_s": 1.4187827994574333e-11,
+        "component_abs_max_m_s": 1.418356275630818e-11,
+        "rms_vector_m_s": 3.502831675853024e-12
+      },
+      {
+        "time_s": 0.56,
+        "speed_max_m_s": 1.232613345642117e-11,
+        "component_abs_max_m_s": 1.2311294340714736e-11,
+        "rms_vector_m_s": 3.4337278416691435e-12
+      },
+      {
+        "time_s": 0.5700000000000001,
+        "speed_max_m_s": 1.0833298494240486e-11,
+        "component_abs_max_m_s": 1.082456834645103e-11,
+        "rms_vector_m_s": 3.3168361157662026e-12
+      },
+      {
+        "time_s": 0.58,
+        "speed_max_m_s": 1.121244311989297e-11,
+        "component_abs_max_m_s": 1.1139842998390389e-11,
+        "rms_vector_m_s": 3.1668722239396876e-12
+      },
+      {
+        "time_s": 0.59,
+        "speed_max_m_s": 1.2459615929459848e-11,
+        "component_abs_max_m_s": 1.2217966688981557e-11,
+        "rms_vector_m_s": 3.0769092503004895e-12
+      },
+      {
+        "time_s": 0.6,
+        "speed_max_m_s": 1.3330859202159343e-11,
+        "component_abs_max_m_s": 1.313087744837844e-11,
+        "rms_vector_m_s": 3.1347061921449236e-12
+      },
+      {
+        "time_s": 0.61,
+        "speed_max_m_s": 1.2830011809436177e-11,
+        "component_abs_max_m_s": 1.2323388240367461e-11,
+        "rms_vector_m_s": 3.1142909056847965e-12
+      },
+      {
+        "time_s": 0.62,
+        "speed_max_m_s": 1.2861210330265799e-11,
+        "component_abs_max_m_s": 1.1921741638110148e-11,
+        "rms_vector_m_s": 2.8827281331011774e-12
+      },
+      {
+        "time_s": 0.63,
+        "speed_max_m_s": 1.3217053581282387e-11,
+        "component_abs_max_m_s": 1.2562237096433866e-11,
+        "rms_vector_m_s": 2.5825578600694956e-12
+      },
+      {
+        "time_s": 0.64,
+        "speed_max_m_s": 1.3481733389291947e-11,
+        "component_abs_max_m_s": 1.3007928261916652e-11,
+        "rms_vector_m_s": 2.443836962750599e-12
+      },
+      {
+        "time_s": 0.65,
+        "speed_max_m_s": 1.4463715131825088e-11,
+        "component_abs_max_m_s": 1.4463715131825088e-11,
+        "rms_vector_m_s": 2.4906421611110446e-12
+      },
+      {
+        "time_s": 0.66,
+        "speed_max_m_s": 1.4905207321981177e-11,
+        "component_abs_max_m_s": 1.4905207321981177e-11,
+        "rms_vector_m_s": 2.4904669270737457e-12
+      },
+      {
+        "time_s": 0.67,
+        "speed_max_m_s": 1.2062284963317731e-11,
+        "component_abs_max_m_s": 1.2062284963317731e-11,
+        "rms_vector_m_s": 2.311531498461319e-12
+      },
+      {
+        "time_s": 0.68,
+        "speed_max_m_s": 7.307014365852203e-12,
+        "component_abs_max_m_s": 7.307014365852203e-12,
+        "rms_vector_m_s": 1.9953520878936842e-12
+      },
+      {
+        "time_s": 0.6900000000000001,
+        "speed_max_m_s": 6.593325039728634e-12,
+        "component_abs_max_m_s": 6.297622210332545e-12,
+        "rms_vector_m_s": 1.7139324606258637e-12
+      },
+      {
+        "time_s": 0.7000000000000001,
+        "speed_max_m_s": 6.073915792018893e-12,
+        "component_abs_max_m_s": 5.967777441872271e-12,
+        "rms_vector_m_s": 1.5228579804028862e-12
+      },
+      {
+        "time_s": 0.71,
+        "speed_max_m_s": 5.084322947091293e-12,
+        "component_abs_max_m_s": 5.079094667072978e-12,
+        "rms_vector_m_s": 1.4198396150085505e-12
+      },
+      {
+        "time_s": 0.72,
+        "speed_max_m_s": 3.908842636119726e-12,
+        "component_abs_max_m_s": 3.876774359221478e-12,
+        "rms_vector_m_s": 1.4173738753230418e-12
+      },
+      {
+        "time_s": 0.73,
+        "speed_max_m_s": 3.4614961445368953e-12,
+        "component_abs_max_m_s": 3.376830387911058e-12,
+        "rms_vector_m_s": 1.3838011461579234e-12
+      },
+      {
+        "time_s": 0.74,
+        "speed_max_m_s": 4.137841791079658e-12,
+        "component_abs_max_m_s": 3.872956224305446e-12,
+        "rms_vector_m_s": 1.36498067509842e-12
+      },
+      {
+        "time_s": 0.75,
+        "speed_max_m_s": 4.383905210372795e-12,
+        "component_abs_max_m_s": 4.116590377957358e-12,
+        "rms_vector_m_s": 1.3768853204558453e-12
+      },
+      {
+        "time_s": 0.76,
+        "speed_max_m_s": 4.709630639443249e-12,
+        "component_abs_max_m_s": 4.389558148182893e-12,
+        "rms_vector_m_s": 1.345824074941277e-12
+      },
+      {
+        "time_s": 0.77,
+        "speed_max_m_s": 4.287193010739227e-12,
+        "component_abs_max_m_s": 3.965376998975366e-12,
+        "rms_vector_m_s": 1.228722421825635e-12
+      },
+      {
+        "time_s": 0.78,
+        "speed_max_m_s": 3.4072039585856332e-12,
+        "component_abs_max_m_s": 3.1025627739091237e-12,
+        "rms_vector_m_s": 1.078408669868886e-12
+      },
+      {
+        "time_s": 0.79,
+        "speed_max_m_s": 3.215811687633975e-12,
+        "component_abs_max_m_s": 3.215811687633975e-12,
+        "rms_vector_m_s": 9.9294390766707e-13
+      },
+      {
+        "time_s": 0.8,
+        "speed_max_m_s": 3.1991927067140426e-12,
+        "component_abs_max_m_s": 3.1991927067140426e-12,
+        "rms_vector_m_s": 9.83401997340723e-13
+      },
+      {
+        "time_s": 0.81,
+        "speed_max_m_s": 3.123334968523626e-12,
+        "component_abs_max_m_s": 3.123334968523626e-12,
+        "rms_vector_m_s": 1.033575365916683e-12
+      },
+      {
+        "time_s": 0.8200000000000001,
+        "speed_max_m_s": 3.162059411004324e-12,
+        "component_abs_max_m_s": 3.0573282252197546e-12,
+        "rms_vector_m_s": 1.0915080534016974e-12
+      },
+      {
+        "time_s": 0.8300000000000001,
+        "speed_max_m_s": 2.751961432901369e-12,
+        "component_abs_max_m_s": 2.492478856244183e-12,
+        "rms_vector_m_s": 1.0870724287385635e-12
+      },
+      {
+        "time_s": 0.84,
+        "speed_max_m_s": 2.4442554531312107e-12,
+        "component_abs_max_m_s": 2.141948457590896e-12,
+        "rms_vector_m_s": 9.824482848418084e-13
+      },
+      {
+        "time_s": 0.85,
+        "speed_max_m_s": 2.216190555175024e-12,
+        "component_abs_max_m_s": 2.2025255232936097e-12,
+        "rms_vector_m_s": 8.333454956566616e-13
+      },
+      {
+        "time_s": 0.86,
+        "speed_max_m_s": 2.3343982886946205e-12,
+        "component_abs_max_m_s": 2.0420934423744217e-12,
+        "rms_vector_m_s": 7.722100305080977e-13
+      },
+      {
+        "time_s": 0.87,
+        "speed_max_m_s": 2.278128161139056e-12,
+        "component_abs_max_m_s": 2.010641058724336e-12,
+        "rms_vector_m_s": 8.308393841809095e-13
+      },
+      {
+        "time_s": 0.88,
+        "speed_max_m_s": 2.3707089257145834e-12,
+        "component_abs_max_m_s": 2.1601828508898608e-12,
+        "rms_vector_m_s": 8.97960063538558e-13
+      },
+      {
+        "time_s": 0.89,
+        "speed_max_m_s": 2.285760453645195e-12,
+        "component_abs_max_m_s": 2.22243592291577e-12,
+        "rms_vector_m_s": 8.998786155318883e-13
+      },
+      {
+        "time_s": 0.9,
+        "speed_max_m_s": 2.2793677072570305e-12,
+        "component_abs_max_m_s": 1.968349553402206e-12,
+        "rms_vector_m_s": 8.519697436532827e-13
+      },
+      {
+        "time_s": 0.91,
+        "speed_max_m_s": 2.0881604450870105e-12,
+        "component_abs_max_m_s": 2.0841695498657925e-12,
+        "rms_vector_m_s": 8.026989125956565e-13
+      },
+      {
+        "time_s": 0.92,
+        "speed_max_m_s": 2.152970979198866e-12,
+        "component_abs_max_m_s": 2.152970979198866e-12,
+        "rms_vector_m_s": 7.755746748803018e-13
+      },
+      {
+        "time_s": 0.93,
+        "speed_max_m_s": 2.540170388485339e-12,
+        "component_abs_max_m_s": 2.540170388485339e-12,
+        "rms_vector_m_s": 7.501955049365474e-13
+      },
+      {
+        "time_s": 0.9400000000000001,
+        "speed_max_m_s": 2.7543125461815066e-12,
+        "component_abs_max_m_s": 2.7543125461815066e-12,
+        "rms_vector_m_s": 7.043793701322989e-13
+      },
+      {
+        "time_s": 0.9500000000000001,
+        "speed_max_m_s": 2.6172782640786085e-12,
+        "component_abs_max_m_s": 2.6172782640786085e-12,
+        "rms_vector_m_s": 6.438010310195124e-13
+      },
+      {
+        "time_s": 0.96,
+        "speed_max_m_s": 2.1259046075383816e-12,
+        "component_abs_max_m_s": 2.1259046075383816e-12,
+        "rms_vector_m_s": 6.010372380255365e-13
+      },
+      {
+        "time_s": 0.97,
+        "speed_max_m_s": 1.431636060823451e-12,
+        "component_abs_max_m_s": 1.431636060823451e-12,
+        "rms_vector_m_s": 5.99359018573028e-13
+      },
+      {
+        "time_s": 0.98,
+        "speed_max_m_s": 1.8226075071637187e-12,
+        "component_abs_max_m_s": 1.8208812666752876e-12,
+        "rms_vector_m_s": 6.238108448446209e-13
+      },
+      {
+        "time_s": 0.99,
+        "speed_max_m_s": 1.997862011735781e-12,
+        "component_abs_max_m_s": 1.997862011735781e-12,
+        "rms_vector_m_s": 6.418099124490457e-13
+      },
+      {
+        "time_s": 1.0,
+        "speed_max_m_s": 2.302875457559741e-12,
+        "component_abs_max_m_s": 2.302875457559741e-12,
+        "rms_vector_m_s": 6.299651092183862e-13
+      }
+    ],
+    "meaning": "Unweighted nodal velocity samples; no physical-energy or exact-error interpretation"
+  },
+  "inputs": {
+    "directory": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run",
+    "metadata": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/metadata.json",
+      "sha256": "013f2c20678ee56a121a341f0294e93d8de1c2c32e664a16d7e05e397986fe16",
+      "bytes": 21329
+    },
+    "validation": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/validation.json",
+      "sha256": "bdce4ab1067203f99f744956dcce4c70fbd134c6bde9c178ccf079d8277c5044",
+      "bytes": 4659
+    },
+    "fields": {
+      "nodes.npy": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/nodes.npy",
+        "sha256": "e18420e48237cfec6b5af183ab1b06a8510d15f9b324cb949eb2aa2569e2c7b9",
+        "bytes": 9432784
+      },
+      "field_time_s.npy": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/field_time_s.npy",
+        "sha256": "bdf2fdaedcd0c8c3d2c7a42313a1d4ec5ba7b1bf14c2ff19aca4bf3fb0b4d06c",
+        "bytes": 936
+      },
+      "velocity_m_s.npy": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/velocity_m_s.npy",
+        "sha256": "563b14bd0839782bb8030e321605a25d246916a48d81ccfc8ec5b8c76cdbc881",
+        "bytes": 952698384
+      }
+    },
+    "selected_surface": {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_09/surface.npz",
+      "sha256": "ae30efca1498c8346d6ec70dea6f03784f932ca515f2c5ea0ae6d4cde48f74b7",
+      "bytes": 1131836
+    },
+    "surface_repeat_exact": false,
+    "numerical_repeat_verified": true,
+    "surface_repeat_comparison": {
+      "exact_values": false,
+      "numerically_equivalent": true,
+      "relative_l2": 7.674591076741693e-13,
+      "max_abs_m_s": 3.9903192749558055e-21,
+      "thresholds": {
+        "relative_l2_max": 1e-10,
+        "absolute_max_m_s": 1e-18
+      },
+      "late_window_independent": {
+        "time_window_s": [
+          0.5,
+          1.0
+        ],
+        "relative_l2": 1.8596682917282117e-10,
+        "relative_delta_objective": -2.2976177211259863e-13
+      },
+      "meaning": "Global repeat comparison passes the pre-existing thresholds; not bitwise identity or an independent physical-accuracy check",
+      "recorded_comparison": {
+        "exact_values": false,
+        "numerically_equivalent": true,
+        "exact_axes_and_node_ids": true,
+        "relative_l2": 7.674591076741784e-13,
+        "max_abs_m_s": 3.9903192749558055e-21,
+        "max_relative_to_global_peak": 3.1620026527179505e-13,
+        "max_difference_location": {
+          "time_s": 0.058,
+          "x_m": 345.0,
+          "component": "Vy"
+        },
+        "thresholds": {
+          "relative_l2_max": 1e-10,
+          "absolute_max_m_s": 1e-18
+        },
+        "threshold_source_file": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/verify_velocity_repeat.py",
+          "sha256": "263d32ed83172c865844a53c6068e674468d58ff608f608e396cad0f94cc459d"
+        },
+        "threshold_scope": "Both thresholds apply to the full0–1s record; late-window metrics are separate diagnostics",
+        "late_window": {
+          "interval_s": [
+            0.5,
+            1.0
+          ],
+          "relative_l2": 1.8596682917282272e-10,
+          "max_abs_m_s": 1.9158126614800287e-21,
+          "repeat_objective": 5.454252099881121e-10,
+          "selected_objective": 5.454252099882376e-10,
+          "relative_delta_objective": -2.3014091695106826e-13,
+          "thresholds_applied": false
+        },
+        "symmetry": {
+          "vx_odd_relative_l2": 9.254131013317272e-13,
+          "vy_even_relative_l2": 7.138190579988148e-13
+        },
+        "reference_surface": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_1s_3060_v1/runs/eval_09/surface.npz",
+          "sha256": "ae30efca1498c8346d6ec70dea6f03784f932ca515f2c5ea0ae6d4cde48f74b7"
+        },
+        "repeat_surface": {
+          "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/surface.npz",
+          "sha256": "7afb7063ad904d21a40fbbe64459482abb728d66cbb0faa83018203ded7f461b"
+        },
+        "interpretation": "Difference compatible with rounding-level repeat variability; its causal mechanism was not established"
+      },
+      "threshold_source_file": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/verify_velocity_repeat.py",
+        "sha256": "263d32ed83172c865844a53c6068e674468d58ff608f608e396cad0f94cc459d",
+        "bytes": 4828
+      },
+      "preserved_failed_metadata": {
+        "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_golden_fields_1s_3060_v1/run/metadata.failed.json",
+        "sha256": "70dd5550090bf9dd9807c4274d79d41ab0fad61725bc4946a0544e441058c88f",
+        "bytes": 18746
+      }
+    },
+    "all_node_surface_samples_exact": true
+  },
+  "videos": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_golden_fields_1s_v1/velocity_fields.mp4",
+      "sha256": "2bb1bbf2df1a6209ab82cd896d464751ff34f8c4d3728ca874a9f7ee4ace35da",
+      "bytes": 2424487,
+      "ffprobe": {
+        "width": 1800,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "10/1",
+        "duration": "10.100000",
+        "nb_read_frames": "101"
+      }
+    }
+  ],
+  "gif": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_golden_fields_1s_v1/velocity_fields_preview.gif",
+    "sha256": "f6001b0a57cc940caac5ba28eb979437f4e10c21c3372606f4efcb030b59a342",
+    "bytes": 7130400,
+    "frame_count": 101,
+    "duration_ms": 10100,
+    "size_px": [
+      1080,
+      432
+    ],
+    "derived_from": "MP4 preview at1080px width,128-color shared palette; full-resolution video is primary"
+  },
+  "previews": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_4_server_preparation/profile_golden_fields_1s_v1/velocity_fields_t050.png",
+      "sha256": "b3e450167fe9b4e0ee26be1be18b3cbc0e93582f576c1d70321149460bdb24db",
+      "bytes": 633955,
+      "physical_time_s": 0.5
+    }
+  ],
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_golden_animate.py",
+    "sha256": "4d4907d54d5bcacc94f3dbf52facba054d6b17a77c027a9b95ee5f3f4a7852d3"
+  },
+  "shared_helpers": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/velocity_animate.py",
+    "sha256": "829dd238a7a773f1a5d3eb31d5fbb504ff10137f0fabd13ed767d568960c935d"
+  },
+  "interpretation": "One selected homogeneous175m experiment; velocity visualization with nonlinear fixed color scales, not energy or an independent validation of absorbing boundaries"
+}

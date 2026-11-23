@@ -1,0 +1,34 @@
+{
+  "schema": "chapter14.launcher.v1",
+  "status": "completed",
+  "launcher_pid": 2,
+  "started_utc": "2026-11-17T18:15:57.202482+00:00",
+  "root": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/launcher_cpu_v1/completed",
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 3,
+      "command": [
+        "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+        "-c",
+        "print('gpu0 mock done')"
+      ],
+      "log": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/launcher_cpu_v1/completed/logs/gpu0.log",
+      "returncode": 0
+    },
+    {
+      "gpu": 1,
+      "pid": 4,
+      "command": [
+        "/home/antonov/Work/Areas/Seismic/SeismicDataset/.venv/bin/python",
+        "-c",
+        "print('gpu1 mock done')"
+      ],
+      "log": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/launcher_cpu_v1/completed/logs/gpu1.log",
+      "returncode": 0
+    }
+  ],
+  "failure_policy": "stop both; keep outputs, temporary work and SQLite reservations; no retry or release",
+  "finished_utc": "2026-11-17T18:15:57.457486+00:00",
+  "exit_code": 0
+}

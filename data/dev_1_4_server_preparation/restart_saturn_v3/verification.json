@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-18T15:03:30.860382+00:00",
+  "status": "passed",
+  "shape": [
+    1001,
+    70,
+    2
+  ],
+  "dtype": "float64",
+  "time_end_s": 1.0,
+  "source_file": "data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4/chunks/chunk_01_EFVB_00000_02999/models/00000/x000/surface.npz",
+  "metadata_sha_matches": true,
+  "gpu": "index, memory.used [MiB], utilization.gpu [%]\n0, 603 MiB, 96 %\n1, 603 MiB, 95 %\n",
+  "processes": "2295722 .venv/bin/python -m scripts.dev_1_4_server_preparation.production_launcher --root /home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4\n2295724 /home/antonov/SeismicDataset/.venv/bin/python -m scripts.dev_1_4_server_preparation.production_worker --gpu 0 --root /home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4 --source /home/antonov/SeismicDataset/src\n2295725 /home/antonov/SeismicDataset/.venv/bin/python -m scripts.dev_1_4_server_preparation.production_worker --gpu 1 --root /home/antonov/SeismicDataset/data/dev_1_4_server_preparation/efvb_chunk01_saturn_v4 --source /home/antonov/SeismicDataset/src\n"
+}

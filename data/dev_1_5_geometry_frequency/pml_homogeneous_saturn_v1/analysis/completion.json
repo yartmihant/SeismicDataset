@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "utc": "2026-11-21T12:39:07.275835+00:00",
+  "completed_runs": 10,
+  "gpu_arrays_verified": 40,
+  "artifact_count_verified": 19,
+  "movie_count": 4,
+  "frames_per_movie": 21,
+  "png_count": 14,
+  "html_links": 23,
+  "notebook_cells": 41,
+  "notebook_roundtrip_passed": true,
+  "notebook_executed_saved_results_only": true,
+  "mypy_files_passed": 5,
+  "files": {
+    "data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/analysis/metrics.json": "716226b827791a4a48beeb9dec432418406d1a186430395ac9e99358a3914602",
+    "data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/analysis/local_artifact_validation.json": "716e62b2c72d04b1506fd79438f665de43ac31295353c554a392a72ec6704715",
+    "data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1/server_completion.json": "2fd2ea488d0a04fa6b75850fad4e545e98af3967283842dd4f3ab644a0f3aa8a",
+    "dev_1_5_geometry_frequency.py": "9de187f4850b2db9cf6a32012c08daa3eabb69347314fdec58277793c7aba9e5",
+    "dev_1_5_geometry_frequency.ipynb": "278c304c78b8bd5e39df3ebffc8432d86e862b89e535aaf36d968e4e224c3450",
+    "dev_1_5_geometry_frequency_summary.md": "88b8fc4ba6226c34fc2a9c563b0486d5b1b291ff1e8bf6fb6305dc6079c51a9c"
+  },
+  "gallery": "img/dev_1_5_geometry_frequency/pml_homogeneous_v1/index.html",
+  "production_resumed": false,
+  "large_arrays_location": "antonov@saturn:/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_homogeneous_saturn_v1"
+}

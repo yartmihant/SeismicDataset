@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "embedded_coefficients": 78,
+  "bitwise_equal_standard_ALine_p5": true,
+  "main_positions": 36,
+  "boundary_positions": 6,
+  "first_factor_fastest": true,
+  "nodes": 1533876,
+  "elements": 61250,
+  "mesh_sha256": "17dcd9cb919f83b3e421c71bb52474672143f34cc93d181457af6cce0db13fd3"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T10:41:03.310087+00:00",
+  "mypy": "passed before CPU method checks",
+  "scope": "Analysis-method checks, no GPU calculation, no synthetic data presented as physical result",
+  "checks": {
+    "known_travelling_pulse_tau_expected_s": 0.27,
+    "known_travelling_pulse_tau_measured_s": 0.27,
+    "both_side_minimum_paths": "passed",
+    "three_consecutive_threshold": "passed",
+    "absent_threshold_returns_null": "passed",
+    "synthetic_decomposition_l2_ratio_expected": 100.0,
+    "synthetic_decomposition_l2_ratio_measured": 100.00000000000011,
+    "synthetic_decomposition_identity_relative_l2": 7.454168295735917e-17
+  },
+  "code_sha256": "f279a27594966ebc6a83fac44aee7119b03bf0c6ef1bf6d3da57a1bd9f87108e"
+}

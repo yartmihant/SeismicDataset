@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "checked_utc": "2026-11-22T23:09:53.399575+00:00",
+  "runs": 32,
+  "probes": 2,
+  "verified_array_files": 128,
+  "source_repeat_pairs": 21,
+  "code_commit": "11bed2b",
+  "native_snapshot": "docs/runtime_sources/seismic_fixed_pml_orders_v1/provenance.json",
+  "notebook": {
+    "file": "dev_1_5_geometry_frequency.ipynb",
+    "cells": 65,
+    "executed": true,
+    "syntax_format_roundtrip": "OK"
+  },
+  "artifact_validation": "artifact_validation.json",
+  "saturn_compute_processes": [],
+  "saturn_free_bytes": 65289756672,
+  "production_queue": "stopped, not modified",
+  "large_arrays": "Saturn only",
+  "report": "img/dev_1_5_geometry_frequency/pml_p6_sources7_v1/index.html"
+}

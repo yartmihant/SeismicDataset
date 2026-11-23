@@ -1,0 +1,37 @@
+{
+  "grid": "coarse",
+  "receiver_method": "SEM edge polynomial interpolation at fixed 5m positions; monomials through degree p verified",
+  "model": 12404,
+  "order": 6,
+  "beta": 0.037037037037037035,
+  "gamma": 0.5,
+  "safety": 0.8,
+  "dt_s": 4.545454545454545e-05,
+  "steps": 22000,
+  "steps_per_ms": 22,
+  "lambda_max": 111579433.0804529,
+  "lambda_max_damping": 15613.528178720448,
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/mesh_q2.npz",
+    "sha256": "44b5fcce00209184df0e5ceecd123bc24f485ca5e3b5c36b74379dfaed97b3fd"
+  },
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_tenzor_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "098d0eea8ab9a50c1ffc33471128fbaa0c3ba1d9ac778ba9a9a9d7032ee12b56"
+  },
+  "code": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_4_server_preparation/coarse_order_run.py",
+    "sha256": "ede1c2423781b61ca6f7ed0364491925033c70347f65be990ca820e15af058d3"
+  },
+  "alpha_max_s_inv": 196.76847003046814,
+  "source_table_step_s": 1e-06,
+  "source_x_m": 350.0,
+  "nodes": 336973,
+  "status": "completed",
+  "run_seconds": 4.730596013367176,
+  "total_seconds": 5.801409022882581,
+  "surface": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_4_server_preparation/coarse_order_v1/12404/coarse/p6_beta0.03703704_cfl0.8/surface.npz",
+    "sha256": "124f53bd360061b88c9f1a7cf94ef9c909bf173ddac3cad3f60c2eba666323d4"
+  }
+}

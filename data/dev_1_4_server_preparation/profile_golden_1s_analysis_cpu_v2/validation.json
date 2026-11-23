@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "utc": "2026-11-18T11:41:23.567436+00:00",
+  "scope": "Synthetic adapter/history/plot checks on CPU; no wave solver execution",
+  "checks": [
+    "Historical2s controls read as exact1001-sample prefixes; reconstructed force hashes match",
+    "Complete nine-evaluation synthetic result, ledgers and before/after contraction history reloaded and verified",
+    "Known quadratic minimum0.6 remains in final interval; minimum observed sample and objective recovered",
+    "Both all70-receiver peak gates and x5/175/345 summaries present",
+    "Nonfinite history and wrong final interval rejected",
+    "Six PNG/SVG pairs constructed in a temporary directory and removed"
+  ],
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/profile_golden_analysis.py",
+    "sha256": "8bfb7ea2e148381eac7609c2a3b5c60cea5dfee1171b8d2715fa9b9b46c2fe64"
+  },
+  "checker": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/check_profile_golden_analysis.py",
+    "sha256": "77577955e970c95c6264d4c0c4568dc2a14f9cc6b2433f383759d23ccfc1e16c"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "mesh": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/series_v1/meshes/1400x700_two_layer/mesh_q2.npz",
+    "sha256": "17dcd9cb919f83b3e421c71bb52474672143f34cc93d181457af6cce0db13fd3"
+  },
+  "orders": [
+    {
+      "order": 4,
+      "nodes": 982101,
+      "elements": 61250,
+      "surface_nodes": 1401,
+      "damping_nodes": 355461,
+      "zero_alpha_interface_nodes": 2241,
+      "positive_alpha_nodes": 353220,
+      "dense_profile_bitwise_equal": true,
+      "fixed_tables_bitwise_equal": false,
+      "fixed_tables_max_abs_difference": 1.7763568394002505e-15,
+      "fixed_tables_tolerance": "rtol=1e-14, atol=1e-14",
+      "fixed_coefficient_count": 55
+    },
+    {
+      "order": 5,
+      "nodes": 1533876,
+      "elements": 61250,
+      "surface_nodes": 1751,
+      "damping_nodes": 554576,
+      "zero_alpha_interface_nodes": 2381,
+      "positive_alpha_nodes": 552195,
+      "dense_profile_bitwise_equal": true,
+      "fixed_tables_bitwise_equal": false,
+      "fixed_tables_max_abs_difference": 1.1102230246251565e-15,
+      "fixed_tables_tolerance": "rtol=1e-14, atol=1e-14",
+      "fixed_coefficient_count": 78
+    }
+  ]
+}

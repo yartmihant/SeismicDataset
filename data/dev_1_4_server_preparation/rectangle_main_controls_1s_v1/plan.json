@@ -1,0 +1,32 @@
+{
+  "variants": [
+    "reflecting",
+    "layer_no_abc",
+    "zero_abc"
+  ],
+  "extent_m": [
+    -175.0,
+    875.0,
+    -875.0,
+    0.0
+  ],
+  "layer_width_m": 175.0,
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/mesh_q2.npz",
+    "sha256": "10ba932d3a2214e98b41c0b63585c3ce08ae2985ca4d3c946a04a410b69318ef"
+  },
+  "stability": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/homogeneous_3060_v1/meshes/padded/stability.json",
+    "sha256": "5d898385fca7ac9d7f89585560cafc2035085ce967baf7640135ffc784d8eea2"
+  },
+  "code": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/scripts/dev_1_4_server_preparation/rectangle_main_controls_run.py",
+    "sha256": "dac17c181d9ae1c5cedcba9be5fac1462f0c30fb143a205a75acbf5279346608"
+  },
+  "duration_s": 1.0,
+  "window_s": [
+    0.5,
+    1.0
+  ],
+  "scope": "Three missing controls; reuse historical main and k1ABC at identical original rectangle"
+}

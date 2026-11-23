@@ -1,0 +1,1966 @@
+{
+  "status": "completed",
+  "baseline": "p4 L100 PML+ABC at native CFL0.8",
+  "cases": {
+    "L100": {
+      "order": 4,
+      "thickness_m": 100,
+      "ABC": true,
+      "dmax_s_inv": 302.9050689833667,
+      "native_cfl_safety": 0.8,
+      "native_sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583",
+      "nodes": 821121,
+      "steps": 34000,
+      "early_boundary_error_relative_l2": 9.610996600220658e-14,
+      "repeat_relative_l2": [
+        1.4512990295359358e-13,
+        1.44075622029469e-13
+      ],
+      "variants": {
+        "native": {
+          "dt_s": 2.9411764705882354e-05,
+          "median_run_seconds": 13.123864731751382,
+          "run_seconds": [
+            13.012486880645156,
+            13.125398283824325,
+            13.123864731751382
+          ],
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 6.5429056909953526e-24,
+              "peak_vector_m_s": 6.762929614056549e-13,
+              "relative_l2_to_fine_wavefield": 8.06468821289007e-05
+            },
+            "all_late": {
+              "energy_proxy": 2.7082802428642238e-24,
+              "peak_vector_m_s": 3.148457926265149e-13,
+              "relative_l2_to_fine_wavefield": 3.2139132605473097
+            },
+            "outside20m_full": {
+              "energy_proxy": 6.473900915294349e-24,
+              "peak_vector_m_s": 6.762929614056549e-13,
+              "relative_l2_to_fine_wavefield": 8.373521999399418e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.641748080246385e-24,
+              "peak_vector_m_s": 3.148457926265149e-13,
+              "relative_l2_to_fine_wavefield": 3.179696365084722
+            },
+            "first_PP": {
+              "relative_l2": 4.804975534818642e-05,
+              "peak_delta_to_first": 5.144410297988031e-05
+            }
+          },
+          "boundary_error_same_dt": {
+            "all_full": {
+              "energy_proxy": 3.0094585931855357e-24,
+              "peak_vector_m_s": 3.1485091374452164e-13,
+              "relative_l2_to_fine_wavefield": 5.4694850275118775e-05
+            },
+            "all_late": {
+              "energy_proxy": 2.70827843265243e-24,
+              "peak_vector_m_s": 3.1485091374452164e-13,
+              "relative_l2_to_fine_wavefield": 3.213912186458933
+            },
+            "outside20m_full": {
+              "energy_proxy": 2.9428198990150667e-24,
+              "peak_vector_m_s": 3.1485091374452164e-13,
+              "relative_l2_to_fine_wavefield": 5.645559431196188e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.6417462713253902e-24,
+              "peak_vector_m_s": 3.1485091374452164e-13,
+              "relative_l2_to_fine_wavefield": 3.1796952764456234
+            },
+            "first_PP": {
+              "relative_l2": 1.5301460385259933e-11,
+              "peak_delta_to_first": 2.7330657954283165e-11
+            }
+          },
+          "reference_time_error": {
+            "all_full": {
+              "energy_proxy": 3.53333017618303e-24,
+              "peak_vector_m_s": 6.791459148368712e-13,
+              "relative_l2_to_fine_wavefield": 5.926446427286145e-05
+            },
+            "all_late": {
+              "energy_proxy": 9.283987773205578e-32,
+              "peak_vector_m_s": 1.287900686837027e-16,
+              "relative_l2_to_fine_wavefield": 0.0005950516046509936
+            },
+            "outside20m_full": {
+              "energy_proxy": 3.53096406939772e-24,
+              "peak_vector_m_s": 6.791459148368712e-13,
+              "relative_l2_to_fine_wavefield": 6.184032890022172e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 8.742332447043949e-32,
+              "peak_vector_m_s": 8.460903338164431e-17,
+              "relative_l2_to_fine_wavefield": 0.0005784337286997677
+            },
+            "first_PP": {
+              "relative_l2": 4.8049755364412485e-05,
+              "peak_delta_to_first": 5.144410648221265e-05
+            }
+          },
+          "difference_to_baseline": {
+            "all_full": {
+              "energy_proxy": 0.0,
+              "peak_vector_m_s": 0.0,
+              "relative_l2_to_fine_wavefield": 0.0
+            },
+            "all_late": {
+              "energy_proxy": 0.0,
+              "peak_vector_m_s": 0.0,
+              "relative_l2_to_fine_wavefield": 0.0
+            },
+            "outside20m_full": {
+              "energy_proxy": 0.0,
+              "peak_vector_m_s": 0.0,
+              "relative_l2_to_fine_wavefield": 0.0
+            },
+            "outside20m_late": {
+              "energy_proxy": 0.0,
+              "peak_vector_m_s": 0.0,
+              "relative_l2_to_fine_wavefield": 0.0
+            },
+            "first_PP": {
+              "relative_l2": 0.0,
+              "peak_delta_to_first": 0.0
+            }
+          },
+          "speedup_vs_baseline": 1.0,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 1.0,
+              "peak": 1.0
+            },
+            "outside20m_full": {
+              "energy": 1.0,
+              "peak": 1.0
+            },
+            "all_late": {
+              "energy": 1.0,
+              "peak": 1.0
+            },
+            "outside20m_late": {
+              "energy": 1.0,
+              "peak": 1.0
+            }
+          },
+          "boundary_error_same_dt_ratio_to_baseline": {
+            "all_full": {
+              "energy": 1.0,
+              "peak": 1.0
+            },
+            "outside20m_full": {
+              "energy": 1.0,
+              "peak": 1.0
+            },
+            "all_late": {
+              "energy": 1.0,
+              "peak": 1.0
+            },
+            "outside20m_late": {
+              "energy": 1.0,
+              "peak": 1.0
+            }
+          },
+          "faster_and_no_worse_total_error": false,
+          "faster_and_no_worse_boundary_error_same_dt": false
+        },
+        "half_dt": {
+          "dt_s": 1.4705882352941177e-05,
+          "single_run_seconds": 25.764718802645802,
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 3.0101568596263926e-24,
+              "peak_vector_m_s": 3.1493382632636497e-13,
+              "relative_l2_to_fine_wavefield": 5.47011951644351e-05
+            },
+            "all_late": {
+              "energy_proxy": 2.7087385091535537e-24,
+              "peak_vector_m_s": 3.1493382632636497e-13,
+              "relative_l2_to_fine_wavefield": 3.214185161102879
+            },
+            "outside20m_full": {
+              "energy_proxy": 2.943509353873814e-24,
+              "peak_vector_m_s": 3.1493382632636497e-13,
+              "relative_l2_to_fine_wavefield": 5.64622072386128e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.6421991702606635e-24,
+              "peak_vector_m_s": 3.1493382632636497e-13,
+              "relative_l2_to_fine_wavefield": 3.1799678270127507
+            },
+            "first_PP": {
+              "relative_l2": 3.962618645198768e-11,
+              "peak_delta_to_first": 8.462013068250874e-11
+            }
+          },
+          "difference_from_native": {
+            "all_full": {
+              "energy_proxy": 3.533299996524525e-24,
+              "peak_vector_m_s": 6.788255833808858e-13,
+              "relative_l2_to_fine_wavefield": 5.926421117096842e-05
+            },
+            "all_late": {
+              "energy_proxy": 5.820142097679826e-30,
+              "peak_vector_m_s": 4.581860311625202e-16,
+              "relative_l2_to_fine_wavefield": 0.004711445207207192
+            },
+            "outside20m_full": {
+              "energy_proxy": 3.530933601149877e-24,
+              "peak_vector_m_s": 6.788255833808858e-13,
+              "relative_l2_to_fine_wavefield": 6.184006209340986e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 5.610642070001323e-30,
+              "peak_vector_m_s": 3.859034280364604e-16,
+              "relative_l2_to_fine_wavefield": 0.004633895461419864
+            },
+            "first_PP": {
+              "relative_l2": 4.80497555789952e-05,
+              "peak_delta_to_first": 5.144411239617015e-05
+            }
+          },
+          "speedup_vs_baseline": 0.5093734898594616,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 0.46006422861468244,
+              "peak": 0.46567662876719035
+            },
+            "outside20m_full": {
+              "energy": 0.454673216718514,
+              "peak": 0.46567662876719035
+            },
+            "all_late": {
+              "energy": 1.0001692093314705,
+              "peak": 1.000279608944797
+            },
+            "outside20m_late": {
+              "energy": 1.0001707543643739,
+              "peak": 1.000279608944797
+            }
+          }
+        }
+      },
+      "field_time_s": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ],
+      "pml_peak_m_s": [
+        0.0,
+        2.2702961145562666e-130,
+        3.5275910005222916e-66,
+        6.7965556448659015e-37,
+        5.881289478320004e-11,
+        5.56227386776895e-10,
+        3.0831349828140595e-10,
+        2.7185183576845353e-09,
+        2.042166840069146e-09,
+        8.250711486035123e-10,
+        2.95777649390463e-10,
+        5.99934400683525e-12,
+        3.6786783535123075e-12,
+        2.4522648924384135e-12,
+        9.546578497623325e-13,
+        1.2218752823864399e-12,
+        1.8523951654044594e-12,
+        2.867669853759597e-12,
+        4.490702895726445e-12,
+        7.083836174219195e-12,
+        1.1226460877969424e-11
+      ],
+      "half_pml_peak_m_s": [
+        0.0,
+        9.12802399721948e-131,
+        2.81440116657213e-66,
+        5.2137316556222784e-37,
+        5.881344074995181e-11,
+        5.562270216883481e-10,
+        3.083130641909829e-10,
+        2.7182432233152594e-09,
+        2.0423831959527247e-09,
+        8.250649425767689e-10,
+        2.9581291748005777e-10,
+        5.9992574887241564e-12,
+        3.678834513741802e-12,
+        2.4522803951134103e-12,
+        9.547095342710011e-13,
+        1.2219627139660833e-12,
+        1.8525276939244314e-12,
+        2.867955574804516e-12,
+        4.491161854946751e-12,
+        7.084584430458542e-12,
+        1.1227689632692028e-11
+      ],
+      "core_kinetic_j_per_m": [
+        0.0,
+        3.272437528320398e-11,
+        6.544692345936446e-11,
+        6.54572421248082e-11,
+        6.544773576632573e-11,
+        5.547554405593164e-11,
+        5.0979322703049784e-11,
+        4.7979634171899435e-11,
+        9.589935522070876e-12,
+        1.8926512647777177e-12,
+        1.0416627030398826e-15,
+        3.526088311998191e-16,
+        8.03136851144586e-17,
+        1.756785594856351e-17,
+        1.849001328902037e-18,
+        8.522992779613689e-19,
+        6.688358073698214e-19,
+        5.007489741174716e-19,
+        2.998311327023463e-19,
+        1.2631747778140672e-19,
+        2.3027599760034208e-20
+      ],
+      "pml_growth_07_to_1": 11.759669582944628,
+      "half_pml_growth_07_to_1": 11.760320002738098,
+      "pml_monotone_after07": true
+    },
+    "P175_noabc": {
+      "order": 4,
+      "thickness_m": 175,
+      "ABC": false,
+      "dmax_s_inv": 173.0886108476381,
+      "native_cfl_safety": 0.8,
+      "native_sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583",
+      "nodes": 982101,
+      "steps": 9000,
+      "early_boundary_error_relative_l2": 2.0641297804081933e-14,
+      "repeat_relative_l2": [
+        2.3031827435117014e-14,
+        2.3203491289348365e-14
+      ],
+      "variants": {
+        "native": {
+          "dt_s": 0.00011111111111111112,
+          "median_run_seconds": 4.915088196285069,
+          "run_seconds": [
+            4.915088196285069,
+            4.905986559577286,
+            4.9237891137599945
+          ],
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 1.8445757675059147e-21,
+              "peak_vector_m_s": 1.2681983322582504e-11,
+              "relative_l2_to_fine_wavefield": 0.0013540992611841445
+            },
+            "all_late": {
+              "energy_proxy": 2.5252484762043765e-22,
+              "peak_vector_m_s": 6.188529137657429e-12,
+              "relative_l2_to_fine_wavefield": 31.034118179829097
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.826297837073858e-21,
+              "peak_vector_m_s": 1.2681983322582504e-11,
+              "relative_l2_to_fine_wavefield": 0.0014064067560405498
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.5195249033365618e-22,
+              "peak_vector_m_s": 6.188529137657429e-12,
+              "relative_l2_to_fine_wavefield": 31.05269358053733
+            },
+            "first_PP": {
+              "relative_l2": 0.0008992326899302358,
+              "peak_delta_to_first": 0.0009026342865159293
+            }
+          },
+          "boundary_error_same_dt": {
+            "all_full": {
+              "energy_proxy": 6.050324006711927e-22,
+              "peak_vector_m_s": 6.398676196343858e-12,
+              "relative_l2_to_fine_wavefield": 0.0007755174385610939
+            },
+            "all_late": {
+              "energy_proxy": 2.5252709716199804e-22,
+              "peak_vector_m_s": 6.188555371203941e-12,
+              "relative_l2_to_fine_wavefield": 31.034256408569394
+            },
+            "outside20m_full": {
+              "energy_proxy": 5.8758549158961435e-22,
+              "peak_vector_m_s": 6.398676196343858e-12,
+              "relative_l2_to_fine_wavefield": 0.000797738722783892
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.51954750184907e-22,
+              "peak_vector_m_s": 6.188555371203941e-12,
+              "relative_l2_to_fine_wavefield": 31.05283284153646
+            },
+            "first_PP": {
+              "relative_l2": 1.6761274204614766e-12,
+              "peak_delta_to_first": 2.3980184113695295e-12
+            }
+          },
+          "reference_time_error": {
+            "all_full": {
+              "energy_proxy": 1.2397992915174895e-21,
+              "peak_vector_m_s": 1.2709980055888323e-11,
+              "relative_l2_to_fine_wavefield": 0.001110140491728496
+            },
+            "all_late": {
+              "energy_proxy": 1.4407348010682222e-30,
+              "peak_vector_m_s": 3.232686915567707e-16,
+              "relative_l2_to_fine_wavefield": 0.002344117483871055
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.2389683697285664e-21,
+              "peak_vector_m_s": 1.2709980055888323e-11,
+              "relative_l2_to_fine_wavefield": 0.0011583912041273872
+            },
+            "outside20m_late": {
+              "energy_proxy": 1.4333637582056887e-30,
+              "peak_vector_m_s": 3.232686915567707e-16,
+              "relative_l2_to_fine_wavefield": 0.0023421686295790837
+            },
+            "first_PP": {
+              "relative_l2": 0.00089923268993076,
+              "peak_delta_to_first": 0.0009026342872138554
+            }
+          },
+          "difference_to_baseline": {
+            "all_full": {
+              "energy_proxy": 1.721393760013481e-21,
+              "peak_vector_m_s": 1.2005809591303967e-11,
+              "relative_l2_to_fine_wavefield": 0.0013081042715402413
+            },
+            "all_late": {
+              "energy_proxy": 2.5774325611077615e-22,
+              "peak_vector_m_s": 6.315596150663011e-12,
+              "relative_l2_to_fine_wavefield": 31.353137431532335
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.703141580816358e-21,
+              "peak_vector_m_s": 1.2005809591303967e-11,
+              "relative_l2_to_fine_wavefield": 0.0013581586926722786
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.5711745500544053e-22,
+              "peak_vector_m_s": 6.315596150663011e-12,
+              "relative_l2_to_fine_wavefield": 31.369365217599068
+            },
+            "first_PP": {
+              "relative_l2": 0.0008512437208717807,
+              "peak_delta_to_first": 0.0008516189970362631
+            }
+          },
+          "speedup_vs_baseline": 2.6701178509209025,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 281.91996868371564,
+              "peak": 18.752203625220904
+            },
+            "outside20m_full": {
+              "energy": 282.1016047309741,
+              "peak": 18.752203625220904
+            },
+            "all_late": {
+              "energy": 93.24177152116738,
+              "peak": 19.65574666261638
+            },
+            "outside20m_late": {
+              "energy": 95.37339772010267,
+              "peak": 19.65574666261638
+            }
+          },
+          "boundary_error_same_dt_ratio_to_baseline": {
+            "all_full": {
+              "energy": 201.04360367050643,
+              "peak": 20.32287637423188
+            },
+            "outside20m_full": {
+              "energy": 199.66749979714135,
+              "peak": 20.32287637423188
+            },
+            "all_late": {
+              "energy": 93.24266446071366,
+              "peak": 19.655510278193123
+            },
+            "outside20m_late": {
+              "energy": 95.37431846492161,
+              "peak": 19.655510278193123
+            }
+          },
+          "faster_and_no_worse_total_error": false,
+          "faster_and_no_worse_boundary_error_same_dt": false
+        },
+        "half_dt": {
+          "dt_s": 5.555555555555556e-05,
+          "single_run_seconds": 9.2209383090958,
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 6.74737405170327e-22,
+              "peak_vector_m_s": 6.3990671739038634e-12,
+              "relative_l2_to_fine_wavefield": 0.0008189731147690858
+            },
+            "all_late": {
+              "energy_proxy": 2.529876505720809e-22,
+              "peak_vector_m_s": 6.189950506681628e-12,
+              "relative_l2_to_fine_wavefield": 31.0625433170439
+            },
+            "outside20m_full": {
+              "energy_proxy": 6.572294054423147e-22,
+              "peak_vector_m_s": 6.3990671739038634e-12,
+              "relative_l2_to_fine_wavefield": 0.0008436914241998837
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.5241384330127635e-22,
+              "peak_vector_m_s": 6.189950506681628e-12,
+              "relative_l2_to_fine_wavefield": 31.081111041454573
+            },
+            "first_PP": {
+              "relative_l2": 0.00021247066671997448,
+              "peak_delta_to_first": 0.00021667105240406466
+            }
+          },
+          "difference_from_native": {
+            "all_full": {
+              "energy_proxy": 7.231967090297726e-22,
+              "peak_vector_m_s": 9.704297827993285e-12,
+              "relative_l2_to_fine_wavefield": 0.0008478723491200625
+            },
+            "all_late": {
+              "energy_proxy": 9.725115411031248e-28,
+              "peak_vector_m_s": 1.2428963391963561e-14,
+              "relative_l2_to_fine_wavefield": 0.060902445629201364
+            },
+            "outside20m_full": {
+              "energy_proxy": 7.227119401608533e-22,
+              "peak_vector_m_s": 9.704297827993285e-12,
+              "relative_l2_to_fine_wavefield": 0.0008847238939921829
+            },
+            "outside20m_late": {
+              "energy_proxy": 9.69248717534169e-28,
+              "peak_vector_m_s": 1.2428963391963561e-14,
+              "relative_l2_to_fine_wavefield": 0.06090564792799992
+            },
+            "first_PP": {
+              "relative_l2": 0.0006868091555952909,
+              "peak_delta_to_first": 0.0006868977183692417
+            }
+          },
+          "speedup_vs_baseline": 1.4232678163355266,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 103.12503909370596,
+              "peak": 9.461975118894616
+            },
+            "outside20m_full": {
+              "energy": 101.5198431427387,
+              "peak": 9.461975118894616
+            },
+            "all_late": {
+              "energy": 93.41265596079015,
+              "peak": 19.66026115529021
+            },
+            "outside20m_late": {
+              "energy": 95.54803699440363,
+              "peak": 19.66026115529021
+            }
+          }
+        }
+      },
+      "field_time_s": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ],
+      "pml_peak_m_s": [
+        0.0,
+        2.867126489985671e-114,
+        8.59470014185726e-64,
+        7.883979441769993e-34,
+        5.880400036691336e-11,
+        5.889518156829967e-10,
+        3.277617884463432e-10,
+        2.7234304735513364e-09,
+        4.738257417561625e-09,
+        8.362472610402079e-10,
+        5.652267543002747e-10,
+        4.772928096351603e-11,
+        4.920472731379058e-11,
+        5.073111785478208e-11,
+        4.913786150917684e-11,
+        4.9199621733977355e-11,
+        3.4507649265740114e-11,
+        1.2743279141897077e-12,
+        7.464251900623595e-13,
+        3.0414001262566603e-13,
+        2.7999193047115054e-13
+      ],
+      "half_pml_peak_m_s": [
+        0.0,
+        5.38685014105505e-129,
+        1.2938803383418876e-65,
+        1.257670565536237e-36,
+        5.881114677144644e-11,
+        5.889648162209837e-10,
+        3.2775475083025343e-10,
+        2.7194444439190918e-09,
+        4.7410635446878325e-09,
+        8.36253313788498e-10,
+        5.653564568113418e-10,
+        4.783425835578167e-11,
+        4.936561477545175e-11,
+        5.094929028025887e-11,
+        4.939551708874071e-11,
+        4.949828441214481e-11,
+        3.479727803750171e-11,
+        1.277728399698748e-12,
+        7.52282580898871e-13,
+        3.037268005063319e-13,
+        2.818469852454714e-13
+      ],
+      "core_kinetic_j_per_m": [
+        0.0,
+        3.272099943763945e-11,
+        6.543963228807372e-11,
+        6.544932676026814e-11,
+        6.543921049914019e-11,
+        5.546645335363666e-11,
+        5.097149367358746e-11,
+        4.796622602274195e-11,
+        9.588091570428089e-12,
+        1.890267278574449e-12,
+        1.437985898830473e-15,
+        6.891682200187864e-16,
+        3.8391129611257187e-16,
+        2.803167506958842e-16,
+        6.182005582045734e-17,
+        4.9620242996636244e-17,
+        1.433723822564187e-17,
+        3.1356045362057356e-18,
+        1.6241993890533484e-18,
+        7.939940934006245e-19,
+        3.29683322509129e-19
+      ],
+      "pml_growth_07_to_1": 0.00569808945427672,
+      "half_pml_growth_07_to_1": 0.005705922356053563,
+      "pml_monotone_after07": false
+    },
+    "P250_noabc": {
+      "order": 4,
+      "thickness_m": 250,
+      "ABC": false,
+      "dmax_s_inv": 173.0886108476381,
+      "native_cfl_safety": 0.8,
+      "native_sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583",
+      "nodes": 1157481,
+      "steps": 9000,
+      "early_boundary_error_relative_l2": 2.0826702573428822e-14,
+      "repeat_relative_l2": [
+        2.371939620590626e-14,
+        2.331410086872724e-14
+      ],
+      "variants": {
+        "native": {
+          "dt_s": 0.00011111111111111112,
+          "median_run_seconds": 6.0851312186568975,
+          "run_seconds": [
+            6.04466893710196,
+            6.0851312186568975,
+            6.0976802334189415
+          ],
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 1.247345146879813e-21,
+              "peak_vector_m_s": 1.2707109280879479e-11,
+              "relative_l2_to_fine_wavefield": 0.001113513719959856
+            },
+            "all_late": {
+              "energy_proxy": 7.445068325698819e-24,
+              "peak_vector_m_s": 7.506110147268868e-13,
+              "relative_l2_to_fine_wavefield": 5.328705202617863
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.2463135428514282e-21,
+              "peak_vector_m_s": 1.2707109280879479e-11,
+              "relative_l2_to_fine_wavefield": 0.001161819867316581
+            },
+            "outside20m_late": {
+              "energy_proxy": 7.244696659026926e-24,
+              "peak_vector_m_s": 7.506110147268868e-13,
+              "relative_l2_to_fine_wavefield": 5.26562653064215
+            },
+            "first_PP": {
+              "relative_l2": 0.0008992326899308659,
+              "peak_delta_to_first": 0.0009026342869470187
+            }
+          },
+          "boundary_error_same_dt": {
+            "all_full": {
+              "energy_proxy": 7.633406044064243e-24,
+              "peak_vector_m_s": 7.506775959615288e-13,
+              "relative_l2_to_fine_wavefield": 8.710868023398704e-05
+            },
+            "all_late": {
+              "energy_proxy": 7.444665568447786e-24,
+              "peak_vector_m_s": 7.506775959615288e-13,
+              "relative_l2_to_fine_wavefield": 5.328561066688455
+            },
+            "outside20m_full": {
+              "energy_proxy": 7.432709654858122e-24,
+              "peak_vector_m_s": 7.506775959615288e-13,
+              "relative_l2_to_fine_wavefield": 8.972195450729627e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 7.244279374829426e-24,
+              "peak_vector_m_s": 7.506775959615288e-13,
+              "relative_l2_to_fine_wavefield": 5.265474882168425
+            },
+            "first_PP": {
+              "relative_l2": 1.5731656871882518e-12,
+              "peak_delta_to_first": 2.1161770694802697e-12
+            }
+          },
+          "reference_time_error": {
+            "all_full": {
+              "energy_proxy": 1.2397992915174895e-21,
+              "peak_vector_m_s": 1.2709980055888323e-11,
+              "relative_l2_to_fine_wavefield": 0.001110140491728496
+            },
+            "all_late": {
+              "energy_proxy": 1.4407348010682222e-30,
+              "peak_vector_m_s": 3.232686915567707e-16,
+              "relative_l2_to_fine_wavefield": 0.002344117483871055
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.2389683697285664e-21,
+              "peak_vector_m_s": 1.2709980055888323e-11,
+              "relative_l2_to_fine_wavefield": 0.0011583912041273872
+            },
+            "outside20m_late": {
+              "energy_proxy": 1.4333637582056887e-30,
+              "peak_vector_m_s": 3.232686915567707e-16,
+              "relative_l2_to_fine_wavefield": 0.0023421686295790837
+            },
+            "first_PP": {
+              "relative_l2": 0.00089923268993076,
+              "peak_delta_to_first": 0.0009026342872138554
+            }
+          },
+          "difference_to_baseline": {
+            "all_full": {
+              "energy_proxy": 1.1216033251434602e-21,
+              "peak_vector_m_s": 1.2031029983807296e-11,
+              "relative_l2_to_fine_wavefield": 0.0010558978260726416
+            },
+            "all_late": {
+              "energy_proxy": 1.0203631716091355e-23,
+              "peak_vector_m_s": 8.321359401113933e-13,
+              "relative_l2_to_fine_wavefield": 6.238278197029998
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.1205911356257707e-21,
+              "peak_vector_m_s": 1.2031029983807296e-11,
+              "relative_l2_to_fine_wavefield": 0.0011016629221143291
+            },
+            "outside20m_late": {
+              "energy_proxy": 9.936480436383427e-24,
+              "peak_vector_m_s": 8.321359401113933e-13,
+              "relative_l2_to_fine_wavefield": 6.166748559797775
+            },
+            "first_PP": {
+              "relative_l2": 0.0008512437208724185,
+              "peak_delta_to_first": 0.0008516189974673525
+            }
+          },
+          "speedup_vs_baseline": 2.1567102269732263,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 190.64085679799214,
+              "peak": 18.789356101634013
+            },
+            "outside20m_full": {
+              "energy": 192.5135338273496,
+              "peak": 18.789356101634013
+            },
+            "all_late": {
+              "energy": 2.749002192559313,
+              "peak": 2.3840592198012867
+            },
+            "outside20m_late": {
+              "energy": 2.742387403704006,
+              "peak": 2.3840592198012867
+            }
+          },
+          "boundary_error_same_dt_ratio_to_baseline": {
+            "all_full": {
+              "energy": 2.5364715305766086,
+              "peak": 2.3842319116489796
+            },
+            "outside20m_full": {
+              "energy": 2.5257100026222394,
+              "peak": 2.3842319116489796
+            },
+            "all_late": {
+              "energy": 2.7488553166066603,
+              "peak": 2.3842319116489796
+            },
+            "outside20m_late": {
+              "energy": 2.742231323826152,
+              "peak": 2.3842319116489796
+            }
+          },
+          "faster_and_no_worse_total_error": false,
+          "faster_and_no_worse_boundary_error_same_dt": false
+        },
+        "half_dt": {
+          "dt_s": 5.555555555555556e-05,
+          "single_run_seconds": 11.431651912629604,
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 7.684191548993413e-23,
+              "peak_vector_m_s": 3.002848624121352e-12,
+              "relative_l2_to_fine_wavefield": 0.000276376646446978
+            },
+            "all_late": {
+              "energy_proxy": 7.45397359054343e-24,
+              "peak_vector_m_s": 7.509886475828147e-13,
+              "relative_l2_to_fine_wavefield": 5.331891160581755
+            },
+            "outside20m_full": {
+              "energy_proxy": 7.659462318077833e-23,
+              "peak_vector_m_s": 3.002848624121352e-12,
+              "relative_l2_to_fine_wavefield": 0.0002880210859830424
+            },
+            "outside20m_late": {
+              "energy_proxy": 7.253362554905772e-24,
+              "peak_vector_m_s": 7.509886475828147e-13,
+              "relative_l2_to_fine_wavefield": 5.268774884246391
+            },
+            "first_PP": {
+              "relative_l2": 0.00021247066672522598,
+              "peak_delta_to_first": 0.00021667105315685065
+            }
+          },
+          "difference_from_native": {
+            "all_full": {
+              "energy_proxy": 7.231952699723285e-22,
+              "peak_vector_m_s": 9.704584638437469e-12,
+              "relative_l2_to_fine_wavefield": 0.000847871505547624
+            },
+            "all_late": {
+              "energy_proxy": 3.3901057411659143e-29,
+              "peak_vector_m_s": 1.7430462049809627e-15,
+              "relative_l2_to_fine_wavefield": 0.011370877295448879
+            },
+            "outside20m_full": {
+              "energy_proxy": 7.227105551543352e-22,
+              "peak_vector_m_s": 9.704584638437469e-12,
+              "relative_l2_to_fine_wavefield": 0.0008847230462485116
+            },
+            "outside20m_late": {
+              "energy_proxy": 3.3096535730893615e-29,
+              "peak_vector_m_s": 1.7430462049809627e-15,
+              "relative_l2_to_fine_wavefield": 0.011254629924578504
+            },
+            "first_PP": {
+              "relative_l2": 0.0006868091555920814,
+              "peak_delta_to_first": 0.0006868977189753494
+            }
+          },
+          "speedup_vs_baseline": 1.1480287216628975,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 11.744310420932324,
+              "peak": 4.440159509985169
+            },
+            "outside20m_full": {
+              "energy": 11.831293710385093,
+              "peak": 4.440159509985169
+            },
+            "all_late": {
+              "energy": 2.7522903548047357,
+              "peak": 2.3852586414380745
+            },
+            "outside20m_late": {
+              "energy": 2.745667767923307,
+              "peak": 2.3852586414380745
+            }
+          }
+        },
+        "baseline_dt": {
+          "dt_s": 2.9411764705882354e-05,
+          "single_run_seconds": 20.876827089115977,
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 1.117370343283937e-23,
+              "peak_vector_m_s": 7.510735434628806e-13,
+              "relative_l2_to_fine_wavefield": 0.00010539034394055974
+            },
+            "all_late": {
+              "energy_proxy": 7.456042917542501e-24,
+              "peak_vector_m_s": 7.510735434628806e-13,
+              "relative_l2_to_fine_wavefield": 5.332631212887328
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.097036006639444e-23,
+              "peak_vector_m_s": 7.510735434628806e-13,
+              "relative_l2_to_fine_wavefield": 0.00010900228012097936
+            },
+            "outside20m_late": {
+              "energy_proxy": 7.255376098160081e-24,
+              "peak_vector_m_s": 7.510735434628806e-13,
+              "relative_l2_to_fine_wavefield": 5.269506143016849
+            },
+            "first_PP": {
+              "relative_l2": 4.80497553244026e-05,
+              "peak_delta_to_first": 5.1444102151519615e-05
+            }
+          },
+          "boundary_error_same_dt": {
+            "all_full": {
+              "energy_proxy": 7.644959886315181e-24,
+              "peak_vector_m_s": 7.510783641605815e-13,
+              "relative_l2_to_fine_wavefield": 8.71745786938647e-05
+            },
+            "all_late": {
+              "energy_proxy": 7.456020585303146e-24,
+              "peak_vector_m_s": 7.510783641605815e-13,
+              "relative_l2_to_fine_wavefield": 5.332623226768744
+            },
+            "outside20m_full": {
+              "energy_proxy": 7.443982112333817e-24,
+              "peak_vector_m_s": 7.510783641605815e-13,
+              "relative_l2_to_fine_wavefield": 8.978996494942198e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 7.25535323581672e-24,
+              "peak_vector_m_s": 7.510783641605815e-13,
+              "relative_l2_to_fine_wavefield": 5.269497840666146
+            },
+            "first_PP": {
+              "relative_l2": 1.525753741507644e-11,
+              "peak_delta_to_first": 3.155132776222323e-11
+            }
+          },
+          "speedup_vs_baseline": 0.6286331096066528,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 1.7077585954229988,
+              "peak": 1.1105742427095446
+            },
+            "outside20m_full": {
+              "energy": 1.694551740895103,
+              "peak": 1.1105742427095446
+            },
+            "all_late": {
+              "energy": 2.7530544289822596,
+              "peak": 2.385528284171292
+            },
+            "outside20m_late": {
+              "energy": 2.7464299690087794,
+              "peak": 2.385528284171292
+            }
+          },
+          "boundary_error_same_dt_ratio_to_baseline": {
+            "all_full": {
+              "energy": 2.5403107069245072,
+              "peak": 2.3855047940881198
+            },
+            "outside20m_full": {
+              "energy": 2.5295404978147817,
+              "peak": 2.3855047940881198
+            },
+            "all_late": {
+              "energy": 2.7530480232052352,
+              "peak": 2.3855047940881198
+            },
+            "outside20m_late": {
+              "energy": 2.7464231953573037,
+              "peak": 2.3855047940881198
+            }
+          }
+        }
+      },
+      "field_time_s": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ],
+      "pml_peak_m_s": [
+        0.0,
+        2.8671268844992015e-114,
+        8.594699586117272e-64,
+        7.883984282982549e-34,
+        5.880400326331663e-11,
+        6.132558891604423e-10,
+        3.4124877367855354e-10,
+        2.7234526062831934e-09,
+        5.828102035554381e-09,
+        8.398860725701554e-10,
+        6.594582027137415e-10,
+        1.4987184805750278e-10,
+        6.550774302306864e-12,
+        7.416404794056106e-12,
+        7.031382265320102e-12,
+        7.039455752986596e-12,
+        6.9908433912327075e-12,
+        4.070885348357891e-12,
+        1.310204693450654e-13,
+        6.961300235233915e-14,
+        1.650117118231015e-14
+      ],
+      "half_pml_peak_m_s": [
+        0.0,
+        5.3868536505933715e-129,
+        1.2938814317936407e-65,
+        1.257671212876657e-36,
+        5.881115441723103e-11,
+        6.132700519217327e-10,
+        3.4123940154708967e-10,
+        2.719466746012587e-09,
+        5.82901237371663e-09,
+        8.398732723414664e-10,
+        6.594954956662219e-10,
+        1.5014676662874412e-10,
+        6.568822077689497e-12,
+        7.442267517773881e-12,
+        7.066322625829763e-12,
+        7.080255033086262e-12,
+        7.0374108770504124e-12,
+        4.1070477327831656e-12,
+        1.3206422087654676e-13,
+        7.01988020938175e-14,
+        1.6509061244532756e-14
+      ],
+      "core_kinetic_j_per_m": [
+        0.0,
+        3.272099943763945e-11,
+        6.54396322880737e-11,
+        6.544932676026815e-11,
+        6.543921049777977e-11,
+        5.546645358487168e-11,
+        5.097149325608578e-11,
+        4.796576430546666e-11,
+        9.58613926038679e-12,
+        1.8898014475109307e-12,
+        1.0434390524137105e-15,
+        3.5276405476238163e-16,
+        8.166218343160768e-17,
+        1.95060967557551e-17,
+        2.6707162247414355e-18,
+        4.328335129911645e-19,
+        3.6272481184051505e-19,
+        4.889268000494509e-20,
+        1.4404533579534515e-20,
+        3.909504531353872e-21,
+        1.292722617023572e-21
+      ],
+      "pml_growth_07_to_1": 0.0023467890892088965,
+      "half_pml_growth_07_to_1": 0.0023363016548645314,
+      "pml_monotone_after07": false
+    },
+    "P350_noabc": {
+      "order": 4,
+      "thickness_m": 350,
+      "ABC": false,
+      "dmax_s_inv": 173.0886108476381,
+      "native_cfl_safety": 0.8,
+      "native_sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583",
+      "nodes": 1413721,
+      "steps": 9000,
+      "early_boundary_error_relative_l2": 2.0699637428433266e-14,
+      "repeat_relative_l2": [
+        2.3218829149965608e-14,
+        2.3146479257966324e-14
+      ],
+      "variants": {
+        "native": {
+          "dt_s": 0.00011111111111111112,
+          "median_run_seconds": 7.80251332372427,
+          "run_seconds": [
+            7.782134387642145,
+            7.80251332372427,
+            7.805406569503248
+          ],
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 1.2398197639959126e-21,
+              "peak_vector_m_s": 1.2709815307529622e-11,
+              "relative_l2_to_fine_wavefield": 0.0011101496574191028
+            },
+            "all_late": {
+              "energy_proxy": 2.2037001464805866e-26,
+              "peak_vector_m_s": 4.3859722336408756e-14,
+              "relative_l2_to_fine_wavefield": 0.2899102704160873
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.238988305742059e-21,
+              "peak_vector_m_s": 1.2709815307529622e-11,
+              "relative_l2_to_fine_wavefield": 0.0011584005238204243
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.1500533360686908e-26,
+              "peak_vector_m_s": 4.3859722336408756e-14,
+              "relative_l2_to_fine_wavefield": 0.286856415279249
+            },
+            "first_PP": {
+              "relative_l2": 0.0008992326899308673,
+              "peak_delta_to_first": 0.000902634286876578
+            }
+          },
+          "boundary_error_same_dt": {
+            "all_full": {
+              "energy_proxy": 2.2415506128412112e-26,
+              "peak_vector_m_s": 4.3858008122343965e-14,
+              "relative_l2_to_fine_wavefield": 4.7203752693101035e-06
+            },
+            "all_late": {
+              "energy_proxy": 2.2034242158673485e-26,
+              "peak_vector_m_s": 4.3858008122343965e-14,
+              "relative_l2_to_fine_wavefield": 0.2898921196656143
+            },
+            "outside20m_full": {
+              "energy_proxy": 2.187892892497692e-26,
+              "peak_vector_m_s": 4.3858008122343965e-14,
+              "relative_l2_to_fine_wavefield": 4.867861019151265e-06
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.149767365981701e-26,
+              "peak_vector_m_s": 4.3858008122343965e-14,
+              "relative_l2_to_fine_wavefield": 0.2868373378264863
+            },
+            "first_PP": {
+              "relative_l2": 1.614990261257873e-12,
+              "peak_delta_to_first": 2.379931032642879e-12
+            }
+          },
+          "reference_time_error": {
+            "all_full": {
+              "energy_proxy": 1.2397992915174895e-21,
+              "peak_vector_m_s": 1.2709980055888323e-11,
+              "relative_l2_to_fine_wavefield": 0.001110140491728496
+            },
+            "all_late": {
+              "energy_proxy": 1.4407348010682222e-30,
+              "peak_vector_m_s": 3.232686915567707e-16,
+              "relative_l2_to_fine_wavefield": 0.002344117483871055
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.2389683697285664e-21,
+              "peak_vector_m_s": 1.2709980055888323e-11,
+              "relative_l2_to_fine_wavefield": 0.0011583912041273872
+            },
+            "outside20m_late": {
+              "energy_proxy": 1.4333637582056887e-30,
+              "peak_vector_m_s": 3.232686915567707e-16,
+              "relative_l2_to_fine_wavefield": 0.0023421686295790837
+            },
+            "first_PP": {
+              "relative_l2": 0.00089923268993076,
+              "peak_delta_to_first": 0.0009026342872138554
+            }
+          },
+          "difference_to_baseline": {
+            "all_full": {
+              "energy_proxy": 1.1140309441701101e-21,
+              "peak_vector_m_s": 1.2033744435111663e-11,
+              "relative_l2_to_fine_wavefield": 0.00105232740075695
+            },
+            "all_late": {
+              "energy_proxy": 2.740399240962471e-24,
+              "peak_vector_m_s": 3.148748714670425e-13,
+              "relative_l2_to_fine_wavefield": 3.232914879217885
+            },
+            "outside20m_full": {
+              "energy_proxy": 1.1132205446149144e-21,
+              "peak_vector_m_s": 1.2033744435111663e-11,
+              "relative_l2_to_fine_wavefield": 0.0010980338987087153
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.6747179366636343e-24,
+              "peak_vector_m_s": 3.148748714670425e-13,
+              "relative_l2_to_fine_wavefield": 3.199476651455207
+            },
+            "first_PP": {
+              "relative_l2": 0.0008512437208724244,
+              "peak_delta_to_first": 0.0008516189973969118
+            }
+          },
+          "speedup_vs_baseline": 1.6820047832340186,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 189.49069764251828,
+              "peak": 18.793357365589976
+            },
+            "outside20m_full": {
+              "energy": 191.38203101239864,
+              "peak": 18.793357365589976
+            },
+            "all_late": {
+              "energy": 0.008136898507039275,
+              "peak": 0.1393054103423807
+            },
+            "outside20m_late": {
+              "energy": 0.008138752336551956,
+              "peak": 0.1393054103423807
+            }
+          },
+          "boundary_error_same_dt_ratio_to_baseline": {
+            "all_full": {
+              "energy": 0.007448351733155139,
+              "peak": 0.13929769998359132
+            },
+            "outside20m_full": {
+              "energy": 0.007434681589688715,
+              "peak": 0.13929769998359132
+            },
+            "all_late": {
+              "energy": 0.00813588510435894,
+              "peak": 0.13929769998359132
+            },
+            "outside20m_late": {
+              "energy": 0.008137675405530682,
+              "peak": 0.13929769998359132
+            }
+          },
+          "faster_and_no_worse_total_error": false,
+          "faster_and_no_worse_boundary_error_same_dt": true
+        },
+        "half_dt": {
+          "dt_s": 5.555555555555556e-05,
+          "single_run_seconds": 14.672882535494864,
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 6.924162584048183e-23,
+              "peak_vector_m_s": 3.0053267808810436e-12,
+              "relative_l2_to_fine_wavefield": 0.0002623529065948807
+            },
+            "all_late": {
+              "energy_proxy": 2.2066300579619707e-26,
+              "peak_vector_m_s": 4.390199524156011e-14,
+              "relative_l2_to_fine_wavefield": 0.2901029303128403
+            },
+            "outside20m_full": {
+              "energy_proxy": 6.919471785307708e-23,
+              "peak_vector_m_s": 3.0053267808810436e-12,
+              "relative_l2_to_fine_wavefield": 0.0002737547181732236
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.152912146090359e-26,
+              "peak_vector_m_s": 4.390199524156011e-14,
+              "relative_l2_to_fine_wavefield": 0.28704706068372715
+            },
+            "first_PP": {
+              "relative_l2": 0.0002124706666909231,
+              "peak_delta_to_first": 0.0002166710514309224
+            }
+          },
+          "difference_from_native": {
+            "all_full": {
+              "energy_proxy": 7.231954489805041e-22,
+              "peak_vector_m_s": 9.704741489709862e-12,
+              "relative_l2_to_fine_wavefield": 0.0008478716104818846
+            },
+            "all_late": {
+              "energy_proxy": 1.4279035606650022e-30,
+              "peak_vector_m_s": 2.887159865283236e-16,
+              "relative_l2_to_fine_wavefield": 0.002333655737668264
+            },
+            "outside20m_full": {
+              "energy_proxy": 7.227107349750578e-22,
+              "peak_vector_m_s": 9.704741489709862e-12,
+              "relative_l2_to_fine_wavefield": 0.0008847231563143785
+            },
+            "outside20m_late": {
+              "energy_proxy": 1.408936257588001e-30,
+              "peak_vector_m_s": 2.887159865283236e-16,
+              "relative_l2_to_fine_wavefield": 0.00232212515376566
+            },
+            "first_PP": {
+              "relative_l2": 0.0006868091556183394,
+              "peak_delta_to_first": 0.0006868977187867939
+            }
+          },
+          "speedup_vs_baseline": 0.8944298913321029,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 10.582702718117325,
+              "peak": 4.443823834325528
+            },
+            "outside20m_full": {
+              "energy": 10.688257166495575,
+              "peak": 4.443823834325528
+            },
+            "all_late": {
+              "energy": 0.00814771685380787,
+              "peak": 0.13943967577054062
+            },
+            "outside20m_late": {
+              "energy": 0.00814957399681186,
+              "peak": 0.13943967577054062
+            }
+          }
+        },
+        "baseline_dt": {
+          "dt_s": 2.9411764705882354e-05,
+          "single_run_seconds": 27.000441717915237,
+          "total_error": {
+            "all_full": {
+              "energy_proxy": 3.55571065547443e-24,
+              "peak_vector_m_s": 6.791753380492438e-13,
+              "relative_l2_to_fine_wavefield": 5.945186162016964e-05
+            },
+            "all_late": {
+              "energy_proxy": 2.2073548114198837e-26,
+              "peak_vector_m_s": 4.391366544630824e-14,
+              "relative_l2_to_fine_wavefield": 0.29015056762293245
+            },
+            "outside20m_full": {
+              "energy_proxy": 3.552807200429211e-24,
+              "peak_vector_m_s": 6.791753380492438e-13,
+              "relative_l2_to_fine_wavefield": 6.203131127359985e-05
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.1536194460531231e-26,
+              "peak_vector_m_s": 4.391366544630824e-14,
+              "relative_l2_to_fine_wavefield": 0.28709420884607184
+            },
+            "first_PP": {
+              "relative_l2": 4.804975536916787e-05,
+              "peak_delta_to_first": 5.144410427323685e-05
+            }
+          },
+          "boundary_error_same_dt": {
+            "all_full": {
+              "energy_proxy": 2.2455267706974223e-26,
+              "peak_vector_m_s": 4.3905812463949093e-14,
+              "relative_l2_to_fine_wavefield": 4.724560015615642e-06
+            },
+            "all_late": {
+              "energy_proxy": 2.2073401519220836e-26,
+              "peak_vector_m_s": 4.3905812463949093e-14,
+              "relative_l2_to_fine_wavefield": 0.29014960414650176
+            },
+            "outside20m_full": {
+              "energy_proxy": 2.191791505975059e-26,
+              "peak_vector_m_s": 4.3905812463949093e-14,
+              "relative_l2_to_fine_wavefield": 4.872196117538593e-06
+            },
+            "outside20m_late": {
+              "energy_proxy": 2.1536048914745615e-26,
+              "peak_vector_m_s": 4.3905812463949093e-14,
+              "relative_l2_to_fine_wavefield": 0.28709323872521675
+            },
+            "first_PP": {
+              "relative_l2": 1.5312414689903325e-11,
+              "peak_delta_to_first": 3.0858686680445766e-11
+            }
+          },
+          "speedup_vs_baseline": 0.4860611122166747,
+          "total_error_ratio_to_baseline": {
+            "all_full": {
+              "energy": 0.5434451944444136,
+              "peak": 1.0042620237206046
+            },
+            "outside20m_full": {
+              "energy": 0.5487892457599771,
+              "peak": 1.0042620237206046
+            },
+            "all_late": {
+              "energy": 0.008150392919033477,
+              "peak": 0.13947674218534253
+            },
+            "outside20m_late": {
+              "energy": 0.008152251390496947,
+              "peak": 0.13947674218534253
+            }
+          },
+          "boundary_error_same_dt_ratio_to_baseline": {
+            "all_full": {
+              "energy": 0.0074615639363906795,
+              "peak": 0.13944953165857868
+            },
+            "outside20m_full": {
+              "energy": 0.007447929473049405,
+              "peak": 0.13944953165857868
+            },
+            "all_late": {
+              "energy": 0.008150344238277827,
+              "peak": 0.13944953165857868
+            },
+            "outside20m_late": {
+              "energy": 0.00815220187816931,
+              "peak": 0.13944953165857868
+            }
+          }
+        }
+      },
+      "field_time_s": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ],
+      "pml_peak_m_s": [
+        0.0,
+        2.8671270701473377e-114,
+        8.594699324698264e-64,
+        7.883986561233854e-34,
+        5.880400461473132e-11,
+        6.452254700218751e-10,
+        3.590654189014445e-10,
+        2.7234593556537007e-09,
+        6.445408905386971e-09,
+        1.6898973434477379e-09,
+        7.10707523412157e-10,
+        2.9682758167947936e-10,
+        3.2646153938727166e-11,
+        3.1715456211947406e-12,
+        1.5487788738640825e-12,
+        8.054023568085631e-13,
+        5.270331356089328e-13,
+        5.225143587502676e-13,
+        3.5094132482439827e-13,
+        4.646839865950185e-14,
+        9.680566397486754e-15
+      ],
+      "half_pml_peak_m_s": [
+        0.0,
+        5.3868553021474646e-129,
+        1.2938819464019077e-65,
+        1.2576715175036036e-36,
+        5.88111580122754e-11,
+        6.452466190286549e-10,
+        3.590570839870336e-10,
+        2.719473606976131e-09,
+        6.446346207530897e-09,
+        1.691009935042841e-09,
+        7.107615724922209e-10,
+        2.9696208832332716e-10,
+        3.272310312925538e-11,
+        3.171889767023573e-12,
+        1.5487680450876435e-12,
+        8.064256068999198e-13,
+        5.300810974023781e-13,
+        5.261719998138453e-13,
+        3.540138565790612e-13,
+        4.6875608059725353e-14,
+        9.689923886366594e-15
+      ],
+      "core_kinetic_j_per_m": [
+        0.0,
+        3.272099943763945e-11,
+        6.543963228807372e-11,
+        6.544932676026815e-11,
+        6.54392104971378e-11,
+        5.5466453667507727e-11,
+        5.0971493300235564e-11,
+        4.7965754203436194e-11,
+        9.586125697434303e-12,
+        1.889831916003138e-12,
+        1.0388658232797675e-15,
+        3.48740037669958e-16,
+        7.798642551055534e-17,
+        1.600844455007218e-17,
+        4.759191202027914e-19,
+        5.160531546791021e-20,
+        2.516428258984435e-20,
+        1.245210889676002e-20,
+        5.4049569056185064e-21,
+        6.50782115905689e-22,
+        2.0361532223147594e-22
+      ],
+      "pml_growth_07_to_1": 0.006250450959041361,
+      "half_pml_growth_07_to_1": 0.00625653655310163,
+      "pml_monotone_after07": false
+    }
+  },
+  "references": {
+    "68": {
+      "status": "completed",
+      "order": 4,
+      "mode": "reference",
+      "native": {
+        "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cfl_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583"
+      },
+      "code": {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+        "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+      },
+      "setup_code": {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+        "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+      },
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/meshes/layered_2000.npz",
+        "sha256": "df82d450cc7f3e5f05c2132dd3f99c2871a92d17607e9aee314738c6240ed6fd"
+      },
+      "global_nodes": 9337681,
+      "elements": 583200,
+      "field_nodes": 628881,
+      "surface_nodes": 1121,
+      "field_bounds": [
+        0.0,
+        1400.0,
+        -700.0,
+        0.0
+      ],
+      "domain_bounds": [
+        -2000.0000000000002,
+        3400.0,
+        -2700.0,
+        0.0
+      ],
+      "pml_elements": 0,
+      "damping_nodes": 0,
+      "ABC": false,
+      "dmax_or_alpha_s_inv": 0.0,
+      "dt_s": 1.4705882352941177e-05,
+      "steps": 68000,
+      "steps_per_ms": 68,
+      "cfl_safety": null,
+      "explicit_dt_s": 1.4705882352941177e-05,
+      "kim_beta": 0.037037037037037035,
+      "kim_gamma": 0.5,
+      "frequency_hz": 30,
+      "source_x_m": 700,
+      "source_y_m": 0,
+      "source_t0_s": 0.05,
+      "force_peak_n_per_m": 1.0,
+      "material": [
+        [
+          4087.0,
+          2431.62036,
+          1000.0
+        ],
+        [
+          3963.0,
+          2357.84473,
+          1000.0
+        ]
+      ],
+      "interface_y_m": -350.0,
+      "homogeneous": false,
+      "assembly_seconds": 19.727666643448174,
+      "prepare_seconds": 1.9960776437073946,
+      "gpu_visible": "0",
+      "thickness_m": 2000,
+      "fixed_strength": false,
+      "snapshot": {
+        "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_pml_cfl_v1/provenance.json",
+        "sha256": "ccf416e9b2d4b53242593a8a694f92a364ae1ce6b7e50668800e6a2ed541c22b"
+      },
+      "run_seconds": 214.0188747625798,
+      "total_seconds": 236.30142218153924,
+      "frames": 21,
+      "surface_samples": 1001,
+      "surface_field_exact": true,
+      "field_peak_m_s": [
+        4.341348031531931e-09,
+        1.4058403633869561e-08
+      ],
+      "fields": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K68/velocity.npy",
+        "sha256": "9e423026d8a6bfe1a4810e750600b4145dd8742f901bad3b1c345bbf0d3ba8e3"
+      },
+      "nodes": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K68/nodes.npy",
+        "sha256": "32b9a05cf71e3dab9e4193fb52671872861a9a7e92a628f650aa21d09dd37e31"
+      },
+      "surface": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K68/surface.npz",
+        "sha256": "ae39d0ad8c55a1dee1e7bee7f3493b04380b91bbdd80c4b2cba4ca023162cb1c"
+      },
+      "mass": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K68/core_mass.npy",
+        "sha256": "a2f73a83e6c3fd6aa28ad149079a8f89c290db7cd2edbbfd6fb26dabf111559d"
+      }
+    },
+    "34": {
+      "status": "completed",
+      "order": 4,
+      "mode": "reference",
+      "native": {
+        "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cfl_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583"
+      },
+      "code": {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+        "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+      },
+      "setup_code": {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+        "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+      },
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/meshes/layered_2000.npz",
+        "sha256": "df82d450cc7f3e5f05c2132dd3f99c2871a92d17607e9aee314738c6240ed6fd"
+      },
+      "global_nodes": 9337681,
+      "elements": 583200,
+      "field_nodes": 628881,
+      "surface_nodes": 1121,
+      "field_bounds": [
+        0.0,
+        1400.0,
+        -700.0,
+        0.0
+      ],
+      "domain_bounds": [
+        -2000.0000000000002,
+        3400.0,
+        -2700.0,
+        0.0
+      ],
+      "pml_elements": 0,
+      "damping_nodes": 0,
+      "ABC": false,
+      "dmax_or_alpha_s_inv": 0.0,
+      "dt_s": 2.9411764705882354e-05,
+      "steps": 34000,
+      "steps_per_ms": 34,
+      "cfl_safety": null,
+      "explicit_dt_s": 2.9411764705882354e-05,
+      "kim_beta": 0.037037037037037035,
+      "kim_gamma": 0.5,
+      "frequency_hz": 30,
+      "source_x_m": 700,
+      "source_y_m": 0,
+      "source_t0_s": 0.05,
+      "force_peak_n_per_m": 1.0,
+      "material": [
+        [
+          4087.0,
+          2431.62036,
+          1000.0
+        ],
+        [
+          3963.0,
+          2357.84473,
+          1000.0
+        ]
+      ],
+      "interface_y_m": -350.0,
+      "homogeneous": false,
+      "assembly_seconds": 19.865532089024782,
+      "prepare_seconds": 2.050076588988304,
+      "gpu_visible": "0",
+      "thickness_m": 2000,
+      "fixed_strength": false,
+      "snapshot": {
+        "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_pml_cfl_v1/provenance.json",
+        "sha256": "ccf416e9b2d4b53242593a8a694f92a364ae1ce6b7e50668800e6a2ed541c22b"
+      },
+      "run_seconds": 107.3715785201639,
+      "total_seconds": 129.8997208410874,
+      "frames": 21,
+      "surface_samples": 1001,
+      "surface_field_exact": true,
+      "field_peak_m_s": [
+        4.341325033118797e-09,
+        1.4058320225791805e-08
+      ],
+      "fields": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K34/velocity.npy",
+        "sha256": "012483e4d398d7c938fe6362ba2510cb8d20065b676681b4c9d226d0839b2284"
+      },
+      "nodes": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K34/nodes.npy",
+        "sha256": "32b9a05cf71e3dab9e4193fb52671872861a9a7e92a628f650aa21d09dd37e31"
+      },
+      "surface": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K34/surface.npz",
+        "sha256": "435df37d03f7e6ea029f9acfff91c8c3057fe45b3e82f5b6a24cc0a481d33484"
+      },
+      "mass": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K34/core_mass.npy",
+        "sha256": "a2f73a83e6c3fd6aa28ad149079a8f89c290db7cd2edbbfd6fb26dabf111559d"
+      }
+    },
+    "9": {
+      "status": "completed",
+      "order": 4,
+      "mode": "reference",
+      "native": {
+        "path": "/home/antonov/SeismicDataset/.runtime_ch15_pml_cfl_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_cu/_native.cpython-313-x86_64-linux-gnu.so",
+        "sha256": "b4e112aa7fea5772c3cdbd191d94971a4a381f97fddbb6f55a64687bc4e59583"
+      },
+      "code": {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+        "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+      },
+      "setup_code": {
+        "path": "/home/antonov/SeismicDataset/scripts/dev_1_5_geometry_frequency/pml_layered.py",
+        "sha256": "85478b79fa19af301155cc7c92984b01644a698f3d39a6c174af64da30d57a97"
+      },
+      "mesh": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/meshes/layered_2000.npz",
+        "sha256": "df82d450cc7f3e5f05c2132dd3f99c2871a92d17607e9aee314738c6240ed6fd"
+      },
+      "global_nodes": 9337681,
+      "elements": 583200,
+      "field_nodes": 628881,
+      "surface_nodes": 1121,
+      "field_bounds": [
+        0.0,
+        1400.0,
+        -700.0,
+        0.0
+      ],
+      "domain_bounds": [
+        -2000.0000000000002,
+        3400.0,
+        -2700.0,
+        0.0
+      ],
+      "pml_elements": 0,
+      "damping_nodes": 0,
+      "ABC": false,
+      "dmax_or_alpha_s_inv": 0.0,
+      "dt_s": 0.00011111111111111112,
+      "steps": 9000,
+      "steps_per_ms": 9,
+      "cfl_safety": null,
+      "explicit_dt_s": 0.00011111111111111112,
+      "kim_beta": 0.037037037037037035,
+      "kim_gamma": 0.5,
+      "frequency_hz": 30,
+      "source_x_m": 700,
+      "source_y_m": 0,
+      "source_t0_s": 0.05,
+      "force_peak_n_per_m": 1.0,
+      "material": [
+        [
+          4087.0,
+          2431.62036,
+          1000.0
+        ],
+        [
+          3963.0,
+          2357.84473,
+          1000.0
+        ]
+      ],
+      "interface_y_m": -350.0,
+      "homogeneous": false,
+      "assembly_seconds": 20.00030597206205,
+      "prepare_seconds": 2.067120101302862,
+      "gpu_visible": "0",
+      "thickness_m": 2000,
+      "fixed_strength": false,
+      "snapshot": {
+        "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_pml_cfl_v1/provenance.json",
+        "sha256": "ccf416e9b2d4b53242593a8a694f92a364ae1ce6b7e50668800e6a2ed541c22b"
+      },
+      "run_seconds": 29.029286248609424,
+      "total_seconds": 52.16747186239809,
+      "frames": 21,
+      "surface_samples": 1001,
+      "surface_field_exact": true,
+      "field_peak_m_s": [
+        4.34091400031984e-09,
+        1.4056850673861927e-08
+      ],
+      "fields": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K9/velocity.npy",
+        "sha256": "c69f8996381f2baf88852760768180d8f497ec65f173860329fc812bbd85dcfb"
+      },
+      "nodes": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K9/nodes.npy",
+        "sha256": "32b9a05cf71e3dab9e4193fb52671872861a9a7e92a628f650aa21d09dd37e31"
+      },
+      "surface": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K9/surface.npz",
+        "sha256": "b64a89984429d15dbab5cda535aabb827b6033edd813ab874b2f69680ceaad88"
+      },
+      "mass": {
+        "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/R2000/K9/core_mass.npy",
+        "sha256": "a2f73a83e6c3fd6aa28ad149079a8f89c290db7cd2edbbfd6fb26dabf111559d"
+      }
+    }
+  },
+  "fine_reference_label": "K68",
+  "baseline_dt_s": 2.9411764705882354e-05,
+  "first_PP_fine_peak_m_s": 2.4678506765522294e-11,
+  "first_PP_definition": "central |x-700|<=200m, +/-0.03s around .05+sqrt(700^2+(x-700)^2)/4087; diagnostic window, not pure mode decomposition",
+  "total_error": "candidate at its dt minus expanded p4 control at baseline dt/2, includes time error and absorbing-boundary error; same spatial discretization, not exact PDE truth",
+  "boundary_error_same_dt": "candidate minus expanded p4 control at exactly candidate dt; removes common time-discretization contribution",
+  "receivers": "all top GLL strictly inside0<x<1400; additional outside20m mask; full0..1 and late0.5..1 windows. No receivers in PML",
+  "energy": "0.001*sum(weights_GLL*(Vx^2+Vy^2)), signal energy proxy",
+  "criterion": "baseline is target, not truth; faster+no-worse requires both energy and peak errors <= baseline on full0..1 outside20m. All-receiver and late metrics also retained. No tolerances added to force success",
+  "verified_sha_files": [
+    "L100/half_dt/velocity.npy",
+    "L100/half_dt/nodes.npy",
+    "L100/half_dt/core_mass.npy",
+    "L100/half_dt/surface.npz",
+    "L100/repeat0/velocity.npy",
+    "L100/repeat0/nodes.npy",
+    "L100/repeat0/core_mass.npy",
+    "L100/repeat0/surface.npz",
+    "L100/repeat1/velocity.npy",
+    "L100/repeat1/nodes.npy",
+    "L100/repeat1/core_mass.npy",
+    "L100/repeat1/surface.npz",
+    "L100/repeat2/velocity.npy",
+    "L100/repeat2/nodes.npy",
+    "L100/repeat2/core_mass.npy",
+    "L100/repeat2/surface.npz",
+    "L100/warmup/velocity.npy",
+    "L100/warmup/nodes.npy",
+    "L100/warmup/core_mass.npy",
+    "L100/warmup/surface.npz",
+    "P175_noabc/half_dt/velocity.npy",
+    "P175_noabc/half_dt/nodes.npy",
+    "P175_noabc/half_dt/core_mass.npy",
+    "P175_noabc/half_dt/surface.npz",
+    "P175_noabc/repeat0/velocity.npy",
+    "P175_noabc/repeat0/nodes.npy",
+    "P175_noabc/repeat0/core_mass.npy",
+    "P175_noabc/repeat0/surface.npz",
+    "P175_noabc/repeat1/velocity.npy",
+    "P175_noabc/repeat1/nodes.npy",
+    "P175_noabc/repeat1/core_mass.npy",
+    "P175_noabc/repeat1/surface.npz",
+    "P175_noabc/repeat2/velocity.npy",
+    "P175_noabc/repeat2/nodes.npy",
+    "P175_noabc/repeat2/core_mass.npy",
+    "P175_noabc/repeat2/surface.npz",
+    "P175_noabc/warmup/velocity.npy",
+    "P175_noabc/warmup/nodes.npy",
+    "P175_noabc/warmup/core_mass.npy",
+    "P175_noabc/warmup/surface.npz",
+    "P250_noabc/baseline_dt/velocity.npy",
+    "P250_noabc/baseline_dt/nodes.npy",
+    "P250_noabc/baseline_dt/core_mass.npy",
+    "P250_noabc/baseline_dt/surface.npz",
+    "P250_noabc/half_dt/velocity.npy",
+    "P250_noabc/half_dt/nodes.npy",
+    "P250_noabc/half_dt/core_mass.npy",
+    "P250_noabc/half_dt/surface.npz",
+    "P250_noabc/repeat0/velocity.npy",
+    "P250_noabc/repeat0/nodes.npy",
+    "P250_noabc/repeat0/core_mass.npy",
+    "P250_noabc/repeat0/surface.npz",
+    "P250_noabc/repeat1/velocity.npy",
+    "P250_noabc/repeat1/nodes.npy",
+    "P250_noabc/repeat1/core_mass.npy",
+    "P250_noabc/repeat1/surface.npz",
+    "P250_noabc/repeat2/velocity.npy",
+    "P250_noabc/repeat2/nodes.npy",
+    "P250_noabc/repeat2/core_mass.npy",
+    "P250_noabc/repeat2/surface.npz",
+    "P250_noabc/warmup/velocity.npy",
+    "P250_noabc/warmup/nodes.npy",
+    "P250_noabc/warmup/core_mass.npy",
+    "P250_noabc/warmup/surface.npz",
+    "P350_noabc/baseline_dt/velocity.npy",
+    "P350_noabc/baseline_dt/nodes.npy",
+    "P350_noabc/baseline_dt/core_mass.npy",
+    "P350_noabc/baseline_dt/surface.npz",
+    "P350_noabc/half_dt/velocity.npy",
+    "P350_noabc/half_dt/nodes.npy",
+    "P350_noabc/half_dt/core_mass.npy",
+    "P350_noabc/half_dt/surface.npz",
+    "P350_noabc/repeat0/velocity.npy",
+    "P350_noabc/repeat0/nodes.npy",
+    "P350_noabc/repeat0/core_mass.npy",
+    "P350_noabc/repeat0/surface.npz",
+    "P350_noabc/repeat1/velocity.npy",
+    "P350_noabc/repeat1/nodes.npy",
+    "P350_noabc/repeat1/core_mass.npy",
+    "P350_noabc/repeat1/surface.npz",
+    "P350_noabc/repeat2/velocity.npy",
+    "P350_noabc/repeat2/nodes.npy",
+    "P350_noabc/repeat2/core_mass.npy",
+    "P350_noabc/repeat2/surface.npz",
+    "P350_noabc/warmup/velocity.npy",
+    "P350_noabc/warmup/nodes.npy",
+    "P350_noabc/warmup/core_mass.npy",
+    "P350_noabc/warmup/surface.npz",
+    "R2000/K34/velocity.npy",
+    "R2000/K34/nodes.npy",
+    "R2000/K34/core_mass.npy",
+    "R2000/K34/surface.npz",
+    "R2000/K68/velocity.npy",
+    "R2000/K68/nodes.npy",
+    "R2000/K68/core_mass.npy",
+    "R2000/K68/surface.npz",
+    "R2000/K9/velocity.npy",
+    "R2000/K9/nodes.npy",
+    "R2000/K9/core_mass.npy",
+    "R2000/K9/surface.npz"
+  ],
+  "reference_return_lower_bound_s": 1.1499877660875948,
+  "native_CFL_note": "new generic solver accepts CFL with PML but spectral estimate is ordinary elasticity/static damping; dt/2 controls retained"
+}

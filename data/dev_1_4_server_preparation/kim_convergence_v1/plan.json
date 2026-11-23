@@ -1,0 +1,36 @@
+{
+  "models": [
+    12404,
+    65
+  ],
+  "geometry": "curved, regenerated Q2; fixed per model",
+  "orders": [
+    3,
+    4,
+    5
+  ],
+  "beta": [
+    0,
+    0.037037037037037035
+  ],
+  "gamma": 0.5,
+  "duration_s": 1.0,
+  "source_x_m": 350.0,
+  "receiver_x_m": "0:5:700; analysis selects 5:10:695",
+  "native_cfl": [
+    0.8,
+    0.4
+  ],
+  "common_substeps_per_ms": {
+    "12404": 61,
+    "65": 129
+  },
+  "expected_completed_runs": 28,
+  "source_table_interval_s": 1e-06,
+  "production_queue": "stopped, unchanged",
+  "failed_prepare_attempts": [
+    "12404/p3_beta0.00000000_k61",
+    "00065/p3_beta0.00000000_k129"
+  ],
+  "failure_note": "steps_count/tacts_count incompatible; no integration; corrected runs use fixedk directories and tact_dt"
+}

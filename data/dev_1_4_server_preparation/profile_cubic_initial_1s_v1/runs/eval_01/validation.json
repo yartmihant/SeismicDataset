@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "metadata": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_4_server_preparation/profile_cubic_initial_1s_v1/runs/eval_01/metadata.json",
+    "sha256": "1696d49824821157a23770c73ff0fabda707b93633d807cf9e302ff9149a69ec"
+  },
+  "source_prefix_verified": true,
+  "recorded_counts": {
+    "surface": 1001,
+    "fields": 0,
+    "source_history": 0
+  },
+  "scope": "Complete finite1s output and exact physical/source-prefix identity; not independent solver validation"
+}

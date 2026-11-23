@@ -1,0 +1,18 @@
+{
+  "window_s": [
+    0.5,
+    1.0
+  ],
+  "records": [
+    {
+      "factor": 0.5,
+      "global_peak_ratio": 3.7275799067926014,
+      "receivers_peak_above_quadratic": 70
+    },
+    {
+      "factor": 1.0,
+      "global_peak_ratio": 1.5163587783104093,
+      "receivers_peak_above_quadratic": 70
+    }
+  ]
+}
