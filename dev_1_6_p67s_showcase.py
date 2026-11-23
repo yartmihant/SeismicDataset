@@ -10,7 +10,7 @@ from scripts.reporting import read_json, mapping
 from scripts.project_paths import PROJECT_ROOT
 
 chapter16_data = PROJECT_ROOT / "data/dev_1_6_p67s_showcase/series_v1"
-chapter16_images = PROJECT_ROOT / "img/dev_1_6_p67s_showcase/series_v1"
+chapter16_images = PROJECT_ROOT / "img/dev_1_6_p67s_showcase/render_v2"
 chapter16_cases = ("homogeneous", "two_layer", "EFVB00000", "EFVB00001", "ECVB12404", "ECVB00065")
 
 """ ## 1. Постановка ## """
@@ -44,7 +44,7 @@ for chapter16_case in chapter16_cases:
 """
 Линейная шкала±1e−10 м/с общая для обеих компонент, всех моделей, источников и времён. Значения за пределом насыщают цвет, исходные массивы не меняются. Дополнительная знаковая логарифмическая шкала имеет единый максимум серии и линейный порог1e−13 м/с. Анимации5fps замедлены в4 раза. Поле для отображения линейно интерполируется по треугольникам GLL-сетки; сейсмограммы показывают исходные узловые отсчёты.
 
-Ниже центральный источник для каждой модели; все семь источников и обе шкалы представлены в img/dev_1_6_p67s_showcase/series_v1/index.html и вложенных галереях. Галерея содержит отдельные MP4, PNG сейсмограмм и кадры t0.25/0.5 с для42 опытов.
+Ниже центральный источник для каждой модели; все семь источников и обе шкалы представлены в img/dev_1_6_p67s_showcase/render_v2/index.html и вложенных галереях. Галерея содержит отдельные MP4, PNG сейсмограмм и кадры t0.25/0.5 с для42 опытов.
 """
 
 for chapter16_case in chapter16_cases:

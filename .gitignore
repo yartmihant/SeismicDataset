@@ -70,3 +70,5 @@ dist/
 # User-approved chapter 1.6 report, animations and seismograms.
 !/img/dev_1_6_p67s_showcase/series_v1/**/*.html
 !/img/dev_1_6_p67s_showcase/series_v1/**/*.mp4
+!/img/dev_1_6_p67s_showcase/render_v2/**/*.html
+!/img/dev_1_6_p67s_showcase/render_v2/**/*.mp4

@@ -18,7 +18,7 @@ from scripts.dev_1_5_geometry_frequency.pml_fixed_orders import FloatArray, IntA
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_6_p67s_showcase.mesh import ROOT, CASES
 from scripts.reporting import read_json, mapping, number
-IMAGES=Path('img/dev_1_6_p67s_showcase/series_v1')
+IMAGES=Path('img/dev_1_6_p67s_showcase/render_v2')
 LABELS={'homogeneous':'Однородная','two_layer':'Двухслойная','EFVB00000':'EFVB 00000','EFVB00001':'EFVB 00001','ECVB12404':'ECVB 12404','ECVB00065':'ECVB 00065'}
 
 
@@ -78,7 +78,7 @@ def render_case(root:Path,images:Path,name:str)->None:
                 im=ax.pcolormesh(top,np.arange(1001)*.001,surface[:,shot,:,c],shading='auto',cmap='RdBu_r',norm=norm,rasterized=True)
                 ax.invert_yaxis();ax.axvline(0,color='.3',ls='--',lw=.7);ax.axvline(1400,color='.3',ls='--',lw=.7);ax.set(xlabel='x, м',ylabel='t, с',title=('Vx','Vy')[c]);fig.colorbar(im,ax=ax,label='м/с',extend='both')
             fig.suptitle(f'{LABELS[name]} · источник x={x:g} м · {scale}');fig.savefig(dest/'seismogram.png',dpi=140);plt.close(fig)
-            fig,axes=plt.subplots(1,2,figsize=(13,4.7),layout='constrained');artists=[]
+            fig,axes=plt.subplots(1,2,figsize=(13,4.8),layout='constrained');artists=[]
             for c,ax in enumerate(axes):
                 im=ax.imshow(np.zeros((351,701)),extent=(-350,1750,-1050,0),origin='lower',norm=norm,cmap='RdBu_r',interpolation='nearest');artists.append(im);bounds(ax,x);ax.set_title(('Vx','Vy')[c]);fig.colorbar(im,ax=ax,label='м/с',shrink=.7,extend='both')
             suptitle=fig.suptitle('');writer=FFMpegWriter(fps=5,codec='libx264',extra_args=['-crf','23','-preset','fast','-pix_fmt','yuv420p','-threads','2'])
