@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "full_runs": 29,
+  "native_cfl_probes": 4,
+  "common_steps": 9000,
+  "half_dt_runs": 5,
+  "half_dt_steps": 18000,
+  "native_sha256": "99e3205b83c186cbb411716d87415ab26ec1ed75cd37d2ac5d2c77280c57071f",
+  "surface_hashes_checked_on_saturn": 29,
+  "numerical_metrics_v1_v2_identical": true,
+  "png_sha_transfer_verified": [
+    {
+      "path": "img/dev_1_6_p67s_showcase/proximity_v2/difference_seismograms.png",
+      "sha256": "e041ab543185079475b200851402571a972af4af27de0b8aecaa0379cc6edd22"
+    },
+    {
+      "path": "img/dev_1_6_p67s_showcase/proximity_v2/distance_errors.png",
+      "sha256": "65c93e586b9103aa00dbe0f00089debd8ed8ad4a7a10809a067645fac6f71b8e"
+    },
+    {
+      "path": "img/dev_1_6_p67s_showcase/proximity_v2/relative_offset_traces.png",
+      "sha256": "c0b46eee8d56e56dc3c52c4850fb9289952279b1186f8dd5e024c39d4c65f5f8"
+    }
+  ],
+  "readme_links_checked": 6,
+  "gpu": "both idle after experiment",
+  "server_free_bytes": 44139442176,
+  "total_solver_run_seconds": 375.0263551166281,
+  "raw_arrays": "Saturn only, no Git",
+  "production": "stopped, unchanged"
+}

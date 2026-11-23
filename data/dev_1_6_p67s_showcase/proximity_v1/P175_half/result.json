@@ -1,0 +1,177 @@
+{
+  "status": "completed",
+  "case": {
+    "name": "P175_half",
+    "domain": "production",
+    "source": 175.0,
+    "homogeneous": false,
+    "half": true
+  },
+  "dt_s": 5.555555555555556e-05,
+  "steps": 18000,
+  "steps_per_tact": 18,
+  "lambda_max": 0.0,
+  "lambda_max_damping": 0.0,
+  "nodes": 795691,
+  "elements": 22050,
+  "pml_elements": 12250,
+  "boundary_elements": 0,
+  "cfl_safety": null,
+  "assembly_seconds": 1.8318052487447858,
+  "prepare_seconds": 0.23516176268458366,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_p67s_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p6_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "99e3205b83c186cbb411716d87415ab26ec1ed75cd37d2ac5d2c77280c57071f"
+  },
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  },
+  "runner": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_6_p67s_showcase/proximity_run.py",
+    "sha256": "af5ca1a25b94b6fa8bff8982df8809ad7092d7a692555ca5f32eeba3a46cc1ed"
+  },
+  "source_xy_m": [
+    175.0,
+    0.0
+  ],
+  "gpu": "0",
+  "git_head": "8e422ba792330bb39ddc0d1cec6bbcc97efcfdf3",
+  "run_seconds": 8.22508017718792,
+  "total_seconds": 10.35503114759922,
+  "terminal_state_finite": true,
+  "surface_samples": 1001,
+  "full_diagnostic_frames": 21,
+  "diagnostics": [
+    {
+      "t": 0.0,
+      "full_peak": 0.0,
+      "core_peak": 0.0,
+      "pml_peak": 0.0
+    },
+    {
+      "t": 0.05,
+      "full_peak": 3.75522243059918e-08,
+      "core_peak": 3.75522243059918e-08,
+      "pml_peak": 3.961675703207977e-22
+    },
+    {
+      "t": 0.1,
+      "full_peak": 1.8491794260415484e-08,
+      "core_peak": 1.8491794260415484e-08,
+      "pml_peak": 3.089308249436874e-11
+    },
+    {
+      "t": 0.15000000000000002,
+      "full_peak": 1.988175474673883e-08,
+      "core_peak": 1.988175474673883e-08,
+      "pml_peak": 2.028743655505741e-09
+    },
+    {
+      "t": 0.2,
+      "full_peak": 2.0159198503062663e-08,
+      "core_peak": 2.0159198503062663e-08,
+      "pml_peak": 1.9763799308977386e-08
+    },
+    {
+      "t": 0.25,
+      "full_peak": 2.016547682663376e-08,
+      "core_peak": 2.016547682663376e-08,
+      "pml_peak": 1.3032555225152268e-08
+    },
+    {
+      "t": 0.30000000000000004,
+      "full_peak": 2.010616952862982e-08,
+      "core_peak": 2.010616952862982e-08,
+      "pml_peak": 3.765356354411922e-09
+    },
+    {
+      "t": 0.35000000000000003,
+      "full_peak": 2.0137044373574585e-08,
+      "core_peak": 2.0137044373574585e-08,
+      "pml_peak": 3.5748385030258118e-09
+    },
+    {
+      "t": 0.4,
+      "full_peak": 2.0011646267959198e-08,
+      "core_peak": 2.0011646267959198e-08,
+      "pml_peak": 2.664419490138791e-09
+    },
+    {
+      "t": 0.45,
+      "full_peak": 1.9761443628086676e-08,
+      "core_peak": 1.9761443628086676e-08,
+      "pml_peak": 1.635596530420018e-09
+    },
+    {
+      "t": 0.5,
+      "full_peak": 2.012258341202611e-08,
+      "core_peak": 2.012258341202611e-08,
+      "pml_peak": 1.3622132209092728e-09
+    },
+    {
+      "t": 0.55,
+      "full_peak": 2.028140340129562e-08,
+      "core_peak": 2.028140340129562e-08,
+      "pml_peak": 1.3593796068408292e-09
+    },
+    {
+      "t": 0.6000000000000001,
+      "full_peak": 1.9927137780535538e-08,
+      "core_peak": 1.9927137780535538e-08,
+      "pml_peak": 7.11076033643728e-10
+    },
+    {
+      "t": 0.65,
+      "full_peak": 2.0136999446161148e-08,
+      "core_peak": 2.0136999446161148e-08,
+      "pml_peak": 5.861214033445987e-10
+    },
+    {
+      "t": 0.7000000000000001,
+      "full_peak": 1.998078097682345e-08,
+      "core_peak": 1.998078097682345e-08,
+      "pml_peak": 5.078571282212382e-10
+    },
+    {
+      "t": 0.75,
+      "full_peak": 1.9822283180020208e-08,
+      "core_peak": 1.9822283180020208e-08,
+      "pml_peak": 6.645426504936398e-10
+    },
+    {
+      "t": 0.8,
+      "full_peak": 2.0034736370338894e-08,
+      "core_peak": 2.0034736370338894e-08,
+      "pml_peak": 4.885081662465864e-10
+    },
+    {
+      "t": 0.8500000000000001,
+      "full_peak": 2.009419923274628e-08,
+      "core_peak": 2.009419923274628e-08,
+      "pml_peak": 5.391229151821218e-10
+    },
+    {
+      "t": 0.9,
+      "full_peak": 2.008755334060585e-08,
+      "core_peak": 2.008755334060585e-08,
+      "pml_peak": 1.1708604234642563e-08
+    },
+    {
+      "t": 0.9500000000000001,
+      "full_peak": 1.9037375617795078e-08,
+      "core_peak": 2.2046378591052817e-09,
+      "pml_peak": 1.9037375617795078e-08
+    },
+    {
+      "t": 1.0,
+      "full_peak": 9.850933399587495e-09,
+      "core_peak": 2.1066363154365027e-09,
+      "pml_peak": 9.850933399587495e-09
+    }
+  ],
+  "surface": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_6_p67s_showcase/proximity_v1/P175_half/surface.npz",
+    "sha256": "1c2a28e7a828791f4eb9335749baec8fc7dc089de24816ee1a8f357cb255a645"
+  }
+}

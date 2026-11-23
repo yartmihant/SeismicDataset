@@ -1,0 +1,8 @@
+{
+  "gpu": "name, uuid, driver_version, memory.total [MiB], utilization.gpu [%]\nNVIDIA A100-PCIE-40GB, GPU-44959449-64cd-cf32-cc53-841c2a5945ce, 525.147.05, 40960 MiB, 0 %\nNVIDIA A100-PCIE-40GB, GPU-8380bb23-7338-d665-4b90-ba1ff7b004ec, 525.147.05, 40960 MiB, 0 %\n",
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  },
+  "python": "/home/antonov/SeismicDataset/.runtime_ch15_p67s_v1/venv/bin/python"
+}

@@ -1,0 +1,50 @@
+{
+  "status": "completed",
+  "case": {
+    "name": "R0_half",
+    "domain": "reference",
+    "source": 700.0,
+    "homogeneous": false,
+    "half": true
+  },
+  "dt_s": 5.555555555555556e-05,
+  "steps": 18000,
+  "steps_per_tact": 18,
+  "lambda_max": 0.0,
+  "lambda_max_damping": 0.0,
+  "nodes": 7061881,
+  "elements": 196000,
+  "pml_elements": 0,
+  "boundary_elements": 0,
+  "cfl_safety": null,
+  "assembly_seconds": 5.85293856356293,
+  "prepare_seconds": 1.4105060417205095,
+  "native": {
+    "path": "/home/antonov/SeismicDataset/.runtime_ch15_p67s_v1/venv/lib/python3.13/site-packages/semgpu2/solvers/lin_elast_2d_seismic_newmark_kim_p6_cu/_native.cpython-313-x86_64-linux-gnu.so",
+    "sha256": "99e3205b83c186cbb411716d87415ab26ec1ed75cd37d2ac5d2c77280c57071f"
+  },
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p67s_v1/provenance.json",
+    "sha256": "5a3afda7fb453e8691631517a87bac74a7abf682a418ffb7ddedeb6237f6675a"
+  },
+  "runner": {
+    "path": "/home/antonov/SeismicDataset/scripts/dev_1_6_p67s_showcase/proximity_run.py",
+    "sha256": "af5ca1a25b94b6fa8bff8982df8809ad7092d7a692555ca5f32eeba3a46cc1ed"
+  },
+  "source_xy_m": [
+    700.0,
+    0.0
+  ],
+  "gpu": "0",
+  "git_head": "871f3b713b570e245a457301635eb4c09fd24bd3",
+  "run_seconds": 39.13409302290529,
+  "total_seconds": 46.67867850884795,
+  "terminal_state_finite": true,
+  "surface_samples": 1001,
+  "full_diagnostic_frames": 0,
+  "diagnostics": [],
+  "surface": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_6_p67s_showcase/proximity_v1/R0_half/surface.npz",
+    "sha256": "58eb1022016a530f6cdd9358b42c76bb35fa44b0c69d41826f0ebb4579fb17cf"
+  }
+}
