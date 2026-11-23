@@ -1,0 +1,58 @@
+{
+  "source": {
+    "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+    "members": [
+      "data_EFVB_out/vp_00001.txt",
+      "data_EFVB_out/vs_00001.txt"
+    ],
+    "raw_sha256": {
+      "vp_00001.txt": "0b7e31b01cb3aa70807919930bb8e435bbfde22cfc8f95d18bf0a8e4b17b3378",
+      "vs_00001.txt": "d593a7dfa87d2c02b9f9a91959d36301407d5b26094262e34c34cc1c913cb233"
+    },
+    "array_sha256": {
+      "vp": "06f20d9fdf641208e8e0a052e694859ee4a25f30b1e06c0206b6b609dd4cb149",
+      "vs": "e2fd75d3a1d3ed449299dfa153007cec64146f4485f239c890704ec684fee711"
+    },
+    "axes": "row top to bottom; column left to right",
+    "shape": [
+      70,
+      70
+    ],
+    "dtype": "float64"
+  },
+  "geometry": "aligned flat layers, exact10m rectangles; dataset stretched x2",
+  "model_id": 1,
+  "kind": "curved",
+  "elements": 22050,
+  "q2_nodes": 88831,
+  "area_m2": 2205000.000000001,
+  "det_jacobian_certified_min_m2": 24.9999999999753,
+  "bernstein_max_depth": 0,
+  "euler_characteristic": 1,
+  "conforming": true,
+  "core_top_edges": 140,
+  "core_top_edge_m": 10.0,
+  "external_edges": 630,
+  "area_by_region_m2": {
+    "0": 903000.0000000003,
+    "1": 483000.0000000002,
+    "2": 336000.0000000001,
+    "3": 483000.0000000003
+  },
+  "sqrt_area_quantiles_m": [
+    9.999999999999861,
+    9.99999999999994,
+    10.000000000000002,
+    10.000000000000064,
+    10.00000000000012
+  ],
+  "nodes": 795691,
+  "top_nodes": 1261,
+  "boundary_elements": 0,
+  "raw_bytes": 2025569520,
+  "mesh": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_6_p67s_showcase/cpu_v2/EFVB00001/mesh_q2.npz",
+    "sha256": "a4bc6d1dbb2eff6abcba79b986df87f2cf827dad18fde96490675c8a0282399a"
+  },
+  "pml_elements": 12250
+}

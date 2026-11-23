@@ -135,7 +135,7 @@ def gallery(root:Path,images:Path)->None:
             a=f'{name}/linear/x{int(x):04d}';b=f'{name}/symlog/x{int(x):04d}'
             readme.append(f'| {x:g} | [MP4]({a}/velocity.mp4) | [PNG]({a}/seismogram.png) | [MP4]({b}/velocity.mp4) | [PNG]({b}/seismogram.png) |')
         readme += ['',f'![Сейсмограммы {LABELS[name]}, центральный источник]({name}/linear/x0700/seismogram.png)']
-    (images/'README.md').write_text('\n\n'.join(readme)+'\n')
+    (images/'README.md').write_text(''.join(('\n' if i and line.startswith('|') and readme[i-1].startswith('|') else '\n\n')+line for i,line in enumerate(readme)).lstrip()+'\n')
     write(images/'summary.json',{'status':'completed','cases':rows,'scales':scale_meta,'videos':84,'seismograms':84,'independent_sources':42})
 
 
