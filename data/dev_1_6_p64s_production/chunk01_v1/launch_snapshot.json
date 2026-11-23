@@ -1,0 +1,75 @@
+{
+  "as_of_utc": "2026-11-23T14:27:22.513484+00:00",
+  "status": "running",
+  "completed": 34,
+  "active": 2,
+  "failed": 0,
+  "completed_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 1248706
+    },
+    {
+      "gpu": 1,
+      "pid": 1248707
+    }
+  ],
+  "started_utc": "2026-11-23T14:23:59.587505+00:00",
+  "elapsed_seconds": 202.925979,
+  "mean_model_total_seconds": 11.539974707863568,
+  "mean_model_run_seconds": 9.468384321258569,
+  "completed_bytes": 308191232,
+  "projected_chunk_bytes": 27193344000.0,
+  "free_bytes": 192999370752,
+  "remaining_estimate_seconds": 17113.78249176167,
+  "estimated_finish_utc": "2026-11-23T19:12:36.295976+00:00",
+  "wall_throughput_remaining_seconds": 17702.30746217647,
+  "native_steps_seen": [
+    6000,
+    7000,
+    8000,
+    9000,
+    10000
+  ],
+  "native_sha256": [
+    "2610e43e07f05a546a72a29b78bc95cb66e6b88a1cf01fae116681428f839a24"
+  ],
+  "gpu": "index, utilization.gpu [%], memory.used [MiB]\n0, 46 %, 809 MiB\n1, 100 %, 809 MiB\n",
+  "note": "snapshot, not live; ETA extrapolates early models, native dt varies"
+}

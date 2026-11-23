@@ -1,0 +1,22 @@
+{
+  "models": [
+    1,
+    0,
+    2999
+  ],
+  "variants": [
+    "p6",
+    "p64s",
+    "p67s"
+  ],
+  "benchmark_model": 1,
+  "warmups": 1,
+  "rotated_repeats": 3,
+  "shots": "p6 four sequential; p64s four simultaneous; p67s seven simultaneous; sources100:200:1300",
+  "receiver": "140 points x5:10:1395, Vx/Vy,1001 times,FP64; async buffer4; no frames",
+  "snapshot": {
+    "path": "/home/antonov/SeismicDataset/docs/runtime_sources/seismic_p64s_v1/provenance.json",
+    "sha256": "52705f5c499edf7ccc4fbf869edf6cb1a675629d3ecca4151375e2f1596ee363"
+  },
+  "gpu": "index, name, uuid, utilization.gpu [%]\n0, NVIDIA A100-PCIE-40GB, GPU-44959449-64cd-cf32-cc53-841c2a5945ce, 0 %\n1, NVIDIA A100-PCIE-40GB, GPU-8380bb23-7338-d665-4b90-ba1ff7b004ec, 0 %\n"
+}

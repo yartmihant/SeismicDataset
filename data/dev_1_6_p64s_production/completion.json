@@ -1,0 +1,13 @@
+{
+  "status": "comparison_completed_and_first_chunk_launched",
+  "comparison_checks": 220,
+  "comparison_array_sha_checked": 27,
+  "cpu_flat_models": 3000,
+  "dual_gpu_pilot_models": 6,
+  "pilot_production_checks": 8,
+  "pilot_production_max_relative_l2": 2.7854399291755333e-14,
+  "report_links_checked": 6,
+  "plot_sha256": "1b75054d95e08e98244e1a5ef3d3af68e4c1e5e8769fde9813efaf5a40aa924f",
+  "notebook": "28cells,executed read-only,syntax/format/roundtrip OK",
+  "production_status": "running; see timestamped launch_snapshot.json; only first3000 enabled"
+}

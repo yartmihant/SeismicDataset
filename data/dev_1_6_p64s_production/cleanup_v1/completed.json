@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "files_deleted": 23051,
+  "planned_allocated_bytes": 150370623488,
+  "available_before_bytes": 43130327040,
+  "available_after_bytes": 193371623424,
+  "old_queue_metadata": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_6_p64s_production/cleanup_v1/old_queue_metadata.tar.gz",
+    "sha256": "f5ea0427b1032ed1ecd14120063f925f84c2fb6d52d99288f46c547494c9c775"
+  },
+  "preserved": "src,Git,code,JSON and galleries; original30-case series1.5; all1.6 fields; current comparison and new queue; installed runtimes"
+}

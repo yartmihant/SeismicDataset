@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "gpu": 1,
+  "models": [
+    1,
+    3,
+    5
+  ],
+  "wall_seconds": 36.847305913455784,
+  "rss_after_each_model": [
+    "VmRSS:\t  381444 kB",
+    "VmRSS:\t  453292 kB",
+    "VmRSS:\t  397916 kB"
+  ]
+}
