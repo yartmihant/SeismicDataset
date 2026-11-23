@@ -123,6 +123,19 @@ def gallery(root:Path,images:Path)->None:
         fig.suptitle('Центральный источник x=700 м · линейная ±1e−10 м/с')
         fig.savefig(images/f'overview_{kind}.png',dpi=140);plt.close(fig)
     (images/'index.html').write_text(header+body+'</html>')
+    readme=['# Глава1.6 · 42 независимых опыта p67s',
+        '1400×700 м; p6/h≈10 м; PML350 без ABC;30 Гц;1 с; β1/27; native CFL0.8. [Полная постановка](../../../docs/dev_1_6_p67s_showcase_spec.txt).',
+        'Ниже прямые ссылки на MP4 и PNG; они доступны без HTML. [Автономная галерея](index.html) открывается после скачивания. Линейная шкала±1e−10 м/с общая для всех видео и сейсмограмм.',
+        '![Обзор центральных источников](overview_fields.png)']
+    for name in CASES:
+        readme += [f'## {LABELS[name]}', f'[Материал]({name}/material.png) · [Все семь сейсмограмм одним PNG]({name}/all_sources_seismograms.png)',
+            '| Источник x, м | Анимация Vx/Vy | Сейсмограмма Vx/Vy | Анимация symlog | Сейсмограмма symlog |',
+            '|---|---|---|---|---|']
+        for x in SOURCE_POSITIONS:
+            a=f'{name}/linear/x{int(x):04d}';b=f'{name}/symlog/x{int(x):04d}'
+            readme.append(f'| {x:g} | [MP4]({a}/velocity.mp4) | [PNG]({a}/seismogram.png) | [MP4]({b}/velocity.mp4) | [PNG]({b}/seismogram.png) |')
+        readme += ['',f'![Сейсмограммы {LABELS[name]}, центральный источник]({name}/linear/x0700/seismogram.png)']
+    (images/'README.md').write_text('\n\n'.join(readme)+'\n')
     write(images/'summary.json',{'status':'completed','cases':rows,'scales':scale_meta,'videos':84,'seismograms':84,'independent_sources':42})
 
 
