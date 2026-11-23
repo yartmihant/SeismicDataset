@@ -27,7 +27,7 @@ from scripts.dev_1_5_geometry_frequency.run import space
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.reporting import read_json, mapping, number
 
-ROOT = Path('data/dev_1_5_geometry_frequency/p6_7s_comparison_v1')
+ROOT = Path('data/dev_1_5_geometry_frequency/p6_7s_comparison_v2')
 SNAPSHOT = Path('docs/runtime_sources/seismic_p6_7s_v1/provenance.json')
 VARIANTS = ('frozen_p6', 'current_p6', 'p6_7s')
 
@@ -118,7 +118,7 @@ def run(root:Path,variant:str,label:str,probe:bool,dt:float|None)->None:
     r['variant']=variant
     r['comparison_snapshot']=file_record(SNAPSHOT)
     # execute records its historical setup snapshot; actual binary SHA determines implementation.
-    write(result_path(root,variant,label)/('probe.json' if probe else 'result.json'),r)
+    write(result_path(root,variant,label)/'comparison_metadata.json',r)
 
 
 def series(root:Path)->None:
