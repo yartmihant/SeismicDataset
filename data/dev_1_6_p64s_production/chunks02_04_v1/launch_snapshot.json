@@ -1,0 +1,48 @@
+{
+  "as_of_utc": "2026-11-23T22:04:12.200333+00:00",
+  "status": "running",
+  "progress": [
+    [
+      2,
+      "completed",
+      12
+    ],
+    [
+      2,
+      "reserved",
+      2
+    ]
+  ],
+  "completed_ids": [
+    3000,
+    3001,
+    3002,
+    3003,
+    3004,
+    3005,
+    3006,
+    3007,
+    3008,
+    3009,
+    3010,
+    3011
+  ],
+  "first_result_checks": "native SHA unchanged; shape, finite state and exact terminal surface confirmed",
+  "workers": [
+    {
+      "gpu": 0,
+      "pid": 1465693
+    },
+    {
+      "gpu": 1,
+      "pid": 1465694
+    }
+  ],
+  "started_utc": "2026-11-23T22:02:51.945739+00:00",
+  "estimated_finish_utc": "2026-11-24T12:36:41.500425+00:00",
+  "estimate_basis": "three times measured first-chunk duration; model-native dt varies",
+  "projected_output_bytes": 81580032000,
+  "free_bytes": 165625946112,
+  "stop_after_id": 11999,
+  "first_chunk_preserved": true
+}
