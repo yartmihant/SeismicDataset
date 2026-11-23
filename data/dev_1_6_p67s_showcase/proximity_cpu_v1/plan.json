@@ -1,0 +1,327 @@
+{
+  "status": "cpu_checked",
+  "distances_m": [
+    0.0,
+    5.0,
+    10.0,
+    20.0,
+    35.0,
+    50.0,
+    75.0,
+    100.0,
+    150.0,
+    175.0,
+    250.0,
+    350.0,
+    700.0
+  ],
+  "cases": [
+    {
+      "name": "P0",
+      "domain": "production",
+      "source": 0.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P5",
+      "domain": "production",
+      "source": 5.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P10",
+      "domain": "production",
+      "source": 10.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P20",
+      "domain": "production",
+      "source": 20.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P35",
+      "domain": "production",
+      "source": 35.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P50",
+      "domain": "production",
+      "source": 50.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P75",
+      "domain": "production",
+      "source": 75.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P100",
+      "domain": "production",
+      "source": 100.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P150",
+      "domain": "production",
+      "source": 150.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P175",
+      "domain": "production",
+      "source": 175.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P250",
+      "domain": "production",
+      "source": 250.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P350",
+      "domain": "production",
+      "source": 350.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P700",
+      "domain": "production",
+      "source": 700.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "R0",
+      "domain": "reference",
+      "source": 700.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "H0",
+      "domain": "reference",
+      "source": 700.0,
+      "homogeneous": true,
+      "half": false
+    },
+    {
+      "name": "B0",
+      "domain": "larger",
+      "source": 700.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "R0_half",
+      "domain": "reference",
+      "source": 700.0,
+      "homogeneous": false,
+      "half": true
+    },
+    {
+      "name": "R5",
+      "domain": "reference",
+      "source": 705.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "H5",
+      "domain": "reference",
+      "source": 705.0,
+      "homogeneous": true,
+      "half": false
+    },
+    {
+      "name": "B5",
+      "domain": "larger",
+      "source": 705.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "R5_half",
+      "domain": "reference",
+      "source": 705.0,
+      "homogeneous": false,
+      "half": true
+    },
+    {
+      "name": "L0",
+      "domain": "left_only",
+      "source": 0.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "L35",
+      "domain": "left_only",
+      "source": 35.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "L175",
+      "domain": "left_only",
+      "source": 175.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "L700",
+      "domain": "left_only",
+      "source": 700.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "direct5",
+      "domain": "reference",
+      "source": 5.0,
+      "homogeneous": false,
+      "half": false
+    },
+    {
+      "name": "P0_half",
+      "domain": "production",
+      "source": 0.0,
+      "homogeneous": false,
+      "half": true
+    },
+    {
+      "name": "P5_half",
+      "domain": "production",
+      "source": 5.0,
+      "homogeneous": false,
+      "half": true
+    },
+    {
+      "name": "P175_half",
+      "domain": "production",
+      "source": 175.0,
+      "homogeneous": false,
+      "half": true
+    }
+  ],
+  "domains": {
+    "production": {
+      "bounds": [
+        -350.0,
+        1750.0,
+        -1050.0
+      ],
+      "elements": 22050,
+      "nodes": 795691
+    },
+    "reference": {
+      "bounds": [
+        -2500.0,
+        4500.0,
+        -2800.0
+      ],
+      "elements": 196000,
+      "nodes": 7061881
+    },
+    "larger": {
+      "bounds": [
+        -3000.0,
+        5000.0,
+        -3300.0
+      ],
+      "elements": 264000,
+      "nodes": 9510781
+    },
+    "left_only": {
+      "bounds": [
+        -350.0,
+        4500.0,
+        -2800.0
+      ],
+      "elements": 135800,
+      "nodes": 4893391
+    }
+  },
+  "model": "EFVB00001, horizontal layers; stretched x2, velocity values unchanged",
+  "source": {
+    "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+    "members": [
+      "data_EFVB_out/vp_00001.txt",
+      "data_EFVB_out/vs_00001.txt"
+    ],
+    "raw_sha256": {
+      "vp_00001.txt": "0b7e31b01cb3aa70807919930bb8e435bbfde22cfc8f95d18bf0a8e4b17b3378",
+      "vs_00001.txt": "d593a7dfa87d2c02b9f9a91959d36301407d5b26094262e34c34cc1c913cb233"
+    },
+    "array_sha256": {
+      "vp": "06f20d9fdf641208e8e0a052e694859ee4a25f30b1e06c0206b6b609dd4cb149",
+      "vs": "e2fd75d3a1d3ed449299dfa153007cec64146f4485f239c890704ec684fee711"
+    },
+    "axes": "row top to bottom; column left to right",
+    "shape": [
+      70,
+      70
+    ],
+    "dtype": "float64"
+  },
+  "layer_depths_m": [
+    0,
+    160,
+    390,
+    620,
+    700
+  ],
+  "materials_vp_vs": [
+    [
+      2400.0,
+      1592.65149
+    ],
+    [
+      1976.0,
+      1311.28308
+    ],
+    [
+      4193.0,
+      2782.49487
+    ],
+    [
+      1869.0,
+      1240.27734
+    ]
+  ],
+  "rho": 1000,
+  "p": 6,
+  "h_m": 10,
+  "PML_m": 350,
+  "PML_dmax_s_inv": 173.0886108476381,
+  "ABC": false,
+  "beta": 0.037037037037037035,
+  "gamma": 0.5,
+  "duration_s": 1,
+  "tact_dt_s": 0.001,
+  "source_wavelet": "Ricker30Hz t0=.05s, point Fy=-1N/m; cubic table at1us as prior p6 tests",
+  "dt": "common min(native CFL0.8 probes production/reference/larger/left_only); explicit same dt for comparisons, plus dt/2",
+  "reference": "large unabsorbed half-space approximation; two source phases700/705; shift by integer multiples10m only",
+  "reference_return_lower_bound_s": 1.335559265442404,
+  "reference_check": "two larger domains plus direct reference source5; all same dt",
+  "normalization": "first-horizon signal = layered reference - homogeneous reference; first PP window ±.025s, offsets20..200m to right, no late multiples",
+  "criteria": "report peak/error-to-first-horizon and weighted energy proxy; tiers0.1/1/5percent peak and1e-6/1e-4/1e-2 energy; all interior receivers and margins10/25/50/100/175m",
+  "storage": "surface-only files; production fields observed at21 times for diagnostics but not stored; <1GiB outputs",
+  "production": "unchanged, stopped"
+}
