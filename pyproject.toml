@@ -22,7 +22,7 @@ include = ["scripts", "scripts.*"]
 semgpu2 = { path = "../../SEM/TrySEMGPU/semgpu2", editable = true }
 
 [tool.mypy]
-files = ["scripts", "dev_1_1_dataset_preprocessing.py", "dev_1_2_smoothing_pilot.py", "dev_1_3_point_source.py", "dev_1_4_server_preparation.py", "dev_1_5_geometry_frequency.py"]
+files = ["scripts", "dev_1_1_dataset_preprocessing.py", "dev_1_2_smoothing_pilot.py", "dev_1_3_point_source.py", "dev_1_4_server_preparation.py", "dev_1_5_geometry_frequency.py", "dev_1_6_p67s_showcase.py"]
 check_untyped_defs = true
 show_error_codes = true
 follow_imports = "silent"
