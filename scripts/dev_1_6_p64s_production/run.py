@@ -26,16 +26,19 @@ SOURCES=(100.,300.,500.,700.)
 RECEIVERS=np.arange(5,1400,10,dtype=np.float64)
 
 
-@lru_cache(maxsize=1)
-def audited_inputs()->dict[int,list[object]]:
-    audit=read_json(Path('data/dev_1_6_p64s_production/cpu_v1/check.json'));assert audit['status']=='passed'
+DEFAULT_AUDIT=Path('data/dev_1_6_p64s_production/cpu_v1/check.json')
+
+
+@lru_cache(maxsize=2)
+def audited_inputs(path:Path=DEFAULT_AUDIT)->dict[int,list[object]]:
+    audit=read_json(path);assert audit['status']=='passed'
     return {int(number(mapping(r)['id'])):sequence(mapping(r)['raw_sha256']) for r in sequence(audit['models'])}
 
 
-def execute(model_id:int,variant:str,out:Path,save_state:bool=False,before_write:Callable[[int],None]|None=None)->dict[str,object]:
+def execute(model_id:int,variant:str,out:Path,save_state:bool=False,before_write:Callable[[int],None]|None=None,audit_path:Path=DEFAULT_AUDIT)->dict[str,object]:
     space(20);out.mkdir(parents=True,exist_ok=False);begin=perf_counter();g=leading_grid();mesh=g.mesh;n=len(mesh.nodes_coords)
     source=read_model('EFVB',model_id)
-    raw=mapping(source.provenance['raw_sha256']);assert [raw[f'{c}_{model_id:05d}.txt'] for c in ('vp','vs')]==audited_inputs()[model_id],'Source differs from audited first chunk'
+    raw=mapping(source.provenance['raw_sha256']);assert [raw[f'{c}_{model_id:05d}.txt'] for c in ('vp','vs')]==audited_inputs(audit_path)[model_id],'Source differs from audited model range'
     assert np.all(source.vp==source.vp[:,:1]) and np.all(source.vs==source.vs[:,:1]),'Flat model required'
     row=np.clip((-g.centers[:,1]/10).astype(np.int64),0,69);vp,vs=source.vp[row,0],source.vs[row,0]
     nodes=np.array([int(np.argmin(abs(mesh.nodes_coords[g.top,0]-x))) for x in RECEIVERS],dtype=np.int64)

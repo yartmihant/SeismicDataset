@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "first_id": 3000,
+  "last_id": 11999,
+  "checks": [
+    "unique GPU reservations",
+    "strict3000-model chunk barrier",
+    "failure blocks both GPUs",
+    "stop after11999",
+    "40GiB combined reserve maintained"
+  ]
+}
