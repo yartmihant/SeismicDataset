@@ -26,12 +26,14 @@ def render(root:Path,out:Path)->None:
         delta_panel=ax is axes[1]
         values=[med[i]-(med[1] if delta_panel else 0.) for i in indices];names=[NAMES[MODES[i]] for i in indices]
         ax.barh(names,values,color='#356b88',alpha=.85)
+        all_samples:list[float]=[]
         for j,i in enumerate(indices):
             samples=[number(v) for v in sequence(rows[MODES[i]]['run_seconds'])]
             if delta_panel:samples=[a-number(b) for a,b in zip(samples,sequence(rows['new_none']['run_seconds']),strict=True)]
+            all_samples.extend(samples)
             ax.scatter(samples,[j]*len(samples),s=17,color='#162734',zorder=3)
             ax.text(values[j]+max(values)*.01,j,f'{values[j]:.3f}',va='center')
-        ax.invert_yaxis();ax.set_xlim(min(0.,min(values)*1.2),max(values)*1.3);ax.set_xlabel('Разность run / wait, с' if delta_panel else 'Полный model.run / wait, с');ax.set_title(title)
+        ax.invert_yaxis();ax.set_xlim(min(0.,min(all_samples)*1.2),max(max(values),max(all_samples))*1.3);ax.set_xlabel('Разность run / wait, с' if delta_panel else 'Полный model.run / wait, с');ax.set_title(title)
     fig.suptitle('A100 · 7 источников · p6/h10 · 1 с · медиана и пять повторов без профайлера')
     fig.savefig(out/'timings.png',dpi=155);plt.close(fig)
     stage={mode:mapping(mapping(profiles[mode]['stages'])['semgpu_run']) for mode in MODES}
