@@ -45,8 +45,8 @@ def check(a:FloatArray,b:FloatArray,w:FloatArray)->dict[str,float]:
     return {'relative_l2':float(np.sqrt(norm(a-b,w)/norm(b,w))), 'max_abs_m_s':float(np.max(abs(a-b)))}
 
 
-def analyze(root:Path,out:Path)->None:
-    out.mkdir(parents=True,exist_ok=False);metrics_out=root/'analysis_v1';metrics_out.mkdir(exist_ok=False)
+def analyze(root:Path,out:Path,analysis_name:str='analysis_v1')->None:
+    out.mkdir(parents=True,exist_ok=False);metrics_out=root/analysis_name;metrics_out.mkdir(exist_ok=False)
     refs={i:load(root,f'R{i}') for i in (0,5)};homes={i:load(root,f'H{i}') for i in (0,5)}
     controls:dict[str,object]={}
     for i in (0,5):
@@ -100,7 +100,7 @@ def analyze(root:Path,out:Path)->None:
         np.savez(metrics_out/f'{name}_metrics.npz',x_m=s.x,error_peak_m_s=np.max(np.linalg.norm(e,axis=2),axis=0),reference_peak_m_s=np.max(np.linalg.norm(r,axis=2),axis=0),error_time_peak_m_s=np.max(np.linalg.norm(e[:,1:-1],axis=2),axis=1),time_s=s.t)
         if d in (0,5,35,100,175,700):
             ax=axes.flat[(0,5,35,100,175,700).index(int(d))]
-            image_handle=ax.pcolormesh(s.x,s.t,e[:,:,1]/hp,cmap='RdBu_r',vmin=-.01,vmax=.01,rasterized=True,shading='auto')
+            image_handle=ax.pcolormesh(s.x,s.t,e[:,:,1]/hp,cmap='RdBu_r',vmin=-.001,vmax=.001,rasterized=True,shading='auto')
             ax.set_title(f'Источник {d:g} м');ax.set_xlabel('x, м');ax.set_ylabel('t, с');ax.invert_yaxis() if not ax.yaxis_inverted() else None
         if d in (0,5,35,175,700):
             ix=int(np.argmin(abs(s.x-(d+100))));assert abs(s.x[ix]-(d+100))<1e-8
@@ -111,10 +111,10 @@ def analyze(root:Path,out:Path)->None:
                 trace_axes[1].axvspan(float(arrival[ix]-.025),float(arrival[ix]+.025),alpha=.2,color='gray',label='Окно первого PP')
         rows.append(entry)
     trace_axes[0].set(ylabel='ΔVy / пик первого отражения',title='Приёмник в 100 м справа от источника: влияние всех PML')
-    trace_axes[1].set(xlabel='t, с',ylabel='Vy / пик первого отражения',title='Проверка выделения первого отражения (d=175 м)')
+    trace_axes[1].set(xlabel='t, с',ylabel='Vy / пик первого отражения',title='Первое отражение (d=175 м); прямая волна вне вертикальной шкалы',ylim=(-1.2,1.2))
     for ax_trace in trace_axes:ax_trace.legend(fontsize=8);ax_trace.grid(alpha=.2)
     fig_trace.savefig(out/'relative_offset_traces.png',dpi=150);plt.close(fig_trace)
-    if image_handle is not None:fig.colorbar(image_handle,ax=axes.ravel().tolist(),label='ΔVy / пик первого отражения; насыщение ±1%')
+    if image_handle is not None:fig.colorbar(image_handle,ax=axes.ravel().tolist(),label='ΔVy / пик первого отражения; насыщение ±0.1%')
     fig.suptitle('Ошибка сейсмограммы: PML350 − расширенный эталон, EFVB00001')
     fig.savefig(out/'difference_seismograms.png',dpi=150);plt.close(fig)
     c=np.array(curves);fig,axes2=plt.subplots(1,2,figsize=(12,4),layout='constrained')
@@ -141,4 +141,4 @@ def analyze(root:Path,out:Path)->None:
     (out/'README.md').write_text('\n'.join(lines)+'\n')
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--out',type=Path,default=Path('img/dev_1_6_p67s_showcase/proximity_v1'));a=p.parse_args();analyze(a.root,a.out)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--out',type=Path,default=Path('img/dev_1_6_p67s_showcase/proximity_v1'));p.add_argument('--analysis-name',default='analysis_v1');a=p.parse_args();analyze(a.root,a.out,a.analysis_name)
