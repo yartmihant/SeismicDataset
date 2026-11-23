@@ -11,7 +11,7 @@ from scripts.dev_1_5_geometry_frequency.pml_fixed_orders import FloatArray
 from scripts.dev_1_5_geometry_frequency.setup import write
 from scripts.dev_1_3_point_source.run import file_record
 from scripts.dev_1_6_p67s_showcase.proximity_mesh import ROOT,DISTANCES
-from scripts.reporting import read_json,number
+from scripts.reporting import read_json,number,mapping
 
 @dataclass
 class Surface:
@@ -23,6 +23,7 @@ class Surface:
 
 def load(root:Path,name:str)->Surface:
     r=read_json(root/name/'result.json');assert r['status']=='completed'
+    assert file_record(root/name/'surface.npz')['sha256']==mapping(r['surface'])['sha256']
     with np.load(root/name/'surface.npz') as a:
         s=Surface(a['time_s'].copy(),a['x_m'].copy(),a['weights_m'].copy(),a['velocity_m_s'].copy())
     assert np.isfinite(s.v).all()
@@ -45,13 +46,17 @@ def check(a:FloatArray,b:FloatArray,w:FloatArray)->dict[str,float]:
 
 
 def analyze(root:Path,out:Path)->None:
-    out.mkdir(parents=True,exist_ok=False)
+    out.mkdir(parents=True,exist_ok=False);metrics_out=root/'analysis_v1';metrics_out.mkdir(exist_ok=False)
     refs={i:load(root,f'R{i}') for i in (0,5)};homes={i:load(root,f'H{i}') for i in (0,5)}
     controls:dict[str,object]={}
     for i in (0,5):
         ref=refs[i];b=load(root,f'B{i}');half=load(root,f'R{i}_half')
         controls[f'larger_{i}']=check(ref.v,aligned(b,ref.x),ref.w)
         controls[f'dt_{i}']=check(ref.v,aligned(half,ref.x),ref.w)
+        offsets=ref.x-(700+i);gate=(abs(ref.t[:,None]-(.05+np.sqrt(320**2+offsets**2)/2400)[None,:])<=.025)&((offsets>=20)&(offsets<=200))[None,:]
+        hp=float(np.max(np.linalg.norm((ref.v-homes[i].v)*gate[:,:,None],axis=2)))
+        controls[f'larger_to_horizon_peak_{i}']=float(np.max(np.linalg.norm(ref.v-aligned(b,ref.x),axis=2))/hp)
+        controls[f'dt_to_horizon_peak_{i}']=float(np.max(np.linalg.norm(ref.v-aligned(half,ref.x),axis=2))/hp)
     direct=load(root,'direct5');sel=direct.x<=1400
     controls['translation_source5']=check(direct.v[:,sel],aligned(refs[5],direct.x[sel],700),direct.w[sel])
     rows:list[dict[str,object]]=[];curves:list[list[float]]=[]
@@ -91,7 +96,7 @@ def analyze(root:Path,out:Path)->None:
             entry['boundary_error_dt_change_to_horizon_peak']=float(np.max(np.linalg.norm((e-eh)[:,1:-1],axis=2))/hp)
             controls[f'production_dt_{d:g}']=check(s.v,half.v,s.w)
         # Per-receiver traces allow inspecting errors near PML separately from central receivers.
-        np.savez(out/f'{name}_metrics.npz',x_m=s.x,error_peak_m_s=np.max(np.linalg.norm(e,axis=2),axis=0),reference_peak_m_s=np.max(np.linalg.norm(r,axis=2),axis=0),error_time_peak_m_s=np.max(np.linalg.norm(e[:,1:-1],axis=2),axis=1),time_s=s.t)
+        np.savez(metrics_out/f'{name}_metrics.npz',x_m=s.x,error_peak_m_s=np.max(np.linalg.norm(e,axis=2),axis=0),reference_peak_m_s=np.max(np.linalg.norm(r,axis=2),axis=0),error_time_peak_m_s=np.max(np.linalg.norm(e[:,1:-1],axis=2),axis=1),time_s=s.t)
         if d in (0,5,35,100,175,700):
             ax=axes.flat[(0,5,35,100,175,700).index(int(d))]
             image_handle=ax.pcolormesh(s.x,s.t,e[:,:,1]/hp,cmap='RdBu_r',vmin=-.01,vmax=.01,rasterized=True,shading='auto')
@@ -117,7 +122,7 @@ def analyze(root:Path,out:Path)->None:
                 m=next(m for m in ms if m['receiver_margin_m']==margin and not m['exclude_source20'] and m['window_s']==[0.,1.])
                 if number(m['error_to_horizon_peak'])<=peak and number(m['error_to_horizon_energy'])<=energy:valid.append(row['distance_m'])
             thresholds[f'margin{margin}_peak{peak}_energy{energy}']=valid
-    write(out/'analysis.json',{'status':'completed','controls':controls,'rows':rows,'passing_distances_m':thresholds,'definition':'error = PML - translated layered reference, first reflection = layered - homogeneous in first PP gate; energy = sum(dt*w*(Vx²+Vy²)), not mechanical energy','inputs':[file_record(p) for p in sorted(root.glob('*/surface.npz'))]})
+    write(metrics_out/'analysis.json',{'status':'completed','controls':controls,'rows':rows,'passing_distances_m':thresholds,'definition':'error = PML - translated layered reference, first reflection = layered - homogeneous in first PP gate; energy = sum(dt*w*(Vx²+Vy²)), not mechanical energy','inputs':[file_record(p) for p in sorted(root.glob('*/surface.npz'))]})
     lines=['# Источник у PML350: p6, EFVB00001','','Параметры и ограничения: [постановка](../../../docs/dev_1_6_pml_proximity_spec.txt). Все значения относятся к Vx/Vy внутри основной области за 0–1 с. Энергия — интеграл квадрата скорости по времени и координате, а не поток механической энергии. Нормировка — первое отражение от горизонта в фиксированной правой апертуре 20–200 м.','','![Зависимость от расстояния](distance_errors.png)','','![Разности сейсмограмм](difference_seismograms.png)','','| Источник–PML, м | Пик ошибки / первое отражение, % | Энергия ошибки / первое отражение, % | L2 ошибки / полной записи, % |','|---:|---:|---:|---:|']
     lines.extend(f'| {r[0]:g} | {100*r[1]:.6g} | {100*r[2]:.6g} | {100*r[3]:.6g} |' for r in curves)
     lines+=['','Метрики всей основной поверхности включают вклад боковых и нижнего PML. Контроли left_only отделяют левую границу; проверки большей области, прямого переноса источника и dt/2 находятся в analysis.json. Это не универсальный предел для других материалов и частот.']
