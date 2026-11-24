@@ -1,0 +1,1088 @@
+{
+  "runs": [
+    {
+      "width": 350,
+      "height": 350,
+      "material": "efvb",
+      "frequency": 15
+    },
+    {
+      "width": 350,
+      "height": 350,
+      "material": "efvb",
+      "frequency": 30
+    },
+    {
+      "width": 350,
+      "height": 350,
+      "material": "homogeneous",
+      "frequency": 15
+    },
+    {
+      "width": 350,
+      "height": 350,
+      "material": "homogeneous",
+      "frequency": 30
+    },
+    {
+      "width": 350,
+      "height": 350,
+      "material": "two_layer",
+      "frequency": 15
+    },
+    {
+      "width": 350,
+      "height": 350,
+      "material": "two_layer",
+      "frequency": 30
+    },
+    {
+      "width": 700,
+      "height": 350,
+      "material": "efvb",
+      "frequency": 15
+    },
+    {
+      "width": 700,
+      "height": 350,
+      "material": "efvb",
+      "frequency": 30
+    },
+    {
+      "width": 700,
+      "height": 350,
+      "material": "homogeneous",
+      "frequency": 15
+    },
+    {
+      "width": 700,
+      "height": 350,
+      "material": "homogeneous",
+      "frequency": 30
+    },
+    {
+      "width": 700,
+      "height": 350,
+      "material": "two_layer",
+      "frequency": 15
+    },
+    {
+      "width": 700,
+      "height": 350,
+      "material": "two_layer",
+      "frequency": 30
+    },
+    {
+      "width": 700,
+      "height": 700,
+      "material": "efvb",
+      "frequency": 15
+    },
+    {
+      "width": 700,
+      "height": 700,
+      "material": "efvb",
+      "frequency": 30
+    },
+    {
+      "width": 700,
+      "height": 700,
+      "material": "homogeneous",
+      "frequency": 15
+    },
+    {
+      "width": 700,
+      "height": 700,
+      "material": "homogeneous",
+      "frequency": 30
+    },
+    {
+      "width": 700,
+      "height": 700,
+      "material": "two_layer",
+      "frequency": 15
+    },
+    {
+      "width": 700,
+      "height": 700,
+      "material": "two_layer",
+      "frequency": 30
+    },
+    {
+      "width": 1400,
+      "height": 700,
+      "material": "efvb",
+      "frequency": 15
+    },
+    {
+      "width": 1400,
+      "height": 700,
+      "material": "efvb",
+      "frequency": 30
+    },
+    {
+      "width": 1400,
+      "height": 700,
+      "material": "homogeneous",
+      "frequency": 15
+    },
+    {
+      "width": 1400,
+      "height": 700,
+      "material": "homogeneous",
+      "frequency": 30
+    },
+    {
+      "width": 1400,
+      "height": 700,
+      "material": "two_layer",
+      "frequency": 15
+    },
+    {
+      "width": 1400,
+      "height": 700,
+      "material": "two_layer",
+      "frequency": 30
+    },
+    {
+      "width": 1000,
+      "height": 500,
+      "material": "efvb",
+      "frequency": 15
+    },
+    {
+      "width": 1000,
+      "height": 500,
+      "material": "efvb",
+      "frequency": 30
+    },
+    {
+      "width": 1000,
+      "height": 500,
+      "material": "homogeneous",
+      "frequency": 15
+    },
+    {
+      "width": 1000,
+      "height": 500,
+      "material": "homogeneous",
+      "frequency": 30
+    },
+    {
+      "width": 1000,
+      "height": 500,
+      "material": "two_layer",
+      "frequency": 15
+    },
+    {
+      "width": 1000,
+      "height": 500,
+      "material": "two_layer",
+      "frequency": 30
+    }
+  ],
+  "geometry": {
+    "350x350_efvb": {
+      "mesh_id": "350x350_efvb",
+      "width_m": 350,
+      "height_m": 350,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 140,
+      "ny": 105,
+      "sem_nodes": 368726,
+      "surface_nodes": 701,
+      "elements": 14700,
+      "depths_m": [
+        0.0,
+        175.0,
+        285.0,
+        295.0,
+        330.0,
+        350.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ],
+        [
+          4285.0,
+          2549.42334
+        ],
+        [
+          4285.0,
+          1760.04858
+        ],
+        [
+          4285.0,
+          2549.42334
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 367500.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 141018768
+    },
+    "350x350_homogeneous": {
+      "mesh_id": "350x350_homogeneous",
+      "width_m": 350,
+      "height_m": 350,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 140,
+      "ny": 105,
+      "sem_nodes": 368726,
+      "surface_nodes": 701,
+      "elements": 14700,
+      "depths_m": [
+        0.0,
+        350.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 367500.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 141018768
+    },
+    "350x350_two_layer": {
+      "mesh_id": "350x350_two_layer",
+      "width_m": 350,
+      "height_m": 350,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 140,
+      "ny": 105,
+      "sem_nodes": 368726,
+      "surface_nodes": 701,
+      "elements": 14700,
+      "depths_m": [
+        0.0,
+        175.0,
+        350.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 367500.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 141018768
+    },
+    "700x350_efvb": {
+      "mesh_id": "700x350_efvb",
+      "width_m": 700,
+      "height_m": 350,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 210,
+      "ny": 105,
+      "sem_nodes": 552826,
+      "surface_nodes": 1051,
+      "elements": 22050,
+      "depths_m": [
+        0.0,
+        175.0,
+        285.0,
+        295.0,
+        330.0,
+        350.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ],
+        [
+          4285.0,
+          2549.42334
+        ],
+        [
+          4285.0,
+          1760.04858
+        ],
+        [
+          4285.0,
+          2549.42334
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 551250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 211427568
+    },
+    "700x350_homogeneous": {
+      "mesh_id": "700x350_homogeneous",
+      "width_m": 700,
+      "height_m": 350,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 210,
+      "ny": 105,
+      "sem_nodes": 552826,
+      "surface_nodes": 1051,
+      "elements": 22050,
+      "depths_m": [
+        0.0,
+        350.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 551250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 211427568
+    },
+    "700x350_two_layer": {
+      "mesh_id": "700x350_two_layer",
+      "width_m": 700,
+      "height_m": 350,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 210,
+      "ny": 105,
+      "sem_nodes": 552826,
+      "surface_nodes": 1051,
+      "elements": 22050,
+      "depths_m": [
+        0.0,
+        175.0,
+        350.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 551250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 211427568
+    },
+    "700x700_efvb": {
+      "mesh_id": "700x700_efvb",
+      "width_m": 700,
+      "height_m": 700,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 210,
+      "ny": 175,
+      "sem_nodes": 920676,
+      "surface_nodes": 1051,
+      "elements": 36750,
+      "depths_m": [
+        0.0,
+        350.0,
+        570.0,
+        590.0,
+        660.0,
+        700.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ],
+        [
+          4285.0,
+          2549.42334
+        ],
+        [
+          4285.0,
+          1760.04858
+        ],
+        [
+          4285.0,
+          2549.42334
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 918750.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 340910768
+    },
+    "700x700_homogeneous": {
+      "mesh_id": "700x700_homogeneous",
+      "width_m": 700,
+      "height_m": 700,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 210,
+      "ny": 175,
+      "sem_nodes": 920676,
+      "surface_nodes": 1051,
+      "elements": 36750,
+      "depths_m": [
+        0.0,
+        700.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 918750.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 340910768
+    },
+    "700x700_two_layer": {
+      "mesh_id": "700x700_two_layer",
+      "width_m": 700,
+      "height_m": 700,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 210,
+      "ny": 175,
+      "sem_nodes": 920676,
+      "surface_nodes": 1051,
+      "elements": 36750,
+      "depths_m": [
+        0.0,
+        350.0,
+        700.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 918750.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 340910768
+    },
+    "1400x700_efvb": {
+      "mesh_id": "1400x700_efvb",
+      "width_m": 1400,
+      "height_m": 700,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 350,
+      "ny": 175,
+      "sem_nodes": 1533876,
+      "surface_nodes": 1751,
+      "elements": 61250,
+      "depths_m": [
+        0.0,
+        350.0,
+        570.0,
+        590.0,
+        660.0,
+        700.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ],
+        [
+          4285.0,
+          2549.42334
+        ],
+        [
+          4285.0,
+          1760.04858
+        ],
+        [
+          4285.0,
+          2549.42334
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 1531250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 567968368
+    },
+    "1400x700_homogeneous": {
+      "mesh_id": "1400x700_homogeneous",
+      "width_m": 1400,
+      "height_m": 700,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 350,
+      "ny": 175,
+      "sem_nodes": 1533876,
+      "surface_nodes": 1751,
+      "elements": 61250,
+      "depths_m": [
+        0.0,
+        700.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 1531250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 567968368
+    },
+    "1400x700_two_layer": {
+      "mesh_id": "1400x700_two_layer",
+      "width_m": 1400,
+      "height_m": 700,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 350,
+      "ny": 175,
+      "sem_nodes": 1533876,
+      "surface_nodes": 1751,
+      "elements": 61250,
+      "depths_m": [
+        0.0,
+        350.0,
+        700.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 1531250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 567968368
+    },
+    "1000x500_efvb": {
+      "mesh_id": "1000x500_efvb",
+      "width_m": 1000,
+      "height_m": 500,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 270,
+      "ny": 136,
+      "sem_nodes": 920031,
+      "surface_nodes": 1351,
+      "elements": 36720,
+      "depths_m": [
+        0.0,
+        250.0,
+        407.14285714285717,
+        421.42857142857144,
+        471.42857142857144,
+        500.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ],
+        [
+          4285.0,
+          2549.42334
+        ],
+        [
+          4285.0,
+          1760.04858
+        ],
+        [
+          4285.0,
+          2549.42334
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 4.761904761904759,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 5.952380952380949,
+      "area_m2": 911250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 345488528
+    },
+    "1000x500_homogeneous": {
+      "mesh_id": "1000x500_homogeneous",
+      "width_m": 1000,
+      "height_m": 500,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 270,
+      "ny": 135,
+      "sem_nodes": 913276,
+      "surface_nodes": 1351,
+      "elements": 36450,
+      "depths_m": [
+        0.0,
+        500.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 911250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 343110768
+    },
+    "1000x500_two_layer": {
+      "mesh_id": "1000x500_two_layer",
+      "width_m": 1000,
+      "height_m": 500,
+      "padding_m": 175,
+      "order": 5,
+      "nx": 270,
+      "ny": 135,
+      "sem_nodes": 913276,
+      "surface_nodes": 1351,
+      "elements": 36450,
+      "depths_m": [
+        0.0,
+        250.0,
+        500.0
+      ],
+      "materials_vp_vs": [
+        [
+          4087.0,
+          2431.62036
+        ],
+        [
+          3963.0,
+          2357.84473
+        ]
+      ],
+      "density_kg_m3": 1000.0,
+      "dx_m": 5.0,
+      "dy_min_m": 5.0,
+      "dy_max_m": 5.0,
+      "jacobian_min_m2": 6.25,
+      "area_m2": 911250.0,
+      "mapping": "x=W*x_original/700; depth=H*depth_original/700; homogeneous/two_layer override; remeshed to h<=5m",
+      "source": {
+        "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_EFVB_out.zip",
+        "members": [
+          "data_EFVB_out/vp_00000.txt",
+          "data_EFVB_out/vs_00000.txt"
+        ],
+        "raw_sha256": {
+          "vp_00000.txt": "887735caf5b903cde304a641e79f73c5086244d178b476338a9e701348afb275",
+          "vs_00000.txt": "a7de8e0352fbe5197fe5573b46f3e6e90949901820882eadbad0b96931bc493c"
+        },
+        "array_sha256": {
+          "vp": "77818b615ca223e5e46cea31c4eb05b48a98a08b2854fd5e4ddca810bc45ca86",
+          "vs": "4bb8cff795422ec7ecd98e5e310a68d780a7db21036f55797044503731e94151"
+        },
+        "axes": "row top to bottom; column left to right",
+        "shape": [
+          70,
+          70
+        ],
+        "dtype": "float64"
+      },
+      "output_bytes_estimate": 343110768
+    }
+  },
+  "estimated_raw_bytes": 9631372960,
+  "alpha_max_s_inv": 173.0886108476381,
+  "damping": "C=alpha M; quadratic; sum side/bottom at corners; same alpha in all cases",
+  "source": "nodal Fy=-Ricker; peak magnitude 1 N/m, t0=1.5/f; dense input table 1 microsecond",
+  "duration_s": 1.0,
+  "frame_interval_s": 0.05,
+  "surface_interval_s": 0.001,
+  "kim_beta": 0.037037037037037035,
+  "kim_gamma": 0.5,
+  "cfl_safety": 0.8,
+  "production_queue": "not accessed",
+  "receiver_policy": "all GLL nodes on entire free top, including padding"
+}

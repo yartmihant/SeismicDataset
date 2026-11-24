@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed/index.html",
+      "sha256": "69553faddd2b9d698c7d5a1dc33e3b3c459c23e39df99202711150a6665d5fb9"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed/timings.png",
+      "sha256": "7159e77d1533f4fc0580d4a71b02bf61dcdb25328945bf936019be22c546471e"
+    },
+    {
+      "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/img/dev_1_5_geometry_frequency/p67s_receiver_v1/reviewed/kernels.png",
+      "sha256": "4bd97a5fa52a82b13e860ce13561c91faf0c5c7fd3a2ce0f5250975cfecd7195"
+    }
+  ],
+  "metrics": {
+    "path": "/home/antonov/Work/Areas/Seismic/SeismicDataset/data/dev_1_5_geometry_frequency/p67s_receiver_v1/analysis/metrics.json",
+    "sha256": "4b7a48e3d8fd23ec7d67645223302db280574bcad2aa47be663ef33b2b8d84c8"
+  }
+}

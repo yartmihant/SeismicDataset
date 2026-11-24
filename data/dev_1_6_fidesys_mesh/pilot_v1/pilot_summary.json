@@ -1,0 +1,82 @@
+{
+  "models": [
+    {
+      "model_id": 0,
+      "blocks": 26,
+      "elements": 10414,
+      "nodes": 31665,
+      "fc_bytes": 1868123,
+      "fc_sha256": "f8fc76035cb2330f11d3cd051abd49340c8a6d03a6bb25d5d81d9251a01ca8a5",
+      "certified_min_det_J_m2": 2.6634086801108423,
+      "median_h_m": 10.067318476848744,
+      "max_interface_error_m": 0.5371439353248731,
+      "max_interface_midpoint_error_m": 5.084229945850415e-13,
+      "refined_surfaces": {}
+    },
+    {
+      "model_id": 65,
+      "blocks": 8,
+      "elements": 9776,
+      "nodes": 29749,
+      "fc_bytes": 1752837,
+      "fc_sha256": "8dc67aba96bb0870256b2f77dfe94c34af59907022a7e5d7bc670cbd98dbeacb",
+      "certified_min_det_J_m2": 1.4828582119215934,
+      "median_h_m": 10.000000000000016,
+      "max_interface_error_m": 0.02182449871046479,
+      "max_interface_midpoint_error_m": 6.844854043943255e-13,
+      "refined_surfaces": {}
+    },
+    {
+      "model_id": 12404,
+      "blocks": 4,
+      "elements": 9660,
+      "nodes": 29399,
+      "fc_bytes": 1731725,
+      "fc_sha256": "ce2157c36c3aad87db89f76d7f6018ccc2c50f8a8dfc5e3bb172acdb0f455e6e",
+      "certified_min_det_J_m2": 15.70282285337953,
+      "median_h_m": 10.01025733106718,
+      "max_interface_error_m": 0.0028750934966812218,
+      "max_interface_midpoint_error_m": 4.856703836433968e-13,
+      "refined_surfaces": {}
+    },
+    {
+      "model_id": 15000,
+      "blocks": 36,
+      "elements": 8798,
+      "nodes": 26833,
+      "fc_bytes": 1583296,
+      "fc_sha256": "cad1e8f31ac593990dd1fa95b7fd899de029a36eb06510d54606e2fc677816fe",
+      "certified_min_det_J_m2": 0.08542049083200709,
+      "median_h_m": 10.377040025867885,
+      "max_interface_error_m": 0.47464265842665726,
+      "max_interface_midpoint_error_m": 6.042538309847401e-13,
+      "refined_surfaces": {
+        "14": 5.0,
+        "18": 5.0
+      }
+    },
+    {
+      "model_id": 29999,
+      "blocks": 20,
+      "elements": 9332,
+      "nodes": 28419,
+      "fc_bytes": 1675552,
+      "fc_sha256": "80db50e605295370810d599e5e9f3151ca8dd8397f46a27269a490db79fa4679",
+      "certified_min_det_J_m2": 2.831765076970095,
+      "median_h_m": 10.218574902422738,
+      "max_interface_error_m": 0.08437603559385748,
+      "max_interface_midpoint_error_m": 5.084229945850415e-13,
+      "refined_surfaces": {}
+    }
+  ],
+  "extent_m": [
+    0,
+    1400,
+    -700,
+    0
+  ],
+  "top_intervals": 140,
+  "top_step_m": 10,
+  "validation": "FC reread, reports and hashes matched for all five",
+  "production_models_generated": 0
+}

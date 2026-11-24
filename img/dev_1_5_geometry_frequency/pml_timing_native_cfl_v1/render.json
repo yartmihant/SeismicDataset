@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "source_metrics": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/analysis/metrics.json",
+    "sha256": "eca464fefe8542834e39857cd929fcc3a541bc58d806bdcb3caf81c9928fb97b"
+  },
+  "files": {
+    "timings.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/timings.png",
+      "sha256": "8f020fb9e86ebe30599f502de1628f58c8a2d51cf629c780dddde8e81b59a0b3"
+    },
+    "index.html": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/index.html",
+      "sha256": "2230db298c1823df4e564b941e0fea0b0349d5acb580b1af80c1eeb698972de6"
+    },
+    "field_diagnostics.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/field_diagnostics.png",
+      "sha256": "6530223ba1ac7891c45cdfebb75400f6f7980a3448a472c425e1f867c33d73c6"
+    }
+  }
+}

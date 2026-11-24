@@ -1,0 +1,107 @@
+{
+  "model": "ECVB00065",
+  "source_sha256": {
+    "vp_00065.txt": "9cb29b41da1c4396d0d13ce86694047d239f392eeec7d4f0d3b49bac9bc47ebb",
+    "vs_00065.txt": "ae859eb6a9d7f64a41091a7fd86b9ccc6cbd6396dbf21e7682d980fd0d29062b"
+  },
+  "rectangles": {
+    "2": {
+      "x": [
+        0,
+        640
+      ],
+      "y": [
+        -140,
+        -70
+      ],
+      "area_m2": 44800
+    },
+    "3": {
+      "x": [
+        860,
+        1400
+      ],
+      "y": [
+        -140,
+        -70
+      ],
+      "area_m2": 37800
+    }
+  },
+  "curves": 26,
+  "vertices": 19,
+  "regions": 8,
+  "straight": 21,
+  "cubic": 5,
+  "unchanged_splines_original_ids": [
+    6,
+    7,
+    8,
+    9,
+    11
+  ],
+  "max_pole_difference_from_v1_m": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "knots_identical": true,
+  "min_leg_cells_nonrectangular": 4,
+  "q2_checks": {
+    "model_id": 65,
+    "kind": "curved",
+    "elements": 30462,
+    "q2_nodes": 122483,
+    "area_m2": 2205000.0000000005,
+    "det_jacobian_certified_min_m2": 1.727024883238315,
+    "bernstein_max_depth": 0,
+    "euler_characteristic": 1,
+    "conforming": true,
+    "core_top_edges": 140,
+    "core_top_edge_m": 10.0,
+    "external_edges": 634,
+    "area_by_region_m2": {
+      "1": 157141.88110907466,
+      "2": 69300.00000000003,
+      "3": 62300.00000000003,
+      "4": 477106.3808953799,
+      "5": 149021.08139683644,
+      "6": 100824.59583862944,
+      "7": 976728.0666097925,
+      "8": 212577.99415028768
+    },
+    "sqrt_area_quantiles_m": [
+      3.717014805715254,
+      6.001991868261341,
+      7.6868265583918065,
+      10.408329997330643,
+      10.408329997330771
+    ],
+    "core_elements": 18072,
+    "rect_area_m2": {
+      "2": 44800.000000000015,
+      "3": 37800.000000000015
+    }
+  },
+  "fidesys_10": {
+    "checks": [
+      "surface areas and all rectangle corners and straight sides",
+      "curve and surface incidence of every region",
+      "141 nodes at x=10*j, y=z=0 on the top curve",
+      "empty free curve/vertex lists",
+      "1001 trimmed closest-point samples per curve"
+    ],
+    "max_sample_gap_m": {
+      "native": 0.0008525630722584694,
+      "exact": 9.560653585975742e-10,
+      "reload": 9.560653585975742e-10
+    }
+  },
+  "sha256": {
+    "ECVB00065.jou": "ed0639e760fef302fa391b3bb093939760b8223737b9c5b864b5aa6a5cb2ca73",
+    "ECVB00065_corners.cub": "fade6cba9d8a260626c849468617f1d7339aa5b1de34a7cb7899f20b23eeb92c",
+    "ECVB00065_corners.py": "0522faa180e4b319daffcaf02b470d691b323e84ef43a7fb3f848a687154b97e"
+  }
+}

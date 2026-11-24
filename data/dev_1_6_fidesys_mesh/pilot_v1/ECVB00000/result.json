@@ -1,0 +1,94 @@
+{
+  "schema": "ecvb.fidesys.quad8.v1",
+  "status": "completed",
+  "model_id": 0,
+  "source_sha256": {
+    "vp_00000.txt": "91f88c3e9d45bed3e4217521837c04a4cd0f4efe410c62a7a6179ac72bd63b3b",
+    "vs_00000.txt": "63a38383e238c6cffd160581a5893f2986e88c8dd99b6a3f8ccfe00d96ef0914"
+  },
+  "method": "shared_curves_preserve_corners",
+  "fc_bytes": 1868123,
+  "fc_sha256": "f8fc76035cb2330f11d3cd051abd49340c8a6d03a6bb25d5d81d9251a01ca8a5",
+  "cad_sha256": "a203901757d2a6af91013f3695367a0cdbc45937df1fd41474aa964dedac6cc8",
+  "elapsed_s": 25.125170965970028,
+  "metrics": {
+    "elements": 10414,
+    "corner_nodes": 10626,
+    "clockwise_input_by_block": {},
+    "area_m2": 980000.0000000002,
+    "top_intervals_10m": 140,
+    "sqrt_area_m": {
+      "min": 4.39529018433443,
+      "p01": 6.316769455002593,
+      "p05": 6.829093175596258,
+      "median": 10.067318476848744,
+      "p95": 11.292882240395933,
+      "p99": 12.369460137270526,
+      "max": 14.579042779836332
+    },
+    "min_scaled_jacobian": {
+      "min": 0.32585431971572115,
+      "p01": 0.7505212641077663,
+      "p05": 0.8786000908306769,
+      "median": 0.9952222371893712,
+      "p95": 0.9998834458096304,
+      "p99": 0.9999822358152449,
+      "max": 0.9999999999999999
+    },
+    "max_condition_J": {
+      "min": 1.0000000000000335,
+      "p01": 1.020295373221073,
+      "p05": 1.0414141972562312,
+      "median": 1.1649346487175705,
+      "p95": 2.3098789283054897,
+      "p99": 2.8206527303630584,
+      "max": 6.347199180494914
+    },
+    "min_2sigma_m": {
+      "min": 1.295646081762946,
+      "p01": 3.7558296643667592,
+      "p05": 4.44195230122641,
+      "median": 9.458155824901429,
+      "p95": 10.408049656546888,
+      "p99": 10.919290012391075,
+      "max": 12.30674992373755
+    },
+    "sampled_interface_error_to_own_cad_m": {
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "median": 0.0001922808298711525,
+      "p95": 0.003945346830911982,
+      "p99": 0.024666035759080357,
+      "max": 0.5371439353248731
+    },
+    "interface_midpoint_max_error_m": 5.084229945850415e-13,
+    "interface_vertex_max_error_m": 6.821210263296962e-13,
+    "worst_interface_location": {
+      "blocks": [
+        5,
+        8
+      ],
+      "xy_m": [
+        1255.5536955997245,
+        -686.6458073279381
+      ]
+    },
+    "elements_sj_below_0.8": 218,
+    "elements_sj_below_0.5": 3,
+    "worst_condition": {
+      "id": 8556,
+      "block": 5,
+      "center_xy_m": [
+        93.65214521809608,
+        -601.2649834318399
+      ]
+    },
+    "fraction_h_8_to_12": 0.8103514499711926,
+    "nodes": 31665,
+    "blocks": 26,
+    "element_type": "QUAD8",
+    "certified_min_det_J_m2": 2.6634086801108423,
+    "bernstein_subdivision_depth": 0
+  }
+}

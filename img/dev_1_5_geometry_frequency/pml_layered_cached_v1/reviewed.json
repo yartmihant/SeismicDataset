@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "source": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_layered_cached_v1/index.html",
+    "sha256": "059fa70066303d4382fa0b3cc699669da487a6b4b84fa6356cc6a0bda110e175"
+  },
+  "reviewed": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_layered_cached_v1/reviewed.html",
+    "sha256": "f9226eb59c59327955afd50580c1411eeacf16e40ececd00be12191238167af4"
+  },
+  "selected_plot": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_layered_cached_v1/selected_echo_windows.png",
+    "sha256": "e89a85fece1249e145c85d6c433ffdede0383fe052c54de2a63a8bb16e7f300f"
+  },
+  "minimum_tested_four_windows_m": 550,
+  "threshold_bracket_four_windows_m": [
+    500,
+    550
+  ],
+  "all_five_threshold_achieved": false,
+  "max_tested_thickness_m": 1200,
+  "source_metrics": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/analysis/metrics.json",
+    "sha256": "403bddedcfeaf33008c87700e68d0bf9a2d362e56525dff7dc130f73b40e3fab"
+  }
+}

@@ -27,6 +27,7 @@ dist/
 /data/**
 !/data/**/
 !/data/**/*.md
+!/data/diary_cleanup_20261124/files.tsv
 !/data/**/*.json
 /data/dev_1_2_smoothing/provenance_runtime/
 /data/dev_1_4_server_preparation/*/chunks/

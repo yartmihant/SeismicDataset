@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "source_metrics": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_layered_cached_saturn_v1/first_reflection_v1/metrics.json",
+    "sha256": "741263d6df2b7f56d351ba3c72073aa55d8a583ed518e6f95e49103ac02f6026"
+  },
+  "files": {
+    "seismograms.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_first_reflection_v1/seismograms.png",
+      "sha256": "0110808c90048d8cb118dc88a34092e8953ca955f1c9d9ddf27250962dac4a68"
+    },
+    "central_traces.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_first_reflection_v1/central_traces.png",
+      "sha256": "f48271b640e55bf597c3ac2ee96676fe211bd8d81a10a9666fad08636359b943"
+    },
+    "index.html": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_first_reflection_v1/index.html",
+      "sha256": "b4e332e38d2a4e1b307d3fcb6e391b0c46b83711ce3fd14fb581705b5afbc65c"
+    },
+    "pml_errors_x100.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_first_reflection_v1/pml_errors_x100.png",
+      "sha256": "a06929c54a344c34b854af6068efcc4a80a1a7dd9aa533e176ebb1653605b5c1"
+    },
+    "comparison.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_first_reflection_v1/comparison.png",
+      "sha256": "463a0a4e27629ca7afafd302407de55a62f057b0eb7f673d3665c1f95be4173b"
+    }
+  }
+}

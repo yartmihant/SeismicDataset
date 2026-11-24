@@ -84,11 +84,53 @@ def layered_core(model: ModelInput, layers: tuple[IntArray, FloatArray, FloatArr
         "source_topology": "same nonvanishing layer sequence in every column"})
 
 
-def shared_curves(model: ModelInput) -> dict[str, object]:
-    """Reuse model65's topology, locked endpoints and 7.5m fit; no repair/fallback."""
+def split_raster_corners(chain: graph.Chain, rectangle: bool, min_leg_cells: int = 4) -> list[graph.Chain]:
+    """Preserve the two straight legs of a supported turn before spline fitting."""
+    points = np.asarray(chain.source, dtype=np.int64)
+    closed = chain.source[0] == chain.source[-1]
+    directions = np.diff(points, axis=0)
+    if closed:
+        # Start at a turn so the input seam never splits one collinear run.
+        turns = np.flatnonzero(np.any(directions != np.roll(directions, 1, axis=0), axis=1))
+        start = int(turns[0])
+        points = np.concatenate((points[start:-1], points[:start + 1]))
+        directions = np.diff(points, axis=0)
+    breaks = np.r_[0, np.flatnonzero(np.any(np.diff(directions, axis=0), axis=1)) + 1, len(directions)]
+    lengths = np.diff(breaks)
+    cuts: set[int] = set()
+    for right in range(0 if closed else 1, len(lengths)):
+        left = (right - 1) % len(lengths)
+        if rectangle or min(lengths[left], lengths[right]) >= min_leg_cells:
+            cuts.update((int(breaks[left]), int(breaks[right]), int(breaks[right + 1])))
+    if not cuts:
+        return [chain]
+    if closed:
+        ordered = sorted({cut % len(directions) for cut in cuts})
+        bounds = [*ordered, ordered[0] + len(directions)]
+        points = np.concatenate((points[:-1], points))
+    else:
+        bounds = sorted(cuts | {0, len(directions)})
+    return [
+        graph.Chain(chain.left, chain.right, tuple((int(x), int(y)) for x, y in points[first:last + 1]))
+        for first, last in zip(bounds, bounds[1:])
+    ]
+
+
+def shared_curves(model: ModelInput, *, preserve_corners: bool = False) -> dict[str, object]:
+    """Fit shared boundaries, optionally locking raster rectangles and supported corners."""
     materials, values = graph._material_labels(model.vp, model.vs)
     owners, regions = graph._regions(materials)
     chains = graph._chains(graph._boundary_edges(owners))
+    rectangles: set[int] = set()
+    if preserve_corners:
+        for region in regions:
+            r0, r1, c0, c1 = region.bbox_row_col
+            if region.cells == (r1 - r0 + 1) * (c1 - c0 + 1):
+                rectangles.add(region.identifier)
+        chains = [
+            piece for chain in chains
+            for piece in split_raster_corners(chain, chain.left in rectangles or chain.right in rectangles)
+        ]
     curves: list[dict[str, object]] = []
     samples: list[FloatArray] = []
     periodic_records: list[dict[str, object]] = []
@@ -122,7 +164,9 @@ def shared_curves(model: ModelInput) -> dict[str, object]:
         if area(ordered[0]) <= 0 or any(area(loop) >= 0 for loop in ordered[1:]):
             raise ValueError("Region must have one positive outer loop and negative hole loops")
         loops[region_id] = ordered
-    return {"curves": curves, "regions": [{"id": r.identifier, "vp": values[r.material][0], "vs": values[r.material][1],
+    corner_metadata = {"corner_policy": "raster rectangles and perpendicular runs >=4 cells",
+                       "rectangle_regions": sorted(rectangles)} if preserve_corners else {}
+    return {**corner_metadata, "curves": curves, "regions": [{"id": r.identifier, "vp": values[r.material][0], "vs": values[r.material][1],
         "source_cells": r.cells, "loops": loops[r.identifier]} for r in regions],
         "source_regions": len(regions), "construction": "shared_CAD_model65_rules_plus_periodic_closed_chains",
         "closed_chain_fits": periodic_records,

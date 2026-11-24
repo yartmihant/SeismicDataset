@@ -1,0 +1,112 @@
+{
+  "schema": "ecvb.fidesys.quad8.v1",
+  "status": "completed",
+  "model_id": 15000,
+  "source_sha256": {
+    "vp_15000.txt": "2a34664315742e2ad6e771415833ea672abb66be5417a90d1e50ab2bd0871bd1",
+    "vs_15000.txt": "7a9360e71241c333f079dd728cd7257c953d38811be5f2ec5dec3979778ba24d"
+  },
+  "method": "shared_curves_preserve_corners",
+  "fc_bytes": 1583296,
+  "fc_sha256": "cad1e8f31ac593990dd1fa95b7fd899de029a36eb06510d54606e2fc677816fe",
+  "cad_sha256": "d52fd897bd61ed9cc2bbdedaa4cc51d47bd03ddc495013639f6bd8b0f662de24",
+  "rejected_attempts": [
+    {
+      "attempt": 1,
+      "error": "Nonpositive/unverified Jacobian element 8143, bound -0.6670615833564426",
+      "fc_elements": [
+        8144,
+        8279
+      ],
+      "region_ids": [
+        14,
+        18
+      ]
+    }
+  ],
+  "surface_target_sizes_m": {
+    "14": 5.0,
+    "18": 5.0
+  },
+  "elapsed_s": 6.1422611880116165,
+  "metrics": {
+    "elements": 8798,
+    "corner_nodes": 9018,
+    "clockwise_input_by_block": {},
+    "area_m2": 980000.0000000002,
+    "top_intervals_10m": 140,
+    "sqrt_area_m": {
+      "min": 2.874845796310357,
+      "p01": 5.19057610729982,
+      "p05": 7.205805383134645,
+      "median": 10.377040025867885,
+      "p95": 12.498652067999256,
+      "p99": 14.967537731976883,
+      "max": 15.797523337433248
+    },
+    "min_scaled_jacobian": {
+      "min": 0.007639805857489651,
+      "p01": 0.5263984320711859,
+      "p05": 0.6956375058688613,
+      "median": 0.9855145409498434,
+      "p95": 0.9997072958556285,
+      "p99": 0.9999885735525209,
+      "max": 1.0
+    },
+    "max_condition_J": {
+      "min": 1.000000000000041,
+      "p01": 1.0153712043556054,
+      "p05": 1.0443117919955158,
+      "median": 1.268561161065079,
+      "p95": 2.7262152154771573,
+      "p99": 3.8318146762770713,
+      "max": 653.8833695369871
+    },
+    "min_2sigma_m": {
+      "min": 0.022859192294513993,
+      "p01": 3.2690921205992196,
+      "p05": 4.5546899495412,
+      "median": 9.525258338511849,
+      "p95": 10.809062183899455,
+      "p99": 11.448031740910265,
+      "max": 12.84455524366158
+    },
+    "sampled_interface_error_to_own_cad_m": {
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "median": 0.0003494311939184294,
+      "p95": 0.008703461513594139,
+      "p99": 0.06493020017757645,
+      "max": 0.47464265842665726
+    },
+    "interface_midpoint_max_error_m": 6.042538309847401e-13,
+    "interface_vertex_max_error_m": 7.626344918775623e-13,
+    "worst_interface_location": {
+      "blocks": [
+        22,
+        31
+      ],
+      "xy_m": [
+        183.28554473113059,
+        -693.3093273969287
+      ]
+    },
+    "elements_sj_below_0.8": 835,
+    "elements_sj_below_0.5": 68,
+    "worst_condition": {
+      "id": 8534,
+      "block": 18,
+      "center_xy_m": [
+        784.5141793346016,
+        -681.4373317771862
+      ]
+    },
+    "fraction_h_8_to_12": 0.8250738804273698,
+    "nodes": 26833,
+    "blocks": 36,
+    "element_type": "QUAD8",
+    "certified_min_det_J_m2": 0.08542049083200709,
+    "bernstein_subdivision_depth": 0
+  }
+}

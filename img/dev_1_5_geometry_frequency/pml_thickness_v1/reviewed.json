@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "source": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_thickness_v1/index.html",
+    "sha256": "eb2f45c309dcee87032ee25545753f6ea5c8ca579023f04e5c2b79e202fce30f"
+  },
+  "reviewed": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_thickness_v1/reviewed.html",
+    "sha256": "e949475651b658aad34ecdba24a7190d79d40038d6504068479b8f9d8e364767"
+  },
+  "late_growth_L100": {
+    "p4": {
+      "peak_t060_m_s": 4.218721459525701e-13,
+      "peak_t100_m_s": 1.1658903511204123e-11,
+      "growth_ratio_060_to_100": 27.63610639635569,
+      "monotone_060_to_100": true
+    },
+    "p5": {
+      "peak_t060_m_s": 6.443640097250502e-13,
+      "peak_t100_m_s": 6.252082031675097e-11,
+      "growth_ratio_060_to_100": 97.02717621275679,
+      "monotone_060_to_100": true
+    }
+  },
+  "note": "Original rendering preserved; review adds observed weak late growth below the gross-growth threshold."
+}

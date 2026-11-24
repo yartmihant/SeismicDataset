@@ -1,0 +1,83 @@
+{
+  "scope": "five ECVB geometry pilots, main domain only",
+  "fidesys": "10.0",
+  "top_edges": 140,
+  "top_step_m": 10,
+  "all_fc_reopened_and_validated": true,
+  "models": [
+    {
+      "model": "ECVB00000",
+      "fc_bytes": 1868123,
+      "fc_sha256": "f8fc76035cb2330f11d3cd051abd49340c8a6d03a6bb25d5d81d9251a01ca8a5",
+      "regions": 26,
+      "elements": 10414,
+      "nodes": 31665,
+      "median_h_m": 10.067318476848744,
+      "min_scaled_jacobian": 0.32585431971572115,
+      "certified_det_J_lower_bound_m2": 2.6634086801108423,
+      "max_interface_gap_m": 0.5371439353248731,
+      "max_interface_midpoint_gap_m": 5.084229945850415e-13,
+      "surface_target_sizes_m": {}
+    },
+    {
+      "model": "ECVB00065",
+      "fc_bytes": 1752837,
+      "fc_sha256": "8dc67aba96bb0870256b2f77dfe94c34af59907022a7e5d7bc670cbd98dbeacb",
+      "regions": 8,
+      "elements": 9776,
+      "nodes": 29749,
+      "median_h_m": 10.000000000000016,
+      "min_scaled_jacobian": 0.4727384070182594,
+      "certified_det_J_lower_bound_m2": 1.4828582119215934,
+      "max_interface_gap_m": 0.02182449871046479,
+      "max_interface_midpoint_gap_m": 6.844854043943255e-13,
+      "surface_target_sizes_m": {}
+    },
+    {
+      "model": "ECVB12404",
+      "fc_bytes": 1731725,
+      "fc_sha256": "ce2157c36c3aad87db89f76d7f6018ccc2c50f8a8dfc5e3bb172acdb0f455e6e",
+      "regions": 4,
+      "elements": 9660,
+      "nodes": 29399,
+      "median_h_m": 10.01025733106718,
+      "min_scaled_jacobian": 0.8849828299945939,
+      "certified_det_J_lower_bound_m2": 15.70282285337953,
+      "max_interface_gap_m": 0.0028750934966812218,
+      "max_interface_midpoint_gap_m": 4.856703836433968e-13,
+      "surface_target_sizes_m": {}
+    },
+    {
+      "model": "ECVB15000",
+      "fc_bytes": 1553756,
+      "fc_sha256": "29be387cd3fcda7cae5c4fb3281c33e6946b9ad0a01591da49784f61cc0b92eb",
+      "regions": 36,
+      "elements": 8634,
+      "nodes": 26329,
+      "median_h_m": 10.460091014342733,
+      "min_scaled_jacobian": 0.09459161917265688,
+      "certified_det_J_lower_bound_m2": 1.5532870503345029,
+      "max_interface_gap_m": 0.47464265842665726,
+      "max_interface_midpoint_gap_m": 6.042538309847401e-13,
+      "surface_target_sizes_m": {
+        "14": 7.5,
+        "18": 7.5,
+        "29": 7.5
+      }
+    },
+    {
+      "model": "ECVB29999",
+      "fc_bytes": 1675552,
+      "fc_sha256": "80db50e605295370810d599e5e9f3151ca8dd8397f46a27269a490db79fa4679",
+      "regions": 20,
+      "elements": 9332,
+      "nodes": 28419,
+      "median_h_m": 10.218574902422738,
+      "min_scaled_jacobian": 0.37211581543120753,
+      "certified_det_J_lower_bound_m2": 2.831765076970095,
+      "max_interface_gap_m": 0.08437603559385748,
+      "max_interface_midpoint_gap_m": 5.084229945850415e-13,
+      "surface_target_sizes_m": {}
+    }
+  ]
+}

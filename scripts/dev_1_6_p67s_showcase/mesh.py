@@ -217,8 +217,14 @@ def build_sem(frozen: FrozenMesh, order: int) -> MeshCase:
 
 
 
-def audit(mesh: FrozenMesh, top_size: float = 10.) -> dict[str, object]:
-    """Сертификат detJ на всей Q2-карте, конформность, площадь и верхняя разбивка."""
+class InvalidJacobian(ValueError):
+    def __init__(self, element: int, bound: float):
+        self.element = element
+        super().__init__(f"Nonpositive/unverified Jacobian element {element}, bound {bound}")
+
+
+def certify_jacobians(mesh: FrozenMesh) -> tuple[float, int]:
+    """Нижняя граница det J на всей площади элементов в базисе Бернштейна."""
     t = np.linspace(0, 1, 4)
     bernstein = np.stack([comb(3, i)*t**i*(1-t)**(3-i) for i in range(4)], axis=1)
     inv = np.linalg.inv(bernstein)
@@ -237,9 +243,15 @@ def audit(mesh: FrozenMesh, top_size: float = 10.) -> dict[str, object]:
                 if float(patch.min()) > 1e-10:
                     minimum = min(minimum, float(patch.min())); max_depth = max(max_depth, depth)
                 elif float(patch.max()) <= 0 or depth == 9:
-                    raise ValueError(f"Nonpositive/unverified Jacobian element {element}, bound {patch.min()}")
+                    raise InvalidJacobian(element, float(patch.min()))
                 else:
                     stack.extend((a@patch@b.T, depth+1) for a in transforms for b in transforms)
+    return minimum, max_depth
+
+
+def audit(mesh: FrozenMesh, top_size: float = 10.) -> dict[str, object]:
+    """Сертификат detJ на всей Q2-карте, конформность, площадь и верхняя разбивка."""
+    minimum, max_depth = certify_jacobians(mesh)
     directed, inverse, counts, exterior = edges(mesh)
     if np.any(counts > 2):
         raise ValueError("Nonmanifold edge")
@@ -276,7 +288,7 @@ def audit(mesh: FrozenMesh, top_size: float = 10.) -> dict[str, object]:
 
 
 
-def core_case(name: str) -> tuple[FrozenMesh, dict[str, object]]:
+def core_case(name: str, *, preserve_corners: bool = False) -> tuple[FrozenMesh, dict[str, object]]:
     if name.startswith('ECVB'):
         source=read_model('ECVB',int(name[4:]));layers=layer_sequence(source.vp,source.vs)
         if layers is not None:
@@ -288,7 +300,7 @@ def core_case(name: str) -> tuple[FrozenMesh, dict[str, object]]:
                 a=values.reshape(ny,nx);assert np.array_equal(a[::2],a[1::2]);props.append(a[::2].ravel())
             core=FrozenMesh(coords,structured_cells(140,ny//2),props[0].astype(np.float64),props[1].astype(np.float64),props[2].astype(np.int64),source.model_id,'curved')
             return core,{'source':source.provenance,'geometry':'layered Q2: x stretched2, remeshed h10 in x and mean depth','fit':result.report}
-        record=shared_curves(source)
+        record=shared_curves(source, preserve_corners=preserve_corners)
         for item in sequence(record['curves']):
             curve=mapping(item)
             for key in ('control_points_m','sampled_points_m','source_points_m'):
@@ -322,10 +334,10 @@ def leading(frozen: FrozenMesh) -> tuple[SGMeshModel,IntArray,IntArray]:
     return mesh,cells,np.arange(1261,dtype=np.int64)
 
 
-def prepare(root:Path)->None:
+def prepare(root:Path, *, preserve_corners: bool = False)->None:
     root.mkdir(parents=True,exist_ok=False);records:dict[str,object]={};budget=0
     for name in CASES:
-        dest=root/name;dest.mkdir();core,meta=core_case(name);full=extend(core)
+        dest=root/name;dest.mkdir();core,meta=core_case(name, preserve_corners=preserve_corners);full=extend(core)
         check=audit(full);mesh,cells,top=leading(full)
         save_frozen(full,dest/'mesh_q2.npz')
         size=(21*7*len(mesh.nodes_coords)*2*8+1001*7*1261*2*8+len(mesh.nodes_coords)*16)
@@ -338,4 +350,5 @@ def prepare(root:Path)->None:
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=ROOT);args=parser.parse_args();prepare(args.root)
+    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=ROOT);parser.add_argument('--preserve-corners', action='store_true');args=parser.parse_args()
+    prepare(args.root, preserve_corners=args.preserve_corners)

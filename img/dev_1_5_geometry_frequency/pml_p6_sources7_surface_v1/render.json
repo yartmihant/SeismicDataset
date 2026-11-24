@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "source_metrics": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p6_sources7_surface_v1/analysis/metrics.json",
+    "sha256": "d53a452b24db64c841440a7c1628d0a7564d82ef9b9dc4028803d37afacd9537"
+  },
+  "files": {
+    "timings.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_p6_sources7_surface_v1/timings.png",
+      "sha256": "9246519dad6276594720d413fc0496cb20a87ebd000797bba919f203804fb942"
+    },
+    "index.html": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_p6_sources7_surface_v1/index.html",
+      "sha256": "15dea5c53fa8300d1eef93fde872c0f4d88973301cd7e277920b558d56052828"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "source_metrics": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/analysis/metrics.json",
+    "sha256": "7e9e038269c1a2e558122272179ba9d67493ce8ea05e14124aa45ec21a3de105"
+  },
+  "files": {
+    "tradeoff_reviewed.png": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/tradeoff_reviewed.png",
+      "sha256": "6670dc187f40a1ead20bab8e59714772ff927a0ce8fa6109d7f4e7398e287d65"
+    },
+    "reviewed.html": {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_p4_noabc_tradeoff_v1/reviewed.html",
+      "sha256": "aa6e32d185523e0ff0c491c0a171e0f8d4460ce6feec0b4de4277f5cc3dc6399"
+    }
+  }
+}

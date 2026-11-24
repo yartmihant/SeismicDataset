@@ -1,0 +1,40 @@
+{
+  "removed_files": 3603,
+  "allocated_bytes_removed": 63967461376,
+  "allocated_bytes_by_group": {
+    "Промежуточная визуализация": 638255104,
+    "central_cu_v1": 37487460352,
+    "central_p3_cu_v1": 8226660352,
+    "series_v1": 2912628736,
+    "double_layer_3060_v1": 6063849472,
+    "homogeneous_3060_v1": 2908119040,
+    "velocity_fields_3060_v1": 2908119040,
+    "p5_local_v1": 2822369280
+  },
+  "chapter_figures": 11,
+  "chapter_movies": 2,
+  "figures_kept_for_supporting_reports": [
+    "img/dev_1_2_smoothing/model65/comparison/geometry_difference_p4.png",
+    "img/dev_1_2_smoothing/model65/comparison/seismograms_late_p4.png",
+    "img/dev_1_2_smoothing/model65/comparison/seismograms_p4.png",
+    "img/dev_1_2_smoothing/model65/comparison/snapshots_late_p4.png",
+    "img/dev_1_2_smoothing/model65/comparison/snapshots_p4.png",
+    "img/dev_1_2_smoothing/pilot_geometry/geometry_comparison.png",
+    "img/dev_1_2_smoothing/pilot_runs/comparison/convergence_p.png",
+    "img/dev_1_2_smoothing/pilot_runs/comparison/seismograms_late_p4.png",
+    "img/dev_1_2_smoothing/pilot_runs/comparison/seismograms_late_p5.png",
+    "img/dev_1_2_smoothing/pilot_runs/comparison/seismograms_p4.png",
+    "img/dev_1_2_smoothing/pilot_runs/comparison/snapshots_late_p5.png",
+    "img/dev_1_3_point_source/meshes_v1/meshes.png",
+    "img/dev_1_6_p67s_showcase/fc_mesh_quality_v1/scaled_jacobian.png",
+    "img/dev_1_3_point_source/central_cu_v1/comparison_all_v1/p_m00065_curved_p4_x350_k224_minus_m00065_curved_p5_x350_k224_full.png"
+  ],
+  "retained_frame_times_s": [
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "retained_reference": "data/dev_1_3_point_source/central_plan_v1/12404/raster/p4/x350",
+  "preserved": "original ZIP inputs, five ECVB pilots, surface and source histories, temporal controls, metrics and historical JSON, script and solver sources"
+}

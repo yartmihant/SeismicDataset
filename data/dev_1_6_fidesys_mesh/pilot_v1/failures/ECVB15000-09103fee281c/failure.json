@@ -1,0 +1,25 @@
+{
+  "id": 15000,
+  "error": "Nonpositive/unverified Jacobian element 8143, bound -0.6670615833564426",
+  "source": {
+    "source": "/home/antonov/Work/Areas/Seismic/SeismicDataset/src/data_ECVB_out.zip",
+    "members": [
+      "data_ECVB_out/vp_15000.txt",
+      "data_ECVB_out/vs_15000.txt"
+    ],
+    "raw_sha256": {
+      "vp_15000.txt": "2a34664315742e2ad6e771415833ea672abb66be5417a90d1e50ab2bd0871bd1",
+      "vs_15000.txt": "7a9360e71241c333f079dd728cd7257c953d38811be5f2ec5dec3979778ba24d"
+    },
+    "array_sha256": {
+      "vp": "26c5988053b48f6732d12e3d693514e93be68daad15c07099293e1e241d815a9",
+      "vs": "1f7ae6a03bcd1338e5aeb6391291a918fafa94c59d026831f8db7ddb957880c0"
+    },
+    "axes": "row top to bottom; column left to right",
+    "shape": [
+      70,
+      70
+    ],
+    "dtype": "float64"
+  }
+}

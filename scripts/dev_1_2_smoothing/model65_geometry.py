@@ -258,32 +258,30 @@ def _common_endpoint(first: NDArray[np.float64], second: NDArray[np.float64]) ->
 
 
 def _check_crossings(samples: list[NDArray[np.float64]]) -> None:
+    # Screen segment boxes in NumPy before applying the original intersection test.
+    boxes = [(np.minimum(p[:-1], p[1:]), np.maximum(p[:-1], p[1:])) for p in samples]
+    extents = [(p.min(axis=0), p.max(axis=0)) for p in samples]
+    tol = 1.0e-9
     for first_index, first in enumerate(samples):
+        amin, amax = boxes[first_index]
+        low, high = extents[first_index]
         for second_index in range(first_index, len(samples)):
             second = samples[second_index]
-            first_low, first_high = np.min(first, axis=0), np.max(first, axis=0)
-            second_low, second_high = np.min(second, axis=0), np.max(second, axis=0)
-            if bool(np.any(first_high < second_low - 1.0e-9) or np.any(second_high < first_low - 1.0e-9)):
+            other_low, other_high = extents[second_index]
+            if np.any(high < other_low - tol) or np.any(other_high < low - tol):
                 continue
+            bmin, bmax = boxes[second_index]
+            overlap = (amax[:, None, :] >= bmin - tol).all(axis=2)
+            overlap &= (bmax >= amin[:, None, :] - tol).all(axis=2)
+            if first_index == second_index:
+                overlap = np.triu(overlap, k=2)
             shared = first_index != second_index and _common_endpoint(first, second)
-            for left_index in range(first.shape[0] - 1):
-                for right_index in range(second.shape[0] - 1):
-                    if first_index == second_index and abs(left_index - right_index) <= 1:
-                        continue
-                    first_low_segment = np.minimum(first[left_index], first[left_index + 1])
-                    first_high_segment = np.maximum(first[left_index], first[left_index + 1])
-                    second_low_segment = np.minimum(second[right_index], second[right_index + 1])
-                    second_high_segment = np.maximum(second[right_index], second[right_index + 1])
-                    if bool(np.any(first_high_segment < second_low_segment - 1.0e-9) or np.any(second_high_segment < first_low_segment - 1.0e-9)):
-                        continue
-                    if shared:
-                        left_segment = (first[left_index], first[left_index + 1])
-                        right_segment = (second[right_index], second[right_index + 1])
-                        common = any(np.allclose(a, b, rtol=0.0, atol=1.0e-9) for a in left_segment for b in right_segment)
-                        if common:
-                            continue
-                    if _segments_intersect(tuple(first[left_index]), tuple(first[left_index + 1]), tuple(second[right_index]), tuple(second[right_index + 1])):
-                        raise ValueError(f"Sampled curves {first_index + 1} and {second_index + 1} intersect")
+            for i, j in zip(*np.nonzero(overlap), strict=True):
+                left, right = first[i:i + 2], second[j:j + 2]
+                if shared and any(np.allclose(a, b, rtol=0., atol=tol) for a in left for b in right):
+                    continue
+                if _segments_intersect(tuple(left[0]), tuple(left[1]), tuple(right[0]), tuple(right[1])):
+                    raise ValueError(f"Sampled curves {first_index + 1} and {second_index + 1} intersect")
 
 
 def _signed_area(points: list[Point]) -> float:

@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/index.html",
+      "sha256": "e88036557f683c28c7efa2f27e783c9340999b331defb39c646ce728f8b11b38"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/timing.png",
+      "sha256": "f07ca0a11bed25c6de04b05f24a27ec7a5527bb3a5695da00d3d562d380a92ad"
+    },
+    {
+      "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/p6_7s_comparison_v2/central_seismograms.png",
+      "sha256": "f76fc8b2566549ce6ec0d1d7fb4e5142661bb084b67c6b61cf126148080daec3"
+    }
+  ],
+  "source": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/p6_7s_comparison_v2/analysis/metrics.json",
+    "sha256": "1304bdb8b1630e5717bb5d8710f983f6350cc64c99533b0cd60a63aee5b03825"
+  }
+}

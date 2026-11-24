@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "source": {
+    "path": "/home/antonov/SeismicDataset/data/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/analysis/first_pulse_temporal.json",
+    "sha256": "d74e39a95b635a640a5fb147ada58da57296deee91c729149a280892d0dbbeff"
+  },
+  "reviewed": {
+    "path": "/home/antonov/SeismicDataset/img/dev_1_5_geometry_frequency/pml_timing_native_cfl_v1/reviewed.html",
+    "sha256": "746a675c239f5ea3f03738803f4c270831484119ed82e5e5c2bd75eae15bd159"
+  }
+}

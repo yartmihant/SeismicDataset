@@ -1,0 +1,97 @@
+{
+  "schema": "ecvb.fidesys.quad8.v2",
+  "status": "completed",
+  "model_id": 29999,
+  "source_sha256": {
+    "vp_29999.txt": "30829c4089417fb1ed5e23f08462ce40595477b6391082e2d1c3362ca8a106b2",
+    "vs_29999.txt": "ae3e168f6878a4c48f30cdaf8ff34462b6475055f06762ff1599ab7f99a9899f"
+  },
+  "method": "shared_curves_preserve_corners",
+  "fc_bytes": 1675552,
+  "fc_sha256": "80db50e605295370810d599e5e9f3151ca8dd8397f46a27269a490db79fa4679",
+  "cad_sha256": "a95ae5f1086f2409add1d609a16a83cd438a6c18628cbc57613b978bfd3cd805",
+  "min_scaled_jacobian_requested": 0.05,
+  "rejected_attempts": [],
+  "surface_target_sizes_m": {},
+  "elapsed_s": 2.9576287460513413,
+  "metrics": {
+    "elements": 9332,
+    "corner_nodes": 9544,
+    "clockwise_input_by_block": {},
+    "area_m2": 980000.0000000002,
+    "top_intervals_10m": 140,
+    "sqrt_area_m": {
+      "min": 4.145890330866811,
+      "p01": 6.658809852624281,
+      "p05": 7.682034493629956,
+      "median": 10.218574902422738,
+      "p95": 12.183618440775925,
+      "p99": 13.463284269243758,
+      "max": 21.955745596811035
+    },
+    "min_scaled_jacobian": {
+      "min": 0.37211581543120753,
+      "p01": 0.728003524002893,
+      "p05": 0.8327575821532708,
+      "median": 0.9911508660835838,
+      "p95": 0.9997409610180643,
+      "p99": 0.9999671201812794,
+      "max": 0.9999999999999999
+    },
+    "max_condition_J": {
+      "min": 1.0000000000000642,
+      "p01": 1.024705173939011,
+      "p05": 1.04718207097585,
+      "median": 1.1951693708798148,
+      "p95": 2.044747925242561,
+      "p99": 2.7998829269937824,
+      "max": 9.779148247777796
+    },
+    "min_2sigma_m": {
+      "min": 1.913963203951182,
+      "p01": 4.153374607338068,
+      "p05": 5.10621387934058,
+      "median": 9.46082392125848,
+      "p95": 10.364450200522851,
+      "p99": 10.82766944011606,
+      "max": 12.991978595325728
+    },
+    "sampled_interface_error_to_own_cad_m": {
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "median": 0.0003922331481182287,
+      "p95": 0.005200211279550859,
+      "p99": 0.013356681981448357,
+      "max": 0.08437603559385748
+    },
+    "interface_midpoint_max_error_m": 5.084229945850415e-13,
+    "interface_vertex_max_error_m": 5.084229945850415e-13,
+    "worst_interface_location": {
+      "blocks": [
+        12,
+        14
+      ],
+      "xy_m": [
+        540.9828129735764,
+        -698.1812406775631
+      ]
+    },
+    "elements_sj_below_0.8": 304,
+    "elements_sj_below_0.5": 12,
+    "worst_condition": {
+      "id": 814,
+      "block": 1,
+      "center_xy_m": [
+        803.1362517509689,
+        -129.27377785296875
+      ]
+    },
+    "fraction_h_8_to_12": 0.8710887269609944,
+    "nodes": 28419,
+    "blocks": 20,
+    "element_type": "QUAD8",
+    "certified_min_det_J_m2": 2.831765076970095,
+    "bernstein_subdivision_depth": 0
+  }
+}

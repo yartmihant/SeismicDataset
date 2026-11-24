@@ -1,0 +1,54 @@
+{
+  "chapters": [
+    {
+      "source": "dev_1_1_dataset_preprocessing.py",
+      "cells": 13,
+      "executed_code_cells": 2,
+      "embedded_figures": 2
+    },
+    {
+      "source": "dev_1_2_smoothing_pilot.py",
+      "cells": 14,
+      "executed_code_cells": 3,
+      "embedded_figures": 2
+    },
+    {
+      "source": "dev_1_3_point_source.py",
+      "cells": 15,
+      "executed_code_cells": 4,
+      "embedded_figures": 2
+    },
+    {
+      "source": "dev_1_4_server_preparation.py",
+      "cells": 15,
+      "executed_code_cells": 4,
+      "embedded_figures": 2
+    },
+    {
+      "source": "dev_1_5_geometry_frequency.py",
+      "cells": 14,
+      "executed_code_cells": 3,
+      "embedded_figures": 1
+    },
+    {
+      "source": "dev_1_6_p67s_showcase.py",
+      "cells": 17,
+      "executed_code_cells": 4,
+      "embedded_figures": 2
+    }
+  ],
+  "roundtrip": "py2jupyter semantic AST equality, all six",
+  "execution": "IPython in process, after cleanup",
+  "removed_paths_absent": 3603,
+  "checked_movies": {
+    "img/dev_1_6_p67s_showcase/render_v2/ECVB00065/linear/x0700/velocity.mp4": 21,
+    "img/dev_1_3_point_source/central_cu_v1/animation_00065_v1/speed.mp4": 201
+  },
+  "verified_ecvb_ids": [
+    0,
+    65,
+    12404,
+    15000,
+    29999
+  ]
+}

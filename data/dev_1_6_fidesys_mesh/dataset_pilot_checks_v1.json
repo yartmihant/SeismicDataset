@@ -1,0 +1,290 @@
+{
+  "models": [
+    {
+      "id": 0,
+      "regions": 26,
+      "distinct_materials": 8,
+      "region_adjacencies": 42,
+      "core_elements": 10414,
+      "rectangles": [],
+      "files_bytes": {
+        "cartesian.npz": 3631,
+        "geometry.jou": 121315,
+        "geometry.json": 52409,
+        "ECVB00000.fc": 1889604,
+        "sem_input.npz": 788970,
+        "manifest.json": 11969
+      },
+      "bytes": 2867898,
+      "manifest": "dataset_v1/00000-00999/ECVB00000/manifest.json",
+      "manifest_sha256": "bc9c28a8005f8be67b76ced29790b10261fc3959b715600c9f25329fdb74f12a",
+      "sem_input_bytes_avoided_by_omitting_pml": 263865,
+      "transient_pml_elements": 12320,
+      "top_p6_max_abs_x_error_m": 4.547473508864641e-13
+    },
+    {
+      "id": 65,
+      "regions": 8,
+      "distinct_materials": 5,
+      "region_adjacencies": 10,
+      "core_elements": 9776,
+      "rectangles": [
+        {
+          "region": 2,
+          "raster_cells": 224,
+          "box_xy_minmax_m": [
+            [
+              0.0,
+              -140.0
+            ],
+            [
+              640.0,
+              -70.0
+            ]
+          ],
+          "quadratic_boundary_edges": 142
+        },
+        {
+          "region": 3,
+          "raster_cells": 189,
+          "box_xy_minmax_m": [
+            [
+              860.0,
+              -140.0
+            ],
+            [
+              1400.0,
+              -70.0
+            ]
+          ],
+          "quadratic_boundary_edges": 122
+        }
+      ],
+      "files_bytes": {
+        "cartesian.npz": 2947,
+        "geometry.jou": 35844,
+        "geometry.json": 16227,
+        "ECVB00065.fc": 1759183,
+        "sem_input.npz": 700948,
+        "manifest.json": 11331
+      },
+      "bytes": 2526480,
+      "manifest": "dataset_v1/00000-00999/ECVB00065/manifest.json",
+      "manifest_sha256": "262f4784e16d885d4702b79980db061475215366633ba945a789eaeda8ced616",
+      "sem_input_bytes_avoided_by_omitting_pml": 261631,
+      "transient_pml_elements": 12250,
+      "top_p6_max_abs_x_error_m": 4.547473508864641e-13,
+      "cad_remesh": {
+        "canonical_mesh_payload_equal": true,
+        "published_journal_sha256": "3aefc363c16e9874a1f89eb980eca1815f5cee77bbcebd16da9a26cc9681abb0",
+        "gc_fc_fields_equal": {
+          "elems_count": true,
+          "elems": true,
+          "elemids": true,
+          "nodes_count": true,
+          "elem_types": true,
+          "nids": true,
+          "nodes": true,
+          "elem_orders": true,
+          "elem_parent_ids": true,
+          "elem_blocks": true
+        },
+        "quality_original_replay": {
+          "elements": [
+            9776,
+            9776
+          ],
+          "nodes": [
+            29749,
+            29749
+          ],
+          "blocks": [
+            8,
+            8
+          ],
+          "certified_min_det_J_m2": [
+            1.4828582119215934,
+            1.4828582119215934
+          ],
+          "top_intervals_10m": [
+            140,
+            140
+          ],
+          "interface_midpoint_max_error_m": [
+            6.844854043943255e-13,
+            6.844854043943255e-13
+          ],
+          "sqrt_area_m.median": [
+            10.000000000000016,
+            10.000000000000016
+          ],
+          "sampled_interface_error_to_own_cad_m.max": [
+            0.02182449871046479,
+            0.02182449871046479
+          ],
+          "min_scaled_jacobian.min": [
+            0.4727384070182594,
+            0.4727384070182594
+          ]
+        }
+      }
+    },
+    {
+      "id": 12404,
+      "regions": 4,
+      "distinct_materials": 3,
+      "region_adjacencies": 3,
+      "core_elements": 9660,
+      "rectangles": [],
+      "files_bytes": {
+        "cartesian.npz": 2394,
+        "geometry.jou": 20725,
+        "geometry.json": 9990,
+        "ECVB12404.fc": 1734719,
+        "sem_input.npz": 675763,
+        "manifest.json": 11196
+      },
+      "bytes": 2454787,
+      "manifest": "dataset_v1/12000-12999/ECVB12404/manifest.json",
+      "manifest_sha256": "bf9fd34e1e46def91821592ef5c980886c30164411eb9f069f14038736ab6336",
+      "sem_input_bytes_avoided_by_omitting_pml": 251675,
+      "transient_pml_elements": 12180,
+      "top_p6_max_abs_x_error_m": 4.547473508864641e-13
+    },
+    {
+      "id": 15000,
+      "regions": 36,
+      "distinct_materials": 9,
+      "region_adjacencies": 60,
+      "core_elements": 8634,
+      "rectangles": [],
+      "files_bytes": {
+        "cartesian.npz": 3942,
+        "geometry.jou": 166776,
+        "geometry.json": 73811,
+        "ECVB15000.fc": 1583647,
+        "sem_input.npz": 658283,
+        "manifest.json": 12368
+      },
+      "bytes": 2498827,
+      "manifest": "dataset_v1/15000-15999/ECVB15000/manifest.json",
+      "manifest_sha256": "80d04201be9370328de66adaa85bb14ab86624fd3d71b532dc6de2a3dc4d1f36",
+      "sem_input_bytes_avoided_by_omitting_pml": 268326,
+      "transient_pml_elements": 12460,
+      "top_p6_max_abs_x_error_m": 4.547473508864641e-13,
+      "cad_remesh": {
+        "canonical_mesh_payload_equal": true,
+        "published_journal_sha256": "bd038b03591210b6d9c10d6b94eeef52f31031eec2956109e449646ba84c8d3b",
+        "gc_fc_fields_equal": {
+          "elems_count": true,
+          "elem_orders": true,
+          "nodes": true,
+          "nids": true,
+          "elems": true,
+          "elemids": true,
+          "nodes_count": true,
+          "elem_parent_ids": true,
+          "elem_blocks": true,
+          "elem_types": true
+        },
+        "quality_original_replay": {
+          "elements": [
+            8634,
+            8634
+          ],
+          "nodes": [
+            26329,
+            26329
+          ],
+          "blocks": [
+            36,
+            36
+          ],
+          "certified_min_det_J_m2": [
+            1.5532870503345029,
+            1.5532870503345029
+          ],
+          "top_intervals_10m": [
+            140,
+            140
+          ],
+          "interface_midpoint_max_error_m": [
+            6.042538309847401e-13,
+            6.042538309847401e-13
+          ],
+          "sqrt_area_m.median": [
+            10.460091014342733,
+            10.460091014342733
+          ],
+          "sampled_interface_error_to_own_cad_m.max": [
+            0.47464265842665726,
+            0.47464265842665726
+          ],
+          "min_scaled_jacobian.min": [
+            0.09459161917265688,
+            0.09459161917265688
+          ]
+        }
+      }
+    },
+    {
+      "id": 29999,
+      "regions": 20,
+      "distinct_materials": 9,
+      "region_adjacencies": 26,
+      "core_elements": 9332,
+      "rectangles": [],
+      "files_bytes": {
+        "cartesian.npz": 4203,
+        "geometry.jou": 102530,
+        "geometry.json": 48165,
+        "ECVB29999.fc": 1691987,
+        "sem_input.npz": 719263,
+        "manifest.json": 11769
+      },
+      "bytes": 2577917,
+      "manifest": "dataset_v1/29000-29999/ECVB29999/manifest.json",
+      "manifest_sha256": "ef3353785850f15ac724d711f7edaeadd1d4b01068c5c698fbce534601e6b43e",
+      "sem_input_bytes_avoided_by_omitting_pml": 266682,
+      "transient_pml_elements": 12320,
+      "top_p6_max_abs_x_error_m": 4.547473508864641e-13
+    }
+  ],
+  "bytes": 12925909,
+  "linear_30000_GB": 77.555454,
+  "linear_30000_GiB": 72.22914509475231,
+  "schema": "ecvb.core.dataset.pilot_checks.v1",
+  "status": "passed",
+  "rho_kg_m3": 1000,
+  "cross_checks": [
+    "ZIP vp/vs exact, Cartesian region components and contacts vs CAD and FC",
+    "FC block assignments and material velocities vs SEM element map",
+    "QUAD8 eight physical nodes exact and Q2 center vs serendipity weights",
+    "Q2 core identical to FC domain, free top 140 x 10 m",
+    "PML per-element inheritance and p6 top/source/receiver coordinates on CPU",
+    "all five manifests and every payload verified on resume"
+  ],
+  "q2_npz_storage": {
+    "same_npz_compression_both_variants": true,
+    "persisted_core_only_bytes": 3543227,
+    "avoided_pml_bytes": 1312179,
+    "estimate_30000_avoided_GB": 7.873074
+  },
+  "extra_checks": {
+    "00065_fresh_from_original_without_mesh_cache": [
+      "ECVB00065.fc",
+      "sem_input.npz",
+      "cartesian.npz",
+      "geometry.json"
+    ],
+    "00065_fresh_files_match_import_byte_for_byte": true,
+    "altered_npz_same_length_failed_sha_check": true,
+    "00065_p64s_direct_load_source_ids": [
+      270,
+      390,
+      510,
+      630
+    ],
+    "wave_steps": 0
+  }
+}
